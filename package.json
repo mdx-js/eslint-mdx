@@ -1,0 +1,39 @@
+{
+  "name": "@rxts/eslint-plugin-mdx",
+  "version": "0.1.0",
+  "description": "ESLint Parser/Plugin for MDX",
+  "repository": "git@github.com:rx-ts/eslint-plugin-mdx.git",
+  "author": "JounQin <admin@1stg.me>",
+  "main": "./dist",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepublishOnly": "yarn build",
+    "build": "babel src -d dist --copy-files",
+    "test": "jest",
+    "lint": "eslint . --ext js,mdx"
+  },
+  "peerDependencies": {
+    "eslint": ">=4.7.0"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^1.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "@rxts/eslint-plugin-mdx": "file:config",
+    "eslint": "^6.1.0",
+    "eslint-config-1stg": "^4.2.3",
+    "eslint-plugin-jest": "^22.14.0",
+    "husky": "^3.0.1",
+    "jest": "^24.8.0",
+    "prettier": "1.18.2",
+    "prettier-config-1stg": "^0.1.0",
+    "react": "^16.8.6"
+  }
+}
