@@ -4,10 +4,11 @@
   "description": "ESLint Parser/Plugin for MDX",
   "repository": "git@github.com:rx-ts/eslint-plugin-mdx.git",
   "author": "JounQin <admin@1stg.me>",
-  "main": "./dist",
+  "main": "dist",
   "license": "MIT",
   "files": [
-    "dist"
+    "dist",
+    "types.d.ts"
   ],
   "scripts": {
     "prepublishOnly": "yarn build",
@@ -20,7 +21,6 @@
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.1.0",
-    "eslint-utils": "^1.4.0",
     "eslint-visitor-keys": "^1.0.0",
     "remark-mdx": "^1.1.0",
     "remark-parse": "^7.0.0",

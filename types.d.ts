@@ -1,5 +1,3 @@
-declare module 'eslint-utils' {}
-
 declare module 'espree' {
   import * as estree from 'estree'
 
