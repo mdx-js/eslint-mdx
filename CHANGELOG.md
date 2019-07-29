@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.1.2...v0.1.3) (2019-07-29)
+
+
+### Bug Fixes
+
+* upgrade peer dependency eslint to >= 6.0.0 ([#3](https://github.com/rx-ts/eslint-plugin-mdx/issues/3) [#4](https://github.com/rx-ts/eslint-plugin-mdx/issues/4)) ([f0ab288](https://github.com/rx-ts/eslint-plugin-mdx/commit/f0ab288))
+
+
+
 ### [0.1.2](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.1.1...v0.1.2) (2019-07-29)
 
 
