@@ -25,7 +25,12 @@ npm i @rxts/eslint-plugin-mdx
 
    ```json
    {
-     "extends": ["plugin:@rxts/mdx/recommended"]
+     "overrides": [
+       {
+         "files": ["*.mdx"],
+         "extends": ["plugin:@rxts/mdx/recommended"]
+       }
+     ]
    }
    ```
 

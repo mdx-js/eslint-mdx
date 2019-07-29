@@ -7,11 +7,7 @@ module.exports = {
       },
     },
   },
-  extends: [
-    'plugin:jest/recommended',
-    '1stg/react',
-    'plugin:@rxts/mdx/recommended',
-  ],
+  extends: ['plugin:jest/recommended', '1stg/react'],
   rules: {
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/array-type': [
@@ -23,16 +19,20 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.ts', '*.tsx'],
-      rules: {
-        'react/prop-types': 0,
-      },
-    },
-    {
       files: ['*.d.ts'],
       rules: {
         'import/order': 0,
         'import/no-unresolved': 0,
+      },
+    },
+    {
+      files: ['*.mdx'],
+      extends: ['plugin:@rxts/mdx/recommended'],
+    },
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        'react/prop-types': 0,
       },
     },
   ],
