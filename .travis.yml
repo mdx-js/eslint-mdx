@@ -1,11 +1,34 @@
 language: node_js
 
+node_js:
+  - --lts
+  - stable
+
 cache: yarn
 
-node_js:
-  - '9'
-  - '8'
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH="$HOME/.yarn/bin:$PATH"
+  - git config --global user.name 'JounQin'
+  - git config --global user.email 'admin@1stg.me'
 
 script:
+  - set -e
   - yarn lint
   - yarn build
+
+before_deploy:
+  - set -e
+  - git remote set-url origin https://user:$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git
+  - git fetch origin master:master
+  - git checkout master
+  - yarn run standard-version -a
+  - git push --follow-tags origin master
+
+deploy:
+  provider: npm
+  email: admin@1stg.me
+  api_key: $NPM_TOKEN
+  skip_cleanup: true
+  on:
+    branch: release
