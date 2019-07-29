@@ -1,3 +1,9 @@
+declare interface SyntaxError {
+  column?: number
+  index?: number
+  lineNumber?: number
+}
+
 declare module 'espree' {
   import * as estree from 'estree'
 

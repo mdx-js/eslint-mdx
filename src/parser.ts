@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-triple-slash-reference
-/// <reference path="../types.d.ts" />
+/// <reference path="./types.d.ts" />
 
 import { parse as esParse } from 'espree'
 import remarkMdx from 'remark-mdx'
@@ -50,12 +50,23 @@ export const parseForESLint = (
 
       const node = transNodePos(position)
 
-      const { tokens: esTokens, ...AST } = esParse(
-        rawText,
-        options,
-      ) as AST.Program
+      let program: AST.Program
 
-      const offset = node.start - AST.range[0]
+      try {
+        program = esParse(rawText, options) as AST.Program
+      } catch (e) {
+        if (e instanceof SyntaxError) {
+          e.index += node.start
+          e.column += node.loc.start.column - 1
+          e.lineNumber += node.loc.start.line - 1
+        }
+
+        throw e
+      }
+
+      const { tokens: esTokens, range } = program
+
+      const offset = node.start - range[0]
 
       tokens.push(
         ...esTokens.map(token => {
