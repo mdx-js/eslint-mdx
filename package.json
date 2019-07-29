@@ -1,6 +1,6 @@
 {
   "name": "@rxts/eslint-plugin-mdx",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "ESLint Parser/Plugin for MDX",
   "repository": "git@github.com:rx-ts/eslint-plugin-mdx.git",
   "author": "JounQin <admin@1stg.me>",
@@ -17,7 +17,7 @@
     "lint": "eslint . --ext mdx,ts,tsx"
   },
   "peerDependencies": {
-    "eslint": ">=4.7.0"
+    "eslint": ">=6.0.0"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.1.0",
