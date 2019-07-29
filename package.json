@@ -11,29 +11,38 @@
   ],
   "scripts": {
     "prepublishOnly": "yarn build",
-    "build": "babel src -d dist --copy-files",
+    "build": "tsc -P src",
     "test": "jest",
-    "lint": "eslint . --ext js,mdx"
+    "lint": "eslint . --ext ts,mdx"
   },
   "peerDependencies": {
     "eslint": ">=4.7.0"
   },
   "dependencies": {
-    "@mdx-js/mdx": "^1.1.0"
+    "@mdx-js/mdx": "^1.1.0",
+    "eslint-utils": "^1.4.0",
+    "eslint-visitor-keys": "^1.0.0",
+    "remark-mdx": "^1.1.0",
+    "remark-parse": "^7.0.0",
+    "remark-stringify": "^7.0.1",
+    "unified": "^8.3.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/register": "^7.5.5",
     "@rxts/eslint-plugin-mdx": "file:config",
+    "@types/eslint": "^4.16.6",
+    "@types/eslint-visitor-keys": "^1.0.0",
+    "@types/estree": "^0.0.39",
+    "@types/node": "^12.6.8",
+    "@types/unist": "^2.0.3",
     "eslint": "^6.1.0",
-    "eslint-config-1stg": "^4.2.3",
+    "eslint-config-1stg": "~5.4.1",
     "eslint-plugin-jest": "^22.14.0",
     "husky": "^3.0.1",
     "jest": "^24.8.0",
     "prettier": "1.18.2",
     "prettier-config-1stg": "^0.1.0",
-    "react": "^16.8.6"
+    "react": "^16.8.6",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
   }
 }
