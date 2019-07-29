@@ -10,14 +10,18 @@
 
 > [ESLint](https://eslint.org/) Parser/Plugin for [MDX](https://github.com/mdx-js/mdx)
 
+## Peer Dependency
+
+Please use `eslint >= 6.0.0`.
+
 ## Install
 
 ```sh
 # yarn
-yarn add @rxts/eslint-plugin-mdx
+yarn add -D @rxts/eslint-plugin-mdx
 
 # npm
-npm i @rxts/eslint-plugin-mdx
+npm i -D @rxts/eslint-plugin-mdx
 ```
 
 ## Usage
