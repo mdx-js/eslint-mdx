@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.2.1...v0.3.0) (2019-07-30)
+
+
+### Bug Fixes
+
+* inline jsx and comment parsing error, close [#4](https://github.com/rx-ts/eslint-plugin-mdx/issues/4), [#7](https://github.com/rx-ts/eslint-plugin-mdx/issues/7) ([5297a0b](https://github.com/rx-ts/eslint-plugin-mdx/commit/5297a0b))
+
 ### [0.2.1](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.2.0...v0.2.1) (2019-07-30)
 
 
