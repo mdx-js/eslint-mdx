@@ -32,6 +32,25 @@ export const parseForESLint = (
   code: string,
   options: Linter.ParserOptions,
 ): Linter.ESLintParseResult => {
+  let { parser } = options
+
+  if (parser) {
+    if (typeof parser === 'string') {
+      parser = require(parser).parse
+    } else {
+      if (typeof parser === 'object') {
+        parser = parser.parseForESLint || parser.parse
+      }
+      if (typeof parser !== 'function') {
+        throw new Error(
+          `Invalid custom parser for \`eslint-plugin-mdx\`: ${parser}`,
+        )
+      }
+    }
+  } else {
+    parser = esParse
+  }
+
   const root = unified()
     .use<any>(remarkParse)
     .use<any>(remarkStringify)
@@ -53,7 +72,7 @@ export const parseForESLint = (
       let program: AST.Program
 
       try {
-        program = esParse(rawText, options) as AST.Program
+        program = parser(rawText, options)
       } catch (e) {
         if (e instanceof SyntaxError) {
           e.index += node.start

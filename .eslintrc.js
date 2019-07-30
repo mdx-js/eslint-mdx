@@ -28,6 +28,9 @@ module.exports = {
     {
       files: ['*.mdx'],
       extends: ['plugin:@rxts/mdx/recommended'],
+      parserOptions: {
+        parser: 'babel-eslint',
+      },
     },
     {
       files: ['*.ts', '*.tsx'],
