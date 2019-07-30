@@ -8,11 +8,12 @@ import remarkStringify from 'remark-stringify'
 import unified from 'unified'
 
 import { traverse } from './traverse'
+import { isComment } from './utils'
 
 import { Position, Parent } from 'unist'
 import { AST, Linter } from 'eslint'
 
-const transNodePos = (position: Position) => {
+const normalizePosition = (position: Position) => {
   const start = position.start.offset
   const end = position.end.offset
   return {
@@ -67,7 +68,12 @@ export const parseForESLint = (
 
       const rawText = getRawText(code, position)
 
-      const node = transNodePos(position)
+      // fix #4
+      if (isComment(rawText)) {
+        return
+      }
+
+      const node = normalizePosition(position)
 
       let program: AST.Program
 
@@ -119,7 +125,7 @@ export const parseForESLint = (
 
   return {
     ast: {
-      ...transNodePos(root.position),
+      ...normalizePosition(root.position),
       comments: [],
       body: [],
       type: 'Program',
