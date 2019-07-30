@@ -1,0 +1,65 @@
+---
+name: FollowReveal
+route: /follow-reveal
+---
+
+# FollowReveal
+
+A `<FollowReveal>` is a like a `<TurnReveal>` that follows the mouse's movements in and out of the component.
+Just like the `<TurnReveal>`, place it in an element that has `position: relative` and make sure it is a direct child of the element on which you define the `perspective` property.
+
+import { Props, Playground } from 'docz'
+import FollowReveal from './FollowReveal'
+import { Front, PlaceHolderImage, Grid } from 'docs/PlayGroundUtils'
+
+<Props of={FollowReveal} />
+
+## Basic Usage
+
+<Playground style={{ display: 'flex', justifyContent: 'center' }}>
+  {() => {
+    const perspective = 400
+    return (
+      <div style={{ position: 'relative', perspective: perspective + 'px' }}>
+        <FollowReveal perspective={perspective}>
+          <Front>More info</Front>
+        </FollowReveal>
+        <PlaceHolderImage />
+      </div>
+    )
+  }}
+</Playground>
+
+## Masonry Layout
+
+Looks even cooler in a grid layout.
+
+<Playground>
+  {() => {
+    const perspective = 400
+    return (
+      <Grid>
+        {Array.from(Array(4 * 4).keys()).map(id => (
+          <div
+            key={id}
+            style={{
+              position: 'relative',
+              perspective: perspective + 'px',
+            }}
+          >
+            <FollowReveal perspective={perspective}>
+              <Front>More info</Front>
+            </FollowReveal>
+            <div
+              style={{
+                background: '#e2e2e2',
+                width: '100%',
+                paddingBottom: '100%',
+              }}
+            />
+          </div>
+        ))}
+      </Grid>
+    )
+  }}
+</Playground>

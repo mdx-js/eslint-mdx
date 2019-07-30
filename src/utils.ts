@@ -26,7 +26,7 @@ const comment = '<!---->|<!--(?:-?[^>-])(?:-?[^-])*-->'
 export const OPEN_TAG_REGEX = new RegExp(`^(?:${openTag})$`)
 export const CLOSE_TAG_REGEX = new RegExp(`^(?:${closeTag})$`)
 export const OPEN_CLOSE_TAG_REGEX = new RegExp(
-  `^(?:${openTag + '.*' + closeTag})$`,
+  `^(?:${openTag + '[\\s\\S]*' + closeTag})$`,
 )
 export const VOID_TAG_REGEX = new RegExp(`^(?:${voidTag})$`)
 export const COMMENT_REGEX = new RegExp(`^(?:${comment})$`)
