@@ -9,10 +9,6 @@
 
 > [ESLint](https://eslint.org/) Parser/Plugin for [MDX](https://github.com/mdx-js/mdx)
 
-## Peer Dependency
-
-Please use `eslint >= 6.0.0`.
-
 ## Install
 
 ```sh
@@ -25,18 +21,37 @@ npm i -D @rxts/eslint-plugin-mdx
 
 ## Usage
 
-1. In your ESLint config file, add:
+1. In your ESLint config file:
 
-   ```json
-   {
-     "overrides": [
-       {
-         "files": ["*.mdx"],
-         "extends": ["plugin:@rxts/mdx/recommended"]
-       }
-     ]
-   }
-   ```
+   1. If you're using `eslint >= 6.0.0`, add:
+
+      ```json
+      {
+        "overrides": [
+          {
+            "files": ["*.mdx"],
+            "extends": ["plugin:@rxts/mdx/recommended"]
+          }
+        ]
+      }
+      ```
+
+   2. If you're using `eslint@^5.0.0`, you need to enable this parse/plugin manually, because `eslint@5` does not support `extends` for `overrides` property in its configuration:
+
+      ```json
+      {
+        "overrides": [
+          {
+            "files": ["*.mdx"],
+            "parser": "@rxts/eslint-plugin-mdx",
+            "plugins": ["@rxts/mdx"],
+            "rules": {
+              "react/react-in-jsx-scope": 0
+            }
+          }
+        ]
+      }
+      ```
 
 2. Make sure ESLint knows to run on `.mdx` files:
 
