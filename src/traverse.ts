@@ -21,6 +21,26 @@ export class Traverse {
     this._enter(node, parent)
 
     if (node.children) {
+      /**
+       * FIXME: inline jsx:
+       *
+       * {
+          type: 'jsx',
+          value: '<b>',
+          position: Position { start: [Object], end: [Object], indent: [] }
+        },
+        {
+          type: 'text',
+          value: 'velit',
+          position: Position { start: [Object], end: [Object], indent: [] }
+        },
+        {
+          type: 'jsx',
+          value: '</b>',
+          position: Position { start: [Object], end: [Object], indent: [] }
+        }
+       */
+      console.log(node.children)
       parent = node as Parent
       parent.children.forEach(child => this.traverse(child, parent))
     }
