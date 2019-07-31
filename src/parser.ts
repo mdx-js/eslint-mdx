@@ -12,14 +12,9 @@ import { isComment } from './utils'
 
 import { Position, Parent } from 'unist'
 import { AST, Linter } from 'eslint'
-import {
-  Comment,
-  ModuleDeclaration,
-  Statement,
-  // SourceLocation` is not exported from estree, but it is actually working
-  // eslint-disable-next-line import/named
-  SourceLocation,
-} from 'estree'
+// SourceLocation` is not exported from estree, but it is actually working
+// eslint-disable-next-line import/named
+import { SourceLocation } from 'estree'
 
 const normalizePosition = (position: Position) => {
   const start = position.start.offset
@@ -91,6 +86,8 @@ function normalizeLoc<T extends BaseNode>(
   }
 }
 
+export const AST_PROPS = ['body', 'comments', 'tokens'] as const
+
 export const parseForESLint = (
   code: string,
   options: Linter.ParserOptions,
@@ -120,9 +117,14 @@ export const parseForESLint = (
     .use(remarkMdx)
     .parse(code) as Parent
 
-  const body: Array<Statement | ModuleDeclaration> = []
-  const comments: Comment[] = []
-  const tokens: AST.Token[] = []
+  const ast: AST.Program = {
+    ...normalizePosition(root.position),
+    type: 'Program',
+    sourceType: options.sourceType || 'module',
+    body: [],
+    comments: [],
+    tokens: [],
+  }
 
   traverse(root, {
     enter({ position, type }) {
@@ -138,6 +140,7 @@ export const parseForESLint = (
       }
 
       const node = normalizePosition(position)
+      const startLine = node.loc.start.line - 1 //! line is 1-indexed, change to 0-indexed to simplify usage
 
       let program: AST.Program
 
@@ -147,40 +150,25 @@ export const parseForESLint = (
         if (e instanceof SyntaxError) {
           e.index += node.start
           e.column += node.loc.start.column
-          e.lineNumber += node.loc.start.line - 1 // lineNumber in 0-indexed, but line is 1-indexed
+          e.lineNumber += startLine
         }
 
         throw e
       }
 
-      const {
-        body: esBody,
-        comments: esComments,
-        tokens: esTokens,
-        range,
-      } = program
+      const offset = node.start - program.range[0]
 
-      const startLine = node.loc.start.line - 1 //! line is 1-indexed, change to 0-indexed to simplify usage
-      const offset = node.start - range[0]
-
-      body.push(...esBody.map(item => normalizeLoc(item, startLine, offset)))
-      comments.push(
-        ...esComments.map(comment => normalizeLoc(comment, startLine, offset)),
-      )
-      tokens.push(
-        ...esTokens.map(token => normalizeLoc(token, startLine, offset)),
+      AST_PROPS.forEach(prop =>
+        ast[prop].push(
+          // unfortunately, TS complains about incompatible signature
+          // @ts-ignore
+          ...program[prop].map(item => normalizeLoc(item, startLine, offset)),
+        ),
       )
     },
   })
 
   return {
-    ast: {
-      ...normalizePosition(root.position),
-      type: 'Program',
-      sourceType: 'module',
-      body,
-      comments,
-      tokens,
-    },
+    ast,
   }
 }
