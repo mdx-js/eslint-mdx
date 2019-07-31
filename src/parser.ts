@@ -12,6 +12,14 @@ import { isComment } from './utils'
 
 import { Position, Parent } from 'unist'
 import { AST, Linter } from 'eslint'
+import {
+  Comment,
+  ModuleDeclaration,
+  Statement,
+  // SourceLocation` is not exported from estree, but it is actually working
+  // eslint-disable-next-line import/named
+  SourceLocation,
+} from 'estree'
 
 const normalizePosition = (position: Position) => {
   const start = position.start.offset
@@ -26,8 +34,62 @@ const normalizePosition = (position: Position) => {
   }
 }
 
-const getRawText = (code: string, position: Position) =>
-  code.slice(position.start.offset, position.end.offset)
+interface BaseNode {
+  type: string
+  loc?: SourceLocation
+  range?: [number, number]
+}
+
+function normalizeLoc<T extends BaseNode>(
+  node: T,
+  startLine: number,
+  offset = 0,
+): T {
+  if (!node || !node.loc || !node.range) {
+    return node
+  }
+
+  Object.entries(node).forEach(([key, value]) => {
+    if (!value) {
+      return
+    }
+
+    if (Array.isArray(value)) {
+      node[key as keyof T] = value.map(child =>
+        normalizeLoc(child, startLine, offset),
+      ) as any
+    } else {
+      node[key as keyof T] = normalizeLoc(
+        value,
+        startLine,
+        offset,
+      ) as T[keyof T]
+    }
+  })
+
+  const {
+    loc: { start: startLoc, end: endLoc },
+    range,
+  } = node
+  const start = range[0] + offset
+  const end = range[1] + offset
+  return {
+    ...node,
+    start,
+    end,
+    range: [start, end],
+    loc: {
+      start: {
+        line: startLine + startLoc.line,
+        column: startLoc.column,
+      },
+      end: {
+        line: startLine + endLoc.line,
+        column: endLoc.column,
+      },
+    },
+  }
+}
 
 export const parseForESLint = (
   code: string,
@@ -58,6 +120,8 @@ export const parseForESLint = (
     .use(remarkMdx)
     .parse(code) as Parent
 
+  const body: Array<Statement | ModuleDeclaration> = []
+  const comments: Comment[] = []
   const tokens: AST.Token[] = []
 
   traverse(root, {
@@ -66,7 +130,7 @@ export const parseForESLint = (
         return
       }
 
-      const rawText = getRawText(code, position)
+      const rawText = code.slice(position.start.offset, position.end.offset)
 
       // fix #4
       if (isComment(rawText)) {
@@ -82,43 +146,29 @@ export const parseForESLint = (
       } catch (e) {
         if (e instanceof SyntaxError) {
           e.index += node.start
-          e.column += node.loc.start.column - 1
-          e.lineNumber += node.loc.start.line - 1
+          e.column += node.loc.start.column
+          e.lineNumber += node.loc.start.line - 1 // lineNumber in 0-indexed, but line is 1-indexed
         }
 
         throw e
       }
 
-      const { tokens: esTokens, range } = program
+      const {
+        body: esBody,
+        comments: esComments,
+        tokens: esTokens,
+        range,
+      } = program
 
+      const startLine = node.loc.start.line - 1 //! line is 1-indexed, change to 0-indexed to simplify usage
       const offset = node.start - range[0]
 
+      body.push(...esBody.map(item => normalizeLoc(item, startLine, offset)))
+      comments.push(
+        ...esComments.map(comment => normalizeLoc(comment, startLine, offset)),
+      )
       tokens.push(
-        ...esTokens.map(token => {
-          const {
-            loc: { start: tokenStart, end: tokenEnd },
-          } = token
-          const start = token.range[0] + offset
-          const end = token.range[1] + offset
-          const startLine = node.loc.start.line + tokenStart.line - 1
-          const startColumn = node.loc.start.column + tokenStart.column - 1
-          return {
-            ...token,
-            start,
-            end,
-            range: [start, end],
-            loc: {
-              start: {
-                line: startLine,
-                column: startColumn,
-              },
-              end: {
-                line: startLine + tokenEnd.line - 1,
-                column: startLine + tokenEnd.column - 1,
-              },
-            },
-          } as AST.Token
-        }),
+        ...esTokens.map(token => normalizeLoc(token, startLine, offset)),
       )
     },
   })
@@ -126,10 +176,10 @@ export const parseForESLint = (
   return {
     ast: {
       ...normalizePosition(root.position),
-      comments: [],
-      body: [],
       type: 'Program',
       sourceType: 'module',
+      body,
+      comments,
       tokens,
     },
   }
