@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.3.1...v0.4.0) (2019-07-31)
+
+
+### Features
+
+* add body and comments into ast, fix [#12](https://github.com/rx-ts/eslint-plugin-mdx/issues/12) ([5b28bd5](https://github.com/rx-ts/eslint-plugin-mdx/commit/5b28bd5))
+
 ### [0.3.1](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.3.0...v0.3.1) (2019-07-30)
 
 
