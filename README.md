@@ -1,4 +1,14 @@
-# `eslint-plugin-mdx`
+<p align="center">
+  <a href="https://eslint.org">
+    <img src="https://eslint.org/assets/img/logo.svg" height="50">
+  </a>
+  <a href="https://github.com/rx-ts/eslint-plugin-mdx">
+    <img src="assets/heart.svg" height="50">
+  </a>
+  <a href="https://github.com/mdx-js/mdx">
+    <img src="https://mdx-logo.now.sh"  height="50">
+  </a>
+</p>
 
 [![Travis](https://img.shields.io/travis/com/rx-ts/eslint-plugin-mdx.svg)](https://travis-ci.com/rx-ts/eslint-plugin-mdx)
 [![npm](https://img.shields.io/npm/v/@rxts/eslint-plugin-mdx.svg)](https://npmjs.org/@rxts/eslint-plugin-mdx)
@@ -7,7 +17,8 @@
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-> [ESLint](https://eslint.org/) Parser/Plugin for [MDX](https://github.com/mdx-js/mdx)
+> [ESLint](https://eslint.org/) Parser/Plugin for [MDX](https://github.com/mdx-js/mdx)， helps you lint all ES syntaxes excluding `code` block of course.
+> Work perfectly with `eslint-plugin-import`, `eslint-plugin-prettier` or any other eslint plugins.
 
 ## Install
 
