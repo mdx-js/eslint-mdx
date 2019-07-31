@@ -28,12 +28,6 @@ module.exports = {
     {
       files: ['*.mdx'],
       extends: ['plugin:@rxts/mdx/recommended'],
-      parserOptions: {
-        parser: 'babel-eslint',
-      },
-      rules: {
-        'no-unused-expressions': 0,
-      },
     },
     {
       files: ['*.ts', '*.tsx'],

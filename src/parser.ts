@@ -27,7 +27,7 @@ export const parseMdx = unified()
 
 export const parseForESLint = (
   code: string,
-  options: Linter.ParserOptions,
+  options: Linter.ParserOptions = {},
 ): Linter.ESLintParseResult => {
   let { parser } = options
 
@@ -45,7 +45,12 @@ export const parseForESLint = (
       }
     }
   } else {
-    parser = esParse
+    try {
+      // try to load babel-eslint automatically
+      parser = require(require.resolve('babel-eslint')).parse
+    } catch (e) {
+      parser = esParse
+    }
   }
 
   const root = parseMdx(code) as Parent

@@ -4,6 +4,12 @@ declare interface SyntaxError {
   lineNumber?: number
 }
 
+declare module 'eslint/lib/rules/no-unused-expressions' {
+  import { Rule } from 'eslint'
+  const noUnUsedExpressions: Rule.RuleModule
+  export = noUnUsedExpressions
+}
+
 declare module 'espree' {
   import * as estree from 'estree'
 
