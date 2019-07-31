@@ -7,86 +7,23 @@ import remarkParse from 'remark-parse'
 import remarkStringify from 'remark-stringify'
 import unified from 'unified'
 
+import { normalizePosition, restoreNodeLocation } from './helper'
+import { isComment } from './regexp'
 import { traverse } from './traverse'
-import { isComment } from './utils'
 
-import { Position, Parent } from 'unist'
 import { AST, Linter } from 'eslint'
-// SourceLocation` is not exported from estree, but it is actually working
-// eslint-disable-next-line import/named
-import { SourceLocation } from 'estree'
-
-const normalizePosition = (position: Position) => {
-  const start = position.start.offset
-  const end = position.end.offset
-  return {
-    range: [start, end] as AST.Range,
-    loc: {
-      ...position,
-    },
-    start,
-    end,
-  }
-}
-
-interface BaseNode {
-  type: string
-  loc?: SourceLocation
-  range?: [number, number]
-}
-
-function normalizeLoc<T extends BaseNode>(
-  node: T,
-  startLine: number,
-  offset = 0,
-): T {
-  if (!node || !node.loc || !node.range) {
-    return node
-  }
-
-  Object.entries(node).forEach(([key, value]) => {
-    if (!value) {
-      return
-    }
-
-    if (Array.isArray(value)) {
-      node[key as keyof T] = value.map(child =>
-        normalizeLoc(child, startLine, offset),
-      ) as any
-    } else {
-      node[key as keyof T] = normalizeLoc(
-        value,
-        startLine,
-        offset,
-      ) as T[keyof T]
-    }
-  })
-
-  const {
-    loc: { start: startLoc, end: endLoc },
-    range,
-  } = node
-  const start = range[0] + offset
-  const end = range[1] + offset
-  return {
-    ...node,
-    start,
-    end,
-    range: [start, end],
-    loc: {
-      start: {
-        line: startLine + startLoc.line,
-        column: startLoc.column,
-      },
-      end: {
-        line: startLine + endLoc.line,
-        column: endLoc.column,
-      },
-    },
-  }
-}
+import { Parent } from 'unist'
 
 export const AST_PROPS = ['body', 'comments', 'tokens'] as const
+export const ES_NODE_TYPES = ['export', 'import', 'jsx'] as const
+
+export type EsNodeType = (typeof ES_NODE_TYPES)[number]
+
+export const parseMdx = unified()
+  .use<any>(remarkParse)
+  .use<any>(remarkStringify)
+  .use(remarkMdx)
+  .freeze().parse
 
 export const parseForESLint = (
   code: string,
@@ -102,7 +39,7 @@ export const parseForESLint = (
         parser = parser.parseForESLint || parser.parse
       }
       if (typeof parser !== 'function') {
-        throw new Error(
+        throw new TypeError(
           `Invalid custom parser for \`eslint-plugin-mdx\`: ${parser}`,
         )
       }
@@ -111,11 +48,7 @@ export const parseForESLint = (
     parser = esParse
   }
 
-  const root = unified()
-    .use<any>(remarkParse)
-    .use<any>(remarkStringify)
-    .use(remarkMdx)
-    .parse(code) as Parent
+  const root = parseMdx(code) as Parent
 
   const ast: AST.Program = {
     ...normalizePosition(root.position),
@@ -128,7 +61,7 @@ export const parseForESLint = (
 
   traverse(root, {
     enter({ position, type }) {
-      if (!['export', 'import', 'jsx'].includes(type)) {
+      if (!ES_NODE_TYPES.includes(type as EsNodeType)) {
         return
       }
 
@@ -162,7 +95,9 @@ export const parseForESLint = (
         ast[prop].push(
           // unfortunately, TS complains about incompatible signature
           // @ts-ignore
-          ...program[prop].map(item => normalizeLoc(item, startLine, offset)),
+          ...program[prop].map(item =>
+            restoreNodeLocation(item, startLine, offset),
+          ),
         ),
       )
     },

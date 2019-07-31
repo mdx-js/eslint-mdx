@@ -4,7 +4,7 @@ import {
   isVoidTag,
   isComment,
   isOpenCloseTag,
-} from './utils'
+} from './regexp'
 
 import { Node, Parent } from 'unist'
 

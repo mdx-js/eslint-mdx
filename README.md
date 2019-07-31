@@ -2,7 +2,7 @@
   <a href="https://eslint.org">
     <img src="https://eslint.org/assets/img/logo.svg" height="50">
   </a>
-  <a href="https://github.com/rx-ts/eslint-plugin-mdx">
+  <a href="#readme">
     <img src="assets/heart.svg" height="50">
   </a>
   <a href="https://github.com/mdx-js/mdx">
@@ -85,6 +85,13 @@ npm i -D @rxts/eslint-plugin-mdx
      ]
    }
    ```
+
+## Limitations
+
+1. This parser/plugin can only handle ES syntaxes for you, markdown related syntaxes will just be ignored, you can use [markdownlint](https://github.com/markdownlint/markdownlint) to lint that part.
+
+2. `MDX` can render `jsx` block automatically without exporting them, but `eslint` will report `no-unused-expressions` issue which could be unexpected, so you may need to disable this rule for `*.mdx`.
+   I'm not going to disable this rule in the recommended config, because I'm going to add a custom `mdx/no-unused-expressions` rule to replace the incompatible one, which should not affect the `jsx` codes.
 
 ## Changelog
 
