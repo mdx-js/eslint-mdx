@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.4.1...v0.5.0) (2019-07-31)
+
+
+### Features
+
+* add `@rxts/mdx/no-unused-expressions` rule to replace eslint's ([5d62b55](https://github.com/rx-ts/eslint-plugin-mdx/commit/5d62b55))
+
 ## [0.4.1](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.4.0...v0.4.1) (2019-07-31)
 
 
