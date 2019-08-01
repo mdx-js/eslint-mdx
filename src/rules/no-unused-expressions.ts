@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-triple-slash-reference
 /// <reference path="../../types.d.ts" />
 
-import ESLintNoUnUsedExpressions from 'eslint/lib/rules/no-unused-expressions'
+import esLintNoUnUsedExpressions from 'eslint/lib/rules/no-unused-expressions'
 
 import { Rule } from 'eslint'
 import { ExpressionStatement, Node } from 'estree'
@@ -17,8 +17,9 @@ export interface ExpressionStatementWithParent extends ExpressionStatement {
 }
 
 export const noUnUsedExpressions: Rule.RuleModule = {
+  ...esLintNoUnUsedExpressions,
   create(context) {
-    const esLintRuleListener = ESLintNoUnUsedExpressions.create(context)
+    const esLintRuleListener = esLintNoUnUsedExpressions.create(context)
     return {
       ExpressionStatement(node: ExpressionStatementWithParent) {
         if (

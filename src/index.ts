@@ -1,7 +1,9 @@
 import path from 'path'
 
 export * from './helper'
+export * from './normalizer'
 export * from './parser'
+export * from './processors'
 export * from './regexp'
 export * from './rules'
 export * from './traverse'

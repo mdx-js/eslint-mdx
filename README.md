@@ -3,7 +3,7 @@
     <img src="https://eslint.org/assets/img/logo.svg" height="50">
   </a>
   <a href="#readme">
-    <img src="assets/heart.svg" height="50">
+    <img src="https://rx-ts.github.io/assets/heart.svg" height="50">
   </a>
   <a href="https://github.com/mdx-js/mdx">
     <img src="https://mdx-logo.now.sh"  height="50">

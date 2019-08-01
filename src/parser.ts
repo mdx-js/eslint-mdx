@@ -19,11 +19,11 @@ export const ES_NODE_TYPES = ['export', 'import', 'jsx'] as const
 
 export type EsNodeType = (typeof ES_NODE_TYPES)[number]
 
-export const parseMdx = unified()
+export const mdxProcessor = unified()
   .use<any>(remarkParse)
   .use<any>(remarkStringify)
   .use(remarkMdx)
-  .freeze().parse
+  .freeze()
 
 export const parseForESLint = (
   code: string,
@@ -53,7 +53,7 @@ export const parseForESLint = (
     }
   }
 
-  const root = parseMdx(code) as Parent
+  const root = mdxProcessor.parse(code) as Parent
 
   const ast: AST.Program = {
     ...normalizePosition(root.position),
@@ -65,20 +65,20 @@ export const parseForESLint = (
   }
 
   traverse(root, {
-    enter({ position, type }) {
-      if (!ES_NODE_TYPES.includes(type as EsNodeType)) {
+    enter(node) {
+      if (!ES_NODE_TYPES.includes(node.type as EsNodeType)) {
         return
       }
 
-      const rawText = code.slice(position.start.offset, position.end.offset)
+      const rawText = node.value as string
 
       // fix #4
       if (isComment(rawText)) {
         return
       }
 
-      const node = normalizePosition(position)
-      const startLine = node.loc.start.line - 1 //! line is 1-indexed, change to 0-indexed to simplify usage
+      const { loc, start } = normalizePosition(node.position)
+      const startLine = loc.start.line - 1 //! line is 1-indexed, change to 0-indexed to simplify usage
 
       let program: AST.Program
 
@@ -86,15 +86,15 @@ export const parseForESLint = (
         program = parser(rawText, options)
       } catch (e) {
         if (e instanceof SyntaxError) {
-          e.index += node.start
-          e.column += node.loc.start.column
+          e.index += start
+          e.column += loc.start.column
           e.lineNumber += startLine
         }
 
         throw e
       }
 
-      const offset = node.start - program.range[0]
+      const offset = start - program.range[0]
 
       AST_PROPS.forEach(prop =>
         ast[prop].push(
