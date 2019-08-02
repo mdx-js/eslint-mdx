@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.5.0...v0.6.0) (2019-08-02)
+
+
+### Features
+
+* add new rule `no-jsx-html-comments`, close [#13](https://github.com/rx-ts/eslint-plugin-mdx/issues/13) ([67ba91e](https://github.com/rx-ts/eslint-plugin-mdx/commit/67ba91e))
+* processor support for normalize comments in jsx [ci skip] ([114831c](https://github.com/rx-ts/eslint-plugin-mdx/commit/114831c))
+
 ## [0.5.0](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.4.1...v0.5.0) (2019-07-31)
 
 
