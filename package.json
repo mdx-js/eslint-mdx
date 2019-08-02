@@ -14,7 +14,7 @@
     "prepublishOnly": "yarn build",
     "build": "tsc -P src",
     "test": "jest",
-    "lint": "eslint . --ext js,mdx,ts,tsx"
+    "lint": "EFF_NO_LINK_RULES=true eslint . --ext js,mdx,ts,tsx -f friendly"
   },
   "keywords": [
     "eslint",
@@ -45,6 +45,7 @@
     "commitlint": "^8.1.0",
     "eslint": "^6.1.0",
     "eslint-config-1stg": "~5.4.1",
+    "eslint-formatter-friendly": "^7.0.0",
     "eslint-plugin-jest": "^22.14.1",
     "husky": "^3.0.2",
     "jest": "^24.8.0",

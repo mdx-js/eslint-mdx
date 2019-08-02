@@ -23,8 +23,8 @@ const openTag = '<[A-Za-z]*[A-Za-z0-9\\.\\-]*' + attribute + '*\\s*>'
 const closeTag = '<\\s*\\/[A-Za-z]*[A-Za-z0-9\\.\\-]*\\s*>'
 const selfClosingTag = '<[A-Za-z]*[A-Za-z0-9\\.\\-]*' + attribute + '*\\s*\\/?>'
 const comment = '<!---->|<!--(?:-?[^>-])(?:-?[^-])*-->'
-const commentOpen = '<(!---*)'
-const commentClose = '(-*--)>'
+const commentOpen = '(<!---*)'
+const commentClose = '(-*-->)'
 
 export const OPEN_TAG_REGEX = new RegExp(`^(?:${openTag})$`)
 export const CLOSE_TAG_REGEX = new RegExp(`^(?:${closeTag})$`)

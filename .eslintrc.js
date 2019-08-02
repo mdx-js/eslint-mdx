@@ -22,6 +22,7 @@ module.exports = {
       files: ['*.d.ts'],
       rules: {
         'import/order': 0,
+        'import/no-duplicates': 0,
         'import/no-unresolved': 0,
       },
     },

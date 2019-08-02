@@ -1,14 +1,6 @@
-import {
-  isOpenTag,
-  isCloseTag,
-  isComment,
-  isSelfClosingTag,
-  isOpenCloseTag,
-} from './regexp'
-
-import { Node, Position } from 'unist'
+import { Position } from 'unist'
 import { AST } from 'eslint'
-// SourceLocation` is not exported from estree, but it is actually working
+// `SourceLocation` is not exported from estree, but it is actually working
 // eslint-disable-next-line import/named
 import { SourceLocation } from 'estree'
 
@@ -82,59 +74,7 @@ export function restoreNodeLocation<T extends BaseNode>(
   }
 }
 
-// fix #7
-export const combineJsxNodes = (nodes: Node[]) => {
-  let offset = 0
-  const jsxNodes: Node[] = []
-  const { length } = nodes
-  return nodes.reduce<Node[]>((acc, node, index) => {
-    if (node.type === 'jsx') {
-      const rawText = node.value as string
-      if (isOpenTag(rawText as string)) {
-        offset++
-        jsxNodes.push(node)
-      } else {
-        if (isCloseTag(rawText)) {
-          offset--
-        } else if (
-          !isComment(rawText) &&
-          !isSelfClosingTag(rawText) &&
-          !isOpenCloseTag(rawText)
-        ) {
-          const { start } = node.position
-          throw Object.assign(
-            new SyntaxError(
-              `'Unknown node type: ${JSON.stringify(
-                node.type,
-              )}, text: ${JSON.stringify(rawText)}`,
-            ),
-            {
-              lineNumber: start.line,
-              column: start.column,
-              index: start.offset,
-            },
-          )
-        }
+export const first = <T>(items: T[] | ReadonlyArray<T>) => items && items[0]
 
-        jsxNodes.push(node)
-
-        if (!offset || index === length - 1) {
-          acc.push({
-            type: 'jsx',
-            value: jsxNodes.reduce((acc, { value }) => (acc += value), ''),
-            position: {
-              start: jsxNodes[0].position.start,
-              end: jsxNodes[jsxNodes.length - 1].position.end,
-            },
-          })
-          jsxNodes.length = 0
-        }
-      }
-    } else if (offset) {
-      jsxNodes.push(node)
-    } else {
-      acc.push(node)
-    }
-    return acc
-  }, [])
-}
+export const last = <T>(items: T[] | ReadonlyArray<T>) =>
+  items && items[items.length - 1]

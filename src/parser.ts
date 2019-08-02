@@ -70,21 +70,21 @@ export const parseForESLint = (
   }
 
   traverse(root, {
-    enter(node) {
+    enter(node, parent) {
       if (!ES_NODE_TYPES.includes(node.type as EsNodeType)) {
         return
       }
 
-      normalizeJsxNode(node)
+      normalizeJsxNode(node, parent)
 
-      if (node.jsxType === 'JSXElementWithHTMLComments') {
+      if (node.data && node.data.jsxType === 'JSXElementWithHTMLComments') {
         services.JSXElementsWithHTMLComments.push(node)
       }
 
-      const rawText = node.value as string
+      const value = node.value as string
 
       // fix #4
-      if (isComment(rawText)) {
+      if (isComment(value)) {
         return
       }
 
@@ -94,7 +94,7 @@ export const parseForESLint = (
       let program: AST.Program | Linter.ESLintParseResult
 
       try {
-        program = parser(rawText, options)
+        program = parser(value, options)
       } catch (e) {
         if (e instanceof SyntaxError) {
           e.index += start

@@ -1,3 +1,5 @@
+import { Comment } from '../normalizer'
+
 import { ExpressionStatementWithParent, JSX_TYPES, JsxType } from './types'
 
 import { Rule } from 'eslint'
@@ -12,7 +14,7 @@ export const noJsxHtmlComments: Rule.RuleModule = {
       recommended: true,
     },
     messages: {
-      jdxHtmlComments: 'html style comments are invalid in jsx: {{ raw }}',
+      jsxHtmlComments: 'html style comments are invalid in jsx: {{ origin }}',
     },
     fixable: 'code',
     schema: [],
@@ -33,30 +35,29 @@ export const noJsxHtmlComments: Rule.RuleModule = {
         }
 
         const invalidNode = invalidNodes.shift()
-        // unist column is 1-indexed, but estree is 0-indexed...
-        const { start, end } = invalidNode.position
-        context.report({
-          messageId: 'jdxHtmlComments',
-          data: {
-            raw: invalidNode.raw as string,
-          },
-          loc: {
-            start: {
-              ...start,
-              column: start.column - 1,
+
+        if (invalidNode.data.inline) {
+          return
+        }
+
+        const comments = invalidNode.data.comments as Comment[]
+
+        comments.forEach(({ fixed, loc, origin }) =>
+          context.report({
+            messageId: 'jsxHtmlComments',
+            data: {
+              origin,
             },
-            end: {
-              ...end,
-              column: end.column - 1,
+            loc,
+            node,
+            fix(fixer) {
+              return fixer.replaceTextRange(
+                [loc.start.offset, loc.end.offset],
+                fixed,
+              )
             },
-          },
-          fix(fixer) {
-            return fixer.replaceTextRange(
-              [start.offset, end.offset],
-              invalidNode.value as string,
-            )
-          },
-        })
+          }),
+        )
       },
     }
   },
