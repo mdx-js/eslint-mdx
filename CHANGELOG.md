@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.6.0...v0.7.0) (2019-08-02)
+
+
+### Features
+
+* add new rule no-unescaped-entities ([dca8633](https://github.com/rx-ts/eslint-plugin-mdx/commit/dca8633))
+
 ## [0.6.0](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.5.0...v0.6.0) (2019-08-02)
 
 
