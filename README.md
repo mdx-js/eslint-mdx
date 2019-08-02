@@ -17,7 +17,7 @@
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-> [ESLint] Parser/Plugin for [MDX]， helps you lint all ES syntaxes excluding `code` block of course.
+> [ESLint] Parser/Plugin for [MDX], helps you lint all ES syntaxes excluding `code` block of course.
 > Work perfectly with `eslint-plugin-import`, `eslint-plugin-prettier` or any other eslint plugins.
 
 ## Install
@@ -93,7 +93,7 @@ npm i -D @rxts/eslint-plugin-mdx
 
 ### Why I need to use `overrides`?
 
-This parser/plugin should only affects `.mdx` files, of course you manually config it on your own risk.
+This parser/plugin should only affects `.mdx` files, and `overrides` in `shared configuration` is still [not extendable](https://github.com/eslint/eslint/issues/12032) for now, of course you can manually config it on your own risk.
 
 ## Rules
 

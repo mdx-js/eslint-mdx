@@ -1,6 +1,6 @@
 {
   "name": "@rxts/eslint-plugin-mdx",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "ESLint Parser/Plugin for MDX",
   "repository": "git@github.com:rx-ts/eslint-plugin-mdx.git",
   "author": "JounQin <admin@1stg.me>",
@@ -31,7 +31,6 @@
   "dependencies": {
     "remark-mdx": "^1.1.4",
     "remark-parse": "^7.0.0",
-    "remark-stringify": "^7.0.1",
     "unified": "^8.3.2"
   },
   "devDependencies": {
@@ -39,7 +38,7 @@
     "@rxts/eslint-plugin-mdx": "file:config",
     "@types/eslint": "^4.16.6",
     "@types/jest": "^24.0.16",
-    "@types/node": "^12.6.8",
+    "@types/node": "^12.6.9",
     "@types/react": "^16.8.24",
     "@types/unist": "^2.0.3",
     "babel-eslint": "^10.0.2",

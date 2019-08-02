@@ -4,7 +4,6 @@
 import { parse as esParse } from 'espree'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
-import remarkStringify from 'remark-stringify'
 import unified from 'unified'
 
 import { normalizeJsxNode } from './normalizer'
@@ -22,7 +21,6 @@ export type EsNodeType = (typeof ES_NODE_TYPES)[number]
 
 export const mdxProcessor = unified()
   .use<any>(remarkParse)
-  .use<any>(remarkStringify)
   .use(remarkMdx)
   .freeze()
 
