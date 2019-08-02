@@ -58,9 +58,11 @@ npm i -D @rxts/eslint-plugin-mdx
             "plugins": ["@rxts/mdx"],
             "rules": {
               "@rxts/mdx/no-jsx-html-comments": 2,
+              "@rxts/mdx/no-unescaped-entities": 1,
               "@rxts/mdx/no-unused-expressions": 2,
               "no-unused-expressions": 0,
-              "react/react-in-jsx-scope": 0
+              "react/react-in-jsx-scope": 0,
+              "react/no-unescaped-entities": 0
             }
           }
         ]
@@ -101,9 +103,13 @@ This parser/plugin should only affects `.mdx` files, and `overrides` in `shared 
 
 HTML style comments in jsx block is invalid, this rule will help you to fix it by transforming it to JSX style comments.
 
+### @rxts/mdx/no-unescaped-entities
+
+Inline JSX like `Inline <Component />` is supported by [MDX], but rule `react/no-unescaped-entities` from [eslint-plugin-react] is incompatible with it, `@rxts/mdx/no-unescaped-entities` is the replacement.
+
 ### @rxts/mdx/no-unused-expressions
 
-`MDX` can render `jsx` block automatically without exporting them, but `eslint` will report `no-unused-expressions` issue which could be unexpected, this rule is a replacement of it, so make sure that you've turned off the original `no-unused-expressions` rule.
+[MDX] can render `jsx` block automatically without exporting them, but [ESLint] will report `no-unused-expressions` issue which could be unexpected, this rule is a replacement of it, so make sure that you've turned off the original `no-unused-expressions` rule.
 
 ## Limitation
 
@@ -120,6 +126,7 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 [MIT]
 
 [eslint]: https://eslint.org
+[eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [mdx]: https://github.com/mdx-js/mdx
 [mit]: http://opensource.org/licenses/MIT
 [markdownlint]: https://github.com/markdownlint/markdownlint

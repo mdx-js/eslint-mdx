@@ -19,12 +19,13 @@ const attributeValue =
 const attribute =
   '(?:\\s+' + attributeName + '(?:\\s*=\\s*' + attributeValue + ')?)'
 
-const openTag = '<[A-Za-z]*[A-Za-z0-9\\.\\-]*' + attribute + '*\\s*>'
-const closeTag = '<\\s*\\/[A-Za-z]*[A-Za-z0-9\\.\\-]*\\s*>'
-const selfClosingTag = '<[A-Za-z]*[A-Za-z0-9\\.\\-]*' + attribute + '*\\s*\\/?>'
-const comment = '<!---->|<!--(?:-?[^>-])(?:-?[^-])*-->'
-const commentOpen = '(<!---*)'
-const commentClose = '(-*-->)'
+export const openTag = '<[A-Za-z]*[A-Za-z0-9\\.\\-]*' + attribute + '*\\s*>'
+export const closeTag = '<\\s*\\/[A-Za-z]*[A-Za-z0-9\\.\\-]*\\s*>'
+export const selfClosingTag =
+  '<[A-Za-z]*[A-Za-z0-9\\.\\-]*' + attribute + '*\\s*\\/?>'
+export const comment = '<!---->|<!--(?:-?[^>-])(?:-?[^-])*-->'
+export const commentOpen = '(<!---*)'
+export const commentClose = '(-*-->)'
 
 export const OPEN_TAG_REGEX = new RegExp(`^(?:${openTag})$`)
 export const CLOSE_TAG_REGEX = new RegExp(`^(?:${closeTag})$`)

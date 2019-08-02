@@ -3,7 +3,8 @@
 
 import esLintNoUnUsedExpressions from 'eslint/lib/rules/no-unused-expressions'
 
-import { ExpressionStatementWithParent, JSX_TYPES, JsxType } from './types'
+import { isJsxNode } from './helper'
+import { ExpressionStatementWithParent } from './types'
 
 import { Rule } from 'eslint'
 
@@ -13,10 +14,7 @@ export const noUnUsedExpressions: Rule.RuleModule = {
     const esLintRuleListener = esLintNoUnUsedExpressions.create(context)
     return {
       ExpressionStatement(node: ExpressionStatementWithParent) {
-        if (
-          JSX_TYPES.includes(node.expression.type as JsxType) &&
-          node.parent.type === 'Program'
-        ) {
+        if (isJsxNode(node.expression) && node.parent.type === 'Program') {
           return
         }
         esLintRuleListener.ExpressionStatement(node)

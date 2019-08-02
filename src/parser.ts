@@ -6,8 +6,11 @@ import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import unified from 'unified'
 
-import { normalizeJsxNode } from './normalizer'
-import { normalizePosition, restoreNodeLocation } from './helper'
+import {
+  normalizeJsxNode,
+  normalizePosition,
+  restoreNodeLocation,
+} from './helper'
 import { isComment } from './regexp'
 import { traverse } from './traverse'
 

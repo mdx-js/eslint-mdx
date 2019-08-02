@@ -1,6 +1,7 @@
-import { Comment } from '../normalizer'
+import { Comment } from '../types'
 
-import { ExpressionStatementWithParent, JSX_TYPES, JsxType } from './types'
+import { JSX_TYPES } from './helper'
+import { ExpressionStatementWithParent, JsxType } from './types'
 
 import { Rule } from 'eslint'
 import { Node } from 'unist'

@@ -6,14 +6,9 @@ import {
   isSelfClosingTag,
   isOpenCloseTag,
 } from './regexp'
+import { Traverser, TraverseOptions } from './types'
 
 import { Node, Parent } from 'unist'
-
-export type Traverser = (node: Node, parent?: Parent) => void
-
-export interface TraverseOptions {
-  enter: Traverser
-}
 
 export class Traverse {
   private _enter: Traverser

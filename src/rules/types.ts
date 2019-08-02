@@ -1,8 +1,12 @@
+import { JSXElement, JSXFragment } from '@babel/types'
+
 import { ExpressionStatement, Node } from 'estree'
 
-export const JSX_TYPES = ['JSXElement', 'JSXFragment'] as const
+export type JsxNode = JSXElement | JSXFragment
 
-export type JsxType = (typeof JSX_TYPES)[number]
+export type JsxTypes = readonly [JSXElement['type'], JSXFragment['type']]
+
+export type JsxType = JsxTypes[number]
 
 export interface WithParent {
   parent?: NodeWithParent
