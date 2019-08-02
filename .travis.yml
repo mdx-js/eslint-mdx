@@ -13,6 +13,7 @@ before_install:
 script:
   - set -e
   - yarn lint
+  - yarn test
   - yarn build
 
 before_deploy:
