@@ -1,0 +1,29 @@
+{
+  "name": "@rxts/eslint-plugin-mdx",
+  "version": "0.8.0",
+  "description": "ESLint Plugin for MDX",
+  "repository": "git@github.com:rx-ts/eslint-plugin-mdx.git",
+  "author": "JounQin <admin@1stg.me>",
+  "license": "MIT",
+  "main": "dist",
+  "files": [
+    "dist",
+    "typings.d.ts"
+  ],
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "eslint-plugin-mdx",
+    "mdx",
+    "eslint-mdx"
+  ],
+  "peerDependencies": {
+    "eslint": ">=5.0.0"
+  },
+  "dependencies": {
+    "eslint-mdx": "^0.8.0",
+    "remark-mdx": "^1.1.5",
+    "remark-parse": "^7.0.0",
+    "unified": "^8.3.2"
+  }
+}

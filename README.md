@@ -54,7 +54,7 @@ npm i -D @rxts/eslint-plugin-mdx
         "overrides": [
           {
             "files": ["*.mdx"],
-            "parser": "@rxts/eslint-plugin-mdx",
+            "parser": "eslint-mdx",
             "plugins": ["@rxts/mdx"],
             "rules": {
               "@rxts/mdx/no-jsx-html-comments": 2,

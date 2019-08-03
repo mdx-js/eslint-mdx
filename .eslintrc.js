@@ -1,3 +1,7 @@
+require('ts-node').register({
+  transpileOnly: true,
+})
+
 module.exports = {
   root: true,
   settings: {

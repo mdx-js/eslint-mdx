@@ -17,21 +17,21 @@ before_install:
 script:
   - set -e
   - yarn lint
-  - yarn test
   - yarn build
+  - yarn test
 
 before_deploy:
   - set -e
   - git remote set-url origin https://user:$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git
+  - npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
   - git fetch origin master:master
   - git checkout master
   - yarn run standard-version -a
   - git push --follow-tags origin master
 
 deploy:
-  provider: npm
-  email: admin@1stg.me
-  api_key: $NPM_TOKEN
+  provider: script
   skip_cleanup: true
+  script: yarn run lerna publish from-package
   on:
     branch: release
