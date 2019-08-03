@@ -4,10 +4,6 @@ node_js: --lts
 
 cache: yarn
 
-branches:
-  except:
-    - develop
-
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH="$HOME/.yarn/bin:$PATH"
@@ -22,16 +18,15 @@ script:
 
 before_deploy:
   - set -e
-  - git remote set-url origin https://user:$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git
+  - sudo apt-get install jq
   - npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
-  - git fetch origin master:master
-  - git checkout master
-  - yarn run standard-version -a
-  - git push --follow-tags origin master
+  - git fetch origin $TRAVIS_BRANCH:$TRAVIS_BRANCH
+  - git checkout $TRAVIS_BRANCH
+  - yarn run standard-version -a --no-verify || echo "nothing changed"
 
 deploy:
   provider: script
   skip_cleanup: true
-  script: yarn run lerna publish from-package
+  script: yarn run lerna publish "$(jq -r '.version' package.json)" --amend --yes || echo "nothing to publish"
   on:
-    branch: release
+    branch: master

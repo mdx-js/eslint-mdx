@@ -1,19 +1,20 @@
 {
   "name": "eslint-mdx",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "ESLint Parser/Plugin for MDX",
   "repository": "git@github.com:rx-ts/eslint-plugin-mdx.git",
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "packages"
+    "packages/*"
   ],
   "scripts": {
-    "postinstall": "lerna clean --yes && lerna bootstrap",
     "build": "tsc -b",
     "test": "jest",
-    "lint": "EFF_NO_LINK_RULES=true eslint . --ext js,mdx,ts,tsx -f friendly"
+    "lint": "EFF_NO_LINK_RULES=true eslint . --ext js,mdx,ts,tsx -f friendly",
+    "prepublishOnly": "yarn build",
+    "postpublish": "git push --follow-tags origin $TRAVIS_BRANCH"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^8.1.0",
@@ -44,5 +45,47 @@
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3",
     "unified": "^8.3.2"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "eslintIgnore": [
+    "lib",
+    "node_modules"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/packages/"
+    ]
+  },
+  "lint-staged": {
+    "*.{html,json,md,scss,yml}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{mdx,js,ts}": [
+      "eslint",
+      "git add"
+    ]
+  },
+  "prettier": "prettier-config-1stg",
+  "renovate": {
+    "extends": [
+      "1stg"
+    ]
+  },
+  "standard-version": {
+    "skip": {
+      "bump": true
+    }
   }
 }
