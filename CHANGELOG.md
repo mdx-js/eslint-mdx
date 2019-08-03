@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.0.0](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.7.1...v0.0.0) (2019-08-03)
+
+
+### Features
+
+* split into two packages, use lerna as publisher ([#22](https://github.com/rx-ts/eslint-plugin-mdx/issues/22)) ([349b1ff](https://github.com/rx-ts/eslint-plugin-mdx/commit/349b1ff)), closes [#21](https://github.com/rx-ts/eslint-plugin-mdx/issues/21)
+
 ### [0.7.1](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.7.0...v0.7.1) (2019-08-03)
 
 
