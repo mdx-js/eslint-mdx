@@ -10,7 +10,6 @@
     "packages"
   ],
   "scripts": {
-    "prepublishOnly": "yarn build",
     "postinstall": "lerna clean --yes && lerna bootstrap",
     "build": "tsc -b",
     "test": "jest",

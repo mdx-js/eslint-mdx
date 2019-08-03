@@ -1,4 +1,7 @@
+import { base } from './base'
+
 export const overrides = {
+  ...base,
   globals: {
     React: false,
   },
