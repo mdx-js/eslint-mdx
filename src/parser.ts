@@ -128,7 +128,9 @@ export const parseForESLint = (
 
   return {
     ast,
-    parserServices: services,
     services,
   } as Linter.ESLintParseResult
 }
+
+export const parse = (code: string, options: Linter.ParserOptions = {}) =>
+  parseForESLint(code, options).ast
