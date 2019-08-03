@@ -1,18 +1,15 @@
 {
+  "extends": "./tsconfig.base.json",
+  "exclude": ["packages"],
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
-    "declaration": true,
-    "esModuleInterop": true,
-    "jsx": "preserve",
-    "lib": ["esnext"],
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "outDir": "dist",
-    "sourceMap": true,
-    "strict": true,
-    "strictFunctionTypes": false,
-    "strictNullChecks": false,
-    "target": "es5"
-  }
+    "noEmit": true
+  },
+  "references": [
+    {
+      "path": "packages/eslint-mdx"
+    },
+    {
+      "path": "packages/eslint-plugin-mdx"
+    }
+  ]
 }

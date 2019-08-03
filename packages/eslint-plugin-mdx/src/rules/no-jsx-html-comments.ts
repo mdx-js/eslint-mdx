@@ -1,4 +1,4 @@
-import { Comment } from '../types'
+import { Comment } from 'eslint-mdx'
 
 import { JSX_TYPES } from './helper'
 import { ExpressionStatementWithParent, JsxType } from './types'
