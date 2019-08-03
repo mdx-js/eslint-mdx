@@ -11,7 +11,11 @@ module.exports = {
       },
     },
   },
-  extends: ['plugin:jest/recommended', '1stg/react'],
+  extends: [
+    'plugin:jest/recommended',
+    '1stg/react',
+    'plugin:@rxts/mdx/recommended',
+  ],
   rules: {
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/array-type': [
@@ -32,7 +36,7 @@ module.exports = {
     },
     {
       files: ['*.mdx'],
-      extends: ['plugin:@rxts/mdx/recommended'],
+      extends: ['plugin:@rxts/mdx/overrides'],
     },
     {
       files: ['*.ts', '*.tsx'],

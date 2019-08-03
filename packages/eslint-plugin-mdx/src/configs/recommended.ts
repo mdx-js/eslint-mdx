@@ -8,6 +8,5 @@ export const recommended = {
     '@rxts/mdx/no-unused-expressions': 2,
     'no-unused-expressions': 0,
     'react/no-unescaped-entities': 0,
-    'react/react-in-jsx-scope': 0,
   },
 }

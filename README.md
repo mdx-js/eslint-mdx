@@ -38,10 +38,11 @@ npm i -D @rxts/eslint-plugin-mdx
 
       ```json
       {
+        "extends": ["plugin:@rxts/mdx/recommended"],
         "overrides": [
           {
             "files": ["*.mdx"],
-            "extends": ["plugin:@rxts/mdx/recommended"]
+            "extends": ["plugin:@rxts/mdx/overrides"]
           }
         ]
       }
@@ -51,18 +52,16 @@ npm i -D @rxts/eslint-plugin-mdx
 
       ```json
       {
+        "extends": ["plugin:@rxts/mdx/recommended"],
         "overrides": [
           {
             "files": ["*.mdx"],
-            "parser": "eslint-mdx",
-            "plugins": ["@rxts/mdx"],
+            "globals": {
+              "React": false
+            },
             "rules": {
-              "@rxts/mdx/no-jsx-html-comments": 2,
-              "@rxts/mdx/no-unescaped-entities": 1,
-              "@rxts/mdx/no-unused-expressions": 2,
-              "no-unused-expressions": 0,
-              "react/react-in-jsx-scope": 0,
-              "react/no-unescaped-entities": 0
+              "lines-between-class-members": 0,
+              "react/react-in-jsx-scope": 0
             }
           }
         ]
@@ -75,27 +74,20 @@ npm i -D @rxts/eslint-plugin-mdx
    eslint . --ext js,mdx
    ```
 
-3. Custom parser for ES syntax is also supported, although `babel-eslint` will be detected automatically what means you actually do not need to do this:
+## Parser Options
+
+1. `parser` (`string | Function`): Custom parser for ES syntax is supported, although `@typescript-eslint/parser` or `babel-eslint` will be detected automatically what means you actually do not need do this:
 
    ```json
    {
-     "overrides": [
-       {
-         "files": ["*.mdx"],
-         "extends": ["plugin:@rxts/mdx/recommended"],
-         "parserOptions": {
-           "parser": "babel-eslint"
-         }
-       }
-     ]
+     "extends": ["plugin:@rxts/mdx/recommended"],
+     "parserOptions": {
+       "parser": "babel-eslint"
+     }
    }
    ```
 
-## FAQ
-
-### Why I need to use `overrides`?
-
-This parser/plugin should only affects `.mdx` files, and `overrides` in `shared configuration` is still [not extendable](https://github.com/eslint/eslint/issues/12032) for now, of course you can manually config it on your own risk.
+2. `extensions` (`string | string[]`): `eslint-mdx` will only resolve `.mdx` files by default, files with other extensions will be resolved by the `parser` option. If you want to resolve other extensions as like `.mdx`, you can use this option.
 
 ## Rules
 
