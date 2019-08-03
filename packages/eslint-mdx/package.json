@@ -1,0 +1,23 @@
+{
+  "name": "eslint-mdx",
+  "version": "0.8.0",
+  "description": "ESLint Parser for MDX",
+  "repository": "git@github.com:rx-ts/eslint-plugin-mdx.git",
+  "author": "JounQin <admin@1stg.me>",
+  "license": "MIT",
+  "main": "dist",
+  "files": [
+    "dist",
+    "typings.d.ts"
+  ],
+  "keywords": [
+    "eslint",
+    "eslint-parser",
+    "eslint-parser-mdx",
+    "mdx",
+    "eslint-mdx"
+  ],
+  "peerDependencies": {
+    "eslint": ">=5.0.0"
+  }
+}

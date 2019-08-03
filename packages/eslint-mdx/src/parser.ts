@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-triple-slash-reference
-/// <reference path="../types.d.ts" />
+/// <reference path="../typings.d.ts" />
 
 import { parse as esParse } from 'espree'
 import remarkMdx from 'remark-mdx'

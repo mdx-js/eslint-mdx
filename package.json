@@ -1,41 +1,24 @@
 {
-  "name": "@rxts/eslint-plugin-mdx",
-  "version": "0.7.1",
+  "name": "eslint-mdx",
+  "version": "0.0.0",
   "description": "ESLint Parser/Plugin for MDX",
   "repository": "git@github.com:rx-ts/eslint-plugin-mdx.git",
   "author": "JounQin <admin@1stg.me>",
-  "main": "dist",
   "license": "MIT",
-  "files": [
-    "dist",
-    "types.d.ts"
+  "private": true,
+  "workspaces": [
+    "packages"
   ],
   "scripts": {
     "prepublishOnly": "yarn build",
-    "build": "tsc -P src",
+    "postinstall": "lerna clean --yes && lerna bootstrap",
+    "build": "tsc -b",
     "test": "jest",
     "lint": "EFF_NO_LINK_RULES=true eslint . --ext js,mdx,ts,tsx -f friendly"
   },
-  "keywords": [
-    "eslint",
-    "eslint-parser",
-    "eslint-plugin",
-    "eslint-parser-mdx",
-    "eslint-plugin-mdx",
-    "mdx",
-    "eslint-mdx"
-  ],
-  "peerDependencies": {
-    "eslint": ">=5.0.0"
-  },
-  "dependencies": {
-    "remark-mdx": "^1.1.4",
-    "remark-parse": "^7.0.0",
-    "unified": "^8.3.2"
-  },
   "devDependencies": {
     "@commitlint/config-conventional": "^8.1.0",
-    "@rxts/eslint-plugin-mdx": "file:config",
+    "@rxts/eslint-plugin-mdx": "link:packages/eslint-plugin-mdx/src",
     "@types/eslint": "^4.16.6",
     "@types/jest": "^24.0.16",
     "@types/node": "^12.6.9",
@@ -46,16 +29,21 @@
     "eslint": "^6.1.0",
     "eslint-config-1stg": "~5.4.1",
     "eslint-formatter-friendly": "^7.0.0",
+    "eslint-mdx": "link:packages/eslint-mdx/src",
     "eslint-plugin-jest": "^22.14.1",
     "husky": "^3.0.2",
     "jest": "^24.8.0",
+    "lerna": "^3.16.4",
     "lint-staged": "^9.2.1",
     "prettier": "1.18.2",
     "prettier-config-1stg": "^0.1.0",
     "react": "^16.8.6",
+    "remark-mdx": "^1.1.5",
+    "remark-parse": "^7.0.0",
     "standard-version": "^7.0.0",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.3.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "unified": "^8.3.2"
   }
 }

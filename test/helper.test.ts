@@ -1,4 +1,4 @@
-import { first, mdxProcessor, normalizeJsxNode } from '../src'
+import { first, mdxProcessor, normalizeJsxNode } from 'eslint-mdx'
 
 import { Node } from 'unist'
 
