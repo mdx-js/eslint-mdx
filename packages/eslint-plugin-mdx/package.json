@@ -1,13 +1,13 @@
 {
   "name": "@rxts/eslint-plugin-mdx",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "ESLint Plugin for MDX",
   "repository": "git@github.com:rx-ts/eslint-plugin-mdx.git",
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
-  "main": "dist",
+  "main": "lib",
   "files": [
-    "dist",
+    "lib",
     "typings.d.ts"
   ],
   "keywords": [

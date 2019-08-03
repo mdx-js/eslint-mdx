@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [0.0.0](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.7.1...v0.0.0) (2019-08-03)
+## [0.8.0](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.7.1...v0.8.0) (2019-08-03)
 
 
 ### Features
