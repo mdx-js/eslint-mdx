@@ -10,17 +10,24 @@
   </a>
 </p>
 
-[![npm](https://img.shields.io/npm/v/eslint-mdx.svg)](https://npmjs.org/eslint-mdx)
 [![Travis](https://img.shields.io/travis/com/rx-ts/eslint-mdx.svg)](https://travis-ci.com/rx-ts/eslint-mdx)
 [![David](https://img.shields.io/david/rx-ts/eslint-mdx.svg)](https://david-dm.org/rx-ts/eslint-mdx)
 [![David Dev](https://img.shields.io/david/dev/rx-ts/eslint-mdx.svg)](https://david-dm.org/rx-ts/eslint-mdx?type=dev)
-
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 > [ESLint] Parser/Plugin for [MDX], helps you lint all ES syntaxes excluding `code` block of course.
 > Work perfectly with `eslint-plugin-import`, `eslint-plugin-prettier` or any other eslint plugins.
+
+## Packages
+
+This repository is a monorepo that we manage using Lerna. This means we actually publish several packages to npm from the same codebase, including:
+
+| Package                                                  | Version                                                                                                                   | Description                                    |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| [`eslint-mdx`](/packages/eslint-mdx)                     | [![npm](https://img.shields.io/npm/v/eslint-mdx.svg)](https://www.npmjs.com/package/eslint-mdx)                           | ESLint Parser for MDX                          |
+| [`@rxts/eslint-plugin-mdx`](/packages/eslint-plugin-mdx) | [![npm](https://img.shields.io/npm/v/@rxts/eslint-plugin-mdx.svg)](https://www.npmjs.com/package/@rxts/eslint-plugin-mdx) | ESLint Plugin, Configuration and Rules for MDX |
 
 ## Install
 
