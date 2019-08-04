@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.3](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.9.1...v0.9.3) (2019-08-04)
+
+
+### Bug Fixes
+
+* error from typescript parser in plain object ([f634e40](https://github.com/rx-ts/eslint-plugin-mdx/commit/f634e40))
+
 ### [0.9.1](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.9.0...v0.9.1) (2019-08-03)
 
 
