@@ -27,6 +27,6 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: yarn run lerna publish "$(jq -r '.version' package.json)" --amend --yes || echo "nothing to publish"
+  script: yarn run lerna publish from-package --amend --yes
   on:
     branch: master

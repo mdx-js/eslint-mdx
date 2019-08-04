@@ -1,6 +1,6 @@
 {
   "name": "eslint-mdx",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "ESLint Parser/Plugin for MDX",
   "repository": "git@github.com:rx-ts/eslint-plugin-mdx.git",
   "author": "JounQin <admin@1stg.me>",
@@ -13,7 +13,7 @@
     "build": "tsc -b",
     "test": "jest",
     "lint": "EFF_NO_LINK_RULES=true eslint . --ext js,mdx,ts,tsx -f friendly",
-    "prepublishOnly": "yarn build",
+    "prepublishOnly": "lerna version \"$(jq -r '.version' package.json)\" --amend --yes",
     "postpublish": "git push --follow-tags origin $TRAVIS_BRANCH"
   },
   "devDependencies": {
@@ -39,7 +39,7 @@
     "prettier-config-1stg": "^0.1.0",
     "react": "^16.8.6",
     "remark-mdx": "^1.1.5",
-    "remark-parse": "^7.0.0",
+    "remark-parse": "^7.0.1",
     "standard-version": "^7.0.0",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.3.0",

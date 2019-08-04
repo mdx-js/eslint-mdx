@@ -12,23 +12,26 @@ import {
   normalizeJsxNode,
   normalizePosition,
   restoreNodeLocation,
+  hasProperties,
 } from './helper'
 import { isComment } from './regexp'
 import { traverse } from './traverse'
-import { ParserOptions } from './types'
+import { ParserOptions, LocationError } from './types'
 
 import { AST, Linter } from 'eslint'
 import { Parent, Node } from 'unist'
+
+export const mdxProcessor = unified()
+  .use(remarkParse)
+  .use(remarkMdx)
+  .freeze()
 
 export const AST_PROPS = ['body', 'comments', 'tokens'] as const
 export const ES_NODE_TYPES = ['export', 'import', 'jsx'] as const
 
 export type EsNodeType = (typeof ES_NODE_TYPES)[number]
 
-export const mdxProcessor = unified()
-  .use<any>(remarkParse)
-  .use(remarkMdx)
-  .freeze()
+export const LOC_ERROR_PROPERTIES = ['column', 'index', 'lineNumber'] as const
 
 export const DEFAULT_EXTENSIONS = ['.mdx']
 
@@ -119,7 +122,7 @@ export const parseForESLint = (code: string, options: ParserOptions = {}) => {
       try {
         program = parser(value, options)
       } catch (e) {
-        if (e instanceof SyntaxError) {
+        if (hasProperties<LocationError>(e, LOC_ERROR_PROPERTIES)) {
           e.index += start
           e.column += loc.start.column
           e.lineNumber += startLine

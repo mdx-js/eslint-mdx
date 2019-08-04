@@ -1,5 +1,5 @@
 import { isComment, COMMENT_CONTENT_REGEX } from './regexp'
-import { Comment } from './types'
+import { Comment, Arrayable } from './types'
 
 import { Position, Node, Parent } from 'unist'
 import { AST } from 'eslint'
@@ -144,3 +144,8 @@ export const normalizeJsxNode = (node: Node, parent?: Parent) => {
     ),
   })
 }
+
+export const hasProperties = <T, P extends keyof T = keyof T>(
+  obj: {},
+  properties: Arrayable<P>,
+): obj is T => properties.every(property => property in obj)

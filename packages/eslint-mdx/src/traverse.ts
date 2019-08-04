@@ -25,7 +25,7 @@ export class Traverse {
     return nodes.reduce<Node[]>((acc, node, index) => {
       if (node.type === 'jsx') {
         const rawText = node.value as string
-        if (isOpenTag(rawText as string)) {
+        if (isOpenTag(rawText)) {
           offset++
           jsxNodes.push(node)
         } else {
