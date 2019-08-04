@@ -19,6 +19,7 @@ script:
 before_deploy:
   - set -e
   - npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
+  - git remote set-url origin https://user:$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git
   - git fetch origin $TRAVIS_BRANCH:$TRAVIS_BRANCH
   - git checkout $TRAVIS_BRANCH
   - yarn run standard-version -a --no-verify || echo "nothing changed"
@@ -26,6 +27,6 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: yarn run lerna publish from-package --amend --yes
+  script: yarn run run-s -n "deploy:**" || echo "nothing changed to deploy"
   on:
     branch: master
