@@ -1,7 +1,6 @@
-import { Comment } from 'eslint-mdx'
+import { JSX_TYPES, Comment, JsxType } from 'eslint-mdx'
 
-import { JSX_TYPES } from './helper'
-import { ExpressionStatementWithParent, JsxType } from './types'
+import { ExpressionStatementWithParent } from './types'
 
 import { Rule } from 'eslint'
 import { Node } from 'unist'

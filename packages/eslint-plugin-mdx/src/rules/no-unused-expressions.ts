@@ -2,8 +2,8 @@
 /// <reference path="../../typings.d.ts" />
 
 import esLintNoUnUsedExpressions from 'eslint/lib/rules/no-unused-expressions'
+import { isJsxNode } from 'eslint-mdx'
 
-import { isJsxNode } from './helper'
 import { ExpressionStatementWithParent } from './types'
 
 import { Rule } from 'eslint'

@@ -2,7 +2,6 @@ import { noJsxHtmlComments } from './no-jsx-html-comments'
 import { noUnEscapedEntities } from './no-unescaped-entities'
 import { noUnUsedExpressions } from './no-unused-expressions'
 
-export * from './helper'
 export * from './types'
 
 export { noJsxHtmlComments, noUnEscapedEntities, noUnUsedExpressions }

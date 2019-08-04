@@ -1,10 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/no-triple-slash-reference
 /// <reference path="../../typings.d.ts" />
 
-import { openTag } from 'eslint-mdx'
+import { isJsxNode, openTag } from 'eslint-mdx'
 import reactNoUnEscapedEntities from 'eslint-plugin-react/lib/rules/no-unescaped-entities'
 
-import { isJsxNode } from './helper'
 import { NodeWithParent } from './types'
 
 import { Rule } from 'eslint'
