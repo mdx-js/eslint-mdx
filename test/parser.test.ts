@@ -1,4 +1,6 @@
-import { first, mdxProcessor, parser } from 'eslint-mdx'
+import { first, mdxProcessor } from 'eslint-mdx'
+
+import { parser } from './helper'
 
 import { Node } from 'unist'
 

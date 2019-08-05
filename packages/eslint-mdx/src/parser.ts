@@ -14,7 +14,7 @@ import {
 } from './helper'
 import { isComment, COMMENT_CONTENT_REGEX } from './regexp'
 import { traverse } from './traverse'
-import { ParserOptions, LocationError, Comment } from './types'
+import { ParserOptions, LocationError, Comment, ParserFn } from './types'
 
 import { AST, Linter } from 'eslint'
 import { Parent, Node } from 'unist'
@@ -32,29 +32,21 @@ export const LOC_ERROR_PROPERTIES = ['column', 'index', 'lineNumber'] as const
 
 export const DEFAULT_EXTENSIONS: readonly string[] = ['.mdx']
 
-export const DEFAULT_PARSER_OPTIONS: ParserOptions = {
-  ecmaFeatures: { jsx: true },
-  ecmaVersion: new Date().getUTCFullYear() as Linter.ParserOptions['ecmaVersion'],
-  sourceType: 'module',
-}
-
 export class Parser {
   // @internal
-  private parser = normalizeParser(this.options.parser)
+  private parser: ParserFn
 
   // @internal
   private ast: AST.Program
 
   // @internal
-  private services = {
-    JSXElementsWithHTMLComments: [] as Node[],
+  private services: {
+    JSXElementsWithHTMLComments: Node[]
   }
 
   constructor(
     // @internal
-    private code = '',
-    // @internal
-    private options: ParserOptions = DEFAULT_PARSER_OPTIONS,
+    private options?: ParserOptions,
   ) {
     this.parse = this.parse.bind(this)
     this.parseForESLint = this.parseForESLint.bind(this)
@@ -132,28 +124,33 @@ export class Parser {
     return this.normalizeJsxNodes(node)
   }
 
-  parse(code = this.code, options = this.options) {
+  parse(code: string, options: ParserOptions) {
     return this.parseForESLint(code, options).ast
   }
 
-  parseForESLint(code = this.code, options = this.options) {
+  parseForESLint(code: string, options: ParserOptions) {
+    this.options = options
+
     if (
-      !DEFAULT_EXTENSIONS.concat(this.options.extensions || []).includes(
+      !DEFAULT_EXTENSIONS.concat(options.extensions || []).includes(
         path.extname(options.filePath),
       )
     ) {
       return this.eslintParse(code, options)
     }
 
-    const root = mdxProcessor.parse(this.code) as Parent
+    const root = mdxProcessor.parse(code) as Parent
 
     this.ast = {
       ...normalizePosition(root.position),
       type: 'Program',
-      sourceType: this.options.sourceType || 'module',
+      sourceType: options.sourceType || 'module',
       body: [],
       comments: [],
       tokens: [],
+    }
+    this.services = {
+      JSXElementsWithHTMLComments: [],
     }
 
     traverse(root, {
@@ -175,7 +172,11 @@ export class Parser {
   }
 
   // @internal
-  private eslintParse(code = this.code, options = this.options) {
+  private eslintParse(code: string, options = this.options) {
+    if (!this.parser || options !== this.options) {
+      this.options = options
+      this.parser = normalizeParser(options.parser)
+    }
     const program = this.parser(code, options)
     return ('ast' in program && program.ast
       ? program

@@ -27,6 +27,6 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: yarn deploy:pre && yarn deploy:run && yarn deploy:post || echo "nothing changed to deploy"
+  script: git tag -d v$(jq -r '.version' package.json) && yarn run run-s "deploy:*" || echo "nothing changed to deploy"
   on:
     branch: master
