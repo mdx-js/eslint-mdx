@@ -13,8 +13,7 @@
     "build": "tsc -b",
     "test": "jest",
     "lint": "EFF_NO_LINK_RULES=true eslint . --ext js,mdx,ts,tsx -f friendly",
-    "deploy:pre": "lerna version $(jq -r '.version' package.json) --amend --yes",
-    "deploy:run": "lerna publish from-package --amend --yes",
+    "deploy:run": "lerna publish $(jq -r '.version' package.json) --amend --yes",
     "deploy:post": "git push --follow-tags origin $TRAVIS_BRANCH"
   },
   "devDependencies": {
@@ -36,7 +35,6 @@
     "jest": "^24.8.0",
     "lerna": "^3.16.4",
     "lint-staged": "^9.2.1",
-    "npm-run-all": "^4.1.5",
     "prettier": "1.18.2",
     "prettier-config-1stg": "^0.1.0",
     "react": "^16.8.6",
@@ -87,7 +85,8 @@
   },
   "standard-version": {
     "skip": {
-      "bump": true
+      "bump": true,
+      "tag": true
     }
   }
 }
