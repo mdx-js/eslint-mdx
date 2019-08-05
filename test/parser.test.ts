@@ -1,10 +1,6 @@
-import { first, mdxProcessor, Parser } from 'eslint-mdx'
+import { first, mdxProcessor, parser } from 'eslint-mdx'
 
 import { Node } from 'unist'
-
-const parser = new Parser(null, {
-  ecmaFeatures: { jsx: true },
-})
 
 export const stringToNode = (text: string) =>
   first(mdxProcessor.parse(text).children as Node[])
@@ -13,9 +9,6 @@ describe('parser', () => {
   it('should transform html style comment in jsx into jsx comment', () => {
     const sourceText = `<Comment><!-- JSX Comment --><!-- JSX Comment --></Comment>`
     const expectText = `<Comment>{/** JSX Comment */}{/** JSX Comment */}</Comment>`
-    const parser = new Parser(null, {
-      ecmaFeatures: { jsx: true },
-    })
     expect(parser.normalizeJsxNode(stringToNode(sourceText))).toEqual({
       type: 'jsx',
       data: {

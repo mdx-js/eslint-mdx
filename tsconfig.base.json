@@ -13,6 +13,7 @@
     "strict": true,
     "strictFunctionTypes": false,
     "strictNullChecks": false,
+    "stripInternal": true,
     "target": "es5"
   }
 }

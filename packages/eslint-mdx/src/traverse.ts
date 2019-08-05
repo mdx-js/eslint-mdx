@@ -10,6 +10,8 @@ import { Traverser, TraverseOptions } from './types'
 
 import { Node, Parent } from 'unist'
 
+export const SKIP_COMBINE_JSX_TYPES: readonly string[] = ['root', 'jsx']
+
 export class Traverse {
   private _enter: Traverser
 
@@ -56,6 +58,7 @@ export class Traverse {
           if (!offset || index === length - 1) {
             acc.push({
               type: 'jsx',
+              data: jsxNodes[0].data,
               value: jsxNodes.reduce((acc, { value }) => (acc += value), ''),
               position: {
                 start: jsxNodes[0].position.start,
@@ -79,12 +82,13 @@ export class Traverse {
       return
     }
 
-    const children = node.children as Node[]
+    let children = node.children as Node[]
 
     if (children) {
-      ;(node.children = this.combineJsxNodes(children)).forEach(child =>
-        this.traverse(child, node as Parent),
-      )
+      if (!SKIP_COMBINE_JSX_TYPES.includes(node.type)) {
+        children = node.children = this.combineJsxNodes(children)
+      }
+      children.forEach(child => this.traverse(child, node as Parent))
     }
 
     this._enter(node, parent)
