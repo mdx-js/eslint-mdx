@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-triple-slash-reference
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference path="../typings.d.ts" />
 
 import { parse as esParse } from 'espree'
@@ -31,6 +31,7 @@ export const isJsxNode = (node: { type: string }): node is JsxNode =>
 export const normalizeParser = (parser: ParserOptions['parser']) => {
   if (parser) {
     if (typeof parser === 'string') {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
       parser = require(parser)
     }
 
@@ -47,7 +48,7 @@ export const normalizeParser = (parser: ParserOptions['parser']) => {
     // try to load FALLBACK_PARSERS automatically
     for (const fallback of FALLBACK_PARSERS) {
       try {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        // eslint-disable-next-line @typescript-eslint/no-require-imports,@typescript-eslint/no-var-requires
         const fallbackParser = require(fallback)
         parser = fallbackParser.parseForESLint || fallbackParser.parse
         break
@@ -96,8 +97,9 @@ export function restoreNodeLocation<T extends BaseNode>(
     }
 
     if (Array.isArray(value)) {
-      node[key as keyof T] = value.map(child =>
-        restoreNodeLocation(child, startLine, offset),
+      node[key as keyof T] = value.map(
+        child => restoreNodeLocation(child, startLine, offset),
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ) as any
     } else {
       node[key as keyof T] = restoreNodeLocation(
@@ -132,9 +134,9 @@ export function restoreNodeLocation<T extends BaseNode>(
   }
 }
 
-export const first = <T>(items: T[] | ReadonlyArray<T>) => items && items[0]
+export const first = <T>(items: T[] | readonly T[]) => items && items[0]
 
-export const last = <T>(items: T[] | ReadonlyArray<T>) =>
+export const last = <T>(items: T[] | readonly T[]) =>
   items && items[items.length - 1]
 
 export const hasProperties = <T, P extends keyof T = keyof T>(

@@ -13,7 +13,7 @@ import { Node, Parent } from 'unist'
 export const SKIP_COMBINE_JSX_TYPES: readonly string[] = ['root', 'jsx']
 
 export class Traverse {
-  private _enter: Traverser
+  private readonly _enter: Traverser
 
   constructor({ enter }: TraverseOptions) {
     this._enter = enter

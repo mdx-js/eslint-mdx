@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-triple-slash-reference
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference path="../../typings.d.ts" />
 
 import { isJsxNode, openTag } from 'eslint-mdx'

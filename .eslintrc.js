@@ -1,47 +1,18 @@
+const { all } = require('eslint-config-1stg/overrides')
+
 require('ts-node').register({
   transpileOnly: true,
 })
 
 module.exports = {
   root: true,
-  settings: {
-    'import/resolver': {
-      typescript: {
-        alwaysTryTypes: true,
-      },
-    },
-  },
-  extends: [
-    'plugin:jest/recommended',
-    '1stg/react',
-    'plugin:@rxts/mdx/recommended',
-  ],
-  rules: {
-    '@typescript-eslint/no-explicit-any': 0,
-    '@typescript-eslint/array-type': [
-      0,
-      {
-        default: 'array-simple',
-      },
-    ],
-  },
+  extends: ['1stg'],
   overrides: [
+    ...all,
     {
-      files: ['*.d.ts'],
+      files: '*.ts',
       rules: {
-        'import/order': 0,
-        'import/no-duplicates': 0,
-        'import/no-unresolved': 0,
-      },
-    },
-    {
-      files: ['*.mdx'],
-      extends: ['plugin:@rxts/mdx/overrides'],
-    },
-    {
-      files: ['*.ts', '*.tsx'],
-      rules: {
-        'react/prop-types': 0,
+        '@typescript-eslint/unbound-method': 0, // See https://github.com/typescript-eslint/typescript-eslint/issues/636
       },
     },
   ],

@@ -1,19 +1,9 @@
 {
+  "extends": "eslint-config-1stg",
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "declarationMap": true,
-    "esModuleInterop": true,
-    "jsx": "preserve",
-    "lib": ["esnext"],
     "module": "commonjs",
-    "moduleResolution": "node",
     "outDir": "lib",
-    "sourceMap": true,
-    "strict": true,
     "strictFunctionTypes": false,
-    "strictNullChecks": false,
-    "stripInternal": true,
-    "target": "es5"
+    "strictNullChecks": false
   }
 }
