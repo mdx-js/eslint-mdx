@@ -34,13 +34,13 @@ export const DEFAULT_EXTENSIONS: readonly string[] = ['.mdx']
 
 export class Parser {
   // @internal
-  private parser: ParserFn
+  private _parser: ParserFn
 
   // @internal
-  private ast: AST.Program
+  private _ast: AST.Program
 
   // @internal
-  private services: {
+  private _services: {
     JSXElementsWithHTMLComments: Node[]
   }
 
@@ -50,7 +50,7 @@ export class Parser {
   ) {
     this.parse = this.parse.bind(this)
     this.parseForESLint = this.parseForESLint.bind(this)
-    this.nodeToAst = this.nodeToAst.bind(this)
+    this._nodeToAst = this._nodeToAst.bind(this)
   }
 
   normalizeJsxNode(node: Node, parent?: Parent) {
@@ -60,7 +60,7 @@ export class Parser {
       return node
     }
 
-    const matched = value.match(COMMENT_CONTENT_REGEX)
+    const matched = COMMENT_CONTENT_REGEX.exec(value)
 
     if (matched) {
       const comments: Comment[] = []
@@ -121,7 +121,7 @@ export class Parser {
       })
     }
 
-    return this.normalizeJsxNodes(node)
+    return this._normalizeJsxNodes(node)
   }
 
   parse(code: string, options: ParserOptions) {
@@ -136,12 +136,12 @@ export class Parser {
         path.extname(options.filePath),
       )
     ) {
-      return this.eslintParse(code, options)
+      return this._eslintParse(code, options)
     }
 
     const root = mdxProcessor.parse(code) as Parent
 
-    this.ast = {
+    this._ast = {
       ...normalizePosition(root.position),
       type: 'Program',
       sourceType: options.sourceType || 'module',
@@ -149,7 +149,7 @@ export class Parser {
       comments: [],
       tokens: [],
     }
-    this.services = {
+    this._services = {
       JSXElementsWithHTMLComments: [],
     }
 
@@ -161,23 +161,23 @@ export class Parser {
 
         let normalized = this.normalizeJsxNode(node, parent)
         normalized = Array.isArray(normalized) ? normalized : [normalized]
-        normalized.forEach(this.nodeToAst)
+        normalized.forEach(this._nodeToAst)
       },
     })
 
     return {
-      ast: this.ast,
-      services: this.services,
+      ast: this._ast,
+      services: this._services,
     } as Linter.ESLintParseResult
   }
 
   // @internal
-  private eslintParse(code: string, options = this.options) {
-    if (!this.parser || options !== this.options) {
+  private _eslintParse(code: string, options = this.options) {
+    if (!this._parser || options !== this.options) {
       this.options = options
-      this.parser = normalizeParser(options.parser)
+      this._parser = normalizeParser(options.parser)
     }
-    const program = this.parser(code, options)
+    const program = this._parser(code, options)
     return ('ast' in program && program.ast
       ? program
       : { ast: program }) as Linter.ESLintParseResult
@@ -185,11 +185,11 @@ export class Parser {
 
   // fix adjacent JSX nodes
   // @internal
-  private normalizeJsxNodes(node: Node): Node | Node[] {
+  private _normalizeJsxNodes(node: Node): Node | Node[] {
     const value = node.value as string
 
     // wrap into single Fragment, so that it won't break on adjacent JSX nodes
-    const program = this.eslintParse(`<>${value}</>`).ast
+    const program = this._eslintParse(`<>${value}</>`).ast
 
     const { expression } = program.body[0] as ExpressionStatement
 
@@ -237,9 +237,9 @@ export class Parser {
   }
 
   // @internal
-  private nodeToAst(node: Node) {
+  private _nodeToAst(node: Node) {
     if (node.data && node.data.jsxType === 'JSXElementWithHTMLComments') {
-      this.services.JSXElementsWithHTMLComments.push(node)
+      this._services.JSXElementsWithHTMLComments.push(node)
     }
 
     const value = node.value as string
@@ -255,7 +255,7 @@ export class Parser {
     let program: AST.Program
 
     try {
-      program = this.eslintParse(value).ast
+      program = this._eslintParse(value).ast
     } catch (e) {
       if (hasProperties<LocationError>(e, LOC_ERROR_PROPERTIES)) {
         e.index += start
@@ -269,7 +269,7 @@ export class Parser {
     const offset = start - program.range[0]
 
     AST_PROPS.forEach(prop =>
-      this.ast[prop].push(
+      this._ast[prop].push(
         // unfortunately, TS complains about incompatible signature
         // @ts-ignore
         ...program[prop].map(item =>

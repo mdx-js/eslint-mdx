@@ -5,10 +5,13 @@ import { Node, Parent, Point } from 'unist'
 
 export type JsxNode = (JSXElement | JSXFragment) & { range: [number, number] }
 
-export type JsxTypes = readonly [JSXElement['type'], JSXFragment['type']]
+// eslint-disable-next-line @typescript-eslint/no-type-alias
+export type JsxTypes = Readonly<[JSXElement['type'], JSXFragment['type']]>
 
+// eslint-disable-next-line @typescript-eslint/no-type-alias
 export type JsxType = JsxTypes[number]
 
+// eslint-disable-next-line @typescript-eslint/no-type-alias
 export type Arrayable<T> = T[] | readonly T[]
 
 export type ParserFn = (

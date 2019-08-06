@@ -25,7 +25,7 @@
     "babel-eslint": "^10.0.2",
     "commitlint": "^8.1.0",
     "eslint": "^6.1.0",
-    "eslint-config-1stg": "~5.4.1",
+    "eslint-config-1stg": "^5.6.9",
     "eslint-formatter-friendly": "^7.0.0",
     "eslint-mdx": "link:packages/eslint-mdx/src",
     "eslint-plugin-jest": "^22.14.1",

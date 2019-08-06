@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.base.json",
-  "exclude": ["packages"],
+  "exclude": ["node_modules", "packages"],
   "compilerOptions": {
     "noEmit": true
   },

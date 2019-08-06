@@ -27,10 +27,11 @@ before_deploy:
   - git remote set-url origin https://user:$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git
   - git fetch origin $TRAVIS_BRANCH:$TRAVIS_BRANCH
   - git checkout $TRAVIS_BRANCH
+  - yarn run lerna-changelog
 
 deploy:
   provider: script
   skip_cleanup: true
-  script: yarn run lerna-changelog && yarn run lerna publish $(jq -r '.version' package.json) --yes
+  script: yarn run lerna publish $(jq -r '.version' package.json) --yes && git push --follow-tags origin $TRAVIS_BRANCH || echo "nothing changed to push"
   on:
     branch: master
