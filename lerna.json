@@ -3,12 +3,16 @@
   "version": "0.9.5",
   "npmClient": "yarn",
   "useWorkspaces": true,
+  "changelog": {
+    "cacheDir": ".cache",
+    "ignoreCommitters": ["*bot"],
+    "nextVersion": "Unreleased"
+  },
   "command": {
-    "publish": {
-      "graphType": "all"
-    },
     "version": {
-      "allowBranch": "master"
+      "allowBranch": "master",
+      "changelog": false,
+      "gitReset": false
     }
   }
 }
