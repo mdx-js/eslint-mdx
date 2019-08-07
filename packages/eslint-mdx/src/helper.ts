@@ -58,9 +58,9 @@ export const normalizeParser = (parser: ParserOptions['parser']) => {
     if (typeof parser !== 'function') {
       parser = esParse as ParserFn
     }
-
-    return parser
   }
+
+  return parser
 }
 
 export const normalizePosition = (position: Position) => {

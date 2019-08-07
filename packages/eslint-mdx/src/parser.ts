@@ -32,6 +32,14 @@ export const LOC_ERROR_PROPERTIES = ['column', 'index', 'lineNumber'] as const
 
 export const DEFAULT_EXTENSIONS: readonly string[] = ['.mdx']
 
+export const DEFAULT_PARSER_OPTIONS: ParserOptions = {
+  ecmaFeatures: {
+    jsx: true,
+  },
+  ecmaVersion: new Date().getUTCFullYear() as Linter.ParserOptions['ecmaVersion'],
+  sourceType: 'module',
+}
+
 export class Parser {
   // @internal
   private _parser: ParserFn
@@ -44,13 +52,12 @@ export class Parser {
     JSXElementsWithHTMLComments: Node[]
   }
 
-  constructor(
-    // @internal
-    private options?: ParserOptions,
-  ) {
+  // @internal
+  private _options = DEFAULT_PARSER_OPTIONS
+
+  constructor() {
     this.parse = this.parse.bind(this)
     this.parseForESLint = this.parseForESLint.bind(this)
-    this._nodeToAst = this._nodeToAst.bind(this)
   }
 
   normalizeJsxNode(node: Node, parent?: Parent) {
@@ -129,8 +136,6 @@ export class Parser {
   }
 
   parseForESLint(code: string, options: ParserOptions) {
-    this.options = options
-
     if (
       !DEFAULT_EXTENSIONS.concat(options.extensions || []).includes(
         path.extname(options.filePath),
@@ -161,7 +166,7 @@ export class Parser {
 
         let normalized = this.normalizeJsxNode(node, parent)
         normalized = Array.isArray(normalized) ? normalized : [normalized]
-        normalized.forEach(this._nodeToAst)
+        normalized.forEach(node => this._nodeToAst(node, options))
       },
     })
 
@@ -172,10 +177,12 @@ export class Parser {
   }
 
   // @internal
-  private _eslintParse(code: string, options = this.options) {
-    if (!this._parser || options !== this.options) {
-      this.options = options
+  private _eslintParse(code: string, options = this._options) {
+    if (!this._parser || options.parser !== this._options.parser) {
       this._parser = normalizeParser(options.parser)
+    }
+    if (options.filePath) {
+      this._options = options
     }
     const program = this._parser(code, options)
     return ('ast' in program && program.ast
@@ -237,7 +244,7 @@ export class Parser {
   }
 
   // @internal
-  private _nodeToAst(node: Node) {
+  private _nodeToAst(node: Node, options: ParserOptions) {
     if (node.data && node.data.jsxType === 'JSXElementWithHTMLComments') {
       this._services.JSXElementsWithHTMLComments.push(node)
     }
@@ -255,7 +262,7 @@ export class Parser {
     let program: AST.Program
 
     try {
-      program = this._eslintParse(value).ast
+      program = this._eslintParse(value, options).ast
     } catch (e) {
       if (hasProperties<LocationError>(e, LOC_ERROR_PROPERTIES)) {
         e.index += start
