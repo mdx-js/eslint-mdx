@@ -5,13 +5,13 @@
   "useWorkspaces": true,
   "changelog": {
     "cacheDir": ".cache",
-    "ignoreCommitters": ["*bot"],
-    "nextVersion": "Unreleased"
+    "ignoreCommitters": ["*bot"]
   },
   "command": {
     "version": {
       "allowBranch": "master",
-      "changelog": false,
+      "conventionalCommits": true,
+      "createRelease": "github",
       "gitReset": false
     }
   }
