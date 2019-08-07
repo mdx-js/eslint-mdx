@@ -1,15 +1,23 @@
-# Changelog
+# Change Log
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-### [0.9.5](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.9.3...v0.9.5) (2019-08-05)
+## [0.9.6](https://github.com/rx-ts/eslint-mdx/compare/v0.9.5...v0.9.6) (2019-08-07)
+
+
+### Bug Fixes
+
+* custom parser resolved undefined error ([1bbb1ff](https://github.com/rx-ts/eslint-mdx/commit/1bbb1ff))
+
+## [0.9.5](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.9.3...v0.9.5) (2019-08-05)
 
 
 ### Bug Fixes
 
 * options unchangeable issue for default parser ([e76c483](https://github.com/rx-ts/eslint-plugin-mdx/commit/e76c483))
 
-### [0.9.4](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.9.3...v0.9.4) (2019-08-05)
+## [0.9.4](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.9.3...v0.9.4) (2019-08-05)
 
 
 ### Bug Fixes
@@ -17,14 +25,14 @@ All notable changes to this project will be documented in this file. See [standa
 * adjacent jsx nodes should be allowed in mdx ([8456381](https://github.com/rx-ts/eslint-plugin-mdx/commit/8456381))
 * skip combine jsx nodes for root/jsx node ([90583f7](https://github.com/rx-ts/eslint-plugin-mdx/commit/90583f7))
 
-### [0.9.3](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.9.1...v0.9.3) (2019-08-04)
+## [0.9.3](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.9.1...v0.9.3) (2019-08-04)
 
 
 ### Bug Fixes
 
 * error from typescript parser in plain object ([f634e40](https://github.com/rx-ts/eslint-plugin-mdx/commit/f634e40))
 
-### [0.9.1](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.9.0...v0.9.1) (2019-08-03)
+## [0.9.1](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.9.0...v0.9.1) (2019-08-03)
 
 
 ### Bug Fixes
@@ -38,7 +46,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 * support other extensions, detect parsers automatically ([5386098](https://github.com/rx-ts/eslint-plugin-mdx/commit/5386098))
 
-### [0.8.1](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.7.1...v0.8.1) (2019-08-03)
+## [0.8.1](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.7.1...v0.8.1) (2019-08-03)
 
 
 ### Features
@@ -52,7 +60,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 * split into two packages, use lerna as publisher ([#22](https://github.com/rx-ts/eslint-plugin-mdx/issues/22)) ([349b1ff](https://github.com/rx-ts/eslint-plugin-mdx/commit/349b1ff)), closes [#21](https://github.com/rx-ts/eslint-plugin-mdx/issues/21)
 
-### [0.7.1](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.7.0...v0.7.1) (2019-08-03)
+## [0.7.1](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.7.0...v0.7.1) (2019-08-03)
 
 
 ### Features
@@ -95,7 +103,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 * add body and comments into ast, fix [#12](https://github.com/rx-ts/eslint-plugin-mdx/issues/12) ([5b28bd5](https://github.com/rx-ts/eslint-plugin-mdx/commit/5b28bd5))
 
-### [0.3.1](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.3.0...v0.3.1) (2019-07-30)
+## [0.3.1](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.3.0...v0.3.1) (2019-07-30)
 
 
 ### Bug Fixes
@@ -109,7 +117,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 * inline jsx and comment parsing error, close [#4](https://github.com/rx-ts/eslint-plugin-mdx/issues/4), [#7](https://github.com/rx-ts/eslint-plugin-mdx/issues/7) ([5297a0b](https://github.com/rx-ts/eslint-plugin-mdx/commit/5297a0b))
 
-### [0.2.1](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.2.0...v0.2.1) (2019-07-30)
+## [0.2.1](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.2.0...v0.2.1) (2019-07-30)
 
 
 ### Bug Fixes
@@ -123,21 +131,21 @@ All notable changes to this project will be documented in this file. See [standa
 
 * support custom parser like babel-eslint ([b718574](https://github.com/rx-ts/eslint-plugin-mdx/commit/b718574))
 
-### [0.1.3](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.1.2...v0.1.3) (2019-07-29)
+## [0.1.3](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.1.2...v0.1.3) (2019-07-29)
 
 
 ### Bug Fixes
 
 * upgrade peer dependency eslint to >= 6.0.0 ([#3](https://github.com/rx-ts/eslint-plugin-mdx/issues/3) [#4](https://github.com/rx-ts/eslint-plugin-mdx/issues/4)) ([f0ab288](https://github.com/rx-ts/eslint-plugin-mdx/commit/f0ab288))
 
-### [0.1.2](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.1.1...v0.1.2) (2019-07-29)
+## [0.1.2](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.1.1...v0.1.2) (2019-07-29)
 
 
 ### Bug Fixes
 
 * show correct column and line on lint error ([90c5390](https://github.com/rx-ts/eslint-plugin-mdx/commit/90c5390))
 
-### [0.1.1](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.1.0...v0.1.1) (2019-07-29)
+## [0.1.1](https://github.com/rx-ts/eslint-plugin-mdx/compare/v0.1.0...v0.1.1) (2019-07-29)
 
 
 ### Bug Fixes
