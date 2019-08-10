@@ -37,12 +37,9 @@
     "prettier": "1.18.2",
     "prettier-config-1stg": "^0.1.0",
     "react": "^16.9.0",
-    "remark-mdx": "^1.2.2",
-    "remark-parse": "^7.0.1",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.3.0",
-    "typescript": "^3.5.3",
-    "unified": "^8.3.2"
+    "typescript": "^3.5.3"
   },
   "commitlint": {
     "extends": [

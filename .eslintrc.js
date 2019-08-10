@@ -15,5 +15,9 @@ module.exports = {
         '@typescript-eslint/unbound-method': 0, // See https://github.com/typescript-eslint/typescript-eslint/issues/636
       },
     },
+    {
+      files: '*.test.ts',
+      extends: ['plugin:jest/recommended'],
+    },
   ],
 }

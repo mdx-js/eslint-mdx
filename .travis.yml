@@ -29,6 +29,8 @@ before_deploy:
   - git remote set-url origin https://user:$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git
   - git fetch origin $TRAVIS_BRANCH:$TRAVIS_BRANCH
   - git checkout $TRAVIS_BRANCH
+  - cp -f README.md packages/eslint-mdx
+  - cp -f README.md packages/eslint-plugin-mdx
   - yarn run lerna-changelog
 
 deploy:

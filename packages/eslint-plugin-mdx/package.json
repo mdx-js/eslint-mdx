@@ -18,12 +18,10 @@
     "eslint-mdx"
   ],
   "peerDependencies": {
-    "eslint": ">=5.0.0"
+    "eslint": ">=5.0.0",
+    "eslint-plugin-react": ">=7.0.0"
   },
   "dependencies": {
-    "eslint-mdx": "^0.9.9",
-    "remark-mdx": "^1.1.5",
-    "remark-parse": "^7.0.0",
-    "unified": "^8.3.2"
+    "eslint-mdx": "^0.9.9"
   }
 }
