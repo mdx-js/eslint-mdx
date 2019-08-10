@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.9](https://github.com/rx-ts/eslint-mdx/compare/v0.9.8...v0.9.9) (2019-08-10)
+
+
+### Bug Fixes
+
+* incorrect jsx html comment end location ([67b74b5](https://github.com/rx-ts/eslint-mdx/commit/67b74b5))
+
+
+
+
+
 ## [0.9.8](https://github.com/rx-ts/eslint-mdx/compare/v0.9.6...v0.9.8) (2019-08-10)
 
 
