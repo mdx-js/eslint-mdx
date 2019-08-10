@@ -1,4 +1,10 @@
-import { first, mdxProcessor, parser } from 'eslint-mdx'
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference
+/// <reference path="../packages/eslint-mdx/typings.d.ts" />
+
+import { first, mdxProcessor, parser, normalizeParser } from 'eslint-mdx'
+import { parse } from 'espree'
+
+import { parserOptions } from './helper'
 
 import { Node } from 'unist'
 
@@ -90,5 +96,62 @@ describe('parser', () => {
         },
       },
     ])
+  })
+
+  it('should throw on invalid parser', () => {
+    expect(() =>
+      parser.parse('<header>Header</header>', {
+        ...parserOptions,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        parser: {} as any,
+      }),
+    ).toThrow('Invalid custom parser for `eslint-plugin-mdx`:')
+  })
+
+  it('should work with valid custom parser', () => {
+    expect(() =>
+      parser.parse('<header>Header</header>', {
+        ...parserOptions,
+        parser: 'babel-eslint',
+      }),
+    ).not.toThrow()
+  })
+
+  it('should fallback to espree if no preferred parsers found', () => {
+    jest
+      .mock('@typescript-eslint/parser', jest.fn())
+      .mock('babel-eslint', jest.fn())
+    expect(normalizeParser()).toBe(parse)
+    jest.unmock('@typescript-eslint/parser').unmock('babel-eslint')
+  })
+
+  it('should throw on invalid es syntaxes', () => {
+    expect(() =>
+      parser.parse("import A from 'a'\nimport A from 'a'", parserOptions),
+    ).toThrow("unknown: Identifier 'A' has already been declared")
+    expect(() => parser.parse(`Header\n<>`, parserOptions)).toThrow(
+      'JSX fragment has no corresponding closing tag.',
+    )
+    expect(() => parser.parse(`<main><</main>`, parserOptions)).toThrow(
+      'Identifier expected.',
+    )
+  })
+
+  it('should not throw on adjacent JSX nodes', () => {
+    expect(() =>
+      parser.parse(
+        '<header></header>\n<main><section>left</section><section>right<input name="name"/></section></main>',
+        parserOptions,
+      ),
+    ).not.toThrow()
+  })
+
+  it('should be able to parse normal js file', () => {
+    expect(() =>
+      parser.parse("import A from 'a'", {
+        ...parserOptions,
+        filePath: 'test.js',
+      }),
+    ).not.toThrow()
   })
 })

@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { parse as oParse, parseForESLint as oParseForESLint } from 'eslint-mdx'
 
 import * as configs from './configs'
@@ -13,11 +15,17 @@ const warn = () =>
     'parse from this plugin is deprecated, please use parser `eslint-mdx` directly',
   )
 
+/**
+ * @deprecated
+ */
 export const parse = (code: string, options?: Linter.ParserOptions) => {
   warn()
   return oParse(code, options)
 }
 
+/**
+ * @deprecated
+ */
 export const parseForESLint = (
   code: string,
   options?: Linter.ParserOptions,

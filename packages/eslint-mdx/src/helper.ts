@@ -28,7 +28,7 @@ export const JSX_TYPES: JsxTypes = ['JSXElement', 'JSXFragment']
 export const isJsxNode = (node: { type: string }): node is JsxNode =>
   JSX_TYPES.includes(node.type as JsxType)
 
-export const normalizeParser = (parser: ParserOptions['parser']) => {
+export const normalizeParser = (parser?: ParserOptions['parser']) => {
   if (parser) {
     if (typeof parser === 'string') {
       // eslint-disable-next-line @typescript-eslint/no-require-imports

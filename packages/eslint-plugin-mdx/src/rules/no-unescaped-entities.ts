@@ -2,7 +2,7 @@
 /// <reference path="../../typings.d.ts" />
 
 import { isJsxNode, openTag } from 'eslint-mdx'
-import reactNoUnEscapedEntities from 'eslint-plugin-react/lib/rules/no-unescaped-entities'
+import reactNoUnescapedEntities from 'eslint-plugin-react/lib/rules/no-unescaped-entities'
 
 import { NodeWithParent } from './types'
 
@@ -37,8 +37,8 @@ const DEFAULTS: EscapeEntity[] = [
 
 const EXPRESSION = 'Literal, JSXText'
 
-export const noUnEscapedEntities: Rule.RuleModule = {
-  ...reactNoUnEscapedEntities,
+export const noUnescapedEntities: Rule.RuleModule = {
+  ...reactNoUnescapedEntities,
   create(context) {
     const configuration = context.options[0] || {}
     const entities: EscapeEntity[] = configuration.forbid || DEFAULTS
@@ -73,7 +73,9 @@ export const noUnEscapedEntities: Rule.RuleModule = {
                 .join('\n')
                 .search(openTag)
 
+        /* istanbul ignore if */
         if (firstLineOffset < 0) {
+          // should never happen, just for robustness
           firstLineOffset = 0
         }
 

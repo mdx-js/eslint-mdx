@@ -1,17 +1,17 @@
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference path="../../typings.d.ts" />
 
-import esLintNoUnUsedExpressions from 'eslint/lib/rules/no-unused-expressions'
+import esLintNoUnusedExpressions from 'eslint/lib/rules/no-unused-expressions'
 import { isJsxNode } from 'eslint-mdx'
 
 import { ExpressionStatementWithParent } from './types'
 
 import { Rule } from 'eslint'
 
-export const noUnUsedExpressions: Rule.RuleModule = {
-  ...esLintNoUnUsedExpressions,
+export const noUnusedExpressions: Rule.RuleModule = {
+  ...esLintNoUnusedExpressions,
   create(context) {
-    const esLintRuleListener = esLintNoUnUsedExpressions.create(context)
+    const esLintRuleListener = esLintNoUnusedExpressions.create(context)
     return {
       ExpressionStatement(node: ExpressionStatementWithParent) {
         if (isJsxNode(node.expression) && node.parent.type === 'Program') {

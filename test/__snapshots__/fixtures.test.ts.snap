@@ -32,5 +32,20 @@ exports[`fixtures should match all snapshots: no-jsx-html-comments.mdx 1`] = `
 
 <header>Header{/** JSX HTML comment */}</header>
 <main>Main Content</main>
+
+Inline <header>Header<!-- JSX HTML comment --></header>
+
+<main>Main Content</main>
 "
 `;
+
+exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `
+"<header> &apos; </header>
+<main> > </main>
+
+Header <header> &apos; </header>
+Main <main> > </main>
+"
+`;
+
+exports[`fixtures should match all snapshots: parser.mdx 1`] = `undefined`;

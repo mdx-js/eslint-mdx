@@ -42,6 +42,6 @@ export const COMMENT_CONTENT_REGEX = new RegExp(
 export const isOpenTag = (text: string) => OPEN_TAG_REGEX.test(text)
 export const isCloseTag = (text: string) => CLOSE_TAG_REGEX.test(text)
 export const isOpenCloseTag = (text: string) => OPEN_CLOSE_TAG_REGEX.test(text)
-export const isSelfClosingTag = (text: string) =>
-  SELF_CLOSING_TAG_REGEX.test(text)
+// prettier-ignore
+export const isSelfClosingTag = (text: string) => SELF_CLOSING_TAG_REGEX.test(text)
 export const isComment = (text: string) => COMMENT_REGEX.test(text)

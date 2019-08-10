@@ -33,18 +33,18 @@ export class Traverse {
         } else {
           if (isCloseTag(rawText)) {
             offset--
-          } else if (
+          }
+          // prettier-ignore
+          /* istanbul ignore next */
+          else if (
             !isComment(rawText) &&
             !isSelfClosingTag(rawText) &&
             !isOpenCloseTag(rawText)
           ) {
+            // should never happen, just for robustness
             const { start } = node.position
             throw Object.assign(
-              new SyntaxError(
-                `'Unknown node type: ${JSON.stringify(
-                  node.type,
-                )}, text: ${JSON.stringify(rawText)}`,
-              ),
+              new SyntaxError('unknown jsx node: ' + JSON.stringify(rawText)),
               {
                 lineNumber: start.line,
                 column: start.column,
@@ -78,7 +78,9 @@ export class Traverse {
   }
 
   traverse(node: Node, parent?: Parent) {
+    /* istanbul ignore if */
     if (!node) {
+      // should never happen, just for robustness
       return
     }
 
