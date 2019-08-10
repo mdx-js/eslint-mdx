@@ -2975,13 +2975,18 @@ eslint-import-resolver-node@^0.3.2:
     debug "^2.6.9"
     resolve "^1.5.0"
 
-"eslint-import-resolver-typescript@github:JounQin/eslint-import-resolver-typescript#feat/resolve_dts":
+eslint-import-resolver-typescript@JounQin/eslint-import-resolver-typescript#feat/resolve_dts:
   version "1.1.1"
   resolved "https://codeload.github.com/JounQin/eslint-import-resolver-typescript/tar.gz/23e2e8cf71ee6c19da9f55e85b2ab34543d2a12e"
   dependencies:
     debug "^4.0.1"
     resolve "^1.4.0"
     tsconfig-paths "^3.6.0"
+
+eslint-mdx@^0.9.7:
+  version "0.9.7"
+  resolved "https://registry.yarnpkg.com/eslint-mdx/-/eslint-mdx-0.9.7.tgz#cc82cdfd00c732cd9774777860a0fbe3e2b39eee"
+  integrity sha512-0akc6epqxYRDolHe6CJa/yemVdSGNDI1vrQ6ILXzzEKSCB4JqxZ6U3nNp9X9SXCYW2c/uIFDFgRxBY4gZp3jPQ==
 
 "eslint-mdx@link:packages/eslint-mdx/src":
   version "0.0.0"
