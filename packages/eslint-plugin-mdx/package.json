@@ -1,6 +1,6 @@
 {
   "name": "@rxts/eslint-plugin-mdx",
-  "version": "0.9.6",
+  "version": "0.9.8",
   "description": "ESLint Plugin for MDX",
   "repository": "git@github.com:rx-ts/eslint-mdx.git",
   "author": "JounQin <admin@1stg.me>",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.8](https://github.com/rx-ts/eslint-mdx/compare/v0.9.6...v0.9.8) (2019-08-10)
+
+
+### Bug Fixes
+
+* handler jsx parsing error, correct column info ([3b4797d](https://github.com/rx-ts/eslint-mdx/commit/3b4797d))
+
+
+
+
+
 ## [0.9.6](https://github.com/rx-ts/eslint-mdx/compare/v0.9.5...v0.9.6) (2019-08-07)
 
 
