@@ -196,7 +196,25 @@ export class Parser {
     const value = node.value as string
 
     // wrap into single Fragment, so that it won't break on adjacent JSX nodes
-    const program = this._eslintParse(`<>${value}</>`).ast
+    let program: AST.Program
+
+    try {
+      program = this._eslintParse(`<>${value}</>`).ast
+    } catch (e) {
+      if (hasProperties<LocationError>(e, LOC_ERROR_PROPERTIES)) {
+        const {
+          position: { start },
+        } = node
+
+        e.index += start.offset - 3
+        e.column = e.lineNumber > 1 ? e.column : e.column + start.column - 3
+        e.lineNumber += start.line - 1
+
+        throw e
+      }
+
+      return node
+    }
 
     const { expression } = program.body[0] as ExpressionStatement
 
@@ -266,7 +284,7 @@ export class Parser {
     } catch (e) {
       if (hasProperties<LocationError>(e, LOC_ERROR_PROPERTIES)) {
         e.index += start
-        e.column += loc.start.column
+        e.column = e.lineNumber > 1 ? e.column : e.column + loc.start.column
         e.lineNumber += startLine
       }
 

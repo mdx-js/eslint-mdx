@@ -10,17 +10,12 @@ cache:
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH="$HOME/.yarn/bin:$PATH"
-  - curl -o $HOME/gpgkey.asc $GPG_KEY
-  - gpg --import $HOME/gpgkey.asc
-  - git config --global user.name 'JounQin'
-  - git config --global user.email 'admin@1stg.me'
-  - git config --global commit.gpgsign true
-  - git config --global tag.gpgsign true
+  - git config --global user.name "JounQin"
+  - git config --global user.email "admin@1stg.me"
 
 install: yarn --frozen-lockfile
 
 script:
-  - set -e
   - yarn lint
   - yarn build
   - yarn test
