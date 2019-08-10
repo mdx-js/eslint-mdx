@@ -19,7 +19,7 @@ describe('parser', () => {
             loc: {
               end: {
                 column: 29,
-                line: 0,
+                line: 1,
                 offset: 29,
               },
               start: {
@@ -35,7 +35,7 @@ describe('parser', () => {
             loc: {
               end: {
                 column: 49,
-                line: 0,
+                line: 1,
                 offset: 49,
               },
               start: {

@@ -114,7 +114,7 @@ export class Parser {
                   offset: startOffset + offset,
                 },
                 end: {
-                  line: line + endLineOffset - 1,
+                  line: line + endLineOffset,
                   column:
                     last(endLines).length + (endLineOffset ? 0 : column - 1),
                   offset: startOffset + endOffset,
