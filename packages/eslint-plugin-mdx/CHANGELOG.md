@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/rx-ts/eslint-mdx/compare/v0.9.11...v0.10.0) (2019-08-11)
+
+
+### Features
+
+* remove deprecated functions, test coverage 100% ([fd2694e](https://github.com/rx-ts/eslint-mdx/commit/fd2694e))
+
+
+
+
+
 ## [0.9.11](https://github.com/rx-ts/eslint-mdx/compare/v0.9.10...v0.9.11) (2019-08-10)
 
 **Note:** Version bump only for package @rxts/eslint-plugin-mdx
