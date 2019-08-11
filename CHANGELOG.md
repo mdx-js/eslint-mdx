@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/rx-ts/eslint-mdx/compare/v0.10.0...v0.11.0) (2019-08-11)
+
+
+### Features
+
+* all rebass components considered as global variables ([a36a69b](https://github.com/rx-ts/eslint-mdx/commit/a36a69b))
+* overrides react/jsx-no-undef to allow globals ([f7d5194](https://github.com/rx-ts/eslint-mdx/commit/f7d5194))
+* support top level JSX with blank lines ([e59cbdc](https://github.com/rx-ts/eslint-mdx/commit/e59cbdc))
+
+
+
+
+
 # [0.10.0](https://github.com/rx-ts/eslint-mdx/compare/v0.9.11...v0.10.0) (2019-08-11)
 
 
