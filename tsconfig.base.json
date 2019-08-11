@@ -1,5 +1,5 @@
 {
-  "extends": "eslint-config-1stg",
+  "extends": "tsconfig-1stg",
   "compilerOptions": {
     "module": "commonjs",
     "outDir": "lib",
