@@ -83,6 +83,12 @@ npm i -D @rxts/eslint-plugin-mdx
             ),
             rules: {
               'lines-between-class-members': 0,
+              'react/jsx-no-undef': [
+                2,
+                {
+                  allowGlobals: true,
+                },
+              ],
               'react/react-in-jsx-scope': 0,
             },
           },
