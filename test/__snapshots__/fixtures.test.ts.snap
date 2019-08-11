@@ -27,6 +27,51 @@ Lorem ipsum dolor sit _amet_, consectetur adipiscing elit. Ut ac lobortis velit.
 "
 `;
 
+exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
+"import { Box } from '@rebass/emotion'
+
+# Getting Started
+
+If you have an existing project you want to integrate MDX with, check out
+the installation guides.
+
+<Box
+  p={3}
+  bg='lightgray'
+  style={{
+    textAlign: 'center',
+    fontWeight: 'bold',
+  }}
+>
+
+[Next.js](/getting-started/next) \\\\|
+[Gatsby](/getting-started/gatsby) \\\\|
+[Create React App](/getting-started/create-react-app) \\\\|
+[React Static](/getting-started/react-static) \\\\|
+[Webpack](/getting-started/webpack) \\\\|
+[Parcel](/getting-started/parcel) \\\\|
+[Zero](/getting-started/zero)
+
+</Box>
+
+# Hello, world!
+
+Here's a Twitter shortcode:
+
+<Tweet tweetId=\\"1116723357410447360\\" />
+
+<TextGradient>
+
+# Here's a text gradient shortcode!
+
+</TextGradient>
+
+Here's a YouTube shortcode:
+
+<YouTube videoId=\\"4fHw4GeW3EU\\" />
+"
+`;
+
 exports[`fixtures should match all snapshots: no-jsx-html-comments.mdx 1`] = `
 "# Title
 
@@ -53,4 +98,9 @@ Main <main> > </main>
 "
 `;
 
-exports[`fixtures should match all snapshots: parser.mdx 1`] = `undefined`;
+exports[`fixtures should match all snapshots: parser.mdx 1`] = `
+"# Title
+
+Header <header>
+"
+`;

@@ -10,13 +10,23 @@ import { Traverser, TraverseOptions } from './types'
 
 import { Node, Parent } from 'unist'
 
-export const SKIP_COMBINE_JSX_TYPES: readonly string[] = ['root', 'jsx']
-
 export class Traverse {
   private readonly _enter: Traverser
 
   constructor({ enter }: TraverseOptions) {
     this._enter = enter
+  }
+
+  combineLeftJsxNodes(jsxNodes: Node[]) {
+    return {
+      type: 'jsx',
+      data: jsxNodes[0].data,
+      value: jsxNodes.reduce((acc, { value }) => (acc += value), ''),
+      position: {
+        start: jsxNodes[0].position.start,
+        end: last(jsxNodes).position.end,
+      },
+    }
   }
 
   // fix #7
@@ -26,25 +36,25 @@ export class Traverse {
     const { length } = nodes
     return nodes.reduce<Node[]>((acc, node, index) => {
       if (node.type === 'jsx') {
-        const rawText = node.value as string
-        if (isOpenTag(rawText)) {
+        const value = node.value as string
+        if (isOpenTag(value)) {
           offset++
           jsxNodes.push(node)
         } else {
-          if (isCloseTag(rawText)) {
+          if (isCloseTag(value)) {
             offset--
           }
           // prettier-ignore
           /* istanbul ignore next */
           else if (
-            !isComment(rawText) &&
-            !isSelfClosingTag(rawText) &&
-            !isOpenCloseTag(rawText)
+            !isComment(value) &&
+            !isSelfClosingTag(value) &&
+            !isOpenCloseTag(value)
           ) {
             // should never happen, just for robustness
             const { start } = node.position
             throw Object.assign(
-              new SyntaxError('unknown jsx node: ' + JSON.stringify(rawText)),
+              new SyntaxError('unknown jsx node: ' + JSON.stringify(value)),
               {
                 lineNumber: start.line,
                 column: start.column,
@@ -55,16 +65,8 @@ export class Traverse {
 
           jsxNodes.push(node)
 
-          if (!offset || index === length - 1) {
-            acc.push({
-              type: 'jsx',
-              data: jsxNodes[0].data,
-              value: jsxNodes.reduce((acc, { value }) => (acc += value), ''),
-              position: {
-                start: jsxNodes[0].position.start,
-                end: last(jsxNodes).position.end,
-              },
-            })
+          if (!offset) {
+            acc.push(this.combineLeftJsxNodes(jsxNodes))
             jsxNodes.length = 0
           }
         }
@@ -72,6 +74,9 @@ export class Traverse {
         jsxNodes.push(node)
       } else {
         acc.push(node)
+      }
+      if (index === length - 1 && jsxNodes.length) {
+        acc.push(this.combineLeftJsxNodes(jsxNodes))
       }
       return acc
     }, [])
@@ -87,9 +92,7 @@ export class Traverse {
     let children = node.children as Node[]
 
     if (children) {
-      if (!SKIP_COMBINE_JSX_TYPES.includes(node.type)) {
-        children = node.children = this.combineJsxNodes(children)
-      }
+      children = node.children = this.combineJsxNodes(children)
       children.forEach(child => this.traverse(child, node as Parent))
     }
 

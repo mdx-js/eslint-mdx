@@ -209,7 +209,7 @@ export class Parser {
           position: { start },
         } = node
 
-        e.index += start.offset - 3
+        e.index += start.offset - 2
         e.column = e.lineNumber > 1 ? e.column : e.column + start.column - 3
         e.lineNumber += start.line - 1
 
