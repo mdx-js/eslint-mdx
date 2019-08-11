@@ -54,12 +54,20 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "lint-staged && yarn test -o",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "jest": {
     "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
     "modulePathIgnorePatterns": [
       "<rootDir>/packages/"
     ],

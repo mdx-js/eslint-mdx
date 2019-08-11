@@ -19,6 +19,14 @@ export type ParserFn = (
   options: Linter.ParserOptions,
 ) => AST.Program | Linter.ESLintParseResult
 
+export type ParserConfig =
+  | {
+      parseForESLint: ParserFn
+    }
+  | {
+      parse: ParserFn
+    }
+
 export interface LocationError {
   column?: number
   index?: number
@@ -28,13 +36,7 @@ export interface LocationError {
 export interface ParserOptions extends Linter.ParserOptions {
   extensions?: string | string[]
   filePath?: string
-  parser?:
-    | string
-    | {
-        parseForESLint: ParserFn
-        parse: ParserFn
-      }
-    | ParserFn
+  parser?: string | ParserConfig | ParserFn
 }
 
 export type Traverser = (node: Node, parent?: Parent) => void

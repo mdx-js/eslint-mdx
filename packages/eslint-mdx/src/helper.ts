@@ -13,10 +13,10 @@ import {
 } from './types'
 
 import { Position } from 'unist'
-import { AST } from 'eslint'
 // `SourceLocation` is not exported from estree, but it is actually working
 // eslint-disable-next-line import/named
 import { SourceLocation } from 'estree'
+import { AST } from 'eslint'
 
 export const FALLBACK_PARSERS = [
   '@typescript-eslint/parser',
@@ -36,13 +36,13 @@ export const normalizeParser = (parser?: ParserOptions['parser']) => {
     }
 
     if (typeof parser === 'object') {
-      parser = parser.parseForESLint || parser.parse
+      parser =
+        ('parseForESLint' in parser && parser.parseForESLint) ||
+        ('parse' in parser && parser.parse)
     }
 
     if (typeof parser !== 'function') {
-      throw new TypeError(
-        `Invalid custom parser for \`eslint-plugin-mdx\`: ${parser}`,
-      )
+      throw new TypeError(`Invalid custom parser for \`eslint-mdx\`: ${parser}`)
     }
   } else {
     // try to load FALLBACK_PARSERS automatically
@@ -50,6 +50,7 @@ export const normalizeParser = (parser?: ParserOptions['parser']) => {
       try {
         // eslint-disable-next-line @typescript-eslint/no-require-imports,@typescript-eslint/no-var-requires
         const fallbackParser = require(fallback)
+        /* istanbul ignore next */
         parser = fallbackParser.parseForESLint || fallbackParser.parse
         break
       } catch (e) {}
@@ -63,11 +64,16 @@ export const normalizeParser = (parser?: ParserOptions['parser']) => {
   return parser
 }
 
-export const normalizePosition = (position: Position) => {
+export const normalizePosition = (
+  position: Position,
+): Pick<AST.Program, 'loc' | 'range'> & {
+  start: number
+  end: number
+} => {
   const start = position.start.offset
   const end = position.end.offset
   return {
-    range: [start, end] as AST.Range,
+    range: [start, end],
     loc: {
       ...position,
     },
@@ -85,7 +91,7 @@ export interface BaseNode {
 export function restoreNodeLocation<T extends BaseNode>(
   node: T,
   startLine: number,
-  offset = 0,
+  offset: number,
 ): T {
   if (!node || !node.loc || !node.range) {
     return node
