@@ -22,6 +22,7 @@
     "eslint-plugin-react": ">=7.0.0"
   },
   "dependencies": {
-    "eslint-mdx": "^0.10.0"
+    "eslint-mdx": "^0.10.0",
+    "rebass": "^4.0.2"
   }
 }

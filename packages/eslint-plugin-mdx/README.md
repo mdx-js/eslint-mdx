@@ -64,21 +64,29 @@ npm i -D @rxts/eslint-plugin-mdx
 
    2. If you're using `eslint@^5.0.0`, you need to enable this parser/plugin manually, because `eslint@5` does not support `extends` for `overrides` property in its configuration:
 
-      ```json
-      {
-        "extends": ["plugin:@rxts/mdx/recommended"],
-        "overrides": [
+      ```js
+      const rebass = require('rebass')
+
+      module.exports = {
+        extends: ['plugin:@rxts/mdx/recommended'],
+        overrides: [
           {
-            "files": ["*.mdx"],
-            "globals": {
-              "React": false
+            files: ['*.mdx'],
+            globals: Object.keys(rebass).reduce(
+              (globals, Component) =>
+                Object.assign(globals, {
+                  [Component]: false,
+                }),
+              {
+                React: false,
+              },
+            ),
+            rules: {
+              'lines-between-class-members': 0,
+              'react/react-in-jsx-scope': 0,
             },
-            "rules": {
-              "lines-between-class-members": 0,
-              "react/react-in-jsx-scope": 0
-            }
-          }
-        ]
+          },
+        ],
       }
       ```
 
