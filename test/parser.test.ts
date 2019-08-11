@@ -178,6 +178,12 @@ describe('parser', () => {
     ).not.toThrow()
   })
 
+  it('should not throw on JSX with blank lines', () => {
+    expect(() =>
+      parser.parse('<header>\n\nTitle\n\n</header>', parserOptions),
+    ).not.toThrow()
+  })
+
   it('should be able to parse normal js file', () => {
     expect(() =>
       parser.parse("import A from 'a'", {
