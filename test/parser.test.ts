@@ -1,10 +1,16 @@
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference path="../packages/eslint-mdx/typings.d.ts" />
 
-import { first, mdxProcessor, parser, normalizeParser } from 'eslint-mdx'
+import {
+  first,
+  mdxProcessor,
+  parser,
+  normalizeParser,
+  ParserOptions,
+} from 'eslint-mdx'
 import { parse } from 'espree'
 
-import { parserOptions } from './helper'
+import { parserOptions, noop } from './helper'
 
 import { Node } from 'unist'
 
@@ -99,28 +105,42 @@ describe('parser', () => {
   })
 
   it('should throw on invalid parser', () => {
+    ;[
+      {
+        parse: null,
+      },
+      {
+        parseForEslint: null,
+      },
+    ].forEach(p =>
+      expect(() =>
+        parser.parse('<header>Header</header>', {
+          ...parserOptions,
+          parser: p as ParserOptions['parser'],
+        }),
+      ).toThrow('Invalid custom parser for `eslint-mdx`:'),
+    )
+
     expect(() =>
       parser.parse('<header>Header</header>', {
         ...parserOptions,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        parser: {} as any,
+        parser: noop as ParserOptions['parser'],
       }),
-    ).toThrow('Invalid custom parser for `eslint-plugin-mdx`:')
+    ).toThrow("Cannot use 'in' operator to search for 'ast' in undefined")
   })
 
   it('should work with valid custom parser', () => {
     expect(() =>
       parser.parse('<header>Header</header>', {
         ...parserOptions,
+        sourceType: null,
         parser: 'babel-eslint',
       }),
     ).not.toThrow()
   })
 
   it('should fallback to espree if no preferred parsers found', () => {
-    jest
-      .mock('@typescript-eslint/parser', jest.fn())
-      .mock('babel-eslint', jest.fn())
+    jest.mock('@typescript-eslint/parser', noop).mock('babel-eslint', noop)
     expect(normalizeParser()).toBe(parse)
     jest.unmock('@typescript-eslint/parser').unmock('babel-eslint')
   })
@@ -129,12 +149,24 @@ describe('parser', () => {
     expect(() =>
       parser.parse("import A from 'a'\nimport A from 'a'", parserOptions),
     ).toThrow("unknown: Identifier 'A' has already been declared")
-    expect(() => parser.parse(`Header\n<>`, parserOptions)).toThrow(
+    expect(() => parser.parse('<header><>\n</header>', parserOptions)).toThrow(
+      'Expected corresponding closing tag for JSX fragment.',
+    )
+    expect(() => parser.parse('<h1></h2>', parserOptions)).toThrow(
+      "Expected corresponding JSX closing tag for 'h1'.",
+    )
+    expect(() => parser.parse('Header\n<>', parserOptions)).toThrow(
       'JSX fragment has no corresponding closing tag.',
     )
-    expect(() => parser.parse(`<main><</main>`, parserOptions)).toThrow(
+    expect(() => parser.parse('<main><</main>', parserOptions)).toThrow(
       'Identifier expected.',
     )
+    expect(() => parser.parse('<main>{<}</main>', parserOptions)).toThrow(
+      'Expression expected.',
+    )
+    expect(() =>
+      parser.parse('<main>\n<section><</section></main>', parserOptions),
+    ).toThrow('Identifier expected.')
   })
 
   it('should not throw on adjacent JSX nodes', () => {
@@ -149,6 +181,12 @@ describe('parser', () => {
   it('should be able to parse normal js file', () => {
     expect(() =>
       parser.parse("import A from 'a'", {
+        ...parserOptions,
+        filePath: 'test.js',
+      }),
+    ).not.toThrow()
+    expect(() =>
+      parser.parse('const a = {}', {
         ...parserOptions,
         filePath: 'test.js',
       }),

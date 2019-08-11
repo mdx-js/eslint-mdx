@@ -33,11 +33,13 @@ export const LOC_ERROR_PROPERTIES = ['column', 'index', 'lineNumber'] as const
 export const DEFAULT_EXTENSIONS: readonly string[] = ['.mdx']
 
 export const DEFAULT_PARSER_OPTIONS: ParserOptions = {
+  comment: true,
   ecmaFeatures: {
     jsx: true,
   },
   ecmaVersion: new Date().getUTCFullYear() as Linter.ParserOptions['ecmaVersion'],
   sourceType: 'module',
+  tokens: true,
 }
 
 export class Parser {
@@ -185,6 +187,7 @@ export class Parser {
       this._options = options
     }
     const program = this._parser(code, options)
+    /* istanbul ignore next */
     return ('ast' in program && program.ast
       ? program
       : { ast: program }) as Linter.ESLintParseResult
@@ -282,12 +285,13 @@ export class Parser {
     try {
       program = this._eslintParse(value, options).ast
     } catch (e) {
+      /* istanbul ignore if */
       if (hasProperties<LocationError>(e, LOC_ERROR_PROPERTIES)) {
+        // should be handled by `_normalizeJsxNodes`, just for robustness
         e.index += start
         e.column = e.lineNumber > 1 ? e.column : e.column + loc.start.column
         e.lineNumber += startLine
       }
-
       throw e
     }
 

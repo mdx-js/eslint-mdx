@@ -41,6 +41,6 @@ deploy:
       branch: master
   - provider: script
     skip_cleanup: true
-    script: yarn run lerna publish --canary --conventional-prerelease --preid beta --pre-dist-tag beta --yes
+    script: git reset --hard && yarn run lerna publish --canary --conventional-prerelease --preid beta --pre-dist-tag beta --yes
     on:
       branch: develop

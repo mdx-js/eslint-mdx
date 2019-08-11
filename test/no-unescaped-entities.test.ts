@@ -32,7 +32,7 @@ ruleTester.run('no-unescaped-entities', noUnescapedEntities, {
       ],
     },
     {
-      code: 'Main <main> > </main>',
+      code: '<main>\n<section> > </section></main>',
       parser,
       parserOptions,
       filename,
