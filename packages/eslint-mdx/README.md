@@ -13,6 +13,7 @@
 [![Travis](https://img.shields.io/travis/com/rx-ts/eslint-mdx.svg)](https://travis-ci.com/rx-ts/eslint-mdx)
 [![Codecov](https://img.shields.io/codecov/c/gh/rx-ts/eslint-mdx)](https://codecov.io/gh/rx-ts/eslint-mdx)
 [![GitHub release](https://img.shields.io/github/release/rx-ts/eslint-mdx)](https://github.com/rx-ts/eslint-mdx/releases)
+[![David Dev](https://img.shields.io/david/dev/rx-ts/eslint-mdx.svg)](https://david-dm.org/rx-ts/eslint-mdx?type=dev)
 [![Conventional Commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org)
@@ -20,14 +21,18 @@
 > [ESLint] Parser/Plugin for [MDX], helps you lint all ES syntaxes excluding `code` block of course.
 > Work perfectly with `eslint-plugin-import`, `eslint-plugin-prettier` or any other eslint plugins.
 
+## VSCode Extension [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/JounQin.vscode-mdx)](https://marketplace.visualstudio.com/items?itemName=JounQin.vscode-mdx)
+
+[VSCode MDX]: Integrates with [VSCode ESLint], syntaxes highlighting and error reporting.
+
 ## Packages
 
-This repository is a monorepo managed by Lerna what means we actually publish several packages to npm from the same codebase, including:
+This repository is a monorepo managed by [Lerna] what means we actually publish several packages to npm from same codebase, including:
 
-| Package                                                  | Version                                                                                                                   | Dependencies Status                                                                                                                                                                                                                                                                                                                                           | Description                                    |
-| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| [`eslint-mdx`](/packages/eslint-mdx)                     | [![npm](https://img.shields.io/npm/v/eslint-mdx.svg)](https://www.npmjs.com/package/eslint-mdx)                           | [![David Peer](https://img.shields.io/david/peer/rx-ts/eslint-mdx.svg?path=packages/eslint-mdx)](https://david-dm.org/rx-ts/eslint-mdx?path=packages/eslint-mdx&type=peer) [![David](https://img.shields.io/david/rx-ts/eslint-mdx.svg?path=packages/eslint-mdx)](https://david-dm.org/rx-ts/eslint-mdx?path=packages/eslint-mdx)                             | ESLint Parser for MDX                          |
-| [`@rxts/eslint-plugin-mdx`](/packages/eslint-plugin-mdx) | [![npm](https://img.shields.io/npm/v/@rxts/eslint-plugin-mdx.svg)](https://www.npmjs.com/package/@rxts/eslint-plugin-mdx) | [![David Peer](https://img.shields.io/david/peer/rx-ts/eslint-mdx.svg?path=packages/eslint-plugin-mdx)](https://david-dm.org/rx-ts/eslint-mdx?path=packages/eslint-plugin-mdx&type=peer) [![David](https://img.shields.io/david/rx-ts/eslint-mdx.svg?path=packages/eslint-plugin-mdx)](https://david-dm.org/rx-ts/eslint-mdx?path=packages/eslint-plugin-mdx) | ESLint Plugin, Configuration and Rules for MDX |
+| Package                                                  | Description                                    | Version                                                                                                                   | Peer Dependencies                                                                                                                                                                        | Dependencies                                                                                                                                                         |
+| -------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`eslint-mdx`](/packages/eslint-mdx)                     | ESLint Parser for MDX                          | [![npm](https://img.shields.io/npm/v/eslint-mdx.svg)](https://www.npmjs.com/package/eslint-mdx)                           | [![David Peer](https://img.shields.io/david/peer/rx-ts/eslint-mdx.svg?path=packages/eslint-mdx)](https://david-dm.org/rx-ts/eslint-mdx?path=packages/eslint-mdx&type=peer)               | [![David](https://img.shields.io/david/rx-ts/eslint-mdx.svg?path=packages/eslint-mdx)](https://david-dm.org/rx-ts/eslint-mdx?path=packages/eslint-mdx)               |
+| [`@rxts/eslint-plugin-mdx`](/packages/eslint-plugin-mdx) | ESLint Plugin, Configuration and Rules for MDX | [![npm](https://img.shields.io/npm/v/@rxts/eslint-plugin-mdx.svg)](https://www.npmjs.com/package/@rxts/eslint-plugin-mdx) | [![David Peer](https://img.shields.io/david/peer/rx-ts/eslint-mdx.svg?path=packages/eslint-plugin-mdx)](https://david-dm.org/rx-ts/eslint-mdx?path=packages/eslint-plugin-mdx&type=peer) | [![David](https://img.shields.io/david/rx-ts/eslint-mdx.svg?path=packages/eslint-plugin-mdx)](https://david-dm.org/rx-ts/eslint-mdx?path=packages/eslint-plugin-mdx) |
 
 ## Install
 
@@ -57,7 +62,7 @@ npm i -D @rxts/eslint-plugin-mdx
       }
       ```
 
-   2. If you're using `eslint@^5.0.0`, you need to enable this parse/plugin manually, because `eslint@5` does not support `extends` for `overrides` property in its configuration:
+   2. If you're using `eslint@^5.0.0`, you need to enable this parser/plugin manually, because `eslint@5` does not support `extends` for `overrides` property in its configuration:
 
       ```json
       {
@@ -85,7 +90,7 @@ npm i -D @rxts/eslint-plugin-mdx
 
 ## Parser Options
 
-1. `parser` (`string | ParserConfig | ParserFn`): Custom parser for ES syntax is supported, although `@typescript-eslint/parser` or `babel-eslint` will be detected automatically what means you actually do not need do this:
+1. `parser` (`string | ParserConfig | ParserFn`): Custom parser for ES syntax is supported, although `@typescript-eslint/parser` or `babel-eslint` will be detected automatically what means you actually do not need to do this:
 
    ```json
    {
@@ -114,9 +119,9 @@ Inline JSX like `Inline <Component />` is supported by [MDX], but rule `react/no
 
 ## Limitation
 
-> This parser/plugin can only handle ES syntaxes for you, markdown related syntaxes will just be ignored, you can use [markdownlint] or [remake-lint] to lint that part.
+> This parser/plugin can only handle ES syntaxes for you, markdown related syntaxes will just be ignored, you can use [markdownlint] or [remark-lint] to lint that part.
 
-I have a very preliminary idea to integrate with [remake-lint].
+I have a very preliminary idea to integrate with [remark-lint].
 
 ## Changelog
 
@@ -124,11 +129,16 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 
 ## License
 
-[MIT]
+[MIT] © [JounQin]@[1stG]
 
+[1stg]: https://www.1stg.me
 [eslint]: https://eslint.org
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
+[jounqin]: https://GitHub.com/JounQin
+[lerna]: https://github.com/lerna/lerna
 [mdx]: https://github.com/mdx-js/mdx
 [mit]: http://opensource.org/licenses/MIT
 [markdownlint]: https://github.com/markdownlint/markdownlint
-[remake-lint]: https://github.com/remarkjs/remark-lint
+[remark-lint]: https://github.com/remarkjs/remark-lint
+[vscode eslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+[vscode mdx]: https://github.com/rx-ts/vscode-mdx

@@ -31,7 +31,7 @@ before_deploy:
   - git checkout $TRAVIS_BRANCH
   - cp -f README.md packages/eslint-mdx
   - cp -f README.md packages/eslint-plugin-mdx
-  - git add --all && git commit -m "docs:\ update README" || echo 'nothing changed to commit'
+  - 'git add --all && git commit -m "docs: update README" || echo "nothing changed to commit"'
   - yarn run lerna-changelog
 
 deploy:
