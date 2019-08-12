@@ -45,3 +45,7 @@ deploy:
     script: yarn run lerna publish --canary --conventional-prerelease --force-publish --preid beta --pre-dist-tag beta --yes
     on:
       branch: develop
+
+after_script:
+  - yarn add -D @codechecks/client @codechecks/build-size-watcher @codechecks/type-coverage-watcher -W
+  - yarn codechecks
