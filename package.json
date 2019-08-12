@@ -12,7 +12,8 @@
   "scripts": {
     "build": "tsc -b",
     "test": "ts-node -T node_modules/.bin/jest",
-    "lint": "EFF_NO_LINK_RULES=true eslint . --ext js,mdx,ts,tsx -f friendly"
+    "lint": "EFF_NO_LINK_RULES=true eslint . --ext js,mdx,ts,tsx -f friendly",
+    "type-coverage": "type-coverage --cache --ignore-catch --detail --ignore-files *.d.ts --strict"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^8.1.0",
@@ -40,6 +41,7 @@
     "react": "^16.9.0",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.3.0",
+    "type-coverage": "^2.2.0",
     "typescript": "^3.5.3"
   },
   "commitlint": {
@@ -89,5 +91,8 @@
     "extends": [
       "1stg"
     ]
+  },
+  "typeCoverage": {
+    "atLeast": 98
   }
 }

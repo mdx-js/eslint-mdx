@@ -11,6 +11,7 @@ import { Traverser, TraverseOptions } from './types'
 import { Node, Parent } from 'unist'
 
 export class Traverse {
+  // @internal
   private readonly _enter: Traverser
 
   constructor({ enter }: TraverseOptions) {

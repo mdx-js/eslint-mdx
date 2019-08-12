@@ -3,4 +3,5 @@ lib
 node_modules
 tsconfig.tsbuildinfo
 .changelog
+.type-coverage
 *.log

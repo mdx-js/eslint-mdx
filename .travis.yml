@@ -19,9 +19,11 @@ script:
   - yarn lint
   - yarn build
   - yarn test
+  - yarn type-coverage
 
 after_success:
-  - yarn global add codecov
+  - yarn global add @codechecks/client @codechecks/build-size-watcher @codechecks/type-coverage-watcher codecov
+  - codechecks
   - codecov
 
 before_deploy:
