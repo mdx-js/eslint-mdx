@@ -12,7 +12,7 @@
 
 [![Travis](https://img.shields.io/travis/com/rx-ts/eslint-mdx.svg)](https://travis-ci.com/rx-ts/eslint-mdx)
 [![Codecov](https://img.shields.io/codecov/c/gh/rx-ts/eslint-mdx)](https://codecov.io/gh/rx-ts/eslint-mdx)
-[![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Frx-ts%2Feslint-mdx%2Fmaster%2Fpackage.json)](https://github.com/rx-ts/eslint-mdx)
+[![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Frx-ts%2Feslint-mdx%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
 [![GitHub release](https://img.shields.io/github/release/rx-ts/eslint-mdx)](https://github.com/rx-ts/eslint-mdx/releases)
 [![David Dev](https://img.shields.io/david/dev/rx-ts/eslint-mdx.svg)](https://david-dm.org/rx-ts/eslint-mdx?type=dev)
 [![Conventional Commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
@@ -67,33 +67,18 @@ npm i -D @rxts/eslint-plugin-mdx
    2. If you're using `eslint@^5.0.0`, you need to enable this parser/plugin manually, because `eslint@5` does not support `extends` for `overrides` property in its configuration:
 
       ```js
+      const { configs } = require('@rxts/eslint-plugin-mdx')
       const rebass = require('rebass')
 
       module.exports = {
         extends: ['plugin:@rxts/mdx/recommended'],
         overrides: [
-          {
-            files: ['*.mdx'],
-            globals: Object.keys(rebass).reduce(
-              (globals, Component) =>
-                Object.assign(globals, {
-                  [Component]: false,
-                }),
-              {
-                React: false,
-              },
-            ),
-            rules: {
-              'lines-between-class-members': 0,
-              'react/jsx-no-undef': [
-                2,
-                {
-                  allowGlobals: true,
-                },
-              ],
-              'react/react-in-jsx-scope': 0,
+          Object.assign(
+            {
+              files: ['*.mdx'],
             },
-          },
+            configs.overrides,
+          ),
         ],
       }
       ```
