@@ -1,6 +1,6 @@
 {
   "name": "@rxts/eslint-plugin-mdx",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "description": "ESLint Plugin for MDX",
   "repository": "git@github.com:rx-ts/eslint-mdx.git",
   "author": "JounQin <admin@1stg.me>",
@@ -22,7 +22,7 @@
     "eslint-plugin-react": ">=7.0.0"
   },
   "dependencies": {
-    "eslint-mdx": "^0.11.0",
+    "eslint-mdx": "^0.11.1",
     "rebass": "^4.0.2"
   }
 }
