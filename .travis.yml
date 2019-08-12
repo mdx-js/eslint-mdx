@@ -19,11 +19,9 @@ script:
   - yarn lint
   - yarn build
   - yarn test
-  - yarn type-coverage
 
 after_success:
-  - yarn global add @codechecks/client @codechecks/build-size-watcher @codechecks/type-coverage-watcher codecov
-  - codechecks
+  - yarn global add codecov
   - codecov
 
 before_deploy:
@@ -47,3 +45,7 @@ deploy:
     script: yarn run lerna publish --canary --conventional-prerelease --force-publish --preid beta --pre-dist-tag beta --yes
     on:
       branch: develop
+
+after_script:
+  - yarn add -D @codechecks/client @codechecks/build-size-watcher @codechecks/type-coverage-watcher
+  - yarn codechecks
