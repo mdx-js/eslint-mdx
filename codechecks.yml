@@ -2,8 +2,10 @@ checks:
   - name: build-size-watcher
     options:
       files:
-        - path: 'packages/eslint-mdx/lib/*'
-        - path: 'packages/eslint-plugin-mdx/lib/*'
+        - name: 'eslint-mdx pkg size'
+          path: 'packages/eslint-mdx/lib/**/*'
+        - name: '@rxts/eslint-plugin-mdx pkg size'
+          path: 'packages/eslint-plugin-mdx/lib/**/*'
   - name: type-coverage-watcher
     options:
       ignoreCatch: true
