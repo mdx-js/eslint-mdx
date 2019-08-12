@@ -48,4 +48,4 @@ deploy:
 
 after_script:
   - yarn add -D @codechecks/client @codechecks/build-size-watcher @codechecks/type-coverage-watcher
-  - yarn codechecks
+  - yarn run codechecks
