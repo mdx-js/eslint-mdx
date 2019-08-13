@@ -1,4 +1,4 @@
-const { all } = require('eslint-config-1stg/overrides')
+const { overrides } = require('eslint-config-1stg/overrides')
 
 require('ts-node').register({
   transpileOnly: true,
@@ -8,16 +8,12 @@ module.exports = {
   root: true,
   extends: ['1stg'],
   overrides: [
-    ...all,
+    ...overrides,
     {
       files: '*.ts',
       rules: {
         '@typescript-eslint/unbound-method': 0, // See https://github.com/typescript-eslint/typescript-eslint/issues/636
       },
-    },
-    {
-      files: '*.test.ts',
-      extends: ['plugin:jest/recommended'],
     },
   ],
 }

@@ -156,7 +156,7 @@ describe('parser', () => {
       "Expected corresponding JSX closing tag for 'h1'.",
     )
     expect(() => parser.parse('Header\n<>', parserOptions)).toThrow(
-      'JSX fragment has no corresponding closing tag.',
+      'Expected corresponding closing tag for JSX fragment.',
     )
     expect(() => parser.parse('<main><</main>', parserOptions)).toThrow(
       'Identifier expected.',
@@ -169,19 +169,22 @@ describe('parser', () => {
     ).toThrow('Identifier expected.')
   })
 
-  it('should not throw on adjacent JSX nodes', () => {
+  it('should not throw on adjacent JSX nodes', () =>
     expect(() =>
       parser.parse(
         '<header></header>\n<main><section>left</section><section>right<input name="name"/></section></main>',
         parserOptions,
       ),
-    ).not.toThrow()
-  })
+    ).not.toThrow())
 
-  it('should not throw on JSX with blank lines', () => {
+  it('should not throw on JSX with blank lines', () =>
     expect(() =>
       parser.parse('<header>\n\nTitle\n\n</header>', parserOptions),
-    ).not.toThrow()
+    ).not.toThrow())
+
+  it("should not throw on <$> or </$> because it's not considered as jsx", () => {
+    expect(() => parser.parse('<$>', parserOptions)).not.toThrow()
+    expect(() => parser.parse('</$>', parserOptions)).not.toThrow()
   })
 
   it('should be able to parse normal js file', () => {
