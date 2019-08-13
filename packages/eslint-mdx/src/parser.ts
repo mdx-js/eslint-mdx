@@ -210,7 +210,7 @@ export class Parser {
         } = node
 
         e.index += start.offset - 3
-        e.column = e.lineNumber > 1 ? e.column : e.column + start.column - 4
+        e.column = e.lineNumber > 1 ? e.column : e.column + start.column - 3
         e.lineNumber += start.line - 1
 
         throw e
