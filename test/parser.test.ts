@@ -182,8 +182,10 @@ describe('parser', () => {
       parser.parse('<header>\n\nTitle\n\n</header>', parserOptions),
     ).not.toThrow())
 
-  it("should not throw on <$> because it's not considered as jsx", () =>
-    expect(() => parser.parse('<$>', parserOptions)).not.toThrow())
+  it("should not throw on <$> or </$> because it's not considered as jsx", () => {
+    expect(() => parser.parse('<$>', parserOptions)).not.toThrow()
+    expect(() => parser.parse('</$>', parserOptions)).not.toThrow()
+  })
 
   it('should be able to parse normal js file', () => {
     expect(() =>
