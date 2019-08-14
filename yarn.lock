@@ -3211,10 +3211,10 @@ escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-1stg@^5.8.2-beta:
-  version "5.8.2-beta"
-  resolved "https://registry.yarnpkg.com/eslint-config-1stg/-/eslint-config-1stg-5.8.2-beta.tgz#98bd09d6c54ea3e98bd3e3189df74c0e17d50190"
-  integrity sha512-KZTp1ZyMuO8hKjUYUOBl2YKEZNuoVbZH0RCO+/hsILu/P0Lu4iKZCe4Q/bXFuZAAfJeTrqzjgpwIufZ5c7GNDA==
+eslint-config-1stg@^5.8.2-beta.1:
+  version "5.8.2-beta.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-1stg/-/eslint-config-1stg-5.8.2-beta.1.tgz#547ecaf84a9b5bd129c5560105ee9f712f04bec6"
+  integrity sha512-ajWTOK+kZtWvKKio97YIZA26Y67H3ZSzpZUVUIbzQVTZsqkbdeCeY3gpT3FBMfiFaGxhOhLiqrBlC3C2vMfYxg==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^2.0.0"
     "@typescript-eslint/parser" "^2.0.0"
@@ -3325,6 +3325,14 @@ eslint-plugin-jest@^22.15.1:
   integrity sha512-CWq/RR/3tLaKFB+FZcCJwU9hH5q/bKeO3rFP8G07+q7hcDCFNqpvdphVbEbGE6o6qo1UbciEev4ejUWv7brUhw==
   dependencies:
     "@typescript-eslint/experimental-utils" "^1.13.0"
+
+eslint-plugin-mdx@^1.0.2-beta.2:
+  version "1.0.2-beta.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-mdx/-/eslint-plugin-mdx-1.0.2-beta.2.tgz#3293b7503c1f4e529469ba1ca0c2006d295af73f"
+  integrity sha512-iGp+6s+gRdPZqqJpyAatnks9ST+W3bOGrNkDYE4DWAiI3FQ4ndoPAe6voRLi5OwXRf/kROoCZwucZDG7gbfh9g==
+  dependencies:
+    eslint-mdx "^0.11.2"
+    rebass "^4.0.2"
 
 "eslint-plugin-mdx@link:packages/eslint-plugin-mdx/src":
   version "0.0.0"

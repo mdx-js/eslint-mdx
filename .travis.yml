@@ -37,12 +37,12 @@ before_deploy:
 deploy:
   - provider: script
     skip_cleanup: true
-    script: yarn run lerna publish --create-release github --yes
+    script: yarn run lerna publish from-package --create-release github --yes
     on:
       branch: master
   - provider: script
     skip_cleanup: true
-    script: yarn run lerna publish --canary --conventional-prerelease --force-publish --preid beta --pre-dist-tag beta --yes
+    script: yarn run lerna publish from-package --canary --conventional-prerelease --force-publish --preid beta --pre-dist-tag beta --yes
     on:
       branch: develop
 
