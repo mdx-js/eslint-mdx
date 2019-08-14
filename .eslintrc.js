@@ -10,6 +10,10 @@ module.exports = {
   overrides: [
     ...overrides,
     {
+      files: '*.mdx',
+      extends: ['plugin:mdx/recommended', 'plugin:mdx/overrides'],
+    },
+    {
       files: '*.ts',
       rules: {
         '@typescript-eslint/unbound-method': 0, // See https://github.com/typescript-eslint/typescript-eslint/issues/636

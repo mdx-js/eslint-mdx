@@ -1406,9 +1406,13 @@
     universal-user-agent "^3.0.0"
     url-template "^2.0.8"
 
-"@rxts/eslint-plugin-mdx@link:packages/eslint-plugin-mdx/src":
-  version "0.0.0"
-  uid ""
+"@rxts/eslint-plugin-mdx@^0.11.1":
+  version "0.11.2"
+  resolved "https://registry.yarnpkg.com/@rxts/eslint-plugin-mdx/-/eslint-plugin-mdx-0.11.2.tgz#e4abdbb698841456bebee9d8061fb1a0edf79def"
+  integrity sha512-c/bE6N8mjWe54VgHCf2tAXUFZ5AkLxW76gQl5lkfpaH7qKZZtuAZxHzcKJ01D9jQsKVGk43uj1ub54wd63yoew==
+  dependencies:
+    eslint-mdx "^0.11.2"
+    rebass "^4.0.2"
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
@@ -3271,7 +3275,7 @@ eslint-import-resolver-node@^0.3.2:
     debug "^2.6.9"
     resolve "^1.5.0"
 
-"eslint-import-resolver-typescript@github:JounQin/eslint-import-resolver-typescript#feat/resolve_dts":
+eslint-import-resolver-typescript@JounQin/eslint-import-resolver-typescript#feat/resolve_dts:
   version "1.1.1"
   resolved "https://codeload.github.com/JounQin/eslint-import-resolver-typescript/tar.gz/23e2e8cf71ee6c19da9f55e85b2ab34543d2a12e"
   dependencies:
@@ -3329,6 +3333,10 @@ eslint-plugin-jest@^22.15.1:
   integrity sha512-CWq/RR/3tLaKFB+FZcCJwU9hH5q/bKeO3rFP8G07+q7hcDCFNqpvdphVbEbGE6o6qo1UbciEev4ejUWv7brUhw==
   dependencies:
     "@typescript-eslint/experimental-utils" "^1.13.0"
+
+"eslint-plugin-mdx@link:packages/eslint-plugin-mdx/src":
+  version "0.0.0"
+  uid ""
 
 eslint-plugin-node@^9.1.0:
   version "9.1.0"

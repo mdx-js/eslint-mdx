@@ -15,6 +15,7 @@
 [![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Frx-ts%2Feslint-mdx%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
 [![GitHub release](https://img.shields.io/github/release/rx-ts/eslint-mdx)](https://github.com/rx-ts/eslint-mdx/releases)
 [![David Dev](https://img.shields.io/david/dev/rx-ts/eslint-mdx.svg)](https://david-dm.org/rx-ts/eslint-mdx?type=dev)
+
 [![Conventional Commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org)
@@ -25,25 +26,25 @@
 
 ## VSCode Extension [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/JounQin.vscode-mdx)](https://marketplace.visualstudio.com/items?itemName=JounQin.vscode-mdx)
 
-[VSCode MDX]: Integrates with [VSCode ESLint], syntaxes highlighting and error reporting.
+[VSCode MDX]\: Integrates with [VSCode ESLint], syntaxes highlighting and error reporting.
 
 ## Packages
 
 This repository is a monorepo managed by [Lerna] what means we actually publish several packages to npm from same codebase, including:
 
-| Package                                                  | Description                                    | Version                                                                                                                   | Peer Dependencies                                                                                                                                                                        | Dependencies                                                                                                                                                         |
-| -------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`eslint-mdx`](/packages/eslint-mdx)                     | ESLint Parser for MDX                          | [![npm](https://img.shields.io/npm/v/eslint-mdx.svg)](https://www.npmjs.com/package/eslint-mdx)                           | [![David Peer](https://img.shields.io/david/peer/rx-ts/eslint-mdx.svg?path=packages/eslint-mdx)](https://david-dm.org/rx-ts/eslint-mdx?path=packages/eslint-mdx&type=peer)               | [![David](https://img.shields.io/david/rx-ts/eslint-mdx.svg?path=packages/eslint-mdx)](https://david-dm.org/rx-ts/eslint-mdx?path=packages/eslint-mdx)               |
-| [`@rxts/eslint-plugin-mdx`](/packages/eslint-plugin-mdx) | ESLint Plugin, Configuration and Rules for MDX | [![npm](https://img.shields.io/npm/v/@rxts/eslint-plugin-mdx.svg)](https://www.npmjs.com/package/@rxts/eslint-plugin-mdx) | [![David Peer](https://img.shields.io/david/peer/rx-ts/eslint-mdx.svg?path=packages/eslint-plugin-mdx)](https://david-dm.org/rx-ts/eslint-mdx?path=packages/eslint-plugin-mdx&type=peer) | [![David](https://img.shields.io/david/rx-ts/eslint-mdx.svg?path=packages/eslint-plugin-mdx)](https://david-dm.org/rx-ts/eslint-mdx?path=packages/eslint-plugin-mdx) |
+| Package                                            | Description                                    | Version                                                                                                       | Peer Dependencies                                                                                                                                                                        | Dependencies                                                                                                                                                         |
+| -------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`eslint-mdx`](/packages/eslint-mdx)               | ESLint Parser for MDX                          | [![npm](https://img.shields.io/npm/v/eslint-mdx.svg)](https://www.npmjs.com/package/eslint-mdx)               | [![David Peer](https://img.shields.io/david/peer/rx-ts/eslint-mdx.svg?path=packages/eslint-mdx)](https://david-dm.org/rx-ts/eslint-mdx?path=packages/eslint-mdx&type=peer)               | [![David](https://img.shields.io/david/rx-ts/eslint-mdx.svg?path=packages/eslint-mdx)](https://david-dm.org/rx-ts/eslint-mdx?path=packages/eslint-mdx)               |
+| [`eslint-plugin-mdx`](/packages/eslint-plugin-mdx) | ESLint Plugin, Configuration and Rules for MDX | [![npm](https://img.shields.io/npm/v/eslint-plugin-mdx.svg)](https://www.npmjs.com/package/eslint-plugin-mdx) | [![David Peer](https://img.shields.io/david/peer/rx-ts/eslint-mdx.svg?path=packages/eslint-plugin-mdx)](https://david-dm.org/rx-ts/eslint-mdx?path=packages/eslint-plugin-mdx&type=peer) | [![David](https://img.shields.io/david/rx-ts/eslint-mdx.svg?path=packages/eslint-plugin-mdx)](https://david-dm.org/rx-ts/eslint-mdx?path=packages/eslint-plugin-mdx) |
 
 ## Install
 
 ```sh
 # yarn
-yarn add -D @rxts/eslint-plugin-mdx
+yarn add -D eslint-plugin-mdx
 
 # npm
-npm i -D @rxts/eslint-plugin-mdx
+npm i -D eslint-plugin-mdx
 ```
 
 ## Usage
@@ -54,11 +55,11 @@ npm i -D @rxts/eslint-plugin-mdx
 
       ```json
       {
-        "extends": ["plugin:@rxts/mdx/recommended"],
+        "extends": ["plugin:mdx/recommended"],
         "overrides": [
           {
             "files": ["*.mdx"],
-            "extends": ["plugin:@rxts/mdx/overrides"]
+            "extends": ["plugin:mdx/overrides"]
           }
         ]
       }
@@ -67,11 +68,11 @@ npm i -D @rxts/eslint-plugin-mdx
    2. If you're using `eslint@^5.0.0`, you need to enable this parser/plugin manually, because `eslint@5` does not support `extends` for `overrides` property in its configuration:
 
       ```js
-      const { configs } = require('@rxts/eslint-plugin-mdx')
+      const { configs } = require('eslint-plugin-mdx')
       const rebass = require('rebass')
 
       module.exports = {
-        extends: ['plugin:@rxts/mdx/recommended'],
+        extends: ['plugin:mdx/recommended'],
         overrides: [
           Object.assign(
             {
@@ -95,7 +96,7 @@ npm i -D @rxts/eslint-plugin-mdx
 
    ```json
    {
-     "extends": ["plugin:@rxts/mdx/recommended"],
+     "extends": ["plugin:mdx/recommended"],
      "parserOptions": {
        "parser": "babel-eslint"
      }
@@ -106,15 +107,15 @@ npm i -D @rxts/eslint-plugin-mdx
 
 ## Rules
 
-### @rxts/mdx/no-jsx-html-comments
+### mdx/no-jsx-html-comments
 
 HTML style comments in jsx block is invalid, this rule will help you to fix it by transforming it to JSX style comments.
 
-### @rxts/mdx/no-unescaped-entities
+### mdx/no-unescaped-entities
 
-Inline JSX like `Inline <Component />` is supported by [MDX], but rule `react/no-unescaped-entities` from [eslint-plugin-react] is incompatible with it, `@rxts/mdx/no-unescaped-entities` is the replacement.
+Inline JSX like `Inline <Component />` is supported by [MDX], but rule `react/no-unescaped-entities` from [eslint-plugin-react] is incompatible with it, `mdx/no-unescaped-entities` is the replacement.
 
-### @rxts/mdx/no-unused-expressions
+### mdx/no-unused-expressions
 
 [MDX] can render `jsx` block automatically without exporting them, but [ESLint] will report `no-unused-expressions` issue which could be unexpected, this rule is a replacement of it, so make sure that you've turned off the original `no-unused-expressions` rule.
 

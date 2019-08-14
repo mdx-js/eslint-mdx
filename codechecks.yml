@@ -6,7 +6,7 @@ checks:
         - path: 'packages/eslint-mdx/lib/**/*.*'
   - name: build-size-watcher
     options:
-      name: '@rxts/eslint-plugin-mdx pkg size'
+      name: 'eslint-plugin-mdx pkg size'
       files:
         - path: 'packages/eslint-plugin-mdx/lib/**/*.*'
   - name: type-coverage-watcher
