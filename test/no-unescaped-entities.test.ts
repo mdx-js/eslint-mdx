@@ -1,4 +1,4 @@
-import { noUnescapedEntities } from '@rxts/eslint-plugin-mdx'
+import { noUnescapedEntities } from 'eslint-plugin-mdx'
 
 import { parser, parserOptions, ruleTester } from './helper'
 

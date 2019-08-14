@@ -1,4 +1,4 @@
-import { noUnusedExpressions } from '@rxts/eslint-plugin-mdx'
+import { noUnusedExpressions } from 'eslint-plugin-mdx'
 
 import { parser, parserOptions, ruleTester } from './helper'
 

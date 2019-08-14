@@ -1406,10 +1406,6 @@
     universal-user-agent "^3.0.0"
     url-template "^2.0.8"
 
-"@rxts/eslint-plugin-mdx@link:packages/eslint-plugin-mdx/src":
-  version "0.0.0"
-  uid ""
-
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
@@ -1713,24 +1709,24 @@
   resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-12.0.12.tgz#45dd1d0638e8c8f153e87d296907659296873916"
   integrity sha512-SOhuU4wNBxhhTHxYaiG5NY4HBhDIDnJF60GU+2LqHAdKKer86//e4yg69aENCtQ04n0ovz+tq2YPME5t5yp4pw==
 
-"@typescript-eslint/eslint-plugin@^2.0.0-alpha.5":
-  version "2.0.0-alpha.5"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-2.0.0-alpha.5.tgz#55038bd7bca550e18af9b5cf45ed35b1a0db3196"
-  integrity sha512-dsU8xrY7sTIk78zlGEROvJIRMKeqhKEBO+ekxEQ0RpMmPdAVryWltzvAMTetBB264Iv07cvDkT4ZIlAJbAQ6qw==
+"@typescript-eslint/eslint-plugin@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-2.0.0.tgz#609a5d7b00ce21a6f94d7ef282eba9da57ca1e42"
+  integrity sha512-Mo45nxTTELODdl7CgpZKJISvLb+Fu64OOO2ZFc2x8sYSnUpFrBUW3H+H/ZGYmEkfnL6VkdtOSxgdt+Av79j0sA==
   dependencies:
-    "@typescript-eslint/experimental-utils" "2.0.0-alpha.5"
+    "@typescript-eslint/experimental-utils" "2.0.0"
     eslint-utils "^1.4.0"
     functional-red-black-tree "^1.0.1"
     regexpp "^2.0.1"
     tsutils "^3.14.0"
 
-"@typescript-eslint/experimental-utils@2.0.0-alpha.5":
-  version "2.0.0-alpha.5"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-2.0.0-alpha.5.tgz#d176802dda05d7377a2bedcfd64aadf203f590e7"
-  integrity sha512-khC0qrSqPZKc7TfYNTsxFR5M0KCUdEDzP4DcLLT6Iwt1H4EMpA+Baa69KK+HWYPbawEyjFvhs1F2WVKkdaLlSg==
+"@typescript-eslint/experimental-utils@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-2.0.0.tgz#f3d298bb411357f35c4184e24280b256b6321949"
+  integrity sha512-XGJG6GNBXIEx/mN4eTRypN/EUmsd0VhVGQ1AG+WTgdvjHl0G8vHhVBHrd/5oI6RRYBRnedNymSYWW1HAdivtmg==
   dependencies:
     "@types/json-schema" "^7.0.3"
-    "@typescript-eslint/typescript-estree" "2.0.0-alpha.5"
+    "@typescript-eslint/typescript-estree" "2.0.0"
     eslint-scope "^4.0.0"
 
 "@typescript-eslint/experimental-utils@^1.13.0":
@@ -1742,14 +1738,14 @@
     "@typescript-eslint/typescript-estree" "1.13.0"
     eslint-scope "^4.0.0"
 
-"@typescript-eslint/parser@^2.0.0-alpha.5":
-  version "2.0.0-alpha.5"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-2.0.0-alpha.5.tgz#e0ff3a5f43381c8cc2d9a03e0e7814db861fe362"
-  integrity sha512-gh0niZ3FMY9rKq9QYN2obxSdYFcRMQ4BgKthKUa77p/kz35MUeRE4tW9bmwEpBon/ZvrxCOF16eYzol+x+BUeA==
+"@typescript-eslint/parser@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-2.0.0.tgz#4273bb19d03489daf8372cdaccbc8042e098178f"
+  integrity sha512-ibyMBMr0383ZKserIsp67+WnNVoM402HKkxqXGlxEZsXtnGGurbnY90pBO3e0nBUM7chEEOcxUhgw9aPq7fEBA==
   dependencies:
     "@types/eslint-visitor-keys" "^1.0.0"
-    "@typescript-eslint/experimental-utils" "2.0.0-alpha.5"
-    "@typescript-eslint/typescript-estree" "2.0.0-alpha.5"
+    "@typescript-eslint/experimental-utils" "2.0.0"
+    "@typescript-eslint/typescript-estree" "2.0.0"
     eslint-visitor-keys "^1.0.0"
 
 "@typescript-eslint/typescript-estree@1.13.0":
@@ -1760,10 +1756,10 @@
     lodash.unescape "4.0.1"
     semver "5.5.0"
 
-"@typescript-eslint/typescript-estree@2.0.0-alpha.5":
-  version "2.0.0-alpha.5"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.0.0-alpha.5.tgz#931699d6f935b0e2befea0cd130c1fa5acfe4d87"
-  integrity sha512-PQad9FGXWKX4qhSZ5+q1ZLaGDEr1cJIFZiWzUAvsH6Ry3+7T5oVzcwrKNXutu2oMCA733Xy/pY7aHMUKynWJAg==
+"@typescript-eslint/typescript-estree@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.0.0.tgz#c9f6c0efd1b11475540d6a55dc973cc5b9a67e77"
+  integrity sha512-NXbmzA3vWrSgavymlzMWNecgNOuiMMp62MO3kI7awZRLRcsA1QrYWo6q08m++uuAGVbXH/prZi2y1AWuhSu63w==
   dependencies:
     lodash.unescape "4.0.1"
     semver "^6.2.0"
@@ -3215,14 +3211,13 @@ escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-1stg@^5.8.1:
-  version "5.8.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-1stg/-/eslint-config-1stg-5.8.1.tgz#59fbdfd2f307613c61423dc810e9a14b09c8529f"
-  integrity sha512-r4MPqsGPfnS6rXcMp+eK2GgZ4ywf4+eOxZH284bzXLnOI++qHcRVBqhn2ITdDPwk2H6oZDqv3MOqnqw097uTMQ==
+eslint-config-1stg@^5.8.2-beta.1:
+  version "5.8.2-beta.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-1stg/-/eslint-config-1stg-5.8.2-beta.1.tgz#547ecaf84a9b5bd129c5560105ee9f712f04bec6"
+  integrity sha512-ajWTOK+kZtWvKKio97YIZA26Y67H3ZSzpZUVUIbzQVTZsqkbdeCeY3gpT3FBMfiFaGxhOhLiqrBlC3C2vMfYxg==
   dependencies:
-    "@rxts/eslint-plugin-mdx" "^0.11.1"
-    "@typescript-eslint/eslint-plugin" "^2.0.0-alpha.5"
-    "@typescript-eslint/parser" "^2.0.0-alpha.5"
+    "@typescript-eslint/eslint-plugin" "^2.0.0"
+    "@typescript-eslint/parser" "^2.0.0"
     babel-eslint "^10.0.2"
     eslint-config-prettier "^6.0.0"
     eslint-config-standard "^13.0.1"
@@ -3230,6 +3225,7 @@ eslint-config-1stg@^5.8.1:
     eslint-plugin-babel "^5.3.0"
     eslint-plugin-import "^2.18.2"
     eslint-plugin-jest "^22.15.1"
+    eslint-plugin-mdx "^1.0.2-beta.2"
     eslint-plugin-node "^9.1.0"
     eslint-plugin-prettier "^3.1.0"
     eslint-plugin-promise "^4.2.1"
@@ -3329,6 +3325,18 @@ eslint-plugin-jest@^22.15.1:
   integrity sha512-CWq/RR/3tLaKFB+FZcCJwU9hH5q/bKeO3rFP8G07+q7hcDCFNqpvdphVbEbGE6o6qo1UbciEev4ejUWv7brUhw==
   dependencies:
     "@typescript-eslint/experimental-utils" "^1.13.0"
+
+eslint-plugin-mdx@^1.0.2-beta.2:
+  version "1.0.2-beta.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-mdx/-/eslint-plugin-mdx-1.0.2-beta.2.tgz#3293b7503c1f4e529469ba1ca0c2006d295af73f"
+  integrity sha512-iGp+6s+gRdPZqqJpyAatnks9ST+W3bOGrNkDYE4DWAiI3FQ4ndoPAe6voRLi5OwXRf/kROoCZwucZDG7gbfh9g==
+  dependencies:
+    eslint-mdx "^0.11.2"
+    rebass "^4.0.2"
+
+"eslint-plugin-mdx@link:packages/eslint-plugin-mdx/src":
+  version "0.0.0"
+  uid ""
 
 eslint-plugin-node@^9.1.0:
   version "9.1.0"
