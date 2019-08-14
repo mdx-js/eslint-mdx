@@ -300,6 +300,7 @@ export class Parser {
     AST_PROPS.forEach(prop =>
       this._ast[prop].push(
         // unfortunately, TS complains about incompatible signature
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
         // @ts-ignore
         ...program[prop].map(item =>
           restoreNodeLocation(item, startLine, offset),
