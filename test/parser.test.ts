@@ -7,10 +7,11 @@ import {
   parser,
   normalizeParser,
   ParserOptions,
+  DEFAULT_PARSER_OPTIONS as parserOptions,
 } from 'eslint-mdx'
 import { parse } from 'espree'
 
-import { parserOptions, noop } from './helper'
+import { noop } from './helper'
 
 import { Node } from 'unist'
 
@@ -133,8 +134,11 @@ describe('parser', () => {
     expect(() =>
       parser.parse('<header>Header</header>', {
         ...parserOptions,
-        sourceType: null,
         parser: 'babel-eslint',
+        sourceType: null,
+        babelOptions: {
+          configFile: require.resolve('@1stg/babel-preset/config'),
+        },
       }),
     ).not.toThrow()
   })

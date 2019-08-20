@@ -40,6 +40,7 @@ export const DEFAULT_PARSER_OPTIONS: ParserOptions = {
   ecmaVersion: new Date().getUTCFullYear() as Linter.ParserOptions['ecmaVersion'],
   sourceType: 'module',
   tokens: true,
+  filePath: '__placeholder__.mdx',
 }
 
 export class Parser {
@@ -183,6 +184,7 @@ export class Parser {
     if (!this._parser || options.parser !== this._options.parser) {
       this._parser = normalizeParser(options.parser)
     }
+    /* istanbul ignore else */
     if (options.filePath) {
       this._options = options
     }

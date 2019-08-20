@@ -1,4 +1,4 @@
-const { overrides } = require('eslint-config-1stg/overrides')
+const { overrides } = require('@1stg/eslint-config/overrides')
 
 require('ts-node').register({
   transpileOnly: true,
@@ -6,7 +6,7 @@ require('ts-node').register({
 
 module.exports = {
   root: true,
-  extends: ['1stg'],
+  extends: ['@1stg'],
   overrides: [
     ...overrides,
     {

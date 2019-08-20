@@ -16,28 +16,33 @@
     "type-coverage": "type-coverage --cache --ignore-catch --detail --ignore-files *.d.ts --strict"
   },
   "devDependencies": {
+    "@1stg/babel-preset": "^0.4.2",
+    "@1stg/eslint-config": "^0.2.1",
+    "@1stg/husky-config": "^0.1.0",
+    "@1stg/lint-staged": "^0.2.0",
+    "@1stg/prettier-config": "^0.1.0",
+    "@1stg/tsconfig": "^0.1.0",
+    "@babel/core": "^7.5.5",
     "@commitlint/config-conventional": "^8.1.0",
-    "@types/eslint": "^4.16.8",
-    "@types/jest": "^24.0.17",
-    "@types/node": "^12.7.1",
-    "@types/react": "^16.9.1",
+    "@types/eslint": "^6.1.0",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.2",
+    "@types/react": "^16.9.2",
     "@types/rebass": "^3.0.4",
     "@types/unist": "^2.0.3",
-    "babel-eslint": "^10.0.2",
+    "babel-eslint": "^11.0.0-beta.0",
     "commitlint": "^8.1.0",
-    "eslint": "^6.1.0",
-    "eslint-config-1stg": "^5.8.2-beta.1",
+    "eslint": "^6.2.1",
     "eslint-formatter-friendly": "^7.0.0",
     "eslint-mdx": "link:packages/eslint-mdx/src",
     "eslint-plugin-mdx": "link:packages/eslint-plugin-mdx/src",
     "eslint-plugin-react": "^7.14.3",
-    "husky": "^3.0.3",
-    "jest": "^24.8.0",
+    "husky": "^3.0.4",
+    "jest": "^24.9.0",
     "lerna": "^3.16.4",
     "lerna-changelog": "^0.8.2",
-    "lint-staged": "^9.2.1",
+    "lint-staged": "^9.2.3",
     "prettier": "1.18.2",
-    "prettier-config-1stg": "^0.2.0",
     "react": "^16.9.0",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.3.0",
@@ -55,12 +60,6 @@
     "lib",
     "node_modules"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && yarn test -o",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "jest": {
     "collectCoverage": true,
     "coverageThreshold": {
@@ -76,20 +75,10 @@
     ],
     "preset": "ts-jest"
   },
-  "lint-staged": {
-    "*.{html,json,md,scss,yml}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.{mdx,js,ts}": [
-      "eslint",
-      "git add"
-    ]
-  },
-  "prettier": "prettier-config-1stg",
+  "prettier": "@1stg/prettier-config",
   "renovate": {
     "extends": [
-      "1stg"
+      "@1stg"
     ]
   },
   "typeCoverage": {

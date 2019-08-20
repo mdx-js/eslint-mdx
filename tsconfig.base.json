@@ -1,5 +1,5 @@
 {
-  "extends": "./node_modules/tsconfig-1stg/tsconfig.json",
+  "extends": "./node_modules/@1stg/tsconfig/tsconfig.json",
   "compilerOptions": {
     "module": "commonjs",
     "outDir": "lib",

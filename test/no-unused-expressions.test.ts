@@ -1,6 +1,7 @@
 import { noUnusedExpressions } from 'eslint-plugin-mdx'
+import { DEFAULT_PARSER_OPTIONS as parserOptions } from 'eslint-mdx'
 
-import { parser, parserOptions, ruleTester } from './helper'
+import { parser, ruleTester } from './helper'
 
 ruleTester.run('no-unused-expressions', noUnusedExpressions, {
   valid: [

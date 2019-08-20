@@ -2,6 +2,7 @@
   "extends": "./tsconfig.base.json",
   "exclude": ["node_modules", "packages"],
   "compilerOptions": {
+    "incremental": false,
     "noEmit": true
   },
   "references": [

@@ -11,6 +11,7 @@
 </p>
 
 [![Travis](https://img.shields.io/travis/com/rx-ts/eslint-mdx.svg)](https://travis-ci.com/rx-ts/eslint-mdx)
+[![Codacy Grade](https://img.shields.io/codacy/grade/4ea8225261c04837995a858676caae4b)](https://www.codacy.com/app/JounQin/eslint-mdx)
 [![Codecov](https://img.shields.io/codecov/c/gh/rx-ts/eslint-mdx)](https://codecov.io/gh/rx-ts/eslint-mdx)
 [![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Frx-ts%2Feslint-mdx%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
 [![GitHub release](https://img.shields.io/github/release/rx-ts/eslint-mdx)](https://github.com/rx-ts/eslint-mdx/releases)
