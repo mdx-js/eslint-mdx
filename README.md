@@ -10,6 +10,7 @@
   </a>
 </p>
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/161e23a3f87d4e34a30054c5c157cd5c)](https://app.codacy.com/app/JounQin/eslint-mdx?utm_source=github.com&utm_medium=referral&utm_content=rx-ts/eslint-mdx&utm_campaign=Badge_Grade_Dashboard)
 [![Travis](https://img.shields.io/travis/com/rx-ts/eslint-mdx.svg)](https://travis-ci.com/rx-ts/eslint-mdx)
 [![Codecov](https://img.shields.io/codecov/c/gh/rx-ts/eslint-mdx)](https://codecov.io/gh/rx-ts/eslint-mdx)
 [![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Frx-ts%2Feslint-mdx%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
