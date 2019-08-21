@@ -24,8 +24,26 @@
 
 > [ESLint] Parser/Plugin for [MDX], helps you lint all ES syntaxes excluding `code` block of course.
 > Work perfectly with `eslint-plugin-import`, `eslint-plugin-prettier` or any other eslint plugins.
+> And also can be integrated with [remark] plugins to lint non ES syntaxes.
 
-## VSCode Extension [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/JounQin.vscode-mdx)](https://marketplace.visualstudio.com/items?itemName=JounQin.vscode-mdx)
+## TOC <!-- omit in toc -->
+
+- [VSCode Extension](#vscode-extension)
+- [Packages](#packages)
+- [Install](#install)
+- [Usage](#usage)
+- [Parser Options](#parser-options)
+- [Rules](#rules)
+  - [mdx/no-jsx-html-comments](#mdxno-jsx-html-comments)
+  - [mdx/no-unescaped-entities](#mdxno-unescaped-entities)
+  - [mdx/no-unused-expressions](#mdxno-unused-expressions)
+  - [mdx/remark](#mdxremark)
+- [Changelog](#changelog)
+- [License](#license)
+
+## VSCode Extension
+
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/JounQin.vscode-mdx)](https://marketplace.visualstudio.com/items?itemName=JounQin.vscode-mdx)
 
 [VSCode MDX]\: Integrates with [VSCode ESLint], syntaxes highlighting and error reporting.
 
@@ -110,7 +128,7 @@ npm i -D eslint-plugin-mdx
 
 ### mdx/no-jsx-html-comments
 
-HTML style comments in jsx block is invalid, this rule will help you to fix it by transforming it to JSX style comments.
+_Fixable_: HTML style comments in jsx block is invalid, this rule will help you to fix it by transforming it to JSX style comments.
 
 ### mdx/no-unescaped-entities
 
@@ -120,11 +138,11 @@ Inline JSX like `Inline <Component />` is supported by [MDX], but rule `react/no
 
 [MDX] can render `jsx` block automatically without exporting them, but [ESLint] will report `no-unused-expressions` issue which could be unexpected, this rule is a replacement of it, so make sure that you've turned off the original `no-unused-expressions` rule.
 
-## Limitation
+### mdx/remark
 
-> This parser/plugin can only handle ES syntaxes for you, markdown related syntaxes will just be ignored, you can use [markdownlint] or [remark-lint] to lint that part.
+_possible fixable depends on your remark plugins_:
 
-I have a very preliminary idea to integrate with [remark-lint].
+Integration with [remark] plugins without [remark-lint], it will read [remark's configuration](https://github.com/remarkjs/remark/tree/master/packages/remark-cli#remark-cli) automatically via [cosmiconfig]. But `.remarkignore` will not be respected, you should use `.eslintignore` instead.
 
 ## Changelog
 
@@ -132,9 +150,10 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 
 ## License
 
-[MIT] © [JounQin]@[1stG]
+[MIT] © [JounQin]@[1stG.me]
 
-[1stg]: https://www.1stg.me
+[1stg.me]: https://www.1stg.me
+[cosmiconfig]: https://github.com/davidtheclark/cosmiconfig
 [eslint]: https://eslint.org
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [jounqin]: https://GitHub.com/JounQin
@@ -142,6 +161,7 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 [mdx]: https://github.com/mdx-js/mdx
 [mit]: http://opensource.org/licenses/MIT
 [markdownlint]: https://github.com/markdownlint/markdownlint
+[remark]: https://github.com/remarkjs/remark
 [remark-lint]: https://github.com/remarkjs/remark-lint
 [vscode eslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
 [vscode mdx]: https://github.com/rx-ts/vscode-mdx

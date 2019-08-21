@@ -108,6 +108,7 @@ export class Parser {
             const endLineOffset = endLines.length - 1
             comments.push({
               fixed,
+              // ! eslint ast column is 0-indexed, but unified is 1-indexed
               loc: {
                 start: {
                   line: line + startLineOffset,
@@ -157,6 +158,7 @@ export class Parser {
       comments: [],
       tokens: [],
     }
+
     this._services = {
       JSXElementsWithHTMLComments: [],
     }
