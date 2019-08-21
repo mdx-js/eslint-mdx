@@ -1,4 +1,4 @@
-import { Settings, Attacher } from 'unified'
+import { Attacher, Settings } from 'unified'
 
 import { Node, ExpressionStatement } from 'estree'
 
@@ -14,7 +14,9 @@ export interface ExpressionStatementWithParent
 
 export type RemarkPlugin = string | Attacher
 
+export type RemarkPluginSettings = Settings | string | number | boolean
+
 export interface RemarkConfig {
   settings: Record<string, string>
-  plugins: Array<RemarkPlugin | [RemarkPlugin, ...Settings[]]>
+  plugins: Array<RemarkPlugin | [RemarkPlugin, ...RemarkPluginSettings[]]>
 }

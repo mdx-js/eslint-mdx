@@ -28,7 +28,7 @@ Lorem ipsum dolor sit _amet_, consectetur adipiscing elit. Ut ac lobortis velit.
 `;
 
 exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
-"import {Box} from '@rebass/emotion'
+"import { Box } from '@rebass/emotion'
 
 # Getting Started
 

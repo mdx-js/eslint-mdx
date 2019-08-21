@@ -5,6 +5,7 @@ import remarkStringify from 'remark-stringify'
 import unified, { Processor } from 'unified'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
+import vfile from 'vfile'
 
 import { RemarkConfig } from './types'
 
@@ -34,17 +35,22 @@ const getRemarkProcessor = (searchFrom?: string) => {
     (remarkConfig.searchSync(searchFrom) || ({} as CosmiconfigResult)).config ||
     {}
 
-  return plugins.reduce((remarkProcessor, pluginWithSettings) => {
-    const [plugin, ...pluginSettings] = Array.isArray(pluginWithSettings)
-      ? pluginWithSettings
-      : [pluginWithSettings]
-    return remarkProcessor.use(
-      /* istanbul ignore next */
-      // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
-      typeof plugin === 'string' ? require(plugin) : plugin,
-      ...pluginSettings,
-    )
-  }, remarkProcessor().use({ settings }))
+  // TODO: add support of option, improve original linter options(support array)
+  plugins.push(['remark-lint-file-extension', 'mdx'])
+
+  return plugins
+    .reduce((remarkProcessor, pluginWithSettings) => {
+      const [plugin, ...pluginSettings] = Array.isArray(pluginWithSettings)
+        ? pluginWithSettings
+        : [pluginWithSettings]
+      return remarkProcessor.use(
+        /* istanbul ignore next */
+        // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
+        typeof plugin === 'string' ? require(plugin) : plugin,
+        ...pluginSettings,
+      )
+    }, remarkProcessor().use({ settings }))
+    .freeze()
 }
 
 export const remark: Rule.RuleModule = {
@@ -62,14 +68,18 @@ export const remark: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
+    const filename = context.getFilename()
     const sourceCode = context.getSourceCode()
     return {
       Program(node) {
-        const file = getRemarkProcessor(context.getFilename()).processSync(
-          sourceCode.getText(node),
+        const sourceText = sourceCode.getText(node)
+        const remarkProcessor = getRemarkProcessor(filename)
+        const file = remarkProcessor.processSync(
+          vfile({
+            path: filename,
+            contents: sourceText,
+          }),
         )
-        const content = file.toString()
-        let fixed = false
         file.messages.forEach(
           ({ source, reason, ruleId, location: { start, end } }) =>
             context.report({
@@ -92,11 +102,24 @@ export const remark: Rule.RuleModule = {
               },
               node,
               fix(fixer) {
-                if (fixed) {
+                /* istanbul ignore if */
+                if (start.offset == null) {
                   return null
                 }
-                fixed = true
-                return fixer.replaceTextRange([0, content.length], content)
+                const range: [number, number] = [
+                  start.offset,
+                  /* istanbul ignore next */
+                  end.offset == null ? start.offset + 1 : end.offset,
+                ]
+                const partialText = sourceText.slice(...range)
+                const fixed = remarkProcessor
+                  .processSync(partialText)
+                  .toString()
+                return fixer.replaceTextRange(
+                  range,
+                  /* istanbul ignore next */
+                  partialText.endsWith('\n') ? fixed : fixed.slice(0, -1), // remove redundant new line
+                )
               },
             }),
         )
