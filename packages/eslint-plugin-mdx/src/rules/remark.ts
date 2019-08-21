@@ -31,7 +31,7 @@ const getRemarkProcessor = (searchFrom?: string) => {
 
   /* istanbul ignore next */
   const { plugins = [], settings }: Partial<RemarkConfig> =
-    remarkConfig.searchSync(searchFrom).config || {}
+    (remarkConfig.searchSync(searchFrom) || {}).config || {}
 
   return plugins.reduce((remarkProcessor, pluginWithSettings) => {
     const [plugin, ...pluginSettings] = Array.isArray(pluginWithSettings)
