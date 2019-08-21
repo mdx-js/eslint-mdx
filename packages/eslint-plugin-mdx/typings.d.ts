@@ -9,3 +9,9 @@ declare module 'eslint-plugin-react/lib/rules/no-unescaped-entities' {
   const reactNoUnescapedEntities: Rule.RuleModule
   export = reactNoUnescapedEntities
 }
+
+declare module 'vfile-reporter' {
+  import { VFile } from 'vfile'
+  const report: (content: Error | VFile) => string
+  export = report
+}
