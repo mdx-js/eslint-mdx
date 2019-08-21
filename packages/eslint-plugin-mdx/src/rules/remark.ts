@@ -8,7 +8,7 @@ import remarkParse from 'remark-parse'
 
 import { RemarkConfig } from './types'
 
-import cosmiconfig, { Explorer } from 'cosmiconfig'
+import cosmiconfig, { Explorer, CosmiconfigResult } from 'cosmiconfig'
 import { Rule } from 'eslint'
 
 let remarkConfig: Explorer
@@ -31,7 +31,8 @@ const getRemarkProcessor = (searchFrom?: string) => {
 
   /* istanbul ignore next */
   const { plugins = [], settings }: Partial<RemarkConfig> =
-    (remarkConfig.searchSync(searchFrom) || {}).config || {}
+    (remarkConfig.searchSync(searchFrom) || ({} as CosmiconfigResult)).config ||
+    {}
 
   return plugins.reduce((remarkProcessor, pluginWithSettings) => {
     const [plugin, ...pluginSettings] = Array.isArray(pluginWithSettings)
