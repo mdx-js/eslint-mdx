@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/rx-ts/eslint-mdx/compare/v1.1.0...v1.1.1) (2019-08-21)
+
+
+### Bug Fixes
+
+* cosmiconfig result could be null ([f78dd01](https://github.com/rx-ts/eslint-mdx/commit/f78dd01))
+
+
+
+
+
 ## [0.11.2](https://github.com/rx-ts/eslint-mdx/compare/v0.11.1...v0.11.2) (2019-08-13)
 
 **Note:** Version bump only for package @rxts/eslint-plugin-mdx
