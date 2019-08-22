@@ -1,64 +1,11 @@
-// eslint-disable-next-line @typescript-eslint/triple-slash-reference
-/// <reference path="../../typings.d.ts" />
-
 import path from 'path'
 
-import remarkStringify from 'remark-stringify'
-import unified, { Processor } from 'unified'
-import remarkMdx from 'remark-mdx'
-import remarkParse from 'remark-parse'
-import vfile from 'vfile'
 import { DEFAULT_EXTENSIONS } from 'eslint-mdx'
+import vfile from 'vfile'
 
-import { RemarkConfig } from './types'
+import { getRemarkProcessor } from './helper'
 
-import cosmiconfig, { Explorer, CosmiconfigResult } from 'cosmiconfig'
 import { Rule } from 'eslint'
-
-let remarkConfig: Explorer
-let remarkProcessor: Processor
-
-const getRemarkProcessor = (searchFrom: string, extname: string) => {
-  if (!remarkConfig) {
-    remarkConfig = cosmiconfig('remark', {
-      packageProp: 'remarkConfig',
-    })
-  }
-
-  if (!remarkProcessor) {
-    remarkProcessor = unified()
-      .use(remarkParse)
-      .freeze()
-  }
-
-  /* istanbul ignore next */
-  const { plugins = [], settings }: Partial<RemarkConfig> =
-    (remarkConfig.searchSync(searchFrom) || ({} as CosmiconfigResult)).config ||
-    {}
-
-  // disable this rule automatically since we have a parser option `extensions`
-  plugins.push(['remark-lint-file-extension', extname.slice(1)])
-
-  return plugins
-    .reduce(
-      (remarkProcessor, pluginWithSettings) => {
-        const [plugin, ...pluginSettings] = Array.isArray(pluginWithSettings)
-          ? pluginWithSettings
-          : [pluginWithSettings]
-        return remarkProcessor.use(
-          /* istanbul ignore next */
-          // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
-          typeof plugin === 'string' ? require(plugin) : plugin,
-          ...pluginSettings,
-        )
-      },
-      remarkProcessor()
-        .use({ settings })
-        .use(remarkStringify)
-        .use(remarkMdx),
-    )
-    .freeze()
-}
 
 export const remark: Rule.RuleModule = {
   meta: {
@@ -88,7 +35,7 @@ export const remark: Rule.RuleModule = {
           return
         }
         const sourceText = sourceCode.getText(node)
-        const remarkProcessor = getRemarkProcessor(filename, extname)
+        const remarkProcessor = getRemarkProcessor(filename)
         const file = remarkProcessor.processSync(
           vfile({
             path: filename,

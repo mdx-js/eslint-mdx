@@ -3,6 +3,7 @@ import { noUnescapedEntities } from './no-unescaped-entities'
 import { noUnusedExpressions } from './no-unused-expressions'
 import { remark } from './remark'
 
+export * from './helper'
 export * from './types'
 
 export { noJsxHtmlComments, noUnescapedEntities, noUnusedExpressions, remark }
