@@ -1,3 +1,5 @@
+import path from 'path'
+
 import remarkStringify from 'remark-stringify'
 import unified, { Processor } from 'unified'
 import remarkMdx from 'remark-mdx'
@@ -7,7 +9,14 @@ import { RemarkConfig } from './types'
 
 import cosmiconfig, { Explorer, CosmiconfigResult } from 'cosmiconfig'
 
-export const requirePkg = (plugin: string, prefix: string) => {
+export const requirePkg = (
+  plugin: string,
+  prefix: string,
+  filePath?: string,
+) => {
+  if (filePath && /^\.\.?([\\/]|$)/.test(plugin)) {
+    plugin = path.resolve(path.dirname(filePath), plugin)
+  }
   prefix = prefix.endsWith('-') ? prefix : prefix + '-'
   const packages = [
     plugin,
@@ -46,9 +55,10 @@ export const getRemarkProcessor = (searchFrom: string) => {
   }
 
   /* istanbul ignore next */
-  const { plugins = [], settings }: Partial<RemarkConfig> =
-    (remarkConfig.searchSync(searchFrom) || ({} as CosmiconfigResult)).config ||
-    {}
+  const { config, filepath }: Partial<CosmiconfigResult> =
+    remarkConfig.searchSync(searchFrom) || {}
+  /* istanbul ignore next */
+  const { plugins = [], settings }: Partial<RemarkConfig> = config || {}
 
   // disable this rule automatically since we already have a parser option `extensions`
   plugins.push(['lint-file-extension', false])
@@ -61,7 +71,9 @@ export const getRemarkProcessor = (searchFrom: string) => {
           : [pluginWithSettings]
         return remarkProcessor.use(
           /* istanbul ignore next */
-          typeof plugin === 'string' ? requirePkg(plugin, 'remark') : plugin,
+          typeof plugin === 'string'
+            ? requirePkg(plugin, 'remark', filepath)
+            : plugin,
           ...pluginSettings,
         )
       },
