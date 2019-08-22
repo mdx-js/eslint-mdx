@@ -35,6 +35,7 @@ export interface LocationError {
 
 export interface ParserOptions extends Linter.ParserOptions {
   extensions?: string | string[]
+  markdownExtensions?: string | string[]
   filePath?: string
   parser?: string | ParserConfig | ParserFn
 }

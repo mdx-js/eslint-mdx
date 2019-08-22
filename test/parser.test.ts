@@ -205,4 +205,12 @@ describe('parser', () => {
       }),
     ).not.toThrow()
   })
+
+  it('should work with plain markdown file', () =>
+    expect(() =>
+      parser.parse('<img><br>', {
+        ...parserOptions,
+        filePath: 'test.md',
+      }),
+    ).not.toThrow())
 })

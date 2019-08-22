@@ -12,7 +12,7 @@
   "scripts": {
     "build": "tsc -b",
     "test": "ts-node -T node_modules/.bin/jest",
-    "lint": "EFF_NO_LINK_RULES=true eslint . --ext js,mdx,ts,tsx -f friendly",
+    "lint": "EFF_NO_LINK_RULES=true eslint . --ext js,md,mdx,ts,tsx -f friendly",
     "type-coverage": "type-coverage --cache --ignore-catch --detail --ignore-files *.d.ts --strict"
   },
   "devDependencies": {
@@ -58,7 +58,9 @@
     ]
   },
   "eslintIgnore": [
+    "**/fixtures/**/*.md",
     "**/fixtures/**/*.mdx",
+    "CHANGELOG.md",
     "coverage",
     "lib",
     "node_modules"
@@ -80,13 +82,29 @@
   },
   "prettier": "@1stg/prettier-config",
   "remarkConfig": {
-    "settings": {
-      "emphasis": "*",
-      "strong": "*"
-    },
     "plugins": [
       "preset-lint-recommended",
-      "preset-lint-markdown-style-guide"
+      "preset-lint-markdown-style-guide",
+      [
+        "lint-list-item-spacing",
+        false
+      ],
+      [
+        "lint-list-item-indent",
+        false
+      ],
+      [
+        "lint-ordered-list-marker-value",
+        false
+      ],
+      [
+        "lint-emphasis-marker",
+        "_"
+      ],
+      [
+        "lint-maximum-line-length",
+        false
+      ]
     ]
   },
   "renovate": {

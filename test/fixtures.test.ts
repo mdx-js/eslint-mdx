@@ -10,7 +10,7 @@ export const cli = new CLIEngine({
 describe('fixtures', () => {
   it('should match all snapshots', () => {
     cli
-      .executeOnFiles(['test/fixtures/*.mdx'])
+      .executeOnFiles(['test/fixtures/*.{md,mdx}'])
       .results.forEach(({ filePath, output, source }) =>
         expect(output || source).toMatchSnapshot(basename(filePath)),
       )

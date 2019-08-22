@@ -72,6 +72,8 @@ Here's a YouTube shortcode:
 "
 `;
 
+exports[`fixtures should match all snapshots: markdown.md 1`] = `undefined`;
+
 exports[`fixtures should match all snapshots: no-jsx-html-comments.mdx 1`] = `
 "# Title
 
@@ -105,7 +107,4 @@ Header <header>
 "
 `;
 
-exports[`fixtures should match all snapshots: remark.mdx 1`] = `
-"_Hello_, **world**!
-"
-`;
+exports[`fixtures should match all snapshots: remark.mdx 1`] = `undefined`;

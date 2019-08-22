@@ -31,6 +31,7 @@ export const ES_NODE_TYPES: readonly string[] = ['export', 'import', 'jsx']
 export const LOC_ERROR_PROPERTIES = ['column', 'index', 'lineNumber'] as const
 
 export const DEFAULT_EXTENSIONS: readonly string[] = ['.mdx']
+export const MARKDOWN_EXTENSIONS: readonly string[] = ['.md']
 
 export const DEFAULT_PARSER_OPTIONS: ParserOptions = {
   comment: true,
@@ -140,11 +141,14 @@ export class Parser {
   }
 
   parseForESLint(code: string, options: ParserOptions) {
-    if (
-      !DEFAULT_EXTENSIONS.concat(options.extensions || []).includes(
-        path.extname(options.filePath),
-      )
-    ) {
+    const extname = path.extname(options.filePath)
+    const isMdx = DEFAULT_EXTENSIONS.concat(options.extensions || []).includes(
+      extname,
+    )
+    const isMarkdown = MARKDOWN_EXTENSIONS.concat(
+      options.markdownExtensions || [],
+    ).includes(extname)
+    if (!isMdx && !isMarkdown) {
       return this._eslintParse(code, options)
     }
 
@@ -163,17 +167,19 @@ export class Parser {
       JSXElementsWithHTMLComments: [],
     }
 
-    traverse(root, {
-      enter: (node, parent) => {
-        if (!ES_NODE_TYPES.includes(node.type)) {
-          return
-        }
+    if (isMdx) {
+      traverse(root, {
+        enter: (node, parent) => {
+          if (!ES_NODE_TYPES.includes(node.type)) {
+            return
+          }
 
-        let normalized = this.normalizeJsxNode(node, parent)
-        normalized = Array.isArray(normalized) ? normalized : [normalized]
-        normalized.forEach(node => this._nodeToAst(node, options))
-      },
-    })
+          let normalized = this.normalizeJsxNode(node, parent)
+          normalized = Array.isArray(normalized) ? normalized : [normalized]
+          normalized.forEach(node => this._nodeToAst(node, options))
+        },
+      })
+    }
 
     return {
       ast: this._ast,

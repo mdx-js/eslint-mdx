@@ -22,9 +22,9 @@
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org)
 [![codechecks.io](https://raw.githubusercontent.com/codechecks/docs/master/images/badges/badge-default.svg?sanitize=true)](https://codechecks.io)
 
-> [ESLint] Parser/Plugin for [MDX], helps you lint all ES syntaxes excluding `code` block of course.
+> [ESLint][] Parser/Plugin for [MDX][], helps you lint all ES syntaxes excluding `code` block of course.
 > Work perfectly with `eslint-plugin-import`, `eslint-plugin-prettier` or any other eslint plugins.
-> And also can be integrated with [remark] plugins to lint non ES syntaxes.
+> And also can be integrated with [remark][] plugins to lint non ES syntaxes.
 
 ## TOC <!-- omit in toc -->
 
@@ -45,11 +45,11 @@
 
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/JounQin.vscode-mdx)](https://marketplace.visualstudio.com/items?itemName=JounQin.vscode-mdx)
 
-[VSCode MDX]\: Integrates with [VSCode ESLint], syntaxes highlighting and error reporting.
+[VSCode MDX][]\: Integrates with [VSCode ESLint][], syntaxes highlighting and error reporting.
 
 ## Packages
 
-This repository is a monorepo managed by [Lerna] what means we actually publish several packages to npm from same codebase, including:
+This repository is a monorepo managed by [Lerna][] what means we actually publish several packages to npm from same codebase, including:
 
 | Package                                            | Description                                    | Version                                                                                                       | Peer Dependencies                                                                                                                                                                        | Dependencies                                                                                                                                                         |
 | -------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -124,6 +124,8 @@ npm i -D eslint-plugin-mdx
 
 2. `extensions` (`string | string[]`): `eslint-mdx` will only resolve `.mdx` files by default, files with other extensions will be resolved by the `parser` option. If you want to resolve other extensions as like `.mdx`, you can use this option.
 
+3. `markdownExtensions` (`string | string[]`): `eslint-mdx` will only treat `.md` files as plain markdown by default, and will lint them via remark plugins. If you want to resolve other extensions as like `.md`, you can use this option.
+
 ## Rules
 
 ### mdx/no-jsx-html-comments
@@ -132,17 +134,17 @@ _Fixable_: HTML style comments in jsx block is invalid, this rule will help you 
 
 ### mdx/no-unescaped-entities
 
-Inline JSX like `Inline <Component />` is supported by [MDX], but rule `react/no-unescaped-entities` from [eslint-plugin-react] is incompatible with it, `mdx/no-unescaped-entities` is the replacement.
+Inline JSX like `Inline <Component />` is supported by [MDX][], but rule `react/no-unescaped-entities` from [eslint-plugin-react][] is incompatible with it, `mdx/no-unescaped-entities` is the replacement.
 
 ### mdx/no-unused-expressions
 
-[MDX] can render `jsx` block automatically without exporting them, but [ESLint] will report `no-unused-expressions` issue which could be unexpected, this rule is a replacement of it, so make sure that you've turned off the original `no-unused-expressions` rule.
+[MDX][] can render `jsx` block automatically without exporting them, but [ESLint][] will report `no-unused-expressions` issue which could be unexpected, this rule is a replacement of it, so make sure that you've turned off the original `no-unused-expressions` rule.
 
 ### mdx/remark
 
 _possible fixable depends on your remark plugins_:
 
-Integration with [remark] plugins without [remark-lint], it will read [remark's configuration](https://github.com/remarkjs/remark/tree/master/packages/remark-cli#remark-cli) automatically via [cosmiconfig]. But `.remarkignore` will not be respected, you should use `.eslintignore` instead.
+Integration with [remark][] plugins without [remark-lint][], it will read [remark's configuration](https://github.com/remarkjs/remark/tree/master/packages/remark-cli#remark-cli) automatically via [cosmiconfig][]. But `.remarkignore` will not be respected, you should use `.eslintignore` instead.
 
 ## Changelog
 
@@ -150,7 +152,7 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 
 ## License
 
-[MIT] © [JounQin]@[1stG.me]
+[MIT][] © [JounQin][]@[1stG.me][]
 
 [1stg.me]: https://www.1stg.me
 [cosmiconfig]: https://github.com/davidtheclark/cosmiconfig
@@ -160,7 +162,6 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 [lerna]: https://github.com/lerna/lerna
 [mdx]: https://github.com/mdx-js/mdx
 [mit]: http://opensource.org/licenses/MIT
-[markdownlint]: https://github.com/markdownlint/markdownlint
 [remark]: https://github.com/remarkjs/remark
 [remark-lint]: https://github.com/remarkjs/remark-lint
 [vscode eslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint

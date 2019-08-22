@@ -1,6 +1,6 @@
 import path from 'path'
 
-import { DEFAULT_EXTENSIONS } from 'eslint-mdx'
+import { DEFAULT_EXTENSIONS, MARKDOWN_EXTENSIONS } from 'eslint-mdx'
 import vfile from 'vfile'
 
 import { getRemarkProcessor } from './helper'
@@ -27,6 +27,8 @@ export const remark: Rule.RuleModule = {
     const sourceCode = context.getSourceCode()
     const extensions = DEFAULT_EXTENSIONS.concat(
       context.parserOptions.extensions || [],
+      MARKDOWN_EXTENSIONS,
+      context.parserOptions.markdownExtensions || [],
     )
     return {
       Program(node) {
