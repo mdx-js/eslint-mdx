@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/rx-ts/eslint-mdx/compare/v0.11.2...v1.1.0) (2019-08-21)
+
+
+### Features
+
+* feat: integrate with remark plugins without remark-lint, close #19 ([4b50e27](https://github.com/rx-ts/eslint-mdx/commit/4b50e27))
+* feat: rename plugin to `eslint-plugin-mdx`, thanks to @azz ([3c6fd15](https://github.com/rx-ts/eslint-mdx/commit/3c6fd15))
+
+
+
+
+
 ## [0.11.2](https://github.com/rx-ts/eslint-mdx/compare/v0.11.1...v0.11.2) (2019-08-13)
 
 
