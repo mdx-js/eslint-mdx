@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/rx-ts/eslint-mdx/compare/v1.2.1...v1.3.0) (2019-08-22)
+
+
+### Features
+
+* resolve remark plugin with prefix `remark-` automatically ([5284395](https://github.com/rx-ts/eslint-mdx/commit/5284395))
+
+
+
+
+
 ## [1.2.1](https://github.com/rx-ts/eslint-mdx/compare/v1.2.0...v1.2.1) (2019-08-21)
 
 
