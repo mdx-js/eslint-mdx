@@ -19,7 +19,7 @@
     "@1stg/babel-preset": "^0.4.2",
     "@1stg/eslint-config": "^0.2.1",
     "@1stg/husky-config": "^0.1.0",
-    "@1stg/lint-staged": "^0.2.0",
+    "@1stg/lint-staged": "^0.5.0",
     "@1stg/prettier-config": "^0.1.0",
     "@1stg/tsconfig": "^0.1.0",
     "@babel/core": "^7.5.5",

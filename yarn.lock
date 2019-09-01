@@ -46,10 +46,10 @@
   resolved "https://registry.yarnpkg.com/@1stg/husky-config/-/husky-config-0.1.0.tgz#b837fbfb6333cff47daf5018f18cff75cc1a4eaa"
   integrity sha512-PWbYMx5Ev9ZEwCf3TP30SL2OLso7zsC5PWMjXLeU0ApTqWjJ107oM+g/8zxsZo1ArIgwGZn4ALcvqw6MKkKKcw==
 
-"@1stg/lint-staged@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@1stg/lint-staged/-/lint-staged-0.2.0.tgz#2475c1f0ee19c0ed2b8a01eec3cf90ae9ceb3c90"
-  integrity sha512-on9UQ/SXEQOj/ElfvXsGcePj9k3dHoSF7SH9PmH46f3qTIWPntyOPxuxfCeSXWt5/PU6hXilXiQ6inW0v+F7aA==
+"@1stg/lint-staged@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@1stg/lint-staged/-/lint-staged-0.5.0.tgz#08bd15f1d3217483714ba99f7504fdc29b0ac2e6"
+  integrity sha512-mJeMMcQ/y+E7QhDwO9hGKd9A5EgTuiHV7icOwIZ877t5sewTeY6BvC87ixurrWpb+Nl1PmzNGSmMgcpevXKNZQ==
 
 "@1stg/prettier-config@^0.1.0":
   version "0.1.0"
@@ -4226,7 +4226,6 @@ eslint-import-resolver-typescript@JounQin/eslint-import-resolver-typescript#feat
 
 "eslint-mdx@link:packages/eslint-mdx/src":
   version "0.0.0"
-  uid ""
 
 eslint-module-utils@^2.4.0:
   version "2.4.1"
@@ -4277,7 +4276,6 @@ eslint-plugin-jest@^22.15.1:
 
 "eslint-plugin-mdx@link:packages/eslint-plugin-mdx/src":
   version "0.0.0"
-  uid ""
 
 eslint-plugin-node@^9.1.0:
   version "9.1.0"
