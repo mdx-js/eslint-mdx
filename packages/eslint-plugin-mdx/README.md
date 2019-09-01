@@ -24,7 +24,7 @@
 
 > [ESLint][] Parser/Plugin for [MDX][], helps you lint all ES syntaxes excluding `code` block of course.
 > Work perfectly with `eslint-plugin-import`, `eslint-plugin-prettier` or any other eslint plugins.
-> And also can be integrated with [remark][] plugins to lint non ES syntaxes.
+> And also can be integrated with [remark-lint][] plugins to lint markdown syntaxes.
 
 ## TOC <!-- omit in toc -->
 
@@ -38,6 +38,7 @@
   - [mdx/no-unescaped-entities](#mdxno-unescaped-entities)
   - [mdx/no-unused-expressions](#mdxno-unused-expressions)
   - [mdx/remark](#mdxremark)
+- [Prettier Integration](#prettier-integration)
 - [Changelog](#changelog)
 - [License](#license)
 
@@ -72,10 +73,22 @@ npm i -D eslint-plugin-mdx
 
    1. If you're using `eslint >= 6.0.0`, add:
 
-      ```json
+      ```jsonc
       {
         "extends": ["plugin:mdx/recommended"],
         "overrides": [
+          {
+            "files": ["*.md"],
+            "rules": {
+              "prettier/prettier": [
+                2,
+                {
+                  // unnecessary if you're not using `eslint-plugin-prettier`, but required if you are
+                  "parser": "markdown"
+                }
+              ]
+            }
+          },
           {
             "files": ["*.mdx"],
             "extends": ["plugin:mdx/overrides"]
@@ -92,6 +105,18 @@ npm i -D eslint-plugin-mdx
       module.exports = {
         extends: ['plugin:mdx/recommended'],
         overrides: [
+          {
+            files: ['*.md'],
+            rules: {
+              'prettier/prettier': [
+                2,
+                {
+                  // unnecessary if you're not using `eslint-plugin-prettier`, but required if you are
+                  parser: 'markdown',
+                },
+              ],
+            },
+          },
           Object.assign(
             {
               files: ['*.mdx'],
@@ -143,7 +168,22 @@ Inline JSX like `Inline <Component />` is supported by [MDX][], but rule `react/
 
 _possible fixable depends on your remark plugins_:
 
-Integration with [remark][] plugins without [remark-lint][], it will read [remark's configuration](https://github.com/remarkjs/remark/tree/master/packages/remark-cli#remark-cli) automatically via [cosmiconfig][]. But `.remarkignore` will not be respected, you should use `.eslintignore` instead.
+Integration with [remark-lint][] plugins, it will read [remark's configuration](https://github.com/remarkjs/remark/tree/master/packages/remark-cli#remark-cli) automatically via [cosmiconfig][]. But `.remarkignore` will not be respected, you should use `.eslintignore` instead.
+
+## Prettier Integration
+
+If you're using [remark-lint][] feature with [Prettier][] both together, you can try [remark-preset-prettier][] which helps you to _turn off all rules that are unnecessary or might conflict with [Prettier]_.
+
+```json
+{
+  "plugins": [
+    "preset-lint-consistent",
+    "preset-lint-recommended",
+    "preset-lint-markdown-style-guide",
+    "preset-prettier"
+  ]
+}
+```
 
 ## Changelog
 
@@ -161,7 +201,8 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 [lerna]: https://github.com/lerna/lerna
 [mdx]: https://github.com/mdx-js/mdx
 [mit]: http://opensource.org/licenses/MIT
-[remark]: https://github.com/remarkjs/remark
+[prettier]: https://prettier.io
 [remark-lint]: https://github.com/remarkjs/remark-lint
+[remark-preset-prettier]: https://github.com/JounQin/remark-preset-prettier
 [vscode eslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
 [vscode mdx]: https://github.com/rx-ts/vscode-mdx

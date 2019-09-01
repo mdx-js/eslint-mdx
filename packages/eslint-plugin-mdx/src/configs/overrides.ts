@@ -1,18 +1,13 @@
 import { base } from './base'
+import { getGlobals } from './helper'
 
 import * as rebass from 'rebass'
 
 export const overrides = {
   ...base,
-  globals: Object.keys(rebass).reduce<Record<string, false>>(
-    (globals, Component) =>
-      Object.assign(globals, {
-        [Component]: false,
-      }),
-    {
-      React: false,
-    },
-  ),
+  globals: getGlobals(rebass, {
+    React: false,
+  }),
   rules: {
     'lines-between-class-members': 0, // See https://github.com/mdx-js/mdx/issues/195
     'react/jsx-no-undef': [
