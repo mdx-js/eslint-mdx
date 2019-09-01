@@ -56,6 +56,11 @@
   resolved "https://registry.yarnpkg.com/@1stg/prettier-config/-/prettier-config-0.1.0.tgz#abcc5e4ee92ced16f4d32da659a75adfdbd27a60"
   integrity sha512-bL4ADvk2k0rtv4ye3uI1ImfKbe3op+M/5Ff8FIsPvQroTWfNK8AhS4b7nnUl/U8yQpwkOA6aUNRSJtos9S4ABw==
 
+"@1stg/prettier-config@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@1stg/prettier-config/-/prettier-config-0.1.1.tgz#15a7ca7e27d9545e8adf006c8157abdaba3cce8e"
+  integrity sha512-JoHDYcwqkx3LlxH3vYWBRAPupYSdX+5hQsWFgNaLeDWVdXVr64urS/MrlcxLpWiQXFXZgtQrSqoSSGkX5kiTkA==
+
 "@1stg/tsconfig@^0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@1stg/tsconfig/-/tsconfig-0.1.0.tgz#5d10e823a407f727aaec35ac6bf011d14f64e51b"
@@ -4226,7 +4231,6 @@ eslint-import-resolver-typescript@JounQin/eslint-import-resolver-typescript#feat
 
 "eslint-mdx@link:packages/eslint-mdx/src":
   version "0.0.0"
-  uid ""
 
 eslint-module-utils@^2.4.0:
   version "2.4.1"
@@ -4277,7 +4281,6 @@ eslint-plugin-jest@^22.15.1:
 
 "eslint-plugin-mdx@link:packages/eslint-plugin-mdx/src":
   version "0.0.0"
-  uid ""
 
 eslint-plugin-node@^9.1.0:
   version "9.1.0"
