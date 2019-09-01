@@ -88,7 +88,6 @@ npm i -D eslint-plugin-mdx
 
       ```js
       const { configs } = require('eslint-plugin-mdx')
-      const rebass = require('rebass')
 
       module.exports = {
         extends: ['plugin:mdx/recommended'],

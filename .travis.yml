@@ -32,17 +32,17 @@ before_deploy:
   - cp -f README.md packages/eslint-mdx
   - cp -f README.md packages/eslint-plugin-mdx
   - 'git add --all && git commit -m "docs: update README" || echo "nothing changed to commit"'
-  - yarn run lerna-changelog
+  - yarn lerna-changelog
 
 deploy:
   - provider: script
     skip_cleanup: true
-    script: yarn run lerna publish --create-release github --yes
+    script: yarn lerna publish --create-release github --yes
     on:
       branch: master
   - provider: script
     skip_cleanup: true
-    script: yarn run lerna publish --canary --conventional-prerelease --force-publish --preid beta --pre-dist-tag beta --yes
+    script: yarn lerna publish --canary --conventional-prerelease --force-publish --preid beta --pre-dist-tag beta --yes
     on:
       branch: develop
 

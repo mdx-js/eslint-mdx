@@ -10,13 +10,6 @@ module.exports = {
   overrides: [
     ...overrides,
     {
-      files: '*.md',
-      extends: ['plugin:mdx/recommended'],
-      rules: {
-        'prettier/prettier': 0, // FIXME: should be supported
-      },
-    },
-    {
       files: '*.ts',
       rules: {
         '@typescript-eslint/unbound-method': 0, // See https://github.com/typescript-eslint/typescript-eslint/issues/636
