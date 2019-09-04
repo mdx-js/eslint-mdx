@@ -38,7 +38,7 @@
     "eslint-mdx": "link:packages/eslint-mdx/src",
     "eslint-plugin-mdx": "link:packages/eslint-plugin-mdx/src",
     "eslint-plugin-react": "^7.14.3",
-    "husky": "^3.0.4",
+    "husky": "^3.0.5",
     "jest": "^24.9.0",
     "lerna": "^3.16.4",
     "lerna-changelog": "^0.8.2",
