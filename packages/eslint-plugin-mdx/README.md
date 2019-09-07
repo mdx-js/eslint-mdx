@@ -172,7 +172,7 @@ Integration with [remark-lint][] plugins, it will read [remark's configuration](
 
 ## Prettier Integration
 
-If you're using [remark-lint][] feature with [Prettier][] both together, you can try [remark-preset-prettier][] which helps you to _turn off all rules that are unnecessary or might conflict with [Prettier]_.
+If you're using [remark-lint][] feature with [Prettier][] both together, you can try [remark-preset-prettier][] which helps you to _turn off all rules that are unnecessary or might conflict with [Prettier][]_.
 
 ```json
 {

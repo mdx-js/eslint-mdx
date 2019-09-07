@@ -11,6 +11,11 @@ module.exports = {
     ...overrides,
     {
       files: '*.ts',
+      settings: {
+        node: {
+          allowModules: ['@babel/types', 'estree', 'unist'],
+        },
+      },
       rules: {
         '@typescript-eslint/unbound-method': 0, // See https://github.com/typescript-eslint/typescript-eslint/issues/636
       },

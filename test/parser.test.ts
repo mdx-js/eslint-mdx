@@ -9,6 +9,7 @@ import {
   ParserOptions,
   DEFAULT_PARSER_OPTIONS as parserOptions,
 } from 'eslint-mdx'
+// eslint-disable-next-line node/no-extraneous-import
 import { parse } from 'espree'
 
 import { noop } from './helper'

@@ -49,4 +49,4 @@ deploy:
 after_script:
   - yarn add -D @codechecks/client @codechecks/build-size-watcher @codechecks/type-coverage-watcher codacy-coverage -W
   - yarn codechecks
-  - cat ./coverage/lcov.info | codacy-coverage
+  - cat ./coverage/lcov.info | yarn codacy-coverage

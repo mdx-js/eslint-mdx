@@ -60,8 +60,13 @@ export const getRemarkProcessor = (searchFrom: string) => {
   /* istanbul ignore next */
   const { plugins = [], settings }: Partial<RemarkConfig> = config || {}
 
-  // disable this rule automatically since we already have a parser option `extensions`
-  plugins.push(['lint-file-extension', false])
+  try {
+    // disable this rule automatically since we already have a parser option `extensions`
+    // eslint-disable-next-line node/no-extraneous-require
+    plugins.push([require.resolve('remark-lint-file-extension'), false])
+  } catch (e) {
+    // just ignore if the package does not
+  }
 
   return plugins
     .reduce(
