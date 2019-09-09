@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.6](https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-plugin-mdx/compare/v1.4.5...v1.4.6) (2019-09-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency remark-stringify to ^7.0.3 ([#61](https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-plugin-mdx/issues/61)) ([849d9a1](https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-plugin-mdx/commit/849d9a1))
+
+
+
+
+
 ## [1.4.5](https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-plugin-mdx/compare/v1.4.4...v1.4.5) (2019-09-09)
 
 **Note:** Version bump only for package eslint-plugin-mdx
