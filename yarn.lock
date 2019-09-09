@@ -9019,6 +9019,11 @@ remark-preset-prettier@^0.1.1:
   resolved "https://registry.yarnpkg.com/remark-preset-prettier/-/remark-preset-prettier-0.1.1.tgz#9afdf35f47c3f879bb16cffbfd1ffa59a1a40f41"
   integrity sha512-RaN9nqE/uCarQk4nFU8CLK2atOzWnMEc4MNQs819JvrOGRfiH7OHnKyHDiKfcYeHtyH3ECKYZDB2qvTLLn7hUg==
 
+remark-preset-prettier@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/remark-preset-prettier/-/remark-preset-prettier-0.2.0.tgz#cb369b86ce7d7980e90879fe468bae501fc06969"
+  integrity sha512-JC79MERKMoOrokjCsnMe1RXxH5KrZ2veg5eGRDzUbfKliXSTVMMvvw3PoZ5Gng8MhPrpOd+DkE+jpu937aS/wQ==
+
 remark-stringify@^7.0.2:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/remark-stringify/-/remark-stringify-7.0.3.tgz#9221e9770b0b395af83a0d5881a44b6fcb9d0a2a"
