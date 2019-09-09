@@ -4295,7 +4295,6 @@ eslint-import-resolver-typescript@JounQin/eslint-import-resolver-typescript#feat
 
 "eslint-mdx@link:packages/eslint-mdx/src":
   version "0.0.0"
-  uid ""
 
 eslint-module-utils@^2.4.0:
   version "2.4.1"
@@ -4359,7 +4358,6 @@ eslint-plugin-jest@^22.17.0:
 
 "eslint-plugin-mdx@link:packages/eslint-plugin-mdx/src":
   version "0.0.0"
-  uid ""
 
 eslint-plugin-node@^10.0.0:
   version "10.0.0"
@@ -9020,7 +9018,7 @@ remark-preset-prettier@^0.2.0:
   resolved "https://registry.yarnpkg.com/remark-preset-prettier/-/remark-preset-prettier-0.2.0.tgz#cb369b86ce7d7980e90879fe468bae501fc06969"
   integrity sha512-JC79MERKMoOrokjCsnMe1RXxH5KrZ2veg5eGRDzUbfKliXSTVMMvvw3PoZ5Gng8MhPrpOd+DkE+jpu937aS/wQ==
 
-remark-stringify@^7.0.2:
+remark-stringify@^7.0.3:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/remark-stringify/-/remark-stringify-7.0.3.tgz#9221e9770b0b395af83a0d5881a44b6fcb9d0a2a"
   integrity sha512-+jgmjNjm2kR7y2Ns1BATXRlFr+iQ7sDcpSgytfU77nkw7UCd5yJNArSxB3MU3Uul7HuyYNTCjetoGfy8xLia1A==
