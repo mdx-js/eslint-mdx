@@ -2,7 +2,7 @@
   "name": "eslint-plugin-mdx",
   "version": "1.4.4",
   "description": "ESLint Plugin for MDX",
-  "repository": "git@github.com:rx-ts/eslint-mdx.git",
+  "repository": "https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-plugin-mdx",
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
   "main": "lib",

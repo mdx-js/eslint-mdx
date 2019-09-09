@@ -2,7 +2,7 @@
   "name": "eslint-mdx",
   "version": "1.4.4",
   "description": "ESLint Parser for MDX",
-  "repository": "git@github.com:rx-ts/eslint-mdx.git",
+  "repository": "https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-mdx",
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
   "main": "lib",
