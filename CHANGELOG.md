@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.4](https://github.com/rx-ts/eslint-mdx/compare/v1.4.3...v1.4.4) (2019-09-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency remark-mdx to ^1.4.4 ([#60](https://github.com/rx-ts/eslint-mdx/issues/60)) ([d252e0b](https://github.com/rx-ts/eslint-mdx/commit/d252e0b))
+
+
+
+
+
 ## [1.4.3](https://github.com/rx-ts/eslint-mdx/compare/v1.4.2...v1.4.3) (2019-09-07)
 
 
