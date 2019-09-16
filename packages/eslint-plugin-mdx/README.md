@@ -71,7 +71,15 @@ npm i -D eslint-plugin-mdx
 
 1. In your ESLint config file:
 
-   1. If you're using `eslint >= 6.0.0`, add:
+   1. If you're using `eslint >= 6.4.0`, just add:
+
+      ```json
+      {
+        "extends": ["plugin:mdx/recommended"]
+      }
+      ```
+
+   2. If you're using `eslint >=6.0.0 and <6.4.0`, add as following because it does not support overrides from npm pkg:
 
       ```jsonc
       {
@@ -97,7 +105,7 @@ npm i -D eslint-plugin-mdx
       }
       ```
 
-   2. If you're using `eslint@^5.0.0`, you need to enable this parser/plugin manually, because `eslint@5` does not support `extends` for `overrides` property in its configuration:
+   3. If you're using `eslint@^5.0.0`, you need to enable this parser/plugin manually, because `eslint@5` does not support `extends` for `overrides` property in its configuration:
 
       ```js
       const { configs } = require('eslint-plugin-mdx')
