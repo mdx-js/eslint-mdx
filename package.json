@@ -18,7 +18,7 @@
   "devDependencies": {
     "@1stg/babel-preset": "^0.6.0",
     "@1stg/browserslist-config": "^0.2.1",
-    "@1stg/eslint-config": "^0.9.1",
+    "@1stg/eslint-config": "^0.9.3",
     "@1stg/husky-config": "^0.3.0",
     "@1stg/lint-staged": "^0.6.0",
     "@1stg/prettier-config": "^0.2.0",
