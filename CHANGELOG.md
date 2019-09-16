@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/rx-ts/eslint-mdx/compare/v1.4.6...v1.5.0) (2019-09-16)
+
+
+### Bug Fixes
+
+* ts-jest@24.1.0 breaks tests ([5dad8a5](https://github.com/rx-ts/eslint-mdx/commit/5dad8a5))
+
+
+### Features
+
+* **configs:** support overrides in recommended config for eslint>=6.4.0 ([f6ee675](https://github.com/rx-ts/eslint-mdx/commit/f6ee675))
+
+
+
+
+
 ## [1.4.6](https://github.com/rx-ts/eslint-mdx/compare/v1.4.5...v1.4.6) (2019-09-09)
 
 
