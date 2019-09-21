@@ -14,7 +14,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.4.5](https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-mdx/compare/v1.4.4...v1.4.5) (2019-09-09)
+## [1.4.5](https://github.com/rx-ts/eslint-mdx/compare/v1.4.4...v1.4.5) (2019-09-09)
 
 **Note:** Version bump only for package eslint-mdx
 

@@ -14,34 +14,34 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.5.0](https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-plugin-mdx/compare/v1.4.6...v1.5.0) (2019-09-16)
+# [1.5.0](https://github.com/rx-ts/eslint-mdx/compare/v1.4.6...v1.5.0) (2019-09-16)
 
 
 ### Bug Fixes
 
-* ts-jest@24.1.0 breaks tests ([5dad8a5](https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-plugin-mdx/commit/5dad8a5))
+* ts-jest@24.1.0 breaks tests ([5dad8a5](https://github.com/rx-ts/eslint-mdx/commit/5dad8a5))
 
 
 ### Features
 
-* **configs:** support overrides in recommended config for eslint>=6.4.0 ([f6ee675](https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-plugin-mdx/commit/f6ee675))
+* **configs:** support overrides in recommended config for eslint>=6.4.0 ([f6ee675](https://github.com/rx-ts/eslint-mdx/commit/f6ee675))
 
 
 
 
 
-## [1.4.6](https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-plugin-mdx/compare/v1.4.5...v1.4.6) (2019-09-09)
+## [1.4.6](https://github.com/rx-ts/eslint-mdx/compare/v1.4.5...v1.4.6) (2019-09-09)
 
 
 ### Bug Fixes
 
-* **deps:** update dependency remark-stringify to ^7.0.3 ([#61](https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-plugin-mdx/issues/61)) ([849d9a1](https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-plugin-mdx/commit/849d9a1))
+* **deps:** update dependency remark-stringify to ^7.0.3 ([#61](https://github.com/rx-ts/eslint-mdx/issues/61)) ([849d9a1](https://github.com/rx-ts/eslint-mdx/commit/849d9a1))
 
 
 
 
 
-## [1.4.5](https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-plugin-mdx/compare/v1.4.4...v1.4.5) (2019-09-09)
+## [1.4.5](https://github.com/rx-ts/eslint-mdx/compare/v1.4.4...v1.4.5) (2019-09-09)
 
 **Note:** Version bump only for package eslint-plugin-mdx
 
