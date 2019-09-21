@@ -1,6 +1,6 @@
 {
   "name": "eslint-mdx",
-  "version": "1.4.5",
+  "version": "1.5.1",
   "description": "ESLint Parser for MDX",
   "repository": {
     "type": "git",
