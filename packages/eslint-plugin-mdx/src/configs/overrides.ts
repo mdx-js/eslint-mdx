@@ -1,7 +1,7 @@
+import * as rebass from 'rebass'
+
 import { base } from './base'
 import { getGlobals } from './helper'
-
-import * as rebass from 'rebass'
 
 export const overrides = {
   ...base,

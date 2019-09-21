@@ -1,6 +1,5 @@
 import { JSXElement, JSXFragment } from '@babel/types'
-
-import { Linter, AST } from 'eslint'
+import { AST, Linter } from 'eslint'
 import { Node, Parent, Point } from 'unist'
 
 export type JsxNode = (JSXElement | JSXFragment) & { range: [number, number] }

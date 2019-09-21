@@ -1,20 +1,15 @@
-// eslint-disable-next-line @typescript-eslint/triple-slash-reference
-/// <reference path="../packages/eslint-mdx/typings.d.ts" />
-
 import {
+  DEFAULT_PARSER_OPTIONS as parserOptions,
+  ParserOptions,
   first,
   mdxProcessor,
-  parser,
   normalizeParser,
-  ParserOptions,
-  DEFAULT_PARSER_OPTIONS as parserOptions,
+  parser,
 } from 'eslint-mdx'
-// eslint-disable-next-line node/no-extraneous-import
 import { parse } from 'espree'
+import { Node } from 'unist'
 
 import { noop } from './helper'
-
-import { Node } from 'unist'
 
 export const stringToNode = (text: string) =>
   first(mdxProcessor.parse(text).children as Node[])

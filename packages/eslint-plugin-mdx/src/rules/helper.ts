@@ -1,13 +1,11 @@
+import cosmiconfig, { CosmiconfigResult, Explorer } from 'cosmiconfig'
 import path from 'path'
-
-import remarkStringify from 'remark-stringify'
-import unified, { Processor } from 'unified'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
+import remarkStringify from 'remark-stringify'
+import unified, { Processor } from 'unified'
 
 import { RemarkConfig } from './types'
-
-import cosmiconfig, { Explorer, CosmiconfigResult } from 'cosmiconfig'
 
 export const requirePkg = (
   plugin: string,
@@ -70,11 +68,11 @@ export const getRemarkProcessor = (searchFrom: string) => {
 
   return plugins
     .reduce(
-      (remarkProcessor, pluginWithSettings) => {
+      (processor, pluginWithSettings) => {
         const [plugin, ...pluginSettings] = Array.isArray(pluginWithSettings)
           ? pluginWithSettings
           : [pluginWithSettings]
-        return remarkProcessor.use(
+        return processor.use(
           /* istanbul ignore next */
           typeof plugin === 'string'
             ? requirePkg(plugin, 'remark', filepath)

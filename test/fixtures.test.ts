@@ -1,6 +1,5 @@
-import { basename } from 'path'
-
 import { CLIEngine } from 'eslint'
+import { basename } from 'path'
 
 export const cli = new CLIEngine({
   ignore: false,

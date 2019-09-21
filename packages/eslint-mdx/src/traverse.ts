@@ -1,14 +1,14 @@
+import { Node, Parent } from 'unist'
+
 import { last } from './helper'
 import {
-  isOpenTag,
   isCloseTag,
   isComment,
-  isSelfClosingTag,
   isOpenCloseTag,
+  isOpenTag,
+  isSelfClosingTag,
 } from './regexp'
-import { Traverser, TraverseOptions } from './types'
-
-import { Node, Parent } from 'unist'
+import { TraverseOptions, Traverser } from './types'
 
 export class Traverse {
   // @internal

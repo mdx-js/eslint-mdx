@@ -1,6 +1,5 @@
+import { ExpressionStatement, Node } from 'estree'
 import { Attacher } from 'unified'
-
-import { Node, ExpressionStatement } from 'estree'
 
 export interface WithParent {
   parent?: NodeWithParent

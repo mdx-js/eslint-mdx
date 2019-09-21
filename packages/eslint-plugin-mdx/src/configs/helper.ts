@@ -11,7 +11,6 @@ export const getGlobals = <
         [source]: false,
       }),
     // FIXME: find a better solution
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
     // @ts-ignore
     initialGlobals,
   )

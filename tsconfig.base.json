@@ -1,8 +1,7 @@
 {
-  "extends": "./node_modules/@1stg/tsconfig/tsconfig.json",
+  "extends": "@1stg/tsconfig/tsconfig",
   "compilerOptions": {
     "module": "commonjs",
-    "outDir": "lib",
     "skipLibCheck": true,
     "strictFunctionTypes": false,
     "strictNullChecks": false

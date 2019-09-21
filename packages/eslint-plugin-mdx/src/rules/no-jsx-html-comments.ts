@@ -1,9 +1,8 @@
-import { JSX_TYPES, Comment, JsxType } from 'eslint-mdx'
+import { Rule } from 'eslint'
+import { Comment, JSX_TYPES, JsxType } from 'eslint-mdx'
+import { Node } from 'unist'
 
 import { ExpressionStatementWithParent } from './types'
-
-import { Rule } from 'eslint'
-import { Node } from 'unist'
 
 export const noJsxHtmlComments: Rule.RuleModule = {
   meta: {

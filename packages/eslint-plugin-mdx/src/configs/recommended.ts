@@ -21,6 +21,7 @@ export const recommended = {
 
 // overrides in npm pkg is supported after v6.4.0
 // istanbul ignore else
+// eslint-disable-next-line @typescript-eslint/no-magic-numbers
 if (minorVersion >= 6.4) {
   const overrides: Array<{
     files: string | string[]

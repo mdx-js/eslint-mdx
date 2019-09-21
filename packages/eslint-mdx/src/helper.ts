@@ -1,22 +1,18 @@
-// eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference path="../typings.d.ts" />
 
+import { AST } from 'eslint'
 import { parse as esParse } from 'espree'
+import { SourceLocation } from 'estree'
+import { Position } from 'unist'
 
 import {
   Arrayable,
   JsxNode,
   JsxType,
   JsxTypes,
-  ParserOptions,
   ParserFn,
+  ParserOptions,
 } from './types'
-
-import { Position } from 'unist'
-// `SourceLocation` is not exported from estree, but it is actually working
-// eslint-disable-next-line import/named
-import { SourceLocation } from 'estree'
-import { AST } from 'eslint'
 
 export const FALLBACK_PARSERS = [
   '@typescript-eslint/parser',

@@ -1,24 +1,22 @@
+import { AST, Linter } from 'eslint'
+import { ExpressionStatement } from 'estree'
 import path from 'path'
-
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import unified from 'unified'
+import { Node, Parent } from 'unist'
 
 import {
   hasProperties,
   isJsxNode,
+  last,
   normalizeParser,
   normalizePosition,
   restoreNodeLocation,
-  last,
 } from './helper'
-import { isComment, COMMENT_CONTENT_REGEX } from './regexp'
+import { COMMENT_CONTENT_REGEX, isComment } from './regexp'
 import { traverse } from './traverse'
-import { ParserOptions, LocationError, Comment, ParserFn } from './types'
-
-import { AST, Linter } from 'eslint'
-import { Parent, Node } from 'unist'
-import { ExpressionStatement } from 'estree'
+import { Comment, LocationError, ParserFn, ParserOptions } from './types'
 
 export const mdxProcessor = unified()
   .use(remarkParse)
@@ -43,6 +41,10 @@ export const DEFAULT_PARSER_OPTIONS: ParserOptions = {
   tokens: true,
   filePath: '__placeholder__.mdx',
 }
+
+const JSX_WRAPPER_START = '<$>'
+const JSX_WRAPPER_END = '</$>'
+const OFFSET = JSX_WRAPPER_START.length
 
 export class Parser {
   // @internal
@@ -71,9 +73,9 @@ export class Parser {
       return node
     }
 
-    const matched = COMMENT_CONTENT_REGEX.exec(value)
+    const commentContent = COMMENT_CONTENT_REGEX.exec(value)
 
-    if (matched) {
+    if (commentContent) {
       const comments: Comment[] = []
       const {
         position: {
@@ -176,7 +178,7 @@ export class Parser {
 
           let normalized = this.normalizeJsxNode(node, parent)
           normalized = Array.isArray(normalized) ? normalized : [normalized]
-          normalized.forEach(node => this._nodeToAst(node, options))
+          normalized.forEach(_node => this._nodeToAst(_node, options))
         },
       })
     }
@@ -212,15 +214,18 @@ export class Parser {
 
     try {
       // wrap into single element which is valid jsx but not valid jsx in mdx, so that it won't break on adjacent JSX nodes
-      program = this._eslintParse(`<$>${value}</$>`).ast
+      program = this._eslintParse(
+        `${JSX_WRAPPER_START}${value}${JSX_WRAPPER_END}`,
+      ).ast
     } catch (e) {
       if (hasProperties<LocationError>(e, LOC_ERROR_PROPERTIES)) {
         const {
           position: { start },
         } = node
 
-        e.index += start.offset - 3
-        e.column = e.lineNumber > 1 ? e.column : e.column + start.column - 3
+        e.index += start.offset - OFFSET
+        e.column =
+          e.lineNumber > 1 ? e.column : e.column + start.column - OFFSET
         e.lineNumber += start.line - 1
 
         throw e
@@ -251,8 +256,8 @@ export class Parser {
       } = jsNode
       const startLine = line + start.line - 1
       const endLine = line + end.line - 1
-      const startOffset = range[0] - 3
-      const endOffset = range[1] - 3
+      const startOffset = range[0] - OFFSET
+      const endOffset = range[1] - OFFSET
       nodes.push({
         type: 'jsx',
         data: nodes.length ? null : node.data,
@@ -260,12 +265,12 @@ export class Parser {
         position: {
           start: {
             line: startLine,
-            column: line === startLine ? start.column - 3 : start.column,
+            column: line === startLine ? start.column - OFFSET : start.column,
             offset: offset + startOffset,
           },
           end: {
             line: endLine,
-            column: line === startLine ? end.column - 3 : end.column,
+            column: line === startLine ? end.column - OFFSET : end.column,
             offset: offset + endOffset,
           },
         },
@@ -288,7 +293,7 @@ export class Parser {
     }
 
     const { loc, start } = normalizePosition(node.position)
-    const startLine = loc.start.line - 1 //! line is 1-indexed, change to 0-indexed to simplify usage
+    const startLine = loc.start.line - 1 // ! line is 1-indexed, change to 0-indexed to simplify usage
 
     let program: AST.Program
 
@@ -310,7 +315,6 @@ export class Parser {
     AST_PROPS.forEach(prop =>
       this._ast[prop].push(
         // unfortunately, TS complains about incompatible signature
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
         // @ts-ignore
         ...program[prop].map(item =>
           restoreNodeLocation(item, startLine, offset),
