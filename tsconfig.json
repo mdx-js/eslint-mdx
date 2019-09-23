@@ -1,5 +1,14 @@
 {
   "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "incremental": false,
+    "paths": {
+      "eslint-mdx": ["packages/eslint-mdx/src"],
+      "eslint-plugin-mdx": ["packages/eslint-plugin-mdx/src"]
+    },
+    "noEmit": true
+  },
   "references": [
     {
       "path": "packages/eslint-mdx"
