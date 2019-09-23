@@ -8278,7 +8278,7 @@ react-is@^16.8.1, react-is@^16.8.4:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
   integrity sha512-tJBzzzIgnnRfEm046qRcURvwQnZVXmuCbscxUO5RWrGTXpon2d4c8mI0D8WE6ydVIm29JiLB6+RslkIvym9Rjw==
 
-react@^16.8.6, react@^16.9.0:
+react@^16.9.0:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.9.0.tgz#40ba2f9af13bc1a38d75dbf2f4359a5185c4f7aa"
   integrity sha512-+7LQnFBwkiw+BobzOF6N//BdoNw0ouwmSJTEm9cglOOmsg/TMiFHZLe2sEoN5M7LgJTj9oHH0gxklfnQe66S1w==
@@ -8430,12 +8430,12 @@ realpath-native@^1.1.0:
   dependencies:
     util.promisify "^1.0.0"
 
-rebass@^4.0.5:
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/rebass/-/rebass-4.0.5.tgz#87bf5b0cc53e530ce0939611637d01aeb989df57"
-  integrity sha512-8MZngk/AmbC8u8pGmI1WelbsKYjmN9Z91C11G4ESB9QZnoppWsI+OAqio1/4/l6dxHmwZ/hR8Q4UApF+IVEprA==
+rebass@^4.0.6:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/rebass/-/rebass-4.0.6.tgz#eaded5d0d99f68e69cd6b1e9e645f391c15d90dd"
+  integrity sha512-O4eSG4vhboiI00R5YmrRTuKiehpLkB3gDBWp00qymEbPxJPjkXoQVkOEhbWaRNRqBv/bMlvLczqarvCno1JORw==
   dependencies:
-    reflexbox "^4.0.5"
+    reflexbox "^4.0.6"
 
 redent@^1.0.0:
   version "1.0.0"
@@ -8453,16 +8453,15 @@ redent@^2.0.0:
     indent-string "^3.0.0"
     strip-indent "^2.0.0"
 
-reflexbox@^4.0.5:
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/reflexbox/-/reflexbox-4.0.5.tgz#63a53702a111d16df6b1f0d6363b86be8ebc1fc6"
-  integrity sha512-SFWlrlKusgQVqjEimlLGNls3khjMlaTLrrF1H7YY7FfXv/mKK5mREDOW4l95D6Qa1kGoyM3hF+H5RLb3N6bCCA==
+reflexbox@^4.0.6:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/reflexbox/-/reflexbox-4.0.6.tgz#fc756d2cc1ca493baf9b96bb27dd640ad8154cf1"
+  integrity sha512-UNUL4YoJEXAPjRKHuty1tuOk+LV1nDJ2KYViDcH7lYm5yU3AQ+EKNXxPU3E14bQNK/pE09b1hYl+ZKdA94tWLQ==
   dependencies:
     "@emotion/core" "^10.0.0"
     "@emotion/styled" "^10.0.0"
     "@styled-system/css" "^5.0.0"
     "@styled-system/should-forward-prop" "^5.0.0"
-    react "^16.8.6"
     styled-system "^5.0.0"
 
 regenerate-unicode-properties@^8.1.0:
