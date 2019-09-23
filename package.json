@@ -10,14 +10,14 @@
     "packages/*"
   ],
   "scripts": {
-    "build:ts": "tsc -b",
-    "build:bundle": "r -x eslint-plugin-react/lib/rules/no-unescaped-entities",
     "build": "run-p build:*",
-    "test": "jest",
+    "build:bundle": "r -x eslint-plugin-react/lib/rules/no-unescaped-entities",
+    "build:ts": "tsc -b",
+    "lint": "run-p lint:*",
     "lint:es": "eslint . --ext js,md,ts -f friendly",
     "lint:ts": "tslint -p . -t stylish",
     "lint:tsc": "tsc",
-    "lint": "run-p lint:*",
+    "test": "jest",
     "type-coverage": "type-coverage --cache --ignore-catch --detail --ignore-files *.d.ts --strict"
   },
   "devDependencies": {
@@ -48,6 +48,7 @@
     "lint-staged": "^9.3.0",
     "npm-run-all": "^4.1.5",
     "prettier": "1.18.2",
+    "prettier-plugin-pkg": "^0.3.0",
     "react": "^16.9.0",
     "rollup": "^1.21.4",
     "ts-jest": "^24.1.0",
@@ -69,9 +70,6 @@
   ],
   "jest": {
     "collectCoverage": true,
-    "collectCoverageFrom": [
-      "<rootDir>/packages/*/src"
-    ],
     "coverageThreshold": {
       "global": {
         "branches": 100,
@@ -79,10 +77,6 @@
         "lines": 100,
         "statements": 100
       }
-    },
-    "moduleNameMapper": {
-      "^eslint-mdx$": "<rootDir>/packages/eslint-mdx/src",
-      "^eslint-plugin-mdx$": "<rootDir>/packages/eslint-plugin-mdx/src"
     },
     "preset": "ts-jest"
   },

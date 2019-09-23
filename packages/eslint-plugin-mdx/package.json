@@ -9,10 +9,9 @@
   "engines": {
     "node": ">=7.0.0"
   },
-  "main": "lib/cjs",
-  "module": "lib/es",
+  "main": "lib/es",
+  "module": "lib/esm",
   "es2015": "lib/es2015",
-  "fesm5": "lib/esm",
   "types": "lib/types",
   "files": [
     "lib",
@@ -35,6 +34,7 @@
     "remark-mdx": "^1.4.5",
     "remark-parse": "^7.0.1",
     "remark-stringify": "^7.0.3",
+    "tslib": "^1.10.0",
     "unified": "^8.4.0",
     "vfile": "^4.0.1"
   },
