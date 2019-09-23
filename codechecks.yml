@@ -11,6 +11,7 @@ checks:
         - path: 'packages/eslint-plugin-mdx/lib/**/*.*'
   - name: type-coverage-watcher
     options:
+      atLeast: 99
       ignoreCatch: true
       ignoreFiles:
         - '*.d.ts'
