@@ -9,7 +9,10 @@
   "engines": {
     "node": ">=7.0.0"
   },
-  "main": "lib",
+  "main": "lib/es",
+  "module": "lib/esm",
+  "es2015": "lib/es2015",
+  "types": "lib/types",
   "files": [
     "lib",
     "typings.d.ts"
@@ -28,6 +31,7 @@
     "espree": "^6.1.1",
     "remark-mdx": "^1.4.5",
     "remark-parse": "^7.0.1",
+    "tslib": "^1.10.0",
     "unified": "^8.4.0"
   }
 }

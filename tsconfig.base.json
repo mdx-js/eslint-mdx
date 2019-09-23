@@ -1,9 +1,7 @@
 {
-  "extends": "@1stg/tsconfig/tsconfig",
+  "extends": "@1stg/tsconfig/loose",
   "compilerOptions": {
     "module": "commonjs",
-    "skipLibCheck": true,
-    "strictFunctionTypes": false,
-    "strictNullChecks": false
+    "pretty": true
   }
 }
