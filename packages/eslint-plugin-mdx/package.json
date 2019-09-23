@@ -2,13 +2,13 @@
   "name": "eslint-plugin-mdx",
   "version": "1.5.2",
   "description": "ESLint Plugin for MDX",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rx-ts/eslint-mdx.git",
-    "directory": "packages/eslint-plugin-mdx"
-  },
+  "repository": "git+https://github.com/rx-ts/eslint-mdx.git",
+  "homepage": "https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-plugin-mdx",
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
+  "engines": {
+    "node": ">=7.0.0"
+  },
   "main": "lib",
   "files": [
     "lib",
@@ -22,17 +22,19 @@
     "eslint-mdx"
   ],
   "peerDependencies": {
-    "eslint": ">=5.0.0",
-    "eslint-plugin-react": ">=7.0.0"
+    "eslint": ">=5.0.0"
   },
   "dependencies": {
     "cosmiconfig": "^5.2.1",
     "eslint-mdx": "^1.5.2",
-    "rebass": "^4.0.5",
-    "remark-mdx": "^1.4.4",
+    "eslint-plugin-react": ">=7.0.0",
+    "remark-mdx": "^1.4.5",
     "remark-parse": "^7.0.1",
     "remark-stringify": "^7.0.3",
-    "unified": "^8.3.2",
+    "unified": "^8.4.0",
     "vfile": "^4.0.1"
+  },
+  "optionalDependencies": {
+    "rebass": "^4.0.6"
   }
 }

@@ -1,7 +1,16 @@
-import * as rebass from 'rebass'
-
 import { base } from './base'
 import { getGlobals } from './helper'
+
+let rebass: typeof import('rebass') | string[]
+
+try {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  rebass = require('rebass')
+} catch {
+  // `rebass`(or `reflexbox` actually) requires `react` as peerDependency, but not all projects using `mdx` are `React` based, so we fallback to hardcoded `rebass` Components here
+  /* istanbul ignore next */
+  rebass = ['Box', 'Flex', 'Text', 'Heading', 'Link', 'Button', 'Image', 'Card']
+}
 
 export const overrides = {
   ...base,

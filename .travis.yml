@@ -23,8 +23,9 @@ script:
   - yarn test
 
 after_success:
-  - yarn global add codecov
+  - yarn global add codecov codacy-coverage
   - codecov
+  - cat ./coverage/lcov.info | codacy-coverage
 
 before_deploy:
   - npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
@@ -49,6 +50,5 @@ deploy:
       branch: develop
 
 after_script:
-  - yarn add -D @codechecks/client @codechecks/build-size-watcher @codechecks/type-coverage-watcher codacy-coverage -W
+  - yarn add -D @codechecks/client @codechecks/build-size-watcher @codechecks/type-coverage-watcher -W
   - yarn codechecks
-  - cat ./coverage/lcov.info | yarn codacy-coverage
