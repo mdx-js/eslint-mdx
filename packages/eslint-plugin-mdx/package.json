@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-mdx",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "ESLint Plugin for MDX",
   "repository": "git+https://github.com/rx-ts/eslint-mdx.git",
   "homepage": "https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-plugin-mdx",
