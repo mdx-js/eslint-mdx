@@ -28,6 +28,6 @@
     "espree": "^6.1.1",
     "remark-mdx": "^1.4.4",
     "remark-parse": "^7.0.1",
-    "unified": "^8.3.2"
+    "unified": "^8.4.0"
   }
 }

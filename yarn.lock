@@ -10502,7 +10502,7 @@ unified@8.3.2:
     trough "^1.0.0"
     vfile "^4.0.0"
 
-unified@^8.3.2:
+unified@^8.4.0:
   version "8.4.0"
   resolved "https://registry.yarnpkg.com/unified/-/unified-8.4.0.tgz#5bb8a05c2a0b9dcc56152312ad8e4578a0d90af7"
   integrity sha512-hQqeCrzqqS3vk8WbvbjYgaxe9WqmZF32Y3lz/kY5A8/5RdJbxoa4yOIAYpSEvqii9n2MTI2OL1+ByoVJYLhlUg==
