@@ -2,13 +2,13 @@
   "name": "eslint-mdx",
   "version": "1.5.2",
   "description": "ESLint Parser for MDX",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rx-ts/eslint-mdx.git",
-    "directory": "packages/eslint-mdx"
-  },
+  "repository": "git+https://github.com/rx-ts/eslint-mdx.git",
+  "homepage": "https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-mdx",
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
+  "engines": {
+    "node": ">=7.0.0"
+  },
   "main": "lib",
   "files": [
     "lib",
@@ -26,8 +26,8 @@
   },
   "dependencies": {
     "espree": "^6.1.1",
-    "remark-mdx": "^1.4.4",
+    "remark-mdx": "^1.4.5",
     "remark-parse": "^7.0.1",
-    "unified": "^8.3.2"
+    "unified": "^8.4.0"
   }
 }

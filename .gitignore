@@ -1,8 +1,7 @@
 *.log
+*.tsbuildinfo
 .changelog
 .type-coverage
 coverage
 lib
 node_modules
-tsconfig.tsbuildinfo
-test.*

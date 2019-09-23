@@ -1,9 +1,10 @@
 {
   "extends": "@1stg/tslint-config",
   "rules": {
-    "no-reference": false
+    "no-reference": false,
+    "no-var-requires": false
   },
   "linterOptions": {
-    "exclude": ["node_modules/**", "**/lib/**"]
+    "exclude": ["node_modules/**", "**/lib/**", "**/*.d.ts"]
   }
 }

@@ -19,10 +19,11 @@ export const recommended = {
   },
 }
 
+const OVERRIDES_AVAILABLE_VERSION = 6.4
+
 // overrides in npm pkg is supported after v6.4.0
 // istanbul ignore else
-// eslint-disable-next-line @typescript-eslint/no-magic-numbers
-if (minorVersion >= 6.4) {
+if (minorVersion >= OVERRIDES_AVAILABLE_VERSION) {
   const overrides: Array<{
     files: string | string[]
     extends?: string | string[]

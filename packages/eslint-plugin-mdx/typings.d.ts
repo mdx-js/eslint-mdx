@@ -9,3 +9,9 @@ declare module 'eslint-plugin-react/lib/rules/no-unescaped-entities' {
   const reactNoUnescapedEntities: Rule.RuleModule
   export = reactNoUnescapedEntities
 }
+
+declare module 'remark-mdx' {
+  import * as unified from 'unified'
+  const mdx: unified.Attacher
+  export = mdx
+}
