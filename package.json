@@ -11,13 +11,13 @@
   ],
   "scripts": {
     "build": "run-p build:*",
-    "build:bundle": "r -x eslint-plugin-react/lib/rules/no-unescaped-entities",
+    "build:bundle": "r",
     "build:ts": "tsc -b",
     "lint": "run-p lint:*",
     "lint:es": "eslint . --ext js,md,ts -f friendly",
     "lint:ts": "tslint -p . -t stylish",
     "lint:tsc": "tsc",
-    "test": "jest",
+    "test": "ts-node --skip-ignore node_modules/.bin/jest",
     "type-coverage": "type-coverage --cache --ignore-catch --detail --ignore-files *.d.ts --strict"
   },
   "devDependencies": {
@@ -41,6 +41,8 @@
     "@types/rebass": "^4.0.0",
     "@types/unist": "^2.0.3",
     "eslint": "^6.4.0",
+    "eslint-mdx": "link:packages/eslint-mdx/src",
+    "eslint-plugin-mdx": "link:packages/eslint-plugin-mdx/src",
     "husky": "^3.0.5",
     "jest": "^24.9.0",
     "lerna": "^3.16.4",

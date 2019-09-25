@@ -1,3 +1,7 @@
+const tsNode = require('ts-node')
+
+tsNode.register()
+
 module.exports = {
   root: true,
   extends: ['@1stg/eslint-config/recommended'],

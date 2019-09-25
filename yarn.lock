@@ -4422,6 +4422,10 @@ eslint-import-resolver-ts@^0.4.0:
     tiny-glob "^0.2.6"
     tsconfig-paths "^3.9.0"
 
+"eslint-mdx@link:packages/eslint-mdx/src":
+  version "0.0.0"
+  uid ""
+
 eslint-module-utils@^2.4.0:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/eslint-module-utils/-/eslint-module-utils-2.4.1.tgz#7b4675875bf96b0dbf1b21977456e5bb1f5e018c"
@@ -4481,6 +4485,10 @@ eslint-plugin-jest@^22.17.0:
   integrity sha512-WT4DP4RoGBhIQjv+5D0FM20fAdAUstfYAf/mkufLNTojsfgzc5/IYW22cIg/Q4QBavAZsROQlqppiWDpFZDS8Q==
   dependencies:
     "@typescript-eslint/experimental-utils" "^1.13.0"
+
+"eslint-plugin-mdx@link:packages/eslint-plugin-mdx/src":
+  version "0.0.0"
+  uid ""
 
 eslint-plugin-node@^10.0.0:
   version "10.0.0"
