@@ -9,10 +9,11 @@
   "engines": {
     "node": ">=7.0.0"
   },
-  "main": "lib/es",
-  "module": "lib/esm",
+  "main": "lib/cjs",
+  "module": "lib",
   "es2015": "lib/es2015",
-  "types": "lib/types",
+  "fesm5": "lib/esm",
+  "types": "lib",
   "files": [
     "lib",
     "typings.d.ts"
@@ -31,11 +32,11 @@
     "cosmiconfig": "^5.2.1",
     "eslint-mdx": "^1.5.5",
     "eslint-plugin-react": ">=7.0.0",
-    "remark-mdx": "^1.4.5",
+    "remark-mdx": "^1.5.0",
     "remark-parse": "^7.0.1",
     "remark-stringify": "^7.0.3",
     "tslib": "^1.10.0",
-    "unified": "^8.4.0",
+    "unified": "^8.4.1",
     "vfile": "^4.0.1"
   },
   "optionalDependencies": {

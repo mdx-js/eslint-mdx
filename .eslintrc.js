@@ -1,6 +1,10 @@
 const tsNode = require('ts-node')
 
-tsNode.register()
+tsNode.register({
+  compilerOptions: {
+    module: 'commonjs',
+  },
+})
 
 module.exports = {
   root: true,
@@ -16,7 +20,6 @@ module.exports = {
       rules: {
         '@typescript-eslint/no-unnecessary-condition': 0,
         '@typescript-eslint/unbound-method': 0, // See https://github.com/typescript-eslint/typescript-eslint/issues/636
-        '@typescript-eslint/triple-slash-reference': 0,
       },
     },
   ],

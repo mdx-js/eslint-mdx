@@ -1,7 +1,3 @@
 {
-  "extends": "@1stg/tsconfig/loose",
-  "compilerOptions": {
-    "module": "commonjs",
-    "pretty": true
-  }
+  "extends": "@1stg/tsconfig/loose"
 }
