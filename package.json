@@ -25,7 +25,7 @@
     "@1stg/commitlint-config": "^0.1.0",
     "@1stg/eslint-config": "^0.12.20",
     "@1stg/husky-config": "^0.3.1",
-    "@1stg/lint-staged": "^0.8.6",
+    "@1stg/lint-staged": "^0.8.11",
     "@1stg/prettier-config": "^0.4.2",
     "@1stg/remark-config": "^0.2.2",
     "@1stg/tsconfig": "^0.6.0",
