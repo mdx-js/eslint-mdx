@@ -59,14 +59,14 @@ export class Parser {
   }
 
   // @internal
-  private _options = DEFAULT_PARSER_OPTIONS
+  private readonly _options = DEFAULT_PARSER_OPTIONS
 
   constructor() {
     this.parse = this.parse.bind(this)
     this.parseForESLint = this.parseForESLint.bind(this)
   }
 
-  normalizeJsxNode(node: Node, parent?: Parent) {
+  normalizeJsxNode(node: Node, parent?: Parent, options = this._options) {
     const value = node.value as string
 
     if (node.type !== 'jsx' || isComment(value)) {
@@ -135,7 +135,7 @@ export class Parser {
       })
     }
 
-    return this._normalizeJsxNodes(node)
+    return this._normalizeJsxNodes(node, options)
   }
 
   parse(code: string, options: ParserOptions) {
@@ -176,7 +176,7 @@ export class Parser {
             return
           }
 
-          let normalized = this.normalizeJsxNode(node, parent)
+          let normalized = this.normalizeJsxNode(node, parent, options)
           normalized = Array.isArray(normalized) ? normalized : [normalized]
           normalized.forEach(_node => this._nodeToAst(_node, options))
         },
@@ -190,15 +190,15 @@ export class Parser {
   }
 
   // @internal
-  private _eslintParse(code: string, options = this._options) {
+  private _eslintParse(code: string, options: ParserOptions) {
     if (!this._parser || options.parser !== this._options.parser) {
       this._parser = normalizeParser(options.parser)
     }
     /* istanbul ignore else */
-    if (options.filePath) {
-      this._options = options
+    if (options.filePath && this._options !== options) {
+      Object.assign(this._options, options)
     }
-    const program = this._parser(code, options)
+    const program = this._parser(code, this._options)
     /* istanbul ignore next */
     return ('ast' in program && program.ast
       ? program
@@ -207,7 +207,10 @@ export class Parser {
 
   // fix adjacent JSX nodes
   // @internal
-  private _normalizeJsxNodes(node: Node): Node | Node[] {
+  private _normalizeJsxNodes(
+    node: Node,
+    options: ParserOptions,
+  ): Node | Node[] {
     const value = node.value as string
 
     let program: AST.Program
@@ -216,6 +219,7 @@ export class Parser {
       // wrap into single element which is valid jsx but not valid jsx in mdx, so that it won't break on adjacent JSX nodes
       program = this._eslintParse(
         `${JSX_WRAPPER_START}${value}${JSX_WRAPPER_END}`,
+        options,
       ).ast
     } catch (e) {
       if (hasProperties<LocationError>(e, LOC_ERROR_PROPERTIES)) {
@@ -225,6 +229,7 @@ export class Parser {
 
         e.index += start.offset - OFFSET
         e.column =
+          /* istanbul ignore next */
           e.lineNumber > 1 ? e.column : e.column + start.column - OFFSET
         e.lineNumber += start.line - 1
 

@@ -13,17 +13,20 @@
     "build": "run-p build:*",
     "build:r": "r",
     "build:ts": "tsc -b",
+    "clean": "rimraf packages/*/{lib,*.tsbuildinfo}",
     "lint": "run-p lint:*",
-    "lint:es": "eslint . --ext js,md,ts -f friendly",
+    "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --cache --ext js,md,ts -f friendly",
     "lint:ts": "tslint -p . -t stylish",
-    "lint:tsc": "tsc --noEmit",
-    "test": "ts-node --skip-ignore node_modules/.bin/jest",
+    "lint:tsc": "tsc --incremental --noEmit",
+    "prelint": "yarn build",
+    "pretest": "yarn clean",
+    "test": "ts-node --skip-ignore -T node_modules/.bin/jest",
     "type-coverage": "type-coverage --cache --detail --ignore-catch --ignore-files *.d.ts --strict"
   },
   "devDependencies": {
-    "@1stg/babel-preset": "^0.7.9",
+    "@1stg/babel-preset": "^0.7.10",
     "@1stg/commitlint-config": "^0.1.2",
-    "@1stg/eslint-config": "^0.12.21",
+    "@1stg/eslint-config": "^0.13.1",
     "@1stg/husky-config": "^0.3.2",
     "@1stg/lint-staged": "^0.8.11",
     "@1stg/prettier-config": "^0.4.3",
@@ -36,7 +39,7 @@
     "@types/cosmiconfig": "^5.0.3",
     "@types/eslint": "^6.1.2",
     "@types/jest": "^24.0.19",
-    "@types/node": "^12.11.1",
+    "@types/node": "^12.11.2",
     "@types/react": "^16.9.9",
     "@types/rebass": "^4.0.3",
     "@types/unist": "^2.0.3",
@@ -45,7 +48,7 @@
     "eslint-plugin-mdx": "link:packages/eslint-plugin-mdx/src",
     "husky": "^3.0.9",
     "jest": "^24.9.0",
-    "lerna": "^3.18.1",
+    "lerna": "^3.18.2",
     "lerna-changelog": "^0.8.2",
     "lint-staged": "^9.4.2",
     "npm-run-all": "^4.1.5",
@@ -56,6 +59,9 @@
     "ts-node": "^8.4.1",
     "tslint": "^5.20.0",
     "type-coverage": "^2.3.0",
+    "typescript": "^3.6.4"
+  },
+  "resolutions": {
     "typescript": "^3.6.4"
   },
   "commitlint": {

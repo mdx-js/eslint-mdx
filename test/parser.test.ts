@@ -150,23 +150,23 @@ describe('parser', () => {
       parser.parse("import A from 'a'\nimport A from 'a'", parserOptions),
     ).toThrow("unknown: Identifier 'A' has already been declared")
     expect(() => parser.parse('<header><>\n</header>', parserOptions)).toThrow(
-      'Expected corresponding closing tag for JSX fragment.',
+      'Expected corresponding JSX closing tag for <>',
     )
     expect(() => parser.parse('<h1></h2>', parserOptions)).toThrow(
-      "Expected corresponding JSX closing tag for 'h1'.",
+      'Expected corresponding JSX closing tag for <h1>',
     )
     expect(() => parser.parse('Header\n<>', parserOptions)).toThrow(
-      'Expected corresponding closing tag for JSX fragment.',
+      'Unexpected token (1:2)',
     )
     expect(() => parser.parse('<main><</main>', parserOptions)).toThrow(
-      'Identifier expected.',
+      'Unexpected token (1:7)',
     )
     expect(() => parser.parse('<main>{<}</main>', parserOptions)).toThrow(
-      'Expression expected.',
+      'Unexpected token (1:8)',
     )
     expect(() =>
       parser.parse('<main>\n<section><</section></main>', parserOptions),
-    ).toThrow('Identifier expected.')
+    ).toThrow('Unexpected token (2:10)')
   })
 
   it('should not throw on adjacent JSX nodes', () =>

@@ -7,7 +7,7 @@ cache:
   - directories:
       - .changelog
 
-env: EFF_NO_LINK_RULES=true
+env: EFF_NO_LINK_RULES=true PARSER_NO_WATCH=true
 
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
@@ -18,7 +18,6 @@ before_install:
 install: yarn --frozen-lockfile
 
 script:
-  - yarn build
   - yarn lint
   - yarn test
 

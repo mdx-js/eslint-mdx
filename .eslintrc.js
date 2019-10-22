@@ -4,6 +4,7 @@ tsNode.register({
   compilerOptions: {
     module: 'commonjs',
   },
+  transpileOnly: true,
 })
 
 module.exports = {

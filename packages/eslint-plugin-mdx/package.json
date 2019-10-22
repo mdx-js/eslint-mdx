@@ -32,7 +32,7 @@
     "cosmiconfig": "^5.2.1",
     "eslint-mdx": "^1.5.6",
     "eslint-plugin-react": ">=7.0.0",
-    "remark-mdx": "^1.5.0",
+    "remark-mdx": "^1.5.1",
     "remark-parse": "^7.0.1",
     "remark-stringify": "^7.0.3",
     "tslib": "^1.10.0",
