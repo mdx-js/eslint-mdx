@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.9](https://github.com/rx-ts/eslint-mdx/compare/v1.5.7...v1.5.9) (2019-10-22)
+
+
+### Bug Fixes
+
+* package content been cleared unexpectedly ([9b8dd3e](https://github.com/rx-ts/eslint-mdx/commit/9b8dd3e91c06088f66448939f99c33511f37fe7f))
+
+
+
+
+
 ## [1.5.7](https://github.com/rx-ts/eslint-mdx/compare/v1.5.6...v1.5.7) (2019-10-22)
 
 
