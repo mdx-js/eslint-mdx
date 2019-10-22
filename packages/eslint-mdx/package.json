@@ -1,6 +1,6 @@
 {
   "name": "eslint-mdx",
-  "version": "1.5.7",
+  "version": "1.5.8",
   "description": "ESLint Parser for MDX",
   "repository": "git+https://github.com/rx-ts/eslint-mdx.git",
   "homepage": "https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-mdx",

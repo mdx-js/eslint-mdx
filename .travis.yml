@@ -20,6 +20,7 @@ install: yarn --frozen-lockfile
 script:
   - yarn lint
   - yarn test
+  - yarn build
 
 after_success:
   - yarn global add codecov codacy-coverage
