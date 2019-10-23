@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/rx-ts/eslint-mdx/compare/v1.5.9...v1.6.0) (2019-10-23)
+
+**Note:** Version bump only for package eslint-plugin-mdx
+
+
+
+
+
 ## [1.5.9](https://github.com/rx-ts/eslint-mdx/compare/v1.5.7...v1.5.9) (2019-10-22)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/rx-ts/eslint-mdx/compare/v1.5.9...v1.6.0) (2019-10-23)
+
+
+### Features
+
+* try all known parsers at runtime if no parser specific ([b801d56](https://github.com/rx-ts/eslint-mdx/commit/b801d56521922a384f4a9951ad930a901ee5dd26))
+
+
+
+
+
 ## [1.5.9](https://github.com/rx-ts/eslint-mdx/compare/v1.5.7...v1.5.9) (2019-10-22)
 
 
