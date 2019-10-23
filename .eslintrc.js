@@ -3,6 +3,7 @@ const tsNode = require('ts-node')
 tsNode.register({
   compilerOptions: {
     module: 'commonjs',
+    pretty: true,
   },
   transpileOnly: true,
 })

@@ -274,8 +274,13 @@ export class Parser {
         return nodes
       }
       const {
-        loc: { start, end },
-        range,
+        start: nodeStart,
+        end: nodeEnd,
+        loc: { start, end } = {
+          start: { column: nodeStart, line: 1 },
+          end: { column: nodeEnd, line: 1 },
+        },
+        range = [nodeStart, nodeEnd],
       } = jsNode
       const startLine = line + start.line - 1
       const endLine = line + end.line - 1
