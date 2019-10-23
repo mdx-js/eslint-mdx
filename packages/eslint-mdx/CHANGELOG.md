@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/rx-ts/eslint-mdx/compare/v1.6.0...v1.6.1) (2019-10-23)
+
+
+### Bug Fixes
+
+* handle loc and range could be undefined for babel-eslint ([a98bf9d](https://github.com/rx-ts/eslint-mdx/commit/a98bf9d9fca73b04adf8b607568e28f2883967df))
+
+
+
+
+
 # [1.6.0](https://github.com/rx-ts/eslint-mdx/compare/v1.5.9...v1.6.0) (2019-10-23)
 
 
