@@ -141,7 +141,7 @@ describe('parser', () => {
 
   it('should fallback to espree if no preferred parsers found', () => {
     jest.mock('@typescript-eslint/parser', noop).mock('babel-eslint', noop)
-    expect(normalizeParser()).toBe(parse)
+    expect(normalizeParser()).toContain(parse)
     jest.unmock('@typescript-eslint/parser').unmock('babel-eslint')
   })
 

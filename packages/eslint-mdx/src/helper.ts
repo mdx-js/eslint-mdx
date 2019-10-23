@@ -1,6 +1,6 @@
 /// <reference path="../typings.d.ts" />
 
-import { AST } from 'eslint'
+import { AST, Linter } from 'eslint'
 import { parse as esParse } from 'espree'
 import { SourceLocation } from 'estree'
 import { Position } from 'unist'
@@ -40,24 +40,31 @@ export const normalizeParser = (parser?: ParserOptions['parser']) => {
     if (typeof parser !== 'function') {
       throw new TypeError(`Invalid custom parser for \`eslint-mdx\`: ${parser}`)
     }
-  } else {
-    // try to load FALLBACK_PARSERS automatically
-    for (const fallback of FALLBACK_PARSERS) {
-      try {
-        // eslint-disable-next-line @typescript-eslint/no-require-imports,@typescript-eslint/no-var-requires
-        const fallbackParser = require(fallback)
-        /* istanbul ignore next */
-        parser = fallbackParser.parseForESLint || fallbackParser.parse
-        break
-      } catch (e) {}
-    }
 
-    if (typeof parser !== 'function') {
-      parser = esParse as ParserFn
-    }
+    return [parser]
   }
 
-  return parser
+  const parsers = [esParse as ParserFn]
+
+  // try to load FALLBACK_PARSERS automatically
+  for (const fallback of FALLBACK_PARSERS) {
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports,@typescript-eslint/no-var-requires
+      const fallbackParser: Linter.ParserModule = require(fallback)
+      /* istanbul ignore next */
+      const parserFn =
+        'parseForESLint' in fallbackParser
+          ? fallbackParser.parseForESLint
+          : fallbackParser.parse
+      /* istanbul ignore else */
+      if (parserFn) {
+        parsers.unshift(parserFn)
+      }
+      break
+    } catch (e) {}
+  }
+
+  return parsers
 }
 
 export const normalizePosition = (

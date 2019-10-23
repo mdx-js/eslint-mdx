@@ -48,7 +48,7 @@ const OFFSET = JSX_WRAPPER_START.length
 
 export class Parser {
   // @internal
-  private _parser: ParserFn
+  private _parsers: ParserFn[]
 
   // @internal
   private _ast: AST.Program
@@ -191,14 +191,32 @@ export class Parser {
 
   // @internal
   private _eslintParse(code: string, options: ParserOptions) {
-    if (!this._parser || options.parser !== this._options.parser) {
-      this._parser = normalizeParser(options.parser)
+    if (!this._parsers || options.parser !== this._options.parser) {
+      this._parsers = normalizeParser(options.parser)
     }
+
     /* istanbul ignore else */
     if (options.filePath && this._options !== options) {
       Object.assign(this._options, options)
     }
-    const program = this._parser(code, this._options)
+
+    let program: ReturnType<ParserFn>
+    let parseError: Error
+    for (const parser of this._parsers) {
+      try {
+        program = parser(code, this._options)
+        break
+      } catch (e) {
+        if (!parseError) {
+          parseError = e
+        }
+      }
+    }
+
+    if (!program && parseError) {
+      throw parseError
+    }
+
     /* istanbul ignore next */
     return ('ast' in program && program.ast
       ? program
