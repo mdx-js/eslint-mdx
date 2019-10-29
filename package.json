@@ -35,7 +35,7 @@
     "@1stg/tslint-config": "^0.4.4",
     "@babel/core": "^7.6.4",
     "@commitlint/cli": "^8.2.0",
-    "@pkgr/rollup": "^0.3.0",
+    "@pkgr/rollup": "^0.6.4",
     "@types/cosmiconfig": "^5.0.3",
     "@types/eslint": "^6.1.2",
     "@types/jest": "^24.0.19",
