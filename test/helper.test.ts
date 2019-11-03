@@ -1,5 +1,6 @@
-import { getGlobals, requirePkg } from 'eslint-plugin-mdx'
 import path from 'path'
+
+import { getGlobals, requirePkg } from 'eslint-plugin-mdx'
 
 describe('Helpers', () => {
   it('should resolve globals correctly', () => {

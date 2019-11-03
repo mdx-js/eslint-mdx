@@ -40,6 +40,6 @@
     "vfile": "^4.0.1"
   },
   "optionalDependencies": {
-    "rebass": "^4.0.6"
+    "rebass": "^4.0.7"
   }
 }

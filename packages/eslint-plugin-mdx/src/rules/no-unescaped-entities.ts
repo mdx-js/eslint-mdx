@@ -41,6 +41,7 @@ export const noUnescapedEntities: Rule.RuleModule = {
     const configuration = context.options[0] || {}
     const entities: EscapeEntity[] = configuration.forbid || DEFAULTS
     return {
+      // eslint-disable-next-line sonarjs/cognitive-complexity
       [EXPRESSION](node: NodeWithParent) {
         let { parent } = node
 
@@ -108,7 +109,7 @@ export const noUnescapedEntities: Rule.RuleModule = {
                   message: `\`${
                     entity.char
                   }\` can be escaped with ${entity.alternatives
-                    .map(alt => `\`${alt}\``)
+                    .map(alt => '``'.split('').join(alt))
                     .join(', ')}.`,
                   node,
                 })

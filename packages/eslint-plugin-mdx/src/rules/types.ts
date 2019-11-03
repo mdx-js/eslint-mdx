@@ -1,3 +1,4 @@
+// eslint-disable-next-line node/no-extraneous-import
 import { ExpressionStatement, Node } from 'estree'
 import { Attacher } from 'unified'
 

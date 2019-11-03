@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import {
   DEFAULT_PARSER_OPTIONS as parserOptions,
   ParserOptions,
@@ -11,7 +12,7 @@ import { Node } from 'unist'
 
 import { noop } from './helper'
 
-export const stringToNode = (text: string) =>
+const stringToNode = (text: string) =>
   first(mdxProcessor.parse(text).children as Node[])
 
 describe('parser', () => {

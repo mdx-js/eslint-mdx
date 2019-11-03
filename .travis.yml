@@ -34,7 +34,8 @@ before_deploy:
   - cp -f README.md packages/eslint-mdx
   - cp -f README.md packages/eslint-plugin-mdx
   - 'git add --all && git commit -m "docs: update README" || echo "nothing changed to commit"'
-  - yarn lerna-changelog
+  - yarn global add lerna-changelog
+  - lerna-changelog
 
 deploy:
   - provider: script

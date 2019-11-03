@@ -1,5 +1,3 @@
-import { Node, Parent } from 'unist'
-
 import { last } from './helper'
 import {
   isCloseTag,
@@ -8,7 +6,7 @@ import {
   isOpenTag,
   isSelfClosingTag,
 } from './regexp'
-import { TraverseOptions, Traverser } from './types'
+import { Node, Parent, TraverseOptions, Traverser } from './types'
 
 export class Traverse {
   // @internal
@@ -35,6 +33,7 @@ export class Traverse {
     let offset = 0
     const jsxNodes: Node[] = []
     const { length } = nodes
+    // eslint-disable-next-line sonarjs/cognitive-complexity
     return nodes.reduce<Node[]>((acc, node, index) => {
       if (node.type === 'jsx') {
         const value = node.value as string

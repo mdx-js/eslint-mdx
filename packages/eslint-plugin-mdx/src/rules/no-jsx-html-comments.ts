@@ -1,6 +1,5 @@
 import { Rule } from 'eslint'
 import { Comment, JSX_TYPES, JsxType } from 'eslint-mdx'
-import { Node } from 'unist'
 
 import { ExpressionStatementWithParent } from './types'
 
@@ -21,7 +20,7 @@ export const noJsxHtmlComments: Rule.RuleModule = {
   create(context) {
     return {
       ExpressionStatement(node: ExpressionStatementWithParent) {
-        const invalidNodes: Node[] =
+        const invalidNodes: Array<import('unist').Node> =
           context.parserServices.JSXElementsWithHTMLComments
 
         if (

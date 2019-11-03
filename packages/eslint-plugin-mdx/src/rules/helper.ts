@@ -1,5 +1,6 @@
-import cosmiconfig, { CosmiconfigResult, Explorer } from 'cosmiconfig'
 import path from 'path'
+
+import cosmiconfig, { CosmiconfigResult, Explorer } from 'cosmiconfig'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import remarkStringify from 'remark-stringify'

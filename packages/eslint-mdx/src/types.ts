@@ -1,16 +1,18 @@
-import { JSXElement, JSXFragment } from '@babel/types'
+/* eslint-disable @typescript-eslint/no-type-alias */
 import { AST, Linter } from 'eslint'
-import { Node, Parent, Point } from 'unist'
+
+export type JSXElement = import('@babel/types').JSXElement
+export type JSXFragment = import('@babel/types').JSXFragment
+export type Node = import('unist').Node
+export type Parent = import('unist').Parent
+export type Point = import('unist').Point
 
 export type JsxNode = (JSXElement | JSXFragment) & { range: [number, number] }
 
-// eslint-disable-next-line @typescript-eslint/no-type-alias
 export type JsxTypes = Readonly<[JSXElement['type'], JSXFragment['type']]>
 
-// eslint-disable-next-line @typescript-eslint/no-type-alias
 export type JsxType = JsxTypes[number]
 
-// eslint-disable-next-line @typescript-eslint/no-type-alias
 export type Arrayable<T> = T[] | readonly T[]
 
 export type ParserFn = (

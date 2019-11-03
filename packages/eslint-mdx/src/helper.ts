@@ -2,8 +2,6 @@
 
 import { AST, Linter } from 'eslint'
 import { parse as esParse } from 'espree'
-import { SourceLocation } from 'estree'
-import { Position } from 'unist'
 
 import {
   Arrayable,
@@ -24,6 +22,7 @@ export const JSX_TYPES: JsxTypes = ['JSXElement', 'JSXFragment']
 export const isJsxNode = (node: { type: string }): node is JsxNode =>
   JSX_TYPES.includes(node.type as JsxType)
 
+// eslint-disable-next-line sonarjs/cognitive-complexity
 export const normalizeParser = (parser?: ParserOptions['parser']) => {
   if (parser) {
     if (typeof parser === 'string') {
@@ -68,7 +67,7 @@ export const normalizeParser = (parser?: ParserOptions['parser']) => {
 }
 
 export const normalizePosition = (
-  position: Position,
+  position: import('unist').Position,
 ): Pick<AST.Program, 'loc' | 'range'> & {
   start: number
   end: number
@@ -87,7 +86,7 @@ export const normalizePosition = (
 
 export interface BaseNode {
   type: string
-  loc?: SourceLocation
+  loc?: import('estree').SourceLocation
   range?: [number, number]
 }
 

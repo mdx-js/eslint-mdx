@@ -1,6 +1,7 @@
+import path from 'path'
+
 import { Rule } from 'eslint'
 import { DEFAULT_EXTENSIONS, MARKDOWN_EXTENSIONS } from 'eslint-mdx'
-import path from 'path'
 import vfile from 'vfile'
 
 import { getRemarkProcessor } from './helper'

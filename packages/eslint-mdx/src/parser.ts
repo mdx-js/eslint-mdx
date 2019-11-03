@@ -1,10 +1,9 @@
-import { AST, Linter } from 'eslint'
-import { ExpressionStatement } from 'estree'
 import path from 'path'
+
+import { AST, Linter } from 'eslint'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import unified from 'unified'
-import { Node, Parent } from 'unist'
 
 import {
   hasProperties,
@@ -16,7 +15,14 @@ import {
 } from './helper'
 import { COMMENT_CONTENT_REGEX, isComment } from './regexp'
 import { traverse } from './traverse'
-import { Comment, LocationError, ParserFn, ParserOptions } from './types'
+import {
+  Comment,
+  LocationError,
+  Node,
+  Parent,
+  ParserFn,
+  ParserOptions,
+} from './types'
 
 export const mdxProcessor = unified()
   .use(remarkParse)
@@ -225,6 +231,7 @@ export class Parser {
 
   // fix adjacent JSX nodes
   // @internal
+  // eslint-disable-next-line sonarjs/cognitive-complexity
   private _normalizeJsxNodes(
     node: Node,
     options: ParserOptions,
@@ -257,7 +264,8 @@ export class Parser {
       return node
     }
 
-    const { expression } = program.body[0] as ExpressionStatement
+    const { expression } = program
+      .body[0] as import('estree').ExpressionStatement
 
     if (!isJsxNode(expression) || expression.children.length <= 1) {
       return node
