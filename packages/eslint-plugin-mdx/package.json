@@ -29,15 +29,15 @@
     "eslint": ">=5.0.0"
   },
   "dependencies": {
-    "cosmiconfig": "^5.2.1",
+    "cosmiconfig": "^6.0.0",
     "eslint-mdx": "^1.6.2",
     "eslint-plugin-react": ">=7.0.0",
     "remark-mdx": "^1.5.1",
-    "remark-parse": "^7.0.1",
-    "remark-stringify": "^7.0.3",
+    "remark-parse": "^7.0.2",
+    "remark-stringify": "^7.0.4",
     "tslib": "^1.10.0",
-    "unified": "^8.4.1",
-    "vfile": "^4.0.1"
+    "unified": "^8.4.2",
+    "vfile": "^4.0.2"
   },
   "optionalDependencies": {
     "rebass": "^4.0.7"

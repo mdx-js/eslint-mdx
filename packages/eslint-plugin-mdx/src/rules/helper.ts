@@ -1,6 +1,7 @@
 import path from 'path'
 
-import cosmiconfig, { CosmiconfigResult, Explorer } from 'cosmiconfig'
+import { cosmiconfigSync } from 'cosmiconfig'
+import { CosmiconfigResult } from 'cosmiconfig/dist/types'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import remarkStringify from 'remark-stringify'
@@ -37,14 +38,14 @@ export const requirePkg = (
   throw error
 }
 
-let remarkConfig: Explorer
+let searchSync: (searchFrom?: string) => CosmiconfigResult
 let remarkProcessor: Processor
 
 export const getRemarkProcessor = (searchFrom: string) => {
-  if (!remarkConfig) {
-    remarkConfig = cosmiconfig('remark', {
+  if (!searchSync) {
+    searchSync = cosmiconfigSync('remark', {
       packageProp: 'remarkConfig',
-    })
+    }).search
   }
 
   if (!remarkProcessor) {
@@ -55,7 +56,7 @@ export const getRemarkProcessor = (searchFrom: string) => {
 
   /* istanbul ignore next */
   const { config, filepath }: Partial<CosmiconfigResult> =
-    remarkConfig.searchSync(searchFrom) || {}
+    searchSync(searchFrom) || {}
   /* istanbul ignore next */
   const { plugins = [], settings }: Partial<RemarkConfig> = config || {}
 

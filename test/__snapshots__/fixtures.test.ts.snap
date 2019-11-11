@@ -28,7 +28,7 @@ Lorem ipsum dolor sit _amet_, consectetur adipiscing elit. Ut ac lobortis velit.
 `;
 
 exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
-"import { Box } from '@rebass/emotion'
+"import {Box} from '@rebass/emotion'
 
 # Getting Started
 
@@ -79,10 +79,11 @@ exports[`fixtures should match all snapshots: no-jsx-html-comments.mdx 1`] = `
 
 <header>Header{/** JSX HTML comment */}</header>
 <main>Main Content</main>
-
-<header>Header
-{/** JSX
-HTML comment */}</header>
+<header>
+  Header
+  {/** JSX
+HTML comment */}
+</header>
 <main>Main Content</main>
 
 Inline <header>Header<!-- JSX HTML comment --></header>

@@ -31,8 +31,8 @@
   "dependencies": {
     "espree": "^6.1.2",
     "remark-mdx": "^1.5.1",
-    "remark-parse": "^7.0.1",
+    "remark-parse": "^7.0.2",
     "tslib": "^1.10.0",
-    "unified": "^8.4.1"
+    "unified": "^8.4.2"
   }
 }

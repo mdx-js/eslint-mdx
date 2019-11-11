@@ -157,17 +157,17 @@ describe('parser', () => {
       'Expected corresponding JSX closing tag for <h1>',
     )
     expect(() => parser.parse('Header\n<>', parserOptions)).toThrow(
-      'Unexpected token (1:2)',
+      'Line 1: Unexpected token',
     )
     expect(() => parser.parse('<main><</main>', parserOptions)).toThrow(
-      'Unexpected token (1:7)',
+      'Line 1: Unexpected token',
     )
     expect(() => parser.parse('<main>{<}</main>', parserOptions)).toThrow(
-      'Unexpected token (1:8)',
+      'Line 1: Unexpected token',
     )
     expect(() =>
       parser.parse('<main>\n<section><</section></main>', parserOptions),
-    ).toThrow('Unexpected token (2:10)')
+    ).toThrow('Line 2: Unexpected token')
   })
 
   it('should not throw on adjacent JSX nodes', () =>
