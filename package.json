@@ -40,7 +40,7 @@
     "react": "^16.11.0",
     "ts-jest": "^24.1.0",
     "ts-node": "^8.4.1",
-    "tslint": "^5.20.0",
+    "tslint": "^5.20.1",
     "type-coverage": "^2.3.0",
     "typescript": "^3.6.4"
   },
