@@ -41,7 +41,7 @@
     "ts-jest": "^24.1.0",
     "ts-node": "^8.5.2",
     "tslint": "^5.20.1",
-    "type-coverage": "^2.3.0"
+    "type-coverage": "^2.3.1"
   },
   "resolutions": {
     "@babel/core": "^7.7.2",
