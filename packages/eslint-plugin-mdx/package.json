@@ -2,8 +2,12 @@
   "name": "eslint-plugin-mdx",
   "version": "1.6.3",
   "description": "ESLint Plugin for MDX",
-  "repository": "git+https://github.com/rx-ts/eslint-mdx.git",
-  "homepage": "https://github.com/rx-ts/eslint-mdx/blob/master/packages/eslint-plugin-mdx",
+  "repository": "git+https://github.com/mdx-js/eslint-mdx.git",
+  "homepage": "https://github.com/mdx-js/eslint-mdx/blob/master/packages/eslint-plugin-mdx",
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/unified"
+  },
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
   "engines": {
