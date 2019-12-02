@@ -137,15 +137,15 @@
   dependencies:
     tslib "^1.10.0"
 
-"@1stg/tslint-config@^0.5.6":
-  version "0.5.6"
-  resolved "https://registry.yarnpkg.com/@1stg/tslint-config/-/tslint-config-0.5.6.tgz#2be91ab36f8f92cb327e20d4644526de3131801c"
-  integrity sha512-SYsCvLqhqnLrTEpFEWMXIWkB3vdUhaTw1M/MxMtZCdB1Q3EQyvyTvKnj6LuYwBy9uE9oOgBg3Gu6+nKjzvrwdQ==
+"@1stg/tslint-config@^0.5.7":
+  version "0.5.7"
+  resolved "https://registry.yarnpkg.com/@1stg/tslint-config/-/tslint-config-0.5.7.tgz#ad3b3a88cd6b00cfdb1ce38ac7aea17ed451ab7d"
+  integrity sha512-j2iBRtD16mamQYt4uwnXOClc7gKTbfHY92ilFlQkwmD2eajN5vMBx3B4u6hOtgkE/MBNhvg0DqFWAPTy46wiZA==
   dependencies:
     codelyzer "^5.2.0"
     rxjs-tslint "^0.1.7"
     tslint-angular "^3.0.2"
-    tslint-config-eslint "^0.2.0"
+    tslint-config-eslint "^0.2.1"
     tslint-config-prettier "^1.18.0"
     tslint-plugin-prettier "^2.0.1"
     tslint-react "^4.1.0"
@@ -4863,7 +4863,6 @@ eslint-import-resolver-ts@^0.4.2:
 
 "eslint-mdx@link:packages/eslint-mdx/src":
   version "0.0.0"
-  uid ""
 
 eslint-module-utils@^2.4.0:
   version "2.4.1"
@@ -4914,7 +4913,6 @@ eslint-plugin-jest@^23.0.4:
 
 "eslint-plugin-mdx@link:packages/eslint-plugin-mdx/src":
   version "0.0.0"
-  uid ""
 
 eslint-plugin-node@^10.0.0:
   version "10.0.0"
@@ -11449,10 +11447,10 @@ tslint-angular@^3.0.2:
   resolved "https://registry.yarnpkg.com/tslint-angular/-/tslint-angular-3.0.2.tgz#6f7480cc34f26fcc03df18d7ec3d5ce364b65064"
   integrity sha512-UgeGO776Z7VvzCnW6pOsbL3qs7PwzZatKkk2OzQO45H9Zf4T+bNBz87nFkB96W/swyCHmpK2M0vl61n0biFVTQ==
 
-tslint-config-eslint@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/tslint-config-eslint/-/tslint-config-eslint-0.2.0.tgz#5c0d240a0902b91d03def31a7c712cf75af2a0a1"
-  integrity sha512-3K8tHLpvBWBK+PvvWC6Sgctkx0K5Mgsq/lGg/A4daHREdM9Yn+7sqCTqm60VyUJaLrHz00qtwhqy+KG1jh512w==
+tslint-config-eslint@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/tslint-config-eslint/-/tslint-config-eslint-0.2.1.tgz#365a4059082a6419603c4973bd4eba1554b67135"
+  integrity sha512-+Rck9+2y/dPR+D/dq4pX4xt91lZMlZS63uCuFOzRDsr97G4lfR94SwqVqnCT0vIHrjdyqvtd7oLV33xsylCNrg==
 
 tslint-config-prettier@^1.18.0:
   version "1.18.0"
