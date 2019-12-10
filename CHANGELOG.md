@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.4](https://github.com/rx-ts/eslint-mdx/compare/v1.6.3...v1.6.4) (2019-12-10)
+
+
+### Bug Fixes
+
+* change organization of project repository to mdx-js :tada: ([275b9dc](https://github.com/rx-ts/eslint-mdx/commit/275b9dce5a8b5619d873c841793ef1c5e0bf7f39))
+
+
+
+
+
 ## [1.6.3](https://github.com/rx-ts/eslint-mdx/compare/v1.6.2...v1.6.3) (2019-11-11)
 
 
