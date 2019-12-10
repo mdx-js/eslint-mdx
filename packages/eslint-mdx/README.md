@@ -13,7 +13,7 @@
 [![Travis](https://img.shields.io/travis/com/mdx-js/eslint-mdx.svg)](https://travis-ci.com/mdx-js/eslint-mdx)
 [![Codacy Grade](https://img.shields.io/codacy/grade/4ea8225261c04837995a858676caae4b)](https://www.codacy.com/app/JounQin/eslint-mdx)
 [![Codecov](https://img.shields.io/codecov/c/gh/mdx-js/eslint-mdx)](https://codecov.io/gh/mdx-js/eslint-mdx)
-[![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Frx-ts%2Feslint-mdx%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
+[![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fmdx-js%2Feslint-mdx%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
 [![GitHub release](https://img.shields.io/github/release/mdx-js/eslint-mdx)](https://github.com/mdx-js/eslint-mdx/releases)
 [![David Dev](https://img.shields.io/david/dev/mdx-js/eslint-mdx.svg)](https://david-dm.org/mdx-js/eslint-mdx?type=dev)
 
