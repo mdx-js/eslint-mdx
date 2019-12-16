@@ -19,6 +19,7 @@
     "lint:ts": "tslint -p . -t stylish",
     "lint:tsc": "tsc --incremental --noEmit",
     "prelint": "yarn build",
+    "prepublishOnly": "yarn build",
     "pretest": "yarn clean",
     "test": "ts-node --skip-ignore node_modules/.bin/jest",
     "type-coverage": "type-coverage --cache --detail --ignore-catch --ignore-files *.d.ts --strict"
@@ -28,7 +29,7 @@
     "@1stg/tslint-config": "^0.5.7",
     "@types/eslint": "^6.1.3",
     "@types/jest": "^24.0.23",
-    "@types/node": "^12.12.17",
+    "@types/node": "^12.12.18",
     "@types/react": "^16.9.16",
     "@types/rebass": "^4.0.3",
     "@types/unist": "^2.0.3",
@@ -46,7 +47,7 @@
   "resolutions": {
     "@babel/core": "^7.7.5",
     "@babel/preset-env": "^7.7.6",
-    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-prettier": "^3.1.2",
     "typescript": "^3.7.3"
   },
   "commitlint": {
