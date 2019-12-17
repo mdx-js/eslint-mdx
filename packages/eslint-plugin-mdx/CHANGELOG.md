@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.5](https://github.com/mdx-js/eslint-mdx/compare/v1.6.4...v1.6.5) (2019-12-17)
+
+
+### Bug Fixes
+
+* add `prepublishOnly` lifecycle script, close [#116](https://github.com/mdx-js/eslint-mdx/issues/116) ([#117](https://github.com/mdx-js/eslint-mdx/issues/117)) ([785117b](https://github.com/mdx-js/eslint-mdx/commit/785117ba3178c698710907e032f59a38289a844b))
+
+
+
+
+
 ## [1.6.4](https://github.com/mdx-js/eslint-mdx/compare/v1.6.3...v1.6.4) (2019-12-10)
 
 
