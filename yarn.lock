@@ -2752,10 +2752,10 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/rebass@^4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@types/rebass/-/rebass-4.0.3.tgz#cb55b73395ae87e0c2c0c0292c95d9f8e7a2ca27"
-  integrity sha512-dUZMb8IOqSesn1bQHLeIMIAHTaYcuQ9hTn9b2/Vj9AEcjRIBYnOfQlTshXWcf+GAYTWYxK4fb9qjkoQ3GyG52w==
+"@types/rebass@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@types/rebass/-/rebass-4.0.4.tgz#48e74bb2c531e24298cbe8943ab64805291b3c87"
+  integrity sha512-JN3cns0vkjrs3zmPrR8Y45+74LO5ynhbnxkFGbSAeTUPGU5hxnezM42o409ioQGpgda2HiM2JK0SPBesXfH4gQ==
   dependencies:
     "@types/react" "*"
     "@types/styled-components" "*"
