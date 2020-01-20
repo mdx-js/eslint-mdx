@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.7](https://github.com/mdx-js/eslint-mdx/compare/v1.6.6...v1.6.7) (2020-01-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-react to >=7.18.0 ([f90f44a](https://github.com/mdx-js/eslint-mdx/commit/f90f44a6fcf8ee4c6be4218fdcac0c62850a6ace))
+
+
+
+
+
 ## [1.6.6](https://github.com/mdx-js/eslint-mdx/compare/v1.6.5...v1.6.6) (2019-12-23)
 
 
