@@ -35,7 +35,7 @@
   "dependencies": {
     "cosmiconfig": "^6.0.0",
     "eslint-mdx": "^1.6.6",
-    "eslint-plugin-react": ">=7.0.0",
+    "eslint-plugin-react": ">=7.18.0",
     "remark-mdx": "^1.5.3",
     "remark-parse": "^7.0.2",
     "remark-stringify": "^7.0.4",
