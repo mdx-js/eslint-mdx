@@ -75,7 +75,7 @@ export class Traverse {
       } else {
         acc.push(node)
       }
-      if (index === length - 1 && jsxNodes.length) {
+      if (index === length - 1 && jsxNodes.length > 0) {
         acc.push(this.combineLeftJsxNodes(jsxNodes))
       }
       return acc

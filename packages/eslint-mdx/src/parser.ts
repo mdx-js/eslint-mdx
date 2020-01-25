@@ -298,7 +298,7 @@ export class Parser {
       const endOffset = range[1] - OFFSET
       nodes.push({
         type: 'jsx',
-        data: nodes.length ? null : node.data,
+        data: nodes.length > 0 ? null : node.data,
         value: value.slice(startOffset, endOffset),
         position: {
           start: {

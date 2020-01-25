@@ -38,11 +38,11 @@ before_deploy:
   - lerna-changelog
 
 deploy:
-  - provider: script
-    skip_cleanup: true
-    script: yarn lerna publish --create-release github --yes
-    on:
-      branch: master
+  # - provider: script
+  #   skip_cleanup: true
+  #   script: yarn lerna publish --create-release github --yes
+  #   on:
+  #     branch: master
   - provider: script
     skip_cleanup: true
     script: yarn lerna publish --canary --conventional-prerelease --force-publish --preid beta --pre-dist-tag beta --yes

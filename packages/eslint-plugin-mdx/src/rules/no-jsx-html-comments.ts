@@ -27,7 +27,7 @@ export const noJsxHtmlComments: Rule.RuleModule = {
           !JSX_TYPES.includes(node.expression.type as JsxType) ||
           node.parent.type !== 'Program' ||
           !invalidNodes ||
-          !invalidNodes.length
+          invalidNodes.length === 0
         ) {
           return
         }

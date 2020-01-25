@@ -14,7 +14,7 @@ export const requirePkg = (
   prefix: string,
   filePath?: string,
 ) => {
-  if (filePath && /^\.\.?([\\/]|$)/.test(plugin)) {
+  if (filePath && /^\.\.?([/\\]|$)/.test(plugin)) {
     plugin = path.resolve(path.dirname(filePath), plugin)
   }
   prefix = prefix.endsWith('-') ? prefix : prefix + '-'

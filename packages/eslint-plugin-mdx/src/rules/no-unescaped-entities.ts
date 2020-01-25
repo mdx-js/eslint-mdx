@@ -91,8 +91,9 @@ export const noUnescapedEntities: Rule.RuleModule = {
               end += firstLineOffset
             }
           }
-          rawLine = rawLine.substring(start, end)
+          rawLine = rawLine.slice(start, end)
           entities.forEach(entity => {
+            // eslint-disable-next-line unicorn/no-for-loop
             for (let index = 0; index < rawLine.length; index++) {
               const char = rawLine[index]
               if (typeof entity === 'string') {
