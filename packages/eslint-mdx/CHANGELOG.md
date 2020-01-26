@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.7](https://github.com/mdx-js/eslint-mdx/compare/v1.6.5...v1.6.7) (2020-01-26)
+
+
+### Bug Fixes
+
+* adjacent self-closing jsx nodes parsing error - close [#138](https://github.com/mdx-js/eslint-mdx/issues/138) ([1ef8b2c](https://github.com/mdx-js/eslint-mdx/commit/1ef8b2cb48e4f4f0fa2094bc29de336ebdfe4835))
+
+
+
+
+
 ## [1.6.5](https://github.com/mdx-js/eslint-mdx/compare/v1.6.4...v1.6.5) (2019-12-17)
 
 
