@@ -1,4 +1,5 @@
 import { last } from './helper'
+import { parser } from './parser'
 import {
   isCloseTag,
   isComment,
@@ -29,7 +30,7 @@ export class Traverse {
   }
 
   // fix #7
-  combineJsxNodes(nodes: Node[]) {
+  combineJsxNodes(nodes: Node[], parent?: Parent) {
     let offset = 0
     const jsxNodes: Node[] = []
     const { length } = nodes
@@ -41,8 +42,11 @@ export class Traverse {
           offset++
           jsxNodes.push(node)
         } else {
-          if (isCloseTag(value)) {
+          if (
+            isCloseTag(value)
+          ) {
             offset--
+            jsxNodes.push(node)
           }
           // prettier-ignore
           /* istanbul ignore next */
@@ -51,19 +55,25 @@ export class Traverse {
             !isSelfClosingTag(value) &&
             !isOpenCloseTag(value)
           ) {
-            // should never happen, just for robustness
-            const { start } = node.position
-            throw Object.assign(
-              new SyntaxError('unknown jsx node: ' + JSON.stringify(value)),
-              {
-                lineNumber: start.line,
-                column: start.column,
-                index: start.offset,
-              },
-            )
+            try {
+              // fix #138
+              const nodes = parser.normalizeJsxNode(node, parent)
+              jsxNodes.push(...(Array.isArray(nodes) ? nodes : [nodes]))
+            } catch {
+              // should never happen, just for robustness
+              const { start } = node.position
+              throw Object.assign(
+                new SyntaxError('unknown jsx node: ' + JSON.stringify(value)),
+                {
+                  lineNumber: start.line,
+                  column: start.column,
+                  index: start.offset,
+                },
+              )
+            }
+          } else {
+            jsxNodes.push(node)
           }
-
-          jsxNodes.push(node)
 
           if (!offset) {
             acc.push(this.combineLeftJsxNodes(jsxNodes))
@@ -92,8 +102,9 @@ export class Traverse {
     let children = node.children as Node[]
 
     if (children) {
-      children = node.children = this.combineJsxNodes(children)
-      children.forEach(child => this.traverse(child, node as Parent))
+      const parent = node as Parent
+      children = node.children = this.combineJsxNodes(children, parent)
+      children.forEach(child => this.traverse(child, parent))
     }
 
     this._enter(node, parent)

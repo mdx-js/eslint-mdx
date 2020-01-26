@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`fixtures should match all snapshots: adjacent.mdx 1`] = `
+"import Basic from './basic'
+
+<Basic />
+<Basic />
+"
+`;
+
 exports[`fixtures should match all snapshots: basic.mdx 1`] = `
 "import Basic from './basic'
 
