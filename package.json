@@ -27,7 +27,7 @@
     "type-coverage": "type-coverage --cache --detail --ignore-catch --ignore-files '**/*.d.ts' --strict"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^0.2.0",
+    "@1stg/lib-config": "^0.2.1",
     "@1stg/tslint-config": "^0.6.0",
     "@types/eslint": "^6.1.7",
     "@types/jest": "^25.1.1",
