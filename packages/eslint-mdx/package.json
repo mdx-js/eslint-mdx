@@ -24,19 +24,19 @@
   ],
   "keywords": [
     "eslint",
+    "eslint-mdx",
     "eslint-parser",
     "eslint-parser-mdx",
-    "mdx",
-    "eslint-mdx"
+    "mdx"
   ],
   "peerDependencies": {
     "eslint": ">=5.0.0"
   },
   "dependencies": {
-    "espree": "^6.1.2",
-    "remark-mdx": "^1.5.5",
-    "remark-parse": "^7.0.2",
-    "tslib": "^1.10.0",
-    "unified": "^8.4.2"
+    "espree": "^6.2.1",
+    "remark-mdx": "^1.5.8",
+    "remark-parse": "^8.0.0",
+    "tslib": "^1.11.1",
+    "unified": "^9.0.0"
   }
 }

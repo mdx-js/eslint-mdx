@@ -49,9 +49,7 @@ export const getRemarkProcessor = (searchFrom: string) => {
   }
 
   if (!remarkProcessor) {
-    remarkProcessor = unified()
-      .use(remarkParse)
-      .freeze()
+    remarkProcessor = unified().use(remarkParse).freeze()
   }
 
   /* istanbul ignore next */
@@ -65,27 +63,21 @@ export const getRemarkProcessor = (searchFrom: string) => {
     // eslint-disable-next-line node/no-extraneous-require
     plugins.push([require.resolve('remark-lint-file-extension'), false])
   } catch (e) {
-    // just ignore if the package does not
+    // just ignore if the package does not exist
   }
 
   return plugins
-    .reduce(
-      (processor, pluginWithSettings) => {
-        const [plugin, ...pluginSettings] = Array.isArray(pluginWithSettings)
-          ? pluginWithSettings
-          : [pluginWithSettings]
-        return processor.use(
-          /* istanbul ignore next */
-          typeof plugin === 'string'
-            ? requirePkg(plugin, 'remark', filepath)
-            : plugin,
-          ...pluginSettings,
-        )
-      },
-      remarkProcessor()
-        .use({ settings })
-        .use(remarkStringify)
-        .use(remarkMdx),
-    )
+    .reduce((processor, pluginWithSettings) => {
+      const [plugin, ...pluginSettings] = Array.isArray(pluginWithSettings)
+        ? pluginWithSettings
+        : [pluginWithSettings]
+      return processor.use(
+        /* istanbul ignore next */
+        typeof plugin === 'string'
+          ? requirePkg(plugin, 'remark', filepath)
+          : plugin,
+        ...pluginSettings,
+      )
+    }, remarkProcessor().use({ settings }).use(remarkStringify).use(remarkMdx))
     .freeze()
 }

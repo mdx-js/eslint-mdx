@@ -24,10 +24,7 @@ import {
   ParserOptions,
 } from './types'
 
-export const mdxProcessor = unified()
-  .use(remarkParse)
-  .use(remarkMdx)
-  .freeze()
+export const mdxProcessor = unified().use(remarkParse).use(remarkMdx).freeze()
 
 export const AST_PROPS = ['body', 'comments', 'tokens'] as const
 export const ES_NODE_TYPES: readonly string[] = ['export', 'import', 'jsx']
