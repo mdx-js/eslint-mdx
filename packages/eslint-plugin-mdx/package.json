@@ -39,7 +39,7 @@
     "remark-mdx": "^1.5.7",
     "remark-parse": "^7.0.2",
     "remark-stringify": "^7.0.4",
-    "tslib": "^1.11.0",
+    "tslib": "^1.11.1",
     "unified": "^8.4.2",
     "vfile": "^4.0.2"
   },
