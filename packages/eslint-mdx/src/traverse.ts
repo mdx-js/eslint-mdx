@@ -76,7 +76,18 @@ export class Traverse {
           }
 
           if (!offset) {
-            acc.push(this.combineLeftJsxNodes(jsxNodes))
+            // fix #158
+            const firstOpenTagIndex = jsxNodes.findIndex(node =>
+              isOpenTag(node.value as string),
+            )
+            if (firstOpenTagIndex === -1) {
+              acc.push(...jsxNodes)
+            } else {
+              acc.push(...jsxNodes.slice(0, firstOpenTagIndex))
+              acc.push(
+                this.combineLeftJsxNodes(jsxNodes.slice(firstOpenTagIndex)),
+              )
+            }
             jsxNodes.length = 0
           }
         }
