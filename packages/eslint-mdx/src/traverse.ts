@@ -80,10 +80,14 @@ export class Traverse {
             const firstOpenTagIndex = jsxNodes.findIndex(node =>
               isOpenTag(node.value as string),
             )
-            acc.push(...jsxNodes.slice(0, firstOpenTagIndex))
-            acc.push(
-              this.combineLeftJsxNodes(jsxNodes.slice(firstOpenTagIndex)),
-            )
+            if (firstOpenTagIndex === -1) {
+              acc.push(...jsxNodes)
+            } else {
+              acc.push(...jsxNodes.slice(0, firstOpenTagIndex))
+              acc.push(
+                this.combineLeftJsxNodes(jsxNodes.slice(firstOpenTagIndex)),
+              )
+            }
             jsxNodes.length = 0
           }
         }
