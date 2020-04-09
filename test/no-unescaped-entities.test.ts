@@ -19,6 +19,15 @@ ruleTester.run('no-unescaped-entities', noUnescapedEntities, {
       parserOptions,
       filename,
     },
+    {
+      // #158
+      code: `<YouTube youTubeId="dQw4w9WgXcQ" />
+      <Aside>I chose this video to test my theme. I did this to myself</Aside>
+      `,
+      parser,
+      parserOptions,
+      filename,
+    },
   ],
   invalid: [
     {
