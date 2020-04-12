@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.9](https://github.com/mdx-js/eslint-mdx/compare/v1.6.8...v1.6.9) (2020-04-12)
+
+
+### Bug Fixes
+
+* self closing tag should not be combined - close [#158](https://github.com/mdx-js/eslint-mdx/issues/158) ([#196](https://github.com/mdx-js/eslint-mdx/issues/196)) ([1adc171](https://github.com/mdx-js/eslint-mdx/commit/1adc171a3b436c22cd33e64dfebbbfdc31fcdfaf))
+
+
+
+
+
 ## [1.6.8](https://github.com/mdx-js/eslint-mdx/compare/v1.6.6...v1.6.8) (2020-01-26)
 
 **Note:** Version bump only for package eslint-mdx
