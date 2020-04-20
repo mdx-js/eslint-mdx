@@ -37,7 +37,7 @@
     "eslint-mdx": "^1.6.9",
     "eslint-plugin-react": "^7.19.0",
     "remark-mdx": "^1.5.8",
-    "remark-parse": "^8.0.0",
+    "remark-parse": "^8.0.1",
     "remark-stringify": "^8.0.0",
     "tslib": "^1.11.1",
     "unified": "^9.0.0",
