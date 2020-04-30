@@ -37,12 +37,20 @@ export const remark: Rule.RuleModule = {
         }
         const sourceText = sourceCode.getText(node)
         const remarkProcessor = getRemarkProcessor(filename)
-        const file = remarkProcessor.processSync(
-          vfile({
-            path: filename,
-            contents: sourceText,
-          }),
-        )
+        const file = vfile({
+          path: filename,
+          contents: sourceText,
+        })
+
+        try {
+          remarkProcessor.processSync(file)
+        } catch (err) {
+          /* istanbul ignore next */
+          if (!file.messages.includes(err)) {
+            file.message(err).fatal = true
+          }
+        }
+
         file.messages.forEach(
           ({ source, reason, ruleId, location: { start, end } }) =>
             context.report({
