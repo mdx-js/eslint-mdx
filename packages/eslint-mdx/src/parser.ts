@@ -24,7 +24,8 @@ import {
   ParserOptions,
 } from './types'
 
-export const mdxProcessor = unified().use(remarkParse).use(remarkMdx).freeze()
+export const mdProcessor = unified().use(remarkParse).freeze()
+export const mdxProcessor = mdProcessor().use(remarkMdx).freeze()
 
 export const AST_PROPS = ['body', 'comments', 'tokens'] as const
 export const ES_NODE_TYPES: readonly string[] = ['export', 'import', 'jsx']
@@ -161,7 +162,7 @@ export class Parser {
       return this._eslintParse(code, options)
     }
 
-    const root = mdxProcessor.parse(code) as Parent
+    const root = (isMdx ? mdxProcessor : mdProcessor).parse(code) as Parent
 
     this._ast = {
       ...normalizePosition(root.position),
