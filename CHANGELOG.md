@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/mdx-js/eslint-mdx/compare/v1.6.9...v1.7.0) (2020-05-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency remark-parse to ^8.0.1 ([a16ebb0](https://github.com/mdx-js/eslint-mdx/commit/a16ebb0ba045d2f39e862a3f915fd5089f2f4594))
+
+
+### Features
+
+* catch remark process error ([80686eb](https://github.com/mdx-js/eslint-mdx/commit/80686eb0e9cb7e0f8d468d9616b85c1f7ebc6cca))
+
+
+
+
+
 ## [1.6.9](https://github.com/mdx-js/eslint-mdx/compare/v1.6.8...v1.6.9) (2020-04-12)
 
 
