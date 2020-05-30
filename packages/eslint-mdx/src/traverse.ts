@@ -21,7 +21,11 @@ export class Traverse {
     return {
       type: 'jsx',
       data: jsxNodes[0].data,
-      value: jsxNodes.reduce((acc, { value }) => (acc += value), ''),
+      value: jsxNodes.reduce(
+        // code block should be ignored
+        (acc, { type, value }) => (acc += type === 'code' ? '' : value),
+        '',
+      ),
       position: {
         start: jsxNodes[0].position.start,
         end: last(jsxNodes).position.end,

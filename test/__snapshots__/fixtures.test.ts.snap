@@ -79,6 +79,29 @@ Here's a YouTube shortcode:
 "
 `;
 
+exports[`fixtures should match all snapshots: details.mdx 1`] = `
+"<details>
+
+<summary>Override element states</summary>
+
+\`\`\`jsx
+/* colored-button.jsx */
+
+import styles from './colored-button.module.css'
+
+function ColoredButton({ text, color }) {
+  return (
+    <Button className={styles.coloredButton} style={{ '--color': color }} naked>
+      {text}
+    </Button>
+  )
+}
+\`\`\`
+
+</details>
+"
+`;
+
 exports[`fixtures should match all snapshots: markdown.md 1`] = `undefined`;
 
 exports[`fixtures should match all snapshots: no-jsx-html-comments.mdx 1`] = `

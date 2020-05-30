@@ -1,0 +1,19 @@
+<details>
+
+<summary >Override element states</summary>
+
+```jsx
+/* colored-button.jsx */
+
+import styles from './colored-button.module.css'
+
+function ColoredButton({ text, color }) {
+  return (
+    <Button className={styles.coloredButton} style={{ '--color': color }} naked>
+      {text}
+    </Button>
+  )
+}
+```
+
+</details>
