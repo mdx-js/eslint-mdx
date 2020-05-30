@@ -334,12 +334,20 @@ export class Parser {
 
     const value = node.value as string
 
+    const { loc, start, end } = normalizePosition(node.position)
+
     // fix #4
     if (isComment(value)) {
+      const comment = COMMENT_CONTENT_REGEX.exec(value)[2]
+      this._ast.comments.push({
+        type: 'Block',
+        value: comment,
+        loc,
+        range: [start, end],
+      })
       return
     }
 
-    const { loc, start } = normalizePosition(node.position)
     const startLine = loc.start.line - 1 // ! line is 1-indexed, change to 0-indexed to simplify usage
 
     let program: AST.Program
