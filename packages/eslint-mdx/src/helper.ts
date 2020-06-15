@@ -48,7 +48,7 @@ export const normalizeParser = (parser?: ParserOptions['parser']) => {
   // try to load FALLBACK_PARSERS automatically
   for (const fallback of FALLBACK_PARSERS) {
     try {
-      // eslint-disable-next-line @typescript-eslint/no-require-imports,@typescript-eslint/no-var-requires
+      // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
       const fallbackParser: Linter.ParserModule = require(fallback)
       /* istanbul ignore next */
       const parserFn =
@@ -59,8 +59,7 @@ export const normalizeParser = (parser?: ParserOptions['parser']) => {
       if (parserFn) {
         parsers.unshift(parserFn)
       }
-      break
-    } catch (e) {}
+    } catch {}
   }
 
   return parsers
@@ -105,10 +104,10 @@ export function restoreNodeLocation<T extends BaseNode>(
     }
 
     if (Array.isArray(value)) {
-      node[key as keyof T] = value.map(
-        child => restoreNodeLocation(child, startLine, offset),
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ) as any
+      node[key as keyof T] = (value.map(child =>
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+        restoreNodeLocation(child, startLine, offset),
+      ) as unknown) as T[keyof T]
     } else {
       node[key as keyof T] = restoreNodeLocation(
         value,
@@ -148,6 +147,7 @@ export const last = <T>(items: T[] | readonly T[]) =>
   items && items[items.length - 1]
 
 export const hasProperties = <T, P extends keyof T = keyof T>(
+  // eslint-disable-next-line @typescript-eslint/ban-types
   obj: {},
   properties: Arrayable<P>,
 ): obj is T => properties.every(property => property in obj)

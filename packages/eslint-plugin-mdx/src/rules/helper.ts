@@ -9,11 +9,11 @@ import unified, { Processor } from 'unified'
 
 import { RemarkConfig } from './types'
 
-export const requirePkg = (
+export const requirePkg = <T>(
   plugin: string,
   prefix: string,
   filePath?: string,
-) => {
+): T => {
   if (filePath && /^\.\.?([/\\]|$)/.test(plugin)) {
     plugin = path.resolve(path.dirname(filePath), plugin)
   }
@@ -27,7 +27,7 @@ export const requirePkg = (
   let error: Error
   for (const pkg of packages) {
     try {
-      // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
+      // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-return
       return require(pkg)
     } catch (err) {
       if (!error) {
@@ -62,7 +62,7 @@ export const getRemarkProcessor = (searchFrom: string) => {
     // disable this rule automatically since we already have a parser option `extensions`
     // eslint-disable-next-line node/no-extraneous-require
     plugins.push([require.resolve('remark-lint-file-extension'), false])
-  } catch (e) {
+  } catch {
     // just ignore if the package does not exist
   }
 

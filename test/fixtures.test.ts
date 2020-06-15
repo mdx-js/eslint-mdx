@@ -1,18 +1,17 @@
 import { basename } from 'path'
 
-import { CLIEngine } from 'eslint'
+import { ESLint } from 'eslint'
 
-const cli = new CLIEngine({
+const cli = new ESLint({
   ignore: false,
   fix: true,
 })
 
 describe('fixtures', () => {
-  it('should match all snapshots', () => {
-    cli
-      .executeOnFiles(['test/fixtures/*.{md,mdx}'])
-      .results.forEach(({ filePath, output, source }) =>
-        expect(output || source).toMatchSnapshot(basename(filePath)),
-      )
+  it('should match all snapshots', async () => {
+    const results = await cli.lintFiles(['test/fixtures/*.{md,mdx}'])
+    return results.forEach(({ filePath, output, source }) =>
+      expect(output || source).toMatchSnapshot(basename(filePath)),
+    )
   })
 })

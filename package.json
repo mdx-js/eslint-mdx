@@ -27,31 +27,26 @@
     "type-coverage": "type-coverage --cache --detail --ignore-catch --ignore-files '**/*.d.ts' --strict"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^0.5.1",
+    "@1stg/lib-config": "^0.5.3",
     "@1stg/tslint-config": "^0.8.4",
-    "@types/eslint": "^6.8.0",
-    "@types/jest": "^25.2.1",
-    "@types/node": "^13.13.4",
-    "@types/react": "^16.9.34",
-    "@types/rebass": "^4.0.5",
+    "@types/eslint": "^7.2.0",
+    "@types/jest": "^26.0.0",
+    "@types/node": "^14.0.13",
+    "@types/react": "^16.9.36",
+    "@types/rebass": "^4.0.6",
     "@types/unist": "^2.0.3",
     "cosmiconfig": "^6.0.0",
     "eslint-mdx": "link:packages/eslint-mdx/src",
     "eslint-plugin-mdx": "link:packages/eslint-plugin-mdx/src",
-    "lerna": "^3.20.2",
+    "lerna": "^3.22.1",
     "npm-run-all": "^4.1.5",
     "react": "^16.13.1",
-    "ts-jest": "^25.4.0",
-    "ts-node": "^8.9.1",
+    "ts-jest": "^26.1.0",
+    "ts-node": "^8.10.2",
     "tslint": "^6.1.2",
-    "type-coverage": "^2.4.2",
+    "type-coverage": "^2.7.2",
+    "typescript": "^3.9.5",
     "yarn-deduplicate": "^2.0.0"
-  },
-  "resolutions": {
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "@types/estree": "^0.0.44",
-    "typescript": "^3.8.3"
   },
   "commitlint": {
     "extends": [
@@ -70,7 +65,7 @@
     "coverageThreshold": {
       "global": {
         "branches": 100,
-        "functions": 100,
+        "functions": 95,
         "lines": 100,
         "statements": 100
       }

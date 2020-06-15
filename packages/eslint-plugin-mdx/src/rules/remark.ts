@@ -18,21 +18,22 @@ export const remark: Rule.RuleModule = {
       remarkReport: '{{ source }}:{{ ruleId }} - {{ reason }}',
     },
     fixable: 'code',
-    schema: [],
   },
   create(context) {
     const filename = context.getFilename()
     const extname = path.extname(filename)
     const sourceCode = context.getSourceCode()
-    const extensions = DEFAULT_EXTENSIONS.concat(
-      context.parserOptions.extensions || [],
-      MARKDOWN_EXTENSIONS,
-      context.parserOptions.markdownExtensions || [],
+    const extensions = new Set(
+      DEFAULT_EXTENSIONS.concat(
+        context.parserOptions.extensions || [],
+        MARKDOWN_EXTENSIONS,
+        context.parserOptions.markdownExtensions || [],
+      ),
     )
     return {
       Program(node) {
         /* istanbul ignore if */
-        if (!extensions.includes(extname)) {
+        if (!extensions.has(extname)) {
           return
         }
         const sourceText = sourceCode.getText(node)

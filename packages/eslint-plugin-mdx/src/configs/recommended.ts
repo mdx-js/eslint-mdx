@@ -47,7 +47,7 @@ if (minorVersion >= OVERRIDES_AVAILABLE_VERSION) {
         ],
       },
     })
-  } catch (e) {}
+  } catch {}
   Object.assign(recommended, {
     overrides,
   })
