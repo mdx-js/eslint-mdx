@@ -15,12 +15,12 @@ export const noJsxHtmlComments: Rule.RuleModule = {
       jsxHtmlComments: 'html style comments are invalid in jsx: {{ origin }}',
     },
     fixable: 'code',
-    schema: [],
   },
   create(context) {
     return {
       ExpressionStatement(node: ExpressionStatementWithParent) {
         const invalidNodes: Array<import('unist').Node> =
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
           context.parserServices.JSXElementsWithHTMLComments
 
         if (
@@ -59,4 +59,4 @@ export const noJsxHtmlComments: Rule.RuleModule = {
       },
     }
   },
-} as Rule.RuleModule
+}

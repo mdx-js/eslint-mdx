@@ -43,6 +43,10 @@ export const DEFAULT_PARSER_OPTIONS: ParserOptions = {
   sourceType: 'module',
   tokens: true,
   filePath: '__placeholder__.mdx',
+  // required for @typescript-eslint/parser
+  // reference: https://github.com/typescript-eslint/typescript-eslint/pull/2028
+  loc: true,
+  range: true,
 }
 
 const JSX_WRAPPER_START = '<$>'
@@ -211,7 +215,7 @@ export class Parser {
         break
       } catch (e) {
         if (!parseError) {
-          parseError = e
+          parseError = e as Error
         }
       }
     }
@@ -261,8 +265,8 @@ export class Parser {
       return node
     }
 
-    const { expression } = program
-      .body[0] as import('estree').ExpressionStatement
+    const { expression } = (program
+      .body[0] as unknown) as import('@babel/types').ExpressionStatement
 
     if (!isJsxNode(expression) || expression.children.length <= 1) {
       return node
@@ -352,6 +356,7 @@ export class Parser {
         // unfortunately, TS complains about incompatible signature
         // @ts-ignore
         ...program[prop].map(item =>
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-return
           restoreNodeLocation(item, startLine, offset),
         ),
       ),

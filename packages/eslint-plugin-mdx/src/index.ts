@@ -1,6 +1,4 @@
-import * as configs from './configs'
-
-export { configs }
+export * as configs from './configs'
 
 export * from './configs/helper'
 export * from './rules'

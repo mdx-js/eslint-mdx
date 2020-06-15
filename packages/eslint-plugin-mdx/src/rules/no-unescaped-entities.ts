@@ -38,8 +38,10 @@ const EXPRESSION = 'Literal, JSXText'
 export const noUnescapedEntities: Rule.RuleModule = {
   ...reactNoUnescapedEntities,
   create(context) {
-    const configuration = context.options[0] || {}
-    const entities: EscapeEntity[] = configuration.forbid || DEFAULTS
+    const configuration: {
+      forbid?: EscapeEntity[]
+    } = context.options[0] || {}
+    const entities = configuration.forbid || DEFAULTS
     return {
       // eslint-disable-next-line sonarjs/cognitive-complexity
       [EXPRESSION](node: NodeWithParent) {
@@ -53,7 +55,7 @@ export const noUnescapedEntities: Rule.RuleModule = {
           if (parent.parent.type === 'Program') {
             break
           } else {
-            parent = parent.parent
+            parent = (parent as NodeWithParent).parent
           }
         }
 

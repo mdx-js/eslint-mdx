@@ -12,7 +12,9 @@ module.exports = {
   root: true,
   extends: ['@1stg'],
   rules: {
+    '@typescript-eslint/naming-convention': 0,
     '@typescript-eslint/no-unnecessary-condition': 0,
+    '@typescript-eslint/no-unsafe-assignment': 0,
     '@typescript-eslint/unbound-method': 0, // See https://github.com/typescript-eslint/typescript-eslint/issues/636
   },
 }
