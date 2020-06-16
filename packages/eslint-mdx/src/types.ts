@@ -29,9 +29,10 @@ export type ParserConfig =
     }
 
 export interface LocationError {
-  column?: number
+  column: number
   index?: number
-  lineNumber?: number
+  pos?: number
+  lineNumber: number
 }
 
 export interface ParserOptions extends Linter.ParserOptions {

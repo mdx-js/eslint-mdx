@@ -156,9 +156,18 @@ describe('parser', () => {
     expect(() => parser.parse('<h1></h2>', parserOptions)).toThrow(
       'Expected corresponding JSX closing tag for <h1>',
     )
-    expect(() => parser.parse('Header\n<>', parserOptions)).toThrow(
-      'Line 1: Unexpected token',
-    )
+    expect(() =>
+      parser.parse('Header\n<>', {
+        ...parserOptions,
+        parser: '@typescript-eslint/parser',
+      }),
+    ).toThrowError()
+    expect(() =>
+      parser.parse('Header\n<>', {
+        ...parserOptions,
+        parser: 'babel-eslint',
+      }),
+    ).toThrowError()
     expect(() => parser.parse('<main><</main>', parserOptions)).toThrow(
       'Line 1: Unexpected token',
     )

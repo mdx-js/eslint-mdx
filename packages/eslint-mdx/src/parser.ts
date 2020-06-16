@@ -29,7 +29,7 @@ export const mdxProcessor = unified().use(remarkParse).use(remarkMdx).freeze()
 export const AST_PROPS = ['body', 'comments', 'tokens'] as const
 export const ES_NODE_TYPES: readonly string[] = ['export', 'import', 'jsx']
 
-export const LOC_ERROR_PROPERTIES = ['column', 'index', 'lineNumber'] as const
+export const LOC_ERROR_PROPERTIES = ['column', 'lineNumber'] as const
 
 export const DEFAULT_EXTENSIONS: readonly string[] = ['.mdx']
 export const MARKDOWN_EXTENSIONS: readonly string[] = ['.md']
@@ -253,7 +253,13 @@ export class Parser {
           position: { start },
         } = node
 
-        e.index += start.offset - OFFSET
+        /* istanbul ignore else */
+        if ('index' in e) {
+          e.index += start.offset - OFFSET
+        } else if ('pos' in e) {
+          e.pos += start.offset - OFFSET
+        }
+
         e.column =
           /* istanbul ignore next */
           e.lineNumber > 1 ? e.column : e.column + start.column - OFFSET
