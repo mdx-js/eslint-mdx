@@ -1,4 +1,3 @@
-import { DEFAULT_PARSER_OPTIONS as parserOptions } from 'eslint-mdx'
 import { noUnescapedEntities } from 'eslint-plugin-mdx'
 
 import { parser, ruleTester } from './helper'
@@ -10,13 +9,11 @@ ruleTester.run('no-unescaped-entities', noUnescapedEntities, {
     {
       code: '<header> &apos; </header>',
       parser,
-      parserOptions,
       filename,
     },
     {
       code: `# Title\n\n## Header <header> &apos; </header>\nMain<main></main>`,
       parser,
-      parserOptions,
       filename,
     },
     {
@@ -25,7 +22,26 @@ ruleTester.run('no-unescaped-entities', noUnescapedEntities, {
       <Aside>I chose this video to test my theme. I did this to myself</Aside>
       `,
       parser,
-      parserOptions,
+      filename,
+    },
+    {
+      // #217
+      code: `<div style={{ color: 'white', backgroundColor: 'black', padding: '24px 32px' }}>
+
+      <a
+        style={{
+          color: 'white',
+          textDecoration: 'none',
+          fontWeight: 'bold',
+          fontSize: 32
+        }}
+        href="https://blacklivesmatters.carrd.co/"
+      >
+        #BlackLivesMatter &rarr;
+      </a>
+
+      </div>`,
+      parser,
       filename,
     },
   ],
@@ -33,7 +49,6 @@ ruleTester.run('no-unescaped-entities', noUnescapedEntities, {
     {
       code: '<main> > </main>',
       parser,
-      parserOptions,
       filename,
       errors: [
         {
@@ -44,7 +59,6 @@ ruleTester.run('no-unescaped-entities', noUnescapedEntities, {
     {
       code: '<main>\n<section> > </section></main>',
       parser,
-      parserOptions,
       filename,
       errors: [
         {
@@ -55,7 +69,6 @@ ruleTester.run('no-unescaped-entities', noUnescapedEntities, {
     {
       code: 'Main <main> & </main>',
       parser,
-      parserOptions,
       options: [
         {
           forbid: ['&'],

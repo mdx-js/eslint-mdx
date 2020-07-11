@@ -24,15 +24,15 @@
     "prelint": "yarn build",
     "pretest": "yarn clean",
     "test": "ts-node --skip-ignore node_modules/.bin/jest",
-    "type-coverage": "type-coverage --cache --detail --ignore-catch --ignore-files '**/*.d.ts' --strict"
+    "type-coverage": "type-coverage --cache --detail --ignore-catch --ignore-files '**/*.d.ts' --strict --update"
   },
   "devDependencies": {
     "@1stg/lib-config": "^0.5.5",
-    "@1stg/tslint-config": "^0.8.4",
+    "@1stg/tslint-config": "^0.8.5",
     "@types/eslint": "^7.2.0",
-    "@types/jest": "^26.0.3",
-    "@types/node": "^14.0.14",
-    "@types/react": "^16.9.41",
+    "@types/jest": "^26.0.4",
+    "@types/node": "^14.0.22",
+    "@types/react": "^16.9.43",
     "@types/rebass": "^4.0.6",
     "@types/unist": "^2.0.3",
     "cosmiconfig": "^6.0.0",
@@ -44,9 +44,12 @@
     "ts-jest": "^26.1.1",
     "ts-node": "^8.10.2",
     "tslint": "^6.1.2",
-    "type-coverage": "^2.8.3",
-    "typescript": "^3.9.5",
-    "yarn-deduplicate": "^2.0.0"
+    "type-coverage": "^2.8.4",
+    "typescript": "^3.9.6",
+    "yarn-deduplicate": "^2.1.0"
+  },
+  "resolutions": {
+    "prettier": "^2.0.5"
   },
   "commitlint": {
     "extends": [
@@ -84,6 +87,6 @@
     ]
   },
   "typeCoverage": {
-    "atLeast": 99
+    "atLeast": 97.96
   }
 }

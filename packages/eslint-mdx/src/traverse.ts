@@ -10,18 +10,23 @@ import {
 import { Node, Parent, TraverseOptions, Traverser } from './types'
 
 export class Traverse {
+  code: string
+
   // @internal
   private readonly _enter: Traverser
 
-  constructor({ enter }: TraverseOptions) {
+  constructor({ code, enter }: TraverseOptions) {
+    this.code = code
     this._enter = enter
   }
 
   combineLeftJsxNodes(jsxNodes: Node[]) {
+    const start = jsxNodes[0].position.start
+    const end = last(jsxNodes).position.end
     return {
       type: 'jsx',
       data: jsxNodes[0].data,
-      value: jsxNodes.reduce((acc, { value }) => (acc += value), ''),
+      value: this.code.slice(start.offset, end.offset),
       position: {
         start: jsxNodes[0].position.start,
         end: last(jsxNodes).position.end,

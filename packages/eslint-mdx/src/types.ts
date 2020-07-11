@@ -45,6 +45,7 @@ export interface ParserOptions extends Linter.ParserOptions {
 export type Traverser = (node: Node, parent?: Parent) => void
 
 export interface TraverseOptions {
+  code: string
   enter: Traverser
 }
 
