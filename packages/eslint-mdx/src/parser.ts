@@ -178,6 +178,7 @@ export class Parser {
 
     if (isMdx) {
       traverse(root, {
+        code,
         enter: (node, parent) => {
           if (!ES_NODE_TYPES.includes(node.type)) {
             return
