@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/mdx-js/eslint-mdx/compare/v1.7.0...v1.7.1) (2020-07-14)
+
+
+### Bug Fixes
+
+* compatibility with typescript-eslint ([#209](https://github.com/mdx-js/eslint-mdx/issues/209)) ([28dc160](https://github.com/mdx-js/eslint-mdx/commit/28dc160ca108ca44e4f2be3a1d7d645275c2ea6c))
+* use source code to get combined jsx value ([#218](https://github.com/mdx-js/eslint-mdx/issues/218)) ([4da12a9](https://github.com/mdx-js/eslint-mdx/commit/4da12a917d215a4179f169e91c2f0e209f225137))
+
+
+
+
+
 # [1.7.0](https://github.com/mdx-js/eslint-mdx/compare/v1.6.9...v1.7.0) (2020-05-26)
 
 
