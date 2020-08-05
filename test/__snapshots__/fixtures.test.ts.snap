@@ -116,4 +116,6 @@ Header <header>
 "
 `;
 
+exports[`fixtures should match all snapshots: remark.md 1`] = `undefined`;
+
 exports[`fixtures should match all snapshots: remark.mdx 1`] = `undefined`;

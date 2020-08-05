@@ -24,7 +24,8 @@ import {
   ParserOptions,
 } from './types'
 
-export const mdxProcessor = unified().use(remarkParse).use(remarkMdx).freeze()
+export const mdProcessor = unified().use(remarkParse).freeze()
+export const mdxProcessor = mdProcessor().use(remarkMdx).freeze()
 
 export const AST_PROPS = ['body', 'comments', 'tokens'] as const
 export const ES_NODE_TYPES: readonly string[] = ['export', 'import', 'jsx']
@@ -161,7 +162,7 @@ export class Parser {
       return this._eslintParse(code, options)
     }
 
-    const root = mdxProcessor.parse(code) as Parent
+    const root = (isMdx ? mdxProcessor : mdProcessor).parse(code) as Parent
 
     this._ast = {
       ...normalizePosition(root.position),
@@ -333,12 +334,20 @@ export class Parser {
 
     const value = node.value as string
 
+    const { loc, start, end } = normalizePosition(node.position)
+
     // fix #4
     if (isComment(value)) {
+      const comment = COMMENT_CONTENT_REGEX.exec(value)[2]
+      this._ast.comments.push({
+        type: 'Block',
+        value: comment,
+        loc,
+        range: [start, end],
+      })
       return
     }
 
-    const { loc, start } = normalizePosition(node.position)
     const startLine = loc.start.line - 1 // ! line is 1-indexed, change to 0-indexed to simplify usage
 
     let program: AST.Program

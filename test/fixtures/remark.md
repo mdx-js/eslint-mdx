@@ -1,7 +1,7 @@
 _Hello_, **world**!
 
-### Code Splitting
+<!--lint disable no-literal-urls-->
 
-<!-- eslint-disable mdx/remark -->
+### Code Splitting
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting

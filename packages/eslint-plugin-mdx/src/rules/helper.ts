@@ -41,7 +41,7 @@ export const requirePkg = <T>(
 let searchSync: (searchFrom?: string) => CosmiconfigResult
 let remarkProcessor: Processor
 
-export const getRemarkProcessor = (searchFrom: string) => {
+export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
   if (!searchSync) {
     searchSync = cosmiconfigSync('remark', {
       packageProp: 'remarkConfig',
@@ -66,6 +66,12 @@ export const getRemarkProcessor = (searchFrom: string) => {
     // just ignore if the package does not exist
   }
 
+  const initProcessor = remarkProcessor().use({ settings }).use(remarkStringify)
+
+  if (isMdx) {
+    initProcessor.use(remarkMdx)
+  }
+
   return plugins
     .reduce((processor, pluginWithSettings) => {
       const [plugin, ...pluginSettings] = Array.isArray(pluginWithSettings)
@@ -78,6 +84,6 @@ export const getRemarkProcessor = (searchFrom: string) => {
           : plugin,
         ...pluginSettings,
       )
-    }, remarkProcessor().use({ settings }).use(remarkStringify).use(remarkMdx))
+    }, initProcessor)
     .freeze()
 }
