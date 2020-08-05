@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/mdx-js/eslint-mdx/compare/v1.7.1...v1.8.0) (2020-08-05)
+
+
+### Features
+
+* remark-mdx is not compatible with normal markdown syntaxes ([#206](https://github.com/mdx-js/eslint-mdx/issues/206)) ([3413315](https://github.com/mdx-js/eslint-mdx/commit/3413315f2305ada846008c67fec83644a426b3b9))
+
+
+
+
+
 ## [1.7.1](https://github.com/mdx-js/eslint-mdx/compare/v1.7.0...v1.7.1) (2020-07-14)
 
 
