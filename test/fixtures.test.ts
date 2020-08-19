@@ -14,4 +14,12 @@ describe('fixtures', () => {
       expect(output || source).toMatchSnapshot(basename(filePath)),
     )
   })
+
+  it('should parse many comments', async () => {
+    const results = await cli.lintFiles(['test/fixtures/many-comments.mdx'])
+
+    return results.forEach(({ errorCount }) => {
+      expect(errorCount).toBe(0)
+    })
+  })
 })
