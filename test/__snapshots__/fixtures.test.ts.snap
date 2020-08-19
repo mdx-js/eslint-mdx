@@ -79,6 +79,8 @@ Here's a YouTube shortcode:
 "
 `;
 
+exports[`fixtures should match all snapshots: many-comments.mdx 1`] = `undefined`;
+
 exports[`fixtures should match all snapshots: markdown.md 1`] = `undefined`;
 
 exports[`fixtures should match all snapshots: no-jsx-html-comments.mdx 1`] = `
@@ -119,5 +121,3 @@ Header <header>
 exports[`fixtures should match all snapshots: remark.md 1`] = `undefined`;
 
 exports[`fixtures should match all snapshots: remark.mdx 1`] = `undefined`;
-
-exports[`fixtures should match all snapshots: two-comments.mdx 1`] = `undefined`;
