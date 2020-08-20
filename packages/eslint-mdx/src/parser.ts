@@ -13,7 +13,11 @@ import {
   normalizePosition,
   restoreNodeLocation,
 } from './helper'
-import { COMMENT_CONTENT_REGEX, isComment } from './regexp'
+import {
+  COMMENT_CONTENT_REGEX,
+  COMMENT_CONTENT_REGEX_GLOBAL,
+  isComment,
+} from './regexp'
 import { traverse } from './traverse'
 import {
   Comment,
@@ -101,7 +105,7 @@ export class Parser {
           inline: !!parent && parent.type !== 'root',
         },
         value: value.replace(
-          COMMENT_CONTENT_REGEX,
+          COMMENT_CONTENT_REGEX_GLOBAL,
           (
             matched: string,
             $0: string,
