@@ -5,7 +5,7 @@ import { CosmiconfigResult } from 'cosmiconfig/dist/types'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import remarkStringify from 'remark-stringify'
-import unified, { Processor } from 'unified'
+import unified, { FrozenProcessor } from 'unified'
 
 import { RemarkConfig } from './types'
 
@@ -39,7 +39,7 @@ export const requirePkg = <T>(
 }
 
 let searchSync: (searchFrom?: string) => CosmiconfigResult
-let remarkProcessor: Processor
+let remarkProcessor: FrozenProcessor
 
 export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
   if (!searchSync) {
