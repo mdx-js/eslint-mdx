@@ -219,4 +219,12 @@ describe('parser', () => {
         filePath: 'test.md',
       }),
     ).not.toThrow())
+
+  it('should work with multiple comments', () =>
+    expect(() =>
+      parser.parse('<!-- * foo -->\n<!-- * bar -->', {
+        ...parserOptions,
+        filePath: 'test.mdx',
+      }),
+    ).not.toThrow())
 })
