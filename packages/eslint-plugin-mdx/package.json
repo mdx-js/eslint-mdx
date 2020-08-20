@@ -33,14 +33,14 @@
     "eslint": ">=5.0.0"
   },
   "dependencies": {
-    "cosmiconfig": "^6.0.0",
+    "cosmiconfig": "^7.0.0",
     "eslint-mdx": "^1.8.1",
-    "eslint-plugin-react": "^7.20.0",
-    "remark-mdx": "^1.6.5",
-    "remark-parse": "^8.0.2",
-    "remark-stringify": "^8.0.0",
-    "tslib": "^2.0.0",
-    "unified": "^9.0.0",
+    "eslint-plugin-react": "^7.20.6",
+    "remark-mdx": "^1.6.16",
+    "remark-parse": "^8.0.3",
+    "remark-stringify": "^8.1.1",
+    "tslib": "^2.0.1",
+    "unified": "^9.1.0",
     "vfile": "^4.1.1"
   },
   "optionalDependencies": {
