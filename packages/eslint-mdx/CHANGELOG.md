@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/mdx-js/eslint-mdx/compare/v1.8.1...v1.8.2) (2020-08-23)
+
+
+### Bug Fixes
+
+* parsing many comments error due to mutable regex ([#227](https://github.com/mdx-js/eslint-mdx/issues/227)) ([1130911](https://github.com/mdx-js/eslint-mdx/commit/11309110841e30149ee0302b653c5b64ba59902a))
+
+
+
+
+
 ## [1.8.1](https://github.com/mdx-js/eslint-mdx/compare/v1.8.0...v1.8.1) (2020-08-05)
 
 **Note:** Version bump only for package eslint-mdx

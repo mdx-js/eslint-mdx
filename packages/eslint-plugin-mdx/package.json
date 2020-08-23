@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-mdx",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "description": "ESLint Plugin for MDX",
   "repository": "git+https://github.com/mdx-js/eslint-mdx.git",
   "homepage": "https://github.com/mdx-js/eslint-mdx/blob/master/packages/eslint-plugin-mdx",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "cosmiconfig": "^7.0.0",
-    "eslint-mdx": "^1.8.1",
+    "eslint-mdx": "^1.8.2",
     "eslint-plugin-react": "^7.20.6",
     "remark-mdx": "^1.6.16",
     "remark-parse": "^8.0.3",
