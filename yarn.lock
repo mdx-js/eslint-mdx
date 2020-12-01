@@ -134,14 +134,15 @@
   resolved "https://registry.yarnpkg.com/@1stg/tsconfig/-/tsconfig-0.10.3.tgz#94fce139ee8cbb3f17cad66bb721df16fa731fab"
   integrity sha512-AqtDYhyGX86xYCsfroHHH7PbfpGZ4mQO8/vm4C1Lz5RCENFNf4QFwGLgg4Y9XkpQGknwWsMsfPa8mXBVLbX8Rw==
 
-"@1stg/tslint-config@^0.8.5":
-  version "0.8.5"
-  resolved "https://registry.yarnpkg.com/@1stg/tslint-config/-/tslint-config-0.8.5.tgz#f00f6352fe61706de78f879bf5a330192b770b2e"
-  integrity sha512-FVm4JUi4sJAAB0hoQCe1+cjLi6GoZ3XiinUMX5L47eyUpe7rryESsc7sI4TTqgFRtWvhea3P2qH1SG0MHuwHOA==
+"@1stg/tslint-config@^0.9.1":
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/@1stg/tslint-config/-/tslint-config-0.9.1.tgz#be5fac5726df2cec31924b2dfd012d5d3375bd4d"
+  integrity sha512-sKc/ZUei0lOixKEbDgn2T4j4ahEdR4sMzoUBF6KDECwyzs1fjvgZ3vqpI3vGBZ6Zs9KxOEY9bhwiinMJisQruw==
   dependencies:
     "@rxts/rxjs-tslint" "^0.2.0"
-    codelyzer "^6.0.0"
-    tslint-angular "^3.0.2"
+    codelyzer "^6.0.1"
+    ng-tslint "^1.1.0"
+    tslint-angular "^3.0.3"
     tslint-config-eslint "^0.2.1"
     tslint-config-prettier "^1.18.0"
     tslint-plugin-prettier "^3.0.0-beta.0"
@@ -4475,10 +4476,10 @@ code-point-at@^1.0.0:
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
-codelyzer@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-6.0.0.tgz#50c98581cc2890e0e9a9f93878dc317115d836ed"
-  integrity sha512-edJIQCIcxD9DhVSyBEdJ38AbLikm515Wl91t5RDGNT88uA6uQdTm4phTWfn9JhzAI8kXNUcfYyAE90lJElpGtA==
+codelyzer@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-6.0.1.tgz#c0e9668e847255b37c759e68fb2700b11e277d0f"
+  integrity sha512-cOyGQgMdhnRYtW2xrJUNrNYDjEgwQ+BrE2y93Bwz3h4DJ6vJRLfupemU5N3pbYsUlBHJf0u1j1UGk+NLW4d97g==
   dependencies:
     "@angular/compiler" "9.0.0"
     "@angular/core" "9.0.0"
@@ -8822,6 +8823,13 @@ neo-async@^2.6.0:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
+ng-tslint@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/ng-tslint/-/ng-tslint-1.1.0.tgz#2625001bd044a4eb43b129989a7c0983a63e107c"
+  integrity sha512-TBjk314vivDyGRnaK3PlXMFpug4zNJvtZMJ8T1969Wj2p226mjb9EiEeSFZfgp9Aoxm4zCmDSU6+gxTtz3qoXQ==
+  dependencies:
+    tslib "^2.0.3"
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
@@ -12683,10 +12691,15 @@ tslib@^1.10.0, tslib@^1.13.0, tslib@^1.7.1, tslib@^1.8.1, tslib@^1.9.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
   integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
 
-tslint-angular@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/tslint-angular/-/tslint-angular-3.0.2.tgz#6f7480cc34f26fcc03df18d7ec3d5ce364b65064"
-  integrity sha512-UgeGO776Z7VvzCnW6pOsbL3qs7PwzZatKkk2OzQO45H9Zf4T+bNBz87nFkB96W/swyCHmpK2M0vl61n0biFVTQ==
+tslib@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.3.tgz#8e0741ac45fc0c226e58a17bfc3e64b9bc6ca61c"
+  integrity sha512-uZtkfKblCEQtZKBF6EBXVZeQNl82yqtDQdv+eck8u7tdPxjLu2/lp5/uPW+um2tpuxINHWy3GhiccY7QgEaVHQ==
+
+tslint-angular@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/tslint-angular/-/tslint-angular-3.0.3.tgz#872d4fe36497d20582dbe4b8ed3338ff0c922c30"
+  integrity sha512-5xD1gLE89lBExfSbMslDw/ZfOZM0t0CJsoJa4svsgF7tlwVS3IpXjzNcNRN0RZqDBj+cdTlbeel6GpZ3PqpPiw==
 
 tslint-config-eslint@^0.2.1:
   version "0.2.1"

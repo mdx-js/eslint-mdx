@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@1stg/lib-config": "^0.5.5",
-    "@1stg/tslint-config": "^0.8.5",
+    "@1stg/tslint-config": "^0.9.1",
     "@types/eslint": "^7.2.0",
     "@types/jest": "^26.0.15",
     "@types/node": "^14.14.6",
