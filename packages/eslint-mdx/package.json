@@ -33,7 +33,7 @@
     "eslint": ">=5.0.0"
   },
   "dependencies": {
-    "espree": "^7.2.0",
+    "espree": "^7.3.1",
     "remark-mdx": "^1.6.16",
     "remark-parse": "^8.0.3",
     "tslib": "^2.0.1",
