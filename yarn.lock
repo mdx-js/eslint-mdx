@@ -134,12 +134,12 @@
   resolved "https://registry.yarnpkg.com/@1stg/tsconfig/-/tsconfig-0.10.3.tgz#94fce139ee8cbb3f17cad66bb721df16fa731fab"
   integrity sha512-AqtDYhyGX86xYCsfroHHH7PbfpGZ4mQO8/vm4C1Lz5RCENFNf4QFwGLgg4Y9XkpQGknwWsMsfPa8mXBVLbX8Rw==
 
-"@1stg/tslint-config@^0.9.1":
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/@1stg/tslint-config/-/tslint-config-0.9.1.tgz#be5fac5726df2cec31924b2dfd012d5d3375bd4d"
-  integrity sha512-sKc/ZUei0lOixKEbDgn2T4j4ahEdR4sMzoUBF6KDECwyzs1fjvgZ3vqpI3vGBZ6Zs9KxOEY9bhwiinMJisQruw==
+"@1stg/tslint-config@^0.9.2":
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/@1stg/tslint-config/-/tslint-config-0.9.2.tgz#ceb459ff0d4dceaec9f994bff584bb9cb1bcaa24"
+  integrity sha512-rn6cjew9iNwUYykX8rKyghzpKAbNMnxYIg2bN9FAALQ8mm7C3GoTa0GjB5cenAzhN3vLF0hgGYk1HumAWNQwDA==
   dependencies:
-    "@rxts/rxjs-tslint" "^0.2.0"
+    "@rxts/rxjs-tslint" "^0.2.1"
     codelyzer "^6.0.1"
     ng-tslint "^1.1.0"
     tslint-angular "^3.0.3"
@@ -2915,14 +2915,14 @@
     resolve "^1.12.0"
     slash "^3.0.0"
 
-"@rxts/rxjs-tslint@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@rxts/rxjs-tslint/-/rxjs-tslint-0.2.0.tgz#ff3cfc711872851e3742f78f8770cc34ff7359d5"
-  integrity sha512-vPws93KLVOPPjTkBCjYlD2DH6HptmAkK7SmvNUJZlhRqtAAkCFFAQTWhFLn0ntKxpTn3N8i0Y5pgyGtAciz+fQ==
+"@rxts/rxjs-tslint@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@rxts/rxjs-tslint/-/rxjs-tslint-0.2.1.tgz#a93b019f0c8b46caa8ca13020f77fa015a8a2f00"
+  integrity sha512-f2cj143S+2PIihXOC5A3ltfFI6BFa7G2WzqWra/dEH8HH1e66ELku3EhAp1NKhA4y+8t/zzur2zWCOo6dX6k/g==
   dependencies:
-    chalk "^3.0.0"
-    optimist "^0.6.1"
-    tsutils "^3.17.1"
+    chalk "^2.4.0"
+    tsutils "^2.25.0"
+    yargs "^15.3.1"
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.0"
@@ -4439,7 +4439,7 @@ center-align@^0.1.1:
     align-text "^0.1.3"
     lazy-cache "^1.0.3"
 
-chalk@2.4.2, chalk@^2.0.0, chalk@^2.3.0, chalk@^2.3.1, chalk@^2.4.1, chalk@^2.4.2:
+chalk@2.4.2, chalk@^2.0.0, chalk@^2.3.0, chalk@^2.3.1, chalk@^2.4.0, chalk@^2.4.1, chalk@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
   integrity sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==
@@ -8870,11 +8870,6 @@ minimist@1, minimist@^1.1.1, minimist@^1.1.3, minimist@^1.2.0, minimist@^1.2.5:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
   integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
 
-minimist@~0.0.1:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.10.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
-  integrity sha1-3j+YVD2/lggr5IrRoMfNqDYwHc8=
-
 minipass@^2.3.5, minipass@^2.6.0, minipass@^2.8.6, minipass@^2.9.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/minipass/-/minipass-2.9.0.tgz#e713762e7d3e32fed803115cf93e04bca9fcc9a6"
@@ -9379,14 +9374,6 @@ opencollective-postinstall@^2.0.2:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/opencollective-postinstall/-/opencollective-postinstall-2.0.3.tgz#7a0fff978f6dbfa4d006238fbac98ed4198c3259"
   integrity sha512-8AV/sCtuzUeTo8gQK5qDZzARrulB3egtLzFgteqB2tcT4Mw7B8Kt7JcDHmltjz6FOAHsvTevk70gZEbhM4ZS9Q==
-
-optimist@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/optimist/-/optimist-0.6.1.tgz#da3ea74686fa21a19a111c326e90eb15a0196686"
-  integrity sha1-2j6nRob6IaGaERwybpDrFaAZZoY=
-  dependencies:
-    minimist "~0.0.1"
-    wordwrap "~0.0.2"
 
 optionator@^0.8.1:
   version "0.8.3"
@@ -12962,7 +12949,7 @@ tsutils@3, tsutils@^3.17.1:
   dependencies:
     tslib "^1.8.1"
 
-tsutils@^2.29.0:
+tsutils@^2.25.0, tsutils@^2.29.0:
   version "2.29.0"
   resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.29.0.tgz#32b488501467acbedd4b85498673a0812aca0b99"
   integrity sha512-g5JVHCIJwzfISaXpXE1qvNalca5Jwob6FjI4AoPlqMusJ6ftFE7IkkFoMhVLRgK+4Kx3gkzb8UZK5t5yTTvEmA==
@@ -13558,11 +13545,6 @@ wordwrap@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
   integrity sha1-J1hIEIkUVqQXHI0CJkQa3pDLyus=
-
-wordwrap@~0.0.2:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-0.0.3.tgz#a3d5da6cd5c0bc0008d37234bbaf1bed63059107"
-  integrity sha1-o9XabNXAvAAI03I0u68b7WMFkQc=
 
 wrap-ansi@^5.1.0:
   version "5.1.0"
