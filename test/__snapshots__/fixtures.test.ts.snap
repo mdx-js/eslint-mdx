@@ -131,22 +131,6 @@ Array [
 ]
 `;
 
-exports[`fixtures should match all snapshots: parser.mdx 1`] = `
-Array [
-  Object {
-    "column": 16,
-    "fatal": true,
-    "line": 3,
-    "message": "Parsing error: /Users/JounQin/Workspaces/GitHub/eslint-mdx/test/fixtures/parser.mdx: Expected corresponding JSX closing tag for <header> (1:11)
-
-[0m[31m[1m>[22m[39m[90m 1 |[39m [33m<[39m$[33m>[39m[33m<[39m[33mheader[39m[33m>[39m[33m<[39m[33m/[39m$[33m>[39m[0m
-[0m [90m   |[39m            [31m[1m^[22m[39m[0m",
-    "ruleId": null,
-    "severity": 2,
-  },
-]
-`;
-
 exports[`fixtures should match all snapshots: remark.md 1`] = `Array []`;
 
 exports[`fixtures should match all snapshots: remark.mdx 1`] = `Array []`;
