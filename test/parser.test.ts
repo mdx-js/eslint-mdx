@@ -1,6 +1,7 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import {
   DEFAULT_PARSER_OPTIONS as parserOptions,
+  ParserConfig,
   ParserOptions,
   first,
   mdxProcessor,
@@ -103,21 +104,22 @@ describe('parser', () => {
   })
 
   it('should throw on invalid parser', () => {
-    ;[
+    const parserConfigs: ParserConfig[] = [
       {
         parse: null,
       },
       {
-        parseForEslint: null,
+        // @ts-expect-error
+        parseForEsLint: null,
       },
-    ].forEach(p =>
+    ]
+    for (const p of parserConfigs)
       expect(() =>
         parser.parse('<header>Header</header>', {
           ...parserOptions,
-          parser: p as ParserOptions['parser'],
+          parser: p,
         }),
-      ).toThrow('Invalid custom parser for `eslint-mdx`:'),
-    )
+      ).toThrowErrorMatchingSnapshot()
 
     expect(() =>
       parser.parse('<header>Header</header>', {
@@ -131,8 +133,7 @@ describe('parser', () => {
     expect(() =>
       parser.parse('<header>Header</header>', {
         ...parserOptions,
-        parser: 'babel-eslint',
-        sourceType: null,
+        parser: '@babel/eslint-parser',
         babelOptions: {
           configFile: require.resolve('@1stg/babel-preset/config'),
         },
@@ -141,9 +142,11 @@ describe('parser', () => {
   })
 
   it('should fallback to espree if no preferred parsers found', () => {
-    jest.mock('@typescript-eslint/parser', noop).mock('babel-eslint', noop)
+    jest
+      .mock('@typescript-eslint/parser', noop)
+      .mock('@babel/eslint-parser', noop)
     expect(normalizeParser()).toContain(parse)
-    jest.unmock('@typescript-eslint/parser').unmock('babel-eslint')
+    jest.unmock('@typescript-eslint/parser').unmock('@babel/eslint-parser')
   })
 
   it('should throw on invalid es syntaxes', () => {
@@ -165,18 +168,18 @@ describe('parser', () => {
     expect(() =>
       parser.parse('Header\n<>', {
         ...parserOptions,
-        parser: 'babel-eslint',
+        parser: '@babel/eslint-parser',
       }),
     ).toThrowError()
     expect(() => parser.parse('<main><</main>', parserOptions)).toThrow(
-      'Line 1: Unexpected token',
+      'Unexpected token (1:10)',
     )
     expect(() => parser.parse('<main>{<}</main>', parserOptions)).toThrow(
-      'Line 1: Unexpected token',
+      'Unexpected token (1:11)',
     )
     expect(() =>
       parser.parse('<main>\n<section><</section></main>', parserOptions),
-    ).toThrow('Line 2: Unexpected token')
+    ).toThrow('Unexpected token (2:10)')
   })
 
   it('should not throw on adjacent JSX nodes', () =>

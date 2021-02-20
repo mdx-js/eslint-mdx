@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parser should throw on invalid parser 1`] = `"Invalid custom parser for \`eslint-mdx\`: null"`;
+
+exports[`parser should throw on invalid parser 2`] = `"Invalid custom parser for \`eslint-mdx\`: false"`;

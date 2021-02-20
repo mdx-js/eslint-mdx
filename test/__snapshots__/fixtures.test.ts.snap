@@ -1,121 +1,136 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`fixtures should match all snapshots: adjacent.mdx 1`] = `
-"import Basic from './basic'
+exports[`fixtures should match all snapshots: adjacent.mdx 1`] = `Array []`;
 
-<Basic /> <Basic />
-"
-`;
-
-exports[`fixtures should match all snapshots: basic.mdx 1`] = `
-"import Basic from './basic'
-
-export const meta = {
-  title: 'Blog Post',
-}
-
-# Blog Post
-
-Lorem ipsum dolor sit amet, consectetur adipiscing **elit**. Ut ac lobortis <b>velit</b>.
-
-<!-- This is a comment -->
-
-\`\`\`css
-@media (min-width: 400px) {
-  border-color: #000;
-}
-\`\`\`
-
-<Basic>{/* This is a comment */}</Basic>
-
-## Subtitle
-
-Lorem ipsum dolor sit _amet_, consectetur adipiscing elit. Ut ac lobortis velit.
-"
-`;
+exports[`fixtures should match all snapshots: basic.mdx 1`] = `Array []`;
 
 exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
-"import { Box } from '@rebass/emotion'
-
-# Getting Started
-
-If you have an existing project you want to integrate MDX with, check out
-the installation guides.
-
-<Box
-  p={3}
-  bg='lightgray'
-  style={{
-    textAlign: 'center',
-    fontWeight: 'bold',
-  }}
->
-
-[Next.js](/getting-started/next) \\\\|
-[Gatsby](/getting-started/gatsby) \\\\|
-[Create React App](/getting-started/create-react-app) \\\\|
-[React Static](/getting-started/react-static) \\\\|
-[Webpack](/getting-started/webpack) \\\\|
-[Parcel](/getting-started/parcel) \\\\|
-[Zero](/getting-started/zero)
-
-</Box>
-
-# Hello, world!
-
-Here's a Twitter shortcode:
-
-<Tweet tweetId=\\"1116723357410447360\\" />
-
-<TextGradient>
-
-# Here's a text gradient shortcode!
-
-</TextGradient>
-
-Here's a YouTube shortcode:
-
-<YouTube videoId=\\"4fHw4GeW3EU\\" />
-"
+Array [
+  Object {
+    "column": 1,
+    "endColumn": 16,
+    "endLine": 27,
+    "fix": Object {
+      "range": Array [
+        548,
+        563,
+      ],
+      "text": "# Hello, world!",
+    },
+    "line": 27,
+    "message": "remark-lint:no-multiple-toplevel-headings - Don’t use multiple top level headings (3:1)",
+    "messageId": "remarkReport",
+    "nodeType": "Program",
+    "ruleId": "mdx/remark",
+    "severity": 1,
+  },
+  Object {
+    "column": 2,
+    "endColumn": 7,
+    "endLine": 31,
+    "line": 31,
+    "message": "'Tweet' is not defined.",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+  Object {
+    "column": 2,
+    "endColumn": 14,
+    "endLine": 33,
+    "line": 33,
+    "message": "'TextGradient' is not defined.",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+  Object {
+    "column": 1,
+    "endColumn": 36,
+    "endLine": 35,
+    "fix": Object {
+      "range": Array [
+        651,
+        686,
+      ],
+      "text": "# Here's a text gradient shortcode!",
+    },
+    "line": 35,
+    "message": "remark-lint:no-multiple-toplevel-headings - Don’t use multiple top level headings (3:1)",
+    "messageId": "remarkReport",
+    "nodeType": "Program",
+    "ruleId": "mdx/remark",
+    "severity": 1,
+  },
+  Object {
+    "column": 7,
+    "line": 35,
+    "message": "\`'\` can be escaped with \`&apos;\`, \`&lsquo;\`, \`&#39;\`, \`&rsquo;\`.",
+    "nodeType": "JSXText",
+    "ruleId": "mdx/no-unescaped-entities",
+    "severity": 1,
+  },
+  Object {
+    "column": 2,
+    "endColumn": 9,
+    "endLine": 41,
+    "line": 41,
+    "message": "'YouTube' is not defined.",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+]
 `;
 
-exports[`fixtures should match all snapshots: markdown.md 1`] = `undefined`;
-
-exports[`fixtures should match all snapshots: no-jsx-html-comments.mdx 1`] = `
-"# Title
-
-<header>Header{/** JSX HTML comment */}</header>
-<main>Main Content</main>
-
-<header>
-  Header
-  {/** JSX
-HTML comment */}
-</header>
-<main>Main Content</main>
-
-Inline <header>Header<!-- JSX HTML comment --></header>
-
-<main>Main Content</main>
-"
+exports[`fixtures should match all snapshots: details.mdx 1`] = `
+Array [
+  Object {
+    "column": 290,
+    "line": 3,
+    "message": "\`'\` can be escaped with \`&apos;\`, \`&lsquo;\`, \`&#39;\`, \`&rsquo;\`.",
+    "nodeType": "JSXText",
+    "ruleId": "mdx/no-unescaped-entities",
+    "severity": 1,
+  },
+  Object {
+    "column": 5,
+    "line": 5,
+    "message": "\`'\` can be escaped with \`&apos;\`, \`&lsquo;\`, \`&#39;\`, \`&rsquo;\`.",
+    "nodeType": "JSXText",
+    "ruleId": "mdx/no-unescaped-entities",
+    "severity": 1,
+  },
+]
 `;
+
+exports[`fixtures should match all snapshots: leading-spaces.mdx 1`] = `Array []`;
+
+exports[`fixtures should match all snapshots: markdown.md 1`] = `Array []`;
+
+exports[`fixtures should match all snapshots: no-jsx-html-comments.mdx 1`] = `Array []`;
 
 exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `
-"<header> &apos; </header>
-<main> > </main>
-
-Header <header> &apos; </header>
-Main <main> > </main>
-"
+Array [
+  Object {
+    "column": 8,
+    "line": 2,
+    "message": "\`>\` can be escaped with \`&gt;\`.",
+    "nodeType": "JSXText",
+    "ruleId": "mdx/no-unescaped-entities",
+    "severity": 1,
+  },
+  Object {
+    "column": 13,
+    "line": 5,
+    "message": "\`>\` can be escaped with \`&gt;\`.",
+    "nodeType": "JSXText",
+    "ruleId": "mdx/no-unescaped-entities",
+    "severity": 1,
+  },
+]
 `;
 
-exports[`fixtures should match all snapshots: parser.mdx 1`] = `
-"# Title
+exports[`fixtures should match all snapshots: remark.md 1`] = `Array []`;
 
-Header <header>
-"
-`;
-
-exports[`fixtures should match all snapshots: remark.md 1`] = `undefined`;
-
-exports[`fixtures should match all snapshots: remark.mdx 1`] = `undefined`;
+exports[`fixtures should match all snapshots: remark.mdx 1`] = `Array []`;

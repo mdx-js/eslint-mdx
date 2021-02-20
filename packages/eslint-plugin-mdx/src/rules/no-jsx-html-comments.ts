@@ -40,7 +40,7 @@ export const noJsxHtmlComments: Rule.RuleModule = {
 
         const comments = invalidNode.data.comments as Comment[]
 
-        comments.forEach(({ fixed, loc, origin }) =>
+        for (const { fixed, loc, origin } of comments) {
           context.report({
             messageId: 'jsxHtmlComments',
             data: {
@@ -54,8 +54,8 @@ export const noJsxHtmlComments: Rule.RuleModule = {
                 fixed,
               )
             },
-          }),
-        )
+          })
+        }
       },
     }
   },

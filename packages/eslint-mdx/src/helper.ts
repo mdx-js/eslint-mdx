@@ -14,6 +14,7 @@ import {
 
 export const FALLBACK_PARSERS = [
   '@typescript-eslint/parser',
+  '@babel/eslint-parser',
   'babel-eslint',
 ] as const
 
@@ -89,33 +90,31 @@ export interface BaseNode {
   range?: [number, number]
 }
 
-export function restoreNodeLocation<T extends BaseNode>(
+export const maybeBaseNode = (node: unknown): node is BaseNode =>
+  typeof node === 'object' && 'loc' in node && 'range' in node
+
+export function restoreNodeLocation<T>(
   node: T,
   startLine: number,
   offset: number,
 ): T {
-  if (!node || !node.loc || !node.range) {
+  if (!maybeBaseNode(node)) {
     return node
   }
 
-  Object.entries(node).forEach(([key, value]) => {
+  for (const entry of Object.entries(node)) {
+    const [key, value] = entry as [keyof BaseNode, BaseNode[keyof BaseNode]]
+
     if (!value) {
-      return
+      continue
     }
 
-    if (Array.isArray(value)) {
-      node[key as keyof T] = (value.map(child =>
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-        restoreNodeLocation(child, startLine, offset),
-      ) as unknown) as T[keyof T]
-    } else {
-      node[key as keyof T] = restoreNodeLocation(
-        value,
-        startLine,
-        offset,
-      ) as T[keyof T]
-    }
-  })
+    // ts doesn't understand the relationship between `key` and restored `value`
+    // @ts-ignore
+    node[key] = Array.isArray(value)
+      ? value.map(child => restoreNodeLocation(child, startLine, offset))
+      : restoreNodeLocation(value, startLine, offset)
+  }
 
   const {
     loc: { start: startLoc, end: endLoc },

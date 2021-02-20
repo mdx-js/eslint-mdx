@@ -45,7 +45,7 @@ export const noUnescapedEntities: Rule.RuleModule = {
     return {
       // eslint-disable-next-line sonarjs/cognitive-complexity
       [EXPRESSION](node: NodeWithParent) {
-        let { parent } = node
+        let { parent, loc } = node
 
         if (!isJsxNode(parent)) {
           return
@@ -62,7 +62,7 @@ export const noUnescapedEntities: Rule.RuleModule = {
         const {
           start: { line: startLine, column: startColumn },
           end: { line: endLine, column: endColumn },
-        } = node.loc
+        } = loc
 
         const { lines } = context.getSourceCode()
 
@@ -94,7 +94,7 @@ export const noUnescapedEntities: Rule.RuleModule = {
             }
           }
           rawLine = rawLine.slice(start, end)
-          entities.forEach(entity => {
+          for (const entity of entities) {
             // eslint-disable-next-line unicorn/no-for-loop
             for (let index = 0; index < rawLine.length; index++) {
               const char = rawLine[index]
@@ -118,7 +118,7 @@ export const noUnescapedEntities: Rule.RuleModule = {
                 })
               }
             }
-          })
+          }
         }
       },
     }

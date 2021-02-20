@@ -37,6 +37,7 @@ export class Traverse {
   // fix #7
   combineJsxNodes(nodes: Node[], parent?: Parent) {
     let offset = 0
+    let hasOpenTag = false
     const jsxNodes: Node[] = []
     const { length } = nodes
     // eslint-disable-next-line sonarjs/cognitive-complexity
@@ -45,6 +46,7 @@ export class Traverse {
         const value = node.value as string
         if (isOpenTag(value)) {
           offset++
+          hasOpenTag = true
           jsxNodes.push(node)
         } else {
           if (
@@ -56,40 +58,54 @@ export class Traverse {
           // prettier-ignore
           /* istanbul ignore next */
           else if (
-            !isComment(value) &&
-            !isSelfClosingTag(value) &&
-            !isOpenCloseTag(value)
+            isComment(value) ||
+            isSelfClosingTag(value) ||
+            isOpenCloseTag(value)
           ) {
+            jsxNodes.push(node)
+          } else {
+            // #272, we consider the first jsx node as open tag although it's not precise
+            if (!index) {
+              offset++
+              hasOpenTag = true
+            }
             try {
               // fix #138
               const nodes = parser.normalizeJsxNode(node, parent)
               jsxNodes.push(...(Array.isArray(nodes) ? nodes : [nodes]))
             } catch {
-              // should never happen, just for robustness
-              const { start } = node.position
-              throw Object.assign(
-                new SyntaxError('unknown jsx node: ' + JSON.stringify(value)),
-                {
-                  lineNumber: start.line,
-                  column: start.column,
-                  index: start.offset,
-                },
-              )
+              // #272 related
+              if (offset) {
+                jsxNodes.push(node)
+              } else {
+                // should never happen, just for robustness
+                const { start } = node.position
+                throw Object.assign(
+                  new SyntaxError('unknown jsx node: ' + JSON.stringify(value)),
+                  {
+                    lineNumber: start.line,
+                    column: start.column,
+                    index: start.offset,
+                  },
+                )
+              }
             }
-          } else {
-            jsxNodes.push(node)
           }
 
           if (!offset) {
             // fix #158
-            const firstOpenTagIndex = jsxNodes.findIndex(node =>
-              isOpenTag(node.value as string),
+            const firstOpenTagIndex = jsxNodes.findIndex(
+              node => typeof node.value === 'string' && isOpenTag(node.value),
             )
             if (firstOpenTagIndex === -1) {
-              acc.push(...jsxNodes)
+              if (hasOpenTag) {
+                acc.push(this.combineLeftJsxNodes(jsxNodes))
+              } else {
+                acc.push(...jsxNodes)
+              }
             } else {
-              acc.push(...jsxNodes.slice(0, firstOpenTagIndex))
               acc.push(
+                ...jsxNodes.slice(0, firstOpenTagIndex),
                 this.combineLeftJsxNodes(jsxNodes.slice(firstOpenTagIndex)),
               )
             }
@@ -120,7 +136,9 @@ export class Traverse {
     if (children) {
       const parent = node as Parent
       children = node.children = this.combineJsxNodes(children, parent)
-      children.forEach(child => this.traverse(child, parent))
+      for (const child of children) {
+        this.traverse(child, parent)
+      }
     }
 
     this._enter(node, parent)

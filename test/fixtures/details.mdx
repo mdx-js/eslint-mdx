@@ -1,0 +1,9 @@
+<details><summary >Override element states</summary>
+
+The previous code sample show how to specify a custom color for a `naked` button by using a `style` attribute. It works great to provide a basic property like a `background-color`. What about [element states](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) though? You can't specify an hover state with a `style` attribute.
+
+Here's another technique to specify a custom color by using a few CSS classes and a [CSS variable](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties). This technique leverage the ability to override a CSS variable of a stylesheet from the `style` attribute.
+
+In the following example a React component render a button with a custom color `background-color` and a darker hover state by overriding the `--color` CSS variable from the `style` prop.
+
+</details>

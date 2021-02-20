@@ -93,11 +93,12 @@ export class Parser {
         position: {
           start: { line, column, offset: startOffset },
         },
+        data,
       } = node
 
       Object.assign(node, {
         data: {
-          ...node.data,
+          ...data,
           jsxType: 'JSXElementWithHTMLComments',
           comments,
           // jsx in paragraph is considered as plain html in mdx, what means html style comments are valid
@@ -154,6 +155,7 @@ export class Parser {
     return this.parseForESLint(code, options).ast
   }
 
+  // eslint-disable-next-line sonarjs/cognitive-complexity
   parseForESLint(code: string, options: ParserOptions) {
     const extname = path.extname(options.filePath)
     const isMdx = DEFAULT_EXTENSIONS.concat(options.extensions || []).includes(
@@ -191,7 +193,9 @@ export class Parser {
 
           let normalized = this.normalizeJsxNode(node, parent, options)
           normalized = Array.isArray(normalized) ? normalized : [normalized]
-          normalized.forEach(_node => this._nodeToAst(_node, options))
+          for (const normalizedNode of normalized) {
+            this._nodeToAst(normalizedNode, options)
+          }
         },
       })
     }
@@ -288,6 +292,7 @@ export class Parser {
       position: {
         start: { line, offset },
       },
+      data,
     } = node
 
     return expression.children.reduce<Node[]>((nodes, jsNode) => {
@@ -311,7 +316,7 @@ export class Parser {
       const endOffset = range[1] - OFFSET
       nodes.push({
         type: 'jsx',
-        data: nodes.length > 0 ? null : node.data,
+        data: nodes.length > 0 ? null : data,
         value: value.slice(startOffset, endOffset),
         position: {
           start: {
@@ -371,16 +376,13 @@ export class Parser {
 
     const offset = start - program.range[0]
 
-    AST_PROPS.forEach(prop =>
+    for (const prop of AST_PROPS)
       this._ast[prop].push(
-        // unfortunately, TS complains about incompatible signature
-        // @ts-ignore
-        ...program[prop].map(item =>
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+        // ts doesn't understand the mixed type
+        ...program[prop].map((item: never) =>
           restoreNodeLocation(item, startLine, offset),
         ),
-      ),
-    )
+      )
   }
 }
 
