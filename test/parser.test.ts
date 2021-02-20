@@ -171,15 +171,15 @@ describe('parser', () => {
         parser: '@babel/eslint-parser',
       }),
     ).toThrowError()
-    expect(() =>
-      parser.parse('<main><</main>', parserOptions),
-    ).toThrowErrorMatchingSnapshot()
-    expect(() =>
-      parser.parse('<main>{<}</main>', parserOptions),
-    ).toThrowErrorMatchingSnapshot()
+    expect(() => parser.parse('<main><</main>', parserOptions)).toThrow(
+      'Unexpected token (1:10)',
+    )
+    expect(() => parser.parse('<main>{<}</main>', parserOptions)).toThrow(
+      'Unexpected token (1:11)',
+    )
     expect(() =>
       parser.parse('<main>\n<section><</section></main>', parserOptions),
-    ).toThrowErrorMatchingSnapshot()
+    ).toThrow('Unexpected token (2:10)')
   })
 
   it('should not throw on adjacent JSX nodes', () =>
