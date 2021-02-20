@@ -193,8 +193,8 @@ export class Parser {
 
           let normalized = this.normalizeJsxNode(node, parent, options)
           normalized = Array.isArray(normalized) ? normalized : [normalized]
-          for (const _node of normalized) {
-            this._nodeToAst(_node, options)
+          for (const normalizedNode of normalized) {
+            this._nodeToAst(normalizedNode, options)
           }
         },
       })

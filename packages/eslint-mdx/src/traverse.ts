@@ -37,6 +37,7 @@ export class Traverse {
   // fix #7
   combineJsxNodes(nodes: Node[], parent?: Parent) {
     let offset = 0
+    let hasOpenTag = false
     const jsxNodes: Node[] = []
     const { length } = nodes
     // eslint-disable-next-line sonarjs/cognitive-complexity
@@ -45,6 +46,7 @@ export class Traverse {
         const value = node.value as string
         if (isOpenTag(value)) {
           offset++
+          hasOpenTag = true
           jsxNodes.push(node)
         } else {
           if (
@@ -65,6 +67,7 @@ export class Traverse {
             // #272, we consider the first jsx node as open tag although it's not precise
             if (!index) {
               offset++
+              hasOpenTag = true
             }
             try {
               // fix #138
@@ -91,11 +94,15 @@ export class Traverse {
 
           if (!offset) {
             // fix #158
-            const firstOpenTagIndex = jsxNodes.findIndex(node =>
-              isOpenTag(node.value as string),
+            const firstOpenTagIndex = jsxNodes.findIndex(
+              node => typeof node.value === 'string' && isOpenTag(node.value),
             )
             if (firstOpenTagIndex === -1) {
-              acc.push(...jsxNodes)
+              if (hasOpenTag) {
+                acc.push(this.combineLeftJsxNodes(jsxNodes))
+              } else {
+                acc.push(...jsxNodes)
+              }
             } else {
               acc.push(
                 ...jsxNodes.slice(0, firstOpenTagIndex),
