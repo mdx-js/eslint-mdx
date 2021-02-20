@@ -42,11 +42,8 @@ export const isOpenTag = (text: string) => OPEN_TAG_REGEX.test(text.trim())
 export const isCloseTag = (text: string) => CLOSE_TAG_REGEX.test(text.trim())
 export const isComment = (text: string) => COMMENT_REGEX.test(text.trim())
 
-// the following functions are only declared for robustness and should never be called
-/* istanbul ignore next */
 export const isOpenCloseTag = (text: string) =>
   OPEN_CLOSE_TAG_REGEX.test(text.trim())
 
-/* istanbul ignore next */
 export const isSelfClosingTag = (text: string) =>
   SELF_CLOSING_TAG_REGEX.test(text.trim())
