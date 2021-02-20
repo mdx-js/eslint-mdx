@@ -49,15 +49,10 @@ export class Traverse {
           hasOpenTag = true
           jsxNodes.push(node)
         } else {
-          if (
-            isCloseTag(value)
-          ) {
+          if (isCloseTag(value)) {
             offset--
             jsxNodes.push(node)
-          }
-          // prettier-ignore
-          /* istanbul ignore next */
-          else if (
+          } else if (
             isComment(value) ||
             isSelfClosingTag(value) ||
             isOpenCloseTag(value)
@@ -75,6 +70,7 @@ export class Traverse {
               jsxNodes.push(...(Array.isArray(nodes) ? nodes : [nodes]))
             } catch {
               // #272 related
+              /* istanbul ignore else */
               if (offset) {
                 jsxNodes.push(node)
               } else {
