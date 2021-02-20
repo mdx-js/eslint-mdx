@@ -56,10 +56,16 @@ export class Traverse {
           // prettier-ignore
           /* istanbul ignore next */
           else if (
-            !isComment(value) &&
-            !isSelfClosingTag(value) &&
-            !isOpenCloseTag(value)
+            isComment(value) ||
+            isSelfClosingTag(value) ||
+            isOpenCloseTag(value)
           ) {
+            jsxNodes.push(node)
+          } else {
+            // #272, we consider the first jsx node as open tag although it's not precise
+            if (!index) {
+              offset++
+            }
             try {
               // fix #138
               const nodes = parser.normalizeJsxNode(node, parent)
@@ -76,8 +82,6 @@ export class Traverse {
                 },
               )
             }
-          } else {
-            jsxNodes.push(node)
           }
 
           if (!offset) {
