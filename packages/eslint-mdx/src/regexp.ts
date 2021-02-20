@@ -31,7 +31,7 @@ export const commentContent = `${commentOpen}([\\s\\S]*?)${commentClose}`
 export const OPEN_TAG_REGEX = new RegExp(`^(?:${openTag})$`)
 export const CLOSE_TAG_REGEX = new RegExp(`^(?:${closeTag})$`)
 export const OPEN_CLOSE_TAG_REGEX = new RegExp(
-  `^(?:${openTag + '[\\s\\S]*' + closeTag})$`,
+  `^(?:${openTag + '[^<]*' + closeTag})$`,
 )
 export const SELF_CLOSING_TAG_REGEX = new RegExp(`^(?:${selfClosingTag})$`)
 export const COMMENT_REGEX = new RegExp(`^(?:${comment})$`)

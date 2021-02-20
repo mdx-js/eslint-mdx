@@ -71,16 +71,21 @@ export class Traverse {
               const nodes = parser.normalizeJsxNode(node, parent)
               jsxNodes.push(...(Array.isArray(nodes) ? nodes : [nodes]))
             } catch {
-              // should never happen, just for robustness
-              const { start } = node.position
-              throw Object.assign(
-                new SyntaxError('unknown jsx node: ' + JSON.stringify(value)),
-                {
-                  lineNumber: start.line,
-                  column: start.column,
-                  index: start.offset,
-                },
-              )
+              // #272 related
+              if (offset) {
+                jsxNodes.push(node)
+              } else {
+                // should never happen, just for robustness
+                const { start } = node.position
+                throw Object.assign(
+                  new SyntaxError('unknown jsx node: ' + JSON.stringify(value)),
+                  {
+                    lineNumber: start.line,
+                    column: start.column,
+                    index: start.offset,
+                  },
+                )
+              }
             }
           }
 
