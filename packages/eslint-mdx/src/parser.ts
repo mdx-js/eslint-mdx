@@ -378,6 +378,7 @@ export class Parser {
 
     for (const prop of AST_PROPS)
       this._ast[prop].push(
+        // ts doesn't understand the mixed type
         ...program[prop].map((item: never) =>
           restoreNodeLocation(item, startLine, offset),
         ),

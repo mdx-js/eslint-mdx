@@ -109,10 +109,11 @@ export function restoreNodeLocation<T>(
       continue
     }
 
+    // ts doesn't understand the relationship between `key` and restored `value`
     // @ts-ignore
     node[key] = Array.isArray(value)
       ? value.map(child => restoreNodeLocation(child, startLine, offset))
-      : restoreNodeLocation(node[key], startLine, offset)
+      : restoreNodeLocation(value, startLine, offset)
   }
 
   const {
