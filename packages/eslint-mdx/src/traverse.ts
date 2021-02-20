@@ -88,8 +88,8 @@ export class Traverse {
             if (firstOpenTagIndex === -1) {
               acc.push(...jsxNodes)
             } else {
-              acc.push(...jsxNodes.slice(0, firstOpenTagIndex))
               acc.push(
+                ...jsxNodes.slice(0, firstOpenTagIndex),
                 this.combineLeftJsxNodes(jsxNodes.slice(firstOpenTagIndex)),
               )
             }
@@ -120,7 +120,9 @@ export class Traverse {
     if (children) {
       const parent = node as Parent
       children = node.children = this.combineJsxNodes(children, parent)
-      children.forEach(child => this.traverse(child, parent))
+      for (const child of children) {
+        this.traverse(child, parent)
+      }
     }
 
     this._enter(node, parent)

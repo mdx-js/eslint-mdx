@@ -52,49 +52,51 @@ export const remark: Rule.RuleModule = {
           }
         }
 
-        file.messages.forEach(
-          ({ source, reason, ruleId, location: { start, end } }) =>
-            context.report({
-              messageId: 'remarkReport',
-              data: {
-                reason,
-                source,
-                ruleId,
+        for (const {
+          source,
+          reason,
+          ruleId,
+          location: { start, end },
+        } of file.messages) {
+          context.report({
+            messageId: 'remarkReport',
+            data: {
+              reason,
+              source,
+              ruleId,
+            },
+            loc: {
+              // ! eslint ast column is 0-indexed, but unified is 1-indexed
+              start: {
+                ...start,
+                column: start.column - 1,
               },
-              loc: {
-                // ! eslint ast column is 0-indexed, but unified is 1-indexed
-                start: {
-                  ...start,
-                  column: start.column - 1,
-                },
-                end: {
-                  ...end,
-                  column: end.column - 1,
-                },
+              end: {
+                ...end,
+                column: end.column - 1,
               },
-              node,
-              fix(fixer) {
-                /* istanbul ignore if */
-                if (start.offset == null) {
-                  return null
-                }
-                const range: [number, number] = [
-                  start.offset,
-                  /* istanbul ignore next */
-                  end.offset == null ? start.offset + 1 : end.offset,
-                ]
-                const partialText = sourceText.slice(...range)
-                const fixed = remarkProcessor
-                  .processSync(partialText)
-                  .toString()
-                return fixer.replaceTextRange(
-                  range,
-                  /* istanbul ignore next */
-                  partialText.endsWith('\n') ? fixed : fixed.slice(0, -1), // remove redundant new line
-                )
-              },
-            }),
-        )
+            },
+            node,
+            fix(fixer) {
+              /* istanbul ignore if */
+              if (start.offset == null) {
+                return null
+              }
+              const range: [number, number] = [
+                start.offset,
+                /* istanbul ignore next */
+                end.offset == null ? start.offset + 1 : end.offset,
+              ]
+              const partialText = sourceText.slice(...range)
+              const fixed = remarkProcessor.processSync(partialText).toString()
+              return fixer.replaceTextRange(
+                range,
+                /* istanbul ignore next */
+                partialText.endsWith('\n') ? fixed : fixed.slice(0, -1), // remove redundant new line
+              )
+            },
+          })
+        }
       },
     }
   },

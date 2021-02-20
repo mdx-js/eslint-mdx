@@ -3,7 +3,7 @@ import { ExpressionStatement, Node } from 'estree'
 import { Attacher } from 'unified'
 
 export interface WithParent {
-  parent?: NodeWithParent
+  parent: NodeWithParent
 }
 
 export type NodeWithParent = Node & WithParent

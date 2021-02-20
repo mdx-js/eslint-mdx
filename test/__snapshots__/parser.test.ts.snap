@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parser should throw on invalid es syntaxes 1`] = `
+"/Users/JounQin/Workspaces/GitHub/eslint-mdx/__placeholder__.mdx: Unexpected token (1:10)
+
+[0m[31m[1m>[22m[39m[90m 1 |[39m [33m<[39m$[33m>[39m[33m<[39m[33mmain[39m[33m>[39m[33m<<[39m[33m/[39m[33mmain[39m[33m>[39m[33m<[39m[33m/[39m$[33m>[39m[0m
+[0m [90m   |[39m           [31m[1m^[22m[39m[0m"
+`;
+
+exports[`parser should throw on invalid es syntaxes 2`] = `
+"/Users/JounQin/Workspaces/GitHub/eslint-mdx/__placeholder__.mdx: Unexpected token (1:11)
+
+[0m[31m[1m>[22m[39m[90m 1 |[39m [33m<[39m$[33m>[39m[33m<[39m[33mmain[39m[33m>[39m{[33m<[39m}[33m<[39m[33m/[39m[33mmain[39m[33m>[39m[33m<[39m[33m/[39m$[33m>[39m[0m
+[0m [90m   |[39m            [31m[1m^[22m[39m[0m"
+`;
+
+exports[`parser should throw on invalid es syntaxes 3`] = `
+"/Users/JounQin/Workspaces/GitHub/eslint-mdx/__placeholder__.mdx: Unexpected token (2:10)
+
+[0m [90m 1 |[39m [33m<[39m$[33m>[39m[33m<[39m[33mmain[39m[33m>[39m[0m
+[0m[31m[1m>[22m[39m[90m 2 |[39m [33m<[39m[33msection[39m[33m>[39m[33m<<[39m[33m/[39m[33msection[39m[33m>[39m[33m<[39m[33m/[39m[33mmain[39m[33m>[39m[33m<[39m[33m/[39m$[33m>[39m[0m
+[0m [90m   |[39m           [31m[1m^[22m[39m[0m"
+`;
+
+exports[`parser should throw on invalid parser 1`] = `"Invalid custom parser for \`eslint-mdx\`: null"`;
+
+exports[`parser should throw on invalid parser 2`] = `"Invalid custom parser for \`eslint-mdx\`: false"`;
