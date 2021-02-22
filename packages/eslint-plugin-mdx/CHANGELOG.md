@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/mdx-js/eslint-mdx/compare/v1.8.2...v1.9.0) (2021-02-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-react to ^7.21.2 ([204b294](https://github.com/mdx-js/eslint-mdx/commit/204b29499491d8b1a5ec3ba535bab77e783a036d))
+* **deps:** update dependency remark-mdx to ^1.6.22 ([8692bf7](https://github.com/mdx-js/eslint-mdx/commit/8692bf70c75a3987a732044a96c9162272bbbe8a))
+
+
+### Features
+
+* bump (dev)Dependencies, fix: consider first jsx node as open tag - close [#272](https://github.com/mdx-js/eslint-mdx/issues/272) ([#273](https://github.com/mdx-js/eslint-mdx/issues/273)) ([cb846e9](https://github.com/mdx-js/eslint-mdx/commit/cb846e9a565de26f2f174b54f33092bd7f523399)), closes [#207](https://github.com/mdx-js/eslint-mdx/issues/207)
+
+
+
+
+
 ## [1.8.2](https://github.com/mdx-js/eslint-mdx/compare/v1.8.1...v1.8.2) (2020-08-23)
 
 **Note:** Version bump only for package eslint-plugin-mdx
