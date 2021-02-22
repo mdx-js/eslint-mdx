@@ -1,6 +1,6 @@
 /// <reference path="../typings.d.ts" />
 
-import { AST, Linter } from 'eslint'
+import { Linter } from 'eslint'
 import { parse as esParse } from 'espree'
 
 import {
@@ -66,54 +66,48 @@ export const normalizeParser = (parser?: ParserOptions['parser']) => {
   return parsers
 }
 
+export interface BaseNode {
+  type: string
+  loc: import('estree').SourceLocation
+  range: [number, number]
+  start?: number
+  end?: number
+}
+
 export const normalizePosition = (
-  position: import('unist').Position,
-): Pick<AST.Program, 'loc' | 'range'> & {
-  start: number
-  end: number
-} => {
-  const start = position.start.offset
-  const end = position.end.offset
+  loc: import('unist').Position,
+): Omit<BaseNode, 'type'> => {
+  const start = loc.start.offset
+  const end = loc.end.offset
   return {
     range: [start, end],
-    loc: {
-      ...position,
-    },
+    loc,
     start,
     end,
   }
 }
 
-export interface BaseNode {
-  type: string
-  loc?: import('estree').SourceLocation
-  range?: [number, number]
-}
+export const hasProperties = <T, P extends keyof T = keyof T>(
+  obj: unknown,
+  properties: Arrayable<P>,
+): obj is T =>
+  typeof obj === 'object' &&
+  obj &&
+  properties.every(property => property in obj)
 
-export const maybeBaseNode = (node: unknown): node is BaseNode =>
-  typeof node === 'object' && 'loc' in node && 'range' in node
-
-export function restoreNodeLocation<T>(
+export const restoreNodeLocation = <T>(
   node: T,
   startLine: number,
   offset: number,
-): T {
-  if (!maybeBaseNode(node)) {
-    return node
+): T => {
+  if (node && typeof node === 'object') {
+    for (const value of Object.values(node)) {
+      restoreNodeLocation(value, startLine, offset)
+    }
   }
 
-  for (const entry of Object.entries(node)) {
-    const [key, value] = entry as [keyof BaseNode, BaseNode[keyof BaseNode]]
-
-    if (!value) {
-      continue
-    }
-
-    // ts doesn't understand the relationship between `key` and restored `value`
-    // @ts-ignore
-    node[key] = Array.isArray(value)
-      ? value.map(child => restoreNodeLocation(child, startLine, offset))
-      : restoreNodeLocation(value, startLine, offset)
+  if (!hasProperties<BaseNode>(node, ['loc', 'range'])) {
+    return node
   }
 
   const {
@@ -122,8 +116,8 @@ export function restoreNodeLocation<T>(
   } = node
   const start = range[0] + offset
   const end = range[1] + offset
-  return {
-    ...node,
+
+  return Object.assign(node, {
     start,
     end,
     range: [start, end],
@@ -137,16 +131,10 @@ export function restoreNodeLocation<T>(
         column: endLoc.column,
       },
     },
-  }
+  })
 }
 
 export const first = <T>(items: T[] | readonly T[]) => items && items[0]
 
 export const last = <T>(items: T[] | readonly T[]) =>
   items && items[items.length - 1]
-
-export const hasProperties = <T, P extends keyof T = keyof T>(
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  obj: {},
-  properties: Arrayable<P>,
-): obj is T => properties.every(property => property in obj)
