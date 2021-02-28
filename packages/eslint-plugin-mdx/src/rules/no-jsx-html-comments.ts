@@ -1,5 +1,5 @@
 import { Rule } from 'eslint'
-import { Comment, JSX_TYPES, JsxType } from 'eslint-mdx'
+import { Comment, JSX_TYPES, JsxType, ParserServices } from 'eslint-mdx'
 
 import { ExpressionStatementWithParent } from './types'
 
@@ -19,9 +19,8 @@ export const noJsxHtmlComments: Rule.RuleModule = {
   create(context) {
     return {
       ExpressionStatement(node: ExpressionStatementWithParent) {
-        const invalidNodes: Array<import('unist').Node> =
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          context.parserServices.JSXElementsWithHTMLComments
+        const invalidNodes = (context.parserServices as ParserServices)
+          .JSXElementsWithHTMLComments
 
         if (
           !JSX_TYPES.includes(node.expression.type as JsxType) ||

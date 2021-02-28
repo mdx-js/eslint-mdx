@@ -9,9 +9,10 @@ checks:
       name: 'eslint-plugin-mdx pkg size'
       files:
         - path: 'packages/eslint-plugin-mdx/lib/**/*.*'
-  - name: type-coverage-watcher
+  - name: typecov
     options:
       atLeast: 99
+      ignoreAsAssertion: true
       ignoreCatch: true
       ignoreFiles:
         - '*.d.ts'

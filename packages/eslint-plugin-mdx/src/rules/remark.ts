@@ -23,7 +23,10 @@ export const remark: Rule.RuleModule = {
     const filename = context.getFilename()
     const extname = path.extname(filename)
     const sourceCode = context.getSourceCode()
-    const options = context.parserOptions
+    const options = context.parserOptions as {
+      extensions: string[]
+      markdownExtensions: string[]
+    }
     const isMdx = DEFAULT_EXTENSIONS.concat(options.extensions || []).includes(
       extname,
     )

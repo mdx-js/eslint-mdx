@@ -37,6 +37,6 @@
     "remark-mdx": "^1.6.22",
     "remark-parse": "^8.0.3",
     "tslib": "^2.1.0",
-    "unified": "^9.1.0"
+    "unified": "^9.2.1"
   }
 }

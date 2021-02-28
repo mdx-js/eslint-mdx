@@ -50,5 +50,5 @@ deploy:
       branch: develop
 
 after_script:
-  - yarn add -D @codechecks/client @codechecks/build-size-watcher @codechecks/type-coverage-watcher -W
+  - yarn add -D @codechecks/client @codechecks/build-size-watcher typecov -W
   - yarn codechecks

@@ -38,9 +38,9 @@ const EXPRESSION = 'Literal, JSXText'
 export const noUnescapedEntities: Rule.RuleModule = {
   ...reactNoUnescapedEntities,
   create(context) {
-    const configuration: {
+    const configuration = (context.options[0] || {}) as {
       forbid?: EscapeEntity[]
-    } = context.options[0] || {}
+    }
     const entities = configuration.forbid || DEFAULTS
     return {
       // eslint-disable-next-line sonarjs/cognitive-complexity

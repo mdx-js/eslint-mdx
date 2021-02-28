@@ -26,6 +26,7 @@ import {
   Parent,
   ParserFn,
   ParserOptions,
+  ParserServices,
 } from './types'
 
 export const mdProcessor = unified().use(remarkParse).freeze()
@@ -66,9 +67,7 @@ export class Parser {
   private _ast: AST.Program
 
   // @internal
-  private _services: {
-    JSXElementsWithHTMLComments: Node[]
-  }
+  private _services: ParserServices
 
   // @internal
   private readonly _options = DEFAULT_PARSER_OPTIONS

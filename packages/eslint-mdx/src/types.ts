@@ -57,3 +57,7 @@ export interface Comment {
   }
   origin: string
 }
+
+export interface ParserServices {
+  JSXElementsWithHTMLComments: Node[]
+}

@@ -40,7 +40,7 @@
     "remark-parse": "^8.0.3",
     "remark-stringify": "^8.1.1",
     "tslib": "^2.1.0",
-    "unified": "^9.1.0",
+    "unified": "^9.2.1",
     "vfile": "^4.2.1"
   },
   "optionalDependencies": {
