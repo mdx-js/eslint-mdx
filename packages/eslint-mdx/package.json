@@ -30,7 +30,7 @@
     "mdx"
   ],
   "peerDependencies": {
-    "eslint": ">=5.0.0"
+    "eslint": ">=5.16.0"
   },
   "dependencies": {
     "espree": "^7.3.1",
