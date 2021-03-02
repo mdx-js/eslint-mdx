@@ -222,9 +222,9 @@ export class Parser {
       try {
         program = parser(code, this._options)
         break
-      } catch (e) {
+      } catch (err) {
         if (!parseError) {
-          parseError = e as Error
+          parseError = err as Error
         }
       }
     }
@@ -387,4 +387,5 @@ export class Parser {
 
 export const parser = new Parser()
 
+// eslint-disable-next-line @typescript-eslint/unbound-method
 export const { parse, parseForESLint } = parser

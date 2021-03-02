@@ -27,11 +27,11 @@ export const requirePkg = <T>(
   let error: Error
   for (const pkg of packages) {
     try {
-      // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-return
-      return require(pkg)
+      // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
+      return require(pkg) as T
     } catch (err) {
       if (!error) {
-        error = err
+        error = err as Error
       }
     }
   }
@@ -53,10 +53,10 @@ export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
   }
 
   /* istanbul ignore next */
-  const { config, filepath }: Partial<CosmiconfigResult> =
-    searchSync(searchFrom) || {}
+  const result: Partial<CosmiconfigResult> = searchSync(searchFrom) || {}
   /* istanbul ignore next */
-  const { plugins = [], settings }: Partial<RemarkConfig> = config || {}
+  const { plugins = [], settings } = (result.config ||
+    {}) as Partial<RemarkConfig>
 
   try {
     // disable this rule automatically since we already have a parser option `extensions`
@@ -80,7 +80,7 @@ export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
       return processor.use(
         /* istanbul ignore next */
         typeof plugin === 'string'
-          ? requirePkg(plugin, 'remark', filepath)
+          ? requirePkg(plugin, 'remark', result.filepath)
           : plugin,
         ...pluginSettings,
       )

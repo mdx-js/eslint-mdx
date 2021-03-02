@@ -18,17 +18,17 @@
     "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --cache --ext js,md,ts -f friendly",
     "lint:ts": "tslint -p . -t stylish",
     "lint:tsc": "tsc",
-    "postinstall": "yarn-deduplicate || exit 0",
+    "postinstall": "yarn-deduplicate --strategy fewer || exit 0",
     "prelint": "yarn build:ts",
     "prerelease": "yarn build",
     "pretest": "yarn clean",
     "release": "lerna publish --conventional-commits --create-release github --yes",
-    "test": "ts-node --skip-ignore node_modules/.bin/jest",
+    "test": "jest",
     "typecov": "type-coverage"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^1.1.8",
-    "@1stg/tslint-config": "^1.0.1",
+    "@1stg/lib-config": "^1.1.9",
+    "@1stg/tslint-config": "^1.1.0",
     "@types/eslint": "^7.2.6",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.31",
@@ -48,6 +48,7 @@
     "yarn-deduplicate": "^3.1.0"
   },
   "resolutions": {
+    "@babel/core": "^7.13.8",
     "prettier": "^2.2.1",
     "tslib": "^2.1.0"
   },

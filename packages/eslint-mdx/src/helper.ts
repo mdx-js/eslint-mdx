@@ -27,8 +27,8 @@ export const isJsxNode = (node: { type: string }): node is JsxNode =>
 export const normalizeParser = (parser?: ParserOptions['parser']) => {
   if (parser) {
     if (typeof parser === 'string') {
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
-      parser = require(parser)
+      // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
+      parser = require(parser) as ParserOptions['parser']
     }
 
     if (typeof parser === 'object') {
@@ -50,12 +50,14 @@ export const normalizeParser = (parser?: ParserOptions['parser']) => {
   for (const fallback of FALLBACK_PARSERS) {
     try {
       // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
-      const fallbackParser: Linter.ParserModule = require(fallback)
+      const fallbackParser = require(fallback) as Linter.ParserModule
       /* istanbul ignore next */
       const parserFn =
         'parseForESLint' in fallbackParser
-          ? fallbackParser.parseForESLint
-          : fallbackParser.parse
+          ? // eslint-disable-next-line @typescript-eslint/unbound-method
+            fallbackParser.parseForESLint
+          : // eslint-disable-next-line @typescript-eslint/unbound-method
+            fallbackParser.parse
       /* istanbul ignore else */
       if (parserFn) {
         parsers.unshift(parserFn)
