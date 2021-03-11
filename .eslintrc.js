@@ -1,12 +1,6 @@
 const tsNode = require('ts-node')
 
-tsNode.register({
-  compilerOptions: {
-    module: 'commonjs',
-    pretty: true,
-  },
-  transpileOnly: true,
-})
+tsNode.register()
 
 module.exports = {
   root: true,

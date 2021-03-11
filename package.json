@@ -75,7 +75,13 @@
   "prettier": "@1stg/prettier-config",
   "remarkConfig": {
     "plugins": [
-      "@1stg/remark-config"
+      "@1stg/remark-config",
+      [
+        "lint-no-duplicate-headings",
+        [
+          2
+        ]
+      ]
     ]
   },
   "renovate": {

@@ -1,10 +1,11 @@
+import { Linter } from 'eslint'
 import { version } from 'eslint/package.json'
 
 import { base } from './base'
 
 const minorVersion = +version.split('.').slice(0, 2).join('.')
 
-export const recommended = {
+export const recommended: Linter.Config = {
   ...base,
   rules: {
     'mdx/no-jsx-html-comments': 2,

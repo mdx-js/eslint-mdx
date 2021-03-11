@@ -5,6 +5,7 @@ import { DEFAULT_EXTENSIONS, MARKDOWN_EXTENSIONS } from 'eslint-mdx'
 import vfile from 'vfile'
 
 import { getRemarkProcessor } from './helper'
+import { RemarkLintMessage } from './types'
 
 export const remark: Rule.RuleModule = {
   meta: {
@@ -13,9 +14,6 @@ export const remark: Rule.RuleModule = {
       description: 'Linter integration with remark plugins',
       category: 'Stylistic Issues',
       recommended: true,
-    },
-    messages: {
-      remarkReport: '{{ source }}:{{ ruleId }} - {{ reason }}',
     },
     fixable: 'code',
   },
@@ -34,6 +32,7 @@ export const remark: Rule.RuleModule = {
       options.markdownExtensions || [],
     ).includes(extname)
     return {
+      // eslint-disable-next-line sonarjs/cognitive-complexity
       Program(node) {
         /* istanbul ignore if */
         if (!isMdx && !isMarkdown) {
@@ -59,15 +58,26 @@ export const remark: Rule.RuleModule = {
           source,
           reason,
           ruleId,
+          fatal,
           location: { start, end },
         } of file.messages) {
+          // https://github.com/remarkjs/remark-lint/issues/65#issuecomment-220800231
+          /* istanbul ignore next */
+          const severity = fatal ? 2 : fatal == null ? 0 : 1
+          /* istanbul ignore if */
+          if (!severity) {
+            // should never happen, just for robustness
+            continue
+          }
+          const message: RemarkLintMessage = {
+            reason,
+            source,
+            ruleId,
+            severity,
+          }
           context.report({
-            messageId: 'remarkReport',
-            data: {
-              reason,
-              source,
-              ruleId,
-            },
+            // related to https://github.com/eslint/eslint/issues/14198
+            message: JSON.stringify(message),
             loc: {
               // ! eslint ast column is 0-indexed, but unified is 1-indexed
               start: {

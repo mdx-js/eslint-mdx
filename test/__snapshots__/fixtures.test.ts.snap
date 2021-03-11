@@ -18,10 +18,9 @@ Array [
       "text": "# Hello, world!",
     },
     "line": 27,
-    "message": "remark-lint:no-multiple-toplevel-headings - Don’t use multiple top level headings (3:1)",
-    "messageId": "remarkReport",
+    "message": "Don’t use multiple top level headings (3:1)",
     "nodeType": "Program",
-    "ruleId": "mdx/remark",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
   },
   Object {
@@ -56,10 +55,9 @@ Array [
       "text": "# Here's a text gradient shortcode!",
     },
     "line": 35,
-    "message": "remark-lint:no-multiple-toplevel-headings - Don’t use multiple top level headings (3:1)",
-    "messageId": "remarkReport",
+    "message": "Don’t use multiple top level headings (3:1)",
     "nodeType": "Program",
-    "ruleId": "mdx/remark",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
   },
   Object {
@@ -128,6 +126,45 @@ Array [
     "message": "\`>\` can be escaped with \`&gt;\`.",
     "nodeType": "JSXText",
     "ruleId": "mdx/no-unescaped-entities",
+    "severity": 1,
+  },
+]
+`;
+
+exports[`fixtures should match all snapshots: processor.mdx 1`] = `
+Array [
+  Object {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 3,
+    "fix": Object {
+      "range": Array [
+        7,
+        12,
+      ],
+      "text": "# abc",
+    },
+    "line": 3,
+    "message": "Do not use headings with similar content (1:1)",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-duplicate-headings",
+    "severity": 2,
+  },
+  Object {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 3,
+    "fix": Object {
+      "range": Array [
+        7,
+        12,
+      ],
+      "text": "# abc",
+    },
+    "line": 3,
+    "message": "Don’t use multiple top level headings (1:1)",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
   },
 ]

@@ -1,3 +1,5 @@
+import { Linter } from 'eslint'
+
 import { base } from './base'
 import { getGlobals } from './helper'
 
@@ -12,7 +14,7 @@ try {
   rebass = ['Box', 'Flex', 'Text', 'Heading', 'Link', 'Button', 'Image', 'Card']
 }
 
-export const overrides = {
+export const overrides: Linter.Config = {
   ...base,
   globals: getGlobals(rebass, {
     React: false,
