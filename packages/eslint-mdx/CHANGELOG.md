@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/mdx-js/eslint-mdx/compare/v1.9.0...v1.9.1) (2021-03-11)
+
+
+### Bug Fixes
+
+* wrong end.offset - close [#279](https://github.com/mdx-js/eslint-mdx/issues/279) ([#280](https://github.com/mdx-js/eslint-mdx/issues/280)) ([188c6aa](https://github.com/mdx-js/eslint-mdx/commit/188c6aab729b3b50bacc00c1502060fb705f4255))
+
+
+
+
+
 # [1.9.0](https://github.com/mdx-js/eslint-mdx/compare/v1.8.2...v1.9.0) (2021-02-22)
 
 
