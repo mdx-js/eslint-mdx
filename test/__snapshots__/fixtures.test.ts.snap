@@ -104,6 +104,8 @@ Array [
 ]
 `;
 
+exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `Array []`;
+
 exports[`fixtures should match all snapshots: leading-spaces.mdx 1`] = `Array []`;
 
 exports[`fixtures should match all snapshots: markdown.md 1`] = `Array []`;

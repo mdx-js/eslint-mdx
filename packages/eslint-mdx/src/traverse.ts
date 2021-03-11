@@ -20,16 +20,23 @@ export class Traverse {
     this._enter = enter
   }
 
-  combineLeftJsxNodes(jsxNodes: Node[]) {
+  combineLeftJsxNodes(jsxNodes: Node[], parent?: Parent): Node {
     const start = jsxNodes[0].position.start
-    const end = last(jsxNodes).position.end
+    const end = { ...last(jsxNodes).position.end }
+    // fix #279
+    if (parent && parent.position.indent?.length > 0) {
+      end.offset += parent.position.indent.reduce(
+        (acc, indent, index) => acc + (index ? indent + 1 : 0),
+        0,
+      )
+    }
     return {
       type: 'jsx',
       data: jsxNodes[0].data,
       value: this.code.slice(start.offset, end.offset),
       position: {
-        start: jsxNodes[0].position.start,
-        end: last(jsxNodes).position.end,
+        start,
+        end,
       },
     }
   }
@@ -95,14 +102,17 @@ export class Traverse {
             )
             if (firstOpenTagIndex === -1) {
               if (hasOpenTag) {
-                acc.push(this.combineLeftJsxNodes(jsxNodes))
+                acc.push(this.combineLeftJsxNodes(jsxNodes, parent))
               } else {
                 acc.push(...jsxNodes)
               }
             } else {
               acc.push(
                 ...jsxNodes.slice(0, firstOpenTagIndex),
-                this.combineLeftJsxNodes(jsxNodes.slice(firstOpenTagIndex)),
+                this.combineLeftJsxNodes(
+                  jsxNodes.slice(firstOpenTagIndex),
+                  parent,
+                ),
               )
             }
             jsxNodes.length = 0
@@ -114,7 +124,7 @@ export class Traverse {
         acc.push(node)
       }
       if (index === length - 1 && jsxNodes.length > 0) {
-        acc.push(this.combineLeftJsxNodes(jsxNodes))
+        acc.push(this.combineLeftJsxNodes(jsxNodes, parent))
       }
       return acc
     }, [])
