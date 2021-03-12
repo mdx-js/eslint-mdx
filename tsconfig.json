@@ -3,6 +3,13 @@
   "compilerOptions": {
     "noEmit": true
   },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs",
+      "pretty": true
+    },
+    "transpileOnly": true
+  },
   "references": [
     {
       "path": "packages/eslint-mdx"
