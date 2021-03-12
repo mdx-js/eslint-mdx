@@ -5,8 +5,7 @@
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "commonjs",
-      "pretty": true
+      "module": "CommonJS"
     },
     "transpileOnly": true
   },

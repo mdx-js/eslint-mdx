@@ -13,19 +13,35 @@ export const remark = {
             ruleId: eslintRuleId,
             severity: eslintSeverity,
           } = lintMessage
-          if (eslintRuleId !== 'mdx/remark') {
-            return lintMessage
-          }
 
-          const { source, ruleId, reason, severity } = JSON.parse(
-            message,
-          ) as RemarkLintMessage
+          switch (eslintRuleId) {
+            case 'mdx/remark': {
+              const { source, ruleId, reason, severity } = JSON.parse(
+                message,
+              ) as RemarkLintMessage
 
-          return {
-            ...lintMessage,
-            ruleId: `${source}-${ruleId}`,
-            message: reason,
-            severity: Math.max(eslintSeverity, severity) as Linter.Severity,
+              return {
+                ...lintMessage,
+                ruleId: `${source}-${ruleId}`,
+                message: reason,
+                severity: Math.max(eslintSeverity, severity) as Linter.Severity,
+              }
+            }
+            case 'mdx/code-block': {
+              const originalLintMessage = JSON.parse(
+                message,
+              ) as Linter.LintMessage
+              return {
+                ...originalLintMessage,
+                severity: Math.min(
+                  eslintSeverity,
+                  originalLintMessage.severity,
+                ) as Linter.Severity,
+              }
+            }
+            default: {
+              return lintMessage
+            }
           }
         }),
       )

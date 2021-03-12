@@ -2,6 +2,14 @@ import path from 'path'
 
 import { cosmiconfigSync } from 'cosmiconfig'
 import { CosmiconfigResult } from 'cosmiconfig/dist/types'
+import { AST, Rule } from 'eslint'
+import {
+  DEFAULT_EXTENSIONS,
+  MARKDOWN_EXTENSIONS,
+  hasProperties,
+} from 'eslint-mdx'
+// eslint-disable-next-line node/no-extraneous-import
+import { Position } from 'estree'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import remarkStringify from 'remark-stringify'
@@ -53,7 +61,27 @@ export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
   }
 
   /* istanbul ignore next */
-  const result: Partial<CosmiconfigResult> = searchSync(searchFrom) || {}
+  let result: Partial<CosmiconfigResult> = {}
+
+  try {
+    result = searchSync(searchFrom)
+  } catch (err) {
+    // https://github.com/eslint/eslint/issues/11989
+    /* istanbul ignore if */
+    if (
+      (err as { code?: string }).code !== 'ENOTDIR' ||
+      !/\d+\.[a-z]+$/.test(searchFrom)
+    ) {
+      throw err
+    }
+    try {
+      result = searchSync(path.dirname(searchFrom))
+    } catch {
+      /* istanbul ignore next */
+      throw err
+    }
+  }
+
   /* istanbul ignore next */
   const { plugins = [], settings } = (result.config ||
     {}) as Partial<RemarkConfig>
@@ -86,4 +114,49 @@ export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
       )
     }, initProcessor)
     .freeze()
+}
+
+export const parseContext = (context: Rule.RuleContext) => {
+  const filename = context.getFilename()
+  const extname = path.extname(filename)
+  const sourceCode = context.getSourceCode()
+  const options = context.parserOptions as {
+    extensions: string[]
+    markdownExtensions: string[]
+  }
+  const isMdx = DEFAULT_EXTENSIONS.concat(options.extensions || []).includes(
+    extname,
+  )
+  const isMarkdown = MARKDOWN_EXTENSIONS.concat(
+    options.markdownExtensions || [],
+  ).includes(extname)
+
+  return {
+    filename,
+    extname,
+    sourceCode,
+    options,
+    isMdx,
+    isMarkdown,
+  }
+}
+
+export function getRangeByLoc(text: string, position: Position): number
+export function getRangeByLoc(
+  text: string,
+  loc: AST.SourceLocation,
+): [number, number]
+export function getRangeByLoc(
+  text: string,
+  locOrPos: AST.SourceLocation | Position,
+) {
+  if (hasProperties<AST.SourceLocation>(locOrPos, ['start', 'end'])) {
+    return [
+      getRangeByLoc(text, locOrPos.start),
+      getRangeByLoc(text, locOrPos.end),
+    ]
+  }
+
+  const lines = text.split(/\n/)
+  return lines.slice(0, locOrPos.line - 1).join('\n').length + locOrPos.column
 }

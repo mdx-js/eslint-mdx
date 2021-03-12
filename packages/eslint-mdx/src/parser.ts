@@ -7,6 +7,7 @@ import unified from 'unified'
 
 import {
   hasProperties,
+  isCodeBlockNode,
   isJsxNode,
   last,
   normalizeParser,
@@ -154,7 +155,6 @@ export class Parser {
     return this.parseForESLint(code, options).ast
   }
 
-  // eslint-disable-next-line sonarjs/cognitive-complexity
   parseForESLint(code: string, options: ParserOptions) {
     const extname = path.extname(options.filePath)
     const isMdx = DEFAULT_EXTENSIONS.concat(options.extensions || []).includes(
@@ -180,24 +180,28 @@ export class Parser {
 
     this._services = {
       JSXElementsWithHTMLComments: [],
+      codeBlocks: [],
     }
 
-    if (isMdx) {
-      traverse(root, {
-        code,
-        enter: (node, parent) => {
-          if (!ES_NODE_TYPES.includes(node.type)) {
-            return
-          }
+    traverse(root, {
+      code,
+      enter: (node, parent) => {
+        if (isCodeBlockNode(node)) {
+          this._services.codeBlocks.push(node)
+          return
+        }
 
-          let normalized = this.normalizeJsxNode(node, parent, options)
-          normalized = Array.isArray(normalized) ? normalized : [normalized]
-          for (const normalizedNode of normalized) {
-            this._nodeToAst(normalizedNode, options)
-          }
-        },
-      })
-    }
+        if (!isMdx || !ES_NODE_TYPES.includes(node.type)) {
+          return
+        }
+
+        let normalized = this.normalizeJsxNode(node, parent, options)
+        normalized = Array.isArray(normalized) ? normalized : [normalized]
+        for (const normalizedNode of normalized) {
+          this._nodeToAst(normalizedNode, options)
+        }
+      },
+    })
 
     return {
       ast: this._ast,
@@ -256,25 +260,25 @@ export class Parser {
         `${JSX_WRAPPER_START}${value}${JSX_WRAPPER_END}`,
         options,
       ).ast
-    } catch (e) {
-      if (hasProperties<LocationError>(e, LOC_ERROR_PROPERTIES)) {
+    } catch (err) {
+      if (hasProperties<LocationError>(err, LOC_ERROR_PROPERTIES)) {
         const {
           position: { start },
         } = node
 
         /* istanbul ignore else */
-        if ('index' in e) {
-          e.index += start.offset - OFFSET
-        } else if ('pos' in e) {
-          e.pos += start.offset - OFFSET
+        if ('index' in err) {
+          err.index += start.offset - OFFSET
+        } else if ('pos' in err) {
+          err.pos += start.offset - OFFSET
         }
 
-        e.column =
+        err.column =
           /* istanbul ignore next */
-          e.lineNumber > 1 ? e.column : e.column + start.column - OFFSET
-        e.lineNumber += start.line - 1
+          err.lineNumber > 1 ? err.column : err.column + start.column - OFFSET
+        err.lineNumber += start.line - 1
 
-        throw e
+        throw err
       }
 
       return node

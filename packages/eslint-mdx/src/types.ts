@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-type-alias */
 import { AST, Linter } from 'eslint'
 
+import { ParsableLanguage } from './helper'
+
 export type JSXElement = import('@babel/types').JSXElement
 export type JSXFragment = import('@babel/types').JSXFragment
 export type Node = import('unist').Node
@@ -58,6 +60,22 @@ export interface Comment {
   origin: string
 }
 
+export type ValueOf<T> = T extends {
+  [key: string]: infer M
+}
+  ? M
+  : T extends {
+      [key: number]: infer N
+    }
+  ? N
+  : never
+
+export interface CodeBlockNode extends Node {
+  lang: ParsableLanguage
+  value: string
+}
+
 export interface ParserServices {
   JSXElementsWithHTMLComments: Node[]
+  codeBlocks: CodeBlockNode[]
 }

@@ -81,6 +81,154 @@ Array [
 ]
 `;
 
+exports[`fixtures should match all snapshots: code-block.md 1`] = `
+Array [
+  Object {
+    "column": 8,
+    "endColumn": 23,
+    "endLine": 2,
+    "line": 2,
+    "message": "Unexpected var, use let or const instead.",
+    "messageId": "unexpectedVar",
+    "nodeType": "VariableDeclaration",
+    "ruleId": "no-var",
+    "severity": 1,
+    "suggestions": null,
+  },
+  Object {
+    "column": 21,
+    "endColumn": 27,
+    "endLine": 4,
+    "line": 4,
+    "message": "Prefer the spread operator over \`Array#concat(…)\`.",
+    "messageId": "array-concat",
+    "nodeType": "Identifier",
+    "ruleId": "unicorn/prefer-spread",
+    "severity": 1,
+    "suggestions": null,
+  },
+  Object {
+    "column": 26,
+    "endColumn": 31,
+    "endLine": 12,
+    "line": 12,
+    "message": "'React' must be in scope when using JSX",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/react-in-jsx-scope",
+    "severity": 1,
+    "suggestions": null,
+  },
+  Object {
+    "column": 33,
+    "endColumn": null,
+    "endLine": null,
+    "line": 12,
+    "message": "\`>\` can be escaped with \`&gt;\`.",
+    "nodeType": "JSXText",
+    "ruleId": "react/no-unescaped-entities",
+    "severity": 1,
+    "suggestions": null,
+  },
+  Object {
+    "column": 1,
+    "endColumn": null,
+    "endLine": null,
+    "fatal": true,
+    "line": 16,
+    "message": "Parsing error: \\"parserOptions.project\\" has been set for @typescript-eslint/parser.
+The file does not match your project config: test/fixtures/code-block.md/2.ts.
+The file must be included in at least one of the projects provided.",
+    "ruleId": null,
+    "severity": 1,
+    "suggestions": null,
+  },
+  Object {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 22,
+    "fix": Object {
+      "range": Array [
+        237,
+        242,
+      ],
+      "text": "# abc",
+    },
+    "line": 22,
+    "message": "Do not use headings with similar content (1:1)",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-duplicate-headings",
+    "severity": 1,
+    "suggestions": null,
+  },
+  Object {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 22,
+    "fix": Object {
+      "range": Array [
+        237,
+        242,
+      ],
+      "text": "# abc",
+    },
+    "line": 22,
+    "message": "Don’t use multiple top level headings (1:1)",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
+    "severity": 1,
+    "suggestions": null,
+  },
+  Object {
+    "column": 8,
+    "endColumn": 13,
+    "endLine": 26,
+    "line": 26,
+    "message": "'React' is defined but never used.",
+    "messageId": "unusedVar",
+    "nodeType": "Identifier",
+    "ruleId": "no-unused-vars",
+    "severity": 1,
+    "suggestions": null,
+  },
+  Object {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 30,
+    "fix": Object {
+      "range": Array [
+        289,
+        294,
+      ],
+      "text": "# abc",
+    },
+    "line": 30,
+    "message": "Do not use headings with similar content (3:1)",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-duplicate-headings",
+    "severity": 1,
+    "suggestions": null,
+  },
+  Object {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 30,
+    "fix": Object {
+      "range": Array [
+        289,
+        294,
+      ],
+      "text": "# abc",
+    },
+    "line": 30,
+    "message": "Don’t use multiple top level headings (3:1)",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
+    "severity": 1,
+    "suggestions": null,
+  },
+]
+`;
+
 exports[`fixtures should match all snapshots: details.mdx 1`] = `
 Array [
   Object {
