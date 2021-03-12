@@ -8,5 +8,26 @@ module.exports = {
   rules: {
     // `strictNullChecks` is required
     '@typescript-eslint/no-unnecessary-condition': 0,
+    'eslint-comments/no-unused-disable': 0,
   },
+  overrides: [
+    {
+      files: '**/*.{md,mdx}/**',
+      rules: {
+        'prettier/prettier': 0,
+        'unicorn/filename-case': 0,
+      },
+    },
+    {
+      files: '*.{md,mdx}',
+      // related to https://github.com/eslint/eslint/issues/14207
+      rules: {
+        'prettier/prettier': 0,
+        'unicorn/filename-case': 0,
+      },
+      settings: {
+        'mdx/lintCodeBlock': true,
+      },
+    },
+  ],
 }

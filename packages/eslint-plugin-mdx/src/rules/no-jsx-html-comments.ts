@@ -19,8 +19,9 @@ export const noJsxHtmlComments: Rule.RuleModule = {
   create(context) {
     return {
       ExpressionStatement(node: ExpressionStatementWithParent) {
-        const invalidNodes = (context.parserServices as ParserServices)
-          .JSXElementsWithHTMLComments
+        const {
+          JSXElementsWithHTMLComments: invalidNodes,
+        } = context.parserServices as ParserServices
 
         if (
           !JSX_TYPES.includes(node.expression.type as JsxType) ||

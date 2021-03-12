@@ -10,6 +10,7 @@ import {
   JsxTypes,
   ParserFn,
   ParserOptions,
+  ValueOf,
 } from './types'
 
 export const FALLBACK_PARSERS = [
@@ -140,3 +141,66 @@ export const first = <T>(items: T[] | readonly T[]) => items && items[0]
 
 export const last = <T>(items: T[] | readonly T[]) =>
   items && items[items.length - 1]
+
+export const PARSABLE_LANGUAGES = [
+  // es
+  'cjs',
+  'javascript',
+  'javascriptreact',
+  'js',
+  'jsx',
+  'mjs',
+  // remark
+  'markdown',
+  'md',
+  'mdown',
+  'mdx',
+  'mkdn',
+  // ts
+  'ts',
+  'tsx',
+  'typescript',
+  'typescriptreact',
+] as const
+
+export const SHORT_PARSABLE_LANGUAGES = [
+  // es
+  'cjs',
+  'js',
+  'jsx',
+  'mjs',
+  // remark
+  'md',
+  'mdx',
+  // ts
+  'ts',
+  'tsx',
+] as const
+
+// eslint-disable-next-line @typescript-eslint/no-type-alias
+export type ParsableLanguage = ValueOf<typeof PARSABLE_LANGUAGES>
+
+// eslint-disable-next-line @typescript-eslint/no-type-alias
+export type ShortParsableLanguage = ValueOf<typeof SHORT_PARSABLE_LANGUAGES>
+
+export const LANGUAGES_MAPPER: Partial<
+  Record<ParsableLanguage, ShortParsableLanguage>
+> = {
+  javascript: 'js',
+  javascriptreact: 'jsx',
+  typescript: 'ts',
+  typescriptreact: 'tsx',
+  markdown: 'md',
+  mdown: 'md',
+  mkdn: 'md',
+}
+
+export const getShortLanguage = (lang: string) => {
+  const parsableLanguage = last(
+    lang.split(/\s/)[0].split('.'),
+  ).toLowerCase() as ParsableLanguage
+  return (
+    LANGUAGES_MAPPER[parsableLanguage] ||
+    (parsableLanguage as ShortParsableLanguage)
+  )
+}

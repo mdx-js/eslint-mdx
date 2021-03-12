@@ -256,25 +256,25 @@ export class Parser {
         `${JSX_WRAPPER_START}${value}${JSX_WRAPPER_END}`,
         options,
       ).ast
-    } catch (e) {
-      if (hasProperties<LocationError>(e, LOC_ERROR_PROPERTIES)) {
+    } catch (err) {
+      if (hasProperties<LocationError>(err, LOC_ERROR_PROPERTIES)) {
         const {
           position: { start },
         } = node
 
         /* istanbul ignore else */
-        if ('index' in e) {
-          e.index += start.offset - OFFSET
-        } else if ('pos' in e) {
-          e.pos += start.offset - OFFSET
+        if ('index' in err) {
+          err.index += start.offset - OFFSET
+        } else if ('pos' in err) {
+          err.pos += start.offset - OFFSET
         }
 
-        e.column =
+        err.column =
           /* istanbul ignore next */
-          e.lineNumber > 1 ? e.column : e.column + start.column - OFFSET
-        e.lineNumber += start.line - 1
+          err.lineNumber > 1 ? err.column : err.column + start.column - OFFSET
+        err.lineNumber += start.line - 1
 
-        throw e
+        throw err
       }
 
       return node

@@ -58,6 +58,16 @@ export interface Comment {
   origin: string
 }
 
+export type ValueOf<T> = T extends {
+  [key: string]: infer M
+}
+  ? M
+  : T extends {
+      [key: number]: infer N
+    }
+  ? N
+  : never
+
 export interface ParserServices {
   JSXElementsWithHTMLComments: Node[]
 }

@@ -13,6 +13,7 @@
     "build": "run-p build:*",
     "build:r": "r -p",
     "build:ts": "tsc -b",
+    "clean": "rimraf packages/*/{lib,*.tsbuildinfo} node_modules/@1stg/eslint-config/node_modules",
     "lint": "run-p lint:*",
     "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --cache --ext js,md,ts -f friendly",
     "lint:ts": "tslint -p . -t stylish",
@@ -54,13 +55,16 @@
     ]
   },
   "eslintIgnore": [
-    "**/fixtures/**",
     "coverage",
+    "fixtures",
     "lib",
     "CHANGELOG.md",
     "!/.*.js"
   ],
   "jest": {
+    "setupFiles": [
+      "<rootDir>/jest.setup.ts"
+    ],
     "collectCoverage": true,
     "coverageThreshold": {
       "global": {
@@ -70,7 +74,11 @@
         "statements": 100
       }
     },
-    "preset": "ts-jest"
+    "preset": "ts-jest",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/processors/markdown.js"
+    ]
   },
   "prettier": "@1stg/prettier-config",
   "remarkConfig": {

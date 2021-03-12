@@ -1,5 +1,158 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`fixtures lint code blocks should work as expected: code-block.md 1`] = `
+Array [
+  Object {
+    "column": 21,
+    "endColumn": 27,
+    "endLine": 8,
+    "line": 8,
+    "message": "Prefer the spread operator over \`Array#concat(…)\`.",
+    "messageId": "array-concat",
+    "nodeType": "Identifier",
+    "ruleId": "unicorn/prefer-spread",
+    "severity": 2,
+    "suggestions": Array [
+      Object {
+        "desc": "First argument is an \`array\`.",
+        "fix": Object {
+          "range": Array [
+            41,
+            52,
+          ],
+          "text": "...a]",
+        },
+        "messageId": "argument-is-spreadable",
+      },
+      Object {
+        "desc": "First argument is not an \`array\`.",
+        "fix": Object {
+          "range": Array [
+            41,
+            52,
+          ],
+          "text": "a]",
+        },
+        "messageId": "argument-is-not-spreadable",
+      },
+      Object {
+        "desc": "Test first argument with \`Array.isArray(…)\`.",
+        "fix": Object {
+          "range": Array [
+            41,
+            52,
+          ],
+          "text": "...(Array.isArray(a) ? a : [a])]",
+        },
+        "messageId": "test-argument",
+      },
+    ],
+  },
+  Object {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 26,
+    "fix": Object {
+      "range": Array [
+        250,
+        255,
+      ],
+      "text": "# abc",
+    },
+    "line": 26,
+    "message": "Do not use headings with similar content (1:1)",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-duplicate-headings",
+    "severity": 2,
+  },
+  Object {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 26,
+    "fix": Object {
+      "range": Array [
+        250,
+        255,
+      ],
+      "text": "# abc",
+    },
+    "line": 26,
+    "message": "Don’t use multiple top level headings (1:1)",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
+    "severity": 1,
+  },
+  Object {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 34,
+    "fix": Object {
+      "range": Array [
+        302,
+        307,
+      ],
+      "text": "# abc",
+    },
+    "line": 34,
+    "message": "Do not use headings with similar content (3:1)",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-duplicate-headings",
+    "severity": 2,
+  },
+  Object {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 34,
+    "fix": Object {
+      "range": Array [
+        302,
+        307,
+      ],
+      "text": "# abc",
+    },
+    "line": 34,
+    "message": "Don’t use multiple top level headings (3:1)",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
+    "severity": 1,
+  },
+  Object {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 3,
+    "fix": Object {
+      "range": Array [
+        7,
+        12,
+      ],
+      "text": "# abc",
+    },
+    "line": 3,
+    "message": "Do not use headings with similar content (1:1)",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-duplicate-headings",
+    "severity": 2,
+  },
+  Object {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 3,
+    "fix": Object {
+      "range": Array [
+        7,
+        12,
+      ],
+      "text": "# abc",
+    },
+    "line": 3,
+    "message": "Don’t use multiple top level headings (1:1)",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
+    "severity": 1,
+  },
+]
+`;
+
 exports[`fixtures should match all snapshots: adjacent.mdx 1`] = `Array []`;
 
 exports[`fixtures should match all snapshots: basic.mdx 1`] = `Array []`;
@@ -77,6 +230,45 @@ Array [
     "nodeType": "JSXIdentifier",
     "ruleId": "react/jsx-no-undef",
     "severity": 2,
+  },
+]
+`;
+
+exports[`fixtures should match all snapshots: code-block.md 1`] = `
+Array [
+  Object {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 3,
+    "fix": Object {
+      "range": Array [
+        7,
+        12,
+      ],
+      "text": "# abc",
+    },
+    "line": 3,
+    "message": "Do not use headings with similar content (1:1)",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-duplicate-headings",
+    "severity": 2,
+  },
+  Object {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 3,
+    "fix": Object {
+      "range": Array [
+        7,
+        12,
+      ],
+      "text": "# abc",
+    },
+    "line": 3,
+    "message": "Don’t use multiple top level headings (1:1)",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
+    "severity": 1,
   },
 ]
 `;

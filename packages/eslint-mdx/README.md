@@ -22,7 +22,8 @@
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org)
 [![codechecks.io](https://raw.githubusercontent.com/codechecks/docs/master/images/badges/badge-default.svg?sanitize=true)](https://codechecks.io)
 
-> [ESLint][] Parser/Plugin for [MDX][], helps you lint all ES syntaxes excluding `code` block of course.
+> [ESLint][] Parser/Plugin for [MDX][], helps you lint all ES syntaxes.
+> Linting `code` blocks can be enabled with `mdx/code-block` rule too!
 > Work perfectly with `eslint-plugin-import`, `eslint-plugin-prettier` or any other eslint plugins.
 > And also can be integrated with [remark-lint][] plugins to lint markdown syntaxes.
 
@@ -38,6 +39,7 @@
   - [mdx/no-unescaped-entities](#mdxno-unescaped-entities)
   - [mdx/no-unused-expressions](#mdxno-unused-expressions)
   - [mdx/remark](#mdxremark)
+  - [mdx/code-block](#mdxcode-block)
 - [Prettier Integration](#prettier-integration)
 - [Changelog](#changelog)
 - [License](#license)
@@ -125,12 +127,10 @@ npm i -D eslint-plugin-mdx
               ],
             },
           },
-          Object.assign(
-            {
-              files: ['*.mdx'],
-            },
-            configs.overrides,
-          ),
+          {
+            files: ['*.mdx'],
+            ...configs.overrides,
+          },
         ],
       }
       ```
@@ -166,17 +166,21 @@ _Fixable_: HTML style comments in jsx block is invalid, this rule will help you 
 
 ### mdx/no-unescaped-entities
 
-Inline JSX like `Inline <Component />` is supported by [MDX][], but rule `react/no-unescaped-entities` from [eslint-plugin-react][] is incompatible with it, `mdx/no-unescaped-entities` is the replacement.
+Inline JSX like `Inline <Component />` is supported by [MDX][], but rule `react/no-unescaped-entities` from [eslint-plugin-react][] is incompatible with it, `mdx/no-unescaped-entities` is the replacement, so make sure that you've turned off the original `no-unescaped-entities` rule.
 
 ### mdx/no-unused-expressions
 
-[MDX][] can render `jsx` block automatically without exporting them, but [ESLint][] will report `no-unused-expressions` issue which could be unexpected, this rule is a replacement of it, so make sure that you've turned off the original `no-unused-expressions` rule.
+[MDX][] can render `jsx` block automatically without exporting them, but [ESLint][] will report `no-unused-expressions` issue which could be unexpected, this rule is the replacement, so make sure that you've turned off the original `no-unused-expressions` rule.
 
 ### mdx/remark
 
 _possible fixable depends on your remark plugins_:
 
 Integration with [remark-lint][] plugins, it will read [remark's configuration](https://github.com/remarkjs/remark/tree/master/packages/remark-cli#remark-cli) automatically via [cosmiconfig][]. But `.remarkignore` will not be respected, you should use `.eslintignore` instead.
+
+### mdx/code-block
+
+_Fixable_: This rule is **experimental** currently, you can try it and give us feedbacks.
 
 ## Prettier Integration
 
