@@ -8,8 +8,8 @@ Array [
     "endLine": 36,
     "fix": Object {
       "range": Array [
-        392,
-        397,
+        406,
+        411,
       ],
       "text": "# abc",
     },
@@ -25,8 +25,8 @@ Array [
     "endLine": 36,
     "fix": Object {
       "range": Array [
-        392,
-        397,
+        406,
+        411,
       ],
       "text": "# abc",
     },
@@ -42,8 +42,8 @@ Array [
     "endLine": 46,
     "fix": Object {
       "range": Array [
-        458,
-        463,
+        472,
+        477,
       ],
       "text": "# abc",
     },
@@ -59,8 +59,8 @@ Array [
     "endLine": 46,
     "fix": Object {
       "range": Array [
-        458,
-        463,
+        472,
+        477,
       ],
       "text": "# abc",
     },

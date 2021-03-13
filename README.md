@@ -162,7 +162,7 @@ npm i -D eslint-plugin-mdx
 
 ## Parser Options
 
-1. `parser` (`string | ParserConfig | ParserFn`): Custom parser for ES syntax is supported, although `@typescript-eslint/parser` or `babel-eslint` will be detected automatically what means you actually do not need to do this:
+1. `parser` (`string | ParserConfig | ParserFn`): Custom parser for ES syntax is supported, although `@typescript-eslint/parser` or `@babel/eslint-parser` or `babel-eslint` will be detected automatically what means you actually do not need to do this:
 
    ```json
    {

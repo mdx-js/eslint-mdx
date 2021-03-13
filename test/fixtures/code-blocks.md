@@ -17,7 +17,7 @@ export var a = 1 == 2
 ```
 
 ```log
-export var a = 1 == 2
+This is not parsable as JavaScript!
 ```
 
 <!-- eslint-mdx -->
