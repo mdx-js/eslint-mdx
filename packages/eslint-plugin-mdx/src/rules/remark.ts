@@ -1,7 +1,14 @@
+import path from 'path'
+
 import { Rule } from 'eslint'
+import {
+  DEFAULT_EXTENSIONS,
+  MARKDOWN_EXTENSIONS,
+  ParserOptions,
+} from 'eslint-mdx'
 import vfile from 'vfile'
 
-import { getRemarkProcessor, parseContext } from './helpers'
+import { getRemarkProcessor } from './helpers'
 import { RemarkLintMessage } from './types'
 
 export const remark: Rule.RuleModule = {
@@ -15,7 +22,16 @@ export const remark: Rule.RuleModule = {
     fixable: 'code',
   },
   create(context) {
-    const { isMdx, isMarkdown, filename, sourceCode } = parseContext(context)
+    const filename = context.getFilename()
+    const extname = path.extname(filename)
+    const sourceCode = context.getSourceCode()
+    const options = context.parserOptions as ParserOptions
+    const isMdx = DEFAULT_EXTENSIONS.concat(options.extensions || []).includes(
+      extname,
+    )
+    const isMarkdown = MARKDOWN_EXTENSIONS.concat(
+      options.markdownExtensions || [],
+    ).includes(extname)
     return {
       // eslint-disable-next-line sonarjs/cognitive-complexity
       Program(node) {

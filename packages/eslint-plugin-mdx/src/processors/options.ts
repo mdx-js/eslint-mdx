@@ -8,7 +8,7 @@ export const processorOptions = {} as ProcessorOptions
 
 // find Linter instance
 const linterPath = Object.keys(require.cache).find(path =>
-  /[/\\]eslint[/\\]lib(?:[/\\]linter){2}\.js$/.test(path),
+  /([/\\])eslint\1lib(?:\1linter){2}\.js$/.test(path),
 )
 
 /* istanbul ignore if */
