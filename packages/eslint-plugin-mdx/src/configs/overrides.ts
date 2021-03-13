@@ -1,7 +1,7 @@
 import { Linter } from 'eslint'
 
 import { base } from './base'
-import { getGlobals } from './helper'
+import { getGlobals } from './helpers'
 
 let rebass: typeof import('rebass') | string[]
 

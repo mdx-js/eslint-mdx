@@ -1,4 +1,4 @@
-import { last } from './helper'
+import { last } from './helpers'
 import { parser } from './parser'
 import {
   isCloseTag,

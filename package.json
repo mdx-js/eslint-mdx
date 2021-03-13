@@ -63,7 +63,7 @@
   ],
   "jest": {
     "setupFiles": [
-      "<rootDir>/jest.setup.ts"
+      "eslint/lib/linter/linter"
     ],
     "collectCoverage": true,
     "coverageThreshold": {
@@ -74,11 +74,7 @@
         "statements": 100
       }
     },
-    "preset": "ts-jest",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/processors/markdown.js"
-    ]
+    "preset": "ts-jest"
   },
   "prettier": "@1stg/prettier-config",
   "remarkConfig": {

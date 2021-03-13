@@ -12,7 +12,7 @@ import {
   normalizeParser,
   normalizePosition,
   restoreNodeLocation,
-} from './helper'
+} from './helpers'
 import {
   COMMENT_CONTENT_REGEX,
   COMMENT_CONTENT_REGEX_GLOBAL,

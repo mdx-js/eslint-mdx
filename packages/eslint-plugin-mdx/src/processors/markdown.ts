@@ -1,11 +1,22 @@
 /**
+ * based of @link https://github.com/eslint/eslint-plugin-markdown/blob/main/lib/processor.js
+ *
  * @fileoverview Processes Markdown files for consumption by ESLint.
  * @author Brandon Mills
  */
 
-const remarkParse = require('remark-parse')
-const unified = require('unified')
-const { getShortLanguage } = require('eslint-mdx')
+import { Linter } from 'eslint'
+import { Node, Parent, last } from 'eslint-mdx'
+
+import { remarkProcessor } from '../rules'
+
+import { ESLintProcessor } from './types'
+
+export interface Block extends Node {
+  baseIndentText: string
+  comments: string[]
+  rangeMap: Array<{ js: number; md: number }>
+}
 
 const UNSATISFIABLE_RULES = new Set([
   'eol-last', // The Markdown parser strips trailing newlines in code fences
@@ -13,35 +24,36 @@ const UNSATISFIABLE_RULES = new Set([
 ])
 const SUPPORTS_AUTOFIX = true
 
-const markdown = unified().use(remarkParse)
-
-const blocksCache = new Map()
+const blocksCache: Record<string, Block[]> = {}
 
 /**
  * Performs a depth-first traversal of the Markdown AST.
- * @param {ASTNode} node A Markdown AST node.
- * @param {Object} callbacks A map of node types to callbacks.
- * @param {Object} [parent] The node's parent AST node.
- * @returns {void}
+ * @param node A Markdown AST node.
+ * @param callbacks A map of node types to callbacks.
+ * @param parent The node's parent AST node.
  */
-function traverse(node, callbacks, parent) {
+function traverse(
+  node: Node,
+  callbacks: { [key: string]: (node: Node, parent: Parent) => void },
+  parent?: Parent,
+): void {
   if (callbacks[node.type]) {
     callbacks[node.type](node, parent)
   }
 
   if (typeof node.children !== 'undefined') {
-    for (let i = 0; i < node.children.length; i++) {
-      traverse(node.children[i], callbacks, node)
+    for (const child of (node as Parent).children) {
+      traverse(child, callbacks, node as Parent)
     }
   }
 }
 
 /**
  * Converts leading HTML comments to JS block comments.
- * @param {string} html The text content of an HTML AST node.
- * @returns {string[]} An array of JS block comments.
+ * @param html The text content of an HTML AST node.
+ * @returns JS block comment.
  */
-function getComment(html) {
+function getComment(html: string): string {
   const commentStart = '<!--'
   const commentEnd = '-->'
   const regex = /^(eslint\b|global\s)/u
@@ -69,22 +81,22 @@ const leadingWhitespaceRegex = /^[>\s]*/u
 /**
  * Gets the offset for the first column of the node's first line in the
  * original source text.
- * @param {ASTNode} node A Markdown code block AST node.
- * @returns {number} The offset for the first column of the node's first line.
+ * @param node A Markdown code block AST node.
+ * @returns The offset for the first column of the node's first line.
  */
-function getBeginningOfLineOffset(node) {
+function getBeginningOfLineOffset(node: Node): number {
   return node.position.start.offset - node.position.start.column + 1
 }
 
 /**
  * Gets the leading text, typically whitespace with possible blockquote chars,
  * used to indent a code block.
- * @param {string} text The text of the file.
- * @param {ASTNode} node A Markdown code block AST node.
- * @returns {string} The text from the start of the first line to the opening
+ * @param text The text of the file.
+ * @param node A Markdown code block AST node.
+ * @returns The text from the start of the first line to the opening
  *     fence of the code block.
  */
-function getIndentText(text, node) {
+function getIndentText(text: string, node: Node): string {
   return leadingWhitespaceRegex.exec(
     text.slice(getBeginningOfLineOffset(node)),
   )[0]
@@ -113,20 +125,24 @@ function getIndentText(text, node) {
  * suffix of the corresponding line in the Markdown code block. There are no
  * differences within the line, so the mapping need only provide the offset
  * delta at the beginning of each line.
- * @param {string} text The text of the file.
- * @param {ASTNode} node A Markdown code block AST node.
- * @param {comments} comments List of configuration comment strings that will be
+ * @param text The text of the file.
+ * @param node A Markdown code block AST node.
+ * @param comments List of configuration comment strings that will be
  *     inserted at the beginning of the code block.
- * @returns {Object[]} A list of offset-based adjustments, where lookups are
+ * @returns A list of offset-based adjustments, where lookups are
  *     done based on the `js` key, which represents the range in the linted JS,
  *     and the `md` key is the offset delta that, when added to the JS range,
  *     returns the corresponding location in the original Markdown source.
  */
-function getBlockRangeMap(text, node, comments) {
+function getBlockRangeMap(
+  text: string,
+  node: Node,
+  comments: string[],
+): Array<{ js: number; md: number }> {
   /*
    * The parser sets the fenced code block's start offset to wherever content
    * should normally begin (typically the first column of the line, but more
-   * inside a list item, for example). The code block's opening fance may be
+   * inside a list item, for example). The code block's opening fancy may be
    * further indented by up to three characters. If the code block has
    * additional indenting, the opening fence's first backtick may be up to
    * three whitespace characters after the start offset.
@@ -211,15 +227,41 @@ function getBlockRangeMap(text, node, comments) {
   return rangeMap
 }
 
+const LANGUAGES_MAPPER: Record<string, string> = {
+  javascript: 'js',
+  javascriptreact: 'jsx',
+  typescript: 'ts',
+  typescriptreact: 'tsx',
+  markdown: 'md',
+  mdown: 'md',
+  mkdn: 'md',
+}
+
+/**
+ * get short language
+ * @param lang original language
+ * @returns short language
+ */
+function getShortLang(lang: string): string {
+  const language = last(lang.split(/\s/u)[0].split('.')).toLowerCase()
+  return LANGUAGES_MAPPER[language] || language
+}
+
 /**
  * Extracts lintable JavaScript code blocks from Markdown text.
- * @param {string} text The text of the file.
- * @returns {string[]} Source code strings to lint.
+ * @param text The text of the file.
+ * @param filename The filename of the file
+ * @returns Source code strings to lint.
  */
-function preprocess(text, filename) {
-  const ast = markdown.parse(text)
-  const blocks = []
-  blocksCache.set(filename, blocks)
+function preprocess(
+  text: string,
+  filename: string,
+): Array<string | { text: string; filename: string }> {
+  const ast = remarkProcessor.parse(text)
+  const blocks: Block[] = []
+
+  blocksCache[filename] = blocks
+
   traverse(ast, {
     code(node, parent) {
       const comments = []
@@ -229,7 +271,7 @@ function preprocess(text, filename) {
         let previousNode = parent.children[index]
 
         while (previousNode && previousNode.type === 'html') {
-          const comment = getComment(previousNode.value)
+          const comment = getComment(previousNode.value as string)
 
           if (!comment) {
             break
@@ -255,17 +297,19 @@ function preprocess(text, filename) {
   })
 
   return blocks.map((block, index) => ({
-    filename: `${index}.${getShortLanguage(block.lang)}`,
+    filename: `${index}.${getShortLang(block.lang as string)}`,
     text: [...block.comments, block.value, ''].join('\n'),
   }))
 }
 
 /**
  * Creates a map function that adjusts messages in a code block.
- * @param {Block} block A code block.
- * @returns {Function} A function that adjusts messages in a code block.
+ * @param block A code block.
+ * @returns A function that adjusts messages in a code block.
  */
-function adjustBlock(block) {
+function adjustBlock(
+  block: Block,
+): (message: Linter.LintMessage) => Linter.LintMessage {
   const leadingCommentLines = block.comments.reduce(
     (count, comment) => count + comment.split('\n').length,
     0,
@@ -275,8 +319,8 @@ function adjustBlock(block) {
 
   /**
    * Adjusts ESLint messages to point to the correct location in the Markdown.
-   * @param {Message} message A message from ESLint.
-   * @returns {Message} The same message, but adjusted to the correct location.
+   * @param message A message from ESLint.
+   * @returns The same message, but adjusted to the correct location.
    */
   return function adjustMessage(message) {
     const lineInCode = message.line - leadingCommentLines
@@ -288,14 +332,16 @@ function adjustBlock(block) {
     const out = {
       line: lineInCode + blockStart,
       column: message.column + block.position.indent[lineInCode - 1] - 1,
-    }
+    } as Linter.LintMessage
 
+    /* istanbul ignore else */
     if (Number.isInteger(message.endLine)) {
       out.endLine = message.endLine - leadingCommentLines + blockStart
     }
 
-    const adjustedFix = {}
+    const adjustedFix = {} as Linter.LintMessage
 
+    /* istanbul ignore else */
     if (message.fix) {
       adjustedFix.fix = {
         range: message.fix.range.map(range => {
@@ -310,7 +356,7 @@ function adjustBlock(block) {
 
           // Apply the mapping delta for this range.
           return range + block.rangeMap[i - 1].md
-        }),
+        }) as [number, number],
         text: message.fix.text.replace(/\n/gu, `\n${block.baseIndentText}`),
       }
     }
@@ -321,39 +367,43 @@ function adjustBlock(block) {
 
 /**
  * Excludes unsatisfiable rules from the list of messages.
- * @param {Message} message A message from the linter.
- * @returns {boolean} True if the message should be included in output.
+ * @param message A message from the linter.
+ * @returns True if the message should be included in output.
  */
-function excludeUnsatisfiableRules(message) {
+function excludeUnsatisfiableRules(message: Linter.LintMessage): boolean {
   return message && !UNSATISFIABLE_RULES.has(message.ruleId)
 }
 
 /**
  * Transforms generated messages for output.
- * @param {Array<Message[]>} messages An array containing one array of messages
- *     for each code block returned from `preprocess`.
- * @returns {Message[]} A flattened array of messages with mapped locations.
+ * @param messages An array containing one array of messages for each code block returned from `preprocess`.
+ * @param filename The filename of the file
+ * @returns A flattened array of messages with mapped locations.
  */
-function postprocess(messages, filename) {
-  const blocks = blocksCache.get(filename) || []
+function postprocess(
+  messages: Linter.LintMessage[][],
+  filename: string,
+): Linter.LintMessage[] {
+  const blocks = blocksCache[filename] || []
+
   // eslint-disable-next-line unicorn/prefer-spread
-  return [].concat(
+  return ([] as Linter.LintMessage[]).concat(
     ...messages.map((group, i) => {
       const block = blocks[i]
 
+      // non code block message, parsed by `eslint-mdx` for example
       if (!block) {
         return group
       }
 
-      const adjust = adjustBlock(blocks[i])
+      const adjust = adjustBlock(block)
 
-      // eslint-disable-next-line unicorn/no-array-callback-reference
       return group.map(adjust).filter(excludeUnsatisfiableRules)
     }),
   )
 }
 
-exports.markdown = {
+export const markdown: ESLintProcessor = {
   preprocess,
   postprocess,
   supportsAutofix: SUPPORTS_AUTOFIX,

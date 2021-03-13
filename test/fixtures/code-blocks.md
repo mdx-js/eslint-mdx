@@ -2,19 +2,31 @@
 
 # abc
 
+<div>Hello World!</div>
+
+<!-- eslint-disable unicorn/prefer-spread -->
+
 ```JavaScript
 export var a = 1 == 2
 
 export const b = [].concat(a)
 ```
 
+```
+export var a = 1 == 2
+```
+
 ```log
 export var a = 1 == 2
 ```
 
+<!-- eslint-mdx -->
+
 ```jsx
 export const App = () => <div>2 > 1</div>
 ```
+
+<!-- eslint-skip -->
 
 ```TypeScript
 export type Value = 1 | 2 | 3 | 4 | 5
@@ -25,6 +37,8 @@ export type Value = 1 | 2 | 3 | 4 | 5
 
 # abc
 ```
+
+<!-- mdx -->
 
 ```mdx
 import React from 'react'

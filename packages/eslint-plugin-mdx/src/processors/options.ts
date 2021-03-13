@@ -7,10 +7,8 @@ import { ProcessorOptions } from './types'
 export const processorOptions = {} as ProcessorOptions
 
 // find Linter instance
-const linterPath = Object.keys(require.cache).find(
-  path =>
-    path.endsWith('/eslint/lib/linter/linter.js') ||
-    path.endsWith('\\eslint\\lib\\linter\\linter.js'),
+const linterPath = Object.keys(require.cache).find(path =>
+  /[/\\]eslint[/\\]lib(?:[/\\]linter){2}\.js$/.test(path),
 )
 
 /* istanbul ignore if */
@@ -51,7 +49,7 @@ Linter.prototype.verify = function (
       ).settings) ||
     {}
 
-  processorOptions.lintCodeBlock = settings['mdx/lintCodeBlock'] === true
+  processorOptions.lintCodeBlocks = settings['mdx/code-blocks'] === true
 
   // call original Linter#verify
   return verify.call(this, code, config, options as LintOptions)

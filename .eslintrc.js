@@ -8,7 +8,6 @@ module.exports = {
   rules: {
     // `strictNullChecks` is required
     '@typescript-eslint/no-unnecessary-condition': 0,
-    'eslint-comments/no-unused-disable': 0,
   },
   overrides: [
     {
@@ -26,7 +25,7 @@ module.exports = {
         'unicorn/filename-case': 0,
       },
       settings: {
-        'mdx/lintCodeBlock': true,
+        'mdx/code-blocks': true,
       },
     },
   ],

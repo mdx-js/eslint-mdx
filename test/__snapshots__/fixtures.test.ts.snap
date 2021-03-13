@@ -1,65 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`fixtures lint code blocks should work as expected: code-block.md 1`] = `
+exports[`fixtures lint code blocks should work as expected: code-blocks.md 1`] = `
 Array [
-  Object {
-    "column": 21,
-    "endColumn": 27,
-    "endLine": 8,
-    "line": 8,
-    "message": "Prefer the spread operator over \`Array#concat(…)\`.",
-    "messageId": "array-concat",
-    "nodeType": "Identifier",
-    "ruleId": "unicorn/prefer-spread",
-    "severity": 2,
-    "suggestions": Array [
-      Object {
-        "desc": "First argument is an \`array\`.",
-        "fix": Object {
-          "range": Array [
-            41,
-            52,
-          ],
-          "text": "...a]",
-        },
-        "messageId": "argument-is-spreadable",
-      },
-      Object {
-        "desc": "First argument is not an \`array\`.",
-        "fix": Object {
-          "range": Array [
-            41,
-            52,
-          ],
-          "text": "a]",
-        },
-        "messageId": "argument-is-not-spreadable",
-      },
-      Object {
-        "desc": "Test first argument with \`Array.isArray(…)\`.",
-        "fix": Object {
-          "range": Array [
-            41,
-            52,
-          ],
-          "text": "...(Array.isArray(a) ? a : [a])]",
-        },
-        "messageId": "test-argument",
-      },
-    ],
-  },
   Object {
     "column": 1,
     "endColumn": 6,
-    "endLine": 26,
+    "endLine": 36,
     "fix": Object {
       "range": Array [
-        250,
-        255,
+        392,
+        397,
       ],
       "text": "# abc",
     },
-    "line": 26,
+    "line": 36,
     "message": "Do not use headings with similar content (1:1)",
     "nodeType": "Program",
     "ruleId": "remark-lint-no-duplicate-headings",
@@ -68,15 +22,15 @@ Array [
   Object {
     "column": 1,
     "endColumn": 6,
-    "endLine": 26,
+    "endLine": 36,
     "fix": Object {
       "range": Array [
-        250,
-        255,
+        392,
+        397,
       ],
       "text": "# abc",
     },
-    "line": 26,
+    "line": 36,
     "message": "Don’t use multiple top level headings (1:1)",
     "nodeType": "Program",
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
@@ -85,15 +39,15 @@ Array [
   Object {
     "column": 1,
     "endColumn": 6,
-    "endLine": 34,
+    "endLine": 46,
     "fix": Object {
       "range": Array [
-        302,
-        307,
+        458,
+        463,
       ],
       "text": "# abc",
     },
-    "line": 34,
+    "line": 46,
     "message": "Do not use headings with similar content (3:1)",
     "nodeType": "Program",
     "ruleId": "remark-lint-no-duplicate-headings",
@@ -102,15 +56,15 @@ Array [
   Object {
     "column": 1,
     "endColumn": 6,
-    "endLine": 34,
+    "endLine": 46,
     "fix": Object {
       "range": Array [
-        302,
-        307,
+        458,
+        463,
       ],
       "text": "# abc",
     },
-    "line": 34,
+    "line": 46,
     "message": "Don’t use multiple top level headings (3:1)",
     "nodeType": "Program",
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
@@ -234,7 +188,7 @@ Array [
 ]
 `;
 
-exports[`fixtures should match all snapshots: code-block.md 1`] = `
+exports[`fixtures should match all snapshots: code-blocks.md 1`] = `
 Array [
   Object {
     "column": 1,

@@ -14,5 +14,5 @@ export interface ESLintProcessor {
 }
 
 export interface ProcessorOptions {
-  lintCodeBlock: boolean
+  lintCodeBlocks: boolean
 }

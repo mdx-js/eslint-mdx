@@ -11,7 +11,7 @@ import {
 import { parse } from 'espree'
 import { Node } from 'unist'
 
-import { noop } from './helper'
+import { noop } from './helpers'
 
 const stringToNode = (text: string) =>
   first(mdxProcessor.parse(text).children as Node[])

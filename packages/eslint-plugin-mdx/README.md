@@ -23,7 +23,7 @@
 [![codechecks.io](https://raw.githubusercontent.com/codechecks/docs/master/images/badges/badge-default.svg?sanitize=true)](https://codechecks.io)
 
 > [ESLint][] Parser/Plugin for [MDX][], helps you lint all ES syntaxes.
-> Linting `code` blocks can be enabled with `mdx/code-block` rule too!
+> Linting `code` blocks can be enabled with `mdx/code-blocks` setting too!
 > Work perfectly with `eslint-plugin-import`, `eslint-plugin-prettier` or any other eslint plugins.
 > And also can be integrated with [remark-lint][] plugins to lint markdown syntaxes.
 
@@ -39,7 +39,6 @@
   - [mdx/no-unescaped-entities](#mdxno-unescaped-entities)
   - [mdx/no-unused-expressions](#mdxno-unused-expressions)
   - [mdx/remark](#mdxremark)
-  - [mdx/code-block](#mdxcode-block)
 - [Prettier Integration](#prettier-integration)
 - [Changelog](#changelog)
 - [License](#license)
@@ -75,9 +74,13 @@ npm i -D eslint-plugin-mdx
 
    1. If you're using `eslint >= 6.4.0`, just add:
 
-      ```json
+      ```jsonc
       {
-        "extends": ["plugin:mdx/recommended"]
+        "extends": ["plugin:mdx/recommended"],
+        // optional, if you want to lint code blocks at the same time
+        "settings": {
+          "mdx/code-blocks": true
+        }
       }
       ```
 
@@ -86,6 +89,10 @@ npm i -D eslint-plugin-mdx
       ```jsonc
       {
         "extends": ["plugin:mdx/recommended"],
+        // optional, if you want to lint code blocks at the same time
+        "settings": {
+          "mdx/code-blocks": true
+        },
         "overrides": [
           {
             "files": ["*.md"],
@@ -102,6 +109,10 @@ npm i -D eslint-plugin-mdx
           {
             "files": ["*.mdx"],
             "extends": ["plugin:mdx/overrides"]
+          },
+          {
+            "files": "**/*.{md,mdx}/**",
+            "extends": "plugin:mdx/code-blocks"
           }
         ]
       }
@@ -114,6 +125,10 @@ npm i -D eslint-plugin-mdx
 
       module.exports = {
         extends: ['plugin:mdx/recommended'],
+        // optional, if you want to lint code blocks at the same time
+        settings: {
+          'mdx/code-blocks': true,
+        },
         overrides: [
           {
             files: ['*.md'],
@@ -131,14 +146,18 @@ npm i -D eslint-plugin-mdx
             files: ['*.mdx'],
             ...configs.overrides,
           },
+          {
+            files: '**/*.{md,mdx}/**',
+            ...configs.codeBlocks,
+          },
         ],
       }
       ```
 
-2. Make sure ESLint knows to run on `.mdx` files:
+2. Make sure ESLint knows to run on `.md` or `.mdx` files:
 
    ```sh
-   eslint . --ext js,mdx
+   eslint . --ext js,md,mdx
    ```
 
 ## Parser Options
@@ -177,10 +196,6 @@ Inline JSX like `Inline <Component />` is supported by [MDX][], but rule `react/
 _possible fixable depends on your remark plugins_:
 
 Integration with [remark-lint][] plugins, it will read [remark's configuration](https://github.com/remarkjs/remark/tree/master/packages/remark-cli#remark-cli) automatically via [cosmiconfig][]. But `.remarkignore` will not be respected, you should use `.eslintignore` instead.
-
-### mdx/code-block
-
-_Fixable_: This rule is **experimental** currently, you can try it and give us feedbacks.
 
 ## Prettier Integration
 

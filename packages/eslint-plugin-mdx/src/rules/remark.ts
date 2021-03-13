@@ -1,7 +1,7 @@
 import { Rule } from 'eslint'
 import vfile from 'vfile'
 
-import { getRemarkProcessor, parseContext } from './helper'
+import { getRemarkProcessor, parseContext } from './helpers'
 import { RemarkLintMessage } from './types'
 
 export const remark: Rule.RuleModule = {

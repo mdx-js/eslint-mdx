@@ -2,7 +2,7 @@ import path from 'path'
 
 import { ESLint } from 'eslint'
 
-const getCli = (lintCodeBlock = false) =>
+const getCli = (lintCodeBlocks = false) =>
   new ESLint({
     ignore: false,
     fix: true,
@@ -17,7 +17,7 @@ const getCli = (lintCodeBlock = false) =>
       rules: {
         'unicorn/prefer-spread': 2,
       },
-      overrides: lintCodeBlock
+      overrides: lintCodeBlocks
         ? [
             {
               files: '**/*.{md,mdx}/**',
@@ -32,7 +32,7 @@ const getCli = (lintCodeBlock = false) =>
                 'prettier/prettier': 0,
               },
               settings: {
-                'mdx/lintCodeBlock': true,
+                'mdx/code-blocks': true,
               },
             },
           ]
@@ -51,7 +51,7 @@ describe('fixtures', () => {
   describe('lint code blocks', () => {
     it('should work as expected', async () => {
       const results = await getCli(true).lintFiles(
-        'test/fixtures/code-block.{md,mdx}',
+        'test/fixtures/code-blocks.{md,mdx}',
       )
       for (const { filePath, messages } of results) {
         expect(messages).toMatchSnapshot(path.basename(filePath))

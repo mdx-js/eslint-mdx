@@ -31,6 +31,10 @@ if (minorVersion >= OVERRIDES_AVAILABLE_VERSION) {
       files: '*.mdx',
       extends: 'plugin:mdx/overrides',
     },
+    {
+      files: '**/*.{md,mdx}/**',
+      extends: 'plugin:mdx/code-blocks',
+    },
   ]
   try {
     // eslint-disable-next-line node/no-extraneous-require

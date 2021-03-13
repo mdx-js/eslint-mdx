@@ -9,16 +9,14 @@ import { ESLintProcessor } from './types'
 export const remark: ESLintProcessor = {
   supportsAutofix: true,
   preprocess(text, filename) {
-    if (!processorOptions.lintCodeBlock) {
+    if (!processorOptions.lintCodeBlocks) {
       return [text]
     }
 
-    return [...(markdown as ESLintProcessor).preprocess(text, filename), text]
+    return [...markdown.preprocess(text, filename), text]
   },
   postprocess(lintMessages, filename) {
-    lintMessages = [
-      (markdown as ESLintProcessor).postprocess(lintMessages, filename),
-    ]
+    lintMessages = [markdown.postprocess(lintMessages, filename)]
 
     const messages: Linter.LintMessage[] = []
     for (const lintMessageList of lintMessages) {
