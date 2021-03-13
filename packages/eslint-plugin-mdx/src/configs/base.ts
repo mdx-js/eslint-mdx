@@ -1,4 +1,4 @@
-import { Linter } from 'eslint'
+import type { Linter } from 'eslint'
 
 export const base: Linter.Config = {
   parser: 'eslint-mdx',

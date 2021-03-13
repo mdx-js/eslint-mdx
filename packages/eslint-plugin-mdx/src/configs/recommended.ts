@@ -1,4 +1,4 @@
-import { Linter } from 'eslint'
+import type { Linter } from 'eslint'
 import { version } from 'eslint/package.json'
 
 import { base } from './base'

@@ -1,4 +1,4 @@
-import { Linter } from 'eslint'
+import type { Linter } from 'eslint'
 
 // https://eslint.org/docs/developer-guide/working-with-plugins#processors-in-plugins
 export interface ESLintProcessor {

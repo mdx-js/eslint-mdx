@@ -1,10 +1,10 @@
-import { Linter } from 'eslint'
+import type { Linter } from 'eslint'
 
-import { RemarkLintMessage } from '../rules'
+import type { RemarkLintMessage } from '../rules'
 
 import { markdown } from './markdown'
 import { processorOptions } from './options'
-import { ESLintProcessor } from './types'
+import type { ESLintProcessor } from './types'
 
 export const remark: ESLintProcessor = {
   supportsAutofix: true,

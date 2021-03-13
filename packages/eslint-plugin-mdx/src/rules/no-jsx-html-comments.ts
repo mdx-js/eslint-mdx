@@ -1,7 +1,8 @@
-import { Rule } from 'eslint'
-import { Comment, JSX_TYPES, JsxType, ParserServices } from 'eslint-mdx'
+import type { Rule } from 'eslint'
+import type { Comment, ParserServices } from 'eslint-mdx'
+import { isJsxNode } from 'eslint-mdx'
 
-import { ExpressionStatementWithParent } from './types'
+import type { ExpressionStatementWithParent } from './types'
 
 export const noJsxHtmlComments: Rule.RuleModule = {
   meta: {
@@ -24,7 +25,7 @@ export const noJsxHtmlComments: Rule.RuleModule = {
         } = context.parserServices as ParserServices
 
         if (
-          !JSX_TYPES.includes(node.expression.type as JsxType) ||
+          !isJsxNode(node.expression) ||
           node.parent.type !== 'Program' ||
           !invalidNodes ||
           invalidNodes.length === 0

@@ -5,12 +5,13 @@
  * @author Brandon Mills
  */
 
-import { Linter } from 'eslint'
-import { Node, Parent, last } from 'eslint-mdx'
+import type { Linter } from 'eslint'
+import { last } from 'eslint-mdx'
+import type { Node, Parent } from 'unist'
 
 import { remarkProcessor } from '../rules'
 
-import { ESLintProcessor } from './types'
+import type { ESLintProcessor } from './types'
 
 export interface Block extends Node {
   baseIndentText: string
@@ -42,8 +43,9 @@ function traverse(
   }
 
   if (typeof node.children !== 'undefined') {
-    for (const child of (node as Parent).children) {
-      traverse(child, callbacks, node as Parent)
+    const parent = node as Parent
+    for (const child of parent.children) {
+      traverse(child, callbacks, parent)
     }
   }
 }

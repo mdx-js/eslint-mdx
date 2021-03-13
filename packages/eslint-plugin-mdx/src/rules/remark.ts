@@ -1,15 +1,12 @@
 import path from 'path'
 
-import { Rule } from 'eslint'
-import {
-  DEFAULT_EXTENSIONS,
-  MARKDOWN_EXTENSIONS,
-  ParserOptions,
-} from 'eslint-mdx'
+import type { Rule } from 'eslint'
+import type { ParserOptions } from 'eslint-mdx'
+import { DEFAULT_EXTENSIONS, MARKDOWN_EXTENSIONS } from 'eslint-mdx'
 import vfile from 'vfile'
 
 import { getRemarkProcessor } from './helpers'
-import { RemarkLintMessage } from './types'
+import type { RemarkLintMessage } from './types'
 
 export const remark: Rule.RuleModule = {
   meta: {

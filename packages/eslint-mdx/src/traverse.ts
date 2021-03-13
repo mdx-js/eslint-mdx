@@ -1,3 +1,5 @@
+import type { Node, Parent } from 'unist'
+
 import { last } from './helpers'
 import { parser } from './parser'
 import {
@@ -7,7 +9,7 @@ import {
   isOpenTag,
   isSelfClosingTag,
 } from './regexp'
-import { Node, Parent, TraverseOptions, Traverser } from './types'
+import type { TraverseOptions, Traverser } from './types'
 
 export class Traverse {
   code: string

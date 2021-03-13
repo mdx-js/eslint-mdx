@@ -1,9 +1,11 @@
 import path from 'path'
 
-import { AST, Linter } from 'eslint'
+import type { ExpressionStatement } from '@babel/types'
+import type { AST, Linter } from 'eslint'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import unified from 'unified'
+import type { Node, Parent } from 'unist'
 
 import {
   hasProperties,
@@ -19,11 +21,9 @@ import {
   isComment,
 } from './regexp'
 import { traverse } from './traverse'
-import {
+import type {
   Comment,
   LocationError,
-  Node,
-  Parent,
   ParserFn,
   ParserOptions,
   ParserServices,
@@ -280,8 +280,7 @@ export class Parser {
       return node
     }
 
-    const { expression } = (program
-      .body[0] as unknown) as import('@babel/types').ExpressionStatement
+    const { expression } = (program.body[0] as unknown) as ExpressionStatement
 
     if (!isJsxNode(expression) || expression.children.length <= 1) {
       return node

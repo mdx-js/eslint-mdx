@@ -2,7 +2,9 @@
  * based on @link https://github.com/sveltejs/eslint-plugin-svelte3/blob/master/src/processor_options.js
  */
 
-import { ProcessorOptions } from './types'
+import type { Linter, SourceCode } from 'eslint'
+
+import type { ProcessorOptions } from './types'
 
 export const processorOptions = {} as ProcessorOptions
 
@@ -16,25 +18,20 @@ if (!linterPath) {
   throw new Error('Could not find ESLint Linter in require cache')
 }
 
-// eslint-disable-next-line @typescript-eslint/no-type-alias
-type LinterConfig = import('eslint').Linter.Config
-// eslint-disable-next-line @typescript-eslint/no-type-alias
-type LintOptions = import('eslint').Linter.LintOptions
-
-// eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
-const { Linter } = require(linterPath) as typeof import('eslint')
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
+const ESLinter = (require(linterPath) as typeof import('eslint')).Linter
 
 // patch Linter#verify
 // eslint-disable-next-line @typescript-eslint/unbound-method
-const { verify } = Linter.prototype
+const { verify } = ESLinter.prototype
 
-Linter.prototype.verify = function (
-  code: import('eslint').SourceCode | string,
-  _config: LinterConfig,
-  options: string | LintOptions,
+ESLinter.prototype.verify = function (
+  code: SourceCode | string,
+  _config: Linter.Config,
+  options: string | Linter.LintOptions,
 ) {
-  const config = _config as LinterConfig & {
-    extractConfig?(filename: string): LinterConfig
+  const config = _config as Linter.Config & {
+    extractConfig?(filename: string): Linter.Config
   }
 
   // fetch settings
@@ -52,5 +49,5 @@ Linter.prototype.verify = function (
   processorOptions.lintCodeBlocks = settings['mdx/code-blocks'] === true
 
   // call original Linter#verify
-  return verify.call(this, code, config, options as LintOptions)
+  return verify.call(this, code, config, options as Linter.LintOptions)
 }
