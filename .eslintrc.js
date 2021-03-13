@@ -47,7 +47,6 @@ module.exports = {
       rules: {
         'prettier/prettier': 0,
         'unicorn/filename-case': 0,
-        'remark-lint-no-duplicate-headings': 0,
       },
       settings: {
         'mdx/code-blocks': true,

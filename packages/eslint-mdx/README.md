@@ -197,6 +197,23 @@ _possible fixable depends on your remark plugins_:
 
 Integration with [remark-lint][] plugins, it will read [remark's configuration](https://github.com/remarkjs/remark/tree/master/packages/remark-cli#remark-cli) automatically via [cosmiconfig][]. But `.remarkignore` will not be respected, you should use `.eslintignore` instead.
 
+If you want to disable or change severity of some related rules, it won't work by setting rules in eslint config like `'remark-lint-no-duplicate-headings': 0`, you should change your remark config instead like following:
+
+```jsonc
+{
+  "plugins": [
+    "@1stg/remark-config",
+    // change to error severity, notice `[]` is required
+    ["lint-no-duplicate-headings", [2]],
+    // disable following plugin
+    [
+      "lint-no-multiple-toplevel-headings",
+      [0] // or false
+    ]
+  ]
+}
+```
+
 ## Prettier Integration
 
 If you're using [remark-lint][] feature with [Prettier][] both together, you can try [remark-preset-prettier][] which helps you to _turn off all rules that are unnecessary or might conflict with [Prettier][]_.
