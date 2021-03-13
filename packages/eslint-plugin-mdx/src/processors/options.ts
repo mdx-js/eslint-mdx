@@ -18,6 +18,10 @@ if (!linterPath) {
   throw new Error('Could not find ESLint Linter in require cache')
 }
 
+export interface LinterConfig extends Linter.Config {
+  extractConfig?(filename?: string): Linter.Config
+}
+
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
 const ESLinter = (require(linterPath) as typeof import('eslint')).Linter
 
@@ -27,20 +31,18 @@ const { verify } = ESLinter.prototype
 
 ESLinter.prototype.verify = function (
   code: SourceCode | string,
-  _config: Linter.Config,
-  options: string | Linter.LintOptions,
+  config: LinterConfig,
+  options?: string | Linter.LintOptions,
 ) {
-  const config = _config as Linter.Config & {
-    extractConfig?(filename: string): Linter.Config
-  }
-
   // fetch settings
   const settings =
     (config &&
       (typeof config.extractConfig === 'function'
         ? config.extractConfig(
             /* istanbul ignore next */
-            typeof options === 'string' ? options : options.filename,
+            typeof options === 'undefined' || typeof options === 'string'
+              ? options
+              : options.filename,
           )
         : config
       ).settings) ||
