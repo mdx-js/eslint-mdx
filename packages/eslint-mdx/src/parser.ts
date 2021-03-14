@@ -297,15 +297,14 @@ export class Parser {
       if (!isJsxNode(jsNode)) {
         return nodes
       }
+      /* istanbul ignore next */
       const {
         start: nodeStart,
         end: nodeEnd,
-        /* istanbul ignore next */
         loc: { start, end } = {
           start: { column: nodeStart, line: 1 },
           end: { column: nodeEnd, line: 1 },
         },
-        /* istanbul ignore next */
         range = [nodeStart, nodeEnd],
       } = jsNode
       const startLine = line + start.line - 1

@@ -15,23 +15,10 @@ module.exports = {
     },
   },
   overrides: [
-    // TODO: move to `@1sg/eslint-config` instead
     {
       files: '*.ts',
       rules: {
         '@typescript-eslint/consistent-type-imports': 2,
-        '@typescript-eslint/no-type-alias': [
-          2,
-          {
-            allowAliases: 'in-unions-and-intersections',
-            allowCallbacks: 'always',
-            allowConditionalTypes: 'always',
-            allowConstructors: 'always',
-            allowLiterals: 'in-unions-and-intersections',
-            allowMappedTypes: 'always',
-            allowTupleTypes: 'always',
-          },
-        ],
       },
     },
     {

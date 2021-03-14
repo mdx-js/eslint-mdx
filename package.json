@@ -24,11 +24,11 @@
     "typecov": "type-coverage"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^1.1.9",
-    "@1stg/tslint-config": "^1.1.0",
+    "@1stg/lib-config": "^1.2.0",
+    "@1stg/tslint-config": "^1.2.0",
     "@types/eslint": "^7.2.7",
     "@types/jest": "^26.0.20",
-    "@types/node": "^14.14.33",
+    "@types/node": "^14.14.34",
     "@types/react": "^17.0.3",
     "@types/rebass": "^4.0.8",
     "@types/unist": "^2.0.3",
@@ -94,7 +94,7 @@
     ]
   },
   "typeCoverage": {
-    "atLeast": 99.76,
+    "atLeast": 99.7,
     "cache": true,
     "detail": true,
     "ignoreAsAssertion": true,

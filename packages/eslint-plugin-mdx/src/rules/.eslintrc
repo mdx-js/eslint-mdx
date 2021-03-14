@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "sonar/function-name": [
+      2,
+      {
+        "format": "^[a-zA-Z][a-zA-Z0-9]*$"
+      }
+    ]
+  }
+}
