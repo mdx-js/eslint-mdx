@@ -1,17 +1,8 @@
-/* eslint-disable @typescript-eslint/no-type-alias */
-import { AST, Linter } from 'eslint'
-
-export type JSXElement = import('@babel/types').JSXElement
-export type JSXFragment = import('@babel/types').JSXFragment
-export type Node = import('unist').Node
-export type Parent = import('unist').Parent
-export type Point = import('unist').Point
+import type { JSXElement, JSXFragment } from '@babel/types'
+import type { AST, Linter } from 'eslint'
+import type { Node, Parent, Point } from 'unist'
 
 export type JsxNode = (JSXElement | JSXFragment) & { range: [number, number] }
-
-export type JsxTypes = Readonly<[JSXElement['type'], JSXFragment['type']]>
-
-export type JsxType = JsxTypes[number]
 
 export type Arrayable<T> = T[] | readonly T[]
 

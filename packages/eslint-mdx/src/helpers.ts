@@ -1,27 +1,22 @@
 /// <reference path="../typings.d.ts" />
 
-import { Linter } from 'eslint'
-import { parse as esParse } from 'espree'
+import type { Linter } from 'eslint'
+import type { SourceLocation } from 'estree'
+import type { Position } from 'unist'
 
-import {
-  Arrayable,
-  JsxNode,
-  JsxType,
-  JsxTypes,
-  ParserFn,
-  ParserOptions,
-} from './types'
+import type { Arrayable, JsxNode, ParserFn, ParserOptions } from './types'
 
 export const FALLBACK_PARSERS = [
   '@typescript-eslint/parser',
   '@babel/eslint-parser',
   'babel-eslint',
+  'espree',
 ] as const
 
-export const JSX_TYPES: JsxTypes = ['JSXElement', 'JSXFragment']
+export const JSX_TYPES = ['JSXElement', 'JSXFragment']
 
 export const isJsxNode = (node: { type: string }): node is JsxNode =>
-  JSX_TYPES.includes(node.type as JsxType)
+  JSX_TYPES.includes(node.type)
 
 // eslint-disable-next-line sonarjs/cognitive-complexity
 export const normalizeParser = (parser?: ParserOptions['parser']) => {
@@ -44,7 +39,7 @@ export const normalizeParser = (parser?: ParserOptions['parser']) => {
     return [parser]
   }
 
-  const parsers = [esParse as ParserFn]
+  const parsers: ParserFn[] = []
 
   // try to load FALLBACK_PARSERS automatically
   for (const fallback of FALLBACK_PARSERS) {
@@ -60,7 +55,7 @@ export const normalizeParser = (parser?: ParserOptions['parser']) => {
             fallbackParser.parse
       /* istanbul ignore else */
       if (parserFn) {
-        parsers.unshift(parserFn)
+        parsers.push(parserFn)
       }
     } catch {}
   }
@@ -70,15 +65,13 @@ export const normalizeParser = (parser?: ParserOptions['parser']) => {
 
 export interface BaseNode {
   type: string
-  loc: import('estree').SourceLocation
+  loc: SourceLocation
   range: [number, number]
   start?: number
   end?: number
 }
 
-export const normalizePosition = (
-  loc: import('unist').Position,
-): Omit<BaseNode, 'type'> => {
+export const normalizePosition = (loc: Position): Omit<BaseNode, 'type'> => {
   const start = loc.start.offset
   const end = loc.end.offset
   return {

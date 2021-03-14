@@ -1,13 +1,13 @@
 import path from 'path'
 
 import { cosmiconfigSync } from 'cosmiconfig'
-import { CosmiconfigResult } from 'cosmiconfig/dist/types'
+import type { CosmiconfigResult } from 'cosmiconfig/dist/types'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import remarkStringify from 'remark-stringify'
-import unified, { FrozenProcessor } from 'unified'
+import unified from 'unified'
 
-import { RemarkConfig } from './types'
+import type { RemarkConfig } from './types'
 
 export const requirePkg = <T>(
   plugin: string,
@@ -39,7 +39,8 @@ export const requirePkg = <T>(
 }
 
 let searchSync: (searchFrom?: string) => CosmiconfigResult
-let remarkProcessor: FrozenProcessor
+
+export const remarkProcessor = unified().use(remarkParse).freeze()
 
 export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
   if (!searchSync) {
@@ -48,12 +49,28 @@ export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
     }).search
   }
 
-  if (!remarkProcessor) {
-    remarkProcessor = unified().use(remarkParse).freeze()
+  /* istanbul ignore next */
+  let result: Partial<CosmiconfigResult> = {}
+
+  try {
+    result = searchSync(searchFrom)
+  } catch (err) {
+    // https://github.com/eslint/eslint/issues/11989
+    /* istanbul ignore if */
+    if (
+      (err as { code?: string }).code !== 'ENOTDIR' ||
+      !/\d+_?\.[a-z]+$/.test(searchFrom)
+    ) {
+      throw err
+    }
+    try {
+      result = searchSync(path.dirname(searchFrom))
+    } catch {
+      /* istanbul ignore next */
+      throw err
+    }
   }
 
-  /* istanbul ignore next */
-  const result: Partial<CosmiconfigResult> = searchSync(searchFrom) || {}
   /* istanbul ignore next */
   const { plugins = [], settings } = (result.config ||
     {}) as Partial<RemarkConfig>

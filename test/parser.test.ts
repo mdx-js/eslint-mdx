@@ -1,17 +1,15 @@
 /* eslint-disable sonarjs/no-duplicate-string */
+import type { ParserConfig, ParserOptions } from 'eslint-mdx'
 import {
   DEFAULT_PARSER_OPTIONS as parserOptions,
-  ParserConfig,
-  ParserOptions,
   first,
   mdxProcessor,
   normalizeParser,
   parser,
 } from 'eslint-mdx'
-import { parse } from 'espree'
-import { Node } from 'unist'
+import type { Node } from 'unist'
 
-import { noop } from './helper'
+import { noop } from './helpers'
 
 const stringToNode = (text: string) =>
   first(mdxProcessor.parse(text).children as Node[])
@@ -143,9 +141,11 @@ describe('parser', () => {
 
   it('should fallback to espree if no preferred parsers found', () => {
     jest
-      .mock('@typescript-eslint/parser', noop)
-      .mock('@babel/eslint-parser', noop)
-    expect(normalizeParser()).toContain(parse)
+      .setMock('@typescript-eslint/parser', null)
+      .setMock('@babel/eslint-parser', null)
+      .mock('babel-eslint', noop, { virtual: true })
+      .setMock('espree', { parse: noop })
+    expect(normalizeParser()).toEqual([noop])
     jest.unmock('@typescript-eslint/parser').unmock('@babel/eslint-parser')
   })
 

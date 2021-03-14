@@ -1,10 +1,10 @@
 /// <reference path="../../typings.d.ts" />
 
-import { Rule } from 'eslint'
+import type { Rule } from 'eslint'
 import { isJsxNode, openTag } from 'eslint-mdx'
 import reactNoUnescapedEntities from 'eslint-plugin-react/lib/rules/no-unescaped-entities'
 
-import { NodeWithParent } from './types'
+import type { NodeWithParent } from './types'
 
 export type EscapeEntity =
   | string

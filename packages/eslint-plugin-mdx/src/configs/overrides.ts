@@ -1,9 +1,10 @@
-import { Linter } from 'eslint'
+import type { Linter } from 'eslint'
+import type Rebass from 'rebass'
 
 import { base } from './base'
-import { getGlobals } from './helper'
+import { getGlobals } from './helpers'
 
-let rebass: typeof import('rebass') | string[]
+let rebass: typeof Rebass | string[]
 
 try {
   // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires

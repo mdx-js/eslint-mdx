@@ -1,10 +1,10 @@
 /// <reference path="../../typings.d.ts" />
 
-import { Rule } from 'eslint'
+import type { Rule } from 'eslint'
 import { isJsxNode } from 'eslint-mdx'
 import esLintNoUnusedExpressions from 'eslint/lib/rules/no-unused-expressions'
 
-import { ExpressionStatementWithParent } from './types'
+import type { ExpressionStatementWithParent } from './types'
 
 export const noUnusedExpressions: Rule.RuleModule = {
   ...esLintNoUnusedExpressions,

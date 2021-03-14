@@ -1,4 +1,4 @@
-import { Linter } from 'eslint'
+import type { Linter } from 'eslint'
 import { version } from 'eslint/package.json'
 
 import { base } from './base'
@@ -30,6 +30,10 @@ if (minorVersion >= OVERRIDES_AVAILABLE_VERSION) {
     {
       files: '*.mdx',
       extends: 'plugin:mdx/overrides',
+    },
+    {
+      files: '**/*.{md,mdx}/**',
+      extends: 'plugin:mdx/code-blocks',
     },
   ]
   try {

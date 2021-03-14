@@ -13,6 +13,7 @@
     "build": "run-p build:*",
     "build:r": "r -p",
     "build:ts": "tsc -b",
+    "clean": "rimraf packages/*/{lib,*.tsbuildinfo} node_modules/@1stg/eslint-config/node_modules",
     "lint": "run-p lint:*",
     "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --cache --ext js,md,ts -f friendly",
     "lint:ts": "tslint -p . -t stylish",
@@ -23,11 +24,11 @@
     "typecov": "type-coverage"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^1.1.9",
-    "@1stg/tslint-config": "^1.1.0",
+    "@1stg/lib-config": "^1.2.0",
+    "@1stg/tslint-config": "^1.2.0",
     "@types/eslint": "^7.2.7",
     "@types/jest": "^26.0.20",
-    "@types/node": "^14.14.33",
+    "@types/node": "^14.14.34",
     "@types/react": "^17.0.3",
     "@types/rebass": "^4.0.8",
     "@types/unist": "^2.0.3",
@@ -54,13 +55,16 @@
     ]
   },
   "eslintIgnore": [
-    "**/fixtures/**",
     "coverage",
+    "fixtures",
     "lib",
     "CHANGELOG.md",
     "!/.*.js"
   ],
   "jest": {
+    "setupFiles": [
+      "eslint/lib/linter/linter"
+    ],
     "collectCoverage": true,
     "coverageThreshold": {
       "global": {
@@ -90,7 +94,7 @@
     ]
   },
   "typeCoverage": {
-    "atLeast": 99.76,
+    "atLeast": 99.7,
     "cache": true,
     "detail": true,
     "ignoreAsAssertion": true,

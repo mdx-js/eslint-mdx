@@ -1,11 +1,12 @@
 import path from 'path'
 
-import { Rule } from 'eslint'
+import type { Rule } from 'eslint'
+import type { ParserOptions } from 'eslint-mdx'
 import { DEFAULT_EXTENSIONS, MARKDOWN_EXTENSIONS } from 'eslint-mdx'
 import vfile from 'vfile'
 
-import { getRemarkProcessor } from './helper'
-import { RemarkLintMessage } from './types'
+import { getRemarkProcessor } from './helpers'
+import type { RemarkLintMessage } from './types'
 
 export const remark: Rule.RuleModule = {
   meta: {
@@ -21,10 +22,7 @@ export const remark: Rule.RuleModule = {
     const filename = context.getFilename()
     const extname = path.extname(filename)
     const sourceCode = context.getSourceCode()
-    const options = context.parserOptions as {
-      extensions: string[]
-      markdownExtensions: string[]
-    }
+    const options = context.parserOptions as ParserOptions
     const isMdx = DEFAULT_EXTENSIONS.concat(options.extensions || []).includes(
       extname,
     )

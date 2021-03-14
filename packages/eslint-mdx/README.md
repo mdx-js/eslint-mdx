@@ -22,7 +22,8 @@
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org)
 [![codechecks.io](https://raw.githubusercontent.com/codechecks/docs/master/images/badges/badge-default.svg?sanitize=true)](https://codechecks.io)
 
-> [ESLint][] Parser/Plugin for [MDX][], helps you lint all ES syntaxes excluding `code` block of course.
+> [ESLint][] Parser/Plugin for [MDX][], helps you lint all ES syntaxes.
+> Linting `code` blocks can be enabled with `mdx/code-blocks` setting too!
 > Work perfectly with `eslint-plugin-import`, `eslint-plugin-prettier` or any other eslint plugins.
 > And also can be integrated with [remark-lint][] plugins to lint markdown syntaxes.
 
@@ -73,9 +74,13 @@ npm i -D eslint-plugin-mdx
 
    1. If you're using `eslint >= 6.4.0`, just add:
 
-      ```json
+      ```jsonc
       {
-        "extends": ["plugin:mdx/recommended"]
+        "extends": ["plugin:mdx/recommended"],
+        // optional, if you want to lint code blocks at the same time
+        "settings": {
+          "mdx/code-blocks": true
+        }
       }
       ```
 
@@ -84,6 +89,10 @@ npm i -D eslint-plugin-mdx
       ```jsonc
       {
         "extends": ["plugin:mdx/recommended"],
+        // optional, if you want to lint code blocks at the same time
+        "settings": {
+          "mdx/code-blocks": true
+        },
         "overrides": [
           {
             "files": ["*.md"],
@@ -100,6 +109,10 @@ npm i -D eslint-plugin-mdx
           {
             "files": ["*.mdx"],
             "extends": ["plugin:mdx/overrides"]
+          },
+          {
+            "files": "**/*.{md,mdx}/**",
+            "extends": "plugin:mdx/code-blocks"
           }
         ]
       }
@@ -112,6 +125,10 @@ npm i -D eslint-plugin-mdx
 
       module.exports = {
         extends: ['plugin:mdx/recommended'],
+        // optional, if you want to lint code blocks at the same time
+        settings: {
+          'mdx/code-blocks': true,
+        },
         overrides: [
           {
             files: ['*.md'],
@@ -125,25 +142,27 @@ npm i -D eslint-plugin-mdx
               ],
             },
           },
-          Object.assign(
-            {
-              files: ['*.mdx'],
-            },
-            configs.overrides,
-          ),
+          {
+            files: ['*.mdx'],
+            ...configs.overrides,
+          },
+          {
+            files: '**/*.{md,mdx}/**',
+            ...configs.codeBlocks,
+          },
         ],
       }
       ```
 
-2. Make sure ESLint knows to run on `.mdx` files:
+2. Make sure ESLint knows to run on `.md` or `.mdx` files:
 
    ```sh
-   eslint . --ext js,mdx
+   eslint . --ext js,md,mdx
    ```
 
 ## Parser Options
 
-1. `parser` (`string | ParserConfig | ParserFn`): Custom parser for ES syntax is supported, although `@typescript-eslint/parser` or `babel-eslint` will be detected automatically what means you actually do not need to do this:
+1. `parser` (`string | ParserConfig | ParserFn`): Custom parser for ES syntax is supported, although `@typescript-eslint/parser` or `@babel/eslint-parser` or `babel-eslint` will be detected automatically what means you actually do not need to do this:
 
    ```json
    {
@@ -166,17 +185,34 @@ _Fixable_: HTML style comments in jsx block is invalid, this rule will help you 
 
 ### mdx/no-unescaped-entities
 
-Inline JSX like `Inline <Component />` is supported by [MDX][], but rule `react/no-unescaped-entities` from [eslint-plugin-react][] is incompatible with it, `mdx/no-unescaped-entities` is the replacement.
+Inline JSX like `Inline <Component />` is supported by [MDX][], but rule `react/no-unescaped-entities` from [eslint-plugin-react][] is incompatible with it, `mdx/no-unescaped-entities` is the replacement, so make sure that you've turned off the original `no-unescaped-entities` rule.
 
 ### mdx/no-unused-expressions
 
-[MDX][] can render `jsx` block automatically without exporting them, but [ESLint][] will report `no-unused-expressions` issue which could be unexpected, this rule is a replacement of it, so make sure that you've turned off the original `no-unused-expressions` rule.
+[MDX][] can render `jsx` block automatically without exporting them, but [ESLint][] will report `no-unused-expressions` issue which could be unexpected, this rule is the replacement, so make sure that you've turned off the original `no-unused-expressions` rule.
 
 ### mdx/remark
 
 _possible fixable depends on your remark plugins_:
 
 Integration with [remark-lint][] plugins, it will read [remark's configuration](https://github.com/remarkjs/remark/tree/master/packages/remark-cli#remark-cli) automatically via [cosmiconfig][]. But `.remarkignore` will not be respected, you should use `.eslintignore` instead.
+
+If you want to disable or change severity of some related rules, it won't work by setting rules in eslint config like `'remark-lint-no-duplicate-headings': 0`, you should change your remark config instead like following:
+
+```jsonc
+{
+  "plugins": [
+    "@1stg/remark-config",
+    // change to error severity, notice `[]` is required
+    ["lint-no-duplicate-headings", [2]],
+    // disable following plugin
+    [
+      "lint-no-multiple-toplevel-headings",
+      [0] // or false
+    ]
+  ]
+}
+```
 
 ## Prettier Integration
 

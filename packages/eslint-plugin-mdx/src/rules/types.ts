@@ -1,7 +1,6 @@
-import { Linter } from 'eslint'
-// eslint-disable-next-line node/no-extraneous-import
-import { ExpressionStatement, Node } from 'estree'
-import { Attacher } from 'unified'
+import type { Linter } from 'eslint'
+import type { ExpressionStatement, Node } from 'estree'
+import type { Attacher } from 'unified'
 
 export interface WithParent {
   parent: NodeWithParent

@@ -1,9 +1,11 @@
 import path from 'path'
 
-import { AST, Linter } from 'eslint'
+import type { ExpressionStatement } from '@babel/types'
+import type { AST, Linter } from 'eslint'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import unified from 'unified'
+import type { Node, Parent } from 'unist'
 
 import {
   hasProperties,
@@ -12,18 +14,16 @@ import {
   normalizeParser,
   normalizePosition,
   restoreNodeLocation,
-} from './helper'
+} from './helpers'
 import {
   COMMENT_CONTENT_REGEX,
   COMMENT_CONTENT_REGEX_GLOBAL,
   isComment,
 } from './regexp'
 import { traverse } from './traverse'
-import {
+import type {
   Comment,
   LocationError,
-  Node,
-  Parent,
   ParserFn,
   ParserOptions,
   ParserServices,
@@ -256,32 +256,31 @@ export class Parser {
         `${JSX_WRAPPER_START}${value}${JSX_WRAPPER_END}`,
         options,
       ).ast
-    } catch (e) {
-      if (hasProperties<LocationError>(e, LOC_ERROR_PROPERTIES)) {
+    } catch (err) {
+      if (hasProperties<LocationError>(err, LOC_ERROR_PROPERTIES)) {
         const {
           position: { start },
         } = node
 
         /* istanbul ignore else */
-        if ('index' in e) {
-          e.index += start.offset - OFFSET
-        } else if ('pos' in e) {
-          e.pos += start.offset - OFFSET
+        if ('index' in err) {
+          err.index += start.offset - OFFSET
+        } else if ('pos' in err) {
+          err.pos += start.offset - OFFSET
         }
 
-        e.column =
+        err.column =
           /* istanbul ignore next */
-          e.lineNumber > 1 ? e.column : e.column + start.column - OFFSET
-        e.lineNumber += start.line - 1
+          err.lineNumber > 1 ? err.column : err.column + start.column - OFFSET
+        err.lineNumber += start.line - 1
 
-        throw e
+        throw err
       }
 
       return node
     }
 
-    const { expression } = (program
-      .body[0] as unknown) as import('@babel/types').ExpressionStatement
+    const { expression } = (program.body[0] as unknown) as ExpressionStatement
 
     if (!isJsxNode(expression) || expression.children.length <= 1) {
       return node
@@ -298,15 +297,14 @@ export class Parser {
       if (!isJsxNode(jsNode)) {
         return nodes
       }
+      /* istanbul ignore next */
       const {
         start: nodeStart,
         end: nodeEnd,
-        /* istanbul ignore next */
         loc: { start, end } = {
           start: { column: nodeStart, line: 1 },
           end: { column: nodeEnd, line: 1 },
         },
-        /* istanbul ignore next */
         range = [nodeStart, nodeEnd],
       } = jsNode
       const startLine = line + start.line - 1

@@ -1,6 +1,6 @@
 import { noUnescapedEntities } from 'eslint-plugin-mdx'
 
-import { parser, ruleTester } from './helper'
+import { parser, ruleTester } from './helpers'
 
 const filename = 'no-unescaped-entities.mdx'
 
