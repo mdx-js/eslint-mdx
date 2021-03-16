@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/mdx-js/eslint-mdx/compare/v1.9.1...v1.10.0) (2021-03-16)
+
+
+### Features
+
+* use eslint-plugin-markdown as processor! ([#283](https://github.com/mdx-js/eslint-mdx/issues/283)) ([abe30cb](https://github.com/mdx-js/eslint-mdx/commit/abe30cbfd62d89f700888053b01331bc74394bd2))
+* use processor to display remark reports directly ([#281](https://github.com/mdx-js/eslint-mdx/issues/281)) ([5052eb8](https://github.com/mdx-js/eslint-mdx/commit/5052eb8eb638242c940ce4f48a1245ef07dd6fe4))
+
+
+
+
+
 ## [1.9.1](https://github.com/mdx-js/eslint-mdx/compare/v1.9.0...v1.9.1) (2021-03-11)
 
 **Note:** Version bump only for package eslint-plugin-mdx
