@@ -70,9 +70,10 @@ export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
     }
   }
 
+  const config = result ? (result.config as Partial<RemarkConfig>) : {}
+
   /* istanbul ignore next */
-  const { plugins = [], settings } = (result?.config ||
-    {}) as Partial<RemarkConfig>
+  const { plugins = [], settings } = config
 
   try {
     // disable this rule automatically since we already have a parser option `extensions`
