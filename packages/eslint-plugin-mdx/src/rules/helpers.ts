@@ -72,7 +72,7 @@ export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
   }
 
   /* istanbul ignore next */
-  const { plugins = [], settings } = (result.config ||
+  const { plugins = [], settings } = (result?.config ||
     {}) as Partial<RemarkConfig>
 
   try {
