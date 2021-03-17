@@ -131,6 +131,7 @@ describe('parser', () => {
     expect(() =>
       parser.parse('<header>Header</header>', {
         ...parserOptions,
+        sourceType: undefined,
         parser: '@babel/eslint-parser',
         babelOptions: {
           configFile: require.resolve('@1stg/babel-preset/config'),

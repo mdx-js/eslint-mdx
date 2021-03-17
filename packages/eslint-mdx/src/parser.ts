@@ -8,6 +8,7 @@ import unified from 'unified'
 import type { Node, Parent } from 'unist'
 
 import {
+  arrayify,
   hasProperties,
   isJsxNode,
   last,
@@ -154,7 +155,6 @@ export class Parser {
     return this.parseForESLint(code, options).ast
   }
 
-  // eslint-disable-next-line sonarjs/cognitive-complexity
   parseForESLint(code: string, options: ParserOptions) {
     const extname = path.extname(options.filePath)
     const isMdx = DEFAULT_EXTENSIONS.concat(options.extensions || []).includes(
@@ -190,9 +190,9 @@ export class Parser {
             return
           }
 
-          let normalized = this.normalizeJsxNode(node, parent, options)
-          normalized = Array.isArray(normalized) ? normalized : [normalized]
-          for (const normalizedNode of normalized) {
+          for (const normalizedNode of arrayify(
+            this.normalizeJsxNode(node, parent, options),
+          )) {
             this._nodeToAst(normalizedNode, options)
           }
         },
