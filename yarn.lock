@@ -3029,10 +3029,10 @@
   resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.1.tgz#283f669ff76d7b8260df8ab7a4262cc83d988256"
   integrity sha512-fZQQafSREFyuZcdWFAExYjBiCL7AUCdgsk80iO0q4yihYYdcIiH28CcuPTGFgLOCC8RlW49GSQxdHwZP+I7CNg==
 
-"@types/node@*", "@types/node@^14.14.34":
-  version "14.14.34"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.34.tgz#07935194fc049069a1c56c0c274265abeddf88da"
-  integrity sha512-dBPaxocOK6UVyvhbnpFIj2W+S+1cBTkHQbFQfeeJhoKFbzYcVUGHvddeWPSucKATb3F0+pgDq0i6ghEaZjsugA==
+"@types/node@*", "@types/node@^14.14.35":
+  version "14.14.35"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.35.tgz#42c953a4e2b18ab931f72477e7012172f4ffa313"
+  integrity sha512-Lt+wj8NVPx0zUmUwumiVXapmaLUcAk3yPuHCFVXras9k5VT9TdhJqKqGVUQCD60OTMCl0qxJ57OiTL0Mic3Iag==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -12004,10 +12004,10 @@ type-coverage-core@^2.16.3:
     tslib "1 || 2"
     tsutils "3"
 
-type-coverage@^2.16.3:
-  version "2.16.3"
-  resolved "https://registry.yarnpkg.com/type-coverage/-/type-coverage-2.16.3.tgz#410ea60ad6982dc4078a36e7373456f0935ecca6"
-  integrity sha512-sRT+bWDWqh4FD0tQBvGAedNIteRYC+qLL51nfCEcyAwfIrTR0hm50YoP48Ri2zVFyJwmAQF92Smu4ody2k36sw==
+type-coverage@^2.17.0:
+  version "2.17.0"
+  resolved "https://registry.yarnpkg.com/type-coverage/-/type-coverage-2.17.0.tgz#233fc75578c9b670e64de1ae26c8b9a14e14b760"
+  integrity sha512-MlM2gmsQZClsNZhZ+blOflCDhVBoyXSYnQptF4Lr8QZxLCqImCNCAi2oofK8pQDmB6rALokokqyzg69PNY7axA==
   dependencies:
     minimist "1"
     type-coverage-core "^2.16.3"
