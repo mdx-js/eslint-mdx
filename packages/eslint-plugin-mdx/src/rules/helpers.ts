@@ -49,8 +49,7 @@ export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
     }).search
   }
 
-  /* istanbul ignore next */
-  let result: Partial<CosmiconfigResult> = {}
+  let result: Partial<CosmiconfigResult>
 
   try {
     result = searchSync(searchFrom)
@@ -72,7 +71,7 @@ export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
   }
 
   /* istanbul ignore next */
-  const { plugins = [], settings } = (result.config ||
+  const { plugins = [], settings } = (result?.config ||
     {}) as Partial<RemarkConfig>
 
   try {
