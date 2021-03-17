@@ -1,6 +1,6 @@
 import type { Node, Parent } from 'unist'
 
-import { last } from './helpers'
+import { arrayify, last } from './helpers'
 import { parser } from './parser'
 import {
   isCloseTag,
@@ -75,8 +75,7 @@ export class Traverse {
             }
             try {
               // fix #138
-              const nodes = parser.normalizeJsxNode(node, parent)
-              jsxNodes.push(...(Array.isArray(nodes) ? nodes : [nodes]))
+              jsxNodes.push(...arrayify(parser.normalizeJsxNode(node, parent)))
             } catch {
               // #272 related
               /* istanbul ignore else */

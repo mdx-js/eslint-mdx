@@ -112,22 +112,33 @@ export const restoreNodeLocation = <T>(
   const start = range[0] + offset
   const end = range[1] + offset
 
+  const restoredStartLine = startLine + startLoc.line
+  const restoredEndLine = startLine + endLoc.line
+
   return Object.assign(node, {
     start,
     end,
     range: [start, end],
     loc: {
       start: {
-        line: startLine + startLoc.line,
-        column: startLoc.column,
+        line: restoredStartLine,
+        column: startLoc.column + (restoredStartLine === 1 ? offset : 0),
       },
       end: {
-        line: startLine + endLoc.line,
-        column: endLoc.column,
+        line: restoredEndLine,
+        column: endLoc.column + (restoredEndLine === 1 ? offset : 0),
       },
     },
   })
 }
+
+export const arrayify = <T, R = T extends Array<infer S> ? S : T>(
+  ...args: T[]
+) =>
+  args.reduce<R[]>((arr, curr) => {
+    arr.push(...(Array.isArray(curr) ? curr : curr == null ? [] : [curr]))
+    return arr
+  }, [])
 
 export const first = <T>(items: T[] | readonly T[]) => items && items[0]
 

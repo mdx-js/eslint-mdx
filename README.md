@@ -36,7 +36,6 @@
 - [Parser Options](#parser-options)
 - [Rules](#rules)
   - [mdx/no-jsx-html-comments](#mdxno-jsx-html-comments)
-  - [mdx/no-unescaped-entities](#mdxno-unescaped-entities)
   - [mdx/no-unused-expressions](#mdxno-unused-expressions)
   - [mdx/remark](#mdxremark)
 - [Prettier Integration](#prettier-integration)
@@ -182,10 +181,6 @@ npm i -D eslint-plugin-mdx
 ### mdx/no-jsx-html-comments
 
 _Fixable_: HTML style comments in jsx block is invalid, this rule will help you to fix it by transforming it to JSX style comments.
-
-### mdx/no-unescaped-entities
-
-Inline JSX like `Inline <Component />` is supported by [MDX][], but rule `react/no-unescaped-entities` from [eslint-plugin-react][] is incompatible with it, `mdx/no-unescaped-entities` is the replacement, so make sure that you've turned off the original `no-unescaped-entities` rule.
 
 ### mdx/no-unused-expressions
 

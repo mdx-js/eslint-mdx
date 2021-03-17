@@ -2,12 +2,13 @@ import path from 'path'
 
 import { cosmiconfigSync } from 'cosmiconfig'
 import type { CosmiconfigResult } from 'cosmiconfig/dist/types'
+import { arrayify } from 'eslint-mdx'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import remarkStringify from 'remark-stringify'
 import unified from 'unified'
 
-import type { RemarkConfig } from './types'
+import type { RemarkConfig, RemarkPlugin } from './types'
 
 export const requirePkg = <T>(
   plugin: string,
@@ -90,9 +91,10 @@ export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
 
   return plugins
     .reduce((processor, pluginWithSettings) => {
-      const [plugin, ...pluginSettings] = Array.isArray(pluginWithSettings)
-        ? pluginWithSettings
-        : [pluginWithSettings]
+      const [plugin, ...pluginSettings] = arrayify(pluginWithSettings) as [
+        RemarkPlugin,
+        ...unknown[]
+      ]
       return processor.use(
         /* istanbul ignore next */
         typeof plugin === 'string'
