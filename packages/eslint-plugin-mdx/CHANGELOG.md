@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/mdx-js/eslint-mdx/compare/v1.10.0...v1.11.0) (2021-03-18)
+
+
+### Bug Fixes
+
+* cosmiconfig returns null if no config found ([#285](https://github.com/mdx-js/eslint-mdx/issues/285)) ([52d712a](https://github.com/mdx-js/eslint-mdx/commit/52d712a96471d8f6e31320cb718dfd0c1bb7ca65))
+
+
+### Features
+
+* fix incorrect node loc ([#288](https://github.com/mdx-js/eslint-mdx/issues/288)) ([c52039c](https://github.com/mdx-js/eslint-mdx/commit/c52039c566c9f6430a414992a24e755f050c332a)), closes [#287](https://github.com/mdx-js/eslint-mdx/issues/287)
+
+
+
+
+
 # [1.10.0](https://github.com/mdx-js/eslint-mdx/compare/v1.9.1...v1.10.0) (2021-03-16)
 
 
