@@ -6,12 +6,11 @@
  */
 
 import type { Linter } from 'eslint'
-import { last } from 'eslint-mdx'
 import type { Node, Parent } from 'unist'
 
 import { remarkProcessor } from '../rules'
 
-import type { ESLintProcessor } from './types'
+import type { ESLintProcessor, ESLinterProcessorFile } from './types'
 
 export interface Block extends Node {
   baseIndentText: string
@@ -229,36 +228,13 @@ function getBlockRangeMap(
   return rangeMap
 }
 
-const LANGUAGES_MAPPER: Record<string, string> = {
-  javascript: 'js',
-  javascriptreact: 'jsx',
-  typescript: 'ts',
-  typescriptreact: 'tsx',
-  markdown: 'md',
-  mdown: 'md',
-  mkdn: 'md',
-}
-
-/**
- * get short language
- * @param lang original language
- * @returns short language
- */
-function getShortLang(lang: string): string {
-  const language = last(lang.split(/\s/u)[0].split('.')).toLowerCase()
-  return LANGUAGES_MAPPER[language] || language
-}
-
 /**
  * Extracts lintable JavaScript code blocks from Markdown text.
  * @param text The text of the file.
  * @param filename The filename of the file
  * @returns Source code strings to lint.
  */
-function preprocess(
-  text: string,
-  filename: string,
-): Array<string | { text: string; filename: string }> {
+function preprocess(text: string, filename: string): ESLinterProcessorFile[] {
   const ast = remarkProcessor.parse(text)
   const blocks: Block[] = []
 
@@ -299,7 +275,7 @@ function preprocess(
   })
 
   return blocks.map((block, index) => ({
-    filename: `${index}.${getShortLang(block.lang as string)}`,
+    filename: `${index}.${block.lang as string}`,
     text: [...block.comments, block.value, ''].join('\n'),
   }))
 }
@@ -405,7 +381,7 @@ function postprocess(
   )
 }
 
-export const markdown: ESLintProcessor = {
+export const markdown: ESLintProcessor<ESLinterProcessorFile> = {
   preprocess,
   postprocess,
   supportsAutofix: SUPPORTS_AUTOFIX,

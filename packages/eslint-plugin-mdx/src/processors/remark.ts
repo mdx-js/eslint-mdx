@@ -2,6 +2,7 @@ import type { Linter } from 'eslint'
 
 import type { RemarkLintMessage } from '../rules'
 
+import { getShortLang } from './helpers'
 import { markdown } from './markdown'
 import { processorOptions } from './options'
 import type { ESLintProcessor } from './types'
@@ -13,7 +14,16 @@ export const remark: ESLintProcessor = {
       return [text]
     }
 
-    return [...markdown.preprocess(text, filename), text]
+    return [
+      ...markdown.preprocess(text, filename).map(({ text, filename }) => ({
+        text,
+        filename:
+          filename.slice(0, filename.lastIndexOf('.')) +
+          '.' +
+          getShortLang(filename, processorOptions.languageMapper),
+      })),
+      text,
+    ]
   },
   postprocess(lintMessages, filename) {
     return markdown.postprocess(lintMessages, filename).map(lintMessage => {

@@ -4,7 +4,7 @@
 
 import type { Linter, SourceCode } from 'eslint'
 
-import type { ProcessorOptions } from './types'
+import type { ESLintMdxSettings, ProcessorOptions } from './types'
 
 export const processorOptions = {} as ProcessorOptions
 
@@ -35,20 +35,20 @@ ESLinter.prototype.verify = function (
   options?: string | Linter.LintOptions,
 ) {
   // fetch settings
-  const settings =
-    (config &&
-      (typeof config.extractConfig === 'function'
-        ? config.extractConfig(
-            /* istanbul ignore next */
-            typeof options === 'undefined' || typeof options === 'string'
-              ? options
-              : options.filename,
-          )
-        : config
-      ).settings) ||
-    {}
+  const settings = ((config &&
+    (typeof config.extractConfig === 'function'
+      ? config.extractConfig(
+          /* istanbul ignore next */
+          typeof options === 'undefined' || typeof options === 'string'
+            ? options
+            : options.filename,
+        )
+      : config
+    ).settings) ||
+    {}) as ESLintMdxSettings
 
   processorOptions.lintCodeBlocks = settings['mdx/code-blocks'] === true
+  processorOptions.languageMapper = settings['mdx/language-mapper']
 
   // call original Linter#verify
   return verify.call(this, code, config, options as Linter.LintOptions)
