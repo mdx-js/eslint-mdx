@@ -18,7 +18,7 @@ export interface ESLintProcessor<
 }
 
 export interface ESLintMdxSettings {
-  'mdx/code-blocks': boolean
+  'mdx/code-blocks'?: boolean
   'mdx/language-mapper'?: false | Record<string, string>
 }
 
