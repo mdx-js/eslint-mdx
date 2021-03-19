@@ -242,7 +242,7 @@ function preprocess(text: string, filename: string): ESLinterProcessorFile[] {
 
   traverse(ast, {
     code(node, parent) {
-      const comments = []
+      const comments: string[] = []
 
       if (node.lang) {
         let index = parent.children.indexOf(node) - 1

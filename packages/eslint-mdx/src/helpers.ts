@@ -4,7 +4,13 @@ import type { Linter } from 'eslint'
 import type { Position as ESPosition, SourceLocation } from 'estree'
 import type { Point, Position } from 'unist'
 
-import type { Arrayable, JsxNode, ParserFn, ParserOptions } from './types'
+import type {
+  Arrayable,
+  JsxNode,
+  ParserFn,
+  ParserOptions,
+  ValueOf,
+} from './types'
 
 export const FALLBACK_PARSERS = [
   '@typescript-eslint/parser',
@@ -111,7 +117,7 @@ export const getPositionAt = (code: string, offset: number): ESPosition => {
 
 export const restoreNodeLocation = <T>(node: T, point: Point): T => {
   if (node && typeof node === 'object') {
-    for (const value of Object.values(node)) {
+    for (const value of Object.values(node) as Array<ValueOf<T>>) {
       restoreNodeLocation(value, point)
     }
   }
