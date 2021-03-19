@@ -59,7 +59,7 @@ export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
     /* istanbul ignore if */
     if (
       (err as { code?: string }).code !== 'ENOTDIR' ||
-      !/\d+_?\.[a-z]+$/.test(searchFrom)
+      !/[/\\]\d+_[^/\\]*\.[\da-z]+$/i.test(searchFrom)
     ) {
       throw err
     }

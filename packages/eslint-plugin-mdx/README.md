@@ -32,6 +32,7 @@
 - [VSCode Extension](#vscode-extension)
 - [Packages](#packages)
 - [Install](#install)
+- [Notice](#notice)
 - [Usage](#usage)
 - [Parser Options](#parser-options)
 - [Rules](#rules)
@@ -67,6 +68,12 @@ yarn add -D eslint-plugin-mdx
 npm i -D eslint-plugin-mdx
 ```
 
+## Notice
+
+If you're using multi languages, `js/jsx/ts/tsx/vue`, etc for example, you'd better to always use [`overrides`](https://eslint.org/docs/user-guide/configuring/configuration-files#how-do-overrides-work) feature of ESLint, because configs may be overridden by following configs.
+
+See [#251](https://github.com/mdx-js/eslint-mdx/issues/251#issuecomment-736139224) for more details.
+
 ## Usage
 
 1. In your ESLint config file:
@@ -78,7 +85,10 @@ npm i -D eslint-plugin-mdx
         "extends": ["plugin:mdx/recommended"],
         // optional, if you want to lint code blocks at the same time
         "settings": {
-          "mdx/code-blocks": true
+          "mdx/code-blocks": true,
+          // optional, if you want to disable language mapper, set it to `false`
+          // if you want to override the default language mapper inside, you can provide your own
+          "mdx/language-mapper": {}
         }
       }
       ```
@@ -90,7 +100,10 @@ npm i -D eslint-plugin-mdx
         "extends": ["plugin:mdx/recommended"],
         // optional, if you want to lint code blocks at the same time
         "settings": {
-          "mdx/code-blocks": true
+          "mdx/code-blocks": true,
+          // optional, if you want to disable language mapper, set it to `false`
+          // if you want to override the default language mapper inside, you can provide your own
+          "mdx/language-mapper": {}
         },
         "overrides": [
           {
@@ -127,6 +140,9 @@ npm i -D eslint-plugin-mdx
         // optional, if you want to lint code blocks at the same time
         settings: {
           'mdx/code-blocks': true,
+          // optional, if you want to disable language mapper, set it to `false`
+          // if you want to override the default language mapper inside, you can provide your own
+          'mdx/language-mapper': {},
         },
         overrides: [
           {
