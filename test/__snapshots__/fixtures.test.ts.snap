@@ -172,6 +172,14 @@ Array [
     "severity": 1,
   },
   Object {
+    "column": 7,
+    "line": 35,
+    "message": "\`'\` can be escaped with \`&apos;\`, \`&lsquo;\`, \`&#39;\`, \`&rsquo;\`.",
+    "nodeType": "JSXText",
+    "ruleId": "react/no-unescaped-entities",
+    "severity": 1,
+  },
+  Object {
     "column": 2,
     "endColumn": 9,
     "endLine": 41,
@@ -223,7 +231,26 @@ Array [
 ]
 `;
 
-exports[`fixtures should match all snapshots: details.mdx 1`] = `Array []`;
+exports[`fixtures should match all snapshots: details.mdx 1`] = `
+Array [
+  Object {
+    "column": 290,
+    "line": 3,
+    "message": "\`'\` can be escaped with \`&apos;\`, \`&lsquo;\`, \`&#39;\`, \`&rsquo;\`.",
+    "nodeType": "JSXText",
+    "ruleId": "react/no-unescaped-entities",
+    "severity": 1,
+  },
+  Object {
+    "column": 5,
+    "line": 5,
+    "message": "\`'\` can be escaped with \`&apos;\`, \`&lsquo;\`, \`&#39;\`, \`&rsquo;\`.",
+    "nodeType": "JSXText",
+    "ruleId": "react/no-unescaped-entities",
+    "severity": 1,
+  },
+]
+`;
 
 exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `Array []`;
 

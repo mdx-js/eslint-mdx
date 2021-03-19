@@ -1,6 +1,6 @@
 import path from 'path'
 
-import { arrayify, getLinesFromCode, getLocFromRange } from 'eslint-mdx'
+import { arrayify, getPositionAt } from 'eslint-mdx'
 import { getGlobals, getShortLang, requirePkg } from 'eslint-plugin-mdx'
 
 describe('Helpers', () => {
@@ -26,23 +26,9 @@ describe('Helpers', () => {
     <a href="link">content</a>
   </div>
     `.trim()
-    const lines = getLinesFromCode(code)
-    const headerWord = 'Header'
-    const contentWord = 'content'
-    const headerWordIndex = code.indexOf(headerWord)
-    const contentWordIndex = code.indexOf(contentWord)
-    expect(
-      getLocFromRange(lines, [
-        headerWordIndex,
-        headerWordIndex + headerWord.length,
-      ]),
-    ).toMatchSnapshot()
-    expect(
-      getLocFromRange(lines, [
-        contentWordIndex,
-        contentWordIndex + contentWord.length,
-      ]),
-    ).toMatchSnapshot()
+    expect(getPositionAt(code, code.indexOf('Header'))).toMatchSnapshot()
+    expect(getPositionAt(code, code.indexOf('link'))).toMatchSnapshot()
+    expect(getPositionAt(code, code.indexOf('content'))).toMatchSnapshot()
   })
 
   it('should resolve globals correctly', () => {

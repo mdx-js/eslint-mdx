@@ -9,7 +9,7 @@ import type { Node, Parent } from 'unist'
 
 import {
   arrayify,
-  getLinesFromCode,
+  getPositionAt,
   hasProperties,
   isJsxNode,
   last,
@@ -184,7 +184,6 @@ export class Parser {
     }
 
     if (isMdx) {
-      const lines = getLinesFromCode(code)
       traverse(root, {
         code,
         enter: (node, parent) => {
@@ -195,7 +194,7 @@ export class Parser {
           for (const normalizedNode of arrayify(
             this.normalizeJsxNode(node, parent, options),
           )) {
-            this._nodeToAst(lines, normalizedNode, options)
+            this._nodeToAst(code, normalizedNode, options)
           }
         },
       })
@@ -335,7 +334,7 @@ export class Parser {
   }
 
   // @internal
-  private _nodeToAst(lines: string[], node: Node, options: ParserOptions) {
+  private _nodeToAst(code: string, node: Node, options: ParserOptions) {
     if (node.data && node.data.jsxType === 'JSXElementWithHTMLComments') {
       this._services.JSXElementsWithHTMLComments.push(node)
     }
@@ -356,6 +355,8 @@ export class Parser {
       return
     }
 
+    const startLine = loc.start.line - 1 // ! line is 1-indexed, change to 0-indexed to simplify usage
+
     let program: AST.Program
 
     try {
@@ -366,16 +367,23 @@ export class Parser {
         // should be handled by `_normalizeJsxNodes`, just for robustness
         e.index += start
         e.column = e.lineNumber > 1 ? e.column : e.column + loc.start.column
-        e.lineNumber += loc.start.line - 1
+        e.lineNumber += startLine
       }
       throw e
+    }
+
+    const startPoint = {
+      line: startLine,
+      // #279 related
+      column: getPositionAt(code, start).column,
+      offset: start,
     }
 
     for (const prop of AST_PROPS)
       this._ast[prop].push(
         // ts doesn't understand the mixed type
         ...program[prop].map((item: never) =>
-          restoreNodeLocation(lines, item, start),
+          restoreNodeLocation(item, startPoint),
         ),
       )
   }

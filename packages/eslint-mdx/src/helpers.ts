@@ -2,7 +2,7 @@
 
 import type { Linter } from 'eslint'
 import type { Position as ESPosition, SourceLocation } from 'estree'
-import type { Position } from 'unist'
+import type { Point, Position } from 'unist'
 
 import type { Arrayable, JsxNode, ParserFn, ParserOptions } from './types'
 
@@ -90,55 +90,29 @@ export const hasProperties = <T, P extends keyof T = keyof T>(
   obj &&
   properties.every(property => property in obj)
 
-export const getLinesFromCode = (code: string) => code.split('\n')
-
 // fix #292
-export const getLocFromRange = (
-  lines: string[],
-  [start, end]: readonly [number, number],
-): SourceLocation => {
-  let offset = 0
+export const getPositionAt = (code: string, offset: number): ESPosition => {
+  let currOffset = 0
 
-  let startPos: ESPosition
-  let endPos: ESPosition
-
-  for (const [index, { length }] of lines.entries()) {
+  for (const [index, { length }] of code.split('\n').entries()) {
     const line = index + 1
-    const nextOffset = offset + length
+    const nextOffset = currOffset + length
 
-    if (nextOffset >= start) {
-      startPos = {
+    if (nextOffset >= offset) {
+      return {
         line,
-        column: start - offset,
+        column: offset - currOffset,
       }
     }
 
-    if (nextOffset >= end) {
-      endPos = {
-        line,
-        column: end - offset,
-      }
-
-      break
-    }
-
-    offset = nextOffset + 1 // add a line break `\n` offset
-  }
-
-  return {
-    start: startPos,
-    end: endPos,
+    currOffset = nextOffset + 1 // add a line break `\n` offset
   }
 }
 
-export const restoreNodeLocation = <T>(
-  lines: string[],
-  node: T,
-  offset: number,
-): T => {
+export const restoreNodeLocation = <T>(node: T, point: Point): T => {
   if (node && typeof node === 'object') {
     for (const value of Object.values(node)) {
-      restoreNodeLocation(lines, value, offset)
+      restoreNodeLocation(value, point)
     }
   }
 
@@ -147,16 +121,26 @@ export const restoreNodeLocation = <T>(
   }
 
   let {
+    loc: { start: startLoc, end: endLoc },
     range: [start, end],
   } = node
 
-  const range = [(start += offset), (end += +offset)] as const
+  const range = [(start += point.offset), (end += point.offset)] as const
 
   return Object.assign(node, {
     start,
     end,
     range,
-    loc: getLocFromRange(lines, range),
+    loc: {
+      start: {
+        line: point.line + startLoc.line,
+        column: startLoc.column + (startLoc.line === 1 ? point.column : 0),
+      },
+      end: {
+        line: point.line + endLoc.line,
+        column: endLoc.column + (endLoc.line === 1 ? point.column : 0),
+      },
+    },
   })
 }
 
