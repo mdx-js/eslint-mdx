@@ -95,7 +95,7 @@ export const getLinesFromCode = (code: string) => code.split('\n')
 // fix #292
 export const getLocFromRange = (
   lines: string[],
-  [start, end]: [number, number],
+  [start, end]: readonly [number, number],
 ): SourceLocation => {
   let offset = 0
 
@@ -146,16 +146,17 @@ export const restoreNodeLocation = <T>(
     return node
   }
 
-  const { range } = node
+  let {
+    range: [start, end],
+  } = node
 
-  const start = range[0] + offset
-  const end = range[1] + offset
+  const range = [(start += offset), (end += +offset)] as const
 
   return Object.assign(node, {
     start,
     end,
-    range: [start, end],
-    loc: getLocFromRange(lines, [start, end]),
+    range,
+    loc: getLocFromRange(lines, range),
   })
 }
 
