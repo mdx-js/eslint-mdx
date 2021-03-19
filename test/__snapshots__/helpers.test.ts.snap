@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Helpers should get correct loc range range 1`] = `
+Object {
+  "end": Object {
+    "column": 8,
+    "line": 1,
+  },
+  "start": Object {
+    "column": 2,
+    "line": 1,
+  },
+}
+`;
+
+exports[`Helpers should get correct loc range range 2`] = `
+Object {
+  "end": Object {
+    "column": 26,
+    "line": 4,
+  },
+  "start": Object {
+    "column": 19,
+    "line": 4,
+  },
+}
+`;

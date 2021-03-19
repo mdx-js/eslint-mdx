@@ -15,6 +15,7 @@ const getCli = (lintCodeBlocks = false) =>
       extends: ['plugin:mdx/recommended'],
       plugins: ['react', 'unicorn', 'prettier'],
       rules: {
+        'react/no-unescaped-entities': 1,
         'unicorn/prefer-spread': 2,
       },
       overrides: lintCodeBlocks

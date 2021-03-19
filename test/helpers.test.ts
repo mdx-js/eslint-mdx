@@ -1,6 +1,6 @@
 import path from 'path'
 
-import { arrayify } from 'eslint-mdx'
+import { arrayify, getLinesFromCode, getLocFromRange } from 'eslint-mdx'
 import { getGlobals, getShortLang, requirePkg } from 'eslint-plugin-mdx'
 
 describe('Helpers', () => {
@@ -16,6 +16,33 @@ describe('Helpers', () => {
     expect(getShortLang('2.Markdown', false)).toBe('Markdown')
     expect(getShortLang('3.Markdown', { Markdown: 'mkdn' })).toBe('mkdn')
     expect(getShortLang('4.Markdown', { markdown: 'mkdn' })).toBe('mkdn')
+  })
+
+  it('should get correct loc range range', () => {
+    const code = `
+# Header
+
+- jsx in list <div>
+    <a href="link">content</a>
+  </div>
+    `.trim()
+    const lines = getLinesFromCode(code)
+    const headerWord = 'Header'
+    const contentWord = 'content'
+    const headerWordIndex = code.indexOf(headerWord)
+    const contentWordIndex = code.indexOf(contentWord)
+    expect(
+      getLocFromRange(lines, [
+        headerWordIndex,
+        headerWordIndex + headerWord.length,
+      ]),
+    ).toMatchSnapshot()
+    expect(
+      getLocFromRange(lines, [
+        contentWordIndex,
+        contentWordIndex + contentWord.length,
+      ]),
+    ).toMatchSnapshot()
   })
 
   it('should resolve globals correctly', () => {

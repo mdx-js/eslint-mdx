@@ -1,7 +1,7 @@
 /// <reference path="../typings.d.ts" />
 
 import type { Linter } from 'eslint'
-import type { SourceLocation } from 'estree'
+import type { Position as ESPosition, SourceLocation } from 'estree'
 import type { Position } from 'unist'
 
 import type { Arrayable, JsxNode, ParserFn, ParserOptions } from './types'
@@ -90,14 +90,55 @@ export const hasProperties = <T, P extends keyof T = keyof T>(
   obj &&
   properties.every(property => property in obj)
 
+export const getLinesFromCode = (code: string) => code.split('\n')
+
+// fix #292
+export const getLocFromRange = (
+  lines: string[],
+  [start, end]: [number, number],
+): SourceLocation => {
+  let offset = 0
+
+  let startPos: ESPosition
+  let endPos: ESPosition
+
+  for (const [index, { length }] of lines.entries()) {
+    const line = index + 1
+    const nextOffset = offset + length
+
+    if (nextOffset >= start) {
+      startPos = {
+        line,
+        column: start - offset,
+      }
+    }
+
+    if (nextOffset >= end) {
+      endPos = {
+        line,
+        column: end - offset,
+      }
+
+      break
+    }
+
+    offset = nextOffset + 1 // add a line break `\n` offset
+  }
+
+  return {
+    start: startPos,
+    end: endPos,
+  }
+}
+
 export const restoreNodeLocation = <T>(
+  lines: string[],
   node: T,
-  startLine: number,
   offset: number,
 ): T => {
   if (node && typeof node === 'object') {
     for (const value of Object.values(node)) {
-      restoreNodeLocation(value, startLine, offset)
+      restoreNodeLocation(lines, value, offset)
     }
   }
 
@@ -105,30 +146,16 @@ export const restoreNodeLocation = <T>(
     return node
   }
 
-  const {
-    loc: { start: startLoc, end: endLoc },
-    range,
-  } = node
+  const { range } = node
+
   const start = range[0] + offset
   const end = range[1] + offset
-
-  const restoredStartLine = startLine + startLoc.line
-  const restoredEndLine = startLine + endLoc.line
 
   return Object.assign(node, {
     start,
     end,
     range: [start, end],
-    loc: {
-      start: {
-        line: restoredStartLine,
-        column: startLoc.column + (restoredStartLine === 1 ? offset : 0),
-      },
-      end: {
-        line: restoredEndLine,
-        column: endLoc.column + (restoredEndLine === 1 ? offset : 0),
-      },
-    },
+    loc: getLocFromRange(lines, [start, end]),
   })
 }
 
