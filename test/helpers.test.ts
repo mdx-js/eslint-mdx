@@ -1,6 +1,6 @@
 import path from 'path'
 
-import { arrayify } from 'eslint-mdx'
+import { arrayify, getPositionAt } from 'eslint-mdx'
 import { getGlobals, getShortLang, requirePkg } from 'eslint-plugin-mdx'
 
 describe('Helpers', () => {
@@ -16,6 +16,19 @@ describe('Helpers', () => {
     expect(getShortLang('2.Markdown', false)).toBe('Markdown')
     expect(getShortLang('3.Markdown', { Markdown: 'mkdn' })).toBe('mkdn')
     expect(getShortLang('4.Markdown', { markdown: 'mkdn' })).toBe('mkdn')
+  })
+
+  it('should get correct loc range range', () => {
+    const code = `
+# Header
+
+- jsx in list <div>
+    <a href="link">content</a>
+  </div>
+    `.trim()
+    expect(getPositionAt(code, code.indexOf('Header'))).toMatchSnapshot()
+    expect(getPositionAt(code, code.indexOf('link'))).toMatchSnapshot()
+    expect(getPositionAt(code, code.indexOf('content'))).toMatchSnapshot()
   })
 
   it('should resolve globals correctly', () => {

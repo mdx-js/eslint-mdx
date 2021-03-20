@@ -1,10 +1,16 @@
 /// <reference path="../typings.d.ts" />
 
 import type { Linter } from 'eslint'
-import type { SourceLocation } from 'estree'
-import type { Position } from 'unist'
+import type { Position as ESPosition, SourceLocation } from 'estree'
+import type { Point, Position } from 'unist'
 
-import type { Arrayable, JsxNode, ParserFn, ParserOptions } from './types'
+import type {
+  Arrayable,
+  JsxNode,
+  ParserFn,
+  ParserOptions,
+  ValueOf,
+} from './types'
 
 export const FALLBACK_PARSERS = [
   '@typescript-eslint/parser',
@@ -90,14 +96,29 @@ export const hasProperties = <T, P extends keyof T = keyof T>(
   obj &&
   properties.every(property => property in obj)
 
-export const restoreNodeLocation = <T>(
-  node: T,
-  startLine: number,
-  offset: number,
-): T => {
+// fix #292
+export const getPositionAt = (code: string, offset: number): ESPosition => {
+  let currOffset = 0
+
+  for (const [index, { length }] of code.split('\n').entries()) {
+    const line = index + 1
+    const nextOffset = currOffset + length
+
+    if (nextOffset >= offset) {
+      return {
+        line,
+        column: offset - currOffset,
+      }
+    }
+
+    currOffset = nextOffset + 1 // add a line break `\n` offset
+  }
+}
+
+export const restoreNodeLocation = <T>(node: T, point: Point): T => {
   if (node && typeof node === 'object') {
-    for (const value of Object.values(node)) {
-      restoreNodeLocation(value, startLine, offset)
+    for (const value of Object.values(node) as Array<ValueOf<T>>) {
+      restoreNodeLocation(value, point)
     }
   }
 
@@ -105,28 +126,25 @@ export const restoreNodeLocation = <T>(
     return node
   }
 
-  const {
+  let {
     loc: { start: startLoc, end: endLoc },
-    range,
+    range: [start, end],
   } = node
-  const start = range[0] + offset
-  const end = range[1] + offset
 
-  const restoredStartLine = startLine + startLoc.line
-  const restoredEndLine = startLine + endLoc.line
+  const range = [(start += point.offset), (end += point.offset)] as const
 
   return Object.assign(node, {
     start,
     end,
-    range: [start, end],
+    range,
     loc: {
       start: {
-        line: restoredStartLine,
-        column: startLoc.column + (restoredStartLine === 1 ? offset : 0),
+        line: point.line + startLoc.line,
+        column: startLoc.column + (startLoc.line === 1 ? point.column : 0),
       },
       end: {
-        line: restoredEndLine,
-        column: endLoc.column + (restoredEndLine === 1 ? offset : 0),
+        line: point.line + endLoc.line,
+        column: endLoc.column + (endLoc.line === 1 ? point.column : 0),
       },
     },
   })

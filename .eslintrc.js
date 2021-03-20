@@ -33,6 +33,7 @@ module.exports = {
       // related to https://github.com/eslint/eslint/issues/14207
       rules: {
         'prettier/prettier': 0,
+        'react/no-unescaped-entities': 1,
         'unicorn/filename-case': 0,
       },
       settings: {

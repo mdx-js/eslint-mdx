@@ -9,6 +9,7 @@ import type { Node, Parent } from 'unist'
 
 import {
   arrayify,
+  getPositionAt,
   hasProperties,
   isJsxNode,
   last,
@@ -193,7 +194,7 @@ export class Parser {
           for (const normalizedNode of arrayify(
             this.normalizeJsxNode(node, parent, options),
           )) {
-            this._nodeToAst(normalizedNode, options)
+            this._nodeToAst(code, normalizedNode, options)
           }
         },
       })
@@ -333,7 +334,7 @@ export class Parser {
   }
 
   // @internal
-  private _nodeToAst(node: Node, options: ParserOptions) {
+  private _nodeToAst(code: string, node: Node, options: ParserOptions) {
     if (node.data && node.data.jsxType === 'JSXElementWithHTMLComments') {
       this._services.JSXElementsWithHTMLComments.push(node)
     }
@@ -371,13 +372,18 @@ export class Parser {
       throw e
     }
 
-    const offset = start - program.range[0]
+    const startPoint = {
+      line: startLine,
+      // #279 related
+      column: getPositionAt(code, start).column,
+      offset: start,
+    }
 
     for (const prop of AST_PROPS)
       this._ast[prop].push(
         // ts doesn't understand the mixed type
         ...program[prop].map((item: never) =>
-          restoreNodeLocation(item, startLine, offset),
+          restoreNodeLocation(item, startPoint),
         ),
       )
   }

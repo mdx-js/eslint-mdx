@@ -2,9 +2,19 @@ import type { JSXElement, JSXFragment } from '@babel/types'
 import type { AST, Linter } from 'eslint'
 import type { Node, Parent, Point } from 'unist'
 
-export type JsxNode = (JSXElement | JSXFragment) & { range: [number, number] }
-
 export type Arrayable<T> = T[] | readonly T[]
+
+export declare type ValueOf<T> = T extends {
+  [key: string]: infer M
+}
+  ? M
+  : T extends {
+      [key: number]: infer N
+    }
+  ? N
+  : never
+
+export type JsxNode = (JSXElement | JSXFragment) & { range: [number, number] }
 
 export type ParserFn = (
   code: string,
