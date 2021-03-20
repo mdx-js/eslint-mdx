@@ -30,7 +30,6 @@
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.35",
     "@types/react": "^17.0.3",
-    "@types/rebass": "^4.0.8",
     "@types/unist": "^2.0.3",
     "eslint-mdx": "link:packages/eslint-mdx/src",
     "eslint-plugin-mdx": "link:packages/eslint-plugin-mdx/src",

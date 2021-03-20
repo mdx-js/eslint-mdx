@@ -41,8 +41,5 @@
     "tslib": "^2.1.0",
     "unified": "^9.2.1",
     "vfile": "^4.2.1"
-  },
-  "optionalDependencies": {
-    "rebass": "^4.0.7"
   }
 }
