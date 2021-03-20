@@ -42,7 +42,7 @@
     "unified": "^9.2.1",
     "vfile": "^4.2.1"
   },
-  "optionalDependencies": {
+  "devDependencies": {
     "rebass": "^4.0.7"
   }
 }
