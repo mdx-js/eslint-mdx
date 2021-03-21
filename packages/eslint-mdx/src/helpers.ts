@@ -100,9 +100,12 @@ export const hasProperties = <T, P extends keyof T = keyof T>(
 export const getPositionAt = (code: string, offset: number): ESPosition => {
   let currOffset = 0
 
-  for (const [index, { length }] of code.split('\n').entries()) {
+  const lines = code.split('\n')
+
+  // eslint-disable-next-line unicorn/no-for-loop
+  for (let index = 0; index < lines.length; index++) {
     const line = index + 1
-    const nextOffset = currOffset + length
+    const nextOffset = currOffset + lines[index].length
 
     if (nextOffset >= offset) {
       return {
