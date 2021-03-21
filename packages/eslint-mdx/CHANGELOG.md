@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.1](https://github.com/mdx-js/eslint-mdx/compare/v1.11.0...v1.11.1) (2021-03-21)
+
+
+### Bug Fixes
+
+* add helper getPositionAt to fix incorrect loc ([#293](https://github.com/mdx-js/eslint-mdx/issues/293)) ([260a07e](https://github.com/mdx-js/eslint-mdx/commit/260a07e8bccf76508f19df9501b78a8a402e8a34)), closes [#292](https://github.com/mdx-js/eslint-mdx/issues/292)
+
+
+
+
+
 # [1.11.0](https://github.com/mdx-js/eslint-mdx/compare/v1.10.0...v1.11.0) (2021-03-18)
 
 
