@@ -133,7 +133,7 @@ See [#251](https://github.com/mdx-js/eslint-mdx/issues/251#issuecomment-73613922
    3. If you're using `eslint@^5.0.0`, you need to enable this parser/plugin manually, because `eslint@5` does not support `extends` for `overrides` property in its configuration:
 
       ```js
-      const { configs } = require('eslint-plugin-mdx')
+      const configs = require('eslint-plugin-mdx/lib/configs')
 
       module.exports = {
         extends: ['plugin:mdx/recommended'],
@@ -251,7 +251,6 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 [1stg.me]: https://www.1stg.me
 [cosmiconfig]: https://github.com/davidtheclark/cosmiconfig
 [eslint]: https://eslint.org
-[eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [jounqin]: https://GitHub.com/JounQin
 [lerna]: https://github.com/lerna/lerna
 [mdx]: https://github.com/mdx-js/mdx

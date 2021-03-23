@@ -24,16 +24,14 @@ module.exports = {
     {
       files: '**/*.{md,mdx}/**',
       rules: {
-        'prettier/prettier': 0,
         'unicorn/filename-case': 0,
       },
     },
     {
       files: '*.{md,mdx}',
-      // related to https://github.com/eslint/eslint/issues/14207
       rules: {
-        'prettier/prettier': 0,
         'react/no-unescaped-entities': 1,
+        // related to https://github.com/eslint/eslint/issues/14207
         'unicorn/filename-case': 0,
       },
       settings: {

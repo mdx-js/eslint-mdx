@@ -24,7 +24,7 @@
     "typecov": "type-coverage"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^1.2.0",
+    "@1stg/lib-config": "^1.2.1",
     "@1stg/tslint-config": "^1.2.0",
     "@types/eslint": "^7.2.7",
     "@types/jest": "^26.0.20",
@@ -45,6 +45,7 @@
   },
   "resolutions": {
     "@babel/core": "^7.13.10",
+    "eslint-plugin-react": "~7.22.0",
     "prettier": "^2.2.1",
     "tslib": "^2.1.0"
   },

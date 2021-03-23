@@ -123,8 +123,8 @@ Array [
     "endLine": 27,
     "fix": Object {
       "range": Array [
-        548,
-        563,
+        550,
+        565,
       ],
       "text": "# Hello, world!",
     },
@@ -160,8 +160,8 @@ Array [
     "endLine": 35,
     "fix": Object {
       "range": Array [
-        651,
-        686,
+        653,
+        688,
       ],
       "text": "# Here's a text gradient shortcode!",
     },
