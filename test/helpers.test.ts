@@ -40,7 +40,7 @@ describe('Helpers', () => {
   })
 
   it('should resolve package correctly', () => {
-    expect(requirePkg('@1stg/config', 'husky')).toBeDefined()
+    expect(requirePkg('@1stg/config', 'commitlint')).toBeDefined()
     expect(requirePkg('lint', 'remark')).toBeDefined()
     expect(requirePkg('remark-parse', 'non existed')).toBeDefined()
     expect(
