@@ -4,9 +4,6 @@
     "noEmit": true
   },
   "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    },
     "transpileOnly": true
   },
   "references": [

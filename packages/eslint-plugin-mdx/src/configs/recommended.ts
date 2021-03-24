@@ -39,17 +39,30 @@ if (minorVersion >= OVERRIDES_AVAILABLE_VERSION) {
     require.resolve('prettier')
     // eslint-disable-next-line node/no-extraneous-require
     require.resolve('eslint-plugin-prettier')
-    overrides.push({
-      files: '*.md',
-      rules: {
-        'prettier/prettier': [
-          2,
-          {
-            parser: 'markdown',
-          },
-        ],
+    overrides.push(
+      {
+        files: '*.md',
+        rules: {
+          'prettier/prettier': [
+            2,
+            {
+              parser: 'markdown',
+            },
+          ],
+        },
       },
-    })
+      {
+        files: '*.mdx',
+        rules: {
+          'prettier/prettier': [
+            2,
+            {
+              parser: 'mdx',
+            },
+          ],
+        },
+      },
+    )
   } catch {}
   Object.assign(recommended, {
     overrides,

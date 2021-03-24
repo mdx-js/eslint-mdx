@@ -1,6 +1,7 @@
 {
   "extends": "./node_modules/@1stg/tsconfig/lib.json",
   "compilerOptions": {
+    "module": "CommonJS",
     "strictFunctionTypes": false,
     "strictNullChecks": false
   }
