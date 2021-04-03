@@ -75,12 +75,17 @@ export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
   const { plugins = [], settings } = (result?.config ||
     {}) as Partial<RemarkConfig>
 
-  try {
-    // disable this rule automatically since we already have a parser option `extensions`
-    // eslint-disable-next-line node/no-extraneous-require
-    plugins.push([require.resolve('remark-lint-file-extension'), false])
-  } catch {
-    // just ignore if the package does not exist
+  // disable this rule automatically since we already have a parser option `extensions`
+  // only disable this plugin if there are at least one plugin enabled
+  // otherwise `result` could be null inside `plugins.reduce`
+  /* istanbul ignore else */
+  if (plugins.length > 0) {
+    try {
+      // eslint-disable-next-line node/no-extraneous-require
+      plugins.push([require.resolve('remark-lint-file-extension'), false])
+    } catch {
+      // just ignore if the package does not exist
+    }
   }
 
   const initProcessor = remarkProcessor().use({ settings }).use(remarkStringify)
