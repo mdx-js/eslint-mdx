@@ -24,11 +24,11 @@
     "typecov": "type-coverage"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^1.2.6",
+    "@1stg/lib-config": "^1.2.7",
     "@1stg/tslint-config": "^1.2.0",
-    "@types/eslint": "^7.2.7",
-    "@types/jest": "^26.0.21",
-    "@types/node": "^14.14.35",
+    "@types/eslint": "^7.2.8",
+    "@types/jest": "^26.0.22",
+    "@types/node": "^14.14.37",
     "@types/react": "^17.0.3",
     "@types/unist": "^2.0.3",
     "eslint-mdx": "link:packages/eslint-mdx/src",
