@@ -367,14 +367,7 @@ function postprocess(
   // eslint-disable-next-line unicorn/prefer-spread
   return ([] as Linter.LintMessage[]).concat(
     ...messages.map((group, i) => {
-      const block = blocks[i]
-
-      // non code block message, parsed by `eslint-mdx` for example
-      if (!block) {
-        return group
-      }
-
-      const adjust = adjustBlock(block)
+      const adjust = adjustBlock(blocks[i])
 
       return group.map(adjust).filter(excludeUnsatisfiableRules)
     }),

@@ -15,6 +15,7 @@ export const remark: ESLintProcessor = {
     }
 
     return [
+      text,
       ...markdown.preprocess(text, filename).map(({ text, filename }) => ({
         text,
         filename:
@@ -22,11 +23,13 @@ export const remark: ESLintProcessor = {
           '.' +
           getShortLang(filename, processorOptions.languageMapper),
       })),
-      text,
     ]
   },
-  postprocess(lintMessages, filename) {
-    return markdown.postprocess(lintMessages, filename).map(lintMessage => {
+  postprocess([mdxMessages, ...markdownMessages], filename) {
+    return [
+      ...mdxMessages,
+      ...markdown.postprocess(markdownMessages, filename),
+    ].map(lintMessage => {
       const {
         message,
         ruleId: eslintRuleId,
