@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/mdx-js/eslint-mdx/compare/v1.11.1...v1.12.0) (2021-04-05)
+
+
+### Bug Fixes
+
+* check is eslint-plugin-react available ([#299](https://github.com/mdx-js/eslint-mdx/issues/299)) ([ed82698](https://github.com/mdx-js/eslint-mdx/commit/ed826983ca21341e4eca819428f596646f0aa533))
+
+
+
+
+
 ## [1.11.1](https://github.com/mdx-js/eslint-mdx/compare/v1.11.0...v1.11.1) (2021-03-21)
 
 

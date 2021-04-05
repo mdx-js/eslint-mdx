@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/mdx-js/eslint-mdx/compare/v1.11.1...v1.12.0) (2021-04-05)
+
+
+### Bug Fixes
+
+* check is eslint-plugin-react available ([#299](https://github.com/mdx-js/eslint-mdx/issues/299)) ([ed82698](https://github.com/mdx-js/eslint-mdx/commit/ed826983ca21341e4eca819428f596646f0aa533))
+* result could be null in `plugins.reduce` ([#302](https://github.com/mdx-js/eslint-mdx/issues/302)) ([9ca50d0](https://github.com/mdx-js/eslint-mdx/commit/9ca50d090ed86b6d0fa8aa131f3c4e62bd83acf7))
+
+
+### Features
+
+* split markdown messages in postprocess ([#303](https://github.com/mdx-js/eslint-mdx/issues/303)) ([e8a2be0](https://github.com/mdx-js/eslint-mdx/commit/e8a2be01c74efa738c3a88d149d03386824119ca)), closes [/github.com/eslint/eslint-plugin-markdown/pull/183#discussion_r606859003](https://github.com//github.com/eslint/eslint-plugin-markdown/pull/183/issues/discussion_r606859003)
+
+
+
+
+
 ## [1.11.1](https://github.com/mdx-js/eslint-mdx/compare/v1.11.0...v1.11.1) (2021-03-21)
 
 
