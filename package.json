@@ -24,11 +24,12 @@
     "typecov": "type-coverage"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^1.2.6",
+    "@1stg/lib-config": "^1.2.7",
     "@1stg/tslint-config": "^1.2.0",
-    "@types/eslint": "^7.2.7",
-    "@types/jest": "^26.0.21",
-    "@types/node": "^14.14.35",
+    "@types/eslint": "^7.2.8",
+    "@types/eslint-plugin-markdown": "^2.0.0",
+    "@types/jest": "^26.0.22",
+    "@types/node": "^14.14.37",
     "@types/react": "^17.0.3",
     "@types/unist": "^2.0.3",
     "eslint-mdx": "link:packages/eslint-mdx/src",
@@ -46,7 +47,7 @@
   "resolutions": {
     "@babel/core": "^7.13.14",
     "prettier": "^2.2.1",
-    "tslib": "^2.1.0"
+    "tslib": "^2.2.0"
   },
   "commitlint": {
     "extends": [
