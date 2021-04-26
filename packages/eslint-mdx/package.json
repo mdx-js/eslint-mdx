@@ -13,8 +13,8 @@
   "engines": {
     "node": ">=10.0.0"
   },
-  "main": "lib/cjs",
-  "module": "lib",
+  "main": "lib",
+  "module": "lib/esm",
   "es2015": "lib/es2015",
   "fesm5": "lib/esm",
   "types": "lib",

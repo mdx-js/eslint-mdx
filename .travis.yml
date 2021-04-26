@@ -18,36 +18,14 @@ before_install:
 install: yarn --frozen-lockfile
 
 script:
-  - yarn test
+  - yarn build
   - yarn lint
+  - yarn test
 
 after_success:
   - yarn global add codecov codacy-coverage
   - codecov
   - cat ./coverage/lcov.info | codacy-coverage
-
-before_deploy:
-  - npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
-  - git remote set-url origin https://user:$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git
-  - git fetch origin $TRAVIS_BRANCH:$TRAVIS_BRANCH
-  - git checkout $TRAVIS_BRANCH
-  - cp -f README.md packages/eslint-mdx
-  - cp -f README.md packages/eslint-plugin-mdx
-  - 'git add --all && git commit -m "docs: update README" || echo "nothing changed to commit"'
-  - yarn global add lerna-changelog
-  - lerna-changelog
-
-deploy:
-  # - provider: script
-  #   skip_cleanup: true
-  #   script: yarn lerna publish --create-release github --yes
-  #   on:
-  #     branch: master
-  - provider: script
-    skip_cleanup: true
-    script: yarn lerna publish --canary --conventional-prerelease --force-publish --preid beta --pre-dist-tag beta --yes
-    on:
-      branch: develop
 
 after_script:
   - yarn add -D @codechecks/client @codechecks/build-size-watcher typecov -W

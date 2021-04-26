@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "run-p build:*",
-    "build:r": "r -p",
+    "build:r": "r -f esm,es2015",
     "build:ts": "tsc -b",
     "clean": "rimraf packages/*/{lib,*.tsbuildinfo} node_modules/@1stg/eslint-config/node_modules",
     "lint": "run-p lint:*",
@@ -24,28 +24,26 @@
     "typecov": "type-coverage"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^1.2.7",
+    "@1stg/lib-config": "^1.2.10",
     "@1stg/tslint-config": "^1.2.0",
-    "@types/eslint": "^7.2.8",
+    "@types/eslint": "^7.2.10",
     "@types/eslint-plugin-markdown": "^2.0.0",
-    "@types/jest": "^26.0.22",
-    "@types/node": "^14.14.37",
-    "@types/react": "^17.0.3",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^14.14.41",
+    "@types/react": "^17.0.4",
     "@types/unist": "^2.0.3",
-    "eslint-mdx": "link:packages/eslint-mdx/src",
-    "eslint-plugin-mdx": "link:packages/eslint-plugin-mdx/src",
     "lerna": "^4.0.0",
     "npm-run-all": "^4.1.5",
     "react": "^17.0.2",
-    "ts-jest": "^26.5.4",
+    "ts-jest": "^26.5.5",
     "ts-node": "^9.1.1",
     "tslint": "^6.1.3",
-    "type-coverage": "^2.17.0",
-    "typescript": "^4.2.3",
+    "type-coverage": "^2.17.3",
+    "typescript": "^4.2.4",
     "yarn-deduplicate": "^3.1.0"
   },
   "resolutions": {
-    "@babel/core": "^7.13.14",
+    "@babel/core": "^7.13.16",
     "prettier": "^2.2.1",
     "tslib": "^2.2.0"
   },
@@ -65,6 +63,10 @@
     "setupFiles": [
       "eslint/lib/linter/linter"
     ],
+    "moduleNameMapper": {
+      "^eslint-mdx$": "<rootDir>/packages/eslint-mdx/src",
+      "^eslint-plugin-mdx$": "<rootDir>/packages/eslint-plugin-mdx/src"
+    },
     "collectCoverage": true,
     "coverageThreshold": {
       "global": {
