@@ -1,11 +1,12 @@
+import fs from 'fs'
 import path from 'path'
 
 import { cosmiconfigSync } from 'cosmiconfig'
-import type { CosmiconfigResult } from 'cosmiconfig/dist/types'
 import { arrayify } from 'eslint-mdx'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import remarkStringify from 'remark-stringify'
+import type { FrozenProcessor } from 'unified'
 import unified from 'unified'
 
 import type { RemarkConfig, RemarkPlugin } from './types'
@@ -39,74 +40,109 @@ export const requirePkg = <T>(
   throw error
 }
 
-let searchSync: (searchFrom?: string) => CosmiconfigResult
+/**
+ * Given a filepath, get the nearest path that is a regular file.
+ * The filepath provided by eslint may be a virtual filepath rather than a file
+ * on disk. This attempts to transform a virtual path into an on-disk path
+ */
+export const getPhysicalFilename = (filename: string): string => {
+  try {
+    if (fs.statSync(filename).isFile()) {
+      return filename
+    }
+  } catch (err) {
+    // https://github.com/eslint/eslint/issues/11989
+    if ((err as { code: string }).code === 'ENOTDIR') {
+      return getPhysicalFilename(path.dirname(filename))
+    }
+  }
+
+  return filename
+}
 
 export const remarkProcessor = unified().use(remarkParse).freeze()
 
+const explorer = cosmiconfigSync('remark', {
+  packageProp: 'remarkConfig',
+})
+
+// @internal - exported for testing
+export const processorCache = new Map<string, FrozenProcessor>()
+
+// eslint-disable-next-line sonarjs/cognitive-complexity
 export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
-  if (!searchSync) {
-    searchSync = cosmiconfigSync('remark', {
-      packageProp: 'remarkConfig',
-    }).search
+  const initCacheKey = `${String(isMdx)}-${searchFrom}`
+
+  let cachedProcessor = processorCache.get(initCacheKey)
+
+  if (cachedProcessor) {
+    return cachedProcessor
   }
 
-  let result: Partial<CosmiconfigResult>
+  const result = explorer.search(searchFrom)
 
-  try {
-    result = searchSync(searchFrom)
-  } catch (err) {
-    // https://github.com/eslint/eslint/issues/11989
-    /* istanbul ignore if */
-    if (
-      (err as { code?: string }).code !== 'ENOTDIR' ||
-      !/[/\\]\d+_[^/\\]*\.[\da-z]+$/i.test(searchFrom)
-    ) {
-      throw err
+  const cacheKey = result ? `${String(isMdx)}-${result.filepath}` : ''
+
+  cachedProcessor = processorCache.get(cacheKey)
+
+  if (cachedProcessor) {
+    return cachedProcessor
+  }
+
+  if (result) {
+    /* istanbul ignore next */
+    const { plugins = [], settings } = (result.config ||
+      {}) as Partial<RemarkConfig>
+
+    // disable this rule automatically since we already have a parser option `extensions`
+    // only disable this plugin if there are at least one plugin enabled
+    // otherwise it is redundant
+    /* istanbul ignore else */
+    if (plugins.length > 0) {
+      try {
+        // eslint-disable-next-line node/no-extraneous-require
+        plugins.push([require.resolve('remark-lint-file-extension'), false])
+      } catch {
+        // just ignore if the package does not exist
+      }
     }
-    try {
-      result = searchSync(path.dirname(searchFrom))
-    } catch {
-      /* istanbul ignore next */
-      throw err
+
+    const initProcessor = remarkProcessor()
+      .use({ settings })
+      .use(remarkStringify)
+
+    if (isMdx) {
+      initProcessor.use(remarkMdx)
     }
-  }
 
-  /* istanbul ignore next */
-  const { plugins = [], settings } = (result?.config ||
-    {}) as Partial<RemarkConfig>
+    cachedProcessor = plugins
+      .reduce((processor, pluginWithSettings) => {
+        const [plugin, ...pluginSettings] = arrayify(pluginWithSettings) as [
+          RemarkPlugin,
+          ...unknown[]
+        ]
+        return processor.use(
+          /* istanbul ignore next */
+          typeof plugin === 'string'
+            ? requirePkg(plugin, 'remark', result.filepath)
+            : plugin,
+          ...pluginSettings,
+        )
+      }, initProcessor)
+      .freeze()
+  } else {
+    const initProcessor = remarkProcessor().use(remarkStringify)
 
-  // disable this rule automatically since we already have a parser option `extensions`
-  // only disable this plugin if there are at least one plugin enabled
-  // otherwise `result` could be null inside `plugins.reduce`
-  /* istanbul ignore else */
-  if (plugins.length > 0) {
-    try {
-      // eslint-disable-next-line node/no-extraneous-require
-      plugins.push([require.resolve('remark-lint-file-extension'), false])
-    } catch {
-      // just ignore if the package does not exist
+    if (isMdx) {
+      initProcessor.use(remarkMdx)
     }
+
+    cachedProcessor = initProcessor.freeze()
   }
 
-  const initProcessor = remarkProcessor().use({ settings }).use(remarkStringify)
+  processorCache
+    .set(initCacheKey, cachedProcessor)
+    .set(cacheKey, cachedProcessor)
 
-  if (isMdx) {
-    initProcessor.use(remarkMdx)
-  }
-
-  return plugins
-    .reduce((processor, pluginWithSettings) => {
-      const [plugin, ...pluginSettings] = arrayify(pluginWithSettings) as [
-        RemarkPlugin,
-        ...unknown[]
-      ]
-      return processor.use(
-        /* istanbul ignore next */
-        typeof plugin === 'string'
-          ? requirePkg(plugin, 'remark', result.filepath)
-          : plugin,
-        ...pluginSettings,
-      )
-    }, initProcessor)
-    .freeze()
+  return cachedProcessor
 }
