@@ -41,10 +41,15 @@ ruleTester.run('remark 1', remark, {
       parserOptions,
       // dark hack
       get filename() {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
         processorCache.clear()
         return path.resolve(userDir, '../test.md')
       },
+    },
+    {
+      code: '<header>Header5</header>',
+      parser,
+      parserOptions,
+      filename: path.resolve(__dirname, 'fixtures/async/test.mdx'),
     },
   ],
   invalid: [

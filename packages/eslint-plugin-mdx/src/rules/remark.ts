@@ -2,11 +2,28 @@ import path from 'path'
 
 import type { Rule } from 'eslint'
 import type { ParserOptions } from 'eslint-mdx'
-import { DEFAULT_EXTENSIONS, MARKDOWN_EXTENSIONS } from 'eslint-mdx'
+import {
+  DEFAULT_EXTENSIONS,
+  MARKDOWN_EXTENSIONS,
+  hasProperties,
+} from 'eslint-mdx'
+import { createSyncFn } from 'synckit'
+import type { VFile, VFileOptions } from 'vfile'
 import vfile from 'vfile'
 
 import { getPhysicalFilename, getRemarkProcessor } from './helpers'
 import type { RemarkLintMessage } from './types'
+
+const processSync = createSyncFn(require.resolve('../worker')) as (
+  options: VFileOptions,
+  physicalFilename: string,
+  isFile: boolean,
+) => {
+  messages?: VFile['messages']
+  error?: {
+    message: string
+  }
+}
 
 export const remark: Rule.RuleModule = {
   meta: {
@@ -36,22 +53,43 @@ export const remark: Rule.RuleModule = {
         if (!isMdx && !isMarkdown) {
           return
         }
+
+        const physicalFilename = getPhysicalFilename(filename)
+
         const sourceText = sourceCode.getText(node)
-        const remarkProcessor = getRemarkProcessor(
-          getPhysicalFilename(filename),
-          isMdx,
-        )
-        const file = vfile({
+        const remarkProcessor = getRemarkProcessor(physicalFilename, isMdx)
+
+        const fileOptions = {
           path: filename,
           contents: sourceText,
-        })
+        }
+
+        const file = vfile(fileOptions)
 
         try {
           remarkProcessor.processSync(file)
         } catch (err) {
-          /* istanbul ignore next */
-          if (!file.messages.includes(err)) {
-            file.message(err).fatal = true
+          /* istanbul ignore else */
+          if (
+            hasProperties<Error>(err, ['message']) &&
+            err.message ===
+              '`processSync` finished async. Use `process` instead'
+          ) {
+            const { messages, error } = processSync(
+              fileOptions,
+              physicalFilename,
+              isMdx,
+            )
+            /* istanbul ignore if */
+            if (error) {
+              file.message(error.message).fatal = true
+            } else {
+              file.messages = messages
+            }
+          } else {
+            if (!file.messages.includes(err)) {
+              file.message(err).fatal = true
+            }
           }
         }
 

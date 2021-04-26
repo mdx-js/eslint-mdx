@@ -1,0 +1,8 @@
+{
+  "plugins": [
+    [
+      "validate-links",
+      2
+    ]
+  ]
+}
