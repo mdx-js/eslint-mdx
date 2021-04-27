@@ -55,7 +55,7 @@ export const remark: Rule.RuleModule = {
 
         const file = vfile(fileOptions)
 
-        const broken = brokenCache.get(remarkProcessor)
+        let broken = brokenCache.get(remarkProcessor)
 
         if (broken) {
           const { messages } = processSync(fileOptions, physicalFilename, isMdx)
@@ -69,7 +69,7 @@ export const remark: Rule.RuleModule = {
               (err as Error).message ===
               '`processSync` finished async. Use `process` instead'
             ) {
-              brokenCache.set(remarkProcessor, true)
+              brokenCache.set(remarkProcessor, (broken = true))
               const { messages } = processSync(
                 fileOptions,
                 physicalFilename,
