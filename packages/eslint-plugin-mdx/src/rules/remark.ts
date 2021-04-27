@@ -2,23 +2,17 @@ import path from 'path'
 
 import type { Rule } from 'eslint'
 import type { ParserOptions } from 'eslint-mdx'
-import {
-  DEFAULT_EXTENSIONS,
-  MARKDOWN_EXTENSIONS,
-  hasProperties,
-} from 'eslint-mdx'
+import { DEFAULT_EXTENSIONS, MARKDOWN_EXTENSIONS } from 'eslint-mdx'
 import { createSyncFn } from 'synckit'
-import type { VFile, VFileOptions } from 'vfile'
+import type { FrozenProcessor } from 'unified'
 import vfile from 'vfile'
 
 import { getPhysicalFilename, getRemarkProcessor } from './helpers'
-import type { RemarkLintMessage } from './types'
+import type { ProcessSync, RemarkLintMessage } from './types'
 
-const processSync = createSyncFn(require.resolve('../worker')) as (
-  options: VFileOptions,
-  physicalFilename: string,
-  isFile: boolean,
-) => Pick<VFile, 'messages'>
+const processSync = createSyncFn(require.resolve('../worker')) as ProcessSync
+
+const brokenCache = new WeakMap<FrozenProcessor, true>()
 
 export const remark: Rule.RuleModule = {
   meta: {
@@ -61,24 +55,31 @@ export const remark: Rule.RuleModule = {
 
         const file = vfile(fileOptions)
 
-        try {
-          remarkProcessor.processSync(file)
-        } catch (err) {
-          /* istanbul ignore else */
-          if (
-            hasProperties<Error>(err, ['message']) &&
-            err.message ===
+        const broken = brokenCache.get(remarkProcessor)
+
+        if (broken) {
+          const { messages } = processSync(fileOptions, physicalFilename, isMdx)
+          file.messages = messages
+        } else {
+          try {
+            remarkProcessor.processSync(file)
+          } catch (err) {
+            /* istanbul ignore else */
+            if (
+              (err as Error).message ===
               '`processSync` finished async. Use `process` instead'
-          ) {
-            const { messages } = processSync(
-              fileOptions,
-              physicalFilename,
-              isMdx,
-            )
-            file.messages = messages
-          } else {
-            if (!file.messages.includes(err)) {
-              file.message(err).fatal = true
+            ) {
+              brokenCache.set(remarkProcessor, true)
+              const { messages } = processSync(
+                fileOptions,
+                physicalFilename,
+                isMdx,
+              )
+              file.messages = messages
+            } else {
+              if (!file.messages.includes(err)) {
+                file.message(err).fatal = true
+              }
             }
           }
         }
@@ -130,11 +131,14 @@ export const remark: Rule.RuleModule = {
                 end.offset == null ? start.offset + 1 : end.offset,
               ]
               const partialText = sourceText.slice(...range)
-              const fixed = remarkProcessor.processSync(partialText).toString()
+              const fixed = broken
+                ? processSync(partialText, physicalFilename, isMdx)
+                : remarkProcessor.processSync(partialText).toString()
               return fixer.replaceTextRange(
                 range,
-                /* istanbul ignore next */
-                partialText.endsWith('\n') ? fixed : fixed.slice(0, -1), // remove redundant new line
+                partialText.endsWith('\n')
+                  ? /* istanbul ignore next */ fixed
+                  : fixed.slice(0, -1), // remove redundant new line
               )
             },
           })

@@ -46,7 +46,7 @@ ruleTester.run('remark 1', remark, {
       },
     },
     {
-      code: '<header>Header5</header>',
+      code: '<header>Header6</header>',
       parser,
       parserOptions,
       filename: path.resolve(__dirname, 'fixtures/async/test.mdx'),
@@ -70,6 +70,26 @@ ruleTester.run('remark 1', remark, {
           column: 0,
           endLine: null,
           endColumn: 0,
+        },
+      ],
+    },
+    {
+      code: '[CHANGELOG](./CHANGELOG.md)',
+      parser,
+      parserOptions,
+      filename: path.resolve(__dirname, 'fixtures/async/test.mdx'),
+      errors: [
+        {
+          message: JSON.stringify({
+            reason: 'Link to unknown file: `CHANGELOG.md`',
+            source: 'remark-validate-links',
+            ruleId: 'missing-file',
+            severity: 1,
+          }),
+          line: 1,
+          column: 1,
+          endLine: 1,
+          endColumn: 28,
         },
       ],
     },

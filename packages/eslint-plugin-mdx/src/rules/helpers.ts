@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 import { cosmiconfigSync } from 'cosmiconfig'
-import { arrayify, hasProperties } from 'eslint-mdx'
+import { arrayify } from 'eslint-mdx'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import remarkStringify from 'remark-stringify'
@@ -52,10 +52,7 @@ export const getPhysicalFilename = (filename: string): string => {
     }
   } catch (err) {
     // https://github.com/eslint/eslint/issues/11989
-    if (
-      hasProperties<{ code: string }>(err, ['code']) &&
-      err.code === 'ENOTDIR'
-    ) {
+    if ((err as { code: string }).code === 'ENOTDIR') {
       return getPhysicalFilename(path.dirname(filename))
     }
   }
