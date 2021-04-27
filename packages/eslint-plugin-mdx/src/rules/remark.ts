@@ -18,12 +18,7 @@ const processSync = createSyncFn(require.resolve('../worker')) as (
   options: VFileOptions,
   physicalFilename: string,
   isFile: boolean,
-) => {
-  messages?: VFile['messages']
-  error?: {
-    message: string
-  }
-}
+) => Pick<VFile, 'messages'>
 
 export const remark: Rule.RuleModule = {
   meta: {
@@ -75,17 +70,12 @@ export const remark: Rule.RuleModule = {
             err.message ===
               '`processSync` finished async. Use `process` instead'
           ) {
-            const { messages, error } = processSync(
+            const { messages } = processSync(
               fileOptions,
               physicalFilename,
               isMdx,
             )
-            /* istanbul ignore if */
-            if (error) {
-              file.message(error.message).fatal = true
-            } else {
-              file.messages = messages
-            }
+            file.messages = messages
           } else {
             if (!file.messages.includes(err)) {
               file.message(err).fatal = true

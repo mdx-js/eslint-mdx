@@ -1,27 +1,27 @@
-import { hasProperties } from 'eslint-mdx'
 import { runAsWorker } from 'synckit'
 import type { VFileOptions } from 'vfile'
+import vfile from 'vfile'
 
 import { getRemarkProcessor } from './rules'
 
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
 runAsWorker(
-  async (options: VFileOptions, physicalFilename: string, isMdx: boolean) => {
+  async (
+    fileOptions: VFileOptions,
+    physicalFilename: string,
+    isMdx: boolean,
+  ) => {
     const remarkProcessor = getRemarkProcessor(physicalFilename, isMdx)
+    const file = vfile(fileOptions)
     try {
-      const vfile = await remarkProcessor.process(options)
-      return {
-        messages: vfile.messages,
-      }
+      await remarkProcessor.process(file)
     } catch (err) {
-      return {
-        error: {
-          message: hasProperties<Error>(err, ['message'])
-            ? err.message
-            : (console.error(err),
-              'Fetal error without message, please check the output instead'),
-        },
+      if (!file.messages.includes(err)) {
+        file.message(err).fatal = true
       }
+    }
+    return {
+      messages: file.messages,
     }
   },
 )
