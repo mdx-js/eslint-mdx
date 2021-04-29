@@ -1,6 +1,7 @@
 import type { Linter } from 'eslint'
 import type { ExpressionStatement, Node } from 'estree'
 import type { Attacher } from 'unified'
+import type { VFile, VFileOptions } from 'vfile'
 
 export interface WithParent {
   parent: NodeWithParent
@@ -24,4 +25,17 @@ export interface RemarkLintMessage {
   source: string
   ruleId: string
   severity: Linter.Severity
+}
+
+export interface ProcessSync {
+  (text: string, physicalFilename: string, isFile: boolean): string
+  (fileOptions: VFileOptions, physicalFilename: string, isFile: boolean): Pick<
+    VFile,
+    'messages'
+  >
+  (
+    textOrFileOptions: string | VFileOptions,
+    physicalFilename: string,
+    isFile: boolean,
+  ): string | VFileOptions
 }

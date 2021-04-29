@@ -18,7 +18,6 @@ before_install:
 install: yarn --frozen-lockfile
 
 script:
-  - yarn build
   - yarn lint
   - yarn test
 
