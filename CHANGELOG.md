@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/mdx-js/eslint-mdx/compare/v1.12.0...v1.13.0) (2021-04-29)
+
+
+### Bug Fixes
+
+* only apply fix once for the whole file ([#309](https://github.com/mdx-js/eslint-mdx/issues/309)) ([47f100b](https://github.com/mdx-js/eslint-mdx/commit/47f100ba69ee4da5607b7411becc3f1cb340b8b7)), closes [#308](https://github.com/mdx-js/eslint-mdx/issues/308)
+
+
+### Features
+
+* fallback to async API on processSync error via synckit ([#307](https://github.com/mdx-js/eslint-mdx/issues/307)) ([94a08af](https://github.com/mdx-js/eslint-mdx/commit/94a08af03c9bcea05b7e3e3e0a0d1a9267c9a800))
+* performance improvement via cache ([a893aa7](https://github.com/mdx-js/eslint-mdx/commit/a893aa7961d64564be349ee68002287450d1726c))
+* use official eslint-plugin-markdown package ([#304](https://github.com/mdx-js/eslint-mdx/issues/304)) ([e6828be](https://github.com/mdx-js/eslint-mdx/commit/e6828bee09259511cbef5020a1f0f7c89bca9dd8))
+
+
+
+
+
 # [1.12.0](https://github.com/mdx-js/eslint-mdx/compare/v1.11.1...v1.12.0) (2021-04-05)
 
 

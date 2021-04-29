@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/mdx-js/eslint-mdx/compare/v1.12.0...v1.13.0) (2021-04-29)
+
+
+### Features
+
+* use official eslint-plugin-markdown package ([#304](https://github.com/mdx-js/eslint-mdx/issues/304)) ([e6828be](https://github.com/mdx-js/eslint-mdx/commit/e6828bee09259511cbef5020a1f0f7c89bca9dd8))
+
+
+
+
+
 # [1.12.0](https://github.com/mdx-js/eslint-mdx/compare/v1.11.1...v1.12.0) (2021-04-05)
 
 
