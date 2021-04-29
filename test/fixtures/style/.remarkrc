@@ -1,0 +1,16 @@
+{
+  "settings": {
+    "emphasis": "*",
+    "strong": "*"
+  },
+  "plugins": [
+    [
+      "lint-emphasis-marker",
+      "*"
+    ],
+    [
+      "lint-strong-marker",
+      "*"
+    ]
+  ]
+}
