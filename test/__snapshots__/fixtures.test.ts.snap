@@ -6,13 +6,6 @@ Array [
     "column": 1,
     "endColumn": 6,
     "endLine": 3,
-    "fix": Object {
-      "range": Array [
-        7,
-        12,
-      ],
-      "text": "# abc",
-    },
     "line": 3,
     "message": "Do not use headings with similar content (1:1)",
     "nodeType": "Program",
@@ -23,13 +16,6 @@ Array [
     "column": 1,
     "endColumn": 6,
     "endLine": 3,
-    "fix": Object {
-      "range": Array [
-        7,
-        12,
-      ],
-      "text": "# abc",
-    },
     "line": 3,
     "message": "Don’t use multiple top level headings (1:1)",
     "nodeType": "Program",
@@ -40,13 +26,6 @@ Array [
     "column": 1,
     "endColumn": 6,
     "endLine": 36,
-    "fix": Object {
-      "range": Array [
-        406,
-        411,
-      ],
-      "text": "# abc",
-    },
     "line": 36,
     "message": "Do not use headings with similar content (1:1)",
     "nodeType": "Program",
@@ -57,13 +36,6 @@ Array [
     "column": 1,
     "endColumn": 6,
     "endLine": 36,
-    "fix": Object {
-      "range": Array [
-        406,
-        411,
-      ],
-      "text": "# abc",
-    },
     "line": 36,
     "message": "Don’t use multiple top level headings (1:1)",
     "nodeType": "Program",
@@ -74,13 +46,6 @@ Array [
     "column": 1,
     "endColumn": 6,
     "endLine": 46,
-    "fix": Object {
-      "range": Array [
-        472,
-        477,
-      ],
-      "text": "# abc",
-    },
     "line": 46,
     "message": "Do not use headings with similar content (3:1)",
     "nodeType": "Program",
@@ -91,13 +56,6 @@ Array [
     "column": 1,
     "endColumn": 6,
     "endLine": 46,
-    "fix": Object {
-      "range": Array [
-        472,
-        477,
-      ],
-      "text": "# abc",
-    },
     "line": 46,
     "message": "Don’t use multiple top level headings (3:1)",
     "nodeType": "Program",
@@ -121,13 +79,6 @@ Array [
     "column": 1,
     "endColumn": 16,
     "endLine": 27,
-    "fix": Object {
-      "range": Array [
-        550,
-        565,
-      ],
-      "text": "# Hello, world!",
-    },
     "line": 27,
     "message": "Don’t use multiple top level headings (3:1)",
     "nodeType": "Program",
@@ -160,13 +111,6 @@ Array [
     "column": 1,
     "endColumn": 36,
     "endLine": 35,
-    "fix": Object {
-      "range": Array [
-        653,
-        688,
-      ],
-      "text": "# Here's a text gradient shortcode!",
-    },
     "line": 35,
     "message": "Don’t use multiple top level headings (3:1)",
     "nodeType": "Program",
@@ -202,13 +146,6 @@ Array [
     "column": 1,
     "endColumn": 6,
     "endLine": 3,
-    "fix": Object {
-      "range": Array [
-        7,
-        12,
-      ],
-      "text": "# abc",
-    },
     "line": 3,
     "message": "Do not use headings with similar content (1:1)",
     "nodeType": "Program",
@@ -219,13 +156,6 @@ Array [
     "column": 1,
     "endColumn": 6,
     "endLine": 3,
-    "fix": Object {
-      "range": Array [
-        7,
-        12,
-      ],
-      "text": "# abc",
-    },
     "line": 3,
     "message": "Don’t use multiple top level headings (1:1)",
     "nodeType": "Program",
@@ -295,13 +225,6 @@ Array [
     "column": 1,
     "endColumn": 6,
     "endLine": 3,
-    "fix": Object {
-      "range": Array [
-        7,
-        12,
-      ],
-      "text": "# abc",
-    },
     "line": 3,
     "message": "Do not use headings with similar content (1:1)",
     "nodeType": "Program",
@@ -312,13 +235,6 @@ Array [
     "column": 1,
     "endColumn": 6,
     "endLine": 3,
-    "fix": Object {
-      "range": Array [
-        7,
-        12,
-      ],
-      "text": "# abc",
-    },
     "line": 3,
     "message": "Don’t use multiple top level headings (1:1)",
     "nodeType": "Program",

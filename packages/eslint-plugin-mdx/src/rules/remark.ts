@@ -5,12 +5,20 @@ import type { ParserOptions } from 'eslint-mdx'
 import { DEFAULT_EXTENSIONS, MARKDOWN_EXTENSIONS } from 'eslint-mdx'
 import { createSyncFn } from 'synckit'
 import type { FrozenProcessor } from 'unified'
+import type { VFile, VFileOptions } from 'vfile'
 import vfile from 'vfile'
 
 import { getPhysicalFilename, getRemarkProcessor } from './helpers'
-import type { ProcessSync, RemarkLintMessage } from './types'
+import type { RemarkLintMessage } from './types'
 
-const processSync = createSyncFn(require.resolve('../worker')) as ProcessSync
+const processSync = createSyncFn(require.resolve('../worker')) as (
+  fileOptions: VFileOptions,
+  physicalFilename: string,
+  isFile: boolean,
+) => {
+  messages: VFile['messages']
+  content: string
+}
 
 const brokenCache = new WeakMap<FrozenProcessor, true>()
 
@@ -54,12 +62,18 @@ export const remark: Rule.RuleModule = {
         }
 
         const file = vfile(fileOptions)
+        let fixedText: string
 
         let broken = brokenCache.get(remarkProcessor)
 
         if (broken) {
-          const { messages } = processSync(fileOptions, physicalFilename, isMdx)
+          const { messages, content } = processSync(
+            fileOptions,
+            physicalFilename,
+            isMdx,
+          )
           file.messages = messages
+          fixedText = content
         } else {
           try {
             remarkProcessor.processSync(file)
@@ -70,19 +84,29 @@ export const remark: Rule.RuleModule = {
               '`processSync` finished async. Use `process` instead'
             ) {
               brokenCache.set(remarkProcessor, (broken = true))
-              const { messages } = processSync(
+              const { messages, content } = processSync(
                 fileOptions,
                 physicalFilename,
                 isMdx,
               )
               file.messages = messages
-            } else {
-              if (!file.messages.includes(err)) {
-                file.message(err).fatal = true
-              }
+              fixedText = content
+            } else if (!file.messages.includes(err)) {
+              file.message(err).fatal = true
             }
           }
         }
+
+        if (!broken) {
+          fixedText = file.toString()
+        }
+
+        fixedText =
+          filename === physicalFilename || sourceText.endsWith('\n')
+            ? fixedText
+            : fixedText.slice(0, -1)
+
+        let fixed = 0
 
         for (const {
           source,
@@ -120,27 +144,16 @@ export const remark: Rule.RuleModule = {
               },
             },
             node,
-            fix(fixer) {
-              /* istanbul ignore if */
-              if (start.offset == null) {
-                return null
-              }
-              const range: [number, number] = [
-                start.offset,
-                /* istanbul ignore next */
-                end.offset == null ? start.offset + 1 : end.offset,
-              ]
-              const partialText = sourceText.slice(...range)
-              const fixed = broken
-                ? processSync(partialText, physicalFilename, isMdx)
-                : remarkProcessor.processSync(partialText).toString()
-              return fixer.replaceTextRange(
-                range,
-                partialText.endsWith('\n')
-                  ? /* istanbul ignore next */ fixed
-                  : fixed.slice(0, -1), // remove redundant new line
-              )
-            },
+            fix:
+              fixedText === sourceText
+                ? null
+                : () =>
+                    fixed++
+                      ? null
+                      : {
+                          range: [0, sourceText.length],
+                          text: fixedText,
+                        },
           })
         }
       },

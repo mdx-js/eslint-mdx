@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import path from 'path'
 
 import { DEFAULT_PARSER_OPTIONS as parserOptions } from 'eslint-mdx'
@@ -74,7 +75,8 @@ ruleTester.run('remark 1', remark, {
       ],
     },
     {
-      code: '[CHANGELOG](./CHANGELOG.md)',
+      // https://github.com/syntax-tree/mdast-util-to-markdown/issues/29
+      code: '[CHANGELOG](./CHANGELOG.md)\n',
       parser,
       parserOptions,
       filename: path.resolve(__dirname, 'fixtures/async/test.mdx'),
@@ -92,6 +94,39 @@ ruleTester.run('remark 1', remark, {
           endColumn: 28,
         },
       ],
+    },
+    {
+      code: `_emphasis_ and __strong__`,
+      parser,
+      parserOptions,
+      filename: path.resolve(__dirname, 'fixtures/style/test.mdx'),
+      errors: [
+        {
+          message: JSON.stringify({
+            reason: 'Emphasis should use `*` as a marker',
+            source: 'remark-lint',
+            ruleId: 'emphasis-marker',
+            severity: 1,
+          }),
+          line: 1,
+          column: 1,
+          endLine: 1,
+          endColumn: 11,
+        },
+        {
+          message: JSON.stringify({
+            reason: 'Strong should use `*` as a marker',
+            source: 'remark-lint',
+            ruleId: 'strong-marker',
+            severity: 1,
+          }),
+          line: 1,
+          column: 16,
+          endLine: 1,
+          endColumn: 26,
+        },
+      ],
+      output: '*emphasis* and **strong**\n',
     },
   ],
 })
