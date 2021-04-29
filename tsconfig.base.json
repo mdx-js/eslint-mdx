@@ -1,7 +1,11 @@
 {
-  "extends": "./node_modules/@1stg/tsconfig/node",
+  // used by @pkgr/rollup and ESLint
+  "extends": "./tsconfig.lib",
   "compilerOptions": {
-    "strictFunctionTypes": false,
-    "strictNullChecks": false
+    "baseUrl": ".",
+    "paths": {
+      "eslint-mdx": ["packages/eslint-mdx/src"],
+      "eslint-plugin-mdx": ["packages/eslint-plugin-mdx/src"]
+    }
   }
 }

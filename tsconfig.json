@@ -1,4 +1,5 @@
 {
+  // used by tsconfig-paths/register from synckit
   "extends": "./tsconfig.base",
   "compilerOptions": {
     "noEmit": true
