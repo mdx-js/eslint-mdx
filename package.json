@@ -25,7 +25,7 @@
     "typecov": "type-coverage"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^1.2.10",
+    "@1stg/lib-config": "^1.2.11",
     "@1stg/tslint-config": "^1.2.0",
     "@types/eslint": "^7.2.10",
     "@types/eslint-plugin-markdown": "^2.0.0",
