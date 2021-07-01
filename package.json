@@ -46,7 +46,7 @@
   },
   "resolutions": {
     "@babel/core": "^7.14.6",
-    "prettier": "^2.2.1",
+    "prettier": "^2.3.2",
     "tslib": "^2.2.0"
   },
   "commitlint": {
