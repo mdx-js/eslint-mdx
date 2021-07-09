@@ -21,8 +21,8 @@ const OVERRIDES_AVAILABLE_VERSION = 6.4
 // istanbul ignore else
 if (minorVersion >= OVERRIDES_AVAILABLE_VERSION) {
   const overrides: Array<{
-    files: string | string[]
-    extends?: string | string[]
+    files: string[] | string
+    extends?: string[] | string
     rules?: Record<string, number | [number, unknown]>
   }> = [
     {
@@ -35,9 +35,7 @@ if (minorVersion >= OVERRIDES_AVAILABLE_VERSION) {
     },
   ]
   try {
-    // eslint-disable-next-line node/no-extraneous-require
     require.resolve('prettier')
-    // eslint-disable-next-line node/no-extraneous-require
     require.resolve('eslint-plugin-prettier')
     overrides.push(
       {

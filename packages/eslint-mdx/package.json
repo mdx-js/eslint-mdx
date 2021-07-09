@@ -35,7 +35,7 @@
   "dependencies": {
     "remark-mdx": "^1.6.22",
     "remark-parse": "^8.0.3",
-    "tslib": "^2.2.0",
+    "tslib": "^2.3.0",
     "unified": "^9.2.1"
   }
 }

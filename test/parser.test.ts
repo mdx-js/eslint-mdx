@@ -7,12 +7,12 @@ import {
   normalizeParser,
   parser,
 } from 'eslint-mdx'
-import type { Node } from 'unist'
+import type { Literal as Node, Parent } from 'unist'
 
 import { noop } from './helpers'
 
 const stringToNode = (text: string) =>
-  first(mdxProcessor.parse(text).children as Node[])
+  first((mdxProcessor.parse(text) as Parent).children) as Node
 
 describe('parser', () => {
   it('should transform html style comment in jsx into jsx comment', () => {
@@ -80,7 +80,7 @@ describe('parser', () => {
 
     const parsedNodes = parser.normalizeJsxNode(stringToNode(sourceText))
 
-    expect(parsedNodes.length).toBe(2)
+    expect((parsedNodes as Node[]).length).toBe(2)
     expect(parsedNodes).toMatchObject([
       {
         type: 'jsx',

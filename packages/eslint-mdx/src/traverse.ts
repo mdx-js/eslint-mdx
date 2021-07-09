@@ -1,4 +1,4 @@
-import type { Node, Parent } from 'unist'
+import type { Literal, Node, Parent } from 'unist'
 
 import { arrayify, last } from './helpers'
 import { parser } from './parser'
@@ -22,7 +22,7 @@ export class Traverse {
     this._enter = enter
   }
 
-  combineLeftJsxNodes(jsxNodes: Node[], parent?: Parent): Node {
+  combineLeftJsxNodes(jsxNodes: Node[], parent?: Parent): Literal {
     const start = jsxNodes[0].position.start
     const end = { ...last(jsxNodes).position.end }
     // fix #279
@@ -44,13 +44,13 @@ export class Traverse {
   }
 
   // fix #7
-  combineJsxNodes(nodes: Node[], parent?: Parent) {
+  combineJsxNodes(nodes: Literal[], parent?: Parent) {
     let offset = 0
     let hasOpenTag = false
-    const jsxNodes: Node[] = []
+    const jsxNodes: Literal[] = []
     const { length } = nodes
     // eslint-disable-next-line sonarjs/cognitive-complexity
-    return nodes.reduce<Node[]>((acc, node, index) => {
+    return nodes.reduce<Literal[]>((acc, node, index) => {
       if (node.type === 'jsx') {
         const value = node.value as string
         if (isOpenTag(value)) {
@@ -138,17 +138,20 @@ export class Traverse {
       return
     }
 
-    let children = node.children as Node[]
+    let children = (node as Parent).children as Literal[]
 
     if (children) {
       const parent = node as Parent
-      children = node.children = this.combineJsxNodes(children, parent)
+      children = (node as Parent).children = this.combineJsxNodes(
+        children,
+        parent,
+      )
       for (const child of children) {
         this.traverse(child, parent)
       }
     }
 
-    this._enter(node, parent)
+    this._enter(node as Literal, parent)
   }
 }
 

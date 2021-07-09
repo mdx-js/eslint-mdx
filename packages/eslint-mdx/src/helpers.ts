@@ -161,6 +161,7 @@ export const arrayify = <T, R = T extends Array<infer S> ? S : T>(
     return arr
   }, [])
 
+// eslint-disable-next-line @typescript-eslint/prefer-optional-chain -- test coverage
 export const first = <T>(items: T[] | readonly T[]) => items && items[0]
 
 export const last = <T>(items: T[] | readonly T[]) =>

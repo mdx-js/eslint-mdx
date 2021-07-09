@@ -5,7 +5,7 @@ import type { AST, Linter } from 'eslint'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import unified from 'unified'
-import type { Node, Parent } from 'unist'
+import type { Literal as Node, Parent } from 'unist'
 
 import {
   arrayify,
@@ -47,7 +47,8 @@ export const DEFAULT_PARSER_OPTIONS: ParserOptions = {
   ecmaFeatures: {
     jsx: true,
   },
-  ecmaVersion: new Date().getUTCFullYear() as Linter.ParserOptions['ecmaVersion'],
+  ecmaVersion:
+    new Date().getUTCFullYear() as Linter.ParserOptions['ecmaVersion'],
   sourceType: 'module',
   tokens: true,
   filePath: '__placeholder__.mdx',
@@ -235,9 +236,9 @@ export class Parser {
     }
 
     /* istanbul ignore next */
-    return ('ast' in program && program.ast
-      ? program
-      : { ast: program }) as Linter.ESLintParseResult
+    return (
+      'ast' in program && program.ast ? program : { ast: program }
+    ) as Linter.ESLintParseResult
   }
 
   // fix adjacent JSX nodes
@@ -281,7 +282,7 @@ export class Parser {
       return node
     }
 
-    const { expression } = (program.body[0] as unknown) as ExpressionStatement
+    const { expression } = program.body[0] as unknown as ExpressionStatement
 
     if (!isJsxNode(expression) || expression.children.length <= 1) {
       return node
