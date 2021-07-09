@@ -43,6 +43,8 @@ export type Value = 1 | 2 | 3 | 4 | 5
 ```mdx
 import React from 'react'
 
+<header>Header</header>
+
 # abc
 
 # abc

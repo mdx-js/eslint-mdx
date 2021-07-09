@@ -20,9 +20,8 @@ export const noJsxHtmlComments: Rule.RuleModule = {
   create(context) {
     return {
       ExpressionStatement(node: ExpressionStatementWithParent) {
-        const {
-          JSXElementsWithHTMLComments: invalidNodes,
-        } = context.parserServices as ParserServices
+        const { JSXElementsWithHTMLComments: invalidNodes } =
+          context.parserServices as ParserServices
 
         if (
           !isJsxNode(node.expression) ||

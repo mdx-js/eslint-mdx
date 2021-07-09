@@ -12,7 +12,7 @@ export const DEFAULT_LANGUAGE_MAPPER: Record<string, string> = {
 
 export function getShortLang(
   filename: string,
-  languageMapper?: false | Record<string, string>,
+  languageMapper?: Record<string, string> | false,
 ): string {
   const language = last(filename.split('.'))
   if (languageMapper === false) {

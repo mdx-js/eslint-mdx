@@ -28,10 +28,6 @@ const getCli = (lintCodeBlocks = false) =>
             },
             {
               files: '*.{md,mdx}',
-              // related to https://github.com/eslint/eslint/issues/14207
-              rules: {
-                'prettier/prettier': 0,
-              },
               settings: {
                 'mdx/code-blocks': true,
               },

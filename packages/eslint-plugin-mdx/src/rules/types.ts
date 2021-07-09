@@ -12,7 +12,7 @@ export interface ExpressionStatementWithParent
   extends ExpressionStatement,
     WithParent {}
 
-export type RemarkPlugin = string | Attacher
+export type RemarkPlugin = Attacher | string
 
 export interface RemarkConfig {
   settings: Record<string, string>

@@ -5,7 +5,6 @@ import type { AST, Linter } from 'eslint'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import unified from 'unified'
-import type { Node, Parent } from 'unist'
 
 import {
   arrayify,
@@ -26,6 +25,8 @@ import { traverse } from './traverse'
 import type {
   Comment,
   LocationError,
+  Node,
+  Parent,
   ParserFn,
   ParserOptions,
   ParserServices,
@@ -47,7 +48,8 @@ export const DEFAULT_PARSER_OPTIONS: ParserOptions = {
   ecmaFeatures: {
     jsx: true,
   },
-  ecmaVersion: new Date().getUTCFullYear() as Linter.ParserOptions['ecmaVersion'],
+  ecmaVersion:
+    new Date().getUTCFullYear() as Linter.ParserOptions['ecmaVersion'],
   sourceType: 'module',
   tokens: true,
   filePath: '__placeholder__.mdx',
@@ -80,7 +82,7 @@ export class Parser {
   }
 
   normalizeJsxNode(node: Node, parent?: Parent, options = this._options) {
-    const value = node.value as string
+    const value = node.value
 
     if (node.type !== 'jsx' || isComment(value)) {
       return node
@@ -235,9 +237,9 @@ export class Parser {
     }
 
     /* istanbul ignore next */
-    return ('ast' in program && program.ast
-      ? program
-      : { ast: program }) as Linter.ESLintParseResult
+    return (
+      'ast' in program && program.ast ? program : { ast: program }
+    ) as Linter.ESLintParseResult
   }
 
   // fix adjacent JSX nodes
@@ -247,7 +249,7 @@ export class Parser {
     node: Node,
     options: ParserOptions,
   ): Node | Node[] {
-    const value = node.value as string
+    const value = node.value
 
     let program: AST.Program
 
@@ -281,7 +283,7 @@ export class Parser {
       return node
     }
 
-    const { expression } = (program.body[0] as unknown) as ExpressionStatement
+    const { expression } = program.body[0] as unknown as ExpressionStatement
 
     if (!isJsxNode(expression) || expression.children.length <= 1) {
       return node
@@ -339,7 +341,7 @@ export class Parser {
       this._services.JSXElementsWithHTMLComments.push(node)
     }
 
-    const value = node.value as string
+    const value = node.value
 
     const { loc, start, end } = normalizePosition(node.position)
 

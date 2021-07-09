@@ -6,7 +6,6 @@ import { base } from './base'
 let isReactPluginAvailable = false
 
 try {
-  // eslint-disable-next-line node/no-extraneous-require
   require.resolve('eslint-plugin-react')
   isReactPluginAvailable = true
 } catch {}

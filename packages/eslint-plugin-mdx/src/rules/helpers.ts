@@ -100,7 +100,6 @@ export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
     /* istanbul ignore else */
     if (plugins.length > 0) {
       try {
-        // eslint-disable-next-line node/no-extraneous-require
         plugins.push([require.resolve('remark-lint-file-extension'), false])
       } catch {
         // just ignore if the package does not exist

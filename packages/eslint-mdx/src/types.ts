@@ -1,6 +1,14 @@
 import type { JSXElement, JSXFragment } from '@babel/types'
 import type { AST, Linter } from 'eslint'
-import type { Node, Parent, Point } from 'unist'
+import type { Node as _Node, Parent as _Parent, Point } from 'unist'
+
+export interface Node<T = string> extends _Node {
+  value?: T
+}
+
+export interface Parent<T = string> extends _Parent {
+  children: Array<Node<T>>
+}
 
 export type Arrayable<T> = T[] | readonly T[]
 
@@ -14,7 +22,7 @@ export declare type ValueOf<T> = T extends {
   ? N
   : never
 
-export type JsxNode = (JSXElement | JSXFragment) & { range: [number, number] }
+export type JsxNode = { range: [number, number] } & (JSXElement | JSXFragment)
 
 export type ParserFn = (
   code: string,
@@ -23,10 +31,10 @@ export type ParserFn = (
 
 export type ParserConfig =
   | {
-      parseForESLint: ParserFn
+      parse: ParserFn
     }
   | {
-      parse: ParserFn
+      parseForESLint: ParserFn
     }
 
 export interface LocationError {
@@ -37,10 +45,10 @@ export interface LocationError {
 }
 
 export interface ParserOptions extends Linter.ParserOptions {
-  extensions?: string | string[]
-  markdownExtensions?: string | string[]
+  extensions?: string[] | string
+  markdownExtensions?: string[] | string
   filePath?: string
-  parser?: string | ParserConfig | ParserFn
+  parser?: ParserConfig | ParserFn | string
 }
 
 export type Traverser = (node: Node, parent?: Parent) => void

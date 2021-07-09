@@ -32,7 +32,7 @@ const { verify } = ESLinter.prototype
 ESLinter.prototype.verify = function (
   code: SourceCode | string,
   config: LinterConfig,
-  options?: string | Linter.LintOptions,
+  options?: Linter.LintOptions | string,
 ) {
   // fetch settings
   const settings = ((config &&
