@@ -57,7 +57,7 @@ export const remark: Rule.RuleModule = {
         const remarkProcessor = getRemarkProcessor(physicalFilename, isMdx)
 
         const fileOptions = {
-          path: filename,
+          path: physicalFilename,
           contents: sourceText,
         }
 
@@ -100,11 +100,6 @@ export const remark: Rule.RuleModule = {
         if (!broken) {
           fixedText = file.toString()
         }
-
-        fixedText =
-          filename === physicalFilename || sourceText.endsWith('\n')
-            ? fixedText
-            : fixedText.slice(0, -1)
 
         let fixed = 0
 

@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/no-duplicate-string */
 import path from 'path'
 
 import { DEFAULT_PARSER_OPTIONS as parserOptions } from 'eslint-mdx'
@@ -11,7 +10,7 @@ import { parser, ruleTester } from './helpers'
 
 const userDir = homedir()
 
-ruleTester.run('remark 1', remark, {
+ruleTester.run('remark', remark, {
   valid: [
     {
       code: '<header>Header1</header>',
@@ -55,26 +54,6 @@ ruleTester.run('remark 1', remark, {
     },
   ],
   invalid: [
-    {
-      code: '<header>Header</header>',
-      parser,
-      parserOptions,
-      filename: path.resolve(__filename, '0_fake_virtual_filename.mdx'),
-      errors: [
-        {
-          message: JSON.stringify({
-            reason: 'Do not use `_` in a file name',
-            source: 'remark-lint',
-            ruleId: 'no-file-name-irregular-characters',
-            severity: 1,
-          }),
-          line: null,
-          column: 0,
-          endLine: null,
-          endColumn: 0,
-        },
-      ],
-    },
     {
       // https://github.com/syntax-tree/mdast-util-to-markdown/issues/29
       code: '[CHANGELOG](./CHANGELOG.md)\n',
