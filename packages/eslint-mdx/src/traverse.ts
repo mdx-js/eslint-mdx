@@ -1,5 +1,3 @@
-import type { Literal, Node, Parent } from 'unist'
-
 import { arrayify, last } from './helpers'
 import { parser } from './parser'
 import {
@@ -9,7 +7,7 @@ import {
   isOpenTag,
   isSelfClosingTag,
 } from './regexp'
-import type { TraverseOptions, Traverser } from './types'
+import type { Node, Parent, TraverseOptions, Traverser } from './types'
 
 export class Traverse {
   code: string
@@ -22,7 +20,7 @@ export class Traverse {
     this._enter = enter
   }
 
-  combineLeftJsxNodes(jsxNodes: Node[], parent?: Parent): Literal {
+  combineLeftJsxNodes(jsxNodes: Node[], parent?: Parent): Node {
     const start = jsxNodes[0].position.start
     const end = { ...last(jsxNodes).position.end }
     // fix #279
@@ -44,15 +42,15 @@ export class Traverse {
   }
 
   // fix #7
-  combineJsxNodes(nodes: Literal[], parent?: Parent) {
+  combineJsxNodes(nodes: Node[], parent?: Parent) {
     let offset = 0
     let hasOpenTag = false
-    const jsxNodes: Literal[] = []
+    const jsxNodes: Node[] = []
     const { length } = nodes
     // eslint-disable-next-line sonarjs/cognitive-complexity
-    return nodes.reduce<Literal[]>((acc, node, index) => {
+    return nodes.reduce<Node[]>((acc, node, index) => {
       if (node.type === 'jsx') {
-        const value = node.value as string
+        const value = node.value
         if (isOpenTag(value)) {
           offset++
           hasOpenTag = true
@@ -138,20 +136,15 @@ export class Traverse {
       return
     }
 
-    let children = (node as Parent).children as Literal[]
-
-    if (children) {
+    if ('children' in node) {
       const parent = node as Parent
-      children = (node as Parent).children = this.combineJsxNodes(
-        children,
-        parent,
-      )
-      for (const child of children) {
+      parent.children = this.combineJsxNodes(parent.children, parent)
+      for (const child of parent.children) {
         this.traverse(child, parent)
       }
     }
 
-    this._enter(node as Literal, parent)
+    this._enter(node, parent)
   }
 }
 

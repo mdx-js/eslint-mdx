@@ -5,7 +5,6 @@ import type { AST, Linter } from 'eslint'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import unified from 'unified'
-import type { Literal as Node, Parent } from 'unist'
 
 import {
   arrayify,
@@ -26,6 +25,8 @@ import { traverse } from './traverse'
 import type {
   Comment,
   LocationError,
+  Node,
+  Parent,
   ParserFn,
   ParserOptions,
   ParserServices,
@@ -81,7 +82,7 @@ export class Parser {
   }
 
   normalizeJsxNode(node: Node, parent?: Parent, options = this._options) {
-    const value = node.value as string
+    const value = node.value
 
     if (node.type !== 'jsx' || isComment(value)) {
       return node
@@ -248,7 +249,7 @@ export class Parser {
     node: Node,
     options: ParserOptions,
   ): Node | Node[] {
-    const value = node.value as string
+    const value = node.value
 
     let program: AST.Program
 
@@ -340,7 +341,7 @@ export class Parser {
       this._services.JSXElementsWithHTMLComments.push(node)
     }
 
-    const value = node.value as string
+    const value = node.value
 
     const { loc, start, end } = normalizePosition(node.position)
 
