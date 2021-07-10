@@ -10,8 +10,7 @@
   </a>
 </p>
 
-[![Travis](https://img.shields.io/travis/com/mdx-js/eslint-mdx.svg)](https://travis-ci.com/mdx-js/eslint-mdx)
-[![Codacy Grade](https://img.shields.io/codacy/grade/4ea8225261c04837995a858676caae4b)](https://www.codacy.com/app/JounQin/eslint-mdx)
+[![GitHub Actions](https://github.com/mdx-js/eslint-mdx/workflows/CI/badge.svg)](https://github.com/mdx-js/eslint-mdx/actions/workflows/ci.yml)
 [![Codecov](https://img.shields.io/codecov/c/gh/mdx-js/eslint-mdx)](https://codecov.io/gh/mdx-js/eslint-mdx)
 [![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fmdx-js%2Feslint-mdx%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
 [![GitHub release](https://img.shields.io/github/release/mdx-js/eslint-mdx)](https://github.com/mdx-js/eslint-mdx/releases)
@@ -20,7 +19,6 @@
 [![Conventional Commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org)
-[![codechecks.io](https://raw.githubusercontent.com/codechecks/docs/master/images/badges/badge-default.svg?sanitize=true)](https://codechecks.io)
 
 > [ESLint][] Parser/Plugin for [MDX][], helps you lint all ES syntaxes.
 > Linting `code` blocks can be enabled with `mdx/code-blocks` setting too!
