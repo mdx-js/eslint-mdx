@@ -1,5 +1,5 @@
 /* eslint-disable sonarjs/no-duplicate-string */
-import type { Node, Parent, ParserConfig, ParserOptions } from 'eslint-mdx'
+import type { Jsx, Node, Parent, ParserConfig, ParserOptions } from 'eslint-mdx'
 import {
   DEFAULT_PARSER_OPTIONS as parserOptions,
   first,
@@ -10,13 +10,14 @@ import {
 
 import { noop } from './helpers'
 
-const stringToNode = (text: string) =>
-  first((mdxProcessor.parse(text) as Parent).children)
+const stringToNode = (text: string): Jsx =>
+  first((mdxProcessor.parse(text) as Parent).children) as Jsx
 
 describe('parser', () => {
   it('should transform html style comment in jsx into jsx comment', () => {
     const sourceText = `<Comment><!-- JSX Comment --><!-- JSX Comment --></Comment>`
     const expectText = `<Comment>{/** JSX Comment */}{/** JSX Comment */}</Comment>`
+
     expect(parser.normalizeJsxNode(stringToNode(sourceText))).toEqual({
       type: 'jsx',
       data: {

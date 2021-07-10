@@ -1,13 +1,20 @@
 import type { JSXElement, JSXFragment } from '@babel/types'
 import type { AST, Linter } from 'eslint'
-import type { Node as _Node, Parent as _Parent, Point } from 'unist'
+import type { Literal, Node, Parent, Point } from 'unist'
 
-export interface Node<T = string> extends _Node {
-  value?: T
+export { Node, Parent }
+export interface Jsx extends Literal {
+  type: 'jsx'
+  value: string
+}
+export interface Import extends Literal {
+  type: 'import'
+  value: string
 }
 
-export interface Parent<T = string> extends _Parent {
-  children: Array<Node<T>>
+export interface Export extends Literal {
+  type: 'export'
+  value: string
 }
 
 export type Arrayable<T> = T[] | readonly T[]

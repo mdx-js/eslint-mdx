@@ -1,3 +1,5 @@
+import is from 'unist-util-is'
+
 import { arrayify, last } from './helpers'
 import { parser } from './parser'
 import {
@@ -7,7 +9,7 @@ import {
   isOpenTag,
   isSelfClosingTag,
 } from './regexp'
-import type { Node, Parent, TraverseOptions, Traverser } from './types'
+import type { Jsx, Node, Parent, TraverseOptions, Traverser } from './types'
 
 export class Traverse {
   code: string
@@ -20,7 +22,7 @@ export class Traverse {
     this._enter = enter
   }
 
-  combineLeftJsxNodes(jsxNodes: Node[], parent?: Parent): Node {
+  combineLeftJsxNodes(jsxNodes: Jsx[], parent?: Parent): Jsx {
     const start = jsxNodes[0].position.start
     const end = { ...last(jsxNodes).position.end }
     // fix #279
@@ -45,11 +47,11 @@ export class Traverse {
   combineJsxNodes(nodes: Node[], parent?: Parent) {
     let offset = 0
     let hasOpenTag = false
-    const jsxNodes: Node[] = []
+    const jsxNodes: Jsx[] = []
     const { length } = nodes
     // eslint-disable-next-line sonarjs/cognitive-complexity
     return nodes.reduce<Node[]>((acc, node, index) => {
-      if (node.type === 'jsx') {
+      if (is<Jsx>(node, 'jsx')) {
         const value = node.value
         if (isOpenTag(value)) {
           offset++
@@ -117,7 +119,8 @@ export class Traverse {
             jsxNodes.length = 0
           }
         }
-      } else if (offset) {
+        // eslint-disable-next-line no-dupe-else-if
+      } else if (offset && is<Jsx>(node, 'jsx')) {
         jsxNodes.push(node)
       } else {
         acc.push(node)
@@ -136,8 +139,8 @@ export class Traverse {
       return
     }
 
-    if ('children' in node) {
-      const parent = node as Parent
+    if (is<Parent>(node, (node: Node): node is Parent => 'children' in node)) {
+      const parent = node
       parent.children = this.combineJsxNodes(parent.children, parent)
       for (const child of parent.children) {
         this.traverse(child, parent)

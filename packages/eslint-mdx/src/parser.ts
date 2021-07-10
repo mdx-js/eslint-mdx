@@ -5,6 +5,7 @@ import type { AST, Linter } from 'eslint'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import unified from 'unified'
+import is from 'unist-util-is'
 
 import {
   arrayify,
@@ -24,6 +25,9 @@ import {
 import { traverse } from './traverse'
 import type {
   Comment,
+  Export,
+  Import,
+  Jsx,
   LocationError,
   Node,
   Parent,
@@ -81,10 +85,39 @@ export class Parser {
     this.parseForESLint = this.parseForESLint.bind(this)
   }
 
-  normalizeJsxNode(node: Node, parent?: Parent, options = this._options) {
+  // overload type, node type will return same type, union will return same union
+  normalizeJsxNode(
+    node: Jsx,
+    parent?: Parent,
+    options?: ParserOptions,
+  ): Jsx | Jsx[]
+
+  normalizeJsxNode(
+    node: Import,
+    parent?: Parent,
+    options?: ParserOptions,
+  ): Import
+
+  normalizeJsxNode(
+    node: Export,
+    parent?: Parent,
+    options?: ParserOptions,
+  ): Export
+
+  normalizeJsxNode(
+    node: Export | Import | Jsx,
+    parent?: Parent,
+    options?: ParserOptions,
+  ): Jsx[] | (Export | Import | Jsx)
+
+  normalizeJsxNode(
+    node: Export | Import | Jsx,
+    parent?: Parent,
+    options: ParserOptions = this._options,
+  ): Jsx[] | (Export | Import | Jsx) {
     const value = node.value
 
-    if (node.type !== 'jsx' || isComment(value)) {
+    if (!is<Jsx>(node, 'jsx') || isComment(value)) {
       return node
     }
 
@@ -189,7 +222,13 @@ export class Parser {
       traverse(root, {
         code,
         enter: (node, parent) => {
-          if (!ES_NODE_TYPES.includes(node.type)) {
+          if (
+            !is<Export | Import | Jsx>(
+              node,
+              (node: Node): node is Export | Import | Jsx =>
+                ES_NODE_TYPES.includes(node.type),
+            )
+          ) {
             return
           }
 
@@ -245,10 +284,7 @@ export class Parser {
   // fix adjacent JSX nodes
   // @internal
   // eslint-disable-next-line sonarjs/cognitive-complexity
-  private _normalizeJsxNodes(
-    node: Node,
-    options: ParserOptions,
-  ): Node | Node[] {
+  private _normalizeJsxNodes(node: Jsx, options: ParserOptions): Jsx | Jsx[] {
     const value = node.value
 
     let program: AST.Program
@@ -296,7 +332,7 @@ export class Parser {
       data,
     } = node
 
-    return expression.children.reduce<Node[]>((nodes, jsNode) => {
+    return expression.children.reduce<Jsx[]>((nodes, jsNode) => {
       if (!isJsxNode(jsNode)) {
         return nodes
       }
@@ -336,7 +372,11 @@ export class Parser {
   }
 
   // @internal
-  private _nodeToAst(code: string, node: Node, options: ParserOptions) {
+  private _nodeToAst(
+    code: string,
+    node: Export | Import | Jsx,
+    options: ParserOptions,
+  ) {
     if (node.data && node.data.jsxType === 'JSXElementWithHTMLComments') {
       this._services.JSXElementsWithHTMLComments.push(node)
     }
