@@ -17,7 +17,7 @@ const _ = {
     return createSyncFn(require.resolve('../worker')) as (
       fileOptions: VFileOptions,
       physicalFilename: string,
-      isFile: boolean,
+      isMdx: boolean,
     ) => {
       messages: VFile['messages']
       content: string
