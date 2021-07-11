@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/mdx-js/eslint-mdx/compare/v1.13.0...v1.14.0) (2021-07-11)
+
+
+### Features
+
+* bump all upgradable deps, fix related usage ([#321](https://github.com/mdx-js/eslint-mdx/issues/321)) ([ea49cac](https://github.com/mdx-js/eslint-mdx/commit/ea49cacaedf72fb0bcf61aa84c3c0ea5e58f9733))
+
+
+
+
+
 # [1.13.0](https://github.com/mdx-js/eslint-mdx/compare/v1.12.0...v1.13.0) (2021-04-29)
 
 
