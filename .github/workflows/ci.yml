@@ -51,9 +51,5 @@ jobs:
 
       - name: Codecov
         run: |
-          yarn global add codecov # codacy-coverage
+          yarn global add codecov
           codecov
-          # cat ./coverage/lcov.info | codacy-coverage -u mdx-ks -n eslint-mdx
-        env:
-          CODACY_ACCOUNT_TOKEN: ${{ secrets.CODACY_ACCOUNT_TOKEN }}
-          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
