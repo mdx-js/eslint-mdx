@@ -2987,10 +2987,10 @@
     "@types/eslint" "*"
     "@types/unist" "*"
 
-"@types/eslint@*", "@types/eslint@^7.2.14":
-  version "7.2.14"
-  resolved "https://registry.yarnpkg.com/@types/eslint/-/eslint-7.2.14.tgz#088661518db0c3c23089ab45900b99dd9214b92a"
-  integrity sha512-pESyhSbUOskqrGcaN+bCXIQDyT5zTaRWfj5ZjjSlMatgGjIn3QQPfocAu4WSabUR7CGyLZ2CQaZyISOEX7/saw==
+"@types/eslint@*", "@types/eslint@^7.28.0":
+  version "7.28.0"
+  resolved "https://registry.yarnpkg.com/@types/eslint/-/eslint-7.28.0.tgz#7e41f2481d301c68e14f483fe10b017753ce8d5a"
+  integrity sha512-07XlgzX0YJUn4iG1ocY4IX9DzKSmMGUs6ESKlxWhZRaa0fatIWaHWUVapcuGa8r5HFnTqzj+4OCjd5f7EZ/i/A==
   dependencies:
     "@types/estree" "*"
     "@types/json-schema" "*"
@@ -11504,10 +11504,10 @@ synckit@^0.1.5:
     tslib "^2.2.0"
     uuid "^8.3.2"
 
-synckit@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/synckit/-/synckit-0.2.0.tgz#f42e6d37c1ec7e79c2b12e70f854f0e9519248d8"
-  integrity sha512-kbpgqlOu36aTFTWczzDk3I7Hf70V+BPGnUZ89z0RsLw666hpFf2m7/PS7OuNmDhazWaSJwv0LVBc2epyxSpl+w==
+synckit@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/synckit/-/synckit-0.3.3.tgz#a36af5d2f7382c9a2c5e528cd8ad64ed882dde70"
+  integrity sha512-uIPHDSdGBQS2C2PmFZkMhBYC20H0diioDEiOR1lsIoP25/xbJPHU0GdHJ7GgvAUkLgEkTJ32zNzulzIPnhrYZA==
   dependencies:
     tslib "^2.3.0"
     uuid "^8.3.2"
