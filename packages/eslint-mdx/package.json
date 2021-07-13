@@ -16,7 +16,6 @@
   "main": "lib",
   "module": "lib/esm",
   "es2015": "lib/es2015",
-  "fesm5": "lib/esm",
   "types": "lib",
   "files": [
     "lib",

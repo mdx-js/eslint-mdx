@@ -16,7 +16,6 @@
   "main": "lib",
   "module": "lib/esm",
   "es2015": "lib/es2015",
-  "fesm5": "lib/esm",
   "types": "lib",
   "files": [
     "lib",
@@ -39,7 +38,7 @@
     "remark-mdx": "^1.6.22",
     "remark-parse": "^8.0.3",
     "remark-stringify": "^8.1.1",
-    "synckit": "^0.3.3",
+    "synckit": "^0.3.4",
     "tslib": "^2.3.0",
     "unified": "^9.2.1",
     "vfile": "^4.2.1"

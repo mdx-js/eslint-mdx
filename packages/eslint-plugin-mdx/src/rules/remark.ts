@@ -11,10 +11,12 @@ import vfile from 'vfile'
 import { getPhysicalFilename, getRemarkProcessor } from './helpers'
 import type { RemarkLintMessage } from './types'
 
+const workerPath = require.resolve('../worker')
+
 // call `creatSyncFn` lazily for performance, it is already cached inside, related #323
 const lazyRemark = {
   get processSync() {
-    return createSyncFn(require.resolve('../worker')) as (
+    return createSyncFn(workerPath) as (
       fileOptions: VFileOptions,
       physicalFilename: string,
       isMdx: boolean,
