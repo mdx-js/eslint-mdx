@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.1](https://github.com/mdx-js/eslint-mdx/compare/v1.14.0...v1.14.1) (2021-07-14)
+
+
+### Bug Fixes
+
+* upgrade synckit v0.3.3 for node compatibility ([#326](https://github.com/mdx-js/eslint-mdx/issues/326)) ([a8e7584](https://github.com/mdx-js/eslint-mdx/commit/a8e75842ec1114c1d3524f5b07862edb6ad0290e))
+
+
+
+
+
 # [1.14.0](https://github.com/mdx-js/eslint-mdx/compare/v1.13.0...v1.14.0) (2021-07-11)
 
 
