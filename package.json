@@ -45,7 +45,7 @@
     "yarn-deduplicate": "^3.1.0"
   },
   "resolutions": {
-    "@babel/core": "^7.14.6",
+    "@babel/core": "^7.14.8",
     "prettier": "^2.3.2",
     "tslib": "^2.3.0"
   },
