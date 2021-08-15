@@ -68,9 +68,8 @@ export class Traverse {
             jsxNodes.push(node)
           } else {
             try {
-              const normalized = parser.normalizeJsxNode(node, parent)
               // fix #138
-              jsxNodes.push(...arrayify(normalized))
+              jsxNodes.push(...arrayify(parser.normalizeJsxNode(node, parent)))
             } catch {
               // #272, we consider the first jsx node as open tag although it's not precise
               // and #334, if there is no error thrown, do not fallback
