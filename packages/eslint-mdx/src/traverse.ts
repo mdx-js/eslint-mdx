@@ -26,7 +26,8 @@ export class Traverse {
     // fix #279
     if (parent && parent.position.indent?.length > 0) {
       end.offset += parent.position.indent.reduce(
-        (acc, indent, index) => acc + (index ? indent + 1 : 0),
+        (acc, indent, index) =>
+          acc + (index ? /* istanbul ignore next */ indent + 1 : 0),
         0,
       )
     }
@@ -66,15 +67,17 @@ export class Traverse {
           ) {
             jsxNodes.push(node)
           } else {
-            // #272, we consider the first jsx node as open tag although it's not precise
-            if (!index) {
-              offset++
-              hasOpenTag = true
-            }
             try {
               // fix #138
               jsxNodes.push(...arrayify(parser.normalizeJsxNode(node, parent)))
             } catch {
+              // #272, we consider the first jsx node as open tag although it's not precise
+              // and #334, if there is no error thrown, do not fallback
+              if (!index) {
+                offset++
+                hasOpenTag = true
+              }
+
               // #272 related
               /* istanbul ignore else */
               if (offset) {
