@@ -71,6 +71,8 @@ exports[`fixtures should match all snapshots: 292.mdx 1`] = `Array []`;
 
 exports[`fixtures should match all snapshots: 334.mdx 1`] = `Array []`;
 
+exports[`fixtures should match all snapshots: 336.mdx 1`] = `Array []`;
+
 exports[`fixtures should match all snapshots: adjacent.mdx 1`] = `Array []`;
 
 exports[`fixtures should match all snapshots: basic.mdx 1`] = `Array []`;

@@ -1,10 +1,8 @@
+import { getRemarkProcessor } from 'eslint-mdx'
 import { runAsWorker } from 'synckit'
 import type { VFileOptions } from 'vfile'
 import vfile from 'vfile'
 
-import { getRemarkProcessor } from './rules'
-
-// eslint-disable-next-line @typescript-eslint/no-floating-promises
 runAsWorker(
   async (
     fileOptions: VFileOptions,
@@ -25,4 +23,4 @@ runAsWorker(
       content: file.toString(),
     }
   },
-)
+).catch(console.error)

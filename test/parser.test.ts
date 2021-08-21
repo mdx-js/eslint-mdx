@@ -2,8 +2,9 @@
 import type { Node, Parent, ParserConfig, ParserOptions } from 'eslint-mdx'
 import {
   DEFAULT_PARSER_OPTIONS as parserOptions,
+  PLACEHOLDER_FILE_PATH,
   first,
-  mdxProcessor,
+  getRemarkProcessor,
   normalizeParser,
   parser,
 } from 'eslint-mdx'
@@ -11,7 +12,10 @@ import {
 import { noop } from './helpers'
 
 const stringToNode = (text: string) =>
-  first((mdxProcessor.parse(text) as Parent).children)
+  first(
+    (getRemarkProcessor(PLACEHOLDER_FILE_PATH, true).parse(text) as Parent)
+      .children,
+  )
 
 describe('parser', () => {
   it('should transform html style comment in jsx into jsx comment', () => {

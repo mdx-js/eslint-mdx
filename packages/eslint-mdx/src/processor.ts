@@ -2,13 +2,13 @@ import fs from 'fs'
 import path from 'path'
 
 import { cosmiconfigSync } from 'cosmiconfig'
-import { arrayify } from 'eslint-mdx'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import remarkStringify from 'remark-stringify'
 import type { FrozenProcessor } from 'unified'
 import unified from 'unified'
 
+import { arrayify } from './helpers'
 import type { RemarkConfig, RemarkPlugin } from './types'
 
 export const requirePkg = <T>(

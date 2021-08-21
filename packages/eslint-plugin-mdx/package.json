@@ -32,15 +32,10 @@
     "eslint": ">=5.0.0"
   },
   "dependencies": {
-    "cosmiconfig": "^7.0.0",
     "eslint-mdx": "^1.14.1",
     "eslint-plugin-markdown": "^2.2.0",
-    "remark-mdx": "^1.6.22",
-    "remark-parse": "^8.0.3",
-    "remark-stringify": "^8.1.1",
     "synckit": "^0.3.4",
-    "tslib": "^2.3.0",
-    "unified": "^9.2.1",
+    "tslib": "^2.3.1",
     "vfile": "^4.2.1"
   }
 }
