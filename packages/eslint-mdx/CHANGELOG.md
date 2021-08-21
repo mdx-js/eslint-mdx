@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/mdx-js/eslint-mdx/compare/v1.14.1...v1.15.0) (2021-08-21)
+
+
+### Bug Fixes
+
+* should only fallback on parse error ([#335](https://github.com/mdx-js/eslint-mdx/issues/335)) ([0feb2d3](https://github.com/mdx-js/eslint-mdx/commit/0feb2d395a5f6efc7e515afc2ae0cf07ec77af78)), closes [#334](https://github.com/mdx-js/eslint-mdx/issues/334)
+
+
+### Features
+
+* resolve custom remark config on parsing ([#337](https://github.com/mdx-js/eslint-mdx/issues/337)) ([94fcb4c](https://github.com/mdx-js/eslint-mdx/commit/94fcb4c1346d9bfdec61a8335b65e536d5b59ac4))
+
+
+
+
+
 ## [1.14.1](https://github.com/mdx-js/eslint-mdx/compare/v1.14.0...v1.14.1) (2021-07-14)
 
 **Note:** Version bump only for package eslint-mdx
