@@ -2,9 +2,6 @@ import path from 'path'
 
 import type { ExpressionStatement } from '@babel/types'
 import type { AST, Linter } from 'eslint'
-import remarkMdx from 'remark-mdx'
-import remarkParse from 'remark-parse'
-import unified from 'unified'
 
 import {
   arrayify,
@@ -16,6 +13,7 @@ import {
   normalizePosition,
   restoreNodeLocation,
 } from './helpers'
+import { getPhysicalFilename, getRemarkProcessor } from './processor'
 import {
   COMMENT_CONTENT_REGEX,
   COMMENT_CONTENT_REGEX_GLOBAL,
@@ -32,9 +30,6 @@ import type {
   ParserServices,
 } from './types'
 
-export const mdProcessor = unified().use(remarkParse).freeze()
-export const mdxProcessor = mdProcessor().use(remarkMdx).freeze()
-
 export const AST_PROPS = ['body', 'comments', 'tokens'] as const
 export const ES_NODE_TYPES: readonly string[] = ['export', 'import', 'jsx']
 
@@ -42,6 +37,8 @@ export const LOC_ERROR_PROPERTIES = ['column', 'lineNumber'] as const
 
 export const DEFAULT_EXTENSIONS: readonly string[] = ['.mdx']
 export const MARKDOWN_EXTENSIONS: readonly string[] = ['.md']
+
+export const PLACEHOLDER_FILE_PATH = '__placeholder__.mdx'
 
 export const DEFAULT_PARSER_OPTIONS: ParserOptions = {
   comment: true,
@@ -52,7 +49,7 @@ export const DEFAULT_PARSER_OPTIONS: ParserOptions = {
     new Date().getUTCFullYear() as Linter.ParserOptions['ecmaVersion'],
   sourceType: 'module',
   tokens: true,
-  filePath: '__placeholder__.mdx',
+  filePath: PLACEHOLDER_FILE_PATH,
   // required for @typescript-eslint/parser
   // reference: https://github.com/typescript-eslint/typescript-eslint/pull/2028
   loc: true,
@@ -170,7 +167,10 @@ export class Parser {
       return this._eslintParse(code, options)
     }
 
-    const root = (isMdx ? mdxProcessor : mdProcessor).parse(code) as Parent
+    const root = getRemarkProcessor(
+      getPhysicalFilename(options.filePath),
+      isMdx,
+    ).parse(code) as Parent
 
     this._ast = {
       ...normalizePosition(root.position),

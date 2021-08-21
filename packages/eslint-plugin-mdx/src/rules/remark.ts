@@ -2,13 +2,17 @@ import path from 'path'
 
 import type { Rule } from 'eslint'
 import type { ParserOptions } from 'eslint-mdx'
-import { DEFAULT_EXTENSIONS, MARKDOWN_EXTENSIONS } from 'eslint-mdx'
+import {
+  DEFAULT_EXTENSIONS,
+  MARKDOWN_EXTENSIONS,
+  getPhysicalFilename,
+  getRemarkProcessor,
+} from 'eslint-mdx'
 import { createSyncFn } from 'synckit'
 import type { FrozenProcessor } from 'unified'
 import type { VFile, VFileOptions } from 'vfile'
 import vfile from 'vfile'
 
-import { getPhysicalFilename, getRemarkProcessor } from './helpers'
 import type { RemarkLintMessage } from './types'
 
 const workerPath = require.resolve('../worker')

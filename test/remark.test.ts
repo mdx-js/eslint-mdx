@@ -1,9 +1,12 @@
 import path from 'path'
 
-import { DEFAULT_PARSER_OPTIONS as parserOptions } from 'eslint-mdx'
-// eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error
-// @ts-ignore
-import { processorCache, remark } from 'eslint-plugin-mdx'
+import {
+  DEFAULT_PARSER_OPTIONS as parserOptions,
+  // eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error
+  // @ts-ignore
+  processorCache,
+} from 'eslint-mdx'
+import { remark } from 'eslint-plugin-mdx'
 import { homedir } from 'os'
 
 import { parser, ruleTester } from './helpers'

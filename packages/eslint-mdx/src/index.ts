@@ -1,5 +1,6 @@
 export * from './helpers'
 export * from './parser'
+export * from './processor'
 export * from './regexp'
 export * from './traverse'
 export * from './types'

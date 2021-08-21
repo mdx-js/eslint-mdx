@@ -1,7 +1,7 @@
 import path from 'path'
 
-import { arrayify, getPositionAt } from 'eslint-mdx'
-import { getGlobals, getShortLang, requirePkg } from 'eslint-plugin-mdx'
+import { arrayify, getPositionAt, requirePkg } from 'eslint-mdx'
+import { getGlobals, getShortLang } from 'eslint-plugin-mdx'
 
 describe('Helpers', () => {
   it('should arrayify items correctly', () => {

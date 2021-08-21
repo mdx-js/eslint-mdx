@@ -1,5 +1,6 @@
 import type { JSXElement, JSXFragment } from '@babel/types'
 import type { AST, Linter } from 'eslint'
+import type { Attacher } from 'unified'
 import type { Node as _Node, Parent as _Parent, Point } from 'unist'
 
 export interface Node<T = string> extends _Node {
@@ -69,4 +70,11 @@ export interface Comment {
 
 export interface ParserServices {
   JSXElementsWithHTMLComments: Node[]
+}
+
+export type RemarkPlugin = Attacher | string
+
+export interface RemarkConfig {
+  settings: Record<string, string>
+  plugins: Array<RemarkPlugin | [RemarkPlugin, ...unknown[]]>
 }
