@@ -160,14 +160,14 @@
   resolved "https://registry.yarnpkg.com/@1stg/tsconfig/-/tsconfig-1.4.0.tgz#90d8fe22aadf5389dbd5e6bdc12c14a9ae65a877"
   integrity sha512-TEGguZvS3FpiB63bgPX1V5X/ckeU4PpgnO9FuQEylfWtojbav3EmjD6K6RLCPwTABaQrAD4UyNNnBbvuHc5JpA==
 
-"@1stg/tslint-config@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@1stg/tslint-config/-/tslint-config-2.0.0.tgz#36ccd4e5fb68c804fba69af27f860dbafa3865e3"
-  integrity sha512-efdnae+fz3bJAvpI8csBLO/TqkGzzsVlw1+hx5jChOCefJRpqUiDk2lQp2dQrK3mg55lRG/W3RcYB5zQy1w9yA==
+"@1stg/tslint-config@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@1stg/tslint-config/-/tslint-config-2.1.0.tgz#6f4a963acab7c2b1ca24b331db855f8d1ff42e25"
+  integrity sha512-naOD+kEqbX7cGSY4YSlpNy1F9aw0NjFuIqkro7kOwP8HIQoTHNyeCt0yV8Ea6GEPSeIHpEYGtVvVH+aLaVq0ug==
   dependencies:
     "@rxts/rxjs-tslint" "^0.2.1"
     codelyzer "^6.0.2"
-    ng-tslint "^1.1.1"
+    ng-tslint "^1.1.2"
     tslint-angular "^3.0.3"
     tslint-config-eslint "^0.6.2"
     tslint-config-prettier "^1.18.0"
@@ -8425,10 +8425,10 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-ng-tslint@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/ng-tslint/-/ng-tslint-1.1.1.tgz#d02568bd167f330648d2f6ea54620369807f4ff5"
-  integrity sha512-D/EWTbqAc8N/RXSld25Vi670v5zf8szbdr9BjSQ0HjSn4A6zgaeIHyGrbPa/9HvJ7rvsrQgGBHgX0UcFqnX3rg==
+ng-tslint@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/ng-tslint/-/ng-tslint-1.1.2.tgz#8e976bac1592117163cb8b7dc2c5b4c3baffd184"
+  integrity sha512-iLyEsbahLRxXXM1/JvpX94sIcdFd2hUf30DvmbBQJST6RCtUefGYve3nhDiUwqdu8XS2T7x6yVQipIuV+pGqFQ==
   dependencies:
     minimatch "^3.0.4"
     tsutils "^3.21.0"

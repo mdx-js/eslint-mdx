@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@1stg/lib-config": "^3.0.0",
-    "@1stg/tslint-config": "^2.0.0",
+    "@1stg/tslint-config": "^2.1.0",
     "@types/eslint": "^7.28.0",
     "@types/eslint-plugin-markdown": "^2.0.0",
     "@types/jest": "^27.0.1",
