@@ -32,7 +32,7 @@
     "eslint": ">=5.0.0"
   },
   "dependencies": {
-    "cosmiconfig": "^7.0.0",
+    "cosmiconfig": "^7.0.1",
     "remark-mdx": "^1.6.22",
     "remark-parse": "^8.0.3",
     "remark-stringify": "^8.1.1",
