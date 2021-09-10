@@ -169,6 +169,8 @@ Array [
 ]
 `;
 
+exports[`fixtures should match all snapshots: comments.mdx 1`] = `Array []`;
+
 exports[`fixtures should match all snapshots: details.mdx 1`] = `
 Array [
   Object {
