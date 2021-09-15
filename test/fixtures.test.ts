@@ -35,6 +35,7 @@ const getCli = (lintCodeBlocks = false) =>
           ]
         : [],
     },
+    reportUnusedDisableDirectives: 'error',
   })
 
 describe('fixtures', () => {
