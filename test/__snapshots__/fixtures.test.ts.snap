@@ -169,6 +169,19 @@ Array [
 ]
 `;
 
+exports[`fixtures should match all snapshots: comments.mdx 1`] = `
+Array [
+  Object {
+    "column": 2,
+    "line": 1,
+    "message": "Unused eslint-disable directive (no problems were reported from 'no-console').",
+    "nodeType": null,
+    "ruleId": null,
+    "severity": 2,
+  },
+]
+`;
+
 exports[`fixtures should match all snapshots: details.mdx 1`] = `
 Array [
   Object {
