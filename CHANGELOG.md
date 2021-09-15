@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.1](https://github.com/mdx-js/eslint-mdx/compare/v1.15.0...v1.15.1) (2021-09-15)
+
+
+### Bug Fixes
+
+* allow comments to contain `--` ([#348](https://github.com/mdx-js/eslint-mdx/issues/348)) ([65028b9](https://github.com/mdx-js/eslint-mdx/commit/65028b996ffc20011c9565599bc67ebf96432728))
+* **deps:** update dependency cosmiconfig to ^7.0.1 ([1dbac89](https://github.com/mdx-js/eslint-mdx/commit/1dbac892ad61e49a139bbaf2a67fae6b22e2bc2a))
+* **deps:** update dependency unified to ^9.2.2 ([29ba0c5](https://github.com/mdx-js/eslint-mdx/commit/29ba0c5f1c677970ec09398b67549fe2c8a6fef0))
+
+
+
+
+
 # [1.15.0](https://github.com/mdx-js/eslint-mdx/compare/v1.14.1...v1.15.0) (2021-08-21)
 
 

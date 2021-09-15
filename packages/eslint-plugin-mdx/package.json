@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-mdx",
-  "version": "1.15.0",
+  "version": "1.15.1",
   "description": "ESLint Plugin for MDX",
   "repository": "git+https://github.com/mdx-js/eslint-mdx.git",
   "homepage": "https://github.com/mdx-js/eslint-mdx/blob/master/packages/eslint-plugin-mdx",
@@ -32,7 +32,7 @@
     "eslint": ">=5.0.0"
   },
   "dependencies": {
-    "eslint-mdx": "^1.15.0",
+    "eslint-mdx": "^1.15.1",
     "eslint-plugin-markdown": "^2.2.0",
     "synckit": "^0.3.4",
     "tslib": "^2.3.1",
