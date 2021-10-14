@@ -2,6 +2,7 @@ import { getRemarkProcessor } from 'eslint-mdx'
 import { runAsWorker } from 'synckit'
 import type { VFileOptions } from 'vfile'
 import vfile from 'vfile'
+import type { VFileMessage } from 'vfile-message'
 
 runAsWorker(
   async (
@@ -14,8 +15,11 @@ runAsWorker(
     try {
       await remarkProcessor.process(file)
     } catch (err) {
-      if (!file.messages.includes(err)) {
-        file.message(err).fatal = true
+      if (!file.messages.includes(err as VFileMessage)) {
+        file.message(
+          // @ts-expect-error Error is fine
+          err,
+        ).fatal = true
       }
     }
     return {

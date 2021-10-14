@@ -1,9 +1,0 @@
-{
-  "extends": "@1stg/tslint-config/eslint",
-  "linterOptions": {
-    "exclude": ["node_modules/**", "**/lib/**", "**/*.d.ts"]
-  },
-  "rules": {
-    "no-useless-cast": false
-  }
-}

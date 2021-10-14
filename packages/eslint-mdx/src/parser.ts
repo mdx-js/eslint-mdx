@@ -157,12 +157,14 @@ export class Parser {
 
   parseForESLint(code: string, options: ParserOptions) {
     const extname = path.extname(options.filePath)
-    const isMdx = DEFAULT_EXTENSIONS.concat(options.extensions || []).includes(
-      extname,
-    )
-    const isMarkdown = MARKDOWN_EXTENSIONS.concat(
-      options.markdownExtensions || [],
-    ).includes(extname)
+    const isMdx = [
+      ...DEFAULT_EXTENSIONS,
+      ...(options.extensions || []),
+    ].includes(extname)
+    const isMarkdown = [
+      ...MARKDOWN_EXTENSIONS,
+      ...(options.markdownExtensions || []),
+    ].includes(extname)
     if (!isMdx && !isMarkdown) {
       return this._eslintParse(code, options)
     }

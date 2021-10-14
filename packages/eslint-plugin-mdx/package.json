@@ -33,8 +33,8 @@
   },
   "dependencies": {
     "eslint-mdx": "^1.15.1",
-    "eslint-plugin-markdown": "^2.2.0",
-    "synckit": "^0.3.4",
+    "eslint-plugin-markdown": "^2.2.1",
+    "synckit": "^0.4.1",
     "tslib": "^2.3.1",
     "vfile": "^4.2.1"
   }

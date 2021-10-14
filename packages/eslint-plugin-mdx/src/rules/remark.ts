@@ -12,6 +12,7 @@ import { createSyncFn } from 'synckit'
 import type { FrozenProcessor } from 'unified'
 import type { VFile, VFileOptions } from 'vfile'
 import vfile from 'vfile'
+import type { VFileMessage } from 'vfile-message'
 
 import type { RemarkLintMessage } from './types'
 
@@ -48,12 +49,14 @@ export const remark: Rule.RuleModule = {
     const extname = path.extname(filename)
     const sourceCode = context.getSourceCode()
     const options = context.parserOptions as ParserOptions
-    const isMdx = DEFAULT_EXTENSIONS.concat(options.extensions || []).includes(
-      extname,
-    )
-    const isMarkdown = MARKDOWN_EXTENSIONS.concat(
-      options.markdownExtensions || [],
-    ).includes(extname)
+    const isMdx = [
+      ...DEFAULT_EXTENSIONS,
+      ...(options.extensions || []),
+    ].includes(extname)
+    const isMarkdown = [
+      ...MARKDOWN_EXTENSIONS,
+      ...(options.markdownExtensions || []),
+    ].includes(extname)
     return {
       // eslint-disable-next-line sonarjs/cognitive-complexity
       Program(node) {
@@ -102,8 +105,11 @@ export const remark: Rule.RuleModule = {
               )
               file.messages = messages
               fixedText = content
-            } else if (!file.messages.includes(err)) {
-              file.message(err).fatal = true
+            } else if (!file.messages.includes(err as VFileMessage)) {
+              file.message(
+                // @ts-expect-error Error is fine
+                err,
+              ).fatal = true
             }
           }
         }

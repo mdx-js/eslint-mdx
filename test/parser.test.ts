@@ -1,4 +1,6 @@
 /* eslint-disable sonarjs/no-duplicate-string */
+import { noop } from './helpers'
+
 import type { Node, Parent, ParserConfig, ParserOptions } from 'eslint-mdx'
 import {
   DEFAULT_PARSER_OPTIONS as parserOptions,
@@ -8,8 +10,6 @@ import {
   normalizeParser,
   parser,
 } from 'eslint-mdx'
-
-import { noop } from './helpers'
 
 const stringToNode = (text: string) =>
   first(
