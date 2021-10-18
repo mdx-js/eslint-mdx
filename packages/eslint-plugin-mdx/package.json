@@ -13,9 +13,8 @@
   "engines": {
     "node": ">=10.0.0"
   },
-  "main": "lib",
-  "module": "lib/esm",
-  "es2015": "lib/es2015",
+  "main": "lib/index.js",
+  "module": "lib/index.es2015.mjs",
   "types": "lib",
   "files": [
     "lib",
