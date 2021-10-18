@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "run-p build:*",
-    "build:r": "r -f esm,es2015",
+    "build:r": "r -f es2015",
     "build:ts": "tsc -b",
     "clean": "rimraf packages/*/{lib,*.tsbuildinfo} node_modules/@1stg/eslint-config/node_modules",
     "lint": "run-p lint:*",
@@ -30,7 +30,7 @@
     "@types/eslint-plugin-markdown": "^2.0.0",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.10.9",
-    "@types/react": "^17.0.29",
+    "@types/react": "^17.0.30",
     "@types/unist": "^2.0.6",
     "lerna": "^4.0.0",
     "npm-run-all": "^4.1.5",
@@ -44,6 +44,12 @@
     "yarn-deduplicate": "^3.1.0"
   },
   "resolutions": {
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^5.0.0",
+    "@typescript-eslint/experimental-utils": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-plugin-unicorn": "^37.0.0",
     "prettier": "^2.4.1"
   },
   "commitlint": {
@@ -63,6 +69,7 @@
       "eslint/lib/linter/linter"
     ],
     "moduleNameMapper": {
+      "^eslint/use-at-your-own-risk$": "<rootDir>/node_modules/eslint/lib/unsupported-api.js",
       "^eslint-mdx$": "<rootDir>/packages/eslint-mdx/src",
       "^eslint-plugin-mdx$": "<rootDir>/packages/eslint-plugin-mdx/src"
     },

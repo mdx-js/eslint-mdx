@@ -2,9 +2,12 @@
 
 import type { Rule } from 'eslint'
 import { isJsxNode } from 'eslint-mdx'
-import esLintNoUnusedExpressions from 'eslint/lib/rules/no-unused-expressions'
+
+import { getBuiltinRule } from '../helpers'
 
 import type { ExpressionStatementWithParent } from './types'
+
+const esLintNoUnusedExpressions = getBuiltinRule('no-unused-expressions')
 
 export const noUnusedExpressions: Rule.RuleModule = {
   ...esLintNoUnusedExpressions,
