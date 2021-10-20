@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/mdx-js/eslint-mdx/compare/v1.15.1...v1.16.0) (2021-10-20)
+
+
+### Features
+
+* add support for eslint 8 ([#353](https://github.com/mdx-js/eslint-mdx/issues/353)) ([d47af33](https://github.com/mdx-js/eslint-mdx/commit/d47af33f86522a3292a8ad04f62191f12a3743a4))
+
+
+
+
+
 ## [1.15.1](https://github.com/mdx-js/eslint-mdx/compare/v1.15.0...v1.15.1) (2021-09-15)
 
 
