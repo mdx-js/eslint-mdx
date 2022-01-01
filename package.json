@@ -50,7 +50,7 @@
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.0.1",
     "eslint-plugin-unicorn": "^37.0.1",
-    "prettier": "^2.4.1"
+    "prettier": "^2.5.1"
   },
   "commitlint": {
     "extends": [
