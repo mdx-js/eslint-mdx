@@ -28,7 +28,7 @@
     "@1stg/lib-config": "^4.1.2",
     "@types/eslint": "^7.29.0",
     "@types/eslint-plugin-markdown": "^2.0.0",
-    "@types/jest": "^27.0.3",
+    "@types/jest": "^27.4.0",
     "@types/node": "^16.10.9",
     "@types/react": "^17.0.38",
     "@types/unist": "^2.0.6",
