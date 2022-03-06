@@ -70,7 +70,7 @@ const explorer = cosmiconfigSync('remark', {
 export const processorCache = new Map<string, FrozenProcessor>()
 
 // eslint-disable-next-line sonarjs/cognitive-complexity
-export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
+export const getRemarkProcessor = (searchFrom: string, isMdx: boolean, ignoreRemarkConfig: boolean) => {
   const initCacheKey = `${String(isMdx)}-${searchFrom}`
 
   let cachedProcessor = processorCache.get(initCacheKey)
@@ -79,7 +79,10 @@ export const getRemarkProcessor = (searchFrom: string, isMdx: boolean) => {
     return cachedProcessor
   }
 
-  const result = explorer.search(searchFrom)
+  let result;
+  if (!ignoreRemarkConfig) {
+    result = explorer.search(searchFrom)
+  }
 
   const cacheKey = result ? `${String(isMdx)}-${result.filepath}` : ''
 
