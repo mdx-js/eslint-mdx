@@ -55,7 +55,14 @@ ruleTester.run('remark', remark, {
       parserOptions,
       filename: path.resolve(__dirname, 'fixtures/async/test.mdx'),
     },
+    {
+      code: '_emphasis_ and __strong__',
+      parser,
+      parserOptions: { ...parserOptions, ignoreRemarkConfig: true },
+      filename: path.resolve(__dirname, 'fixtures/style/test.mdx'),
+    },
   ],
+
   invalid: [
     {
       // https://github.com/syntax-tree/mdast-util-to-markdown/issues/29

@@ -13,8 +13,11 @@ import {
 
 const stringToNode = (text: string) =>
   first(
-    (getRemarkProcessor(PLACEHOLDER_FILE_PATH, true).parse(text) as Parent)
-      .children,
+    (
+      getRemarkProcessor(PLACEHOLDER_FILE_PATH, true, false).parse(
+        text,
+      ) as Parent
+    ).children,
   )
 
 describe('parser', () => {

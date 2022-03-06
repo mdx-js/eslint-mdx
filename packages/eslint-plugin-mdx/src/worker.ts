@@ -9,8 +9,13 @@ runAsWorker(
     fileOptions: VFileOptions,
     physicalFilename: string,
     isMdx: boolean,
+    ignoreRemarkConfig: boolean,
   ) => {
-    const remarkProcessor = getRemarkProcessor(physicalFilename, isMdx)
+    const remarkProcessor = getRemarkProcessor(
+      physicalFilename,
+      isMdx,
+      ignoreRemarkConfig,
+    )
     const file = vfile(fileOptions)
     try {
       await remarkProcessor.process(file)

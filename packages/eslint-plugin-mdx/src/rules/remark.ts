@@ -25,6 +25,7 @@ const lazyRemark = {
       fileOptions: VFileOptions,
       physicalFilename: string,
       isMdx: boolean,
+      ignoreRemarkConfig: boolean,
     ) => {
       messages: VFile['messages']
       content: string
@@ -65,10 +66,16 @@ export const remark: Rule.RuleModule = {
           return
         }
 
+        const ignoreRemarkConfig = Boolean(options.ignoreRemarkConfig)
+
         const physicalFilename = getPhysicalFilename(filename)
 
         const sourceText = sourceCode.getText(node)
-        const remarkProcessor = getRemarkProcessor(physicalFilename, isMdx)
+        const remarkProcessor = getRemarkProcessor(
+          physicalFilename,
+          isMdx,
+          ignoreRemarkConfig,
+        )
 
         const fileOptions = {
           path: physicalFilename,
@@ -85,6 +92,7 @@ export const remark: Rule.RuleModule = {
             fileOptions,
             physicalFilename,
             isMdx,
+            ignoreRemarkConfig,
           )
           file.messages = messages
           fixedText = content
@@ -102,6 +110,7 @@ export const remark: Rule.RuleModule = {
                 fileOptions,
                 physicalFilename,
                 isMdx,
+                ignoreRemarkConfig,
               )
               file.messages = messages
               fixedText = content

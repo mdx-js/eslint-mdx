@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 import { cosmiconfigSync } from 'cosmiconfig'
+import type { CosmiconfigResult } from 'cosmiconfig/dist/types'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import remarkStringify from 'remark-stringify'
@@ -69,8 +70,12 @@ const explorer = cosmiconfigSync('remark', {
 // @internal - exported for testing
 export const processorCache = new Map<string, FrozenProcessor>()
 
-// eslint-disable-next-line sonarjs/cognitive-complexity
-export const getRemarkProcessor = (searchFrom: string, isMdx: boolean, ignoreRemarkConfig: boolean) => {
+export const getRemarkProcessor = (
+  searchFrom: string,
+  isMdx: boolean,
+  ignoreRemarkConfig: boolean,
+  // eslint-disable-next-line sonarjs/cognitive-complexity
+) => {
   const initCacheKey = `${String(isMdx)}-${searchFrom}`
 
   let cachedProcessor = processorCache.get(initCacheKey)
@@ -79,10 +84,9 @@ export const getRemarkProcessor = (searchFrom: string, isMdx: boolean, ignoreRem
     return cachedProcessor
   }
 
-  let result;
-  if (!ignoreRemarkConfig) {
-    result = explorer.search(searchFrom)
-  }
+  const result: CosmiconfigResult = ignoreRemarkConfig
+    ? null
+    : explorer.search(searchFrom)
 
   const cacheKey = result ? `${String(isMdx)}-${result.filepath}` : ''
 
