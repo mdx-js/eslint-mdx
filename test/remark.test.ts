@@ -62,7 +62,6 @@ ruleTester.run('remark', remark, {
       filename: path.resolve(__dirname, 'fixtures/style/test.mdx'),
     },
   ],
-
   invalid: [
     {
       // https://github.com/syntax-tree/mdast-util-to-markdown/issues/29
