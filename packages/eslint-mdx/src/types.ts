@@ -50,6 +50,7 @@ export interface ParserOptions extends Linter.ParserOptions {
   markdownExtensions?: string[] | string
   filePath?: string
   parser?: ParserConfig | ParserFn | string
+  ignoreRemarkConfig?: boolean
 }
 
 export type Traverser = (node: Node, parent?: Parent) => void

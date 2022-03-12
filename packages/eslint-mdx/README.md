@@ -190,6 +190,8 @@ See [#251](https://github.com/mdx-js/eslint-mdx/issues/251#issuecomment-73613922
 
 3. `markdownExtensions` (`string | string[]`): `eslint-mdx` will only treat `.md` files as plain markdown by default, and will lint them via remark plugins. If you want to resolve other extensions as like `.md`, you can use this option.
 
+4. `ignoreRemarkConfig` (`boolean`): Ignore the `remark` configuration defined in the project.
+
 ## Rules
 
 ### mdx/no-jsx-html-comments
@@ -222,6 +224,8 @@ If you want to disable or change severity of some related rules, it won't work b
   ]
 }
 ```
+
+Some plugins are ESM and eslint don't supports them. So, a workaround is to set `ignoreRemarkConfig` to `true` and execute `remark-lint` through the terminal before running eslint. For example: `remark **/*.mdx --no-stdout && eslint . --fix --ext .mdx`.
 
 ## Prettier Integration
 

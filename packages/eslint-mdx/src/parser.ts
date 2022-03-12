@@ -172,6 +172,7 @@ export class Parser {
     const root = getRemarkProcessor(
       getPhysicalFilename(options.filePath),
       isMdx,
+      Boolean(options.ignoreRemarkConfig),
     ).parse(code) as Parent
 
     this._ast = {
