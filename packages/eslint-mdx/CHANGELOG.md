@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/mdx-js/eslint-mdx/compare/v1.16.0...v1.17.0) (2022-03-21)
+
+
+### Features
+
+* allow to ignore remark config ([#374](https://github.com/mdx-js/eslint-mdx/issues/374)) ([1c9e3fd](https://github.com/mdx-js/eslint-mdx/commit/1c9e3fdccbd7571cec4ea2758412ace1dfe19222))
+
+
+
+
+
 # [1.16.0](https://github.com/mdx-js/eslint-mdx/compare/v1.15.1...v1.16.0) (2021-10-20)
 
 
