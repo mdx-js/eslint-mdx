@@ -1,17 +1,11 @@
-import type { JSXElement, JSXFragment } from '@babel/types'
 import type { AST, Linter } from 'eslint'
-import type { Attacher } from 'unified'
-import type { Node as _Node, Parent as _Parent, Point } from 'unist'
+import type { Program } from 'estree'
+import type { Plugin } from 'unified'
+import type { Node, Parent } from 'unist'
+import type { VFileOptions } from 'vfile'
+import type { VFileMessage } from 'vfile-message'
 
-export interface Node<T = string> extends _Node {
-  value?: T
-}
-
-export interface Parent<T = string> extends _Parent {
-  children: Array<Node<T>>
-}
-
-export type Arrayable<T> = T[] | readonly T[]
+import type { MdxNodeType } from './helpers'
 
 export declare type ValueOf<T> = T extends {
   [key: string]: infer M
@@ -22,8 +16,6 @@ export declare type ValueOf<T> = T extends {
     }
   ? N
   : never
-
-export type JsxNode = { range: [number, number] } & (JSXElement | JSXFragment)
 
 export type ParserFn = (
   code: string,
@@ -38,13 +30,6 @@ export type ParserConfig =
       parseForESLint: ParserFn
     }
 
-export interface LocationError {
-  column: number
-  index?: number
-  pos?: number
-  lineNumber: number
-}
-
 export interface ParserOptions extends Linter.ParserOptions {
   extensions?: string[] | string
   markdownExtensions?: string[] | string
@@ -55,27 +40,36 @@ export interface ParserOptions extends Linter.ParserOptions {
 
 export type Traverser = (node: Node, parent?: Parent) => void
 
-export interface TraverseOptions {
-  code: string
-  enter: Traverser
-}
-
-export interface Comment {
-  fixed: string
-  loc: {
-    start: Point
-    end: Point
+export interface MdxNode extends Node {
+  type: MdxNodeType
+  data: {
+    estree: Program
   }
-  origin: string
 }
 
-export interface ParserServices {
-  JSXElementsWithHTMLComments: Node[]
-}
-
-export type RemarkPlugin = Attacher | string
+export type RemarkPlugin = Plugin | string
 
 export interface RemarkConfig {
   settings: Record<string, string>
   plugins: Array<RemarkPlugin | [RemarkPlugin, ...unknown[]]>
 }
+
+export interface WorkerOptions {
+  fileOptions: VFileOptions
+  physicalFilename: string
+  isMdx: boolean
+  process?: boolean
+  ignoreRemarkConfig?: boolean
+}
+
+export interface WorkerParseResult {
+  root: Parent
+  tokens: AST.Token[]
+}
+
+export interface WorkerProcessResult {
+  messages: VFileMessage[]
+  content: string
+}
+
+export type WorkerResult = WorkerParseResult | WorkerProcessResult

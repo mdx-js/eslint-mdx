@@ -34,8 +34,6 @@
 - [Usage](#usage)
 - [Parser Options](#parser-options)
 - [Rules](#rules)
-  - [mdx/no-jsx-html-comments](#mdxno-jsx-html-comments)
-  - [mdx/no-unused-expressions](#mdxno-unused-expressions)
   - [mdx/remark](#mdxremark)
 - [Prettier Integration](#prettier-integration)
 - [Changelog](#changelog)
@@ -74,98 +72,20 @@ See [#251](https://github.com/mdx-js/eslint-mdx/issues/251#issuecomment-73613922
 
 ## Usage
 
-1. In your ESLint config file:
+1. In your ESLint 8+ config file, just add:
 
-   1. If you're using `eslint >= 6.4.0`, just add:
-
-      ```jsonc
-      {
-        "extends": ["plugin:mdx/recommended"],
-        // optional, if you want to lint code blocks at the same time
-        "settings": {
-          "mdx/code-blocks": true,
-          // optional, if you want to disable language mapper, set it to `false`
-          // if you want to override the default language mapper inside, you can provide your own
-          "mdx/language-mapper": {}
-        }
-      }
-      ```
-
-   2. If you're using `eslint >=6.0.0 and <6.4.0`, add as following because it does not support overrides from npm pkg:
-
-      ```jsonc
-      {
-        "extends": ["plugin:mdx/recommended"],
-        // optional, if you want to lint code blocks at the same time
-        "settings": {
-          "mdx/code-blocks": true,
-          // optional, if you want to disable language mapper, set it to `false`
-          // if you want to override the default language mapper inside, you can provide your own
-          "mdx/language-mapper": {}
-        },
-        "overrides": [
-          {
-            "files": ["*.md"],
-            "rules": {
-              "prettier/prettier": [
-                2,
-                {
-                  // unnecessary if you're not using `eslint-plugin-prettier`, but required if you are
-                  "parser": "markdown"
-                }
-              ]
-            }
-          },
-          {
-            "files": ["*.mdx"],
-            "extends": ["plugin:mdx/overrides"]
-          },
-          {
-            "files": "**/*.{md,mdx}/**",
-            "extends": "plugin:mdx/code-blocks"
-          }
-        ]
-      }
-      ```
-
-   3. If you're using `eslint@^5.0.0`, you need to enable this parser/plugin manually, because `eslint@5` does not support `extends` for `overrides` property in its configuration:
-
-      ```js
-      const configs = require('eslint-plugin-mdx/lib/configs')
-
-      module.exports = {
-        extends: ['plugin:mdx/recommended'],
-        // optional, if you want to lint code blocks at the same time
-        settings: {
-          'mdx/code-blocks': true,
-          // optional, if you want to disable language mapper, set it to `false`
-          // if you want to override the default language mapper inside, you can provide your own
-          'mdx/language-mapper': {},
-        },
-        overrides: [
-          {
-            files: ['*.md'],
-            rules: {
-              'prettier/prettier': [
-                2,
-                {
-                  // unnecessary if you're not using `eslint-plugin-prettier`, but required if you are
-                  parser: 'markdown',
-                },
-              ],
-            },
-          },
-          {
-            files: ['*.mdx'],
-            ...configs.overrides,
-          },
-          {
-            files: '**/*.{md,mdx}/**',
-            ...configs.codeBlocks,
-          },
-        ],
-      }
-      ```
+   ```jsonc
+   {
+     "extends": ["plugin:mdx/recommended"],
+     // optional, if you want to lint code blocks at the same time
+     "settings": {
+       "mdx/code-blocks": true,
+       // optional, if you want to disable language mapper, set it to `false`
+       // if you want to override the default language mapper inside, you can provide your own
+       "mdx/language-mapper": {}
+     }
+   }
+   ```
 
 2. Make sure ESLint knows to run on `.md` or `.mdx` files:
 
@@ -190,15 +110,9 @@ See [#251](https://github.com/mdx-js/eslint-mdx/issues/251#issuecomment-73613922
 
 3. `markdownExtensions` (`string | string[]`): `eslint-mdx` will only treat `.md` files as plain markdown by default, and will lint them via remark plugins. If you want to resolve other extensions as like `.md`, you can use this option.
 
+4. `ignoreRemarkConfig` (`boolean`): Ignore the `remark` configuration defined in the project.
+
 ## Rules
-
-### mdx/no-jsx-html-comments
-
-_Fixable_: HTML style comments in jsx block is invalid, this rule will help you to fix it by transforming it to JSX style comments.
-
-### mdx/no-unused-expressions
-
-[MDX][] can render `jsx` block automatically without exporting them, but [ESLint][] will report `no-unused-expressions` issue which could be unexpected, this rule is the replacement, so make sure that you've turned off the original `no-unused-expressions` rule.
 
 ### mdx/remark
 
@@ -222,6 +136,8 @@ If you want to disable or change severity of some related rules, it won't work b
   ]
 }
 ```
+
+Some plugins are ESM and eslint don't supports them. So, a workaround is to set `ignoreRemarkConfig` to `true` and execute `remark-lint` through the terminal before running eslint. For example: `remark **/*.mdx --no-stdout && eslint . --fix --ext .mdx`.
 
 ## Prettier Integration
 

@@ -6,34 +6,10 @@ import {
   DEFAULT_EXTENSIONS,
   MARKDOWN_EXTENSIONS,
   getPhysicalFilename,
-  getRemarkProcessor,
+  performSyncWork,
 } from 'eslint-mdx'
-import { createSyncFn } from 'synckit'
-import type { FrozenProcessor } from 'unified'
-import type { VFile, VFileOptions } from 'vfile'
-import vfile from 'vfile'
-import type { VFileMessage } from 'vfile-message'
 
 import type { RemarkLintMessage } from './types'
-
-const workerPath = require.resolve('../worker')
-
-// call `creatSyncFn` lazily for performance, it is already cached inside, related #323
-const lazyRemark = {
-  get processSync() {
-    return createSyncFn(workerPath) as (
-      fileOptions: VFileOptions,
-      physicalFilename: string,
-      isMdx: boolean,
-      ignoreRemarkConfig: boolean,
-    ) => {
-      messages: VFile['messages']
-      content: string
-    }
-  },
-}
-
-const brokenCache = new WeakMap<FrozenProcessor, true>()
 
 export const remark: Rule.RuleModule = {
   meta: {
@@ -71,61 +47,18 @@ export const remark: Rule.RuleModule = {
         const physicalFilename = getPhysicalFilename(filename)
 
         const sourceText = sourceCode.getText(node)
-        const remarkProcessor = getRemarkProcessor(
+
+        const { messages, content: fixedText } = performSyncWork({
+          fileOptions: {
+            path: physicalFilename,
+            value: sourceText,
+            cwd: context.getCwd(),
+          },
           physicalFilename,
           isMdx,
+          process: true,
           ignoreRemarkConfig,
-        )
-
-        const fileOptions = {
-          path: physicalFilename,
-          contents: sourceText,
-        }
-
-        const file = vfile(fileOptions)
-        let fixedText: string
-
-        let broken = brokenCache.get(remarkProcessor)
-
-        if (broken) {
-          const { messages, content } = lazyRemark.processSync(
-            fileOptions,
-            physicalFilename,
-            isMdx,
-            ignoreRemarkConfig,
-          )
-          file.messages = messages
-          fixedText = content
-        } else {
-          try {
-            remarkProcessor.processSync(file)
-          } catch (err) {
-            /* istanbul ignore else */
-            if (
-              (err as Error).message ===
-              '`processSync` finished async. Use `process` instead'
-            ) {
-              brokenCache.set(remarkProcessor, (broken = true))
-              const { messages, content } = lazyRemark.processSync(
-                fileOptions,
-                physicalFilename,
-                isMdx,
-                ignoreRemarkConfig,
-              )
-              file.messages = messages
-              fixedText = content
-            } else if (!file.messages.includes(err as VFileMessage)) {
-              file.message(
-                // @ts-expect-error Error is fine
-                err,
-              ).fatal = true
-            }
-          }
-        }
-
-        if (!broken) {
-          fixedText = file.toString()
-        }
+        })
 
         let fixed = 0
 
@@ -134,8 +67,10 @@ export const remark: Rule.RuleModule = {
           reason,
           ruleId,
           fatal,
-          location: { start, end },
-        } of file.messages) {
+          line,
+          column,
+          position: { start, end },
+        } of messages) {
           // https://github.com/remarkjs/remark-lint/issues/65#issuecomment-220800231
           /* istanbul ignore next */
           const severity = fatal ? 2 : fatal == null ? 0 : 1
@@ -144,6 +79,7 @@ export const remark: Rule.RuleModule = {
             // should never happen, just for robustness
             continue
           }
+
           const message: RemarkLintMessage = {
             reason,
             source,
@@ -154,7 +90,9 @@ export const remark: Rule.RuleModule = {
             // related to https://github.com/eslint/eslint/issues/14198
             message: JSON.stringify(message),
             loc: {
+              line,
               // ! eslint ast column is 0-indexed, but unified is 1-indexed
+              column: column - 1,
               start: {
                 ...start,
                 column: start.column - 1,
