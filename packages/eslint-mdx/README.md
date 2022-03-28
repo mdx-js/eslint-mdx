@@ -137,8 +137,6 @@ If you want to disable or change severity of some related rules, it won't work b
 }
 ```
 
-Some plugins are ESM and eslint don't supports them. So, a workaround is to set `ignoreRemarkConfig` to `true` and execute `remark-lint` through the terminal before running eslint. For example: `remark **/*.mdx --no-stdout && eslint . --fix --ext .mdx`.
-
 ## Prettier Integration
 
 If you're using [remark-lint][] feature with [Prettier][] both together, you can try [remark-preset-prettier][] which helps you to _turn off all rules that are unnecessary or might conflict with [Prettier][]_.
