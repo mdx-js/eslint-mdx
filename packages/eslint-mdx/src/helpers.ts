@@ -92,33 +92,40 @@ export const loadEsmModule = <T>(modulePath: URL | string): Promise<T> =>
     modulePath,
   ) as Promise<T>
 
-export const shouldTryEsm = (err: unknown) =>
-  (err as { code: string }).code === 'ERR_REQUIRE_ESM' ||
-  // for jest
-  (err as Error).message === 'Cannot use import statement outside a module'
-
 /**
  * Loads CJS and ESM modules based on extension
  * @param modulePath path to the module
  * @returns
  */
 export const loadModule = async <T>(modulePath: string): Promise<T> => {
-  // The file could be either CommonJS or ESM.
-  // CommonJS is tried first then ESM if loading fails.
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-return
-    return require(modulePath)
-  } catch (err) {
-    /* istanbul ignore if */
-    if (shouldTryEsm(err)) {
-      // Load the ESM configuration file using the TypeScript dynamic import workaround.
-      // Once TypeScript provides support for keeping the dynamic import this workaround can be
-      // changed to a direct dynamic import.
-      /* istanbul ignore next */
+  switch (path.extname(modulePath)) {
+    /* istanbul ignore next */
+    case '.mjs': {
       return (await loadEsmModule<{ default: T }>(modulePath)).default
     }
+    /* istanbul ignore next */
+    case '.cjs': {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-return
+      return require(modulePath)
+    }
+    default: {
+      // The file could be either CommonJS or ESM.
+      // CommonJS is tried first then ESM if loading fails.
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-return
+        return require(modulePath)
+      } catch (err) {
+        /* istanbul ignore if */
+        if ((err as { code: string }).code === 'ERR_REQUIRE_ESM') {
+          // Load the ESM configuration file using the TypeScript dynamic import workaround.
+          // Once TypeScript provides support for keeping the dynamic import this workaround can be
+          // changed to a direct dynamic import.
+          return (await loadEsmModule<{ default: T }>(modulePath)).default
+        }
 
-    throw err
+        throw err
+      }
+    }
   }
 }
 
@@ -127,16 +134,18 @@ export const requirePkg = async <T>(
   prefix: string,
   filePath?: string,
 ): Promise<T> => {
+  let packages: string[]
   if (filePath && /^\.\.?([/\\]|$)/.test(plugin)) {
-    plugin = path.resolve(path.dirname(filePath), plugin)
+    packages = [path.resolve(path.dirname(filePath), plugin)]
+  } else {
+    prefix = prefix.endsWith('-') ? prefix : prefix + '-'
+    packages = [
+      plugin,
+      plugin.startsWith('@')
+        ? plugin.replace('/', '/' + prefix)
+        : prefix + plugin,
+    ]
   }
-  prefix = prefix.endsWith('-') ? prefix : prefix + '-'
-  const packages = [
-    plugin,
-    plugin.startsWith('@')
-      ? plugin.replace('/', '/' + prefix)
-      : prefix + plugin,
-  ]
   let error: Error
   for (const pkg of packages) {
     try {

@@ -44,7 +44,10 @@ const getCli = (lintCodeBlocks = false) =>
 
 describe('fixtures', () => {
   it('should match all snapshots', async () => {
-    const results = await getCli().lintFiles('test/fixtures/*')
+    const results = await getCli().lintFiles([
+      'test/fixtures/*',
+      'test/fixtures/**/*{md,mdx}',
+    ])
     for (const { filePath, messages } of results) {
       expect(messages).toMatchSnapshot(path.basename(filePath))
     }

@@ -415,6 +415,8 @@ exports[`fixtures should match all snapshots: leading-spaces.mdx 1`] = `Array []
 
 exports[`fixtures should match all snapshots: markdown.md 1`] = `Array []`;
 
+exports[`fixtures should match all snapshots: nested.md 1`] = `Array []`;
+
 exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `Array []`;
 
 exports[`fixtures should match all snapshots: processor.mdx 1`] = `
