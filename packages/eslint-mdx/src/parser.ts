@@ -70,7 +70,7 @@ export class Parser {
 
     const physicalFilename = getPhysicalFilename(options.filePath)
 
-    const { root, tokens } = performSyncWork({
+    const { root, tokens, comments } = performSyncWork({
       fileOptions: {
         path: physicalFilename,
         value: code,
@@ -85,7 +85,7 @@ export class Parser {
       type: 'Program',
       sourceType: options.sourceType,
       body: [],
-      comments: [],
+      comments,
       tokens,
     }
 

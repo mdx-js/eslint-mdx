@@ -1,9 +1,13 @@
 /* eslint-disable @typescript-eslint/consistent-type-imports */
 /* eslint-disable unicorn/no-await-expression-member */
-import type { Token } from 'acorn'
+import path from 'path'
+
+import type { Comment, Token } from 'acorn'
 import { cosmiconfig } from 'cosmiconfig'
 import type { CosmiconfigResult } from 'cosmiconfig/dist/types'
 import type { AST } from 'eslint'
+import type { EsprimaToken } from 'espree/lib/token-translator'
+import type { Comment as EsComment } from 'estree'
 import type { Options } from 'micromark-extension-mdx-expression'
 import { runAsWorker } from 'synckit'
 import type { FrozenProcessor } from 'unified'
@@ -18,30 +22,40 @@ import type {
   WorkerResult,
 } from './types'
 
+let acorn: typeof import('acorn')
+let tokTypes: typeof import('acorn')['tokTypes']
+let jsxTokTypes: Record<string, import('acorn').TokenType>
+let TokenTranslator: typeof import('espree/lib/token-translator')['default']
+
 const explorer = cosmiconfig('remark', {
   packageProp: 'remarkConfig',
 })
 
 export const processorCache = new Map<string, FrozenProcessor>()
 
-const getRemarkMdxOptions = (tokens: Token[]): Options => ({
+const getRemarkMdxOptions = (
+  tokens: Token[],
+  comments: Comment[],
+): Options => ({
   acornOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
     locations: true,
     ranges: true,
     onToken: tokens,
+    onComment: comments,
   },
 })
 
+const sharedTokens: Token[] = []
+const sharedComments: Comment[] = []
+
 export const getRemarkProcessor = async (
   searchFrom: string,
+  isMdx: boolean,
   ignoreRemarkConfig?: boolean,
-  tokens?: Token[],
   // eslint-disable-next-line sonarjs/cognitive-complexity
 ) => {
-  const isMdx = !!tokens
-
   const initCacheKey = `${String(isMdx)}-${searchFrom}`
 
   let cachedProcessor = processorCache.get(initCacheKey)
@@ -97,7 +111,10 @@ export const getRemarkProcessor = async (
       .use(remarkStringify)
 
     if (isMdx) {
-      initProcessor.use(remarkMdx, getRemarkMdxOptions(tokens))
+      initProcessor.use(
+        remarkMdx,
+        getRemarkMdxOptions(sharedTokens, sharedComments),
+      )
     }
 
     cachedProcessor = (
@@ -119,7 +136,10 @@ export const getRemarkProcessor = async (
     const initProcessor = remarkProcessor().use(remarkStringify)
 
     if (isMdx) {
-      initProcessor.use(remarkMdx, getRemarkMdxOptions(tokens))
+      initProcessor.use(
+        remarkMdx,
+        getRemarkMdxOptions(sharedTokens, sharedComments),
+      )
     }
 
     cachedProcessor = initProcessor.freeze()
@@ -140,12 +160,13 @@ runAsWorker(
     process,
     ignoreRemarkConfig,
   }: WorkerOptions): Promise<WorkerResult> => {
-    const tokens: Token[] = []
+    sharedTokens.length = 0
+    sharedComments.length = 0
 
     const processor = await getRemarkProcessor(
       physicalFilename,
+      isMdx,
       ignoreRemarkConfig,
-      isMdx ? tokens : undefined,
     )
 
     if (process) {
@@ -168,12 +189,68 @@ runAsWorker(
       }
     }
 
+    /**
+     * unified plugins are using ESM version of acorn,
+     * so we have to use the same version as well,
+     * otherwise the TokenType will be different class
+     * @see also https://github.com/acornjs/acorn-jsx/issues/133
+     */
+    if (!acorn) {
+      acorn = await loadEsmModule<typeof import('acorn')>('acorn')
+    }
+
+    if (!tokTypes) {
+      tokTypes = acorn.tokTypes
+    }
+
+    if (!jsxTokTypes) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+      jsxTokTypes = (
+        await loadEsmModule<{ default: typeof import('acorn-jsx') }>(
+          'acorn-jsx',
+        )
+      ).default(
+        {
+          allowNamespacedObjects: true,
+        },
+        // @ts-expect-error
+      )(acorn.Parser).acornJsx.tokTypes
+    }
+
+    if (!TokenTranslator) {
+      TokenTranslator = (
+        await loadEsmModule<typeof import('espree/lib/token-translator')>(
+          path.resolve(
+            require.resolve('espree/package.json'),
+            '../lib/token-translator.js',
+          ),
+        )
+      ).default
+    }
+
+    const tokenTranslator = new TokenTranslator(
+      {
+        ...tokTypes,
+        ...jsxTokTypes,
+      },
+      fileOptions.value as string,
+    )
+
+    const root = processor.parse(fileOptions) as Parent
+
+    const tokens: AST.Token[] = []
+
+    for (const token of sharedTokens) {
+      tokenTranslator.onToken(token, {
+        ecmaVersion: 13,
+        tokens: tokens as EsprimaToken[],
+      })
+    }
+
     return {
-      root: processor.parse(fileOptions) as Parent,
-      tokens: tokens.map(token => ({
-        ...token,
-        type: token.type.keyword,
-      })) as AST.Token[],
+      root,
+      tokens,
+      comments: sharedComments as EsComment[],
     }
   },
 )

@@ -1,5 +1,5 @@
 import type { AST, Linter } from 'eslint'
-import type { Program } from 'estree'
+import type { Comment, Program } from 'estree'
 import type { Plugin } from 'unified'
 import type { Node, Parent } from 'unist'
 import type { VFileOptions } from 'vfile'
@@ -42,7 +42,7 @@ export type Traverser = (node: Node, parent?: Parent) => void
 
 export interface MdxNode extends Node {
   type: MdxNodeType
-  data: {
+  data?: {
     estree: Program
   }
 }
@@ -65,6 +65,7 @@ export interface WorkerOptions {
 export interface WorkerParseResult {
   root: Parent
   tokens: AST.Token[]
+  comments: Comment[]
 }
 
 export interface WorkerProcessResult {
