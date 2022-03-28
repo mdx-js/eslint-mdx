@@ -157,6 +157,31 @@ exports[`fixtures should match all snapshots: 334.mdx 1`] = `Array []`;
 
 exports[`fixtures should match all snapshots: 336.mdx 1`] = `Array []`;
 
+exports[`fixtures should match all snapshots: 367.mdx 1`] = `Array []`;
+
+exports[`fixtures should match all snapshots: 371.mdx 1`] = `
+Array [
+  Object {
+    "column": 13,
+    "endColumn": 14,
+    "endLine": 7,
+    "fix": Object {
+      "range": Array [
+        59,
+        60,
+      ],
+      "text": "",
+    },
+    "line": 7,
+    "message": "Delete \`;\`",
+    "messageId": "delete",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+]
+`;
+
 exports[`fixtures should match all snapshots: adjacent.mdx 1`] = `
 Array [
   Object {
