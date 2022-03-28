@@ -4,6 +4,12 @@ module.exports = {
   rules: {
     // `strictNullChecks` is required
     '@typescript-eslint/no-unnecessary-condition': 0,
+    'unicorn/prefer-export-from': [
+      2,
+      {
+        ignoreUsedVariables: true,
+      },
+    ],
   },
   overrides: [
     {

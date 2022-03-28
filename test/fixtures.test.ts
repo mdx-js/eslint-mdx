@@ -5,18 +5,22 @@ import { ESLint } from 'eslint'
 const getCli = (lintCodeBlocks = false) =>
   new ESLint({
     ignore: false,
-    fix: true,
     useEslintrc: false,
     baseConfig: {
       parserOptions: {
         ecmaVersion: 2020,
         sourceType: 'module',
       },
-      extends: ['plugin:mdx/recommended'],
-      plugins: ['react', 'unicorn', 'prettier'],
-      rules: {
-        'react/no-unescaped-entities': 1,
-        'unicorn/prefer-spread': 2,
+      extends: [
+        'plugin:react/recommended',
+        'plugin:unicorn/recommended',
+        'plugin:prettier/recommended',
+        'plugin:mdx/recommended',
+      ],
+      settings: {
+        react: {
+          version: 'detect',
+        },
       },
       overrides: lintCodeBlocks
         ? [
@@ -40,7 +44,10 @@ const getCli = (lintCodeBlocks = false) =>
 
 describe('fixtures', () => {
   it('should match all snapshots', async () => {
-    const results = await getCli().lintFiles('test/fixtures/*.{md,mdx}')
+    const results = await getCli().lintFiles([
+      'test/fixtures/*',
+      'test/fixtures/**/*{md,mdx}',
+    ])
     for (const { filePath, messages } of results) {
       expect(messages).toMatchSnapshot(path.basename(filePath))
     }

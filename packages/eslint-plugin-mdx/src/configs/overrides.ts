@@ -21,7 +21,6 @@ export const overrides: Linter.Config = {
     isReactPluginAvailable ? 'react' : null,
   ),
   rules: {
-    'lines-between-class-members': 0, // See https://github.com/mdx-js/mdx/issues/195
     'react/jsx-no-undef':
       /* istanbul ignore next */
       isReactPluginAvailable

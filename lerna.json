@@ -13,8 +13,8 @@
   "command": {
     "version": {
       "allowBranch": [
-        "develop",
-        "master"
+        "master",
+        "next"
       ]
     },
     "publish": {

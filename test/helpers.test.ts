@@ -1,6 +1,6 @@
 import path from 'path'
 
-import { arrayify, getPositionAt, requirePkg } from 'eslint-mdx'
+import { arrayify, requirePkg } from 'eslint-mdx'
 import { getGlobals, getShortLang } from 'eslint-plugin-mdx'
 
 describe('Helpers', () => {
@@ -18,19 +18,6 @@ describe('Helpers', () => {
     expect(getShortLang('4.Markdown', { markdown: 'mkdn' })).toBe('mkdn')
   })
 
-  it('should get correct loc range range', () => {
-    const code = `
-# Header
-
-- jsx in list <div>
-    <a href="link">content</a>
-  </div>
-    `.trim()
-    expect(getPositionAt(code, code.indexOf('Header'))).toMatchSnapshot()
-    expect(getPositionAt(code, code.indexOf('link'))).toMatchSnapshot()
-    expect(getPositionAt(code, code.indexOf('content'))).toMatchSnapshot()
-  })
-
   it('should resolve globals correctly', () => {
     expect(getGlobals({})).toEqual({})
     expect(getGlobals(['a', 'b'])).toEqual({
@@ -39,15 +26,25 @@ describe('Helpers', () => {
     })
   })
 
-  it('should resolve package correctly', () => {
-    expect(requirePkg('@1stg/config', 'commitlint')).toBeDefined()
-    expect(requirePkg('lint', 'remark')).toBeDefined()
-    expect(requirePkg('remark-parse', 'non existed')).toBeDefined()
+  it('should resolve package correctly', async () => {
+    expect(await requirePkg('@1stg/config', 'commitlint')).toBeDefined()
+    // expect(await requirePkg('lint', 'remark')).toBeDefined()
+    // expect(await requirePkg('remark-parse', 'non-existed')).toBeDefined()
     expect(
-      requirePkg('./.eslintrc', 'non existed', path.resolve('package.json')),
+      await requirePkg(
+        './.eslintrc',
+        'non-existed',
+        path.resolve('package.json'),
+      ),
     ).toBeDefined()
   })
 
-  it('should throw on non existed package', () =>
-    expect(() => requirePkg('@1stg/config', 'unexpected-')).toThrow())
+  it('should throw on non existed package', async () => {
+    try {
+      await requirePkg('@1stg/config', 'unexpected-')
+    } catch (err) {
+      // eslint-disable-next-line jest/no-conditional-expect
+      expect(err).toBeDefined()
+    }
+  })
 })

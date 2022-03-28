@@ -14,5 +14,9 @@ This project is a [lerna][] monorepo, so packages releasing is controlled by [le
 2. You need a GitHub token with a `public_repo` scope as `GH_TOKEN` in the environment to publish
 3. Run `yarn release` simply, or `GH_TOKEN=xxx yarn release` to export `GH_TOKEN` at one time.
 
+### Release a bete next version
+
+Run `yarn release-next`
+
 [contributing]: https://mdxjs.com/contributing
 [lerna]: https://github.com/lerna/lerna

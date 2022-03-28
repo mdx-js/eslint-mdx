@@ -11,6 +11,8 @@
     [
       "lint-strong-marker",
       "*"
-    ]
+    ],
+    "./plugin1.cjs",
+    "./plugin2.mjs"
   ]
 }

@@ -1,14 +1,12 @@
 import { homedir } from 'os'
 import path from 'path'
 
-import { parser, ruleTester } from './helpers'
-
 import {
+  parser,
+  ruleTester,
   DEFAULT_PARSER_OPTIONS as parserOptions,
-  // eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error
-  // @ts-ignore
-  processorCache,
-} from 'eslint-mdx'
+} from './helpers'
+
 import { remark } from 'eslint-plugin-mdx'
 
 const userDir = homedir()
@@ -43,11 +41,7 @@ ruleTester.run('remark', remark, {
       code: '<header>Header5</header>',
       parser,
       parserOptions,
-      // dark hack
-      get filename() {
-        processorCache.clear()
-        return path.resolve(userDir, '../test.md')
-      },
+      filename: path.resolve(userDir, '../test.md'),
     },
     {
       code: '<header>Header6</header>',
