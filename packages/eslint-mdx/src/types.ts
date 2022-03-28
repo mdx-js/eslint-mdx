@@ -17,24 +17,10 @@ export declare type ValueOf<T> = T extends {
   ? N
   : never
 
-export type ParserFn = (
-  code: string,
-  options: Linter.ParserOptions,
-) => AST.Program | Linter.ESLintParseResult
-
-export type ParserConfig =
-  | {
-      parse: ParserFn
-    }
-  | {
-      parseForESLint: ParserFn
-    }
-
 export interface ParserOptions extends Linter.ParserOptions {
   extensions?: string[] | string
   markdownExtensions?: string[] | string
   filePath?: string
-  parser?: ParserConfig | ParserFn | string
   ignoreRemarkConfig?: boolean
 }
 

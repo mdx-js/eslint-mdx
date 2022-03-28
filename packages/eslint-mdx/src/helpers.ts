@@ -1,15 +1,12 @@
 /* eslint-disable unicorn/no-await-expression-member */
 import path from 'path'
 
-import type { Linter } from 'eslint'
 import type { SourceLocation } from 'estree'
 import { createSyncFn } from 'synckit'
 import type { Node, Position } from 'unist'
 
 import type {
   MdxNode,
-  ParserFn,
-  ParserOptions,
   ValueOf,
   WorkerOptions,
   WorkerParseResult,
@@ -43,63 +40,6 @@ export const MDX_NODE_TYPES = [
 
 export const isMdxNode = (node: Node): node is MdxNode =>
   MDX_NODE_TYPES.includes(node.type as MdxNodeType)
-
-export const parsersCache = new Map<ParserOptions['parser'], ParserFn[]>()
-
-// eslint-disable-next-line sonarjs/cognitive-complexity
-export const normalizeParser = (parser?: ParserOptions['parser']) => {
-  if (parsersCache.has(parser)) {
-    return parsersCache.get(parser)
-  }
-
-  if (parser) {
-    const originalParser = parser
-
-    if (typeof parser === 'string') {
-      // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
-      parser = require(parser) as ParserOptions['parser']
-    }
-
-    if (typeof parser === 'object') {
-      parser =
-        ('parseForESLint' in parser && parser.parseForESLint) ||
-        ('parse' in parser && parser.parse)
-    }
-
-    if (typeof parser !== 'function') {
-      throw new TypeError(`Invalid custom parser for \`eslint-mdx\`: ${parser}`)
-    }
-
-    const parsers = [parser]
-    parsersCache.set(originalParser, parsers)
-    return parsers
-  }
-
-  const parsers: ParserFn[] = []
-
-  // try to load FALLBACK_PARSERS automatically
-  for (const fallback of FALLBACK_PARSERS) {
-    try {
-      // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
-      const fallbackParser = require(fallback) as Linter.ParserModule
-      /* istanbul ignore next */
-      const parserFn =
-        'parseForESLint' in fallbackParser
-          ? // eslint-disable-next-line @typescript-eslint/unbound-method
-            fallbackParser.parseForESLint
-          : // eslint-disable-next-line @typescript-eslint/unbound-method
-            fallbackParser.parse
-      /* istanbul ignore else */
-      if (parserFn) {
-        parsers.push(parserFn)
-      }
-    } catch {}
-  }
-
-  parsersCache.set(parser, parsers)
-
-  return parsers
-}
 
 export interface BaseNode {
   type: string

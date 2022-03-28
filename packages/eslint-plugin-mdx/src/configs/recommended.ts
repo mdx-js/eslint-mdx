@@ -2,22 +2,13 @@ import type { Linter } from 'eslint'
 
 import { base } from './base'
 
-export const recommended: Linter.Config = {
-  ...base,
-  rules: {
-    'mdx/remark': 1,
-    'no-unused-expressions': 2,
-  },
-}
+export const recommended: Linter.Config = {}
 
-const overrides: Array<{
-  files: string[] | string
-  extends?: string[] | string
-  rules?: Record<string, number | [number, unknown]>
-}> = [
+const overrides: Linter.ConfigOverride[] = [
   {
-    files: '*.mdx',
+    files: ['*.md', '*.mdx'],
     extends: 'plugin:mdx/overrides',
+    ...base,
   },
   {
     files: '**/*.{md,mdx}/**',

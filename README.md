@@ -95,22 +95,11 @@ See [#251](https://github.com/mdx-js/eslint-mdx/issues/251#issuecomment-73613922
 
 ## Parser Options
 
-1. `parser` (`string | ParserConfig | ParserFn`): Custom parser for ES syntax is supported, although `@typescript-eslint/parser` or `@babel/eslint-parser` or `babel-eslint` will be detected automatically what means you actually do not need to do this:
+1. `extensions` (`string | string[]`): `eslint-mdx` will only resolve `.mdx` files by default, if you want to resolve other extensions as like `.mdx`, you can use this option.
 
-   ```json
-   {
-     "extends": ["plugin:mdx/recommended"],
-     "parserOptions": {
-       "parser": "babel-eslint"
-     }
-   }
-   ```
+2. `markdownExtensions` (`string | string[]`): `eslint-mdx` will only treat `.md` files as plain markdown by default, and will lint them via remark plugins. If you want to resolve other extensions as like `.md`, you can use this option.
 
-2. `extensions` (`string | string[]`): `eslint-mdx` will only resolve `.mdx` files by default, files with other extensions will be resolved by the `parser` option. If you want to resolve other extensions as like `.mdx`, you can use this option.
-
-3. `markdownExtensions` (`string | string[]`): `eslint-mdx` will only treat `.md` files as plain markdown by default, and will lint them via remark plugins. If you want to resolve other extensions as like `.md`, you can use this option.
-
-4. `ignoreRemarkConfig` (`boolean`): Ignore the `remark` configuration defined in the project.
+3. `ignoreRemarkConfig` (`boolean`): Ignore the `remark` configuration defined in the project.
 
 ## Rules
 

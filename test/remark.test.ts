@@ -1,9 +1,12 @@
 import { homedir } from 'os'
 import path from 'path'
 
-import { parser, ruleTester } from './helpers'
+import {
+  parser,
+  ruleTester,
+  DEFAULT_PARSER_OPTIONS as parserOptions,
+} from './helpers'
 
-import { DEFAULT_PARSER_OPTIONS as parserOptions } from 'eslint-mdx'
 import { remark } from 'eslint-plugin-mdx'
 
 const userDir = homedir()

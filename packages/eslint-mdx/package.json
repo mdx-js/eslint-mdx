@@ -11,7 +11,7 @@
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
   "engines": {
-    "node": ">=12"
+    "node": ">=12.20"
   },
   "main": "lib/index.js",
   "module": "lib/index.es2015.mjs",
