@@ -16,7 +16,7 @@ This project is a [lerna][] monorepo, so packages releasing is controlled by [le
 
 ### Release a bete next version
 
-Run `yarn release-next`
+Run `yarn build && yarn release-next`
 
 [contributing]: https://mdxjs.com/contributing
 [lerna]: https://github.com/lerna/lerna

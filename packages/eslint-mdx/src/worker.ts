@@ -9,7 +9,7 @@ import type { AST } from 'eslint'
 import type { EsprimaToken } from 'espree/lib/token-translator'
 import type { Comment as EsComment } from 'estree'
 import type { Options } from 'micromark-extension-mdx-expression'
-import { runAsWorker } from 'synckit'
+import { extractProperties, runAsWorker } from 'synckit'
 import type { FrozenProcessor } from 'unified'
 import type { Parent } from 'unist'
 import type { VFileMessage } from 'vfile-message'
@@ -184,7 +184,7 @@ runAsWorker(
       }
 
       return {
-        messages: JSON.parse(JSON.stringify(file.messages)) as VFileMessage[],
+        messages: file.messages.map(message => extractProperties(message)),
         content: file.toString(),
       }
     }

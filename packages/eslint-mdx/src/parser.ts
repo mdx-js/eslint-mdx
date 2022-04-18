@@ -1,6 +1,7 @@
 import path from 'path'
 
 import type { AST, Linter } from 'eslint'
+import type { VFileMessage } from 'vfile-message'
 
 import {
   arrayify,
@@ -10,9 +11,13 @@ import {
 } from './helpers'
 import { getPhysicalFilename } from './processor'
 import { traverse } from './traverse'
-import type { ParserOptions } from './types'
+import type { ParserOptions, WorkerParseResult } from './types'
 
-export const AST_PROPS = ['body', 'comments'] as const
+export const AST_PROPS = [
+  'body',
+  // disable comments temporarily -- #380
+  // 'comments'
+] as const
 
 export const DEFAULT_EXTENSIONS: readonly string[] = ['.mdx']
 export const MARKDOWN_EXTENSIONS: readonly string[] = ['.md']
@@ -59,15 +64,28 @@ export class Parser {
 
     const physicalFilename = getPhysicalFilename(filePath)
 
-    const { root, tokens, comments } = performSyncWork({
-      fileOptions: {
-        path: physicalFilename,
-        value: code,
-      },
-      physicalFilename,
-      isMdx,
-      ignoreRemarkConfig: ignoreRemarkConfig,
-    })
+    let result: WorkerParseResult
+
+    try {
+      result = performSyncWork({
+        fileOptions: {
+          path: physicalFilename,
+          value: code,
+        },
+        physicalFilename,
+        isMdx,
+        ignoreRemarkConfig: ignoreRemarkConfig,
+      })
+    } catch (err: unknown) {
+      const error = err as VFileMessage
+      throw Object.assign(new SyntaxError(error.message), {
+        lineNumber: error.line,
+        column: error.column,
+        index: /* istanbul ignore next */ error.position?.start.offset,
+      })
+    }
+
+    const { root, tokens, comments } = result
 
     this._ast = {
       ...normalizePosition(root.position),
@@ -85,7 +103,6 @@ export class Parser {
         }
 
         for (const prop of AST_PROPS) {
-          // @ts-expect-error
           this._ast[prop].push(...(node.data?.estree[prop] || []))
         }
       })

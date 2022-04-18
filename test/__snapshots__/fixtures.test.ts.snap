@@ -151,7 +151,31 @@ import React from 'react'
 
 exports[`fixtures should match all snapshots: 287.mdx 1`] = `Array []`;
 
-exports[`fixtures should match all snapshots: 292.mdx 1`] = `Array []`;
+exports[`fixtures should match all snapshots: 292.mdx 1`] = `
+Array [
+  Object {
+    "column": 9,
+    "endColumn": 58,
+    "endLine": 5,
+    "fix": Object {
+      "range": Array [
+        64,
+        113,
+      ],
+      "text": "
+      kind=\\"docs-packages-vuetify-preset\\"
+      story=\\"page\\"
+    ",
+    },
+    "line": 5,
+    "message": "Replace \`·kind=\\"docs-packages-vuetify-preset\\"·story=\\"page\\"\` with \`⏎······kind=\\"docs-packages-vuetify-preset\\"⏎······story=\\"page\\"⏎····\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+]
+`;
 
 exports[`fixtures should match all snapshots: 334.mdx 1`] = `Array []`;
 
@@ -177,6 +201,19 @@ Array [
     "messageId": "delete",
     "nodeType": null,
     "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+]
+`;
+
+exports[`fixtures should match all snapshots: acorn.mdx 1`] = `
+Array [
+  Object {
+    "column": 33,
+    "fatal": true,
+    "line": 9,
+    "message": "Parsing error: Unexpected character \`\\\\\` (U+005C) in name, expected a name character such as letters, digits, \`$\`, or \`_\`; whitespace before attributes; or the end of the tag",
+    "ruleId": null,
     "severity": 2,
   },
 ]
@@ -411,9 +448,9 @@ import React from 'react'
 exports[`fixtures should match all snapshots: comments.mdx 1`] = `
 Array [
   Object {
-    "column": undefined,
+    "column": 2,
     "fatal": true,
-    "line": undefined,
+    "line": 2,
     "message": "Parsing error: Unexpected character \`!\` (U+0021) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\` (note: to create a comment in MDX, use \`{/* text */}\`)",
     "ruleId": null,
     "severity": 2,
@@ -424,9 +461,9 @@ Array [
 exports[`fixtures should match all snapshots: details.mdx 1`] = `
 Array [
   Object {
-    "column": undefined,
+    "column": 1,
     "fatal": true,
-    "line": undefined,
+    "line": 1,
     "message": "Parsing error: Expected a closing tag for \`</summary>\` (1:1-1:10) before the end of \`paragraph\`",
     "ruleId": null,
     "severity": 2,
@@ -434,7 +471,136 @@ Array [
 ]
 `;
 
-exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `Array []`;
+exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
+Array [
+  Object {
+    "column": 9,
+    "endColumn": 58,
+    "endLine": 1,
+    "fix": Object {
+      "range": Array [
+        8,
+        57,
+      ],
+      "text": "
+      kind=\\"docs-packages-vuetify-preset\\"
+      story=\\"page\\"
+    ",
+    },
+    "line": 1,
+    "message": "Replace \`·kind=\\"docs-packages-vuetify-preset\\"·story=\\"page\\"\` with \`⏎······kind=\\"docs-packages-vuetify-preset\\"⏎······story=\\"page\\"⏎····\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  Object {
+    "column": 9,
+    "endColumn": 58,
+    "endLine": 5,
+    "fix": Object {
+      "range": Array [
+        143,
+        192,
+      ],
+      "text": "
+      kind=\\"docs-packages-vuetify-preset\\"
+      story=\\"page\\"
+    ",
+    },
+    "line": 5,
+    "message": "Replace \`·kind=\\"docs-packages-vuetify-preset\\"·story=\\"page\\"\` with \`⏎······kind=\\"docs-packages-vuetify-preset\\"⏎······story=\\"page\\"⏎····\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  Object {
+    "column": 9,
+    "endColumn": 58,
+    "endLine": 9,
+    "fix": Object {
+      "range": Array [
+        278,
+        327,
+      ],
+      "text": "
+      kind=\\"docs-packages-vuetify-preset\\"
+      story=\\"page\\"
+    ",
+    },
+    "line": 9,
+    "message": "Replace \`·kind=\\"docs-packages-vuetify-preset\\"·story=\\"page\\"\` with \`⏎······kind=\\"docs-packages-vuetify-preset\\"⏎······story=\\"page\\"⏎····\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  Object {
+    "column": 9,
+    "endColumn": 58,
+    "endLine": 13,
+    "fix": Object {
+      "range": Array [
+        413,
+        462,
+      ],
+      "text": "
+      kind=\\"docs-packages-vuetify-preset\\"
+      story=\\"page\\"
+    ",
+    },
+    "line": 13,
+    "message": "Replace \`·kind=\\"docs-packages-vuetify-preset\\"·story=\\"page\\"\` with \`⏎······kind=\\"docs-packages-vuetify-preset\\"⏎······story=\\"page\\"⏎····\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  Object {
+    "column": 9,
+    "endColumn": 58,
+    "endLine": 17,
+    "fix": Object {
+      "range": Array [
+        548,
+        597,
+      ],
+      "text": "
+      kind=\\"docs-packages-vuetify-preset\\"
+      story=\\"page\\"
+    ",
+    },
+    "line": 17,
+    "message": "Replace \`·kind=\\"docs-packages-vuetify-preset\\"·story=\\"page\\"\` with \`⏎······kind=\\"docs-packages-vuetify-preset\\"⏎······story=\\"page\\"⏎····\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  Object {
+    "column": 9,
+    "endColumn": 58,
+    "endLine": 21,
+    "fix": Object {
+      "range": Array [
+        683,
+        732,
+      ],
+      "text": "
+      kind=\\"docs-packages-vuetify-preset\\"
+      story=\\"page\\"
+    ",
+    },
+    "line": 21,
+    "message": "Replace \`·kind=\\"docs-packages-vuetify-preset\\"·story=\\"page\\"\` with \`⏎······kind=\\"docs-packages-vuetify-preset\\"⏎······story=\\"page\\"⏎····\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+]
+`;
 
 exports[`fixtures should match all snapshots: leading-spaces.mdx 1`] = `Array []`;
 
@@ -474,12 +640,28 @@ exports[`fixtures should match all snapshots: remark.md 1`] = `Array []`;
 exports[`fixtures should match all snapshots: remark.mdx 1`] = `
 Array [
   Object {
-    "column": undefined,
-    "fatal": true,
-    "line": undefined,
-    "message": "Parsing error: Unexpected character \`!\` (U+0021) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\` (note: to create a comment in MDX, use \`{/* text */}\`)",
-    "ruleId": null,
-    "severity": 2,
+    "column": 30,
+    "endColumn": 93,
+    "endLine": 7,
+    "fix": Object {
+      "range": Array [
+        0,
+        169,
+      ],
+      "text": "_Hello_, **world**!
+
+### Code Splitting
+
+{/* eslint-disable mdx/remark */}
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+",
+    },
+    "line": 7,
+    "message": "Don’t use literal URLs without angle brackets",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-literal-urls",
+    "severity": 1,
   },
 ]
 `;
