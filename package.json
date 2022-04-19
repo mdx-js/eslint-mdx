@@ -30,19 +30,13 @@
     "@types/eslint": "^8.4.1",
     "@types/eslint-plugin-markdown": "^2.0.0",
     "@types/jest": "^27.4.1",
-    "@types/node": "^17.0.23",
-    "@types/react": "^17.0.43",
+    "@types/node": "^17.0.25",
+    "@types/react": "^18.0.5",
     "@types/unist": "^2.0.6",
     "lerna": "^4.0.0",
+    "patch-package": "^6.4.7",
     "react": "^18.0.0",
     "remark-frontmatter": "4.0.1",
-    "remark-gfm": "^3.0.1",
-    "remark-lint": "^9.1.1",
-    "remark-preset-lint-consistent": "^5.1.1",
-    "remark-preset-lint-markdown-style-guide": "^5.1.2",
-    "remark-preset-lint-recommended": "^6.1.2",
-    "remark-preset-prettier": "^1.0.0",
-    "remark-validate-links": "^11.0.2",
     "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0",
     "type-coverage": "^2.21.1",
@@ -85,19 +79,9 @@
   },
   "prettier": "@1stg/prettier-config",
   "remarkConfig": {
-    "settings": {
-      "emphasis": "_",
-      "strong": "*"
-    },
     "plugins": [
-      "frontmatter",
-      "lint",
-      "preset-lint-consistent",
-      "preset-lint-markdown-style-guide",
-      "preset-lint-recommended",
-      "preset-prettier",
-      "gfm",
-      "validate-links"
+      "@1stg/config",
+      "frontmatter"
     ]
   },
   "renovate": {
