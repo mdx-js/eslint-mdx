@@ -79,14 +79,14 @@ export class Parser {
       })
     }
 
-    const { root, tokens, comments } = result
+    const { root, tokens } = result
 
     this._ast = {
       ...normalizePosition(root.position),
       type: 'Program',
       sourceType,
       body: [],
-      comments,
+      comments: [],
       tokens,
     }
 
@@ -96,7 +96,10 @@ export class Parser {
           return
         }
 
-        this._ast.body.push(...(node.data?.estree.body || []))
+        const estree = node.data?.estree
+
+        this._ast.body.push(...(estree?.body || []))
+        this._ast.comments.push(...(estree?.comments || []))
       })
     }
 

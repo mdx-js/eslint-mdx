@@ -231,6 +231,30 @@ Array [
     "severity": 2,
   },
   Object {
+    "column": 28,
+    "endColumn": 8,
+    "endLine": 92,
+    "fix": Object {
+      "range": Array [
+        1570,
+        1866,
+      ],
+      "text": "
+        <aui-tab-group [type]=\\"type\\">
+          <aui-tab label=\\"Tab 0\\"><aui-card> Content 1 </aui-card></aui-tab>
+          <aui-tab label=\\"Tab 1\\"><aui-card> Content 2 </aui-card></aui-tab>
+          <aui-tab label=\\"Tab 2\\"><aui-card> Content 3 </aui-card></aui-tab>
+        </aui-tab-group>
+      ",
+    },
+    "line": 86,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
+    "severity": 2,
+  },
+  Object {
     "column": 6,
     "endColumn": 6,
     "endLine": 130,
@@ -239,6 +263,42 @@ Array [
     "messageId": "unusedExpression",
     "nodeType": "ExpressionStatement",
     "ruleId": "no-unused-expressions",
+    "severity": 2,
+  },
+  Object {
+    "column": 28,
+    "endColumn": 8,
+    "endLine": 126,
+    "fix": Object {
+      "range": Array [
+        2053,
+        2797,
+      ],
+      "text": "
+        <aui-form-item>
+          <label auiFormItemLabel>尺寸</label>
+          <aui-radio-group
+            auiFormItemControl
+            [(ngModel)]=\\"size\\"
+            [plain]=\\"false\\"
+          >
+            <aui-radio-button value=\\"large\\">大</aui-radio-button>
+            <aui-radio-button value=\\"medium\\">中</aui-radio-button>
+            <aui-radio-button value=\\"small\\">小</aui-radio-button>
+          </aui-radio-group>
+        </aui-form-item>
+        <aui-tab-group [size]=\\"size\\">
+          <aui-tab label=\\"Tab 0\\"><aui-card> Content 1 </aui-card></aui-tab>
+          <aui-tab label=\\"Tab 1\\"><aui-card> Content 2 </aui-card></aui-tab>
+          <aui-tab label=\\"Tab 2\\"><aui-card> Content 3 </aui-card></aui-tab>
+        </aui-tab-group>
+      ",
+    },
+    "line": 108,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
     "severity": 2,
   },
   Object {
@@ -253,6 +313,43 @@ Array [
     "severity": 2,
   },
   Object {
+    "column": 28,
+    "endColumn": 24,
+    "endLine": 159,
+    "fix": Object {
+      "range": Array [
+        2998,
+        3589,
+      ],
+      "text": "
+        aui-tab-group>
+                <ng-container *auiTabTitle>aa2</ng-container>
+                <aui-tab>
+                  <ng-container *auiTabLabel>
+                    <aui-icon icon=\\"sun\\"></aui-icon>
+                    Custom Label
+                  </ng-container>
+                  <aui-card> Content 1 </aui-card>
+                </aui-tab>
+                <aui-tab label=\\"Tab 1\\"><aui-card>Content 2</aui-card></aui-tab>
+                <aui-tab>
+                  <ng-container *auiTabLabel>
+                    <aui-icon icon=\\"moon\\"></aui-icon>
+                    Custom Label
+                  </ng-container>
+                  <aui-card> Content 3 </aui-card>
+                </aui-tab>
+              </aui-tab-group
+      ",
+    },
+    "line": 142,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
+    "severity": 2,
+  },
+  Object {
     "column": 6,
     "endColumn": 6,
     "endLine": 211,
@@ -261,6 +358,44 @@ Array [
     "messageId": "unusedExpression",
     "nodeType": "ExpressionStatement",
     "ruleId": "no-unused-expressions",
+    "severity": 2,
+  },
+  Object {
+    "column": 28,
+    "endColumn": 8,
+    "endLine": 197,
+    "fix": Object {
+      "range": Array [
+        3825,
+        4386,
+      ],
+      "text": "
+        <aui-tab-group>
+          <aui-tab
+            *ngFor=\\"let tab of tabs; index as i; count as len\\"
+            [closeable]=\\"len > 1\\"
+            [label]=\\"'tab' + tab\\"
+            (close)=\\"remove(i)\\"
+          >
+            <aui-card> content {{ i }} </aui-card>
+          </aui-tab>
+          <button
+            *auiTabHeaderAddon
+            aui-button=\\"primary\\"
+            (click)=\\"add()\\"
+            size=\\"small\\"
+            [square]=\\"true\\"
+          >
+            <aui-icon icon=\\"plus\\"></aui-icon>
+          </button>
+        </aui-tab-group>
+      ",
+    },
+    "line": 177,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
     "severity": 2,
   },
   Object {
@@ -352,6 +487,39 @@ Array [
     "severity": 2,
   },
   Object {
+    "column": 28,
+    "endColumn": 8,
+    "endLine": 238,
+    "fix": Object {
+      "range": Array [
+        4863,
+        5355,
+      ],
+      "text": "
+        <aui-tab-group>
+          <aui-tab label=\\"Tab 0\\"> <aui-card> Content 1 </aui-card> </aui-tab>
+          <aui-tab
+            label=\\"Tab 1\\"
+            [disabled]=\\"true\\"
+            ><aui-card> Content 2 </aui-card></aui-tab
+          >
+          <aui-tab label=\\"Tab 2\\"><aui-card> Content 3 </aui-card></aui-tab>
+          <aui-tab
+            label=\\"Tab 3\\"
+            [disabled]=\\"true\\"
+            ><aui-card> Content 4 </aui-card></aui-tab
+          >
+        </aui-tab-group>
+      ",
+    },
+    "line": 223,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
+    "severity": 2,
+  },
+  Object {
     "column": 6,
     "endColumn": 6,
     "endLine": 290,
@@ -360,6 +528,53 @@ Array [
     "messageId": "unusedExpression",
     "nodeType": "ExpressionStatement",
     "ruleId": "no-unused-expressions",
+    "severity": 2,
+  },
+  Object {
+    "column": 28,
+    "endColumn": 8,
+    "endLine": 285,
+    "fix": Object {
+      "range": Array [
+        5652,
+        6633,
+      ],
+      "text": "
+        <aui-form-item>
+          <label auiFormItemLabel>启用</label>
+          <aui-radio-group
+            auiFormItemControl
+            [(ngModel)]=\\"lazy\\"
+            [plain]=\\"false\\"
+          >
+            <aui-radio-button [value]=\\"true\\">是</aui-radio-button>
+            <aui-radio-button [value]=\\"false\\">否</aui-radio-button>
+          </aui-radio-group>
+        </aui-form-item>
+        <aui-tab-group [lazy]=\\"lazy\\">
+          <aui-tab label=\\"Tab 1\\">
+            <tabs-lazy-test *auiTabContent
+              ><aui-card> Content 1 </aui-card></tabs-lazy-test
+            >
+          </aui-tab>
+          <aui-tab label=\\"Tab 2\\">
+            <tabs-lazy-test *auiTabContent
+              ><aui-card> Content 2 </aui-card></tabs-lazy-test
+            >
+          </aui-tab>
+          <aui-tab label=\\"Tab 3\\">
+            <tabs-lazy-test *auiTabContent
+              ><aui-card> Content 3 </aui-card></tabs-lazy-test
+            >
+          </aui-tab>
+        </aui-tab-group>
+      ",
+    },
+    "line": 256,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
     "severity": 2,
   },
   Object {
@@ -374,6 +589,59 @@ Array [
     "severity": 2,
   },
   Object {
+    "column": 28,
+    "endColumn": 26,
+    "endLine": 335,
+    "fix": Object {
+      "range": Array [
+        6863,
+        8120,
+      ],
+      "text": "
+        <aui-form-item>
+                  <label auiFormItemLabel>启用 Lazy</label>
+                  <aui-radio-group
+                    auiFormItemControl
+                    [(ngModel)]=\\"lazy\\"
+                    [plain]=\\"false\\"
+                  >
+                    <aui-radio-button [value]=\\"true\\">是</aui-radio-button>
+                    <aui-radio-button [value]=\\"false\\">否</aui-radio-button>
+                  </aui-radio-group>
+                </aui-form-item>
+                <aui-tab-group [lazy]=\\"lazy\\">
+                  <aui-tab label=\\"Tab 1\\">
+                    <tabs-active-test *auiTabContent
+                      ><aui-card>Content 1</aui-card></tabs-active-test
+                    >
+                  </aui-tab>
+                  <aui-tab label=\\"Tab 2\\">
+                    <tabs-active-test *auiTabContent>
+                      <aui-tab-group [lazy]=\\"true\\">
+                        <aui-tab label=\\"Tab 2-1\\">
+                          <tabs-active-test *auiTabContent>
+                            <aui-card> Content 2-1 </aui-card>
+                          </tabs-active-test>
+                        </aui-tab>
+                        <aui-tab label=\\"Tab 2-2\\">
+                          <tabs-active-test *auiTabContent>
+                            <aui-card> Content 2-2 </aui-card>
+                          </tabs-active-test>
+                        </aui-tab>
+                      </aui-tab-group>
+                    </tabs-active-test>
+                  </aui-tab>
+                </aui-tab-group
+      ",
+    },
+    "line": 302,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
+    "severity": 2,
+  },
+  Object {
     "column": 6,
     "endColumn": 6,
     "endLine": 360,
@@ -382,6 +650,32 @@ Array [
     "messageId": "unusedExpression",
     "nodeType": "ExpressionStatement",
     "ruleId": "no-unused-expressions",
+    "severity": 2,
+  },
+  Object {
+    "column": 28,
+    "endColumn": 8,
+    "endLine": 359,
+    "fix": Object {
+      "range": Array [
+        8305,
+        8736,
+      ],
+      "text": "
+        <aui-tab-group size=\\"large\\">
+          <ng-container *auiTabTitle>Title</ng-container>
+          <aui-tab label=\\"Tab 0\\"> <aui-card> Content 1 </aui-card> </aui-tab>
+          <aui-tab label=\\"Tab 1\\"><aui-card> Content 2 </aui-card></aui-tab>
+          <aui-tab label=\\"Tab 2\\"><aui-card> Content 3 </aui-card></aui-tab>
+          <aui-tab label=\\"Tab 3\\"><aui-card> Content 4 </aui-card></aui-tab>
+        </aui-tab-group>
+      ",
+    },
+    "line": 351,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
     "severity": 2,
   },
 ]

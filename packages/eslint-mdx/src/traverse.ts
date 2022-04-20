@@ -17,14 +17,14 @@ export class Traverse {
 
     const children = (node as Parent).children
 
+    this._enter(node, parent)
+
     if (children) {
       const parent = node as Parent
       for (const child of children) {
         this.traverse(child, parent)
       }
     }
-
-    this._enter(node, parent)
   }
 }
 

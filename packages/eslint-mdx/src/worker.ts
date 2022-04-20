@@ -2,12 +2,11 @@
 /* eslint-disable unicorn/no-await-expression-member */
 import path from 'path'
 
-import type { Comment, Token } from 'acorn'
+import type { Token } from 'acorn'
 import { cosmiconfig } from 'cosmiconfig'
 import type { CosmiconfigResult } from 'cosmiconfig/dist/types'
 import type { AST } from 'eslint'
 import type { EsprimaToken } from 'espree/lib/token-translator'
-import type { Comment as EsComment } from 'estree'
 import type { Options } from 'micromark-extension-mdx-expression'
 import { extractProperties, runAsWorker } from 'synckit'
 import type { FrozenProcessor } from 'unified'
@@ -33,22 +32,17 @@ const explorer = cosmiconfig('remark', {
 
 export const processorCache = new Map<string, FrozenProcessor>()
 
-const getRemarkMdxOptions = (
-  tokens: Token[],
-  comments: Comment[],
-): Options => ({
+const getRemarkMdxOptions = (tokens: Token[]): Options => ({
   acornOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
     locations: true,
     ranges: true,
     onToken: tokens,
-    onComment: comments,
   },
 })
 
 const sharedTokens: Token[] = []
-const sharedComments: Comment[] = []
 
 export const getRemarkProcessor = async (
   searchFrom: string,
@@ -111,10 +105,7 @@ export const getRemarkProcessor = async (
       .use(remarkStringify)
 
     if (isMdx) {
-      initProcessor.use(
-        remarkMdx,
-        getRemarkMdxOptions(sharedTokens, sharedComments),
-      )
+      initProcessor.use(remarkMdx, getRemarkMdxOptions(sharedTokens))
     }
 
     cachedProcessor = (
@@ -136,10 +127,7 @@ export const getRemarkProcessor = async (
     const initProcessor = remarkProcessor().use(remarkStringify)
 
     if (isMdx) {
-      initProcessor.use(
-        remarkMdx,
-        getRemarkMdxOptions(sharedTokens, sharedComments),
-      )
+      initProcessor.use(remarkMdx, getRemarkMdxOptions(sharedTokens))
     }
 
     cachedProcessor = initProcessor.freeze()
@@ -161,7 +149,6 @@ runAsWorker(
     ignoreRemarkConfig,
   }: WorkerOptions): Promise<WorkerResult> => {
     sharedTokens.length = 0
-    sharedComments.length = 0
 
     const processor = await getRemarkProcessor(
       physicalFilename,
@@ -250,7 +237,6 @@ runAsWorker(
     return {
       root,
       tokens,
-      comments: sharedComments as EsComment[],
     }
   },
 )
