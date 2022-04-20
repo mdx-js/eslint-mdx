@@ -1,9 +1,9 @@
-import { FormsModule } from '@angular/forms';
-import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import { moduleMetadata } from '@storybook/angular';
+import { FormsModule } from '@angular/forms'
+import { Canvas, Meta, Story } from '@storybook/addon-docs'
+import { moduleMetadata } from '@storybook/angular'
 
-import { ActiveTestComponent } from './active-test.component';
-import { LazyTestComponent } from './lazy-test.component';
+import { ActiveTestComponent } from './active-test.component'
+import { LazyTestComponent } from './lazy-test.component'
 
 import {
   ButtonModule,
@@ -14,7 +14,7 @@ import {
   TabType,
   TabsModule,
   CardModule,
-} from '@alauda/ui';
+} from '@alauda/ui'
 
 <Meta
   title="Tabs"
@@ -41,17 +41,29 @@ import {
 ## 基础用法
 
 <Canvas>
-  <Story name="Basic" height="100px">
+  <Story
+    name="Basic"
+    height="100px"
+  >
     {{
       template: /* HTML */ `
         <aui-tab-group [(tab)]="tab">
-          <aui-tab name="a" label="Tab 0">
+          <aui-tab
+            name="a"
+            label="Tab 0"
+          >
             <aui-card> Content 1</aui-card>
           </aui-tab>
-          <aui-tab name="b" label="Tab 1">
+          <aui-tab
+            name="b"
+            label="Tab 1"
+          >
             <aui-card> Content 2</aui-card>
           </aui-tab>
-          <aui-tab name="c" label="Tab 2">
+          <aui-tab
+            name="c"
+            label="Tab 2"
+          >
             <aui-card> Content 3</aui-card>
           </aui-tab>
         </aui-tab-group>
@@ -66,7 +78,10 @@ import {
 ## Card
 
 <Canvas>
-  <Story name="Card" height="200px">
+  <Story
+    name="Card"
+    height="200px"
+  >
     {{
       template: /* HTML */ `
         <aui-tab-group [type]="type">
@@ -85,7 +100,10 @@ import {
 ## Size
 
 <Canvas>
-  <Story name="Size" height="200px">
+  <Story
+    name="Size"
+    height="200px"
+  >
     {{
       template: /* HTML */ `
         <aui-form-item>
@@ -116,7 +134,10 @@ import {
 ## 自定义 Label
 
 <Canvas>
-  <Story name="CustomLabel" height="200px">
+  <Story
+    name="CustomLabel"
+    height="200px"
+  >
     {{
       template: /* HTML */ `<aui-tab-group>
         <ng-container *auiTabTitle>aa2</ng-container>
@@ -148,7 +169,10 @@ import {
 > 通过自定义 Group Header 实现
 
 <Canvas>
-  <Story name="Editable" height="100px">
+  <Story
+    name="Editable"
+    height="100px"
+  >
     {{
       template: /* HTML */ `
         <aui-tab-group>
@@ -178,10 +202,10 @@ import {
             Array.from({ length: num })
               .fill()
               .map((_, i) => this.tabs[this.tabs.length - 1] + i + 1),
-          );
+          )
         },
         remove(index) {
-          this.tabs.splice(index, 1);
+          this.tabs.splice(index, 1)
         },
       },
     }}
@@ -191,16 +215,23 @@ import {
 ## 禁用
 
 <Canvas>
-  <Story name="Disabled" height="100px">
+  <Story
+    name="Disabled"
+    height="100px"
+  >
     {{
       template: /* HTML */ `
         <aui-tab-group>
           <aui-tab label="Tab 0"> <aui-card> Content 1 </aui-card> </aui-tab>
-          <aui-tab label="Tab 1" [disabled]="true"
+          <aui-tab
+            label="Tab 1"
+            [disabled]="true"
             ><aui-card> Content 2 </aui-card></aui-tab
           >
           <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
-          <aui-tab label="Tab 3" [disabled]="true"
+          <aui-tab
+            label="Tab 3"
+            [disabled]="true"
             ><aui-card> Content 4 </aui-card></aui-tab
           >
         </aui-tab-group>
@@ -217,7 +248,10 @@ import {
 > 依赖 `*auiTabContent`，与默认模式按需加载每次切换 Tab 都会销毁重新创建相比，lazy 启用时在按需加载组件的同时会缓存已加载的 Tab 内容。
 
 <Canvas>
-  <Story name="Lazy" height="150px">
+  <Story
+    name="Lazy"
+    height="150px"
+  >
     {{
       template: /* HTML */ `
         <aui-form-item>
@@ -260,7 +294,10 @@ import {
 ## Tab 嵌套
 
 <Canvas>
-  <Story name="Nest" height="100px">
+  <Story
+    name="Nest"
+    height="100px"
+  >
     {{
       template: /* HTML */ ` <aui-form-item>
           <label auiFormItemLabel>启用 Lazy</label>
@@ -306,7 +343,10 @@ import {
 ## 自定义 Title
 
 <Canvas>
-  <Story name="Title" height="100px">
+  <Story
+    name="Title"
+    height="100px"
+  >
     {{
       template: /* HTML */ `
         <aui-tab-group size="large">
@@ -335,8 +375,8 @@ import {
 
 ```ts
 interface TabChangeEvent {
-  index: number;
-  tab: TabComponent;
+  index: number
+  tab: TabComponent
 }
 ```
 

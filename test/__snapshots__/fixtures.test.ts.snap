@@ -209,234 +209,10 @@ Array [
 exports[`fixtures should match all snapshots: 380.mdx 1`] = `
 Array [
   Object {
-    "column": 45,
-    "endColumn": 46,
-    "endLine": 1,
-    "fix": Object {
-      "range": Array [
-        44,
-        45,
-      ],
-      "text": "",
-    },
-    "line": 1,
-    "message": "Delete \`;\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
-    "column": 60,
-    "endColumn": 61,
-    "endLine": 2,
-    "fix": Object {
-      "range": Array [
-        105,
-        106,
-      ],
-      "text": "",
-    },
-    "line": 2,
-    "message": "Delete \`;\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
-    "column": 52,
-    "endColumn": 53,
-    "endLine": 3,
-    "fix": Object {
-      "range": Array [
-        158,
-        159,
-      ],
-      "text": "",
-    },
-    "line": 3,
-    "message": "Delete \`;\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
-    "column": 62,
-    "endColumn": 63,
-    "endLine": 5,
-    "fix": Object {
-      "range": Array [
-        222,
-        223,
-      ],
-      "text": "",
-    },
-    "line": 5,
-    "message": "Delete \`;\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
-    "column": 58,
-    "endColumn": 59,
-    "endLine": 6,
-    "fix": Object {
-      "range": Array [
-        281,
-        282,
-      ],
-      "text": "",
-    },
-    "line": 6,
-    "message": "Delete \`;\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
-    "column": 20,
-    "endColumn": 21,
-    "endLine": 17,
-    "fix": Object {
-      "range": Array [
-        421,
-        422,
-      ],
-      "text": "",
-    },
-    "line": 17,
-    "message": "Delete \`;\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
-    "column": 9,
-    "endColumn": 37,
-    "endLine": 44,
-    "fix": Object {
-      "range": Array [
-        825,
-        853,
-      ],
-      "text": "
-    name=\\"Basic\\"
-    height=\\"100px\\"
-  ",
-    },
-    "line": 44,
-    "message": "Replace \`·name=\\"Basic\\"·height=\\"100px\\"\` with \`⏎····name=\\"Basic\\"⏎····height=\\"100px\\"⏎··\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
     "column": 6,
     "endColumn": 6,
-    "endLine": 62,
-    "line": 45,
-    "message": "Expected an assignment or function call and instead saw an expression.",
-    "messageId": "unusedExpression",
-    "nodeType": "ExpressionStatement",
-    "ruleId": "no-unused-expressions",
-    "severity": 2,
-  },
-  Object {
-    "column": 19,
-    "endColumn": 42,
-    "endLine": 48,
-    "fix": Object {
-      "range": Array [
-        947,
-        970,
-      ],
-      "text": "
-            name=\\"a\\"
-            label=\\"Tab 0\\"
-          ",
-    },
+    "endLine": 74,
     "line": 48,
-    "message": "Replace \`·name=\\"a\\"·label=\\"Tab·0\\"\` with \`⏎············name=\\"a\\"⏎············label=\\"Tab·0\\"⏎··········\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
-    "column": 19,
-    "endColumn": 42,
-    "endLine": 51,
-    "fix": Object {
-      "range": Array [
-        1055,
-        1078,
-      ],
-      "text": "
-            name=\\"b\\"
-            label=\\"Tab 1\\"
-          ",
-    },
-    "line": 51,
-    "message": "Replace \`·name=\\"b\\"·label=\\"Tab·1\\"\` with \`⏎············name=\\"b\\"⏎············label=\\"Tab·1\\"⏎··········\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
-    "column": 19,
-    "endColumn": 42,
-    "endLine": 54,
-    "fix": Object {
-      "range": Array [
-        1163,
-        1186,
-      ],
-      "text": "
-            name=\\"c\\"
-            label=\\"Tab 2\\"
-          ",
-    },
-    "line": 54,
-    "message": "Replace \`·name=\\"c\\"·label=\\"Tab·2\\"\` with \`⏎············name=\\"c\\"⏎············label=\\"Tab·2\\"⏎··········\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
-    "column": 9,
-    "endColumn": 36,
-    "endLine": 69,
-    "fix": Object {
-      "range": Array [
-        1384,
-        1411,
-      ],
-      "text": "
-    name=\\"Card\\"
-    height=\\"200px\\"
-  ",
-    },
-    "line": 69,
-    "message": "Replace \`·name=\\"Card\\"·height=\\"200px\\"\` with \`⏎····name=\\"Card\\"⏎····height=\\"200px\\"⏎··\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
-    "column": 6,
-    "endColumn": 6,
-    "endLine": 81,
-    "line": 70,
     "message": "Expected an assignment or function call and instead saw an expression.",
     "messageId": "unusedExpression",
     "nodeType": "ExpressionStatement",
@@ -444,31 +220,10 @@ Array [
     "severity": 2,
   },
   Object {
-    "column": 9,
-    "endColumn": 36,
-    "endLine": 88,
-    "fix": Object {
-      "range": Array [
-        1856,
-        1883,
-      ],
-      "text": "
-    name=\\"Size\\"
-    height=\\"200px\\"
-  ",
-    },
-    "line": 88,
-    "message": "Replace \`·name=\\"Size\\"·height=\\"200px\\"\` with \`⏎····name=\\"Size\\"⏎····height=\\"200px\\"⏎··\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
     "column": 6,
     "endColumn": 6,
-    "endLine": 112,
-    "line": 89,
+    "endLine": 96,
+    "line": 85,
     "message": "Expected an assignment or function call and instead saw an expression.",
     "messageId": "unusedExpression",
     "nodeType": "ExpressionStatement",
@@ -476,31 +231,10 @@ Array [
     "severity": 2,
   },
   Object {
-    "column": 9,
-    "endColumn": 43,
-    "endLine": 119,
-    "fix": Object {
-      "range": Array [
-        2783,
-        2817,
-      ],
-      "text": "
-    name=\\"CustomLabel\\"
-    height=\\"200px\\"
-  ",
-    },
-    "line": 119,
-    "message": "Replace \`·name=\\"CustomLabel\\"·height=\\"200px\\"\` with \`⏎····name=\\"CustomLabel\\"⏎····height=\\"200px\\"⏎··\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
     "column": 6,
     "endColumn": 6,
-    "endLine": 142,
-    "line": 120,
+    "endLine": 130,
+    "line": 107,
     "message": "Expected an assignment or function call and instead saw an expression.",
     "messageId": "unusedExpression",
     "nodeType": "ExpressionStatement",
@@ -508,31 +242,21 @@ Array [
     "severity": 2,
   },
   Object {
-    "column": 9,
-    "endColumn": 40,
-    "endLine": 151,
-    "fix": Object {
-      "range": Array [
-        3602,
-        3633,
-      ],
-      "text": "
-    name=\\"Editable\\"
-    height=\\"100px\\"
-  ",
-    },
-    "line": 151,
-    "message": "Replace \`·name=\\"Editable\\"·height=\\"100px\\"\` with \`⏎····name=\\"Editable\\"⏎····height=\\"100px\\"⏎··\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
+    "column": 6,
+    "endColumn": 6,
+    "endLine": 163,
+    "line": 141,
+    "message": "Expected an assignment or function call and instead saw an expression.",
+    "messageId": "unusedExpression",
+    "nodeType": "ExpressionStatement",
+    "ruleId": "no-unused-expressions",
     "severity": 2,
   },
   Object {
     "column": 6,
     "endColumn": 6,
-    "endLine": 187,
-    "line": 152,
+    "endLine": 211,
+    "line": 176,
     "message": "Expected an assignment or function call and instead saw an expression.",
     "messageId": "unusedExpression",
     "nodeType": "ExpressionStatement",
@@ -542,17 +266,17 @@ Array [
   Object {
     "column": 13,
     "endColumn": 16,
-    "endLine": 176,
+    "endLine": 200,
     "fix": Object {
       "range": Array [
-        4288,
-        4375,
+        4442,
+        4529,
       ],
       "text": "number_ = 1) {
           this.tabs = this.tabs.concat(
             Array.from({ length: number_",
     },
-    "line": 176,
+    "line": 200,
     "message": "The variable \`num\` should be named \`number_\`. A more descriptive name will do too.",
     "messageId": "replace",
     "nodeType": "Identifier",
@@ -562,8 +286,8 @@ Array [
   Object {
     "column": 33,
     "endColumn": 39,
-    "endLine": 177,
-    "line": 177,
+    "endLine": 201,
+    "line": 201,
     "message": "Prefer the spread operator over \`Array#concat(…)\`.",
     "messageId": "array-concat",
     "nodeType": "Identifier",
@@ -574,8 +298,8 @@ Array [
         "desc": "First argument is an \`array\`.",
         "fix": Object {
           "range": Array [
-            4321,
-            4483,
+            4475,
+            4637,
           ],
           "text": "[...this.tabs, ...Array.from({ length: num })
               .fill()
@@ -587,8 +311,8 @@ Array [
         "desc": "First argument is not an \`array\`.",
         "fix": Object {
           "range": Array [
-            4321,
-            4483,
+            4475,
+            4637,
           ],
           "text": "[...this.tabs, Array.from({ length: num })
               .fill()
@@ -601,15 +325,15 @@ Array [
   Object {
     "column": 24,
     "endColumn": 25,
-    "endLine": 180,
+    "endLine": 204,
     "fix": Object {
       "range": Array [
-        4424,
-        4465,
+        4578,
+        4619,
       ],
       "text": "index) => this.tabs[this.tabs.length - 1] + index",
     },
-    "line": 180,
+    "line": 204,
     "message": "The variable \`i\` should be named \`index\`. A more descriptive name will do too.",
     "messageId": "replace",
     "nodeType": "Identifier",
@@ -617,67 +341,10 @@ Array [
     "severity": 2,
   },
   Object {
-    "column": 12,
-    "endColumn": 13,
-    "endLine": 181,
-    "fix": Object {
-      "range": Array [
-        4483,
-        4484,
-      ],
-      "text": "",
-    },
-    "line": 181,
-    "message": "Delete \`;\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
-    "column": 37,
-    "endColumn": 38,
-    "endLine": 184,
-    "fix": Object {
-      "range": Array [
-        4556,
-        4557,
-      ],
-      "text": "",
-    },
-    "line": 184,
-    "message": "Delete \`;\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
-    "column": 9,
-    "endColumn": 40,
-    "endLine": 194,
-    "fix": Object {
-      "range": Array [
-        4631,
-        4662,
-      ],
-      "text": "
-    name=\\"Disabled\\"
-    height=\\"100px\\"
-  ",
-    },
-    "line": 194,
-    "message": "Replace \`·name=\\"Disabled\\"·height=\\"100px\\"\` with \`⏎····name=\\"Disabled\\"⏎····height=\\"100px\\"⏎··\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
     "column": 6,
     "endColumn": 6,
-    "endLine": 211,
-    "line": 195,
+    "endLine": 242,
+    "line": 222,
     "message": "Expected an assignment or function call and instead saw an expression.",
     "messageId": "unusedExpression",
     "nodeType": "ExpressionStatement",
@@ -685,71 +352,10 @@ Array [
     "severity": 2,
   },
   Object {
-    "column": 19,
-    "endColumn": 33,
-    "endLine": 199,
-    "fix": Object {
-      "range": Array [
-        4820,
-        4834,
-      ],
-      "text": "
-            label=\\"Tab 1\\"
-           ",
-    },
-    "line": 199,
-    "message": "Replace \`·label=\\"Tab·1\\"\` with \`⏎············label=\\"Tab·1\\"⏎···········\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
-    "column": 19,
-    "endColumn": 33,
-    "endLine": 203,
-    "fix": Object {
-      "range": Array [
-        5014,
-        5028,
-      ],
-      "text": "
-            label=\\"Tab 3\\"
-           ",
-    },
-    "line": 203,
-    "message": "Replace \`·label=\\"Tab·3\\"\` with \`⏎············label=\\"Tab·3\\"⏎···········\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
-    "column": 9,
-    "endColumn": 36,
-    "endLine": 220,
-    "fix": Object {
-      "range": Array [
-        5365,
-        5392,
-      ],
-      "text": "
-    name=\\"Lazy\\"
-    height=\\"150px\\"
-  ",
-    },
-    "line": 220,
-    "message": "Replace \`·name=\\"Lazy\\"·height=\\"150px\\"\` with \`⏎····name=\\"Lazy\\"⏎····height=\\"150px\\"⏎··\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
     "column": 6,
     "endColumn": 6,
-    "endLine": 256,
-    "line": 221,
+    "endLine": 290,
+    "line": 255,
     "message": "Expected an assignment or function call and instead saw an expression.",
     "messageId": "unusedExpression",
     "nodeType": "ExpressionStatement",
@@ -757,103 +363,25 @@ Array [
     "severity": 2,
   },
   Object {
-    "column": 9,
-    "endColumn": 36,
-    "endLine": 263,
-    "fix": Object {
-      "range": Array [
-        6565,
-        6592,
-      ],
-      "text": "
-    name=\\"Nest\\"
-    height=\\"100px\\"
-  ",
-    },
-    "line": 263,
-    "message": "Replace \`·name=\\"Nest\\"·height=\\"100px\\"\` with \`⏎····name=\\"Nest\\"⏎····height=\\"100px\\"⏎··\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
     "column": 6,
     "endColumn": 6,
-    "endLine": 302,
-    "line": 264,
-    "message": "Expected an assignment or function call and instead saw an expression.",
-    "messageId": "unusedExpression",
-    "nodeType": "ExpressionStatement",
-    "ruleId": "no-unused-expressions",
-    "severity": 2,
-  },
-  Object {
-    "column": 9,
-    "endColumn": 37,
-    "endLine": 309,
-    "fix": Object {
-      "range": Array [
-        7995,
-        8023,
-      ],
-      "text": "
-    name=\\"Title\\"
-    height=\\"100px\\"
-  ",
-    },
-    "line": 309,
-    "message": "Replace \`·name=\\"Title\\"·height=\\"100px\\"\` with \`⏎····name=\\"Title\\"⏎····height=\\"100px\\"⏎··\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
-    "column": 6,
-    "endColumn": 6,
-    "endLine": 320,
-    "line": 310,
-    "message": "Expected an assignment or function call and instead saw an expression.",
-    "messageId": "unusedExpression",
-    "nodeType": "ExpressionStatement",
-    "ruleId": "no-unused-expressions",
-    "severity": 2,
-  },
-  Object {
-    "column": 16,
-    "endColumn": 17,
-    "endLine": 338,
-    "fix": Object {
-      "range": Array [
-        9044,
-        9045,
-      ],
-      "text": "",
-    },
-    "line": 338,
-    "message": "Delete \`;\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  Object {
-    "column": 20,
-    "endColumn": 21,
     "endLine": 339,
-    "fix": Object {
-      "range": Array [
-        9065,
-        9066,
-      ],
-      "text": "",
-    },
-    "line": 339,
-    "message": "Delete \`;\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
+    "line": 301,
+    "message": "Expected an assignment or function call and instead saw an expression.",
+    "messageId": "unusedExpression",
+    "nodeType": "ExpressionStatement",
+    "ruleId": "no-unused-expressions",
+    "severity": 2,
+  },
+  Object {
+    "column": 6,
+    "endColumn": 6,
+    "endLine": 360,
+    "line": 350,
+    "message": "Expected an assignment or function call and instead saw an expression.",
+    "messageId": "unusedExpression",
+    "nodeType": "ExpressionStatement",
+    "ruleId": "no-unused-expressions",
     "severity": 2,
   },
 ]
