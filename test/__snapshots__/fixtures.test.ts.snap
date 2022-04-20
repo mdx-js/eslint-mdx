@@ -1290,22 +1290,4 @@ Array [
 
 exports[`fixtures should match all snapshots: remark.md 1`] = `Array []`;
 
-exports[`fixtures should match all snapshots: remark.mdx 1`] = `
-Array [
-  Object {
-    "column": 2,
-    "fix": Object {
-      "range": Array [
-        42,
-        73,
-      ],
-      "text": " ",
-    },
-    "line": 5,
-    "message": "Unused eslint-disable directive (no problems were reported from 'mdx/remark').",
-    "nodeType": null,
-    "ruleId": null,
-    "severity": 2,
-  },
-]
-`;
+exports[`fixtures should match all snapshots: remark.mdx 1`] = `Array []`;

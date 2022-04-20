@@ -39,12 +39,8 @@ describe('Helpers', () => {
     ).toBeDefined()
   })
 
-  it('should throw on non existed package', async () => {
-    try {
-      await requirePkg('@1stg/config', 'unexpected-')
-    } catch (err) {
-      // eslint-disable-next-line jest/no-conditional-expect
-      expect(err).toBeDefined()
-    }
-  })
+  it('should throw on non existed package', () =>
+    expect(requirePkg('@1stg/config', 'unexpected-')).rejects.toThrow(
+      "Cannot find module '@1stg/config'",
+    ))
 })

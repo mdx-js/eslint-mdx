@@ -13,8 +13,6 @@ import { getPhysicalFilename } from './processor'
 import { traverse } from './traverse'
 import type { ParserOptions, WorkerParseResult } from './types'
 
-export const AST_PROPS = ['body', 'comments'] as const
-
 export const DEFAULT_EXTENSIONS: readonly string[] = ['.mdx']
 export const MARKDOWN_EXTENSIONS: readonly string[] = ['.md']
 
@@ -98,10 +96,7 @@ export class Parser {
           return
         }
 
-        for (const prop of AST_PROPS) {
-          // @ts-expect-error
-          this._ast[prop].push(...(node.data?.estree[prop] || []))
-        }
+        this._ast.body.push(...(node.data?.estree.body || []))
       })
     }
 
