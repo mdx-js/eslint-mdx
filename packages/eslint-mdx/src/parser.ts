@@ -13,12 +13,6 @@ import { getPhysicalFilename } from './processor'
 import { traverse } from './traverse'
 import type { ParserOptions, WorkerParseResult } from './types'
 
-export const AST_PROPS = [
-  'body',
-  // disable comments temporarily -- #380
-  // 'comments'
-] as const
-
 export const DEFAULT_EXTENSIONS: readonly string[] = ['.mdx']
 export const MARKDOWN_EXTENSIONS: readonly string[] = ['.md']
 
@@ -85,14 +79,14 @@ export class Parser {
       })
     }
 
-    const { root, tokens, comments } = result
+    const { root, tokens } = result
 
     this._ast = {
       ...normalizePosition(root.position),
       type: 'Program',
       sourceType,
       body: [],
-      comments,
+      comments: [],
       tokens,
     }
 
@@ -102,9 +96,10 @@ export class Parser {
           return
         }
 
-        for (const prop of AST_PROPS) {
-          this._ast[prop].push(...(node.data?.estree[prop] || []))
-        }
+        const estree = node.data?.estree
+
+        this._ast.body.push(...(estree?.body || []))
+        this._ast.comments.push(...(estree?.comments || []))
       })
     }
 

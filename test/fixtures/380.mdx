@@ -1,0 +1,411 @@
+import { FormsModule } from '@angular/forms'
+import { Canvas, Meta, Story } from '@storybook/addon-docs'
+import { moduleMetadata } from '@storybook/angular'
+
+import { ActiveTestComponent } from './active-test.component'
+import { LazyTestComponent } from './lazy-test.component'
+
+import {
+  ButtonModule,
+  IconModule,
+  FormModule,
+  RadioModule,
+  TabSize,
+  TabType,
+  TabsModule,
+  CardModule,
+} from '@alauda/ui'
+
+<Meta
+  title="Tabs"
+  decorators={[
+    moduleMetadata({
+      imports: [
+        ButtonModule,
+        IconModule,
+        FormsModule,
+        FormModule,
+        RadioModule,
+        TabsModule,
+        CardModule,
+      ],
+      declarations: [ActiveTestComponent, LazyTestComponent],
+    }),
+  ]}
+/>
+
+# Tabs
+
+> 移植自 Angular Material, 增加了风格（卡片/线条）和尺寸（大/中/小）选项和 lazy 模式。
+
+## 基础用法
+
+<Canvas>
+  <Story
+    name="Basic"
+    height="100px"
+  >
+    {{
+      template: /* HTML */ `
+        <aui-tab-group [(tab)]="tab">
+          <aui-tab
+            name="a"
+            label="Tab 0"
+          >
+            <aui-card> Content 1</aui-card>
+          </aui-tab>
+          <aui-tab
+            name="b"
+            label="Tab 1"
+          >
+            <aui-card> Content 2</aui-card>
+          </aui-tab>
+          <aui-tab
+            name="c"
+            label="Tab 2"
+          >
+            <aui-card> Content 3</aui-card>
+          </aui-tab>
+        </aui-tab-group>
+      `,
+      props: {
+        tab: 'a',
+      },
+    }}
+  </Story>
+</Canvas>
+
+## Card
+
+<Canvas>
+  <Story
+    name="Card"
+    height="200px"
+  >
+    {{
+      template: /* HTML */ `
+        <aui-tab-group [type]="type">
+          <aui-tab label="Tab 0"><aui-card> Content 1 </aui-card></aui-tab>
+          <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
+          <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+        </aui-tab-group>
+      `,
+      props: {
+        type: TabType.Card,
+      },
+    }}
+  </Story>
+</Canvas>
+
+## Size
+
+<Canvas>
+  <Story
+    name="Size"
+    height="200px"
+  >
+    {{
+      template: /* HTML */ `
+        <aui-form-item>
+          <label auiFormItemLabel>尺寸</label>
+          <aui-radio-group
+            auiFormItemControl
+            [(ngModel)]="size"
+            [plain]="false"
+          >
+            <aui-radio-button value="large">大</aui-radio-button>
+            <aui-radio-button value="medium">中</aui-radio-button>
+            <aui-radio-button value="small">小</aui-radio-button>
+          </aui-radio-group>
+        </aui-form-item>
+        <aui-tab-group [size]="size">
+          <aui-tab label="Tab 0"><aui-card> Content 1 </aui-card></aui-tab>
+          <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
+          <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+        </aui-tab-group>
+      `,
+      props: {
+        size: TabSize.Medium,
+      },
+    }}
+  </Story>
+</Canvas>
+
+## 自定义 Label
+
+<Canvas>
+  <Story
+    name="CustomLabel"
+    height="200px"
+  >
+    {{
+      template: /* HTML */ `<aui-tab-group>
+        <ng-container *auiTabTitle>aa2</ng-container>
+        <aui-tab>
+          <ng-container *auiTabLabel>
+            <aui-icon icon="sun"></aui-icon>
+            Custom Label
+          </ng-container>
+          <aui-card> Content 1 </aui-card>
+        </aui-tab>
+        <aui-tab label="Tab 1"><aui-card>Content 2</aui-card></aui-tab>
+        <aui-tab>
+          <ng-container *auiTabLabel>
+            <aui-icon icon="moon"></aui-icon>
+            Custom Label
+          </ng-container>
+          <aui-card> Content 3 </aui-card>
+        </aui-tab>
+      </aui-tab-group>`,
+      props: {
+        tabs: Array.from({ length: 3 }).fill(),
+      },
+    }}
+  </Story>
+</Canvas>
+
+## 添加删除
+
+> 通过自定义 Group Header 实现
+
+<Canvas>
+  <Story
+    name="Editable"
+    height="100px"
+  >
+    {{
+      template: /* HTML */ `
+        <aui-tab-group>
+          <aui-tab
+            *ngFor="let tab of tabs; index as i; count as len"
+            [closeable]="len > 1"
+            [label]="'tab' + tab"
+            (close)="remove(i)"
+          >
+            <aui-card> content {{ i }} </aui-card>
+          </aui-tab>
+          <button
+            *auiTabHeaderAddon
+            aui-button="primary"
+            (click)="add()"
+            size="small"
+            [square]="true"
+          >
+            <aui-icon icon="plus"></aui-icon>
+          </button>
+        </aui-tab-group>
+      `,
+      props: {
+        tabs: [1, 2, 3],
+        add(num = 1) {
+          this.tabs = this.tabs.concat(
+            Array.from({ length: num })
+              .fill()
+              .map((_, i) => this.tabs[this.tabs.length - 1] + i + 1),
+          )
+        },
+        remove(index) {
+          this.tabs.splice(index, 1)
+        },
+      },
+    }}
+  </Story>
+</Canvas>
+
+## 禁用
+
+<Canvas>
+  <Story
+    name="Disabled"
+    height="100px"
+  >
+    {{
+      template: /* HTML */ `
+        <aui-tab-group>
+          <aui-tab label="Tab 0"> <aui-card> Content 1 </aui-card> </aui-tab>
+          <aui-tab
+            label="Tab 1"
+            [disabled]="true"
+            ><aui-card> Content 2 </aui-card></aui-tab
+          >
+          <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+          <aui-tab
+            label="Tab 3"
+            [disabled]="true"
+            ><aui-card> Content 4 </aui-card></aui-tab
+          >
+        </aui-tab-group>
+      `,
+      props: {
+        tabs: Array.from({ length: 10 }).fill(),
+      },
+    }}
+  </Story>
+</Canvas>
+
+## Lazy 模式
+
+> 依赖 `*auiTabContent`，与默认模式按需加载每次切换 Tab 都会销毁重新创建相比，lazy 启用时在按需加载组件的同时会缓存已加载的 Tab 内容。
+
+<Canvas>
+  <Story
+    name="Lazy"
+    height="150px"
+  >
+    {{
+      template: /* HTML */ `
+        <aui-form-item>
+          <label auiFormItemLabel>启用</label>
+          <aui-radio-group
+            auiFormItemControl
+            [(ngModel)]="lazy"
+            [plain]="false"
+          >
+            <aui-radio-button [value]="true">是</aui-radio-button>
+            <aui-radio-button [value]="false">否</aui-radio-button>
+          </aui-radio-group>
+        </aui-form-item>
+        <aui-tab-group [lazy]="lazy">
+          <aui-tab label="Tab 1">
+            <tabs-lazy-test *auiTabContent
+              ><aui-card> Content 1 </aui-card></tabs-lazy-test
+            >
+          </aui-tab>
+          <aui-tab label="Tab 2">
+            <tabs-lazy-test *auiTabContent
+              ><aui-card> Content 2 </aui-card></tabs-lazy-test
+            >
+          </aui-tab>
+          <aui-tab label="Tab 3">
+            <tabs-lazy-test *auiTabContent
+              ><aui-card> Content 3 </aui-card></tabs-lazy-test
+            >
+          </aui-tab>
+        </aui-tab-group>
+      `,
+      props: {
+        tabs: Array.from({ length: 10 }).fill(),
+        lazy: true,
+      },
+    }}
+  </Story>
+</Canvas>
+
+## Tab 嵌套
+
+<Canvas>
+  <Story
+    name="Nest"
+    height="100px"
+  >
+    {{
+      template: /* HTML */ ` <aui-form-item>
+          <label auiFormItemLabel>启用 Lazy</label>
+          <aui-radio-group
+            auiFormItemControl
+            [(ngModel)]="lazy"
+            [plain]="false"
+          >
+            <aui-radio-button [value]="true">是</aui-radio-button>
+            <aui-radio-button [value]="false">否</aui-radio-button>
+          </aui-radio-group>
+        </aui-form-item>
+        <aui-tab-group [lazy]="lazy">
+          <aui-tab label="Tab 1">
+            <tabs-active-test *auiTabContent
+              ><aui-card>Content 1</aui-card></tabs-active-test
+            >
+          </aui-tab>
+          <aui-tab label="Tab 2">
+            <tabs-active-test *auiTabContent>
+              <aui-tab-group [lazy]="true">
+                <aui-tab label="Tab 2-1">
+                  <tabs-active-test *auiTabContent>
+                    <aui-card> Content 2-1 </aui-card>
+                  </tabs-active-test>
+                </aui-tab>
+                <aui-tab label="Tab 2-2">
+                  <tabs-active-test *auiTabContent>
+                    <aui-card> Content 2-2 </aui-card>
+                  </tabs-active-test>
+                </aui-tab>
+              </aui-tab-group>
+            </tabs-active-test>
+          </aui-tab>
+        </aui-tab-group>`,
+      props: {
+        lazy: true,
+      },
+    }}
+  </Story>
+</Canvas>
+
+## 自定义 Title
+
+<Canvas>
+  <Story
+    name="Title"
+    height="100px"
+  >
+    {{
+      template: /* HTML */ `
+        <aui-tab-group size="large">
+          <ng-container *auiTabTitle>Title</ng-container>
+          <aui-tab label="Tab 0"> <aui-card> Content 1 </aui-card> </aui-tab>
+          <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
+          <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+          <aui-tab label="Tab 3"><aui-card> Content 4 </aui-card></aui-tab>
+        </aui-tab-group>
+      `,
+    }}
+  </Story>
+</Canvas>
+
+## TabGroupComponent Inputs
+
+| 名称          | 类型    | 默认值         | 描述            |
+| ------------- | ------- | -------------- | --------------- |
+| type          | TabType | TabType.Line   | 样式主题        |
+| size          | TabSize | TabSize.Medium | 尺寸            |
+| tab           | string  | -              | 选中 Tab 的名称 |
+| selectedIndex | number  | -              | 选中 Tab 的索引 |
+| lazy          | boolean | false          | 懒加载模式      |
+
+## TabGroupComponent Outputs
+
+```ts
+interface TabChangeEvent {
+  index: number
+  tab: TabComponent
+}
+```
+
+| 名称                | 类型           | 描述                          |
+| ------------------- | -------------- | ----------------------------- |
+| tabChange           | string         | Tab 切换时发射 Tab 的名称     |
+| selectedIndexChange | number         | Tab 切换时发射 Tab 的索引     |
+| selectedTabChange   | TabChangeEvent | Tab 切换时发射 TabChangeEvent |
+| focusChange         | TabChangeEvent | Tab `focus` 切换时发射        |
+
+## TabComponent Inputs
+
+| 名称      | 类型    | 默认值 | 说明             |
+| --------- | ------- | ------ | ---------------- |
+| name      | string  | -      | tab 的名称       |
+| label     | string  | -      | 文字 label       |
+| closeable | boolean | false  | 是否显示关闭按键 |
+| disabled  | boolean | false  | 是否禁用此 tab   |
+
+## TabComponent Outputs
+
+| 名称  | 类型 | 描述                 |
+| ----- | ---- | -------------------- |
+| close | void | 关闭按键被点击时发射 |
+
+## Directives
+
+| 名称              | 作用范围          | 描述                        |
+| ----------------- | ----------------- | --------------------------- |
+| auiTabHeaderAddon | TabGroupComponent | 自定义 Group Header         |
+| auiTabLabel       | TabComponent      | 自定义 Tab Label            |
+| auiTabContent     | TabComponent      | Tab 内容区域，lazy 模式必用 |
