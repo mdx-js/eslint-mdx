@@ -68,7 +68,7 @@ export class Parser {
         },
         physicalFilename,
         isMdx,
-        ignoreRemarkConfig: ignoreRemarkConfig,
+        ignoreRemarkConfig,
       })
     } catch (err: unknown) {
       const error = err as VFileMessage

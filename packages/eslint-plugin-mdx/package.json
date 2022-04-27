@@ -36,7 +36,7 @@
     "remark-mdx": "^2.1.1",
     "remark-parse": "^10.0.1",
     "remark-stringify": "^10.0.2",
-    "tslib": "^2.3.1",
+    "tslib": "^2.4.0",
     "unified": "^10.1.2",
     "vfile": "^5.3.2"
   }
