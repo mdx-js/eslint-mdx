@@ -13,13 +13,6 @@ import type {
   WorkerProcessResult,
 } from './types'
 
-export const FALLBACK_PARSERS = [
-  '@typescript-eslint/parser',
-  '@babel/eslint-parser',
-  'babel-eslint',
-  'espree',
-] as const
-
 export const MdxNodeType = {
   FLOW_EXPRESSION: 'mdxFlowExpression',
   JSX_FLOW_ELEMENT: 'mdxJsxFlowElement',
