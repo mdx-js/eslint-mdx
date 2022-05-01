@@ -12404,10 +12404,10 @@ trough@^2.0.0:
   resolved "https://registry.yarnpkg.com/trough/-/trough-2.1.0.tgz#0f7b511a4fde65a46f18477ab38849b22c554876"
   integrity sha512-AqTiAOLcj85xS7vQ8QkAV41hPDIJ71XJB4RCUrzo/1GM2CQwhkJGaf9Hgr7BOugMRpgGUrqRg/DrBDl4H40+8g==
 
-ts-jest@^28.0.0-next.1:
-  version "28.0.0-next.1"
-  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-28.0.0-next.1.tgz#b9961b0220d797a09ffc98d93caa73879794b122"
-  integrity sha512-rhxVFSOOcJLCjGvh/RXmvz0fSpnQrB0PjiC3JL25oNeuHH/bC3BVlanLg9AtPm/AnW3l0JCBfgACm2xAT9DPxw==
+ts-jest@^28.0.0-next.3:
+  version "28.0.0-next.3"
+  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-28.0.0-next.3.tgz#df236176c74923fc76a289317106937a7a072d58"
+  integrity sha512-R1mD18XKfd2Cb1qpjXfB3FfJ+yX8G75czuSnDu3hAcccPumeC3FKwAM6dGMvt5Yl0RSGw+bUQskp4zDma3Gdgg==
   dependencies:
     bs-logger "0.x"
     fast-json-stable-stringify "2.x"
