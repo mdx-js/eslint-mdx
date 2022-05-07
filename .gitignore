@@ -7,3 +7,4 @@ coverage
 lib
 node_modules
 /test.mdx
+.idea/
