@@ -31,7 +31,7 @@ export const remark: Linter.Processor = {
       ...mdxMessages,
       ...processors.markdown.postprocess(markdownMessages, filename),
     ]
-      .sort((a, b) => a.line - b.line)
+      .sort((a, b) => a.line - b.line || a.column - b.column)
       .map(lintMessage => {
         const {
           message,
