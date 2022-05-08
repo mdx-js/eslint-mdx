@@ -8,8 +8,8 @@ import {
   isMdxNode,
   normalizePosition,
   performSyncWork,
+  getPhysicalFilename,
 } from './helpers'
-import { getPhysicalFilename } from './processor'
 import { traverse } from './traverse'
 import type { ParserOptions, WorkerParseResult } from './types'
 

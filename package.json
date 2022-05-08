@@ -13,12 +13,12 @@
     "build": "run-p build:*",
     "build:r": "r -f es2015",
     "build:ts": "tsc -b",
-    "clean": "rimraf packages/*/{lib,*.tsbuildinfo} node_modules/@1stg/eslint-config/node_modules",
+    "clean": "rimraf packages/*/{lib,*.tsbuildinfo}",
     "lint": "run-p lint:*",
     "lint:es": "eslint . --cache -f friendly",
     "lint:tsc": "tsc --noEmit",
-    "postinstall": "patch-package && simple-git-hooks && yarn-deduplicate --strategy fewer || exit 0",
     "prelint": "yarn build",
+    "prepare": "patch-package && simple-git-hooks && yarn-deduplicate --strategy fewer || exit 0",
     "prerelease": "yarn build",
     "release": "lerna publish --conventional-commits --create-release github --yes",
     "release-next": "lerna publish --conventional-prerelease --preid next --pre-dist-tag next --yes",
@@ -27,16 +27,16 @@
   },
   "devDependencies": {
     "@1stg/lib-config": "^6.0.0",
-    "@types/eslint": "^8.4.1",
+    "@types/eslint": "^8.4.2",
     "@types/eslint-plugin-markdown": "^2.0.0",
-    "@types/jest": "^27.4.1",
-    "@types/node": "^17.0.29",
-    "@types/react": "^18.0.8",
+    "@types/jest": "^27.5.0",
+    "@types/node": "^17.0.31",
+    "@types/react": "^18.0.9",
     "@types/unist": "^2.0.6",
     "lerna": "^4.0.0",
     "patch-package": "^6.4.7",
     "react": "^18.1.0",
-    "ts-jest": "^28.0.0-next.3",
+    "ts-jest": "^28.0.2",
     "ts-node": "^10.7.0",
     "type-coverage": "^2.21.1",
     "typescript": "^4.6.4"
@@ -65,9 +65,6 @@
       "^eslint/use-at-your-own-risk$": "<rootDir>/node_modules/eslint/lib/unsupported-api.js",
       "^eslint-mdx$": "<rootDir>/packages/eslint-mdx/src",
       "^eslint-plugin-mdx$": "<rootDir>/packages/eslint-plugin-mdx/src"
-    },
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest/legacy"
     },
     "collectCoverage": true,
     "coverageThreshold": {
