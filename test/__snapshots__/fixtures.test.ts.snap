@@ -79,16 +79,6 @@ import React from 'react'
     "severity": 1,
   },
   Object {
-    "column": 1,
-    "endColumn": 4,
-    "endLine": 17,
-    "line": 15,
-    "message": "Missing code language flag",
-    "nodeType": "Program",
-    "ruleId": "remark-lint-fenced-code-flag",
-    "severity": 1,
-  },
-  Object {
     "column": 18,
     "endColumn": 30,
     "endLine": 12,
@@ -105,6 +95,16 @@ import React from 'react'
     "nodeType": "CallExpression",
     "ruleId": "unicorn/prefer-array-flat",
     "severity": 2,
+  },
+  Object {
+    "column": 1,
+    "endColumn": 4,
+    "endLine": 17,
+    "line": 15,
+    "message": "Missing code language flag",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-fenced-code-flag",
+    "severity": 1,
   },
   Object {
     "column": 1,

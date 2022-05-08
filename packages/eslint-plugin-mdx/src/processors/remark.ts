@@ -30,27 +30,29 @@ export const remark: Linter.Processor = {
     return [
       ...mdxMessages,
       ...processors.markdown.postprocess(markdownMessages, filename),
-    ].map(lintMessage => {
-      const {
-        message,
-        ruleId: eslintRuleId,
-        severity: eslintSeverity,
-      } = lintMessage
+    ]
+      .sort((a, b) => a.line - b.line || a.column - b.column)
+      .map(lintMessage => {
+        const {
+          message,
+          ruleId: eslintRuleId,
+          severity: eslintSeverity,
+        } = lintMessage
 
-      if (eslintRuleId !== 'mdx/remark') {
-        return lintMessage
-      }
+        if (eslintRuleId !== 'mdx/remark') {
+          return lintMessage
+        }
 
-      const { source, ruleId, reason, severity } = JSON.parse(
-        message,
-      ) as RemarkLintMessage
+        const { source, ruleId, reason, severity } = JSON.parse(
+          message,
+        ) as RemarkLintMessage
 
-      return {
-        ...lintMessage,
-        ruleId: `${source}-${ruleId}`,
-        message: reason,
-        severity: Math.max(eslintSeverity, severity) as Linter.Severity,
-      }
-    })
+        return {
+          ...lintMessage,
+          ruleId: `${source}-${ruleId}`,
+          message: reason,
+          severity: Math.max(eslintSeverity, severity) as Linter.Severity,
+        }
+      })
   },
 }
