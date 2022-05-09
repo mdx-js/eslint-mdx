@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/consistent-type-imports */
 /* eslint-disable unicorn/no-await-expression-member */
 import path from 'path'
+import { pathToFileURL } from 'url'
 
 import type { Token } from 'acorn'
 import { cosmiconfig } from 'cosmiconfig'
@@ -207,9 +208,11 @@ runAsWorker(
     if (!TokenTranslator) {
       TokenTranslator = (
         await loadEsmModule<typeof import('espree/lib/token-translator')>(
-          path.resolve(
-            require.resolve('espree/package.json'),
-            '../lib/token-translator.js',
+          pathToFileURL(
+            path.resolve(
+              require.resolve('espree/package.json'),
+              '../lib/token-translator.js',
+            ),
           ),
         )
       ).default

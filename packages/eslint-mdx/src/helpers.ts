@@ -1,5 +1,7 @@
 /* eslint-disable unicorn/no-await-expression-member */
+import fs from 'fs'
 import path from 'path'
+import { pathToFileURL } from 'url'
 
 import type { SourceLocation } from 'estree'
 import { createSyncFn } from 'synckit'
@@ -65,6 +67,30 @@ export const arrayify = <T, R = T extends Array<infer S> ? S : T>(
   }, [])
 
 /**
+ * Given a filepath, get the nearest path that is a regular file.
+ * The filepath provided by eslint may be a virtual filepath rather than a file
+ * on disk. This attempts to transform a virtual path into an on-disk path
+ */
+export const getPhysicalFilename = (
+  filename: string,
+  child?: string,
+): string => {
+  try {
+    if (fs.statSync(filename).isDirectory()) {
+      return child || filename
+    }
+  } catch (err) {
+    const { code } = err as { code: string }
+    // https://github.com/eslint/eslint/issues/11989
+    // Additionally, it seems there is no `ENOTDIR` code on Windows...
+    if (code === 'ENOTDIR' || code === 'ENOENT') {
+      return getPhysicalFilename(path.dirname(filename), filename)
+    }
+  }
+  return filename
+}
+
+/**
  * ! copied from https://github.com/just-jeb/angular-builders/blob/master/packages/custom-webpack/src/utils.ts#L53-L67
  *
  * This uses a dynamic import to load a module which may be ESM.
@@ -91,10 +117,13 @@ export const loadEsmModule = <T>(modulePath: URL | string): Promise<T> =>
  * @returns
  */
 export const loadModule = async <T>(modulePath: string): Promise<T> => {
+  const esModulePath = path.isAbsolute(modulePath)
+    ? pathToFileURL(modulePath)
+    : modulePath
   switch (path.extname(modulePath)) {
     /* istanbul ignore next */
     case '.mjs': {
-      return (await loadEsmModule<{ default: T }>(modulePath)).default
+      return (await loadEsmModule<{ default: T }>(esModulePath)).default
     }
     /* istanbul ignore next */
     case '.cjs': {
@@ -113,7 +142,7 @@ export const loadModule = async <T>(modulePath: string): Promise<T> => {
           // Load the ESM configuration file using the TypeScript dynamic import workaround.
           // Once TypeScript provides support for keeping the dynamic import this workaround can be
           // changed to a direct dynamic import.
-          return (await loadEsmModule<{ default: T }>(modulePath)).default
+          return (await loadEsmModule<{ default: T }>(esModulePath)).default
         }
 
         throw err

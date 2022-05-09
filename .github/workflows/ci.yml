@@ -6,14 +6,18 @@ on:
 
 jobs:
   ci:
-    name: Lint and Test with Node.js ${{ matrix.node }}
+    name: Lint and Test with Node.js ${{ matrix.node }} on ${{ matrix.os }}
     strategy:
       matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
         node:
           - 14
           - 16
           - 18
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
@@ -34,11 +38,13 @@ jobs:
         run: |
           yarn lint
           yarn test
+        continue-on-error: ${{ matrix.os == 'windows-latest' }}
         env:
           EFF_NO_LINK_RULES: true
           PARSER_NO_WATCH: true
 
       - name: Codecov
+        if: matrix.os != 'windows-latest'
         run: |
           yarn global add codecov
           codecov
