@@ -22,6 +22,9 @@ const getCli = (lintCodeBlocks = false) =>
           version: 'detect',
         },
       },
+      rules: {
+        'unicorn/template-indent': 0,
+      },
       overrides: lintCodeBlocks
         ? [
             {
