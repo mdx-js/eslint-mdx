@@ -1,12 +1,10 @@
-// @ts-check
-
 import type { Token, TokenType, tokTypes } from 'acorn'
 import type { Root } from 'remark-mdx'
 import type { visit as visitor } from 'unist-util-visit'
 import { ok as assert } from 'uvu/assert'
 
 import {
-  getPositionAt,
+  getPositionAtFactory,
   nextCharOffsetFactory,
   prevCharOffsetFactory,
 } from './helpers'
@@ -20,6 +18,10 @@ export const restoreTokens = (
 ) => {
   tokens = [...tokens]
 
+  const getPositionAt = getPositionAtFactory(text)
+  const prevCharOffset = prevCharOffsetFactory(text)
+  const nextCharOffset = nextCharOffsetFactory(text)
+
   const newToken = (
     type: TokenType,
     start: number,
@@ -31,14 +33,11 @@ export const restoreTokens = (
     start,
     end,
     loc: {
-      start: getPositionAt(text, start),
-      end: getPositionAt(text, end),
+      start: getPositionAt(start),
+      end: getPositionAt(end),
     },
     range: [start, end],
   })
-
-  const prevCharOffset = prevCharOffsetFactory(text)
-  const nextCharOffset = nextCharOffsetFactory(text)
 
   // eslint-disable-next-line sonarjs/cognitive-complexity
   visit(root, node => {

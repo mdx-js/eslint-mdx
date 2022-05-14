@@ -566,7 +566,7 @@ runAsWorker(
 
     for (const token of restoreTokens(text, root, sharedTokens, tt, visit)) {
       tokenTranslator.onToken(token, {
-        ecmaVersion: 13,
+        ecmaVersion: 'latest',
         tokens: tokens as EsprimaToken[],
       })
     }

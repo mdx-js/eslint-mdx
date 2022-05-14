@@ -142,24 +142,25 @@ export const requirePkg = async <T>(
 }
 
 /* istanbul ignore next -- used in worker */
-export const getPositionAt = (text: string, offset: number): Position => {
-  let currOffset = 0
-
+export const getPositionAtFactory = (text: string) => {
   const lines = text.split('\n')
+  return (offset: number): Position => {
+    let currOffset = 0
 
-  for (const [index, line_] of lines.entries()) {
-    const line = index + 1
-    const nextOffset = currOffset + line_.length
+    for (const [index, line_] of lines.entries()) {
+      const line = index + 1
+      const nextOffset = currOffset + line_.length
 
-    if (nextOffset >= offset) {
-      return {
-        line,
-        column: offset - currOffset,
-        offset,
+      if (nextOffset >= offset) {
+        return {
+          line,
+          column: offset - currOffset,
+          offset,
+        }
       }
-    }
 
-    currOffset = nextOffset + 1 // add a line break `\n` offset
+      currOffset = nextOffset + 1 // add a line break `\n` offset
+    }
   }
 }
 
@@ -175,6 +176,10 @@ export const normalizePosition = ({
   const startOffset = start.offset
   const endOffset = end.offset
   const range: [number, number] = [startOffset, endOffset]
+  const getPositionAt =
+    text == null
+      ? null
+      : /* istanbul ignore next -- used in worker */ getPositionAtFactory(text)
   return {
     start: startOffset,
     end: endOffset,
@@ -182,11 +187,11 @@ export const normalizePosition = ({
       start:
         /* istanbul ignore next -- used in worker */ 'line' in start
           ? (start as Position)
-          : getPositionAt(text, startOffset),
+          : getPositionAt(startOffset),
       end:
         /* istanbul ignore next -- used in worker */ 'line' in end
           ? (end as Position)
-          : getPositionAt(text, endOffset),
+          : getPositionAt(endOffset),
     },
     range,
   }
