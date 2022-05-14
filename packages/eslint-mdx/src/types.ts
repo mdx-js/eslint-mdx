@@ -1,7 +1,7 @@
 import type { Position } from 'acorn'
 import type { AST, Linter } from 'eslint'
 import type { Program } from 'estree'
-import type { Root } from 'remark-mdx'
+import type { Root } from 'mdast'
 import type { Plugin } from 'unified'
 import type { VFileOptions } from 'vfile'
 import type { VFileMessage } from 'vfile-message'
