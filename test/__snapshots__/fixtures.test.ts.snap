@@ -853,24 +853,6 @@ Array [
     "ruleId": "react/jsx-no-undef",
     "severity": 2,
   },
-  Object {
-    "column": 4,
-    "endColumn": 7,
-    "endLine": 3,
-    "fix": Object {
-      "range": Array [
-        16,
-        21,
-      ],
-      "text": "",
-    },
-    "line": 3,
-    "message": "Spread an object literal in object literal is unnecessary.",
-    "messageId": "spread-in-list",
-    "nodeType": "Punctuator",
-    "ruleId": "unicorn/no-useless-spread",
-    "severity": 2,
-  },
 ]
 `;
 

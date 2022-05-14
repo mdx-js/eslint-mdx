@@ -10,10 +10,12 @@ import type { AST } from 'eslint'
 import type { EsprimaToken } from 'espree/lib/token-translator'
 import type {
   BaseExpression,
+  Comment,
   Expression,
   ExpressionStatement,
+  ObjectExpression,
   Program,
-  Comment,
+  SpreadElement,
 } from 'estree'
 import type { JSXClosingElement, JSXElement, JSXFragment } from 'estree-jsx'
 import type { BlockContent, PhrasingContent } from 'mdast'
@@ -400,9 +402,13 @@ runAsWorker(
                       // mdxJsxExpressionAttribute
                       ...normalizeNode(attrValStart, attrValEnd + 1),
                       type: 'JSXSpreadAttribute',
+                      // https://github.com/mdx-js/eslint-mdx/pull/394#discussion_r872974843
                       argument: (
-                        attr.data.estree.body[0] as ExpressionStatement
-                      ).expression,
+                        (
+                          (attr.data.estree.body[0] as ExpressionStatement)
+                            .expression as ObjectExpression
+                        ).properties[0] as SpreadElement
+                      ).argument,
                     }
                   }
 
@@ -492,8 +498,8 @@ runAsWorker(
                             ...attrValuePos,
                             type: 'JSXExpressionContainer',
                             expression: (
-                              attr.value.data?.estree
-                                ?.body[0] as ExpressionStatement
+                              attr.value.data.estree
+                                .body[0] as ExpressionStatement
                             ).expression,
                           },
                   }
