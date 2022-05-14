@@ -3,19 +3,39 @@
 import path from 'path'
 import { pathToFileURL } from 'url'
 
-import type { Token } from 'acorn'
+import type { Token, TokenType, tokTypes as _tokTypes } from 'acorn'
 import { cosmiconfig } from 'cosmiconfig'
 import type { CosmiconfigResult } from 'cosmiconfig/dist/types'
 import type { AST } from 'eslint'
 import type { EsprimaToken } from 'espree/lib/token-translator'
+import type {
+  BaseExpression,
+  Expression,
+  ExpressionStatement,
+  Program,
+  Comment,
+} from 'estree'
+import type { JSXClosingElement, JSXElement, JSXFragment } from 'estree-jsx'
+import type { BlockContent, PhrasingContent } from 'mdast'
 import type { Options } from 'micromark-extension-mdx-expression'
+import type { Root } from 'remark-mdx'
 import { extractProperties, runAsWorker } from 'synckit'
 import type { FrozenProcessor } from 'unified'
-import type { Parent } from 'unist'
+import type { Node } from 'unist'
+import { ok as assert } from 'uvu/assert'
 import type { VFileMessage } from 'vfile-message'
 
-import { arrayify, loadEsmModule, requirePkg } from './helpers'
+import {
+  arrayify,
+  loadEsmModule,
+  nextCharOffsetFactory,
+  normalizePosition,
+  prevCharOffsetFactory,
+  requirePkg,
+} from './helpers'
+import { restoreTokens } from './tokens'
 import type {
+  NormalPosition,
   RemarkConfig,
   RemarkPlugin,
   WorkerOptions,
@@ -23,8 +43,11 @@ import type {
 } from './types'
 
 let acorn: typeof import('acorn')
-let tokTypes: typeof import('acorn')['tokTypes']
-let jsxTokTypes: Record<string, import('acorn').TokenType>
+
+let tokTypes: typeof _tokTypes
+let jsxTokTypes: Record<string, TokenType>
+let tt: Record<string, TokenType> & typeof _tokTypes
+
 let TokenTranslator: typeof import('espree/lib/token-translator')['default']
 
 const explorer = cosmiconfig('remark', {
@@ -148,7 +171,8 @@ runAsWorker(
     isMdx,
     process,
     ignoreRemarkConfig,
-  }: WorkerOptions): Promise<WorkerResult> => {
+  }: // eslint-disable-next-line sonarjs/cognitive-complexity
+  WorkerOptions): Promise<WorkerResult> => {
     sharedTokens.length = 0
 
     const processor = await getRemarkProcessor(
@@ -163,11 +187,9 @@ runAsWorker(
       try {
         await processor.process(file)
       } catch (err) {
-        if (!file.messages.includes(err as VFileMessage)) {
-          file.message(
-            // @ts-expect-error - Error is fine
-            err,
-          ).fatal = true
+        const error = err as VFileMessage
+        if (!file.messages.includes(error)) {
+          file.message(error).fatal = true
         }
       }
 
@@ -218,19 +240,325 @@ runAsWorker(
       ).default
     }
 
-    const tokenTranslator = new TokenTranslator(
-      {
+    if (!tt) {
+      tt = {
         ...tokTypes,
         ...jsxTokTypes,
-      },
-      fileOptions.value as string,
-    )
+      }
+    }
 
-    const root = processor.parse(fileOptions) as Parent
+    const text = fileOptions.value as string
+    const tokenTranslator = new TokenTranslator(tt, text)
 
+    const root = processor.parse(fileOptions) as Root
+
+    const body: Program['body'] = []
+    const comments: Comment[] = []
     const tokens: AST.Token[] = []
 
-    for (const token of sharedTokens) {
+    const { visit } = await loadEsmModule<typeof import('unist-util-visit')>(
+      'unist-util-visit',
+    )
+
+    const processed = new WeakSet<Node>()
+
+    // TODO: merge with `tokens.ts`
+    if (isMdx) {
+      const prevCharOffset = prevCharOffsetFactory(text)
+      const nextCharOffset = nextCharOffsetFactory(text)
+
+      const normalizeNode = (start: number, end: number) => ({
+        ...normalizePosition({
+          start: { offset: start },
+          end: { offset: end },
+          text,
+        }),
+        raw: text.slice(start, end),
+      })
+
+      visit(root, node => {
+        if (
+          processed.has(node) ||
+          (node.type !== 'mdxFlowExpression' &&
+            node.type !== 'mdxJsxFlowElement' &&
+            node.type !== 'mdxJsxTextElement' &&
+            node.type !== 'mdxTextExpression' &&
+            node.type !== 'mdxjsEsm')
+        ) {
+          return
+        }
+
+        processed.add(node)
+
+        const children =
+          'children' in node
+            ? (node.children as Array<BlockContent | PhrasingContent>).reduce<
+                JSXElement['children']
+              >((acc, child) => {
+                processed.add(child)
+
+                if (!child.data || 'estree' in child.data || !child.data) {
+                  return acc
+                }
+
+                const estree = (child.data.estree || {
+                  body: [],
+                  comments: [],
+                }) as Program
+
+                assert(estree.body.length <= 1)
+
+                const expStat = estree.body[0] as
+                  | ExpressionStatement
+                  | undefined
+
+                if (expStat) {
+                  const expression =
+                    expStat.expression as BaseExpression as JSXElement['children'][number]
+                  acc.push(expression)
+                }
+
+                comments.push(...estree.comments)
+
+                return acc
+              }, [])
+            : []
+
+        if (
+          node.type === 'mdxJsxTextElement' ||
+          node.type === 'mdxJsxFlowElement'
+        ) {
+          const nodePos = node.position
+
+          const nodeStart = nodePos.start.offset
+          const nodeEnd = nodePos.end.offset
+
+          const lastCharOffset = prevCharOffset(nodeEnd - 2)
+
+          let expression: BaseExpression
+
+          if (node.name) {
+            const nodeNameLength = node.name.length
+            const nodeNameStart = nextCharOffset(nodeStart + 1)
+
+            const selfClosing = text[lastCharOffset] === '/'
+
+            let lastAttrOffset = nodeNameStart + nodeNameLength - 1
+
+            let closingElement: JSXClosingElement | null = null
+
+            if (!selfClosing) {
+              const prevOffset = prevCharOffset(lastCharOffset)
+              const slashOffset = prevCharOffset(prevOffset - nodeNameLength)
+              assert(text[slashOffset] === '/')
+              const tagStartOffset = prevCharOffset(slashOffset - 1)
+              assert(text[tagStartOffset] === '<')
+              closingElement = {
+                ...normalizeNode(tagStartOffset, nodeEnd),
+                type: 'JSXClosingElement',
+                name: {
+                  ...normalizeNode(
+                    prevOffset + 1 - nodeNameLength,
+                    prevOffset + 1,
+                  ),
+                  type: 'JSXIdentifier',
+                  name: node.name,
+                },
+              }
+            }
+
+            const jsxEl: JSXElement = {
+              ...normalizeNode(nodeStart, nodeEnd),
+              type: 'JSXElement',
+              openingElement: {
+                type: 'JSXOpeningElement',
+                name: {
+                  ...normalizeNode(
+                    nodeNameStart,
+                    nodeNameStart + nodeNameLength,
+                  ),
+                  type: 'JSXIdentifier',
+                  name: node.name,
+                },
+                attributes: node.attributes.map(attr => {
+                  if (attr.type === 'mdxJsxExpressionAttribute') {
+                    assert(attr.data)
+                    assert(attr.data.estree)
+                    assert(attr.data.estree.range)
+
+                    let [attrValStart, attrValEnd] = attr.data.estree.range
+
+                    attrValStart = prevCharOffset(attrValStart - 1)
+                    attrValEnd = nextCharOffset(attrValEnd)
+
+                    assert(text[attrValStart] === '{')
+                    assert(text[attrValEnd] === '}')
+
+                    lastAttrOffset = attrValEnd
+
+                    return {
+                      // mdxJsxExpressionAttribute
+                      ...normalizeNode(attrValStart, attrValEnd + 1),
+                      type: 'JSXSpreadAttribute',
+                      argument: (
+                        attr.data.estree.body[0] as ExpressionStatement
+                      ).expression,
+                    }
+                  }
+
+                  const attrStart = nextCharOffset(lastAttrOffset + 1)
+
+                  assert(attrStart != null)
+
+                  const attrName = attr.name
+                  const attrNameLength = attrName.length
+
+                  const attrValue = attr.value
+
+                  lastAttrOffset = attrStart + attrNameLength
+
+                  const attrNamePos = normalizeNode(attrStart, lastAttrOffset)
+
+                  if (attrValue == null) {
+                    return {
+                      ...attrNamePos,
+                      type: 'JSXAttribute',
+                      name: {
+                        ...attrNamePos,
+                        type: 'JSXIdentifier',
+                        name: attrName,
+                      },
+                      value: null,
+                    }
+                  }
+
+                  const attrEqualOffset = nextCharOffset(
+                    attrStart + attrNameLength,
+                  )
+
+                  assert(text[attrEqualOffset] === '=')
+
+                  let attrValuePos: NormalPosition
+
+                  if (typeof attrValue === 'string') {
+                    const attrQuoteOffset = nextCharOffset(attrEqualOffset + 1)
+
+                    const attrQuote = text[attrQuoteOffset]
+
+                    assert(attrQuote === '"' || attrQuote === "'")
+
+                    lastAttrOffset = nextCharOffset(
+                      attrQuoteOffset + attrValue.length + 1,
+                    )
+
+                    assert(text[lastAttrOffset] === attrQuote)
+
+                    attrValuePos = normalizeNode(
+                      attrQuoteOffset,
+                      lastAttrOffset + 1,
+                    )
+                  } else {
+                    const data = attrValue.data
+
+                    let [attrValStart, attrValEnd] = data.estree.range
+
+                    attrValStart = prevCharOffset(attrValStart - 1)
+                    attrValEnd = nextCharOffset(attrValEnd)
+
+                    assert(text[attrValStart] === '{')
+                    assert(text[attrValEnd] === '}')
+
+                    lastAttrOffset = attrValEnd
+
+                    attrValuePos = normalizeNode(attrValStart, attrValEnd + 1)
+                  }
+
+                  return {
+                    ...attrNamePos,
+                    type: 'JSXAttribute',
+                    name: {
+                      ...normalizeNode(attrStart, lastAttrOffset + 1),
+                      type: 'JSXIdentifier',
+                      name: attrName,
+                    },
+                    value:
+                      typeof attr.value === 'string'
+                        ? {
+                            ...attrValuePos,
+                            type: 'Literal',
+                            value: attr.value,
+                          }
+                        : {
+                            ...attrValuePos,
+                            type: 'JSXExpressionContainer',
+                            expression: (
+                              attr.value.data?.estree
+                                ?.body[0] as ExpressionStatement
+                            ).expression,
+                          },
+                  }
+                }),
+                selfClosing,
+              },
+              closingElement,
+              children,
+            }
+
+            const nextOffset = nextCharOffset(lastAttrOffset + 1)
+
+            const nextChar = text[nextOffset]
+
+            assert(nextChar === (selfClosing ? '/' : '>'))
+
+            Object.assign(
+              jsxEl.openingElement,
+              normalizeNode(nodeStart, selfClosing ? nodeEnd : nextOffset + 1),
+            )
+
+            expression = jsxEl
+          } else {
+            const openEndOffset = nextCharOffset(nodeStart + 1)
+
+            const openPos = normalizeNode(nodeStart, openEndOffset)
+
+            const closeStartOffset = prevCharOffset(lastCharOffset - 1)
+
+            const jsxFrg: JSXFragment = {
+              ...openPos,
+              type: 'JSXFragment',
+              openingFragment: {
+                ...openPos,
+                type: 'JSXOpeningFragment',
+              },
+              closingFragment: {
+                ...normalizeNode(closeStartOffset, nodeEnd),
+                type: 'JSXClosingFragment',
+              },
+              children,
+            }
+
+            expression = jsxFrg
+          }
+
+          body.push({
+            ...normalizePosition(nodePos),
+            type: 'ExpressionStatement',
+            expression: expression as Expression,
+          })
+          return
+        }
+
+        const estree = (node.data.estree || {
+          body: [],
+          comments: [],
+        }) as Program
+
+        body.push(...estree.body)
+        comments.push(...estree.comments)
+      })
+    }
+
+    for (const token of restoreTokens(text, root, sharedTokens, tt, visit)) {
       tokenTranslator.onToken(token, {
         ecmaVersion: 13,
         tokens: tokens as EsprimaToken[],
@@ -239,6 +567,8 @@ runAsWorker(
 
     return {
       root,
+      body,
+      comments,
       tokens,
     }
   },
