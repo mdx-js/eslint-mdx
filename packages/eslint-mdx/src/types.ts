@@ -1,21 +1,10 @@
+import type { Position } from 'acorn'
 import type { AST, Linter } from 'eslint'
 import type { Program } from 'estree'
+import type { Root } from 'mdast'
 import type { Plugin } from 'unified'
-import type { Node, Parent } from 'unist'
 import type { VFileOptions } from 'vfile'
 import type { VFileMessage } from 'vfile-message'
-
-import type { MdxNodeType } from './helpers'
-
-export declare type ValueOf<T> = T extends {
-  [key: string]: infer M
-}
-  ? M
-  : T extends {
-      [key: number]: infer N
-    }
-  ? N
-  : never
 
 export interface ParserOptions extends Linter.ParserOptions {
   extensions?: string[] | string
@@ -24,13 +13,14 @@ export interface ParserOptions extends Linter.ParserOptions {
   ignoreRemarkConfig?: boolean
 }
 
-export type Traverser = (node: Node, parent?: Parent) => void
-
-export interface MdxNode extends Node {
-  type: MdxNodeType
-  data?: {
-    estree: Program
+export interface NormalPosition {
+  start: number
+  end: number
+  loc: {
+    start: Position
+    end: Position
   }
+  range: [number, number]
 }
 
 export type RemarkPlugin = Plugin | string
@@ -49,7 +39,9 @@ export interface WorkerOptions {
 }
 
 export interface WorkerParseResult {
-  root: Parent
+  root: Root
+  body: Program['body']
+  comments: Program['comments']
   tokens: AST.Token[]
 }
 

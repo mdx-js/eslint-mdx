@@ -387,7 +387,21 @@ Array [
 ]
 `;
 
-exports[`fixtures should match all snapshots: 391.mdx 1`] = `Array []`;
+exports[`fixtures should match all snapshots: 391.mdx 1`] = `
+Array [
+  Object {
+    "column": 2,
+    "endColumn": 5,
+    "endLine": 7,
+    "line": 7,
+    "message": "'Foo' is not defined.",
+    "messageId": "undefined",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+]
+`;
 
 exports[`fixtures should match all snapshots: acorn.mdx 1`] = `
 Array [
@@ -525,6 +539,28 @@ Here's a YouTube shortcode:
     "severity": 1,
   },
   Object {
+    "column": 2,
+    "endColumn": 7,
+    "endLine": 31,
+    "line": 31,
+    "message": "'Tweet' is not defined.",
+    "messageId": "undefined",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+  Object {
+    "column": 2,
+    "endColumn": 14,
+    "endLine": 33,
+    "line": 33,
+    "message": "'TextGradient' is not defined.",
+    "messageId": "undefined",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+  Object {
     "column": 1,
     "endColumn": 36,
     "endLine": 35,
@@ -533,6 +569,17 @@ Here's a YouTube shortcode:
     "nodeType": "Program",
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
+  },
+  Object {
+    "column": 2,
+    "endColumn": 9,
+    "endLine": 41,
+    "line": 41,
+    "message": "'YouTube' is not defined.",
+    "messageId": "undefined",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
   },
 ]
 `;
@@ -792,6 +839,22 @@ exports[`fixtures should match all snapshots: markdown.md 1`] = `Array []`;
 exports[`fixtures should match all snapshots: nested.md 1`] = `Array []`;
 
 exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `Array []`;
+
+exports[`fixtures should match all snapshots: no-unused-expressions.mdx 1`] = `
+Array [
+  Object {
+    "column": 2,
+    "endColumn": 7,
+    "endLine": 1,
+    "line": 1,
+    "message": "'Story' is not defined.",
+    "messageId": "undefined",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+]
+`;
 
 exports[`fixtures should match all snapshots: processor.mdx 1`] = `
 Array [

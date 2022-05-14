@@ -1,0 +1,454 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parser should parse jsx spread correctly 1`] = `
+Object {
+  "body": Array [
+    Object {
+      "end": 19,
+      "expression": Object {
+        "children": Array [],
+        "closingElement": Object {
+          "end": 19,
+          "loc": Object {
+            "end": Object {
+              "column": 19,
+              "line": 1,
+              "offset": 19,
+            },
+            "start": Object {
+              "column": 13,
+              "line": 1,
+              "offset": 13,
+            },
+          },
+          "name": Object {
+            "end": 18,
+            "loc": Object {
+              "end": Object {
+                "column": 18,
+                "line": 1,
+                "offset": 18,
+              },
+              "start": Object {
+                "column": 15,
+                "line": 1,
+                "offset": 15,
+              },
+            },
+            "name": "div",
+            "range": Array [
+              15,
+              18,
+            ],
+            "raw": "div",
+            "start": 15,
+            "type": "JSXIdentifier",
+          },
+          "range": Array [
+            13,
+            19,
+          ],
+          "raw": "</div>",
+          "start": 13,
+          "type": "JSXClosingElement",
+        },
+        "end": 19,
+        "loc": Object {
+          "end": Object {
+            "column": 19,
+            "line": 1,
+            "offset": 19,
+          },
+          "start": Object {
+            "column": 0,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "openingElement": Object {
+          "attributes": Array [
+            Object {
+              "argument": Object {
+                "end": 11,
+                "loc": Object {
+                  "end": Object {
+                    "column": 11,
+                    "line": 1,
+                    "offset": 11,
+                  },
+                  "start": Object {
+                    "column": 9,
+                    "line": 1,
+                    "offset": 9,
+                  },
+                },
+                "properties": Array [],
+                "range": Array [
+                  9,
+                  11,
+                ],
+                "start": 9,
+                "type": "ObjectExpression",
+              },
+              "end": 12,
+              "loc": Object {
+                "end": Object {
+                  "column": 12,
+                  "line": 1,
+                  "offset": 12,
+                },
+                "start": Object {
+                  "column": 5,
+                  "line": 1,
+                  "offset": 5,
+                },
+              },
+              "range": Array [
+                5,
+                12,
+              ],
+              "raw": "{...{}}",
+              "start": 5,
+              "type": "JSXSpreadAttribute",
+            },
+          ],
+          "end": 13,
+          "loc": Object {
+            "end": Object {
+              "column": 13,
+              "line": 1,
+              "offset": 13,
+            },
+            "start": Object {
+              "column": 0,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "name": Object {
+            "end": 4,
+            "loc": Object {
+              "end": Object {
+                "column": 4,
+                "line": 1,
+                "offset": 4,
+              },
+              "start": Object {
+                "column": 1,
+                "line": 1,
+                "offset": 1,
+              },
+            },
+            "name": "div",
+            "range": Array [
+              1,
+              4,
+            ],
+            "raw": "div",
+            "start": 1,
+            "type": "JSXIdentifier",
+          },
+          "range": Array [
+            0,
+            13,
+          ],
+          "raw": "<div {...{}}>",
+          "selfClosing": false,
+          "start": 0,
+          "type": "JSXOpeningElement",
+        },
+        "range": Array [
+          0,
+          19,
+        ],
+        "raw": "<div {...{}}></div>",
+        "start": 0,
+        "type": "JSXElement",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 20,
+          "line": 1,
+          "offset": 19,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "range": Array [
+        0,
+        19,
+      ],
+      "start": 0,
+      "type": "ExpressionStatement",
+    },
+  ],
+  "comments": Array [],
+  "end": 19,
+  "loc": Object {
+    "end": Object {
+      "column": 20,
+      "line": 1,
+      "offset": 19,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "range": Array [
+    0,
+    19,
+  ],
+  "sourceType": undefined,
+  "start": 0,
+  "tokens": Array [
+    Object {
+      "end": 1,
+      "loc": Object {
+        "end": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 1,
+        },
+        "start": Object {
+          "column": 0,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "range": Array [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    Object {
+      "end": 4,
+      "loc": Object {
+        "end": Object {
+          "column": 4,
+          "line": 1,
+          "offset": 4,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 1,
+        },
+      },
+      "range": Array [
+        1,
+        4,
+      ],
+      "start": 1,
+      "type": "JSXIdentifier",
+      "value": "div",
+    },
+    Object {
+      "end": 6,
+      "loc": Object {
+        "end": Object {
+          "column": 6,
+          "line": 1,
+          "offset": 6,
+        },
+        "start": Object {
+          "column": 5,
+          "line": 1,
+          "offset": 5,
+        },
+      },
+      "range": Array [
+        5,
+        6,
+      ],
+      "start": 5,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    Object {
+      "end": 9,
+      "loc": Object {
+        "end": Object {
+          "column": 9,
+          "line": 1,
+          "offset": 9,
+        },
+        "start": Object {
+          "column": 6,
+          "line": 1,
+          "offset": 6,
+        },
+      },
+      "range": Array [
+        6,
+        9,
+      ],
+      "start": 6,
+      "type": "Punctuator",
+      "value": "...",
+    },
+    Object {
+      "end": 10,
+      "loc": Object {
+        "end": Object {
+          "column": 10,
+          "line": 1,
+          "offset": 10,
+        },
+        "start": Object {
+          "column": 9,
+          "line": 1,
+          "offset": 9,
+        },
+      },
+      "range": Array [
+        9,
+        10,
+      ],
+      "start": 9,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    Object {
+      "end": 11,
+      "loc": Object {
+        "end": Object {
+          "column": 11,
+          "line": 1,
+          "offset": 11,
+        },
+        "start": Object {
+          "column": 10,
+          "line": 1,
+          "offset": 10,
+        },
+      },
+      "range": Array [
+        10,
+        11,
+      ],
+      "start": 10,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    Object {
+      "end": 12,
+      "loc": Object {
+        "end": Object {
+          "column": 12,
+          "line": 1,
+          "offset": 12,
+        },
+        "start": Object {
+          "column": 11,
+          "line": 1,
+          "offset": 11,
+        },
+      },
+      "range": Array [
+        11,
+        12,
+      ],
+      "start": 11,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    Object {
+      "end": 14,
+      "loc": Object {
+        "end": Object {
+          "column": 14,
+          "line": 1,
+          "offset": 14,
+        },
+        "start": Object {
+          "column": 13,
+          "line": 1,
+          "offset": 13,
+        },
+      },
+      "range": Array [
+        13,
+        14,
+      ],
+      "start": 13,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    Object {
+      "end": 15,
+      "loc": Object {
+        "end": Object {
+          "column": 15,
+          "line": 1,
+          "offset": 15,
+        },
+        "start": Object {
+          "column": 14,
+          "line": 1,
+          "offset": 14,
+        },
+      },
+      "range": Array [
+        14,
+        15,
+      ],
+      "start": 14,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    Object {
+      "end": 18,
+      "loc": Object {
+        "end": Object {
+          "column": 18,
+          "line": 1,
+          "offset": 18,
+        },
+        "start": Object {
+          "column": 15,
+          "line": 1,
+          "offset": 15,
+        },
+      },
+      "range": Array [
+        15,
+        18,
+      ],
+      "start": 15,
+      "type": "JSXIdentifier",
+      "value": "div",
+    },
+    Object {
+      "end": 19,
+      "loc": Object {
+        "end": Object {
+          "column": 19,
+          "line": 1,
+          "offset": 19,
+        },
+        "start": Object {
+          "column": 18,
+          "line": 1,
+          "offset": 18,
+        },
+      },
+      "range": Array [
+        18,
+        19,
+      ],
+      "start": 18,
+      "type": "Punctuator",
+      "value": ">",
+    },
+  ],
+  "type": "Program",
+}
+`;

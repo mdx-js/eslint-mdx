@@ -58,7 +58,7 @@ declare module 'espree/lib/token-translator' {
       token: acorn.Token,
       extra: {
         // eslint-disable-next-line no-magic-numbers, sonar/max-union-size
-        ecmaVersion: 3 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13
+        ecmaVersion: 'latest' | 3 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13
         tokens: EsprimaToken[]
       },
     ): void

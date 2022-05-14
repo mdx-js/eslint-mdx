@@ -86,4 +86,11 @@ describe('parser', () => {
         filePath: 'test.md',
       }),
     ).not.toThrow())
+
+  it('should parse jsx spread correctly', () =>
+    expect(
+      parser.parse('<div {...{}}></div>', {
+        filePath: 'test.mdx',
+      }),
+    ).toMatchSnapshot())
 })

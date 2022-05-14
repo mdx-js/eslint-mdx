@@ -3,57 +3,16 @@ import fs from 'fs'
 import path from 'path'
 import { pathToFileURL } from 'url'
 
-import type { SourceLocation } from 'estree'
+import type { Position } from 'acorn'
 import { createSyncFn } from 'synckit'
-import type { Node, Position } from 'unist'
+import type { Point } from 'unist'
 
 import type {
-  MdxNode,
-  ValueOf,
+  NormalPosition,
   WorkerOptions,
   WorkerParseResult,
   WorkerProcessResult,
 } from './types'
-
-export const MdxNodeType = {
-  FLOW_EXPRESSION: 'mdxFlowExpression',
-  JSX_FLOW_ELEMENT: 'mdxJsxFlowElement',
-  JSX_TEXT_ELEMENT: 'mdxJsxTextElement',
-  TEXT_EXPRESSION: 'mdxTextExpression',
-  JS_ESM: 'mdxjsEsm',
-} as const
-
-export type MdxNodeType = ValueOf<typeof MdxNodeType>
-
-export const MDX_NODE_TYPES = [
-  MdxNodeType.FLOW_EXPRESSION,
-  MdxNodeType.JSX_FLOW_ELEMENT,
-  MdxNodeType.JSX_TEXT_ELEMENT,
-  MdxNodeType.TEXT_EXPRESSION,
-  MdxNodeType.JS_ESM,
-] as const
-
-export const isMdxNode = (node: Node): node is MdxNode =>
-  MDX_NODE_TYPES.includes(node.type as MdxNodeType)
-
-export interface BaseNode {
-  type: string
-  loc: SourceLocation
-  range: [number, number]
-  start?: number
-  end?: number
-}
-
-export const normalizePosition = (loc: Position): Omit<BaseNode, 'type'> => {
-  const start = loc.start.offset
-  const end = loc.end.offset
-  return {
-    range: [start, end],
-    loc,
-    start,
-    end,
-  }
-}
 
 export const last = <T>(items: T[] | readonly T[]) =>
   items && items[items.length - 1]
@@ -163,6 +122,7 @@ export const requirePkg = async <T>(
     prefix = prefix.endsWith('-') ? prefix : prefix + '-'
     packages = [
       plugin,
+      /* istanbul ignore next */
       plugin.startsWith('@')
         ? plugin.replace('/', '/' + prefix)
         : prefix + plugin,
@@ -179,6 +139,87 @@ export const requirePkg = async <T>(
     }
   }
   throw error
+}
+
+/* istanbul ignore next -- used in worker */
+export const getPositionAtFactory = (text: string) => {
+  const lines = text.split('\n')
+  return (offset: number): Position => {
+    let currOffset = 0
+
+    for (const [index, line_] of lines.entries()) {
+      const line = index + 1
+      const nextOffset = currOffset + line_.length
+
+      if (nextOffset >= offset) {
+        return {
+          line,
+          column: offset - currOffset,
+          offset,
+        }
+      }
+
+      currOffset = nextOffset + 1 // add a line break `\n` offset
+    }
+  }
+}
+
+export const normalizePosition = ({
+  start,
+  end,
+  text,
+}: {
+  start: Point | { offset: number }
+  end: Point | { offset: number }
+  text?: string
+}): NormalPosition => {
+  const startOffset = start.offset
+  const endOffset = end.offset
+  const range: [number, number] = [startOffset, endOffset]
+  const getPositionAt =
+    text == null
+      ? null
+      : /* istanbul ignore next -- used in worker */ getPositionAtFactory(text)
+  return {
+    start: startOffset,
+    end: endOffset,
+    loc: {
+      start:
+        /* istanbul ignore next -- used in worker */ 'line' in start
+          ? (start as Position)
+          : getPositionAt(startOffset),
+      end:
+        /* istanbul ignore next -- used in worker */ 'line' in end
+          ? (end as Position)
+          : getPositionAt(endOffset),
+    },
+    range,
+  }
+}
+
+/* istanbul ignore next -- used in worker */
+export const prevCharOffsetFactory =
+  (text: string) =>
+  (offset: number): number => {
+    for (let i = offset; i >= 0; i--) {
+      const char = text[i]
+      if (/^\S$/.test(char)) {
+        return i
+      }
+    }
+  }
+
+/* istanbul ignore next -- used in worker */
+export const nextCharOffsetFactory = (text: string) => {
+  const total = text.length
+  return (offset: number): number => {
+    for (let i = offset; i <= total; i++) {
+      const char = text[i]
+      if (/^\S$/.test(char)) {
+        return i
+      }
+    }
+  }
 }
 
 const workerPath = require.resolve('./worker')
