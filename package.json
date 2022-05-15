@@ -21,7 +21,7 @@
     "prepare": "patch-package && simple-git-hooks && yarn-deduplicate --strategy fewer || exit 0",
     "prerelease": "yarn build",
     "release": "lerna publish --conventional-commits --create-release github --yes",
-    "release-next": "lerna publish --conventional-prerelease --preid next --pre-dist-tag next --yes",
+    "release-next": "yarn build && lerna publish --conventional-prerelease --preid next --pre-dist-tag next --yes",
     "test": "jest",
     "typecov": "type-coverage"
   },
