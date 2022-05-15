@@ -1,0 +1,22 @@
+<Canvas>
+  <Story
+    name="Editable"
+    height="100px"
+  >
+    {{
+      props: {
+        tabs: [1, 2, 3],
+        add(num = 1) {
+          this.tabs = this.tabs.concat(
+            Array.from({ length: num })
+              .fill()
+              .map((_, i) => this.tabs[this.tabs.length - 1] + i + 1),
+          )
+        },
+        remove(index) {
+          this.tabs.splice(index, 1)
+        },
+      },
+    }}
+  </Story>
+</Canvas>

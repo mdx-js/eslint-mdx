@@ -206,7 +206,420 @@ Array [
 ]
 `;
 
-exports[`fixtures should match all snapshots: 380.mdx 1`] = `Array []`;
+exports[`fixtures should match all snapshots: 380.mdx 1`] = `
+Array [
+  Object {
+    "column": 28,
+    "endColumn": 8,
+    "endLine": 70,
+    "fix": Object {
+      "range": Array [
+        896,
+        1393,
+      ],
+      "text": "
+        <aui-tab-group [(tab)]=\\"tab\\">
+          <aui-tab
+            name=\\"a\\"
+            label=\\"Tab 0\\"
+          >
+            <aui-card> Content 1</aui-card>
+          </aui-tab>
+          <aui-tab
+            name=\\"b\\"
+            label=\\"Tab 1\\"
+          >
+            <aui-card> Content 2</aui-card>
+          </aui-tab>
+          <aui-tab
+            name=\\"c\\"
+            label=\\"Tab 2\\"
+          >
+            <aui-card> Content 3</aui-card>
+          </aui-tab>
+        </aui-tab-group>
+      ",
+    },
+    "line": 49,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
+    "severity": 2,
+  },
+  Object {
+    "column": 28,
+    "endColumn": 8,
+    "endLine": 92,
+    "fix": Object {
+      "range": Array [
+        1570,
+        1866,
+      ],
+      "text": "
+        <aui-tab-group [type]=\\"type\\">
+          <aui-tab label=\\"Tab 0\\"><aui-card> Content 1 </aui-card></aui-tab>
+          <aui-tab label=\\"Tab 1\\"><aui-card> Content 2 </aui-card></aui-tab>
+          <aui-tab label=\\"Tab 2\\"><aui-card> Content 3 </aui-card></aui-tab>
+        </aui-tab-group>
+      ",
+    },
+    "line": 86,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
+    "severity": 2,
+  },
+  Object {
+    "column": 28,
+    "endColumn": 8,
+    "endLine": 126,
+    "fix": Object {
+      "range": Array [
+        2053,
+        2797,
+      ],
+      "text": "
+        <aui-form-item>
+          <label auiFormItemLabel>尺寸</label>
+          <aui-radio-group
+            auiFormItemControl
+            [(ngModel)]=\\"size\\"
+            [plain]=\\"false\\"
+          >
+            <aui-radio-button value=\\"large\\">大</aui-radio-button>
+            <aui-radio-button value=\\"medium\\">中</aui-radio-button>
+            <aui-radio-button value=\\"small\\">小</aui-radio-button>
+          </aui-radio-group>
+        </aui-form-item>
+        <aui-tab-group [size]=\\"size\\">
+          <aui-tab label=\\"Tab 0\\"><aui-card> Content 1 </aui-card></aui-tab>
+          <aui-tab label=\\"Tab 1\\"><aui-card> Content 2 </aui-card></aui-tab>
+          <aui-tab label=\\"Tab 2\\"><aui-card> Content 3 </aui-card></aui-tab>
+        </aui-tab-group>
+      ",
+    },
+    "line": 108,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
+    "severity": 2,
+  },
+  Object {
+    "column": 28,
+    "endColumn": 24,
+    "endLine": 159,
+    "fix": Object {
+      "range": Array [
+        2998,
+        3589,
+      ],
+      "text": "
+        aui-tab-group>
+                <ng-container *auiTabTitle>aa2</ng-container>
+                <aui-tab>
+                  <ng-container *auiTabLabel>
+                    <aui-icon icon=\\"sun\\"></aui-icon>
+                    Custom Label
+                  </ng-container>
+                  <aui-card> Content 1 </aui-card>
+                </aui-tab>
+                <aui-tab label=\\"Tab 1\\"><aui-card>Content 2</aui-card></aui-tab>
+                <aui-tab>
+                  <ng-container *auiTabLabel>
+                    <aui-icon icon=\\"moon\\"></aui-icon>
+                    Custom Label
+                  </ng-container>
+                  <aui-card> Content 3 </aui-card>
+                </aui-tab>
+              </aui-tab-group
+      ",
+    },
+    "line": 142,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
+    "severity": 2,
+  },
+  Object {
+    "column": 28,
+    "endColumn": 8,
+    "endLine": 197,
+    "fix": Object {
+      "range": Array [
+        3825,
+        4386,
+      ],
+      "text": "
+        <aui-tab-group>
+          <aui-tab
+            *ngFor=\\"let tab of tabs; index as i; count as len\\"
+            [closeable]=\\"len > 1\\"
+            [label]=\\"'tab' + tab\\"
+            (close)=\\"remove(i)\\"
+          >
+            <aui-card> content {{ i }} </aui-card>
+          </aui-tab>
+          <button
+            *auiTabHeaderAddon
+            aui-button=\\"primary\\"
+            (click)=\\"add()\\"
+            size=\\"small\\"
+            [square]=\\"true\\"
+          >
+            <aui-icon icon=\\"plus\\"></aui-icon>
+          </button>
+        </aui-tab-group>
+      ",
+    },
+    "line": 177,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
+    "severity": 2,
+  },
+  Object {
+    "column": 13,
+    "endColumn": 16,
+    "endLine": 200,
+    "fix": Object {
+      "range": Array [
+        4442,
+        4529,
+      ],
+      "text": "number_ = 1) {
+          this.tabs = this.tabs.concat(
+            Array.from({ length: number_",
+    },
+    "line": 200,
+    "message": "The variable \`num\` should be named \`number_\`. A more descriptive name will do too.",
+    "messageId": "replace",
+    "nodeType": "Identifier",
+    "ruleId": "unicorn/prevent-abbreviations",
+    "severity": 2,
+  },
+  Object {
+    "column": 33,
+    "endColumn": 39,
+    "endLine": 201,
+    "line": 201,
+    "message": "Prefer the spread operator over \`Array#concat(…)\`.",
+    "messageId": "array-concat",
+    "nodeType": "Identifier",
+    "ruleId": "unicorn/prefer-spread",
+    "severity": 2,
+    "suggestions": Array [
+      Object {
+        "desc": "First argument is an \`array\`.",
+        "fix": Object {
+          "range": Array [
+            4475,
+            4637,
+          ],
+          "text": "[...this.tabs, ...Array.from({ length: num })
+              .fill()
+              .map((_, i) => this.tabs[this.tabs.length - 1] + i + 1)]",
+        },
+        "messageId": "argument-is-spreadable",
+      },
+      Object {
+        "desc": "First argument is not an \`array\`.",
+        "fix": Object {
+          "range": Array [
+            4475,
+            4637,
+          ],
+          "text": "[...this.tabs, Array.from({ length: num })
+              .fill()
+              .map((_, i) => this.tabs[this.tabs.length - 1] + i + 1)]",
+        },
+        "messageId": "argument-is-not-spreadable",
+      },
+    ],
+  },
+  Object {
+    "column": 24,
+    "endColumn": 25,
+    "endLine": 204,
+    "fix": Object {
+      "range": Array [
+        4578,
+        4619,
+      ],
+      "text": "index) => this.tabs[this.tabs.length - 1] + index",
+    },
+    "line": 204,
+    "message": "The variable \`i\` should be named \`index\`. A more descriptive name will do too.",
+    "messageId": "replace",
+    "nodeType": "Identifier",
+    "ruleId": "unicorn/prevent-abbreviations",
+    "severity": 2,
+  },
+  Object {
+    "column": 28,
+    "endColumn": 8,
+    "endLine": 238,
+    "fix": Object {
+      "range": Array [
+        4863,
+        5355,
+      ],
+      "text": "
+        <aui-tab-group>
+          <aui-tab label=\\"Tab 0\\"> <aui-card> Content 1 </aui-card> </aui-tab>
+          <aui-tab
+            label=\\"Tab 1\\"
+            [disabled]=\\"true\\"
+            ><aui-card> Content 2 </aui-card></aui-tab
+          >
+          <aui-tab label=\\"Tab 2\\"><aui-card> Content 3 </aui-card></aui-tab>
+          <aui-tab
+            label=\\"Tab 3\\"
+            [disabled]=\\"true\\"
+            ><aui-card> Content 4 </aui-card></aui-tab
+          >
+        </aui-tab-group>
+      ",
+    },
+    "line": 223,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
+    "severity": 2,
+  },
+  Object {
+    "column": 28,
+    "endColumn": 8,
+    "endLine": 285,
+    "fix": Object {
+      "range": Array [
+        5652,
+        6633,
+      ],
+      "text": "
+        <aui-form-item>
+          <label auiFormItemLabel>启用</label>
+          <aui-radio-group
+            auiFormItemControl
+            [(ngModel)]=\\"lazy\\"
+            [plain]=\\"false\\"
+          >
+            <aui-radio-button [value]=\\"true\\">是</aui-radio-button>
+            <aui-radio-button [value]=\\"false\\">否</aui-radio-button>
+          </aui-radio-group>
+        </aui-form-item>
+        <aui-tab-group [lazy]=\\"lazy\\">
+          <aui-tab label=\\"Tab 1\\">
+            <tabs-lazy-test *auiTabContent
+              ><aui-card> Content 1 </aui-card></tabs-lazy-test
+            >
+          </aui-tab>
+          <aui-tab label=\\"Tab 2\\">
+            <tabs-lazy-test *auiTabContent
+              ><aui-card> Content 2 </aui-card></tabs-lazy-test
+            >
+          </aui-tab>
+          <aui-tab label=\\"Tab 3\\">
+            <tabs-lazy-test *auiTabContent
+              ><aui-card> Content 3 </aui-card></tabs-lazy-test
+            >
+          </aui-tab>
+        </aui-tab-group>
+      ",
+    },
+    "line": 256,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
+    "severity": 2,
+  },
+  Object {
+    "column": 28,
+    "endColumn": 26,
+    "endLine": 335,
+    "fix": Object {
+      "range": Array [
+        6863,
+        8120,
+      ],
+      "text": "
+        <aui-form-item>
+                  <label auiFormItemLabel>启用 Lazy</label>
+                  <aui-radio-group
+                    auiFormItemControl
+                    [(ngModel)]=\\"lazy\\"
+                    [plain]=\\"false\\"
+                  >
+                    <aui-radio-button [value]=\\"true\\">是</aui-radio-button>
+                    <aui-radio-button [value]=\\"false\\">否</aui-radio-button>
+                  </aui-radio-group>
+                </aui-form-item>
+                <aui-tab-group [lazy]=\\"lazy\\">
+                  <aui-tab label=\\"Tab 1\\">
+                    <tabs-active-test *auiTabContent
+                      ><aui-card>Content 1</aui-card></tabs-active-test
+                    >
+                  </aui-tab>
+                  <aui-tab label=\\"Tab 2\\">
+                    <tabs-active-test *auiTabContent>
+                      <aui-tab-group [lazy]=\\"true\\">
+                        <aui-tab label=\\"Tab 2-1\\">
+                          <tabs-active-test *auiTabContent>
+                            <aui-card> Content 2-1 </aui-card>
+                          </tabs-active-test>
+                        </aui-tab>
+                        <aui-tab label=\\"Tab 2-2\\">
+                          <tabs-active-test *auiTabContent>
+                            <aui-card> Content 2-2 </aui-card>
+                          </tabs-active-test>
+                        </aui-tab>
+                      </aui-tab-group>
+                    </tabs-active-test>
+                  </aui-tab>
+                </aui-tab-group
+      ",
+    },
+    "line": 302,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
+    "severity": 2,
+  },
+  Object {
+    "column": 28,
+    "endColumn": 8,
+    "endLine": 359,
+    "fix": Object {
+      "range": Array [
+        8305,
+        8736,
+      ],
+      "text": "
+        <aui-tab-group size=\\"large\\">
+          <ng-container *auiTabTitle>Title</ng-container>
+          <aui-tab label=\\"Tab 0\\"> <aui-card> Content 1 </aui-card> </aui-tab>
+          <aui-tab label=\\"Tab 1\\"><aui-card> Content 2 </aui-card></aui-tab>
+          <aui-tab label=\\"Tab 2\\"><aui-card> Content 3 </aui-card></aui-tab>
+          <aui-tab label=\\"Tab 3\\"><aui-card> Content 4 </aui-card></aui-tab>
+        </aui-tab-group>
+      ",
+    },
+    "line": 351,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
+    "severity": 2,
+  },
+]
+`;
 
 exports[`fixtures should match all snapshots: 391.mdx 1`] = `
 Array [
@@ -705,3 +1118,107 @@ Array [
 exports[`fixtures should match all snapshots: remark.md 1`] = `Array []`;
 
 exports[`fixtures should match all snapshots: remark.mdx 1`] = `Array []`;
+
+exports[`fixtures should match all snapshots: unicorn.mdx 1`] = `
+Array [
+  Object {
+    "column": 2,
+    "endColumn": 8,
+    "endLine": 1,
+    "line": 1,
+    "message": "'Canvas' is not defined.",
+    "messageId": "undefined",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+  Object {
+    "column": 4,
+    "endColumn": 9,
+    "endLine": 2,
+    "line": 2,
+    "message": "'Story' is not defined.",
+    "messageId": "undefined",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+  Object {
+    "column": 13,
+    "endColumn": 16,
+    "endLine": 9,
+    "fix": Object {
+      "range": Array [
+        120,
+        207,
+      ],
+      "text": "number_ = 1) {
+          this.tabs = this.tabs.concat(
+            Array.from({ length: number_",
+    },
+    "line": 9,
+    "message": "The variable \`num\` should be named \`number_\`. A more descriptive name will do too.",
+    "messageId": "replace",
+    "nodeType": "Identifier",
+    "ruleId": "unicorn/prevent-abbreviations",
+    "severity": 2,
+  },
+  Object {
+    "column": 33,
+    "endColumn": 39,
+    "endLine": 10,
+    "line": 10,
+    "message": "Prefer the spread operator over \`Array#concat(…)\`.",
+    "messageId": "array-concat",
+    "nodeType": "Identifier",
+    "ruleId": "unicorn/prefer-spread",
+    "severity": 2,
+    "suggestions": Array [
+      Object {
+        "desc": "First argument is an \`array\`.",
+        "fix": Object {
+          "range": Array [
+            153,
+            315,
+          ],
+          "text": "[...this.tabs, ...Array.from({ length: num })
+              .fill()
+              .map((_, i) => this.tabs[this.tabs.length - 1] + i + 1)]",
+        },
+        "messageId": "argument-is-spreadable",
+      },
+      Object {
+        "desc": "First argument is not an \`array\`.",
+        "fix": Object {
+          "range": Array [
+            153,
+            315,
+          ],
+          "text": "[...this.tabs, Array.from({ length: num })
+              .fill()
+              .map((_, i) => this.tabs[this.tabs.length - 1] + i + 1)]",
+        },
+        "messageId": "argument-is-not-spreadable",
+      },
+    ],
+  },
+  Object {
+    "column": 24,
+    "endColumn": 25,
+    "endLine": 13,
+    "fix": Object {
+      "range": Array [
+        256,
+        297,
+      ],
+      "text": "index) => this.tabs[this.tabs.length - 1] + index",
+    },
+    "line": 13,
+    "message": "The variable \`i\` should be named \`index\`. A more descriptive name will do too.",
+    "messageId": "replace",
+    "nodeType": "Identifier",
+    "ruleId": "unicorn/prevent-abbreviations",
+    "severity": 2,
+  },
+]
+`;

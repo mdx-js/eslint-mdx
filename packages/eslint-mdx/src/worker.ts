@@ -281,53 +281,63 @@ runAsWorker(
 
       visit(root, node => {
         if (
-          node.type !== 'mdxFlowExpression' &&
-          node.type !== 'mdxJsxFlowElement' &&
-          node.type !== 'mdxJsxTextElement' &&
-          node.type !== 'mdxTextExpression' &&
-          node.type !== 'mdxjsEsm'
+          processed.has(node) ||
+          (node.type !== 'mdxFlowExpression' &&
+            node.type !== 'mdxJsxFlowElement' &&
+            node.type !== 'mdxJsxTextElement' &&
+            node.type !== 'mdxTextExpression' &&
+            node.type !== 'mdxjsEsm')
         ) {
           return
         }
 
-        const children =
-          'children' in node
+        processed.add(node)
+
+        function handleChildren(node: BlockContent | PhrasingContent) {
+          return 'children' in node
             ? (node.children as Array<BlockContent | PhrasingContent>).reduce<
                 JSXElement['children']
               >((acc, child) => {
                 processed.add(child)
 
-                if (!child.data || 'estree' in child.data || !child.data) {
-                  return acc
+                if (child.data && 'estree' in child.data && child.data.estree) {
+                  const estree = child.data.estree as Program
+
+                  assert(estree.body.length <= 1)
+
+                  const expStat = estree.body[0] as ExpressionStatement
+
+                  if (expStat) {
+                    const expression =
+                      expStat.expression as BaseExpression as JSXElement['children'][number]
+                    acc.push(expression)
+                  }
+
+                  comments.push(...estree.comments)
+                } else {
+                  const expression = handleNode(
+                    child,
+                  ) as JSXElement['children'][number]
+                  if (expression) {
+                    acc.push(expression)
+                  }
                 }
-
-                const estree = (child.data.estree || {
-                  body: [],
-                  comments: [],
-                }) as Program
-
-                assert(estree.body.length <= 1)
-
-                const expStat = estree.body[0] as
-                  | ExpressionStatement
-                  | undefined
-
-                if (expStat) {
-                  const expression =
-                    expStat.expression as BaseExpression as JSXElement['children'][number]
-                  acc.push(expression)
-                }
-
-                comments.push(...estree.comments)
 
                 return acc
               }, [])
             : []
+        }
 
-        if (
-          node.type === 'mdxJsxTextElement' ||
-          node.type === 'mdxJsxFlowElement'
-        ) {
+        function handleNode(node: BlockContent | PhrasingContent) {
+          if (
+            node.type !== 'mdxJsxTextElement' &&
+            node.type !== 'mdxJsxFlowElement'
+          ) {
+            return
+          }
+
+          const children = handleChildren(node)
+
           const nodePos = node.position
 
           const nodeStart = nodePos.start.offset
@@ -544,24 +554,25 @@ runAsWorker(
             expression = jsxFrg
           }
 
-          body.push({
-            ...normalizePosition(nodePos),
-            type: 'ExpressionStatement',
-            expression: expression as Expression,
-          })
-          return
+          return expression
         }
 
-        const estree = (node.data.estree || {
+        const expression = handleNode(node) as Expression
+
+        if (expression) {
+          body.push({
+            ...normalizePosition(node.position),
+            type: 'ExpressionStatement',
+            expression: handleNode(node) as Expression,
+          })
+        }
+
+        const estree = (node.data?.estree || {
           body: [],
           comments: [],
         }) as Program
 
-        if (!processed.has(node)) {
-          body.push(...estree.body)
-          processed.add(node)
-        }
-
+        body.push(...estree.body)
         comments.push(...estree.comments)
       })
     }
