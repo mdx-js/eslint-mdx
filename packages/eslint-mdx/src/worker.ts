@@ -16,6 +16,7 @@ import type {
   ObjectExpression,
   Program,
   SpreadElement,
+  TemplateElement,
 } from 'estree'
 import type { JSXClosingElement, JSXElement, JSXFragment } from 'estree-jsx'
 import type { BlockContent, PhrasingContent } from 'mdast'
@@ -576,6 +577,46 @@ runAsWorker(
         comments.push(...estree.comments)
       })
     }
+
+    const { visit: visitEstree } = await loadEsmModule<
+      typeof import('estree-util-visit')
+    >('estree-util-visit')
+
+    visitEstree(
+      {
+        type: 'Program',
+        sourceType: 'module',
+        body,
+      },
+      node => {
+        if (node.type !== 'TemplateElement') {
+          return
+        }
+
+        /**
+         * Copied from @see https://github.com/eslint/espree/blob/main/lib/espree.js#L206-L220
+         */
+        const templateElement = node as TemplateElement
+
+        const startOffset = -1
+        const endOffset = templateElement.tail ? 1 : 2
+
+        // @ts-expect-error - unavailable for typing from estree
+        templateElement.start += startOffset
+        // @ts-expect-error - unavailable for typing from estree
+        templateElement.end += endOffset
+
+        if (templateElement.range) {
+          templateElement.range[0] += startOffset
+          templateElement.range[1] += endOffset
+        }
+
+        if (templateElement.loc) {
+          templateElement.loc.start.column += startOffset
+          templateElement.loc.end.column += endOffset
+        }
+      },
+    )
 
     for (const token of restoreTokens(text, root, sharedTokens, tt, visit)) {
       tokenTranslator.onToken(token, {

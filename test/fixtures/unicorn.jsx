@@ -1,4 +1,4 @@
-<Story>
+;<Story>
   {{
     template: /* HTML */ `<div abc>
       <div>Nested</div>

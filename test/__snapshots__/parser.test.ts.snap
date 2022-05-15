@@ -5780,24 +5780,24 @@ Object {
                       },
                       "quasis": Array [
                         Object {
-                          "end": 1394,
+                          "end": 1395,
                           "loc": Object {
                             "end": Object {
-                              "column": 6,
+                              "column": 7,
                               "line": 70,
                               "offset": 1394,
                             },
                             "start": Object {
-                              "column": 28,
+                              "column": 27,
                               "line": 49,
                               "offset": 895,
                             },
                           },
                           "range": Array [
-                            895,
-                            1394,
+                            894,
+                            1395,
                           ],
-                          "start": 895,
+                          "start": 894,
                           "tail": true,
                           "type": "TemplateElement",
                           "value": Object {
@@ -6539,24 +6539,24 @@ Object {
                       },
                       "quasis": Array [
                         Object {
-                          "end": 1867,
+                          "end": 1868,
                           "loc": Object {
                             "end": Object {
-                              "column": 6,
+                              "column": 7,
                               "line": 92,
                               "offset": 1867,
                             },
                             "start": Object {
-                              "column": 28,
+                              "column": 27,
                               "line": 86,
                               "offset": 1569,
                             },
                           },
                           "range": Array [
-                            1569,
-                            1867,
+                            1568,
+                            1868,
                           ],
-                          "start": 1569,
+                          "start": 1568,
                           "tail": true,
                           "type": "TemplateElement",
                           "value": Object {
@@ -7282,24 +7282,24 @@ Object {
                       },
                       "quasis": Array [
                         Object {
-                          "end": 2798,
+                          "end": 2799,
                           "loc": Object {
                             "end": Object {
-                              "column": 6,
+                              "column": 7,
                               "line": 126,
                               "offset": 2798,
                             },
                             "start": Object {
-                              "column": 28,
+                              "column": 27,
                               "line": 108,
                               "offset": 2052,
                             },
                           },
                           "range": Array [
-                            2052,
-                            2798,
+                            2051,
+                            2799,
                           ],
-                          "start": 2052,
+                          "start": 2051,
                           "tail": true,
                           "type": "TemplateElement",
                           "value": Object {
@@ -8073,24 +8073,24 @@ Object {
                       },
                       "quasis": Array [
                         Object {
-                          "end": 3590,
+                          "end": 3591,
                           "loc": Object {
                             "end": Object {
-                              "column": 22,
+                              "column": 23,
                               "line": 159,
                               "offset": 3590,
                             },
                             "start": Object {
-                              "column": 28,
+                              "column": 27,
                               "line": 142,
                               "offset": 2997,
                             },
                           },
                           "range": Array [
-                            2997,
-                            3590,
+                            2996,
+                            3591,
                           ],
-                          "start": 2997,
+                          "start": 2996,
                           "tail": true,
                           "type": "TemplateElement",
                           "value": Object {
@@ -9045,24 +9045,24 @@ Object {
                       },
                       "quasis": Array [
                         Object {
-                          "end": 4387,
+                          "end": 4388,
                           "loc": Object {
                             "end": Object {
-                              "column": 6,
+                              "column": 7,
                               "line": 197,
                               "offset": 4387,
                             },
                             "start": Object {
-                              "column": 28,
+                              "column": 27,
                               "line": 177,
                               "offset": 3824,
                             },
                           },
                           "range": Array [
-                            3824,
-                            4387,
+                            3823,
+                            4388,
                           ],
-                          "start": 3824,
+                          "start": 3823,
                           "tail": true,
                           "type": "TemplateElement",
                           "value": Object {
@@ -11341,24 +11341,24 @@ Object {
                       },
                       "quasis": Array [
                         Object {
-                          "end": 5356,
+                          "end": 5357,
                           "loc": Object {
                             "end": Object {
-                              "column": 6,
+                              "column": 7,
                               "line": 238,
                               "offset": 5356,
                             },
                             "start": Object {
-                              "column": 28,
+                              "column": 27,
                               "line": 223,
                               "offset": 4862,
                             },
                           },
                           "range": Array [
-                            4862,
-                            5356,
+                            4861,
+                            5357,
                           ],
-                          "start": 4862,
+                          "start": 4861,
                           "tail": true,
                           "type": "TemplateElement",
                           "value": Object {
@@ -12305,24 +12305,24 @@ Object {
                       },
                       "quasis": Array [
                         Object {
-                          "end": 6634,
+                          "end": 6635,
                           "loc": Object {
                             "end": Object {
-                              "column": 6,
+                              "column": 7,
                               "line": 285,
                               "offset": 6634,
                             },
                             "start": Object {
-                              "column": 28,
+                              "column": 27,
                               "line": 256,
                               "offset": 5651,
                             },
                           },
                           "range": Array [
-                            5651,
-                            6634,
+                            5650,
+                            6635,
                           ],
-                          "start": 5651,
+                          "start": 5650,
                           "tail": true,
                           "type": "TemplateElement",
                           "value": Object {
@@ -13397,24 +13397,24 @@ Object {
                       },
                       "quasis": Array [
                         Object {
-                          "end": 8121,
+                          "end": 8122,
                           "loc": Object {
                             "end": Object {
-                              "column": 24,
+                              "column": 25,
                               "line": 335,
                               "offset": 8121,
                             },
                             "start": Object {
-                              "column": 28,
+                              "column": 27,
                               "line": 302,
                               "offset": 6862,
                             },
                           },
                           "range": Array [
-                            6862,
-                            8121,
+                            6861,
+                            8122,
                           ],
-                          "start": 6862,
+                          "start": 6861,
                           "tail": true,
                           "type": "TemplateElement",
                           "value": Object {
@@ -14204,24 +14204,24 @@ Object {
                       },
                       "quasis": Array [
                         Object {
-                          "end": 8737,
+                          "end": 8738,
                           "loc": Object {
                             "end": Object {
-                              "column": 6,
+                              "column": 7,
                               "line": 359,
                               "offset": 8737,
                             },
                             "start": Object {
-                              "column": 28,
+                              "column": 27,
                               "line": 351,
                               "offset": 8304,
                             },
                           },
                           "range": Array [
-                            8304,
-                            8737,
+                            8303,
+                            8738,
                           ],
-                          "start": 8304,
+                          "start": 8303,
                           "tail": true,
                           "type": "TemplateElement",
                           "value": Object {
@@ -40745,24 +40745,24 @@ Object {
                   },
                   "quasis": Array [
                     Object {
-                      "end": 56,
+                      "end": 57,
                       "loc": Object {
                         "end": Object {
-                          "column": 26,
+                          "column": 27,
                           "line": 6,
                           "offset": 56,
                         },
                         "start": Object {
-                          "column": 26,
+                          "column": 25,
                           "line": 6,
                           "offset": 56,
                         },
                       },
                       "range": Array [
-                        56,
-                        56,
+                        55,
+                        57,
                       ],
-                      "start": 56,
+                      "start": 55,
                       "tail": true,
                       "type": "TemplateElement",
                       "value": Object {
@@ -42237,2024 +42237,193 @@ Object {
 }
 `;
 
+exports[`parser should match all AST snapshots: unicorn.jsx 1`] = `"Unsupported file extension, make sure setting the \`extensions\` or \`markdownExtensions\` option correctly."`;
+
 exports[`parser should match all AST snapshots: unicorn.mdx 1`] = `
 Object {
   "body": Array [
     Object {
-      "end": 435,
+      "end": 117,
       "expression": Object {
         "children": Array [
           Object {
-            "children": Array [
-              Object {
-                "end": 413,
-                "loc": Object {
-                  "end": Object {
-                    "column": 5,
-                    "line": 20,
-                    "offset": 413,
-                  },
-                  "start": Object {
-                    "column": 5,
-                    "line": 6,
-                    "offset": 66,
-                  },
-                },
-                "properties": Array [
-                  Object {
-                    "computed": false,
-                    "end": 406,
-                    "key": Object {
-                      "end": 79,
-                      "loc": Object {
-                        "end": Object {
-                          "column": 11,
-                          "line": 7,
-                          "offset": 79,
-                        },
-                        "start": Object {
-                          "column": 6,
-                          "line": 7,
-                          "offset": 74,
-                        },
-                      },
-                      "name": "props",
-                      "range": Array [
-                        74,
-                        79,
-                      ],
-                      "start": 74,
-                      "type": "Identifier",
-                    },
-                    "kind": "init",
-                    "loc": Object {
-                      "end": Object {
-                        "column": 7,
-                        "line": 19,
-                        "offset": 406,
-                      },
-                      "start": Object {
-                        "column": 6,
-                        "line": 7,
-                        "offset": 74,
-                      },
-                    },
-                    "method": false,
-                    "range": Array [
-                      74,
-                      406,
-                    ],
-                    "shorthand": false,
-                    "start": 74,
-                    "type": "Property",
-                    "value": Object {
-                      "end": 406,
-                      "loc": Object {
-                        "end": Object {
-                          "column": 7,
-                          "line": 19,
-                          "offset": 406,
-                        },
-                        "start": Object {
-                          "column": 13,
-                          "line": 7,
-                          "offset": 81,
-                        },
-                      },
-                      "properties": Array [
-                        Object {
-                          "computed": false,
-                          "end": 106,
-                          "key": Object {
-                            "end": 95,
-                            "loc": Object {
-                              "end": Object {
-                                "column": 12,
-                                "line": 8,
-                                "offset": 95,
-                              },
-                              "start": Object {
-                                "column": 8,
-                                "line": 8,
-                                "offset": 91,
-                              },
-                            },
-                            "name": "tabs",
-                            "range": Array [
-                              91,
-                              95,
-                            ],
-                            "start": 91,
-                            "type": "Identifier",
-                          },
-                          "kind": "init",
-                          "loc": Object {
-                            "end": Object {
-                              "column": 23,
-                              "line": 8,
-                              "offset": 106,
-                            },
-                            "start": Object {
-                              "column": 8,
-                              "line": 8,
-                              "offset": 91,
-                            },
-                          },
-                          "method": false,
-                          "range": Array [
-                            91,
-                            106,
-                          ],
-                          "shorthand": false,
-                          "start": 91,
-                          "type": "Property",
-                          "value": Object {
-                            "elements": Array [
-                              Object {
-                                "end": 99,
-                                "loc": Object {
-                                  "end": Object {
-                                    "column": 16,
-                                    "line": 8,
-                                    "offset": 99,
-                                  },
-                                  "start": Object {
-                                    "column": 15,
-                                    "line": 8,
-                                    "offset": 98,
-                                  },
-                                },
-                                "range": Array [
-                                  98,
-                                  99,
-                                ],
-                                "raw": "1",
-                                "start": 98,
-                                "type": "Literal",
-                                "value": 1,
-                              },
-                              Object {
-                                "end": 102,
-                                "loc": Object {
-                                  "end": Object {
-                                    "column": 19,
-                                    "line": 8,
-                                    "offset": 102,
-                                  },
-                                  "start": Object {
-                                    "column": 18,
-                                    "line": 8,
-                                    "offset": 101,
-                                  },
-                                },
-                                "range": Array [
-                                  101,
-                                  102,
-                                ],
-                                "raw": "2",
-                                "start": 101,
-                                "type": "Literal",
-                                "value": 2,
-                              },
-                              Object {
-                                "end": 105,
-                                "loc": Object {
-                                  "end": Object {
-                                    "column": 22,
-                                    "line": 8,
-                                    "offset": 105,
-                                  },
-                                  "start": Object {
-                                    "column": 21,
-                                    "line": 8,
-                                    "offset": 104,
-                                  },
-                                },
-                                "range": Array [
-                                  104,
-                                  105,
-                                ],
-                                "raw": "3",
-                                "start": 104,
-                                "type": "Literal",
-                                "value": 3,
-                              },
-                            ],
-                            "end": 106,
-                            "loc": Object {
-                              "end": Object {
-                                "column": 23,
-                                "line": 8,
-                                "offset": 106,
-                              },
-                              "start": Object {
-                                "column": 14,
-                                "line": 8,
-                                "offset": 97,
-                              },
-                            },
-                            "range": Array [
-                              97,
-                              106,
-                            ],
-                            "start": 97,
-                            "type": "ArrayExpression",
-                          },
-                        },
-                        Object {
-                          "computed": false,
-                          "end": 325,
-                          "key": Object {
-                            "end": 119,
-                            "loc": Object {
-                              "end": Object {
-                                "column": 11,
-                                "line": 9,
-                                "offset": 119,
-                              },
-                              "start": Object {
-                                "column": 8,
-                                "line": 9,
-                                "offset": 116,
-                              },
-                            },
-                            "name": "add",
-                            "range": Array [
-                              116,
-                              119,
-                            ],
-                            "start": 116,
-                            "type": "Identifier",
-                          },
-                          "kind": "init",
-                          "loc": Object {
-                            "end": Object {
-                              "column": 9,
-                              "line": 15,
-                              "offset": 325,
-                            },
-                            "start": Object {
-                              "column": 8,
-                              "line": 9,
-                              "offset": 116,
-                            },
-                          },
-                          "method": true,
-                          "range": Array [
-                            116,
-                            325,
-                          ],
-                          "shorthand": false,
-                          "start": 116,
-                          "type": "Property",
-                          "value": Object {
-                            "async": false,
-                            "body": Object {
-                              "body": Array [
-                                Object {
-                                  "end": 315,
-                                  "expression": Object {
-                                    "end": 315,
-                                    "left": Object {
-                                      "computed": false,
-                                      "end": 150,
-                                      "loc": Object {
-                                        "end": Object {
-                                          "column": 19,
-                                          "line": 10,
-                                          "offset": 150,
-                                        },
-                                        "start": Object {
-                                          "column": 10,
-                                          "line": 10,
-                                          "offset": 141,
-                                        },
-                                      },
-                                      "object": Object {
-                                        "end": 145,
-                                        "loc": Object {
-                                          "end": Object {
-                                            "column": 14,
-                                            "line": 10,
-                                            "offset": 145,
-                                          },
-                                          "start": Object {
-                                            "column": 10,
-                                            "line": 10,
-                                            "offset": 141,
-                                          },
-                                        },
-                                        "range": Array [
-                                          141,
-                                          145,
-                                        ],
-                                        "start": 141,
-                                        "type": "ThisExpression",
-                                      },
-                                      "optional": false,
-                                      "property": Object {
-                                        "end": 150,
-                                        "loc": Object {
-                                          "end": Object {
-                                            "column": 19,
-                                            "line": 10,
-                                            "offset": 150,
-                                          },
-                                          "start": Object {
-                                            "column": 15,
-                                            "line": 10,
-                                            "offset": 146,
-                                          },
-                                        },
-                                        "name": "tabs",
-                                        "range": Array [
-                                          146,
-                                          150,
-                                        ],
-                                        "start": 146,
-                                        "type": "Identifier",
-                                      },
-                                      "range": Array [
-                                        141,
-                                        150,
-                                      ],
-                                      "start": 141,
-                                      "type": "MemberExpression",
-                                    },
-                                    "loc": Object {
-                                      "end": Object {
-                                        "column": 11,
-                                        "line": 14,
-                                        "offset": 315,
-                                      },
-                                      "start": Object {
-                                        "column": 10,
-                                        "line": 10,
-                                        "offset": 141,
-                                      },
-                                    },
-                                    "operator": "=",
-                                    "range": Array [
-                                      141,
-                                      315,
-                                    ],
-                                    "right": Object {
-                                      "arguments": Array [
-                                        Object {
-                                          "arguments": Array [
-                                            Object {
-                                              "async": false,
-                                              "body": Object {
-                                                "end": 301,
-                                                "left": Object {
-                                                  "end": 297,
-                                                  "left": Object {
-                                                    "computed": true,
-                                                    "end": 293,
-                                                    "loc": Object {
-                                                      "end": Object {
-                                                        "column": 60,
-                                                        "line": 13,
-                                                        "offset": 293,
-                                                      },
-                                                      "start": Object {
-                                                        "column": 29,
-                                                        "line": 13,
-                                                        "offset": 262,
-                                                      },
-                                                    },
-                                                    "object": Object {
-                                                      "computed": false,
-                                                      "end": 271,
-                                                      "loc": Object {
-                                                        "end": Object {
-                                                          "column": 38,
-                                                          "line": 13,
-                                                          "offset": 271,
-                                                        },
-                                                        "start": Object {
-                                                          "column": 29,
-                                                          "line": 13,
-                                                          "offset": 262,
-                                                        },
-                                                      },
-                                                      "object": Object {
-                                                        "end": 266,
-                                                        "loc": Object {
-                                                          "end": Object {
-                                                            "column": 33,
-                                                            "line": 13,
-                                                            "offset": 266,
-                                                          },
-                                                          "start": Object {
-                                                            "column": 29,
-                                                            "line": 13,
-                                                            "offset": 262,
-                                                          },
-                                                        },
-                                                        "range": Array [
-                                                          262,
-                                                          266,
-                                                        ],
-                                                        "start": 262,
-                                                        "type": "ThisExpression",
-                                                      },
-                                                      "optional": false,
-                                                      "property": Object {
-                                                        "end": 271,
-                                                        "loc": Object {
-                                                          "end": Object {
-                                                            "column": 38,
-                                                            "line": 13,
-                                                            "offset": 271,
-                                                          },
-                                                          "start": Object {
-                                                            "column": 34,
-                                                            "line": 13,
-                                                            "offset": 267,
-                                                          },
-                                                        },
-                                                        "name": "tabs",
-                                                        "range": Array [
-                                                          267,
-                                                          271,
-                                                        ],
-                                                        "start": 267,
-                                                        "type": "Identifier",
-                                                      },
-                                                      "range": Array [
-                                                        262,
-                                                        271,
-                                                      ],
-                                                      "start": 262,
-                                                      "type": "MemberExpression",
-                                                    },
-                                                    "optional": false,
-                                                    "property": Object {
-                                                      "end": 292,
-                                                      "left": Object {
-                                                        "computed": false,
-                                                        "end": 288,
-                                                        "loc": Object {
-                                                          "end": Object {
-                                                            "column": 55,
-                                                            "line": 13,
-                                                            "offset": 288,
-                                                          },
-                                                          "start": Object {
-                                                            "column": 39,
-                                                            "line": 13,
-                                                            "offset": 272,
-                                                          },
-                                                        },
-                                                        "object": Object {
-                                                          "computed": false,
-                                                          "end": 281,
-                                                          "loc": Object {
-                                                            "end": Object {
-                                                              "column": 48,
-                                                              "line": 13,
-                                                              "offset": 281,
-                                                            },
-                                                            "start": Object {
-                                                              "column": 39,
-                                                              "line": 13,
-                                                              "offset": 272,
-                                                            },
-                                                          },
-                                                          "object": Object {
-                                                            "end": 276,
-                                                            "loc": Object {
-                                                              "end": Object {
-                                                                "column": 43,
-                                                                "line": 13,
-                                                                "offset": 276,
-                                                              },
-                                                              "start": Object {
-                                                                "column": 39,
-                                                                "line": 13,
-                                                                "offset": 272,
-                                                              },
-                                                            },
-                                                            "range": Array [
-                                                              272,
-                                                              276,
-                                                            ],
-                                                            "start": 272,
-                                                            "type": "ThisExpression",
-                                                          },
-                                                          "optional": false,
-                                                          "property": Object {
-                                                            "end": 281,
-                                                            "loc": Object {
-                                                              "end": Object {
-                                                                "column": 48,
-                                                                "line": 13,
-                                                                "offset": 281,
-                                                              },
-                                                              "start": Object {
-                                                                "column": 44,
-                                                                "line": 13,
-                                                                "offset": 277,
-                                                              },
-                                                            },
-                                                            "name": "tabs",
-                                                            "range": Array [
-                                                              277,
-                                                              281,
-                                                            ],
-                                                            "start": 277,
-                                                            "type": "Identifier",
-                                                          },
-                                                          "range": Array [
-                                                            272,
-                                                            281,
-                                                          ],
-                                                          "start": 272,
-                                                          "type": "MemberExpression",
-                                                        },
-                                                        "optional": false,
-                                                        "property": Object {
-                                                          "end": 288,
-                                                          "loc": Object {
-                                                            "end": Object {
-                                                              "column": 55,
-                                                              "line": 13,
-                                                              "offset": 288,
-                                                            },
-                                                            "start": Object {
-                                                              "column": 49,
-                                                              "line": 13,
-                                                              "offset": 282,
-                                                            },
-                                                          },
-                                                          "name": "length",
-                                                          "range": Array [
-                                                            282,
-                                                            288,
-                                                          ],
-                                                          "start": 282,
-                                                          "type": "Identifier",
-                                                        },
-                                                        "range": Array [
-                                                          272,
-                                                          288,
-                                                        ],
-                                                        "start": 272,
-                                                        "type": "MemberExpression",
-                                                      },
-                                                      "loc": Object {
-                                                        "end": Object {
-                                                          "column": 59,
-                                                          "line": 13,
-                                                          "offset": 292,
-                                                        },
-                                                        "start": Object {
-                                                          "column": 39,
-                                                          "line": 13,
-                                                          "offset": 272,
-                                                        },
-                                                      },
-                                                      "operator": "-",
-                                                      "range": Array [
-                                                        272,
-                                                        292,
-                                                      ],
-                                                      "right": Object {
-                                                        "end": 292,
-                                                        "loc": Object {
-                                                          "end": Object {
-                                                            "column": 59,
-                                                            "line": 13,
-                                                            "offset": 292,
-                                                          },
-                                                          "start": Object {
-                                                            "column": 58,
-                                                            "line": 13,
-                                                            "offset": 291,
-                                                          },
-                                                        },
-                                                        "range": Array [
-                                                          291,
-                                                          292,
-                                                        ],
-                                                        "raw": "1",
-                                                        "start": 291,
-                                                        "type": "Literal",
-                                                        "value": 1,
-                                                      },
-                                                      "start": 272,
-                                                      "type": "BinaryExpression",
-                                                    },
-                                                    "range": Array [
-                                                      262,
-                                                      293,
-                                                    ],
-                                                    "start": 262,
-                                                    "type": "MemberExpression",
-                                                  },
-                                                  "loc": Object {
-                                                    "end": Object {
-                                                      "column": 64,
-                                                      "line": 13,
-                                                      "offset": 297,
-                                                    },
-                                                    "start": Object {
-                                                      "column": 29,
-                                                      "line": 13,
-                                                      "offset": 262,
-                                                    },
-                                                  },
-                                                  "operator": "+",
-                                                  "range": Array [
-                                                    262,
-                                                    297,
-                                                  ],
-                                                  "right": Object {
-                                                    "end": 297,
-                                                    "loc": Object {
-                                                      "end": Object {
-                                                        "column": 64,
-                                                        "line": 13,
-                                                        "offset": 297,
-                                                      },
-                                                      "start": Object {
-                                                        "column": 63,
-                                                        "line": 13,
-                                                        "offset": 296,
-                                                      },
-                                                    },
-                                                    "name": "i",
-                                                    "range": Array [
-                                                      296,
-                                                      297,
-                                                    ],
-                                                    "start": 296,
-                                                    "type": "Identifier",
-                                                  },
-                                                  "start": 262,
-                                                  "type": "BinaryExpression",
-                                                },
-                                                "loc": Object {
-                                                  "end": Object {
-                                                    "column": 68,
-                                                    "line": 13,
-                                                    "offset": 301,
-                                                  },
-                                                  "start": Object {
-                                                    "column": 29,
-                                                    "line": 13,
-                                                    "offset": 262,
-                                                  },
-                                                },
-                                                "operator": "+",
-                                                "range": Array [
-                                                  262,
-                                                  301,
-                                                ],
-                                                "right": Object {
-                                                  "end": 301,
-                                                  "loc": Object {
-                                                    "end": Object {
-                                                      "column": 68,
-                                                      "line": 13,
-                                                      "offset": 301,
-                                                    },
-                                                    "start": Object {
-                                                      "column": 67,
-                                                      "line": 13,
-                                                      "offset": 300,
-                                                    },
-                                                  },
-                                                  "range": Array [
-                                                    300,
-                                                    301,
-                                                  ],
-                                                  "raw": "1",
-                                                  "start": 300,
-                                                  "type": "Literal",
-                                                  "value": 1,
-                                                },
-                                                "start": 262,
-                                                "type": "BinaryExpression",
-                                              },
-                                              "end": 301,
-                                              "expression": true,
-                                              "generator": false,
-                                              "id": null,
-                                              "loc": Object {
-                                                "end": Object {
-                                                  "column": 68,
-                                                  "line": 13,
-                                                  "offset": 301,
-                                                },
-                                                "start": Object {
-                                                  "column": 19,
-                                                  "line": 13,
-                                                  "offset": 252,
-                                                },
-                                              },
-                                              "params": Array [
-                                                Object {
-                                                  "end": 254,
-                                                  "loc": Object {
-                                                    "end": Object {
-                                                      "column": 21,
-                                                      "line": 13,
-                                                      "offset": 254,
-                                                    },
-                                                    "start": Object {
-                                                      "column": 20,
-                                                      "line": 13,
-                                                      "offset": 253,
-                                                    },
-                                                  },
-                                                  "name": "_",
-                                                  "range": Array [
-                                                    253,
-                                                    254,
-                                                  ],
-                                                  "start": 253,
-                                                  "type": "Identifier",
-                                                },
-                                                Object {
-                                                  "end": 257,
-                                                  "loc": Object {
-                                                    "end": Object {
-                                                      "column": 24,
-                                                      "line": 13,
-                                                      "offset": 257,
-                                                    },
-                                                    "start": Object {
-                                                      "column": 23,
-                                                      "line": 13,
-                                                      "offset": 256,
-                                                    },
-                                                  },
-                                                  "name": "i",
-                                                  "range": Array [
-                                                    256,
-                                                    257,
-                                                  ],
-                                                  "start": 256,
-                                                  "type": "Identifier",
-                                                },
-                                              ],
-                                              "range": Array [
-                                                252,
-                                                301,
-                                              ],
-                                              "start": 252,
-                                              "type": "ArrowFunctionExpression",
-                                            },
-                                          ],
-                                          "callee": Object {
-                                            "computed": false,
-                                            "end": 251,
-                                            "loc": Object {
-                                              "end": Object {
-                                                "column": 18,
-                                                "line": 13,
-                                                "offset": 251,
-                                              },
-                                              "start": Object {
-                                                "column": 12,
-                                                "line": 11,
-                                                "offset": 183,
-                                              },
-                                            },
-                                            "object": Object {
-                                              "arguments": Array [],
-                                              "callee": Object {
-                                                "computed": false,
-                                                "end": 230,
-                                                "loc": Object {
-                                                  "end": Object {
-                                                    "column": 19,
-                                                    "line": 12,
-                                                    "offset": 230,
-                                                  },
-                                                  "start": Object {
-                                                    "column": 12,
-                                                    "line": 11,
-                                                    "offset": 183,
-                                                  },
-                                                },
-                                                "object": Object {
-                                                  "arguments": Array [
-                                                    Object {
-                                                      "end": 209,
-                                                      "loc": Object {
-                                                        "end": Object {
-                                                          "column": 38,
-                                                          "line": 11,
-                                                          "offset": 209,
-                                                        },
-                                                        "start": Object {
-                                                          "column": 23,
-                                                          "line": 11,
-                                                          "offset": 194,
-                                                        },
-                                                      },
-                                                      "properties": Array [
-                                                        Object {
-                                                          "computed": false,
-                                                          "end": 207,
-                                                          "key": Object {
-                                                            "end": 202,
-                                                            "loc": Object {
-                                                              "end": Object {
-                                                                "column": 31,
-                                                                "line": 11,
-                                                                "offset": 202,
-                                                              },
-                                                              "start": Object {
-                                                                "column": 25,
-                                                                "line": 11,
-                                                                "offset": 196,
-                                                              },
-                                                            },
-                                                            "name": "length",
-                                                            "range": Array [
-                                                              196,
-                                                              202,
-                                                            ],
-                                                            "start": 196,
-                                                            "type": "Identifier",
-                                                          },
-                                                          "kind": "init",
-                                                          "loc": Object {
-                                                            "end": Object {
-                                                              "column": 36,
-                                                              "line": 11,
-                                                              "offset": 207,
-                                                            },
-                                                            "start": Object {
-                                                              "column": 25,
-                                                              "line": 11,
-                                                              "offset": 196,
-                                                            },
-                                                          },
-                                                          "method": false,
-                                                          "range": Array [
-                                                            196,
-                                                            207,
-                                                          ],
-                                                          "shorthand": false,
-                                                          "start": 196,
-                                                          "type": "Property",
-                                                          "value": Object {
-                                                            "end": 207,
-                                                            "loc": Object {
-                                                              "end": Object {
-                                                                "column": 36,
-                                                                "line": 11,
-                                                                "offset": 207,
-                                                              },
-                                                              "start": Object {
-                                                                "column": 33,
-                                                                "line": 11,
-                                                                "offset": 204,
-                                                              },
-                                                            },
-                                                            "name": "num",
-                                                            "range": Array [
-                                                              204,
-                                                              207,
-                                                            ],
-                                                            "start": 204,
-                                                            "type": "Identifier",
-                                                          },
-                                                        },
-                                                      ],
-                                                      "range": Array [
-                                                        194,
-                                                        209,
-                                                      ],
-                                                      "start": 194,
-                                                      "type": "ObjectExpression",
-                                                    },
-                                                  ],
-                                                  "callee": Object {
-                                                    "computed": false,
-                                                    "end": 193,
-                                                    "loc": Object {
-                                                      "end": Object {
-                                                        "column": 22,
-                                                        "line": 11,
-                                                        "offset": 193,
-                                                      },
-                                                      "start": Object {
-                                                        "column": 12,
-                                                        "line": 11,
-                                                        "offset": 183,
-                                                      },
-                                                    },
-                                                    "object": Object {
-                                                      "end": 188,
-                                                      "loc": Object {
-                                                        "end": Object {
-                                                          "column": 17,
-                                                          "line": 11,
-                                                          "offset": 188,
-                                                        },
-                                                        "start": Object {
-                                                          "column": 12,
-                                                          "line": 11,
-                                                          "offset": 183,
-                                                        },
-                                                      },
-                                                      "name": "Array",
-                                                      "range": Array [
-                                                        183,
-                                                        188,
-                                                      ],
-                                                      "start": 183,
-                                                      "type": "Identifier",
-                                                    },
-                                                    "optional": false,
-                                                    "property": Object {
-                                                      "end": 193,
-                                                      "loc": Object {
-                                                        "end": Object {
-                                                          "column": 22,
-                                                          "line": 11,
-                                                          "offset": 193,
-                                                        },
-                                                        "start": Object {
-                                                          "column": 18,
-                                                          "line": 11,
-                                                          "offset": 189,
-                                                        },
-                                                      },
-                                                      "name": "from",
-                                                      "range": Array [
-                                                        189,
-                                                        193,
-                                                      ],
-                                                      "start": 189,
-                                                      "type": "Identifier",
-                                                    },
-                                                    "range": Array [
-                                                      183,
-                                                      193,
-                                                    ],
-                                                    "start": 183,
-                                                    "type": "MemberExpression",
-                                                  },
-                                                  "end": 210,
-                                                  "loc": Object {
-                                                    "end": Object {
-                                                      "column": 39,
-                                                      "line": 11,
-                                                      "offset": 210,
-                                                    },
-                                                    "start": Object {
-                                                      "column": 12,
-                                                      "line": 11,
-                                                      "offset": 183,
-                                                    },
-                                                  },
-                                                  "optional": false,
-                                                  "range": Array [
-                                                    183,
-                                                    210,
-                                                  ],
-                                                  "start": 183,
-                                                  "type": "CallExpression",
-                                                },
-                                                "optional": false,
-                                                "property": Object {
-                                                  "end": 230,
-                                                  "loc": Object {
-                                                    "end": Object {
-                                                      "column": 19,
-                                                      "line": 12,
-                                                      "offset": 230,
-                                                    },
-                                                    "start": Object {
-                                                      "column": 15,
-                                                      "line": 12,
-                                                      "offset": 226,
-                                                    },
-                                                  },
-                                                  "name": "fill",
-                                                  "range": Array [
-                                                    226,
-                                                    230,
-                                                  ],
-                                                  "start": 226,
-                                                  "type": "Identifier",
-                                                },
-                                                "range": Array [
-                                                  183,
-                                                  230,
-                                                ],
-                                                "start": 183,
-                                                "type": "MemberExpression",
-                                              },
-                                              "end": 232,
-                                              "loc": Object {
-                                                "end": Object {
-                                                  "column": 21,
-                                                  "line": 12,
-                                                  "offset": 232,
-                                                },
-                                                "start": Object {
-                                                  "column": 12,
-                                                  "line": 11,
-                                                  "offset": 183,
-                                                },
-                                              },
-                                              "optional": false,
-                                              "range": Array [
-                                                183,
-                                                232,
-                                              ],
-                                              "start": 183,
-                                              "type": "CallExpression",
-                                            },
-                                            "optional": false,
-                                            "property": Object {
-                                              "end": 251,
-                                              "loc": Object {
-                                                "end": Object {
-                                                  "column": 18,
-                                                  "line": 13,
-                                                  "offset": 251,
-                                                },
-                                                "start": Object {
-                                                  "column": 15,
-                                                  "line": 13,
-                                                  "offset": 248,
-                                                },
-                                              },
-                                              "name": "map",
-                                              "range": Array [
-                                                248,
-                                                251,
-                                              ],
-                                              "start": 248,
-                                              "type": "Identifier",
-                                            },
-                                            "range": Array [
-                                              183,
-                                              251,
-                                            ],
-                                            "start": 183,
-                                            "type": "MemberExpression",
-                                          },
-                                          "end": 302,
-                                          "loc": Object {
-                                            "end": Object {
-                                              "column": 69,
-                                              "line": 13,
-                                              "offset": 302,
-                                            },
-                                            "start": Object {
-                                              "column": 12,
-                                              "line": 11,
-                                              "offset": 183,
-                                            },
-                                          },
-                                          "optional": false,
-                                          "range": Array [
-                                            183,
-                                            302,
-                                          ],
-                                          "start": 183,
-                                          "type": "CallExpression",
-                                        },
-                                      ],
-                                      "callee": Object {
-                                        "computed": false,
-                                        "end": 169,
-                                        "loc": Object {
-                                          "end": Object {
-                                            "column": 38,
-                                            "line": 10,
-                                            "offset": 169,
-                                          },
-                                          "start": Object {
-                                            "column": 22,
-                                            "line": 10,
-                                            "offset": 153,
-                                          },
-                                        },
-                                        "object": Object {
-                                          "computed": false,
-                                          "end": 162,
-                                          "loc": Object {
-                                            "end": Object {
-                                              "column": 31,
-                                              "line": 10,
-                                              "offset": 162,
-                                            },
-                                            "start": Object {
-                                              "column": 22,
-                                              "line": 10,
-                                              "offset": 153,
-                                            },
-                                          },
-                                          "object": Object {
-                                            "end": 157,
-                                            "loc": Object {
-                                              "end": Object {
-                                                "column": 26,
-                                                "line": 10,
-                                                "offset": 157,
-                                              },
-                                              "start": Object {
-                                                "column": 22,
-                                                "line": 10,
-                                                "offset": 153,
-                                              },
-                                            },
-                                            "range": Array [
-                                              153,
-                                              157,
-                                            ],
-                                            "start": 153,
-                                            "type": "ThisExpression",
-                                          },
-                                          "optional": false,
-                                          "property": Object {
-                                            "end": 162,
-                                            "loc": Object {
-                                              "end": Object {
-                                                "column": 31,
-                                                "line": 10,
-                                                "offset": 162,
-                                              },
-                                              "start": Object {
-                                                "column": 27,
-                                                "line": 10,
-                                                "offset": 158,
-                                              },
-                                            },
-                                            "name": "tabs",
-                                            "range": Array [
-                                              158,
-                                              162,
-                                            ],
-                                            "start": 158,
-                                            "type": "Identifier",
-                                          },
-                                          "range": Array [
-                                            153,
-                                            162,
-                                          ],
-                                          "start": 153,
-                                          "type": "MemberExpression",
-                                        },
-                                        "optional": false,
-                                        "property": Object {
-                                          "end": 169,
-                                          "loc": Object {
-                                            "end": Object {
-                                              "column": 38,
-                                              "line": 10,
-                                              "offset": 169,
-                                            },
-                                            "start": Object {
-                                              "column": 32,
-                                              "line": 10,
-                                              "offset": 163,
-                                            },
-                                          },
-                                          "name": "concat",
-                                          "range": Array [
-                                            163,
-                                            169,
-                                          ],
-                                          "start": 163,
-                                          "type": "Identifier",
-                                        },
-                                        "range": Array [
-                                          153,
-                                          169,
-                                        ],
-                                        "start": 153,
-                                        "type": "MemberExpression",
-                                      },
-                                      "end": 315,
-                                      "loc": Object {
-                                        "end": Object {
-                                          "column": 11,
-                                          "line": 14,
-                                          "offset": 315,
-                                        },
-                                        "start": Object {
-                                          "column": 22,
-                                          "line": 10,
-                                          "offset": 153,
-                                        },
-                                      },
-                                      "optional": false,
-                                      "range": Array [
-                                        153,
-                                        315,
-                                      ],
-                                      "start": 153,
-                                      "type": "CallExpression",
-                                    },
-                                    "start": 141,
-                                    "type": "AssignmentExpression",
-                                  },
-                                  "loc": Object {
-                                    "end": Object {
-                                      "column": 11,
-                                      "line": 14,
-                                      "offset": 315,
-                                    },
-                                    "start": Object {
-                                      "column": 10,
-                                      "line": 10,
-                                      "offset": 141,
-                                    },
-                                  },
-                                  "range": Array [
-                                    141,
-                                    315,
-                                  ],
-                                  "start": 141,
-                                  "type": "ExpressionStatement",
-                                },
-                              ],
-                              "end": 325,
-                              "loc": Object {
-                                "end": Object {
-                                  "column": 9,
-                                  "line": 15,
-                                  "offset": 325,
-                                },
-                                "start": Object {
-                                  "column": 21,
-                                  "line": 9,
-                                  "offset": 129,
-                                },
-                              },
-                              "range": Array [
-                                129,
-                                325,
-                              ],
-                              "start": 129,
-                              "type": "BlockStatement",
-                            },
-                            "end": 325,
-                            "expression": false,
-                            "generator": false,
-                            "id": null,
-                            "loc": Object {
-                              "end": Object {
-                                "column": 9,
-                                "line": 15,
-                                "offset": 325,
-                              },
-                              "start": Object {
-                                "column": 11,
-                                "line": 9,
-                                "offset": 119,
-                              },
-                            },
-                            "params": Array [
-                              Object {
-                                "end": 127,
-                                "left": Object {
-                                  "end": 123,
-                                  "loc": Object {
-                                    "end": Object {
-                                      "column": 15,
-                                      "line": 9,
-                                      "offset": 123,
-                                    },
-                                    "start": Object {
-                                      "column": 12,
-                                      "line": 9,
-                                      "offset": 120,
-                                    },
-                                  },
-                                  "name": "num",
-                                  "range": Array [
-                                    120,
-                                    123,
-                                  ],
-                                  "start": 120,
-                                  "type": "Identifier",
-                                },
-                                "loc": Object {
-                                  "end": Object {
-                                    "column": 19,
-                                    "line": 9,
-                                    "offset": 127,
-                                  },
-                                  "start": Object {
-                                    "column": 12,
-                                    "line": 9,
-                                    "offset": 120,
-                                  },
-                                },
-                                "range": Array [
-                                  120,
-                                  127,
-                                ],
-                                "right": Object {
-                                  "end": 127,
-                                  "loc": Object {
-                                    "end": Object {
-                                      "column": 19,
-                                      "line": 9,
-                                      "offset": 127,
-                                    },
-                                    "start": Object {
-                                      "column": 18,
-                                      "line": 9,
-                                      "offset": 126,
-                                    },
-                                  },
-                                  "range": Array [
-                                    126,
-                                    127,
-                                  ],
-                                  "raw": "1",
-                                  "start": 126,
-                                  "type": "Literal",
-                                  "value": 1,
-                                },
-                                "start": 120,
-                                "type": "AssignmentPattern",
-                              },
-                            ],
-                            "range": Array [
-                              119,
-                              325,
-                            ],
-                            "start": 119,
-                            "type": "FunctionExpression",
-                          },
-                        },
-                        Object {
-                          "computed": false,
-                          "end": 397,
-                          "key": Object {
-                            "end": 341,
-                            "loc": Object {
-                              "end": Object {
-                                "column": 14,
-                                "line": 16,
-                                "offset": 341,
-                              },
-                              "start": Object {
-                                "column": 8,
-                                "line": 16,
-                                "offset": 335,
-                              },
-                            },
-                            "name": "remove",
-                            "range": Array [
-                              335,
-                              341,
-                            ],
-                            "start": 335,
-                            "type": "Identifier",
-                          },
-                          "kind": "init",
-                          "loc": Object {
-                            "end": Object {
-                              "column": 9,
-                              "line": 18,
-                              "offset": 397,
-                            },
-                            "start": Object {
-                              "column": 8,
-                              "line": 16,
-                              "offset": 335,
-                            },
-                          },
-                          "method": true,
-                          "range": Array [
-                            335,
-                            397,
-                          ],
-                          "shorthand": false,
-                          "start": 335,
-                          "type": "Property",
-                          "value": Object {
-                            "async": false,
-                            "body": Object {
-                              "body": Array [
-                                Object {
-                                  "end": 387,
-                                  "expression": Object {
-                                    "arguments": Array [
-                                      Object {
-                                        "end": 383,
-                                        "loc": Object {
-                                          "end": Object {
-                                            "column": 32,
-                                            "line": 17,
-                                            "offset": 383,
-                                          },
-                                          "start": Object {
-                                            "column": 27,
-                                            "line": 17,
-                                            "offset": 378,
-                                          },
-                                        },
-                                        "name": "index",
-                                        "range": Array [
-                                          378,
-                                          383,
-                                        ],
-                                        "start": 378,
-                                        "type": "Identifier",
-                                      },
-                                      Object {
-                                        "end": 386,
-                                        "loc": Object {
-                                          "end": Object {
-                                            "column": 35,
-                                            "line": 17,
-                                            "offset": 386,
-                                          },
-                                          "start": Object {
-                                            "column": 34,
-                                            "line": 17,
-                                            "offset": 385,
-                                          },
-                                        },
-                                        "range": Array [
-                                          385,
-                                          386,
-                                        ],
-                                        "raw": "1",
-                                        "start": 385,
-                                        "type": "Literal",
-                                        "value": 1,
-                                      },
-                                    ],
-                                    "callee": Object {
-                                      "computed": false,
-                                      "end": 377,
-                                      "loc": Object {
-                                        "end": Object {
-                                          "column": 26,
-                                          "line": 17,
-                                          "offset": 377,
-                                        },
-                                        "start": Object {
-                                          "column": 10,
-                                          "line": 17,
-                                          "offset": 361,
-                                        },
-                                      },
-                                      "object": Object {
-                                        "computed": false,
-                                        "end": 370,
-                                        "loc": Object {
-                                          "end": Object {
-                                            "column": 19,
-                                            "line": 17,
-                                            "offset": 370,
-                                          },
-                                          "start": Object {
-                                            "column": 10,
-                                            "line": 17,
-                                            "offset": 361,
-                                          },
-                                        },
-                                        "object": Object {
-                                          "end": 365,
-                                          "loc": Object {
-                                            "end": Object {
-                                              "column": 14,
-                                              "line": 17,
-                                              "offset": 365,
-                                            },
-                                            "start": Object {
-                                              "column": 10,
-                                              "line": 17,
-                                              "offset": 361,
-                                            },
-                                          },
-                                          "range": Array [
-                                            361,
-                                            365,
-                                          ],
-                                          "start": 361,
-                                          "type": "ThisExpression",
-                                        },
-                                        "optional": false,
-                                        "property": Object {
-                                          "end": 370,
-                                          "loc": Object {
-                                            "end": Object {
-                                              "column": 19,
-                                              "line": 17,
-                                              "offset": 370,
-                                            },
-                                            "start": Object {
-                                              "column": 15,
-                                              "line": 17,
-                                              "offset": 366,
-                                            },
-                                          },
-                                          "name": "tabs",
-                                          "range": Array [
-                                            366,
-                                            370,
-                                          ],
-                                          "start": 366,
-                                          "type": "Identifier",
-                                        },
-                                        "range": Array [
-                                          361,
-                                          370,
-                                        ],
-                                        "start": 361,
-                                        "type": "MemberExpression",
-                                      },
-                                      "optional": false,
-                                      "property": Object {
-                                        "end": 377,
-                                        "loc": Object {
-                                          "end": Object {
-                                            "column": 26,
-                                            "line": 17,
-                                            "offset": 377,
-                                          },
-                                          "start": Object {
-                                            "column": 20,
-                                            "line": 17,
-                                            "offset": 371,
-                                          },
-                                        },
-                                        "name": "splice",
-                                        "range": Array [
-                                          371,
-                                          377,
-                                        ],
-                                        "start": 371,
-                                        "type": "Identifier",
-                                      },
-                                      "range": Array [
-                                        361,
-                                        377,
-                                      ],
-                                      "start": 361,
-                                      "type": "MemberExpression",
-                                    },
-                                    "end": 387,
-                                    "loc": Object {
-                                      "end": Object {
-                                        "column": 36,
-                                        "line": 17,
-                                        "offset": 387,
-                                      },
-                                      "start": Object {
-                                        "column": 10,
-                                        "line": 17,
-                                        "offset": 361,
-                                      },
-                                    },
-                                    "optional": false,
-                                    "range": Array [
-                                      361,
-                                      387,
-                                    ],
-                                    "start": 361,
-                                    "type": "CallExpression",
-                                  },
-                                  "loc": Object {
-                                    "end": Object {
-                                      "column": 36,
-                                      "line": 17,
-                                      "offset": 387,
-                                    },
-                                    "start": Object {
-                                      "column": 10,
-                                      "line": 17,
-                                      "offset": 361,
-                                    },
-                                  },
-                                  "range": Array [
-                                    361,
-                                    387,
-                                  ],
-                                  "start": 361,
-                                  "type": "ExpressionStatement",
-                                },
-                              ],
-                              "end": 397,
-                              "loc": Object {
-                                "end": Object {
-                                  "column": 9,
-                                  "line": 18,
-                                  "offset": 397,
-                                },
-                                "start": Object {
-                                  "column": 22,
-                                  "line": 16,
-                                  "offset": 349,
-                                },
-                              },
-                              "range": Array [
-                                349,
-                                397,
-                              ],
-                              "start": 349,
-                              "type": "BlockStatement",
-                            },
-                            "end": 397,
-                            "expression": false,
-                            "generator": false,
-                            "id": null,
-                            "loc": Object {
-                              "end": Object {
-                                "column": 9,
-                                "line": 18,
-                                "offset": 397,
-                              },
-                              "start": Object {
-                                "column": 14,
-                                "line": 16,
-                                "offset": 341,
-                              },
-                            },
-                            "params": Array [
-                              Object {
-                                "end": 347,
-                                "loc": Object {
-                                  "end": Object {
-                                    "column": 20,
-                                    "line": 16,
-                                    "offset": 347,
-                                  },
-                                  "start": Object {
-                                    "column": 15,
-                                    "line": 16,
-                                    "offset": 342,
-                                  },
-                                },
-                                "name": "index",
-                                "range": Array [
-                                  342,
-                                  347,
-                                ],
-                                "start": 342,
-                                "type": "Identifier",
-                              },
-                            ],
-                            "range": Array [
-                              341,
-                              397,
-                            ],
-                            "start": 341,
-                            "type": "FunctionExpression",
-                          },
-                        },
-                      ],
-                      "range": Array [
-                        81,
-                        406,
-                      ],
-                      "start": 81,
-                      "type": "ObjectExpression",
-                    },
-                  },
-                ],
-                "range": Array [
-                  66,
-                  413,
-                ],
-                "start": 66,
-                "type": "ObjectExpression",
-              },
-            ],
-            "closingElement": Object {
-              "end": 425,
-              "loc": Object {
-                "end": Object {
-                  "column": 10,
-                  "line": 21,
-                  "offset": 425,
-                },
-                "start": Object {
-                  "column": 2,
-                  "line": 21,
-                  "offset": 417,
-                },
-              },
-              "name": Object {
-                "end": 424,
-                "loc": Object {
-                  "end": Object {
-                    "column": 9,
-                    "line": 21,
-                    "offset": 424,
-                  },
-                  "start": Object {
-                    "column": 4,
-                    "line": 21,
-                    "offset": 419,
-                  },
-                },
-                "name": "Story",
-                "range": Array [
-                  419,
-                  424,
-                ],
-                "raw": "Story",
-                "start": 419,
-                "type": "JSXIdentifier",
-              },
-              "range": Array [
-                417,
-                425,
-              ],
-              "raw": "</Story>",
-              "start": 417,
-              "type": "JSXClosingElement",
-            },
-            "end": 425,
+            "end": 107,
             "loc": Object {
               "end": Object {
-                "column": 10,
-                "line": 21,
-                "offset": 425,
+                "column": 3,
+                "line": 7,
+                "offset": 107,
               },
               "start": Object {
-                "column": 2,
+                "column": 3,
                 "line": 2,
                 "offset": 11,
               },
             },
-            "openingElement": Object {
-              "attributes": Array [
-                Object {
-                  "end": 26,
+            "properties": Array [
+              Object {
+                "computed": false,
+                "end": 102,
+                "key": Object {
+                  "end": 25,
                   "loc": Object {
                     "end": Object {
-                      "column": 8,
+                      "column": 12,
                       "line": 3,
-                      "offset": 26,
+                      "offset": 25,
                     },
                     "start": Object {
                       "column": 4,
                       "line": 3,
-                      "offset": 22,
+                      "offset": 17,
                     },
                   },
-                  "name": Object {
-                    "end": 37,
-                    "loc": Object {
-                      "end": Object {
-                        "column": 19,
-                        "line": 3,
-                        "offset": 37,
-                      },
-                      "start": Object {
-                        "column": 4,
-                        "line": 3,
-                        "offset": 22,
-                      },
-                    },
-                    "name": "name",
-                    "range": Array [
-                      22,
-                      37,
-                    ],
-                    "raw": "name=\\"Editable\\"",
-                    "start": 22,
-                    "type": "JSXIdentifier",
-                  },
+                  "name": "template",
                   "range": Array [
-                    22,
-                    26,
+                    17,
+                    25,
                   ],
-                  "raw": "name",
-                  "start": 22,
-                  "type": "JSXAttribute",
-                  "value": Object {
-                    "end": 37,
-                    "loc": Object {
-                      "end": Object {
-                        "column": 19,
-                        "line": 3,
-                        "offset": 37,
-                      },
-                      "start": Object {
-                        "column": 9,
-                        "line": 3,
-                        "offset": 27,
-                      },
-                    },
-                    "range": Array [
-                      27,
-                      37,
-                    ],
-                    "raw": "\\"Editable\\"",
-                    "start": 27,
-                    "type": "Literal",
-                    "value": "Editable",
-                  },
+                  "start": 17,
+                  "type": "Identifier",
                 },
-                Object {
-                  "end": 48,
-                  "loc": Object {
-                    "end": Object {
-                      "column": 10,
-                      "line": 4,
-                      "offset": 48,
-                    },
-                    "start": Object {
-                      "column": 4,
-                      "line": 4,
-                      "offset": 42,
-                    },
-                  },
-                  "name": Object {
-                    "end": 56,
-                    "loc": Object {
-                      "end": Object {
-                        "column": 18,
-                        "line": 4,
-                        "offset": 56,
-                      },
-                      "start": Object {
-                        "column": 4,
-                        "line": 4,
-                        "offset": 42,
-                      },
-                    },
-                    "name": "height",
-                    "range": Array [
-                      42,
-                      56,
-                    ],
-                    "raw": "height=\\"100px\\"",
-                    "start": 42,
-                    "type": "JSXIdentifier",
-                  },
-                  "range": Array [
-                    42,
-                    48,
-                  ],
-                  "raw": "height",
-                  "start": 42,
-                  "type": "JSXAttribute",
-                  "value": Object {
-                    "end": 56,
-                    "loc": Object {
-                      "end": Object {
-                        "column": 18,
-                        "line": 4,
-                        "offset": 56,
-                      },
-                      "start": Object {
-                        "column": 11,
-                        "line": 4,
-                        "offset": 49,
-                      },
-                    },
-                    "range": Array [
-                      49,
-                      56,
-                    ],
-                    "raw": "\\"100px\\"",
-                    "start": 49,
-                    "type": "Literal",
-                    "value": "100px",
-                  },
-                },
-              ],
-              "end": 60,
-              "loc": Object {
-                "end": Object {
-                  "column": 3,
-                  "line": 5,
-                  "offset": 60,
-                },
-                "start": Object {
-                  "column": 2,
-                  "line": 2,
-                  "offset": 11,
-                },
-              },
-              "name": Object {
-                "end": 17,
+                "kind": "init",
                 "loc": Object {
                   "end": Object {
-                    "column": 8,
-                    "line": 2,
-                    "offset": 17,
+                    "column": 11,
+                    "line": 6,
+                    "offset": 102,
                   },
                   "start": Object {
-                    "column": 3,
-                    "line": 2,
-                    "offset": 12,
+                    "column": 4,
+                    "line": 3,
+                    "offset": 17,
                   },
                 },
-                "name": "Story",
+                "method": false,
                 "range": Array [
-                  12,
                   17,
+                  102,
                 ],
-                "raw": "Story",
-                "start": 12,
-                "type": "JSXIdentifier",
+                "shorthand": false,
+                "start": 17,
+                "type": "Property",
+                "value": Object {
+                  "end": 102,
+                  "expressions": Array [],
+                  "loc": Object {
+                    "end": Object {
+                      "column": 11,
+                      "line": 6,
+                      "offset": 102,
+                    },
+                    "start": Object {
+                      "column": 25,
+                      "line": 3,
+                      "offset": 38,
+                    },
+                  },
+                  "quasis": Array [
+                    Object {
+                      "end": 102,
+                      "loc": Object {
+                        "end": Object {
+                          "column": 11,
+                          "line": 6,
+                          "offset": 101,
+                        },
+                        "start": Object {
+                          "column": 25,
+                          "line": 3,
+                          "offset": 39,
+                        },
+                      },
+                      "range": Array [
+                        38,
+                        102,
+                      ],
+                      "start": 38,
+                      "tail": true,
+                      "type": "TemplateElement",
+                      "value": Object {
+                        "cooked": "<div abc>
+      <div>Nested</div>
+      Hello World
+    </div>",
+                        "raw": "<div abc>
+      <div>Nested</div>
+      Hello World
+    </div>",
+                      },
+                    },
+                  ],
+                  "range": Array [
+                    38,
+                    102,
+                  ],
+                  "start": 38,
+                  "type": "TemplateLiteral",
+                },
               },
-              "range": Array [
-                11,
-                60,
-              ],
-              "raw": "<Story
-    name=\\"Editable\\"
-    height=\\"100px\\"
-  >",
-              "selfClosing": false,
-              "start": 11,
-              "type": "JSXOpeningElement",
-            },
+            ],
             "range": Array [
               11,
-              425,
+              107,
             ],
-            "raw": "<Story
-    name=\\"Editable\\"
-    height=\\"100px\\"
-  >
-    {{
-      props: {
-        tabs: [1, 2, 3],
-        add(num = 1) {
-          this.tabs = this.tabs.concat(
-            Array.from({ length: num })
-              .fill()
-              .map((_, i) => this.tabs[this.tabs.length - 1] + i + 1),
-          )
-        },
-        remove(index) {
-          this.tabs.splice(index, 1)
-        },
-      },
-    }}
-  </Story>",
             "start": 11,
-            "type": "JSXElement",
+            "type": "ObjectExpression",
           },
         ],
         "closingElement": Object {
-          "end": 435,
+          "end": 117,
           "loc": Object {
             "end": Object {
-              "column": 9,
-              "line": 22,
-              "offset": 435,
+              "column": 8,
+              "line": 8,
+              "offset": 117,
             },
             "start": Object {
               "column": 0,
-              "line": 22,
-              "offset": 426,
+              "line": 8,
+              "offset": 109,
             },
           },
           "name": Object {
-            "end": 434,
+            "end": 116,
             "loc": Object {
               "end": Object {
-                "column": 8,
-                "line": 22,
-                "offset": 434,
+                "column": 7,
+                "line": 8,
+                "offset": 116,
               },
               "start": Object {
                 "column": 2,
-                "line": 22,
-                "offset": 428,
+                "line": 8,
+                "offset": 111,
               },
             },
-            "name": "Canvas",
+            "name": "Story",
             "range": Array [
-              428,
-              434,
+              111,
+              116,
             ],
-            "raw": "Canvas",
-            "start": 428,
+            "raw": "Story",
+            "start": 111,
             "type": "JSXIdentifier",
           },
           "range": Array [
-            426,
-            435,
+            109,
+            117,
           ],
-          "raw": "</Canvas>",
-          "start": 426,
+          "raw": "</Story>",
+          "start": 109,
           "type": "JSXClosingElement",
         },
-        "end": 435,
+        "end": 117,
         "loc": Object {
           "end": Object {
-            "column": 9,
-            "line": 22,
-            "offset": 435,
+            "column": 8,
+            "line": 8,
+            "offset": 117,
           },
           "start": Object {
             "column": 0,
@@ -44264,12 +42433,12 @@ Object {
         },
         "openingElement": Object {
           "attributes": Array [],
-          "end": 8,
+          "end": 7,
           "loc": Object {
             "end": Object {
-              "column": 8,
+              "column": 7,
               "line": 1,
-              "offset": 8,
+              "offset": 7,
             },
             "start": Object {
               "column": 0,
@@ -44278,12 +42447,12 @@ Object {
             },
           },
           "name": Object {
-            "end": 7,
+            "end": 6,
             "loc": Object {
               "end": Object {
-                "column": 7,
+                "column": 6,
                 "line": 1,
-                "offset": 7,
+                "offset": 6,
               },
               "start": Object {
                 "column": 1,
@@ -44291,58 +42460,44 @@ Object {
                 "offset": 1,
               },
             },
-            "name": "Canvas",
+            "name": "Story",
             "range": Array [
               1,
-              7,
+              6,
             ],
-            "raw": "Canvas",
+            "raw": "Story",
             "start": 1,
             "type": "JSXIdentifier",
           },
           "range": Array [
             0,
-            8,
+            7,
           ],
-          "raw": "<Canvas>",
+          "raw": "<Story>",
           "selfClosing": false,
           "start": 0,
           "type": "JSXOpeningElement",
         },
         "range": Array [
           0,
-          435,
+          117,
         ],
-        "raw": "<Canvas>
-  <Story
-    name=\\"Editable\\"
-    height=\\"100px\\"
-  >
-    {{
-      props: {
-        tabs: [1, 2, 3],
-        add(num = 1) {
-          this.tabs = this.tabs.concat(
-            Array.from({ length: num })
-              .fill()
-              .map((_, i) => this.tabs[this.tabs.length - 1] + i + 1),
-          )
-        },
-        remove(index) {
-          this.tabs.splice(index, 1)
-        },
-      },
-    }}
-  </Story>
-</Canvas>",
+        "raw": "<Story>
+  {{
+    template: /* HTML */ \`<div abc>
+      <div>Nested</div>
+      Hello World
+    </div>\`,
+  }}
+</Story>",
         "start": 0,
         "type": "JSXElement",
       },
       "loc": Object {
         "end": Object {
-          "column": 10,
-          "line": 22,
-          "offset": 435,
+          "column": 9,
+          "line": 8,
+          "offset": 117,
         },
         "start": Object {
           "column": 1,
@@ -44352,19 +42507,64 @@ Object {
       },
       "range": Array [
         0,
-        435,
+        117,
       ],
       "start": 0,
       "type": "ExpressionStatement",
     },
   ],
-  "comments": Array [],
-  "end": 436,
+  "comments": Array [
+    Object {
+      "end": 37,
+      "loc": Object {
+        "end": Object {
+          "column": 24,
+          "line": 3,
+          "offset": 37,
+        },
+        "start": Object {
+          "column": 14,
+          "line": 3,
+          "offset": 27,
+        },
+      },
+      "range": Array [
+        27,
+        37,
+      ],
+      "start": 27,
+      "type": "Block",
+      "value": " HTML ",
+    },
+    Object {
+      "end": 37,
+      "loc": Object {
+        "end": Object {
+          "column": 24,
+          "line": 3,
+          "offset": 37,
+        },
+        "start": Object {
+          "column": 14,
+          "line": 3,
+          "offset": 27,
+        },
+      },
+      "range": Array [
+        27,
+        37,
+      ],
+      "start": 27,
+      "type": "Block",
+      "value": " HTML ",
+    },
+  ],
+  "end": 118,
   "loc": Object {
     "end": Object {
       "column": 1,
-      "line": 23,
-      "offset": 436,
+      "line": 9,
+      "offset": 118,
     },
     "start": Object {
       "column": 1,
@@ -44374,7 +42574,7 @@ Object {
   },
   "range": Array [
     0,
-    436,
+    118,
   ],
   "sourceType": undefined,
   "start": 0,
@@ -44402,12 +42602,12 @@ Object {
       "value": "<",
     },
     Object {
-      "end": 7,
+      "end": 6,
       "loc": Object {
         "end": Object {
-          "column": 7,
+          "column": 6,
           "line": 1,
-          "offset": 7,
+          "offset": 6,
         },
         "start": Object {
           "column": 1,
@@ -44417,22 +42617,44 @@ Object {
       },
       "range": Array [
         1,
-        7,
+        6,
       ],
       "start": 1,
       "type": "JSXIdentifier",
-      "value": "Canvas",
+      "value": "Story",
+    },
+    Object {
+      "end": 11,
+      "loc": Object {
+        "end": Object {
+          "column": 3,
+          "line": 2,
+          "offset": 11,
+        },
+        "start": Object {
+          "column": 2,
+          "line": 2,
+          "offset": 10,
+        },
+      },
+      "range": Array [
+        10,
+        11,
+      ],
+      "start": 10,
+      "type": "Punctuator",
+      "value": "{",
     },
     Object {
       "end": 12,
       "loc": Object {
         "end": Object {
-          "column": 3,
+          "column": 4,
           "line": 2,
           "offset": 12,
         },
         "start": Object {
-          "column": 2,
+          "column": 3,
           "line": 2,
           "offset": 11,
         },
@@ -44443,415 +42665,88 @@ Object {
       ],
       "start": 11,
       "type": "Punctuator",
-      "value": "<",
+      "value": "{",
     },
     Object {
-      "end": 17,
+      "end": 25,
       "loc": Object {
         "end": Object {
-          "column": 8,
-          "line": 2,
-          "offset": 17,
+          "column": 12,
+          "line": 3,
+          "offset": 25,
         },
         "start": Object {
-          "column": 3,
-          "line": 2,
-          "offset": 12,
+          "column": 4,
+          "line": 3,
+          "offset": 17,
         },
       },
       "range": Array [
-        12,
         17,
+        25,
       ],
-      "start": 12,
-      "type": "JSXIdentifier",
-      "value": "Story",
+      "start": 17,
+      "type": "Identifier",
+      "value": "template",
     },
     Object {
       "end": 26,
       "loc": Object {
         "end": Object {
-          "column": 8,
+          "column": 13,
           "line": 3,
           "offset": 26,
         },
         "start": Object {
-          "column": 4,
+          "column": 12,
           "line": 3,
-          "offset": 22,
+          "offset": 25,
         },
       },
       "range": Array [
-        22,
+        25,
         26,
       ],
-      "start": 22,
-      "type": "JSXIdentifier",
-      "value": "name",
-    },
-    Object {
-      "end": 27,
-      "loc": Object {
-        "end": Object {
-          "column": 9,
-          "line": 3,
-          "offset": 27,
-        },
-        "start": Object {
-          "column": 8,
-          "line": 3,
-          "offset": 26,
-        },
-      },
-      "range": Array [
-        26,
-        27,
-      ],
-      "start": 26,
-      "type": "Punctuator",
-      "value": "=",
-    },
-    Object {
-      "end": 37,
-      "loc": Object {
-        "end": Object {
-          "column": 19,
-          "line": 3,
-          "offset": 37,
-        },
-        "start": Object {
-          "column": 9,
-          "line": 3,
-          "offset": 27,
-        },
-      },
-      "range": Array [
-        27,
-        37,
-      ],
-      "start": 27,
-      "type": "String",
-      "value": "\\"Editable\\"",
-    },
-    Object {
-      "end": 48,
-      "loc": Object {
-        "end": Object {
-          "column": 10,
-          "line": 4,
-          "offset": 48,
-        },
-        "start": Object {
-          "column": 4,
-          "line": 4,
-          "offset": 42,
-        },
-      },
-      "range": Array [
-        42,
-        48,
-      ],
-      "start": 42,
-      "type": "JSXIdentifier",
-      "value": "height",
-    },
-    Object {
-      "end": 49,
-      "loc": Object {
-        "end": Object {
-          "column": 11,
-          "line": 4,
-          "offset": 49,
-        },
-        "start": Object {
-          "column": 10,
-          "line": 4,
-          "offset": 48,
-        },
-      },
-      "range": Array [
-        48,
-        49,
-      ],
-      "start": 48,
-      "type": "Punctuator",
-      "value": "=",
-    },
-    Object {
-      "end": 56,
-      "loc": Object {
-        "end": Object {
-          "column": 18,
-          "line": 4,
-          "offset": 56,
-        },
-        "start": Object {
-          "column": 11,
-          "line": 4,
-          "offset": 49,
-        },
-      },
-      "range": Array [
-        49,
-        56,
-      ],
-      "start": 49,
-      "type": "String",
-      "value": "\\"100px\\"",
-    },
-    Object {
-      "end": 66,
-      "loc": Object {
-        "end": Object {
-          "column": 5,
-          "line": 6,
-          "offset": 66,
-        },
-        "start": Object {
-          "column": 4,
-          "line": 6,
-          "offset": 65,
-        },
-      },
-      "range": Array [
-        65,
-        66,
-      ],
-      "start": 65,
-      "type": "Punctuator",
-      "value": "{",
-    },
-    Object {
-      "end": 67,
-      "loc": Object {
-        "end": Object {
-          "column": 6,
-          "line": 6,
-          "offset": 67,
-        },
-        "start": Object {
-          "column": 5,
-          "line": 6,
-          "offset": 66,
-        },
-      },
-      "range": Array [
-        66,
-        67,
-      ],
-      "start": 66,
-      "type": "Punctuator",
-      "value": "{",
-    },
-    Object {
-      "end": 79,
-      "loc": Object {
-        "end": Object {
-          "column": 11,
-          "line": 7,
-          "offset": 79,
-        },
-        "start": Object {
-          "column": 6,
-          "line": 7,
-          "offset": 74,
-        },
-      },
-      "range": Array [
-        74,
-        79,
-      ],
-      "start": 74,
-      "type": "Identifier",
-      "value": "props",
-    },
-    Object {
-      "end": 80,
-      "loc": Object {
-        "end": Object {
-          "column": 12,
-          "line": 7,
-          "offset": 80,
-        },
-        "start": Object {
-          "column": 11,
-          "line": 7,
-          "offset": 79,
-        },
-      },
-      "range": Array [
-        79,
-        80,
-      ],
-      "start": 79,
+      "start": 25,
       "type": "Punctuator",
       "value": ":",
-    },
-    Object {
-      "end": 82,
-      "loc": Object {
-        "end": Object {
-          "column": 14,
-          "line": 7,
-          "offset": 82,
-        },
-        "start": Object {
-          "column": 13,
-          "line": 7,
-          "offset": 81,
-        },
-      },
-      "range": Array [
-        81,
-        82,
-      ],
-      "start": 81,
-      "type": "Punctuator",
-      "value": "{",
-    },
-    Object {
-      "end": 95,
-      "loc": Object {
-        "end": Object {
-          "column": 12,
-          "line": 8,
-          "offset": 95,
-        },
-        "start": Object {
-          "column": 8,
-          "line": 8,
-          "offset": 91,
-        },
-      },
-      "range": Array [
-        91,
-        95,
-      ],
-      "start": 91,
-      "type": "Identifier",
-      "value": "tabs",
-    },
-    Object {
-      "end": 96,
-      "loc": Object {
-        "end": Object {
-          "column": 13,
-          "line": 8,
-          "offset": 96,
-        },
-        "start": Object {
-          "column": 12,
-          "line": 8,
-          "offset": 95,
-        },
-      },
-      "range": Array [
-        95,
-        96,
-      ],
-      "start": 95,
-      "type": "Punctuator",
-      "value": ":",
-    },
-    Object {
-      "end": 98,
-      "loc": Object {
-        "end": Object {
-          "column": 15,
-          "line": 8,
-          "offset": 98,
-        },
-        "start": Object {
-          "column": 14,
-          "line": 8,
-          "offset": 97,
-        },
-      },
-      "range": Array [
-        97,
-        98,
-      ],
-      "start": 97,
-      "type": "Punctuator",
-      "value": "[",
-    },
-    Object {
-      "end": 99,
-      "loc": Object {
-        "end": Object {
-          "column": 16,
-          "line": 8,
-          "offset": 99,
-        },
-        "start": Object {
-          "column": 15,
-          "line": 8,
-          "offset": 98,
-        },
-      },
-      "range": Array [
-        98,
-        99,
-      ],
-      "start": 98,
-      "type": "Numeric",
-      "value": "1",
-    },
-    Object {
-      "end": 100,
-      "loc": Object {
-        "end": Object {
-          "column": 17,
-          "line": 8,
-          "offset": 100,
-        },
-        "start": Object {
-          "column": 16,
-          "line": 8,
-          "offset": 99,
-        },
-      },
-      "range": Array [
-        99,
-        100,
-      ],
-      "start": 99,
-      "type": "Punctuator",
-      "value": ",",
     },
     Object {
       "end": 102,
       "loc": Object {
         "end": Object {
-          "column": 19,
-          "line": 8,
+          "column": 11,
+          "line": 6,
           "offset": 102,
         },
         "start": Object {
-          "column": 18,
-          "line": 8,
-          "offset": 101,
+          "column": 25,
+          "line": 3,
+          "offset": 38,
         },
       },
       "range": Array [
-        101,
+        38,
         102,
       ],
-      "start": 101,
-      "type": "Numeric",
-      "value": "2",
+      "start": 38,
+      "type": "Template",
+      "value": "\`<div abc>
+      <div>Nested</div>
+      Hello World
+    </div>\`",
     },
     Object {
       "end": 103,
       "loc": Object {
         "end": Object {
-          "column": 20,
-          "line": 8,
+          "column": 12,
+          "line": 6,
           "offset": 103,
         },
         "start": Object {
-          "column": 19,
-          "line": 8,
+          "column": 11,
+          "line": 6,
           "offset": 102,
         },
       },
@@ -44864,60 +42759,16 @@ Object {
       "value": ",",
     },
     Object {
-      "end": 105,
-      "loc": Object {
-        "end": Object {
-          "column": 22,
-          "line": 8,
-          "offset": 105,
-        },
-        "start": Object {
-          "column": 21,
-          "line": 8,
-          "offset": 104,
-        },
-      },
-      "range": Array [
-        104,
-        105,
-      ],
-      "start": 104,
-      "type": "Numeric",
-      "value": "3",
-    },
-    Object {
-      "end": 106,
-      "loc": Object {
-        "end": Object {
-          "column": 23,
-          "line": 8,
-          "offset": 106,
-        },
-        "start": Object {
-          "column": 22,
-          "line": 8,
-          "offset": 105,
-        },
-      },
-      "range": Array [
-        105,
-        106,
-      ],
-      "start": 105,
-      "type": "Punctuator",
-      "value": "]",
-    },
-    Object {
       "end": 107,
       "loc": Object {
         "end": Object {
-          "column": 24,
-          "line": 8,
+          "column": 3,
+          "line": 7,
           "offset": 107,
         },
         "start": Object {
-          "column": 23,
-          "line": 8,
+          "column": 2,
+          "line": 7,
           "offset": 106,
         },
       },
@@ -44927,1985 +42778,115 @@ Object {
       ],
       "start": 106,
       "type": "Punctuator",
-      "value": ",",
+      "value": "}",
     },
     Object {
-      "end": 119,
+      "end": 108,
       "loc": Object {
         "end": Object {
-          "column": 11,
-          "line": 9,
-          "offset": 119,
+          "column": 4,
+          "line": 7,
+          "offset": 108,
         },
         "start": Object {
+          "column": 3,
+          "line": 7,
+          "offset": 107,
+        },
+      },
+      "range": Array [
+        107,
+        108,
+      ],
+      "start": 107,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    Object {
+      "end": 110,
+      "loc": Object {
+        "end": Object {
+          "column": 1,
+          "line": 8,
+          "offset": 110,
+        },
+        "start": Object {
+          "column": 0,
+          "line": 8,
+          "offset": 109,
+        },
+      },
+      "range": Array [
+        109,
+        110,
+      ],
+      "start": 109,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    Object {
+      "end": 111,
+      "loc": Object {
+        "end": Object {
+          "column": 2,
+          "line": 8,
+          "offset": 111,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 8,
+          "offset": 110,
+        },
+      },
+      "range": Array [
+        110,
+        111,
+      ],
+      "start": 110,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    Object {
+      "end": 116,
+      "loc": Object {
+        "end": Object {
+          "column": 7,
+          "line": 8,
+          "offset": 116,
+        },
+        "start": Object {
+          "column": 2,
+          "line": 8,
+          "offset": 111,
+        },
+      },
+      "range": Array [
+        111,
+        116,
+      ],
+      "start": 111,
+      "type": "JSXIdentifier",
+      "value": "Story",
+    },
+    Object {
+      "end": 117,
+      "loc": Object {
+        "end": Object {
           "column": 8,
-          "line": 9,
+          "line": 8,
+          "offset": 117,
+        },
+        "start": Object {
+          "column": 7,
+          "line": 8,
           "offset": 116,
         },
       },
       "range": Array [
         116,
-        119,
+        117,
       ],
       "start": 116,
-      "type": "Identifier",
-      "value": "add",
-    },
-    Object {
-      "end": 120,
-      "loc": Object {
-        "end": Object {
-          "column": 12,
-          "line": 9,
-          "offset": 120,
-        },
-        "start": Object {
-          "column": 11,
-          "line": 9,
-          "offset": 119,
-        },
-      },
-      "range": Array [
-        119,
-        120,
-      ],
-      "start": 119,
-      "type": "Punctuator",
-      "value": "(",
-    },
-    Object {
-      "end": 123,
-      "loc": Object {
-        "end": Object {
-          "column": 15,
-          "line": 9,
-          "offset": 123,
-        },
-        "start": Object {
-          "column": 12,
-          "line": 9,
-          "offset": 120,
-        },
-      },
-      "range": Array [
-        120,
-        123,
-      ],
-      "start": 120,
-      "type": "Identifier",
-      "value": "num",
-    },
-    Object {
-      "end": 125,
-      "loc": Object {
-        "end": Object {
-          "column": 17,
-          "line": 9,
-          "offset": 125,
-        },
-        "start": Object {
-          "column": 16,
-          "line": 9,
-          "offset": 124,
-        },
-      },
-      "range": Array [
-        124,
-        125,
-      ],
-      "start": 124,
-      "type": "Punctuator",
-      "value": "=",
-    },
-    Object {
-      "end": 127,
-      "loc": Object {
-        "end": Object {
-          "column": 19,
-          "line": 9,
-          "offset": 127,
-        },
-        "start": Object {
-          "column": 18,
-          "line": 9,
-          "offset": 126,
-        },
-      },
-      "range": Array [
-        126,
-        127,
-      ],
-      "start": 126,
-      "type": "Numeric",
-      "value": "1",
-    },
-    Object {
-      "end": 128,
-      "loc": Object {
-        "end": Object {
-          "column": 20,
-          "line": 9,
-          "offset": 128,
-        },
-        "start": Object {
-          "column": 19,
-          "line": 9,
-          "offset": 127,
-        },
-      },
-      "range": Array [
-        127,
-        128,
-      ],
-      "start": 127,
-      "type": "Punctuator",
-      "value": ")",
-    },
-    Object {
-      "end": 130,
-      "loc": Object {
-        "end": Object {
-          "column": 22,
-          "line": 9,
-          "offset": 130,
-        },
-        "start": Object {
-          "column": 21,
-          "line": 9,
-          "offset": 129,
-        },
-      },
-      "range": Array [
-        129,
-        130,
-      ],
-      "start": 129,
-      "type": "Punctuator",
-      "value": "{",
-    },
-    Object {
-      "end": 145,
-      "loc": Object {
-        "end": Object {
-          "column": 14,
-          "line": 10,
-          "offset": 145,
-        },
-        "start": Object {
-          "column": 10,
-          "line": 10,
-          "offset": 141,
-        },
-      },
-      "range": Array [
-        141,
-        145,
-      ],
-      "start": 141,
-      "type": "Keyword",
-      "value": "this",
-    },
-    Object {
-      "end": 146,
-      "loc": Object {
-        "end": Object {
-          "column": 15,
-          "line": 10,
-          "offset": 146,
-        },
-        "start": Object {
-          "column": 14,
-          "line": 10,
-          "offset": 145,
-        },
-      },
-      "range": Array [
-        145,
-        146,
-      ],
-      "start": 145,
-      "type": "Punctuator",
-      "value": ".",
-    },
-    Object {
-      "end": 150,
-      "loc": Object {
-        "end": Object {
-          "column": 19,
-          "line": 10,
-          "offset": 150,
-        },
-        "start": Object {
-          "column": 15,
-          "line": 10,
-          "offset": 146,
-        },
-      },
-      "range": Array [
-        146,
-        150,
-      ],
-      "start": 146,
-      "type": "Identifier",
-      "value": "tabs",
-    },
-    Object {
-      "end": 152,
-      "loc": Object {
-        "end": Object {
-          "column": 21,
-          "line": 10,
-          "offset": 152,
-        },
-        "start": Object {
-          "column": 20,
-          "line": 10,
-          "offset": 151,
-        },
-      },
-      "range": Array [
-        151,
-        152,
-      ],
-      "start": 151,
-      "type": "Punctuator",
-      "value": "=",
-    },
-    Object {
-      "end": 157,
-      "loc": Object {
-        "end": Object {
-          "column": 26,
-          "line": 10,
-          "offset": 157,
-        },
-        "start": Object {
-          "column": 22,
-          "line": 10,
-          "offset": 153,
-        },
-      },
-      "range": Array [
-        153,
-        157,
-      ],
-      "start": 153,
-      "type": "Keyword",
-      "value": "this",
-    },
-    Object {
-      "end": 158,
-      "loc": Object {
-        "end": Object {
-          "column": 27,
-          "line": 10,
-          "offset": 158,
-        },
-        "start": Object {
-          "column": 26,
-          "line": 10,
-          "offset": 157,
-        },
-      },
-      "range": Array [
-        157,
-        158,
-      ],
-      "start": 157,
-      "type": "Punctuator",
-      "value": ".",
-    },
-    Object {
-      "end": 162,
-      "loc": Object {
-        "end": Object {
-          "column": 31,
-          "line": 10,
-          "offset": 162,
-        },
-        "start": Object {
-          "column": 27,
-          "line": 10,
-          "offset": 158,
-        },
-      },
-      "range": Array [
-        158,
-        162,
-      ],
-      "start": 158,
-      "type": "Identifier",
-      "value": "tabs",
-    },
-    Object {
-      "end": 163,
-      "loc": Object {
-        "end": Object {
-          "column": 32,
-          "line": 10,
-          "offset": 163,
-        },
-        "start": Object {
-          "column": 31,
-          "line": 10,
-          "offset": 162,
-        },
-      },
-      "range": Array [
-        162,
-        163,
-      ],
-      "start": 162,
-      "type": "Punctuator",
-      "value": ".",
-    },
-    Object {
-      "end": 169,
-      "loc": Object {
-        "end": Object {
-          "column": 38,
-          "line": 10,
-          "offset": 169,
-        },
-        "start": Object {
-          "column": 32,
-          "line": 10,
-          "offset": 163,
-        },
-      },
-      "range": Array [
-        163,
-        169,
-      ],
-      "start": 163,
-      "type": "Identifier",
-      "value": "concat",
-    },
-    Object {
-      "end": 170,
-      "loc": Object {
-        "end": Object {
-          "column": 39,
-          "line": 10,
-          "offset": 170,
-        },
-        "start": Object {
-          "column": 38,
-          "line": 10,
-          "offset": 169,
-        },
-      },
-      "range": Array [
-        169,
-        170,
-      ],
-      "start": 169,
-      "type": "Punctuator",
-      "value": "(",
-    },
-    Object {
-      "end": 188,
-      "loc": Object {
-        "end": Object {
-          "column": 17,
-          "line": 11,
-          "offset": 188,
-        },
-        "start": Object {
-          "column": 12,
-          "line": 11,
-          "offset": 183,
-        },
-      },
-      "range": Array [
-        183,
-        188,
-      ],
-      "start": 183,
-      "type": "Identifier",
-      "value": "Array",
-    },
-    Object {
-      "end": 189,
-      "loc": Object {
-        "end": Object {
-          "column": 18,
-          "line": 11,
-          "offset": 189,
-        },
-        "start": Object {
-          "column": 17,
-          "line": 11,
-          "offset": 188,
-        },
-      },
-      "range": Array [
-        188,
-        189,
-      ],
-      "start": 188,
-      "type": "Punctuator",
-      "value": ".",
-    },
-    Object {
-      "end": 193,
-      "loc": Object {
-        "end": Object {
-          "column": 22,
-          "line": 11,
-          "offset": 193,
-        },
-        "start": Object {
-          "column": 18,
-          "line": 11,
-          "offset": 189,
-        },
-      },
-      "range": Array [
-        189,
-        193,
-      ],
-      "start": 189,
-      "type": "Identifier",
-      "value": "from",
-    },
-    Object {
-      "end": 194,
-      "loc": Object {
-        "end": Object {
-          "column": 23,
-          "line": 11,
-          "offset": 194,
-        },
-        "start": Object {
-          "column": 22,
-          "line": 11,
-          "offset": 193,
-        },
-      },
-      "range": Array [
-        193,
-        194,
-      ],
-      "start": 193,
-      "type": "Punctuator",
-      "value": "(",
-    },
-    Object {
-      "end": 195,
-      "loc": Object {
-        "end": Object {
-          "column": 24,
-          "line": 11,
-          "offset": 195,
-        },
-        "start": Object {
-          "column": 23,
-          "line": 11,
-          "offset": 194,
-        },
-      },
-      "range": Array [
-        194,
-        195,
-      ],
-      "start": 194,
-      "type": "Punctuator",
-      "value": "{",
-    },
-    Object {
-      "end": 202,
-      "loc": Object {
-        "end": Object {
-          "column": 31,
-          "line": 11,
-          "offset": 202,
-        },
-        "start": Object {
-          "column": 25,
-          "line": 11,
-          "offset": 196,
-        },
-      },
-      "range": Array [
-        196,
-        202,
-      ],
-      "start": 196,
-      "type": "Identifier",
-      "value": "length",
-    },
-    Object {
-      "end": 203,
-      "loc": Object {
-        "end": Object {
-          "column": 32,
-          "line": 11,
-          "offset": 203,
-        },
-        "start": Object {
-          "column": 31,
-          "line": 11,
-          "offset": 202,
-        },
-      },
-      "range": Array [
-        202,
-        203,
-      ],
-      "start": 202,
-      "type": "Punctuator",
-      "value": ":",
-    },
-    Object {
-      "end": 207,
-      "loc": Object {
-        "end": Object {
-          "column": 36,
-          "line": 11,
-          "offset": 207,
-        },
-        "start": Object {
-          "column": 33,
-          "line": 11,
-          "offset": 204,
-        },
-      },
-      "range": Array [
-        204,
-        207,
-      ],
-      "start": 204,
-      "type": "Identifier",
-      "value": "num",
-    },
-    Object {
-      "end": 209,
-      "loc": Object {
-        "end": Object {
-          "column": 38,
-          "line": 11,
-          "offset": 209,
-        },
-        "start": Object {
-          "column": 37,
-          "line": 11,
-          "offset": 208,
-        },
-      },
-      "range": Array [
-        208,
-        209,
-      ],
-      "start": 208,
-      "type": "Punctuator",
-      "value": "}",
-    },
-    Object {
-      "end": 210,
-      "loc": Object {
-        "end": Object {
-          "column": 39,
-          "line": 11,
-          "offset": 210,
-        },
-        "start": Object {
-          "column": 38,
-          "line": 11,
-          "offset": 209,
-        },
-      },
-      "range": Array [
-        209,
-        210,
-      ],
-      "start": 209,
-      "type": "Punctuator",
-      "value": ")",
-    },
-    Object {
-      "end": 226,
-      "loc": Object {
-        "end": Object {
-          "column": 15,
-          "line": 12,
-          "offset": 226,
-        },
-        "start": Object {
-          "column": 14,
-          "line": 12,
-          "offset": 225,
-        },
-      },
-      "range": Array [
-        225,
-        226,
-      ],
-      "start": 225,
-      "type": "Punctuator",
-      "value": ".",
-    },
-    Object {
-      "end": 230,
-      "loc": Object {
-        "end": Object {
-          "column": 19,
-          "line": 12,
-          "offset": 230,
-        },
-        "start": Object {
-          "column": 15,
-          "line": 12,
-          "offset": 226,
-        },
-      },
-      "range": Array [
-        226,
-        230,
-      ],
-      "start": 226,
-      "type": "Identifier",
-      "value": "fill",
-    },
-    Object {
-      "end": 231,
-      "loc": Object {
-        "end": Object {
-          "column": 20,
-          "line": 12,
-          "offset": 231,
-        },
-        "start": Object {
-          "column": 19,
-          "line": 12,
-          "offset": 230,
-        },
-      },
-      "range": Array [
-        230,
-        231,
-      ],
-      "start": 230,
-      "type": "Punctuator",
-      "value": "(",
-    },
-    Object {
-      "end": 232,
-      "loc": Object {
-        "end": Object {
-          "column": 21,
-          "line": 12,
-          "offset": 232,
-        },
-        "start": Object {
-          "column": 20,
-          "line": 12,
-          "offset": 231,
-        },
-      },
-      "range": Array [
-        231,
-        232,
-      ],
-      "start": 231,
-      "type": "Punctuator",
-      "value": ")",
-    },
-    Object {
-      "end": 248,
-      "loc": Object {
-        "end": Object {
-          "column": 15,
-          "line": 13,
-          "offset": 248,
-        },
-        "start": Object {
-          "column": 14,
-          "line": 13,
-          "offset": 247,
-        },
-      },
-      "range": Array [
-        247,
-        248,
-      ],
-      "start": 247,
-      "type": "Punctuator",
-      "value": ".",
-    },
-    Object {
-      "end": 251,
-      "loc": Object {
-        "end": Object {
-          "column": 18,
-          "line": 13,
-          "offset": 251,
-        },
-        "start": Object {
-          "column": 15,
-          "line": 13,
-          "offset": 248,
-        },
-      },
-      "range": Array [
-        248,
-        251,
-      ],
-      "start": 248,
-      "type": "Identifier",
-      "value": "map",
-    },
-    Object {
-      "end": 252,
-      "loc": Object {
-        "end": Object {
-          "column": 19,
-          "line": 13,
-          "offset": 252,
-        },
-        "start": Object {
-          "column": 18,
-          "line": 13,
-          "offset": 251,
-        },
-      },
-      "range": Array [
-        251,
-        252,
-      ],
-      "start": 251,
-      "type": "Punctuator",
-      "value": "(",
-    },
-    Object {
-      "end": 253,
-      "loc": Object {
-        "end": Object {
-          "column": 20,
-          "line": 13,
-          "offset": 253,
-        },
-        "start": Object {
-          "column": 19,
-          "line": 13,
-          "offset": 252,
-        },
-      },
-      "range": Array [
-        252,
-        253,
-      ],
-      "start": 252,
-      "type": "Punctuator",
-      "value": "(",
-    },
-    Object {
-      "end": 254,
-      "loc": Object {
-        "end": Object {
-          "column": 21,
-          "line": 13,
-          "offset": 254,
-        },
-        "start": Object {
-          "column": 20,
-          "line": 13,
-          "offset": 253,
-        },
-      },
-      "range": Array [
-        253,
-        254,
-      ],
-      "start": 253,
-      "type": "Identifier",
-      "value": "_",
-    },
-    Object {
-      "end": 255,
-      "loc": Object {
-        "end": Object {
-          "column": 22,
-          "line": 13,
-          "offset": 255,
-        },
-        "start": Object {
-          "column": 21,
-          "line": 13,
-          "offset": 254,
-        },
-      },
-      "range": Array [
-        254,
-        255,
-      ],
-      "start": 254,
-      "type": "Punctuator",
-      "value": ",",
-    },
-    Object {
-      "end": 257,
-      "loc": Object {
-        "end": Object {
-          "column": 24,
-          "line": 13,
-          "offset": 257,
-        },
-        "start": Object {
-          "column": 23,
-          "line": 13,
-          "offset": 256,
-        },
-      },
-      "range": Array [
-        256,
-        257,
-      ],
-      "start": 256,
-      "type": "Identifier",
-      "value": "i",
-    },
-    Object {
-      "end": 258,
-      "loc": Object {
-        "end": Object {
-          "column": 25,
-          "line": 13,
-          "offset": 258,
-        },
-        "start": Object {
-          "column": 24,
-          "line": 13,
-          "offset": 257,
-        },
-      },
-      "range": Array [
-        257,
-        258,
-      ],
-      "start": 257,
-      "type": "Punctuator",
-      "value": ")",
-    },
-    Object {
-      "end": 261,
-      "loc": Object {
-        "end": Object {
-          "column": 28,
-          "line": 13,
-          "offset": 261,
-        },
-        "start": Object {
-          "column": 26,
-          "line": 13,
-          "offset": 259,
-        },
-      },
-      "range": Array [
-        259,
-        261,
-      ],
-      "start": 259,
-      "type": "Punctuator",
-      "value": "=>",
-    },
-    Object {
-      "end": 266,
-      "loc": Object {
-        "end": Object {
-          "column": 33,
-          "line": 13,
-          "offset": 266,
-        },
-        "start": Object {
-          "column": 29,
-          "line": 13,
-          "offset": 262,
-        },
-      },
-      "range": Array [
-        262,
-        266,
-      ],
-      "start": 262,
-      "type": "Keyword",
-      "value": "this",
-    },
-    Object {
-      "end": 267,
-      "loc": Object {
-        "end": Object {
-          "column": 34,
-          "line": 13,
-          "offset": 267,
-        },
-        "start": Object {
-          "column": 33,
-          "line": 13,
-          "offset": 266,
-        },
-      },
-      "range": Array [
-        266,
-        267,
-      ],
-      "start": 266,
-      "type": "Punctuator",
-      "value": ".",
-    },
-    Object {
-      "end": 271,
-      "loc": Object {
-        "end": Object {
-          "column": 38,
-          "line": 13,
-          "offset": 271,
-        },
-        "start": Object {
-          "column": 34,
-          "line": 13,
-          "offset": 267,
-        },
-      },
-      "range": Array [
-        267,
-        271,
-      ],
-      "start": 267,
-      "type": "Identifier",
-      "value": "tabs",
-    },
-    Object {
-      "end": 272,
-      "loc": Object {
-        "end": Object {
-          "column": 39,
-          "line": 13,
-          "offset": 272,
-        },
-        "start": Object {
-          "column": 38,
-          "line": 13,
-          "offset": 271,
-        },
-      },
-      "range": Array [
-        271,
-        272,
-      ],
-      "start": 271,
-      "type": "Punctuator",
-      "value": "[",
-    },
-    Object {
-      "end": 276,
-      "loc": Object {
-        "end": Object {
-          "column": 43,
-          "line": 13,
-          "offset": 276,
-        },
-        "start": Object {
-          "column": 39,
-          "line": 13,
-          "offset": 272,
-        },
-      },
-      "range": Array [
-        272,
-        276,
-      ],
-      "start": 272,
-      "type": "Keyword",
-      "value": "this",
-    },
-    Object {
-      "end": 277,
-      "loc": Object {
-        "end": Object {
-          "column": 44,
-          "line": 13,
-          "offset": 277,
-        },
-        "start": Object {
-          "column": 43,
-          "line": 13,
-          "offset": 276,
-        },
-      },
-      "range": Array [
-        276,
-        277,
-      ],
-      "start": 276,
-      "type": "Punctuator",
-      "value": ".",
-    },
-    Object {
-      "end": 281,
-      "loc": Object {
-        "end": Object {
-          "column": 48,
-          "line": 13,
-          "offset": 281,
-        },
-        "start": Object {
-          "column": 44,
-          "line": 13,
-          "offset": 277,
-        },
-      },
-      "range": Array [
-        277,
-        281,
-      ],
-      "start": 277,
-      "type": "Identifier",
-      "value": "tabs",
-    },
-    Object {
-      "end": 282,
-      "loc": Object {
-        "end": Object {
-          "column": 49,
-          "line": 13,
-          "offset": 282,
-        },
-        "start": Object {
-          "column": 48,
-          "line": 13,
-          "offset": 281,
-        },
-      },
-      "range": Array [
-        281,
-        282,
-      ],
-      "start": 281,
-      "type": "Punctuator",
-      "value": ".",
-    },
-    Object {
-      "end": 288,
-      "loc": Object {
-        "end": Object {
-          "column": 55,
-          "line": 13,
-          "offset": 288,
-        },
-        "start": Object {
-          "column": 49,
-          "line": 13,
-          "offset": 282,
-        },
-      },
-      "range": Array [
-        282,
-        288,
-      ],
-      "start": 282,
-      "type": "Identifier",
-      "value": "length",
-    },
-    Object {
-      "end": 290,
-      "loc": Object {
-        "end": Object {
-          "column": 57,
-          "line": 13,
-          "offset": 290,
-        },
-        "start": Object {
-          "column": 56,
-          "line": 13,
-          "offset": 289,
-        },
-      },
-      "range": Array [
-        289,
-        290,
-      ],
-      "start": 289,
-      "type": "Punctuator",
-      "value": "-",
-    },
-    Object {
-      "end": 292,
-      "loc": Object {
-        "end": Object {
-          "column": 59,
-          "line": 13,
-          "offset": 292,
-        },
-        "start": Object {
-          "column": 58,
-          "line": 13,
-          "offset": 291,
-        },
-      },
-      "range": Array [
-        291,
-        292,
-      ],
-      "start": 291,
-      "type": "Numeric",
-      "value": "1",
-    },
-    Object {
-      "end": 293,
-      "loc": Object {
-        "end": Object {
-          "column": 60,
-          "line": 13,
-          "offset": 293,
-        },
-        "start": Object {
-          "column": 59,
-          "line": 13,
-          "offset": 292,
-        },
-      },
-      "range": Array [
-        292,
-        293,
-      ],
-      "start": 292,
-      "type": "Punctuator",
-      "value": "]",
-    },
-    Object {
-      "end": 295,
-      "loc": Object {
-        "end": Object {
-          "column": 62,
-          "line": 13,
-          "offset": 295,
-        },
-        "start": Object {
-          "column": 61,
-          "line": 13,
-          "offset": 294,
-        },
-      },
-      "range": Array [
-        294,
-        295,
-      ],
-      "start": 294,
-      "type": "Punctuator",
-      "value": "+",
-    },
-    Object {
-      "end": 297,
-      "loc": Object {
-        "end": Object {
-          "column": 64,
-          "line": 13,
-          "offset": 297,
-        },
-        "start": Object {
-          "column": 63,
-          "line": 13,
-          "offset": 296,
-        },
-      },
-      "range": Array [
-        296,
-        297,
-      ],
-      "start": 296,
-      "type": "Identifier",
-      "value": "i",
-    },
-    Object {
-      "end": 299,
-      "loc": Object {
-        "end": Object {
-          "column": 66,
-          "line": 13,
-          "offset": 299,
-        },
-        "start": Object {
-          "column": 65,
-          "line": 13,
-          "offset": 298,
-        },
-      },
-      "range": Array [
-        298,
-        299,
-      ],
-      "start": 298,
-      "type": "Punctuator",
-      "value": "+",
-    },
-    Object {
-      "end": 301,
-      "loc": Object {
-        "end": Object {
-          "column": 68,
-          "line": 13,
-          "offset": 301,
-        },
-        "start": Object {
-          "column": 67,
-          "line": 13,
-          "offset": 300,
-        },
-      },
-      "range": Array [
-        300,
-        301,
-      ],
-      "start": 300,
-      "type": "Numeric",
-      "value": "1",
-    },
-    Object {
-      "end": 302,
-      "loc": Object {
-        "end": Object {
-          "column": 69,
-          "line": 13,
-          "offset": 302,
-        },
-        "start": Object {
-          "column": 68,
-          "line": 13,
-          "offset": 301,
-        },
-      },
-      "range": Array [
-        301,
-        302,
-      ],
-      "start": 301,
-      "type": "Punctuator",
-      "value": ")",
-    },
-    Object {
-      "end": 303,
-      "loc": Object {
-        "end": Object {
-          "column": 70,
-          "line": 13,
-          "offset": 303,
-        },
-        "start": Object {
-          "column": 69,
-          "line": 13,
-          "offset": 302,
-        },
-      },
-      "range": Array [
-        302,
-        303,
-      ],
-      "start": 302,
-      "type": "Punctuator",
-      "value": ",",
-    },
-    Object {
-      "end": 315,
-      "loc": Object {
-        "end": Object {
-          "column": 11,
-          "line": 14,
-          "offset": 315,
-        },
-        "start": Object {
-          "column": 10,
-          "line": 14,
-          "offset": 314,
-        },
-      },
-      "range": Array [
-        314,
-        315,
-      ],
-      "start": 314,
-      "type": "Punctuator",
-      "value": ")",
-    },
-    Object {
-      "end": 325,
-      "loc": Object {
-        "end": Object {
-          "column": 9,
-          "line": 15,
-          "offset": 325,
-        },
-        "start": Object {
-          "column": 8,
-          "line": 15,
-          "offset": 324,
-        },
-      },
-      "range": Array [
-        324,
-        325,
-      ],
-      "start": 324,
-      "type": "Punctuator",
-      "value": "}",
-    },
-    Object {
-      "end": 326,
-      "loc": Object {
-        "end": Object {
-          "column": 10,
-          "line": 15,
-          "offset": 326,
-        },
-        "start": Object {
-          "column": 9,
-          "line": 15,
-          "offset": 325,
-        },
-      },
-      "range": Array [
-        325,
-        326,
-      ],
-      "start": 325,
-      "type": "Punctuator",
-      "value": ",",
-    },
-    Object {
-      "end": 341,
-      "loc": Object {
-        "end": Object {
-          "column": 14,
-          "line": 16,
-          "offset": 341,
-        },
-        "start": Object {
-          "column": 8,
-          "line": 16,
-          "offset": 335,
-        },
-      },
-      "range": Array [
-        335,
-        341,
-      ],
-      "start": 335,
-      "type": "Identifier",
-      "value": "remove",
-    },
-    Object {
-      "end": 342,
-      "loc": Object {
-        "end": Object {
-          "column": 15,
-          "line": 16,
-          "offset": 342,
-        },
-        "start": Object {
-          "column": 14,
-          "line": 16,
-          "offset": 341,
-        },
-      },
-      "range": Array [
-        341,
-        342,
-      ],
-      "start": 341,
-      "type": "Punctuator",
-      "value": "(",
-    },
-    Object {
-      "end": 347,
-      "loc": Object {
-        "end": Object {
-          "column": 20,
-          "line": 16,
-          "offset": 347,
-        },
-        "start": Object {
-          "column": 15,
-          "line": 16,
-          "offset": 342,
-        },
-      },
-      "range": Array [
-        342,
-        347,
-      ],
-      "start": 342,
-      "type": "Identifier",
-      "value": "index",
-    },
-    Object {
-      "end": 348,
-      "loc": Object {
-        "end": Object {
-          "column": 21,
-          "line": 16,
-          "offset": 348,
-        },
-        "start": Object {
-          "column": 20,
-          "line": 16,
-          "offset": 347,
-        },
-      },
-      "range": Array [
-        347,
-        348,
-      ],
-      "start": 347,
-      "type": "Punctuator",
-      "value": ")",
-    },
-    Object {
-      "end": 350,
-      "loc": Object {
-        "end": Object {
-          "column": 23,
-          "line": 16,
-          "offset": 350,
-        },
-        "start": Object {
-          "column": 22,
-          "line": 16,
-          "offset": 349,
-        },
-      },
-      "range": Array [
-        349,
-        350,
-      ],
-      "start": 349,
-      "type": "Punctuator",
-      "value": "{",
-    },
-    Object {
-      "end": 365,
-      "loc": Object {
-        "end": Object {
-          "column": 14,
-          "line": 17,
-          "offset": 365,
-        },
-        "start": Object {
-          "column": 10,
-          "line": 17,
-          "offset": 361,
-        },
-      },
-      "range": Array [
-        361,
-        365,
-      ],
-      "start": 361,
-      "type": "Keyword",
-      "value": "this",
-    },
-    Object {
-      "end": 366,
-      "loc": Object {
-        "end": Object {
-          "column": 15,
-          "line": 17,
-          "offset": 366,
-        },
-        "start": Object {
-          "column": 14,
-          "line": 17,
-          "offset": 365,
-        },
-      },
-      "range": Array [
-        365,
-        366,
-      ],
-      "start": 365,
-      "type": "Punctuator",
-      "value": ".",
-    },
-    Object {
-      "end": 370,
-      "loc": Object {
-        "end": Object {
-          "column": 19,
-          "line": 17,
-          "offset": 370,
-        },
-        "start": Object {
-          "column": 15,
-          "line": 17,
-          "offset": 366,
-        },
-      },
-      "range": Array [
-        366,
-        370,
-      ],
-      "start": 366,
-      "type": "Identifier",
-      "value": "tabs",
-    },
-    Object {
-      "end": 371,
-      "loc": Object {
-        "end": Object {
-          "column": 20,
-          "line": 17,
-          "offset": 371,
-        },
-        "start": Object {
-          "column": 19,
-          "line": 17,
-          "offset": 370,
-        },
-      },
-      "range": Array [
-        370,
-        371,
-      ],
-      "start": 370,
-      "type": "Punctuator",
-      "value": ".",
-    },
-    Object {
-      "end": 377,
-      "loc": Object {
-        "end": Object {
-          "column": 26,
-          "line": 17,
-          "offset": 377,
-        },
-        "start": Object {
-          "column": 20,
-          "line": 17,
-          "offset": 371,
-        },
-      },
-      "range": Array [
-        371,
-        377,
-      ],
-      "start": 371,
-      "type": "Identifier",
-      "value": "splice",
-    },
-    Object {
-      "end": 378,
-      "loc": Object {
-        "end": Object {
-          "column": 27,
-          "line": 17,
-          "offset": 378,
-        },
-        "start": Object {
-          "column": 26,
-          "line": 17,
-          "offset": 377,
-        },
-      },
-      "range": Array [
-        377,
-        378,
-      ],
-      "start": 377,
-      "type": "Punctuator",
-      "value": "(",
-    },
-    Object {
-      "end": 383,
-      "loc": Object {
-        "end": Object {
-          "column": 32,
-          "line": 17,
-          "offset": 383,
-        },
-        "start": Object {
-          "column": 27,
-          "line": 17,
-          "offset": 378,
-        },
-      },
-      "range": Array [
-        378,
-        383,
-      ],
-      "start": 378,
-      "type": "Identifier",
-      "value": "index",
-    },
-    Object {
-      "end": 384,
-      "loc": Object {
-        "end": Object {
-          "column": 33,
-          "line": 17,
-          "offset": 384,
-        },
-        "start": Object {
-          "column": 32,
-          "line": 17,
-          "offset": 383,
-        },
-      },
-      "range": Array [
-        383,
-        384,
-      ],
-      "start": 383,
-      "type": "Punctuator",
-      "value": ",",
-    },
-    Object {
-      "end": 386,
-      "loc": Object {
-        "end": Object {
-          "column": 35,
-          "line": 17,
-          "offset": 386,
-        },
-        "start": Object {
-          "column": 34,
-          "line": 17,
-          "offset": 385,
-        },
-      },
-      "range": Array [
-        385,
-        386,
-      ],
-      "start": 385,
-      "type": "Numeric",
-      "value": "1",
-    },
-    Object {
-      "end": 387,
-      "loc": Object {
-        "end": Object {
-          "column": 36,
-          "line": 17,
-          "offset": 387,
-        },
-        "start": Object {
-          "column": 35,
-          "line": 17,
-          "offset": 386,
-        },
-      },
-      "range": Array [
-        386,
-        387,
-      ],
-      "start": 386,
-      "type": "Punctuator",
-      "value": ")",
-    },
-    Object {
-      "end": 397,
-      "loc": Object {
-        "end": Object {
-          "column": 9,
-          "line": 18,
-          "offset": 397,
-        },
-        "start": Object {
-          "column": 8,
-          "line": 18,
-          "offset": 396,
-        },
-      },
-      "range": Array [
-        396,
-        397,
-      ],
-      "start": 396,
-      "type": "Punctuator",
-      "value": "}",
-    },
-    Object {
-      "end": 398,
-      "loc": Object {
-        "end": Object {
-          "column": 10,
-          "line": 18,
-          "offset": 398,
-        },
-        "start": Object {
-          "column": 9,
-          "line": 18,
-          "offset": 397,
-        },
-      },
-      "range": Array [
-        397,
-        398,
-      ],
-      "start": 397,
-      "type": "Punctuator",
-      "value": ",",
-    },
-    Object {
-      "end": 406,
-      "loc": Object {
-        "end": Object {
-          "column": 7,
-          "line": 19,
-          "offset": 406,
-        },
-        "start": Object {
-          "column": 6,
-          "line": 19,
-          "offset": 405,
-        },
-      },
-      "range": Array [
-        405,
-        406,
-      ],
-      "start": 405,
-      "type": "Punctuator",
-      "value": "}",
-    },
-    Object {
-      "end": 407,
-      "loc": Object {
-        "end": Object {
-          "column": 8,
-          "line": 19,
-          "offset": 407,
-        },
-        "start": Object {
-          "column": 7,
-          "line": 19,
-          "offset": 406,
-        },
-      },
-      "range": Array [
-        406,
-        407,
-      ],
-      "start": 406,
-      "type": "Punctuator",
-      "value": ",",
-    },
-    Object {
-      "end": 413,
-      "loc": Object {
-        "end": Object {
-          "column": 5,
-          "line": 20,
-          "offset": 413,
-        },
-        "start": Object {
-          "column": 4,
-          "line": 20,
-          "offset": 412,
-        },
-      },
-      "range": Array [
-        412,
-        413,
-      ],
-      "start": 412,
-      "type": "Punctuator",
-      "value": "}",
-    },
-    Object {
-      "end": 414,
-      "loc": Object {
-        "end": Object {
-          "column": 6,
-          "line": 20,
-          "offset": 414,
-        },
-        "start": Object {
-          "column": 5,
-          "line": 20,
-          "offset": 413,
-        },
-      },
-      "range": Array [
-        413,
-        414,
-      ],
-      "start": 413,
-      "type": "Punctuator",
-      "value": "}",
-    },
-    Object {
-      "end": 418,
-      "loc": Object {
-        "end": Object {
-          "column": 3,
-          "line": 21,
-          "offset": 418,
-        },
-        "start": Object {
-          "column": 2,
-          "line": 21,
-          "offset": 417,
-        },
-      },
-      "range": Array [
-        417,
-        418,
-      ],
-      "start": 417,
-      "type": "Punctuator",
-      "value": "<",
-    },
-    Object {
-      "end": 419,
-      "loc": Object {
-        "end": Object {
-          "column": 4,
-          "line": 21,
-          "offset": 419,
-        },
-        "start": Object {
-          "column": 3,
-          "line": 21,
-          "offset": 418,
-        },
-      },
-      "range": Array [
-        418,
-        419,
-      ],
-      "start": 418,
-      "type": "Punctuator",
-      "value": "/",
-    },
-    Object {
-      "end": 424,
-      "loc": Object {
-        "end": Object {
-          "column": 9,
-          "line": 21,
-          "offset": 424,
-        },
-        "start": Object {
-          "column": 4,
-          "line": 21,
-          "offset": 419,
-        },
-      },
-      "range": Array [
-        419,
-        424,
-      ],
-      "start": 419,
-      "type": "JSXIdentifier",
-      "value": "Story",
-    },
-    Object {
-      "end": 425,
-      "loc": Object {
-        "end": Object {
-          "column": 10,
-          "line": 21,
-          "offset": 425,
-        },
-        "start": Object {
-          "column": 9,
-          "line": 21,
-          "offset": 424,
-        },
-      },
-      "range": Array [
-        424,
-        425,
-      ],
-      "start": 424,
-      "type": "Punctuator",
-      "value": ">",
-    },
-    Object {
-      "end": 427,
-      "loc": Object {
-        "end": Object {
-          "column": 1,
-          "line": 22,
-          "offset": 427,
-        },
-        "start": Object {
-          "column": 0,
-          "line": 22,
-          "offset": 426,
-        },
-      },
-      "range": Array [
-        426,
-        427,
-      ],
-      "start": 426,
-      "type": "Punctuator",
-      "value": "<",
-    },
-    Object {
-      "end": 428,
-      "loc": Object {
-        "end": Object {
-          "column": 2,
-          "line": 22,
-          "offset": 428,
-        },
-        "start": Object {
-          "column": 1,
-          "line": 22,
-          "offset": 427,
-        },
-      },
-      "range": Array [
-        427,
-        428,
-      ],
-      "start": 427,
-      "type": "Punctuator",
-      "value": "/",
-    },
-    Object {
-      "end": 434,
-      "loc": Object {
-        "end": Object {
-          "column": 8,
-          "line": 22,
-          "offset": 434,
-        },
-        "start": Object {
-          "column": 2,
-          "line": 22,
-          "offset": 428,
-        },
-      },
-      "range": Array [
-        428,
-        434,
-      ],
-      "start": 428,
-      "type": "JSXIdentifier",
-      "value": "Canvas",
-    },
-    Object {
-      "end": 435,
-      "loc": Object {
-        "end": Object {
-          "column": 9,
-          "line": 22,
-          "offset": 435,
-        },
-        "start": Object {
-          "column": 8,
-          "line": 22,
-          "offset": 434,
-        },
-      },
-      "range": Array [
-        434,
-        435,
-      ],
-      "start": 434,
       "type": "Punctuator",
       "value": ">",
     },
