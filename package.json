@@ -88,7 +88,7 @@
     ]
   },
   "typeCoverage": {
-    "atLeast": 99.95,
+    "atLeast": 100,
     "cache": true,
     "detail": true,
     "ignoreAsAssertion": true,

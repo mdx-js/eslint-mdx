@@ -111,8 +111,9 @@ export const getRemarkProcessor = async (
 
   if (result) {
     /* istanbul ignore next */
-    const { plugins = [], settings } = (result.config ||
-      {}) as Partial<RemarkConfig>
+    const { plugins = [], settings } =
+      // type-coverage:ignore-next-line -- cosmiconfig's typings issue
+      (result.config || {}) as Partial<RemarkConfig>
 
     // disable this rule automatically since we already have a parser option `extensions`
     // only disable this plugin if there are at least one plugin enabled
@@ -280,17 +281,14 @@ runAsWorker(
 
       visit(root, node => {
         if (
-          processed.has(node) ||
-          (node.type !== 'mdxFlowExpression' &&
-            node.type !== 'mdxJsxFlowElement' &&
-            node.type !== 'mdxJsxTextElement' &&
-            node.type !== 'mdxTextExpression' &&
-            node.type !== 'mdxjsEsm')
+          node.type !== 'mdxFlowExpression' &&
+          node.type !== 'mdxJsxFlowElement' &&
+          node.type !== 'mdxJsxTextElement' &&
+          node.type !== 'mdxTextExpression' &&
+          node.type !== 'mdxjsEsm'
         ) {
           return
         }
-
-        processed.add(node)
 
         const children =
           'children' in node
@@ -559,7 +557,11 @@ runAsWorker(
           comments: [],
         }) as Program
 
-        body.push(...estree.body)
+        if (!processed.has(node)) {
+          body.push(...estree.body)
+          processed.add(node)
+        }
+
         comments.push(...estree.comments)
       })
     }
