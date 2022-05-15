@@ -16,6 +16,7 @@ import type {
   ObjectExpression,
   Program,
   SpreadElement,
+  TemplateElement,
 } from 'estree'
 import type { JSXClosingElement, JSXElement, JSXFragment } from 'estree-jsx'
 import type { BlockContent, PhrasingContent } from 'mdast'
@@ -111,8 +112,9 @@ export const getRemarkProcessor = async (
 
   if (result) {
     /* istanbul ignore next */
-    const { plugins = [], settings } = (result.config ||
-      {}) as Partial<RemarkConfig>
+    const { plugins = [], settings } =
+      // type-coverage:ignore-next-line -- cosmiconfig's typings issue
+      (result.config || {}) as Partial<RemarkConfig>
 
     // disable this rule automatically since we already have a parser option `extensions`
     // only disable this plugin if there are at least one plugin enabled
@@ -292,44 +294,51 @@ runAsWorker(
 
         processed.add(node)
 
-        const children =
-          'children' in node
+        function handleChildren(node: BlockContent | PhrasingContent) {
+          return 'children' in node
             ? (node.children as Array<BlockContent | PhrasingContent>).reduce<
                 JSXElement['children']
               >((acc, child) => {
                 processed.add(child)
 
-                if (!child.data || 'estree' in child.data || !child.data) {
-                  return acc
+                if (child.data && 'estree' in child.data && child.data.estree) {
+                  const estree = child.data.estree as Program
+
+                  assert(estree.body.length <= 1)
+
+                  const expStat = estree.body[0] as ExpressionStatement
+
+                  if (expStat) {
+                    const expression =
+                      expStat.expression as BaseExpression as JSXElement['children'][number]
+                    acc.push(expression)
+                  }
+
+                  comments.push(...estree.comments)
+                } else {
+                  const expression = handleNode(
+                    child,
+                  ) as JSXElement['children'][number]
+                  if (expression) {
+                    acc.push(expression)
+                  }
                 }
-
-                const estree = (child.data.estree || {
-                  body: [],
-                  comments: [],
-                }) as Program
-
-                assert(estree.body.length <= 1)
-
-                const expStat = estree.body[0] as
-                  | ExpressionStatement
-                  | undefined
-
-                if (expStat) {
-                  const expression =
-                    expStat.expression as BaseExpression as JSXElement['children'][number]
-                  acc.push(expression)
-                }
-
-                comments.push(...estree.comments)
 
                 return acc
               }, [])
             : []
+        }
 
-        if (
-          node.type === 'mdxJsxTextElement' ||
-          node.type === 'mdxJsxFlowElement'
-        ) {
+        function handleNode(node: BlockContent | PhrasingContent) {
+          if (
+            node.type !== 'mdxJsxTextElement' &&
+            node.type !== 'mdxJsxFlowElement'
+          ) {
+            return
+          }
+
+          const children = handleChildren(node)
+
           const nodePos = node.position
 
           const nodeStart = nodePos.start.offset
@@ -546,15 +555,20 @@ runAsWorker(
             expression = jsxFrg
           }
 
-          body.push({
-            ...normalizePosition(nodePos),
-            type: 'ExpressionStatement',
-            expression: expression as Expression,
-          })
-          return
+          return expression
         }
 
-        const estree = (node.data.estree || {
+        const expression = handleNode(node) as Expression
+
+        if (expression) {
+          body.push({
+            ...normalizePosition(node.position),
+            type: 'ExpressionStatement',
+            expression: handleNode(node) as Expression,
+          })
+        }
+
+        const estree = (node.data?.estree || {
           body: [],
           comments: [],
         }) as Program
@@ -563,6 +577,46 @@ runAsWorker(
         comments.push(...estree.comments)
       })
     }
+
+    const { visit: visitEstree } = await loadEsmModule<
+      typeof import('estree-util-visit')
+    >('estree-util-visit')
+
+    visitEstree(
+      {
+        type: 'Program',
+        sourceType: 'module',
+        body,
+      },
+      node => {
+        if (node.type !== 'TemplateElement') {
+          return
+        }
+
+        /**
+         * Copied from @see https://github.com/eslint/espree/blob/main/lib/espree.js#L206-L220
+         */
+        const templateElement = node as TemplateElement
+
+        const startOffset = -1
+        const endOffset = templateElement.tail ? 1 : 2
+
+        // @ts-expect-error - unavailable for typing from estree
+        templateElement.start += startOffset
+        // @ts-expect-error - unavailable for typing from estree
+        templateElement.end += endOffset
+
+        if (templateElement.range) {
+          templateElement.range[0] += startOffset
+          templateElement.range[1] += endOffset
+        }
+
+        if (templateElement.loc) {
+          templateElement.loc.start.column += startOffset
+          templateElement.loc.end.column += endOffset
+        }
+      },
+    )
 
     for (const token of restoreTokens(text, root, sharedTokens, tt, visit)) {
       tokenTranslator.onToken(token, {

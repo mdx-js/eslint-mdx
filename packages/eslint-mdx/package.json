@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "cosmiconfig": "^7.0.1",
+    "estree-util-visit": "^1.1.0",
     "remark-mdx": "^2.1.1",
     "remark-parse": "^10.0.1",
     "remark-stringify": "^10.0.2",

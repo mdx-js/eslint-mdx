@@ -1,3 +1,6 @@
+import fs from 'node:fs/promises'
+import path from 'node:path'
+
 import { DEFAULT_PARSER_OPTIONS } from './helpers'
 
 import { parser } from 'eslint-mdx'
@@ -93,4 +96,28 @@ describe('parser', () => {
         filePath: 'test.mdx',
       }),
     ).toMatchSnapshot())
+
+  it('should match all AST snapshots', async () => {
+    const dirents = await fs.readdir(path.join(__dirname, 'fixtures'), {
+      withFileTypes: true,
+    })
+
+    for (const dirent of dirents) {
+      if (dirent.isDirectory()) {
+        continue
+      }
+      const fileName = dirent.name
+      const filePath = path.resolve(__dirname, 'fixtures', fileName)
+      try {
+        expect(
+          parser.parse(await fs.readFile(filePath, 'utf8'), {
+            filePath,
+          }),
+        ).toMatchSnapshot(fileName)
+      } catch (err) {
+        // eslint-disable-next-line jest/no-conditional-expect
+        expect((err as Error).message).toMatchSnapshot(fileName)
+      }
+    }
+  })
 })

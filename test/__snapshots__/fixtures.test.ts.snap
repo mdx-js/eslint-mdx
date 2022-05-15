@@ -209,58 +209,40 @@ Array [
 exports[`fixtures should match all snapshots: 380.mdx 1`] = `
 Array [
   Object {
-    "column": 6,
-    "endColumn": 6,
-    "endLine": 74,
-    "line": 48,
-    "message": "Expected an assignment or function call and instead saw an expression.",
-    "messageId": "unusedExpression",
-    "nodeType": "ExpressionStatement",
-    "ruleId": "no-unused-expressions",
-    "severity": 2,
-  },
-  Object {
-    "column": 6,
-    "endColumn": 6,
-    "endLine": 96,
-    "line": 85,
-    "message": "Expected an assignment or function call and instead saw an expression.",
-    "messageId": "unusedExpression",
-    "nodeType": "ExpressionStatement",
-    "ruleId": "no-unused-expressions",
-    "severity": 2,
-  },
-  Object {
-    "column": 6,
-    "endColumn": 6,
-    "endLine": 130,
-    "line": 107,
-    "message": "Expected an assignment or function call and instead saw an expression.",
-    "messageId": "unusedExpression",
-    "nodeType": "ExpressionStatement",
-    "ruleId": "no-unused-expressions",
-    "severity": 2,
-  },
-  Object {
-    "column": 6,
-    "endColumn": 6,
-    "endLine": 163,
-    "line": 141,
-    "message": "Expected an assignment or function call and instead saw an expression.",
-    "messageId": "unusedExpression",
-    "nodeType": "ExpressionStatement",
-    "ruleId": "no-unused-expressions",
-    "severity": 2,
-  },
-  Object {
-    "column": 6,
-    "endColumn": 6,
-    "endLine": 211,
-    "line": 176,
-    "message": "Expected an assignment or function call and instead saw an expression.",
-    "messageId": "unusedExpression",
-    "nodeType": "ExpressionStatement",
-    "ruleId": "no-unused-expressions",
+    "column": 28,
+    "endColumn": 24,
+    "endLine": 159,
+    "fix": Object {
+      "range": Array [
+        2997,
+        3590,
+      ],
+      "text": "
+        <aui-tab-group>
+                <ng-container *auiTabTitle>aa2</ng-container>
+                <aui-tab>
+                  <ng-container *auiTabLabel>
+                    <aui-icon icon=\\"sun\\"></aui-icon>
+                    Custom Label
+                  </ng-container>
+                  <aui-card> Content 1 </aui-card>
+                </aui-tab>
+                <aui-tab label=\\"Tab 1\\"><aui-card>Content 2</aui-card></aui-tab>
+                <aui-tab>
+                  <ng-container *auiTabLabel>
+                    <aui-icon icon=\\"moon\\"></aui-icon>
+                    Custom Label
+                  </ng-container>
+                  <aui-card> Content 3 </aui-card>
+                </aui-tab>
+              </aui-tab-group>
+      ",
+    },
+    "line": 142,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
     "severity": 2,
   },
   Object {
@@ -341,47 +323,56 @@ Array [
     "severity": 2,
   },
   Object {
-    "column": 6,
-    "endColumn": 6,
-    "endLine": 242,
-    "line": 222,
-    "message": "Expected an assignment or function call and instead saw an expression.",
-    "messageId": "unusedExpression",
-    "nodeType": "ExpressionStatement",
-    "ruleId": "no-unused-expressions",
-    "severity": 2,
-  },
-  Object {
-    "column": 6,
-    "endColumn": 6,
-    "endLine": 290,
-    "line": 255,
-    "message": "Expected an assignment or function call and instead saw an expression.",
-    "messageId": "unusedExpression",
-    "nodeType": "ExpressionStatement",
-    "ruleId": "no-unused-expressions",
-    "severity": 2,
-  },
-  Object {
-    "column": 6,
-    "endColumn": 6,
-    "endLine": 339,
-    "line": 301,
-    "message": "Expected an assignment or function call and instead saw an expression.",
-    "messageId": "unusedExpression",
-    "nodeType": "ExpressionStatement",
-    "ruleId": "no-unused-expressions",
-    "severity": 2,
-  },
-  Object {
-    "column": 6,
-    "endColumn": 6,
-    "endLine": 360,
-    "line": 350,
-    "message": "Expected an assignment or function call and instead saw an expression.",
-    "messageId": "unusedExpression",
-    "nodeType": "ExpressionStatement",
-    "ruleId": "no-unused-expressions",
+    "column": 28,
+    "endColumn": 26,
+    "endLine": 335,
+    "fix": Object {
+      "range": Array [
+        6862,
+        8121,
+      ],
+      "text": "
+        <aui-form-item>
+                 <label auiFormItemLabel>启用 Lazy</label>
+                 <aui-radio-group
+                   auiFormItemControl
+                   [(ngModel)]=\\"lazy\\"
+                   [plain]=\\"false\\"
+                 >
+                   <aui-radio-button [value]=\\"true\\">是</aui-radio-button>
+                   <aui-radio-button [value]=\\"false\\">否</aui-radio-button>
+                 </aui-radio-group>
+               </aui-form-item>
+               <aui-tab-group [lazy]=\\"lazy\\">
+                 <aui-tab label=\\"Tab 1\\">
+                   <tabs-active-test *auiTabContent
+                     ><aui-card>Content 1</aui-card></tabs-active-test
+                   >
+                 </aui-tab>
+                 <aui-tab label=\\"Tab 2\\">
+                   <tabs-active-test *auiTabContent>
+                     <aui-tab-group [lazy]=\\"true\\">
+                       <aui-tab label=\\"Tab 2-1\\">
+                         <tabs-active-test *auiTabContent>
+                           <aui-card> Content 2-1 </aui-card>
+                         </tabs-active-test>
+                       </aui-tab>
+                       <aui-tab label=\\"Tab 2-2\\">
+                         <tabs-active-test *auiTabContent>
+                           <aui-card> Content 2-2 </aui-card>
+                         </tabs-active-test>
+                       </aui-tab>
+                     </aui-tab-group>
+                   </tabs-active-test>
+                 </aui-tab>
+               </aui-tab-group>
+      ",
+    },
+    "line": 302,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
     "severity": 2,
   },
 ]
@@ -884,3 +875,92 @@ Array [
 exports[`fixtures should match all snapshots: remark.md 1`] = `Array []`;
 
 exports[`fixtures should match all snapshots: remark.mdx 1`] = `Array []`;
+
+exports[`fixtures should match all snapshots: unicorn.jsx 1`] = `
+Array [
+  Object {
+    "column": 2,
+    "endColumn": 9,
+    "endLine": 1,
+    "line": 1,
+    "message": "'React' must be in scope when using JSX",
+    "messageId": "notInScope",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/react-in-jsx-scope",
+    "severity": 2,
+  },
+  Object {
+    "column": 3,
+    "endColumn": 8,
+    "endLine": 1,
+    "line": 1,
+    "message": "'Story' is not defined.",
+    "messageId": "undefined",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+  Object {
+    "column": 26,
+    "endColumn": 12,
+    "endLine": 6,
+    "fix": Object {
+      "range": Array [
+        40,
+        102,
+      ],
+      "text": "
+      <div abc>
+            <div>Nested</div>
+            Hello World
+          </div>
+    ",
+    },
+    "line": 3,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
+    "severity": 2,
+  },
+]
+`;
+
+exports[`fixtures should match all snapshots: unicorn.mdx 1`] = `
+Array [
+  Object {
+    "column": 2,
+    "endColumn": 7,
+    "endLine": 1,
+    "line": 1,
+    "message": "'Story' is not defined.",
+    "messageId": "undefined",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+  Object {
+    "column": 26,
+    "endColumn": 12,
+    "endLine": 6,
+    "fix": Object {
+      "range": Array [
+        39,
+        101,
+      ],
+      "text": "
+      <div abc>
+            <div>Nested</div>
+            Hello World
+          </div>
+    ",
+    },
+    "line": 3,
+    "message": "Templates should be properly indented.",
+    "messageId": "template-indent",
+    "nodeType": "TemplateLiteral",
+    "ruleId": "unicorn/template-indent",
+    "severity": 2,
+  },
+]
+`;
