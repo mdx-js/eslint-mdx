@@ -1,7 +1,7 @@
 /* eslint-disable unicorn/no-await-expression-member */
-import fs from 'fs'
-import path from 'path'
-import { pathToFileURL } from 'url'
+import fs from 'node:fs'
+import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 
 import type { Position } from 'acorn'
 import { createSyncFn } from 'synckit'

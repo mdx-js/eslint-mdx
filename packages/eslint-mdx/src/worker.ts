@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/consistent-type-imports */
 /* eslint-disable unicorn/no-await-expression-member */
-import path from 'path'
-import { pathToFileURL } from 'url'
+import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 
 import type { Token, TokenType, tokTypes as _tokTypes } from 'acorn'
 import { cosmiconfig } from 'cosmiconfig'

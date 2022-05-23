@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'node:path'
 
 import { arrayify, requirePkg } from 'eslint-mdx'
 import { getGlobals, getShortLang } from 'eslint-plugin-mdx'
