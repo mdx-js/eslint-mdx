@@ -89,7 +89,9 @@ export const getRemarkProcessor = async (
     ? null
     : await explorer.search(searchFrom)
 
-  const cacheKey = result ? `${String(isMdx)}-${result.filepath}` : ''
+  const cacheKey = result
+    ? `${String(isMdx)}-${result.filepath}`
+    : String(isMdx)
 
   cachedProcessor = processorCache.get(cacheKey)
 
