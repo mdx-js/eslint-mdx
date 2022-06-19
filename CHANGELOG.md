@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-next.6](https://github.com/mdx-js/eslint-mdx/compare/v2.0.0-next.5...v2.0.0-next.6) (2022-06-19)
+
+
+### Bug Fixes
+
+* same markdown processor cached for .md and .mdx ([#401](https://github.com/mdx-js/eslint-mdx/issues/401)) ([c1b4671](https://github.com/mdx-js/eslint-mdx/commit/c1b467120db47ee43510785ceea942566968c597))
+
+
+
+
+
 # [1.17.0](https://github.com/mdx-js/eslint-mdx/compare/v1.16.0...v1.17.0) (2022-03-21)
 
 
