@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/mdx-js/eslint-mdx/compare/v2.0.0-next.6...v2.0.0) (2022-06-19)
+
+**Note:** Version bump only for package eslint-plugin-mdx
+
+
+
+
+
 # [2.0.0-next.6](https://github.com/mdx-js/eslint-mdx/compare/v2.0.0-next.5...v2.0.0-next.6) (2022-06-19)
 
 **Note:** Version bump only for package eslint-plugin-mdx
