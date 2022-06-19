@@ -5,21 +5,27 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [2.0.0](https://github.com/mdx-js/eslint-mdx/compare/v2.0.0-next.6...v2.0.0) (2022-06-19)
 
-**Note:** Version bump only for package @mdx-js/eslint
 
+**BREAKING CHANGES**
 
-
-
-
-# [2.0.0-next.6](https://github.com/mdx-js/eslint-mdx/compare/v2.0.0-next.5...v2.0.0-next.6) (2022-06-19)
-
+1. experimentally support remark-mdx@2
+2. drop `parser` option support, please use `overrides` of ESLint config instead
+3. drop Node < 12.20
+4. drop ESLint < 8
 
 ### Bug Fixes
 
 * same markdown processor cached for .md and .mdx ([#401](https://github.com/mdx-js/eslint-mdx/issues/401)) ([c1b4671](https://github.com/mdx-js/eslint-mdx/commit/c1b467120db47ee43510785ceea942566968c597))
 
 
+### Misc
 
+- fix: throw error with correct loc (#382)
+- fix: upgrade micromark-util-events-to-acorn (#383)
+- fix: line/column sorted error output (#390)
+- fix: node ES module + worker issue on Windows (#392)
+- fix: restore first level jsx AST and tokens (#394)
+- fix: handle node and children recursively (#396)
 
 
 # [1.17.0](https://github.com/mdx-js/eslint-mdx/compare/v1.16.0...v1.17.0) (2022-03-21)
