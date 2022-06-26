@@ -45,8 +45,7 @@ export const DEFAULT_PARSER_OPTIONS: ParserOptions = {
   ecmaFeatures: {
     jsx: true,
   },
-  ecmaVersion:
-    new Date().getUTCFullYear() as Linter.ParserOptions['ecmaVersion'],
+  ecmaVersion: 2015,
   sourceType: 'module',
   tokens: true,
   filePath: PLACEHOLDER_FILE_PATH,
