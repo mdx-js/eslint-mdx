@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/mdx-js/eslint-mdx/compare/v2.0.0...v2.0.1) (2022-06-29)
+
+
+### Bug Fixes
+
+* add missing unist-util-visit and vfile deps ([#405](https://github.com/mdx-js/eslint-mdx/issues/405)) ([6b4fea7](https://github.com/mdx-js/eslint-mdx/commit/6b4fea75c5b63c37b066d6fbd0a3abdf497ebc26))
+
+
+
+
+
 # [2.0.0](https://github.com/mdx-js/eslint-mdx/compare/v2.0.0-next.6...v2.0.0) (2022-06-19)
 
 **Note:** Version bump only for package eslint-plugin-mdx
