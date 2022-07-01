@@ -27,7 +27,7 @@
     "mdx"
   ],
   "peerDependencies": {
-    "eslint": ">=8.0.0"
+    "eslint": ">=8.18.0"
   },
   "dependencies": {
     "cosmiconfig": "^7.0.1",
