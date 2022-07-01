@@ -29,7 +29,7 @@
     "@1stg/lib-config": "^6.4.0",
     "@types/eslint": "^8.4.3",
     "@types/eslint-plugin-markdown": "^2.0.0",
-    "@types/jest": "^28.1.3",
+    "@types/jest": "^28.1.4",
     "@types/node": "^18.0.0",
     "@types/react": "^18.0.14",
     "@types/unist": "^2.0.6",
