@@ -13096,7 +13096,7 @@ vfile-statistics@^2.0.0:
   dependencies:
     vfile-message "^3.0.0"
 
-vfile@^5.0.0, vfile@^5.1.0, vfile@^5.3.2, vfile@^5.3.4:
+vfile@^5.0.0, vfile@^5.1.0, vfile@^5.3.4:
   version "5.3.4"
   resolved "https://registry.yarnpkg.com/vfile/-/vfile-5.3.4.tgz#bbb8c96b956693bbf70b2c67fdb5781dff769b93"
   integrity sha512-KI+7cnst03KbEyN1+JE504zF5bJBZa+J+CrevLeyIMq0aPU681I2rQ5p4PlnQ6exFtWiUrg26QUdFMnAKR6PIw==
