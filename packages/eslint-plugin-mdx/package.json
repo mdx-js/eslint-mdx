@@ -38,6 +38,6 @@
     "remark-stringify": "^10.0.2",
     "tslib": "^2.4.0",
     "unified": "^10.1.2",
-    "vfile": "^5.3.2"
+    "vfile": "^5.3.4"
   }
 }
