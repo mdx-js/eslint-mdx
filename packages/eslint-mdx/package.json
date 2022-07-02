@@ -4,14 +4,45 @@
   "description": "ESLint Parser for MDX",
   "repository": "git+https://github.com/mdx-js/eslint-mdx.git",
   "homepage": "https://github.com/mdx-js/eslint-mdx/blob/master/packages/eslint-mdx",
+  "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
+  "donate": {
+    "recipients": [
+      {
+        "name": "unts",
+        "platform": "opencollective",
+        "address": "https://opencollective.com/unts",
+        "weight": 60
+      },
+      {
+        "name": "rxts",
+        "platform": "opencollective",
+        "address": "https://opencollective.com/rxts",
+        "weight": 20
+      },
+      {
+        "name": "1stG",
+        "email": "i@1stg.me",
+        "weight": 20,
+        "platforms": [
+          {
+            "platform": "opencollective",
+            "address": "https://opencollective.com/1stG"
+          },
+          {
+            "platform": "patreon",
+            "address": "https://www.patreon.com/1stG"
+          }
+        ]
+      }
+    ]
+  },
   "funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/unified"
   },
-  "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
   "license": "MIT",
   "engines": {
-    "node": ">=12.20"
+    "node": "^12.20.0 || ^14.18.0 || >=16.0.0"
   },
   "main": "lib/index.js",
   "module": "lib/index.es2015.mjs",
@@ -35,7 +66,7 @@
     "remark-mdx": "^2.1.2",
     "remark-parse": "^10.0.1",
     "remark-stringify": "^10.0.2",
-    "synckit": "^0.7.1",
+    "synckit": "^0.7.2",
     "tslib": "^2.4.0",
     "unified": "^10.1.2",
     "unist-util-visit": "^4.1.0",

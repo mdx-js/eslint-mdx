@@ -4,14 +4,45 @@
   "description": "ESLint Plugin for MDX",
   "repository": "git+https://github.com/mdx-js/eslint-mdx.git",
   "homepage": "https://github.com/mdx-js/eslint-mdx/blob/master/packages/eslint-plugin-mdx",
+  "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
+  "donate": {
+    "recipients": [
+      {
+        "name": "unts",
+        "platform": "opencollective",
+        "address": "https://opencollective.com/unts",
+        "weight": 60
+      },
+      {
+        "name": "rxts",
+        "platform": "opencollective",
+        "address": "https://opencollective.com/rxts",
+        "weight": 20
+      },
+      {
+        "name": "1stG",
+        "email": "i@1stg.me",
+        "weight": 20,
+        "platforms": [
+          {
+            "platform": "opencollective",
+            "address": "https://opencollective.com/1stG"
+          },
+          {
+            "platform": "patreon",
+            "address": "https://www.patreon.com/1stG"
+          }
+        ]
+      }
+    ]
+  },
   "funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/unified"
   },
-  "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
   "license": "MIT",
   "engines": {
-    "node": ">=12.20"
+    "node": "^12.20.0 || ^14.18.0 || >=16.0.0"
   },
   "main": "lib/index.js",
   "module": "lib/index.es2015.mjs",
