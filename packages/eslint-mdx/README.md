@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://eslint.org">
-    <img src="https://eslint.org/assets/img/logo.svg" height="50">
+    <img src="https://eslint.org/icon.svg" height="50">
   </a>
   <a href="#readme">
     <img src="https://rx-ts.github.io/assets/heart.svg" height="50">
