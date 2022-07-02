@@ -3,9 +3,9 @@ module.exports = {
   extends: ['@1stg'],
   rules: {
     // `strictNullChecks` is required
-    '@typescript-eslint/no-unnecessary-condition': 0,
+    '@typescript-eslint/no-unnecessary-condition': 'off',
     'unicorn/prefer-export-from': [
-      2,
+      'error',
       {
         ignoreUsedVariables: true,
       },
@@ -15,13 +15,13 @@ module.exports = {
     {
       files: '*.ts',
       rules: {
-        '@typescript-eslint/consistent-type-imports': 2,
+        '@typescript-eslint/consistent-type-imports': 'error',
       },
     },
     {
       files: '*.{md,mdx}',
       rules: {
-        'react/no-unescaped-entities': 1,
+        'react/no-unescaped-entities': 'warn',
       },
       settings: {
         'mdx/code-blocks': true,

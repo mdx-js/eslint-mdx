@@ -116,7 +116,7 @@ export const requirePkg = async <T>(
   filePath?: string,
 ): Promise<T> => {
   let packages: string[]
-  if (filePath && /^\.\.?([/\\]|$)/.test(plugin)) {
+  if (filePath && /^\.\.?(?:[/\\]|$)/.test(plugin)) {
     packages = [path.resolve(path.dirname(filePath), plugin)]
   } else {
     prefix = prefix.endsWith('-') ? prefix : prefix + '-'

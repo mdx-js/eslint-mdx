@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "ESLint Parser/Plugin for MDX",
   "repository": "git+https://github.com/mdx-js/eslint-mdx.git",
-  "author": "JounQin <admin@1stg.me>",
+  "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
   "license": "MIT",
   "private": true,
   "workspaces": [
@@ -26,8 +26,8 @@
     "typecov": "type-coverage"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^6.4.0",
-    "@types/eslint": "^8.4.3",
+    "@1stg/lib-config": "^7.2.2",
+    "@types/eslint": "^8.4.5",
     "@types/eslint-plugin-markdown": "^2.0.0",
     "@types/jest": "^28.1.4",
     "@types/node": "^18.0.0",
@@ -51,6 +51,7 @@
   },
   "eslintIgnore": [
     "coverage",
+    "dist",
     "fixtures",
     "lib",
     "CHANGELOG.md",
@@ -62,7 +63,6 @@
       "<rootDir>/node_modules/eslint/lib/linter/linter.js"
     ],
     "moduleNameMapper": {
-      "^eslint/use-at-your-own-risk$": "<rootDir>/node_modules/eslint/lib/unsupported-api.js",
       "^eslint-mdx$": "<rootDir>/packages/eslint-mdx/src",
       "^eslint-plugin-mdx$": "<rootDir>/packages/eslint-plugin-mdx/src"
     },
