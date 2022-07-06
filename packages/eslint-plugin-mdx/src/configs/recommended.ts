@@ -2,8 +2,6 @@ import type { Linter } from 'eslint'
 
 import { base } from './base'
 
-export const recommended: Linter.Config = {}
-
 const overrides: Linter.ConfigOverride[] = [
   {
     files: ['*.md', '*.mdx'],
@@ -16,6 +14,10 @@ const overrides: Linter.ConfigOverride[] = [
   },
 ]
 
+export const recommended: Linter.Config = {
+  overrides,
+}
+
 try {
   require.resolve('prettier')
   require.resolve('eslint-plugin-prettier')
@@ -24,7 +26,7 @@ try {
       files: '*.md',
       rules: {
         'prettier/prettier': [
-          2,
+          'error',
           {
             parser: 'markdown',
           },
@@ -35,7 +37,7 @@ try {
       files: '*.mdx',
       rules: {
         'prettier/prettier': [
-          2,
+          'error',
           {
             parser: 'mdx',
           },
@@ -44,7 +46,3 @@ try {
     },
   )
 } catch {}
-
-Object.assign(recommended, {
-  overrides,
-})

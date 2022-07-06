@@ -14,8 +14,8 @@
 [![Codecov](https://img.shields.io/codecov/c/gh/mdx-js/eslint-mdx)](https://codecov.io/gh/mdx-js/eslint-mdx)
 [![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fmdx-js%2Feslint-mdx%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
 [![GitHub release](https://img.shields.io/github/release/mdx-js/eslint-mdx)](https://github.com/mdx-js/eslint-mdx/releases)
-[![David Dev](https://img.shields.io/david/dev/mdx-js/eslint-mdx.svg)](https://david-dm.org/mdx-js/eslint-mdx?type=dev)
 
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com)
 [![Conventional Commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org)
@@ -51,10 +51,10 @@
 
 This repository is a monorepo managed by [Lerna][] what means we actually publish several packages to npm from same codebase, including:
 
-| Package                                            | Description                                    | Version                                                                                                       | Peer Dependencies                                                                                                                                                                          | Dependencies                                                                                                                                                           |
-| -------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`eslint-mdx`](/packages/eslint-mdx)               | ESLint Parser for MDX                          | [![npm](https://img.shields.io/npm/v/eslint-mdx.svg)](https://www.npmjs.com/package/eslint-mdx)               | [![David Peer](https://img.shields.io/david/peer/mdx-js/eslint-mdx.svg?path=packages/eslint-mdx)](https://david-dm.org/mdx-js/eslint-mdx?path=packages/eslint-mdx&type=peer)               | [![David](https://img.shields.io/david/mdx-js/eslint-mdx.svg?path=packages/eslint-mdx)](https://david-dm.org/mdx-js/eslint-mdx?path=packages/eslint-mdx)               |
-| [`eslint-plugin-mdx`](/packages/eslint-plugin-mdx) | ESLint Plugin, Configuration and Rules for MDX | [![npm](https://img.shields.io/npm/v/eslint-plugin-mdx.svg)](https://www.npmjs.com/package/eslint-plugin-mdx) | [![David Peer](https://img.shields.io/david/peer/mdx-js/eslint-mdx.svg?path=packages/eslint-plugin-mdx)](https://david-dm.org/mdx-js/eslint-mdx?path=packages/eslint-plugin-mdx&type=peer) | [![David](https://img.shields.io/david/mdx-js/eslint-mdx.svg?path=packages/eslint-plugin-mdx)](https://david-dm.org/mdx-js/eslint-mdx?path=packages/eslint-plugin-mdx) |
+| Package                                            | Description                                    | Version                                                                                                       |
+| -------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| [`eslint-mdx`](/packages/eslint-mdx)               | ESLint Parser for MDX                          | [![npm](https://img.shields.io/npm/v/eslint-mdx.svg)](https://www.npmjs.com/package/eslint-mdx)               |
+| [`eslint-plugin-mdx`](/packages/eslint-plugin-mdx) | ESLint Plugin, Configuration and Rules for MDX | [![npm](https://img.shields.io/npm/v/eslint-plugin-mdx.svg)](https://www.npmjs.com/package/eslint-plugin-mdx) |
 
 ## Install
 

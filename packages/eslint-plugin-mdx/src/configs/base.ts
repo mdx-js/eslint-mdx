@@ -9,7 +9,7 @@ export const base: Linter.Config = {
   plugins: ['mdx'],
   processor: 'mdx/remark',
   rules: {
-    'mdx/remark': 1,
-    'no-unused-expressions': 2,
+    'mdx/remark': 'warn',
+    'no-unused-expressions': 'error',
   },
 }
