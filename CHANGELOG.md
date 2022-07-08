@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.1](https://github.com/mdx-js/eslint-mdx/compare/v1.17.0...v1.17.1) (2022-07-08)
+
+
+### Bug Fixes
+
+* incorrect default ecmaVersion (2022 is unavailable yet) ([#402](https://github.com/mdx-js/eslint-mdx/issues/402)) ([41a2921](https://github.com/mdx-js/eslint-mdx/commit/41a29216cf86996b5ab307c6b063a8d7dde57e1d))
+
+
+
+
+
 # [1.17.0](https://github.com/mdx-js/eslint-mdx/compare/v1.16.0...v1.17.0) (2022-03-21)
 
 
