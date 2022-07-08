@@ -20,7 +20,7 @@
     "postinstall": "simple-git-hooks && yarn-deduplicate --strategy fewer || exit 0",
     "prelint": "yarn build",
     "prerelease": "yarn build",
-    "release": "lerna publish --conventional-commits --create-release github --yes",
+    "release": "lerna publish --dist-tag release-v1 --conventional-commits --create-release github --yes",
     "test": "jest",
     "typecov": "type-coverage"
   },
