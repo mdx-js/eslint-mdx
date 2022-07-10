@@ -9,10 +9,10 @@
   },
   "references": [
     {
-      "path": "packages/eslint-mdx"
+      "path": "./packages/eslint-mdx"
     },
     {
-      "path": "packages/eslint-plugin-mdx"
+      "path": "./packages/eslint-plugin-mdx"
     }
   ]
 }

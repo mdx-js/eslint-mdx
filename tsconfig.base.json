@@ -2,10 +2,9 @@
   // used by @pkgr/rollup and ESLint
   "extends": "./tsconfig.lib",
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
-      "eslint-mdx": ["packages/eslint-mdx/src"],
-      "eslint-plugin-mdx": ["packages/eslint-plugin-mdx/src"]
+      "eslint-mdx": ["./packages/eslint-mdx/src"],
+      "eslint-plugin-mdx": ["./packages/eslint-plugin-mdx/src"]
     }
   }
 }
