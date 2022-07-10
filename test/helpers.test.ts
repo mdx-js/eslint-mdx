@@ -40,7 +40,7 @@ describe('Helpers', () => {
   })
 
   it('should throw on non existed package', () =>
-    expect(requirePkg('@1stg/config', 'unexpected-')).rejects.toThrow(
-      "Cannot find module '@1stg/config'",
+    expect(requirePkg('@1stg/x-config', 'unexpected-')).rejects.toThrow(
+      "Cannot find module '@1stg/x-config'",
     ))
 })
