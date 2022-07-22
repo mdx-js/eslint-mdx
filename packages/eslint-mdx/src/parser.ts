@@ -3,12 +3,8 @@ import path from 'node:path'
 import type { Linter } from 'eslint'
 import type { VFileMessage } from 'vfile-message'
 
-import {
-  arrayify,
-  normalizePosition,
-  performSyncWork,
-  getPhysicalFilename,
-} from './helpers'
+import { arrayify, normalizePosition, getPhysicalFilename } from './helpers'
+import { performSyncWork } from './sync'
 import type { ParserOptions, WorkerParseResult } from './types'
 
 export const DEFAULT_EXTENSIONS: readonly string[] = ['.mdx']

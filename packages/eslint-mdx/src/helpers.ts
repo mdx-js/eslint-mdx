@@ -4,15 +4,9 @@ import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 
 import type { Position } from 'acorn'
-import { createSyncFn } from 'synckit'
 import type { Point } from 'unist'
 
-import type {
-  NormalPosition,
-  WorkerOptions,
-  WorkerParseResult,
-  WorkerProcessResult,
-} from './types'
+import type { NormalPosition } from './types'
 
 export const last = <T>(items: T[] | readonly T[]) =>
   items && items[items.length - 1]
@@ -221,10 +215,3 @@ export const nextCharOffsetFactory = (text: string) => {
     }
   }
 }
-
-const workerPath = require.resolve('./worker')
-
-export const performSyncWork = createSyncFn(workerPath) as ((
-  options: Omit<WorkerOptions, 'process'>,
-) => WorkerParseResult) &
-  ((options: WorkerOptions & { process: true }) => WorkerProcessResult)
