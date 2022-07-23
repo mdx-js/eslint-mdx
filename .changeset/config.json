@@ -7,7 +7,12 @@
     }
   ],
   "commit": false,
-  "linked": [],
+  "fixed": [
+    [
+      "eslint-mdx",
+      "eslint-plugin-mdx"
+    ]
+  ],
   "access": "restricted",
   "baseBranch": "master",
   "updateInternalDependencies": "patch",
