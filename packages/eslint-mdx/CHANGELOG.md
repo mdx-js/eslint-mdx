@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- [#414](https://github.com/mdx-js/eslint-mdx/pull/412) [`e69791`](https://github.com/mdx-js/eslint-mdx/commit/e6979104fbee6626bbe9d2ef6293d9f0084e5b54) Thanks [@EdisonSu768](https://github.com/EdisonSu768)! - fix: resolve circular imports in worker
+- [#412](https://github.com/mdx-js/eslint-mdx/pull/412) [`e69791`](https://github.com/mdx-js/eslint-mdx/commit/e6979104fbee6626bbe9d2ef6293d9f0084e5b54) Thanks [@EdisonSu768](https://github.com/EdisonSu768)! - fix: resolve circular imports in worker
 
 - [#414](https://github.com/mdx-js/eslint-mdx/pull/414) [`58e529c`](https://github.com/mdx-js/eslint-mdx/commit/58e529cdee262455efb36a1e65dc10865d7d9146) Thanks [@JounQin](https://github.com/JounQin)! - fix(deps): add missing dependencies for yarn@v2+ and pnpm
 
