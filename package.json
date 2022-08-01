@@ -28,7 +28,7 @@
   "devDependencies": {
     "@1stg/lib-config": "^9.0.2",
     "@changesets/changelog-github": "^0.4.6",
-    "@changesets/cli": "^2.24.0",
+    "@changesets/cli": "^2.24.1",
     "@types/eslint": "^8.4.5",
     "@types/eslint-plugin-markdown": "^2.0.0",
     "@types/jest": "^28.1.6",
