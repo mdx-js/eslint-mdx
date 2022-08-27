@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`fixtures lint code blocks should work as expected: code-blocks.md 1`] = `
-Array [
-  Object {
+[
+  {
     "column": 1,
     "endColumn": 6,
     "endLine": 3,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         0,
         511,
       ],
@@ -68,7 +68,7 @@ import React from 'react'
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
   },
-  Object {
+  {
     "column": 1,
     "endColumn": 6,
     "endLine": 3,
@@ -78,12 +78,12 @@ import React from 'react'
     "ruleId": "remark-lint-no-duplicate-headings-in-section",
     "severity": 1,
   },
-  Object {
+  {
     "column": 18,
     "endColumn": 30,
     "endLine": 12,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         140,
         152,
       ],
@@ -96,7 +96,7 @@ import React from 'react'
     "ruleId": "unicorn/prefer-array-flat",
     "severity": 2,
   },
-  Object {
+  {
     "column": 1,
     "endColumn": 4,
     "endLine": 17,
@@ -106,7 +106,7 @@ import React from 'react'
     "ruleId": "remark-lint-fenced-code-flag",
     "severity": 1,
   },
-  Object {
+  {
     "column": 1,
     "endColumn": 6,
     "endLine": 38,
@@ -116,7 +116,7 @@ import React from 'react'
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
   },
-  Object {
+  {
     "column": 1,
     "endColumn": 6,
     "endLine": 38,
@@ -126,7 +126,7 @@ import React from 'react'
     "ruleId": "remark-lint-no-duplicate-headings-in-section",
     "severity": 1,
   },
-  Object {
+  {
     "column": 1,
     "endColumn": 6,
     "endLine": 50,
@@ -136,7 +136,7 @@ import React from 'react'
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
   },
-  Object {
+  {
     "column": 1,
     "endColumn": 6,
     "endLine": 50,
@@ -149,26 +149,26 @@ import React from 'react'
 ]
 `;
 
-exports[`fixtures should match all snapshots: 287.mdx 1`] = `Array []`;
+exports[`fixtures should match all snapshots: 287.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: 292.mdx 1`] = `
-Array [
-  Object {
+[
+  {
     "column": 9,
     "endColumn": 58,
     "endLine": 5,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         64,
         113,
       ],
       "text": "
-      kind=\\"docs-packages-vuetify-preset\\"
-      story=\\"page\\"
+      kind="docs-packages-vuetify-preset"
+      story="page"
     ",
     },
     "line": 5,
-    "message": "Replace \`·kind=\\"docs-packages-vuetify-preset\\"·story=\\"page\\"\` with \`⏎······kind=\\"docs-packages-vuetify-preset\\"⏎······story=\\"page\\"⏎····\`",
+    "message": "Replace \`·kind="docs-packages-vuetify-preset"·story="page"\` with \`⏎······kind="docs-packages-vuetify-preset"⏎······story="page"⏎····\`",
     "messageId": "replace",
     "nodeType": null,
     "ruleId": "prettier/prettier",
@@ -177,20 +177,20 @@ Array [
 ]
 `;
 
-exports[`fixtures should match all snapshots: 334.mdx 1`] = `Array []`;
+exports[`fixtures should match all snapshots: 334.mdx 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: 336.mdx 1`] = `Array []`;
+exports[`fixtures should match all snapshots: 336.mdx 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: 367.mdx 1`] = `Array []`;
+exports[`fixtures should match all snapshots: 367.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: 371.mdx 1`] = `
-Array [
-  Object {
+[
+  {
     "column": 13,
     "endColumn": 14,
     "endLine": 7,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         59,
         60,
       ],
@@ -207,13 +207,13 @@ Array [
 `;
 
 exports[`fixtures should match all snapshots: 380.mdx 1`] = `
-Array [
-  Object {
+[
+  {
     "column": 28,
     "endColumn": 24,
     "endLine": 159,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         2997,
         3590,
       ],
@@ -222,15 +222,15 @@ Array [
                 <ng-container *auiTabTitle>aa2</ng-container>
                 <aui-tab>
                   <ng-container *auiTabLabel>
-                    <aui-icon icon=\\"sun\\"></aui-icon>
+                    <aui-icon icon="sun"></aui-icon>
                     Custom Label
                   </ng-container>
                   <aui-card> Content 1 </aui-card>
                 </aui-tab>
-                <aui-tab label=\\"Tab 1\\"><aui-card>Content 2</aui-card></aui-tab>
+                <aui-tab label="Tab 1"><aui-card>Content 2</aui-card></aui-tab>
                 <aui-tab>
                   <ng-container *auiTabLabel>
-                    <aui-icon icon=\\"moon\\"></aui-icon>
+                    <aui-icon icon="moon"></aui-icon>
                     Custom Label
                   </ng-container>
                   <aui-card> Content 3 </aui-card>
@@ -245,12 +245,12 @@ Array [
     "ruleId": "unicorn/template-indent",
     "severity": 2,
   },
-  Object {
+  {
     "column": 13,
     "endColumn": 16,
     "endLine": 200,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         4442,
         4529,
       ],
@@ -265,7 +265,7 @@ Array [
     "ruleId": "unicorn/prevent-abbreviations",
     "severity": 2,
   },
-  Object {
+  {
     "column": 33,
     "endColumn": 39,
     "endLine": 201,
@@ -275,11 +275,11 @@ Array [
     "nodeType": "Identifier",
     "ruleId": "unicorn/prefer-spread",
     "severity": 2,
-    "suggestions": Array [
-      Object {
+    "suggestions": [
+      {
         "desc": "First argument is an \`array\`.",
-        "fix": Object {
-          "range": Array [
+        "fix": {
+          "range": [
             4475,
             4637,
           ],
@@ -289,10 +289,10 @@ Array [
         },
         "messageId": "argument-is-spreadable",
       },
-      Object {
+      {
         "desc": "First argument is not an \`array\`.",
-        "fix": Object {
-          "range": Array [
+        "fix": {
+          "range": [
             4475,
             4637,
           ],
@@ -304,12 +304,12 @@ Array [
       },
     ],
   },
-  Object {
+  {
     "column": 24,
     "endColumn": 25,
     "endLine": 204,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         4578,
         4619,
       ],
@@ -322,12 +322,12 @@ Array [
     "ruleId": "unicorn/prevent-abbreviations",
     "severity": 2,
   },
-  Object {
+  {
     "column": 28,
     "endColumn": 26,
     "endLine": 335,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         6862,
         8121,
       ],
@@ -336,28 +336,28 @@ Array [
                  <label auiFormItemLabel>启用 Lazy</label>
                  <aui-radio-group
                    auiFormItemControl
-                   [(ngModel)]=\\"lazy\\"
-                   [plain]=\\"false\\"
+                   [(ngModel)]="lazy"
+                   [plain]="false"
                  >
-                   <aui-radio-button [value]=\\"true\\">是</aui-radio-button>
-                   <aui-radio-button [value]=\\"false\\">否</aui-radio-button>
+                   <aui-radio-button [value]="true">是</aui-radio-button>
+                   <aui-radio-button [value]="false">否</aui-radio-button>
                  </aui-radio-group>
                </aui-form-item>
-               <aui-tab-group [lazy]=\\"lazy\\">
-                 <aui-tab label=\\"Tab 1\\">
+               <aui-tab-group [lazy]="lazy">
+                 <aui-tab label="Tab 1">
                    <tabs-active-test *auiTabContent
                      ><aui-card>Content 1</aui-card></tabs-active-test
                    >
                  </aui-tab>
-                 <aui-tab label=\\"Tab 2\\">
+                 <aui-tab label="Tab 2">
                    <tabs-active-test *auiTabContent>
-                     <aui-tab-group [lazy]=\\"true\\">
-                       <aui-tab label=\\"Tab 2-1\\">
+                     <aui-tab-group [lazy]="true">
+                       <aui-tab label="Tab 2-1">
                          <tabs-active-test *auiTabContent>
                            <aui-card> Content 2-1 </aui-card>
                          </tabs-active-test>
                        </aui-tab>
-                       <aui-tab label=\\"Tab 2-2\\">
+                       <aui-tab label="Tab 2-2">
                          <tabs-active-test *auiTabContent>
                            <aui-card> Content 2-2 </aui-card>
                          </tabs-active-test>
@@ -379,8 +379,8 @@ Array [
 `;
 
 exports[`fixtures should match all snapshots: 391.mdx 1`] = `
-Array [
-  Object {
+[
+  {
     "column": 2,
     "endColumn": 5,
     "endLine": 7,
@@ -395,12 +395,12 @@ Array [
 `;
 
 exports[`fixtures should match all snapshots: acorn.mdx 1`] = `
-Array [
-  Object {
+[
+  {
     "column": 33,
     "fatal": true,
     "line": 9,
-    "message": "Parsing error: Unexpected character \`\\\\\` (U+005C) in name, expected a name character such as letters, digits, \`$\`, or \`_\`; whitespace before attributes; or the end of the tag",
+    "message": "Parsing error: Unexpected character \`\\\` (U+005C) in name, expected a name character such as letters, digits, \`$\`, or \`_\`; whitespace before attributes; or the end of the tag",
     "ruleId": null,
     "severity": 2,
   },
@@ -408,13 +408,13 @@ Array [
 `;
 
 exports[`fixtures should match all snapshots: adjacent.mdx 1`] = `
-Array [
-  Object {
+[
+  {
     "column": 14,
     "endColumn": 15,
     "endLine": 1,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         13,
         14,
       ],
@@ -431,13 +431,13 @@ Array [
 `;
 
 exports[`fixtures should match all snapshots: basic.mdx 1`] = `
-Array [
-  Object {
+[
+  {
     "column": 18,
     "endColumn": 19,
     "endLine": 3,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         46,
         47,
       ],
@@ -453,16 +453,16 @@ Array [
 ]
 `;
 
-exports[`fixtures should match all snapshots: basic.tsx 1`] = `Array []`;
+exports[`fixtures should match all snapshots: basic.tsx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
-Array [
-  Object {
+[
+  {
     "column": 9,
     "endColumn": 12,
     "endLine": 1,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         8,
         11,
       ],
@@ -475,12 +475,12 @@ Array [
     "ruleId": "prettier/prettier",
     "severity": 2,
   },
-  Object {
+  {
     "column": 1,
     "endColumn": 16,
     "endLine": 27,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         0,
         768,
       ],
@@ -493,7 +493,7 @@ the installation guides.
 
 <Box
   p={3}
-  bg=\\"lightgray\\"
+  bg="lightgray"
   style={{
    textAlign: 'center',
    fontWeight: 'bold',
@@ -512,7 +512,7 @@ the installation guides.
 
 Here's a Twitter shortcode:
 
-<Tweet tweetId=\\"1116723357410447360\\" />
+<Tweet tweetId="1116723357410447360" />
 
 <TextGradient>
   # Here's a text gradient shortcode!
@@ -520,7 +520,7 @@ Here's a Twitter shortcode:
 
 Here's a YouTube shortcode:
 
-<YouTube videoId=\\"4fHw4GeW3EU\\" />
+<YouTube videoId="4fHw4GeW3EU" />
 ",
     },
     "line": 27,
@@ -529,7 +529,7 @@ Here's a YouTube shortcode:
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
   },
-  Object {
+  {
     "column": 2,
     "endColumn": 7,
     "endLine": 31,
@@ -540,7 +540,7 @@ Here's a YouTube shortcode:
     "ruleId": "react/jsx-no-undef",
     "severity": 2,
   },
-  Object {
+  {
     "column": 2,
     "endColumn": 14,
     "endLine": 33,
@@ -551,7 +551,7 @@ Here's a YouTube shortcode:
     "ruleId": "react/jsx-no-undef",
     "severity": 2,
   },
-  Object {
+  {
     "column": 1,
     "endColumn": 36,
     "endLine": 35,
@@ -561,7 +561,7 @@ Here's a YouTube shortcode:
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
   },
-  Object {
+  {
     "column": 2,
     "endColumn": 9,
     "endLine": 41,
@@ -576,13 +576,13 @@ Here's a YouTube shortcode:
 `;
 
 exports[`fixtures should match all snapshots: code-blocks.md 1`] = `
-Array [
-  Object {
+[
+  {
     "column": 1,
     "endColumn": 6,
     "endLine": 3,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         0,
         511,
       ],
@@ -643,7 +643,7 @@ import React from 'react'
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
   },
-  Object {
+  {
     "column": 1,
     "endColumn": 6,
     "endLine": 3,
@@ -653,7 +653,7 @@ import React from 'react'
     "ruleId": "remark-lint-no-duplicate-headings-in-section",
     "severity": 1,
   },
-  Object {
+  {
     "column": 1,
     "endColumn": 4,
     "endLine": 17,
@@ -667,8 +667,8 @@ import React from 'react'
 `;
 
 exports[`fixtures should match all snapshots: comments.mdx 1`] = `
-Array [
-  Object {
+[
+  {
     "column": 2,
     "fatal": true,
     "line": 2,
@@ -680,8 +680,8 @@ Array [
 `;
 
 exports[`fixtures should match all snapshots: details.mdx 1`] = `
-Array [
-  Object {
+[
+  {
     "column": 1,
     "fatal": true,
     "line": 1,
@@ -693,128 +693,128 @@ Array [
 `;
 
 exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
-Array [
-  Object {
+[
+  {
     "column": 9,
     "endColumn": 58,
     "endLine": 1,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         8,
         57,
       ],
       "text": "
-      kind=\\"docs-packages-vuetify-preset\\"
-      story=\\"page\\"
+      kind="docs-packages-vuetify-preset"
+      story="page"
     ",
     },
     "line": 1,
-    "message": "Replace \`·kind=\\"docs-packages-vuetify-preset\\"·story=\\"page\\"\` with \`⏎······kind=\\"docs-packages-vuetify-preset\\"⏎······story=\\"page\\"⏎····\`",
+    "message": "Replace \`·kind="docs-packages-vuetify-preset"·story="page"\` with \`⏎······kind="docs-packages-vuetify-preset"⏎······story="page"⏎····\`",
     "messageId": "replace",
     "nodeType": null,
     "ruleId": "prettier/prettier",
     "severity": 2,
   },
-  Object {
+  {
     "column": 9,
     "endColumn": 58,
     "endLine": 5,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         143,
         192,
       ],
       "text": "
-      kind=\\"docs-packages-vuetify-preset\\"
-      story=\\"page\\"
+      kind="docs-packages-vuetify-preset"
+      story="page"
     ",
     },
     "line": 5,
-    "message": "Replace \`·kind=\\"docs-packages-vuetify-preset\\"·story=\\"page\\"\` with \`⏎······kind=\\"docs-packages-vuetify-preset\\"⏎······story=\\"page\\"⏎····\`",
+    "message": "Replace \`·kind="docs-packages-vuetify-preset"·story="page"\` with \`⏎······kind="docs-packages-vuetify-preset"⏎······story="page"⏎····\`",
     "messageId": "replace",
     "nodeType": null,
     "ruleId": "prettier/prettier",
     "severity": 2,
   },
-  Object {
+  {
     "column": 9,
     "endColumn": 58,
     "endLine": 9,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         278,
         327,
       ],
       "text": "
-      kind=\\"docs-packages-vuetify-preset\\"
-      story=\\"page\\"
+      kind="docs-packages-vuetify-preset"
+      story="page"
     ",
     },
     "line": 9,
-    "message": "Replace \`·kind=\\"docs-packages-vuetify-preset\\"·story=\\"page\\"\` with \`⏎······kind=\\"docs-packages-vuetify-preset\\"⏎······story=\\"page\\"⏎····\`",
+    "message": "Replace \`·kind="docs-packages-vuetify-preset"·story="page"\` with \`⏎······kind="docs-packages-vuetify-preset"⏎······story="page"⏎····\`",
     "messageId": "replace",
     "nodeType": null,
     "ruleId": "prettier/prettier",
     "severity": 2,
   },
-  Object {
+  {
     "column": 9,
     "endColumn": 58,
     "endLine": 13,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         413,
         462,
       ],
       "text": "
-      kind=\\"docs-packages-vuetify-preset\\"
-      story=\\"page\\"
+      kind="docs-packages-vuetify-preset"
+      story="page"
     ",
     },
     "line": 13,
-    "message": "Replace \`·kind=\\"docs-packages-vuetify-preset\\"·story=\\"page\\"\` with \`⏎······kind=\\"docs-packages-vuetify-preset\\"⏎······story=\\"page\\"⏎····\`",
+    "message": "Replace \`·kind="docs-packages-vuetify-preset"·story="page"\` with \`⏎······kind="docs-packages-vuetify-preset"⏎······story="page"⏎····\`",
     "messageId": "replace",
     "nodeType": null,
     "ruleId": "prettier/prettier",
     "severity": 2,
   },
-  Object {
+  {
     "column": 9,
     "endColumn": 58,
     "endLine": 17,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         548,
         597,
       ],
       "text": "
-      kind=\\"docs-packages-vuetify-preset\\"
-      story=\\"page\\"
+      kind="docs-packages-vuetify-preset"
+      story="page"
     ",
     },
     "line": 17,
-    "message": "Replace \`·kind=\\"docs-packages-vuetify-preset\\"·story=\\"page\\"\` with \`⏎······kind=\\"docs-packages-vuetify-preset\\"⏎······story=\\"page\\"⏎····\`",
+    "message": "Replace \`·kind="docs-packages-vuetify-preset"·story="page"\` with \`⏎······kind="docs-packages-vuetify-preset"⏎······story="page"⏎····\`",
     "messageId": "replace",
     "nodeType": null,
     "ruleId": "prettier/prettier",
     "severity": 2,
   },
-  Object {
+  {
     "column": 9,
     "endColumn": 58,
     "endLine": 21,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         683,
         732,
       ],
       "text": "
-      kind=\\"docs-packages-vuetify-preset\\"
-      story=\\"page\\"
+      kind="docs-packages-vuetify-preset"
+      story="page"
     ",
     },
     "line": 21,
-    "message": "Replace \`·kind=\\"docs-packages-vuetify-preset\\"·story=\\"page\\"\` with \`⏎······kind=\\"docs-packages-vuetify-preset\\"⏎······story=\\"page\\"⏎····\`",
+    "message": "Replace \`·kind="docs-packages-vuetify-preset"·story="page"\` with \`⏎······kind="docs-packages-vuetify-preset"⏎······story="page"⏎····\`",
     "messageId": "replace",
     "nodeType": null,
     "ruleId": "prettier/prettier",
@@ -823,17 +823,17 @@ Array [
 ]
 `;
 
-exports[`fixtures should match all snapshots: leading-spaces.mdx 1`] = `Array []`;
+exports[`fixtures should match all snapshots: leading-spaces.mdx 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: markdown.md 1`] = `Array []`;
+exports[`fixtures should match all snapshots: markdown.md 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: nested.md 1`] = `Array []`;
+exports[`fixtures should match all snapshots: nested.md 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `Array []`;
+exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: no-unused-expressions.mdx 1`] = `
-Array [
-  Object {
+[
+  {
     "column": 2,
     "endColumn": 7,
     "endLine": 1,
@@ -848,8 +848,8 @@ Array [
 `;
 
 exports[`fixtures should match all snapshots: processor.mdx 1`] = `
-Array [
-  Object {
+[
+  {
     "column": 1,
     "endColumn": 6,
     "endLine": 3,
@@ -859,7 +859,7 @@ Array [
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
   },
-  Object {
+  {
     "column": 1,
     "endColumn": 6,
     "endLine": 3,
@@ -872,13 +872,13 @@ Array [
 ]
 `;
 
-exports[`fixtures should match all snapshots: remark.md 1`] = `Array []`;
+exports[`fixtures should match all snapshots: remark.md 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: remark.mdx 1`] = `Array []`;
+exports[`fixtures should match all snapshots: remark.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: unicorn.jsx 1`] = `
-Array [
-  Object {
+[
+  {
     "column": 2,
     "endColumn": 9,
     "endLine": 1,
@@ -889,7 +889,7 @@ Array [
     "ruleId": "react/react-in-jsx-scope",
     "severity": 2,
   },
-  Object {
+  {
     "column": 3,
     "endColumn": 8,
     "endLine": 1,
@@ -900,12 +900,12 @@ Array [
     "ruleId": "react/jsx-no-undef",
     "severity": 2,
   },
-  Object {
+  {
     "column": 26,
     "endColumn": 12,
     "endLine": 6,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         40,
         102,
       ],
@@ -927,8 +927,8 @@ Array [
 `;
 
 exports[`fixtures should match all snapshots: unicorn.mdx 1`] = `
-Array [
-  Object {
+[
+  {
     "column": 2,
     "endColumn": 7,
     "endLine": 1,
@@ -939,12 +939,12 @@ Array [
     "ruleId": "react/jsx-no-undef",
     "severity": 2,
   },
-  Object {
+  {
     "column": 26,
     "endColumn": 12,
     "endLine": 6,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         39,
         101,
       ],

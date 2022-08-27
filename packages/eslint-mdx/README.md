@@ -43,7 +43,7 @@
 
 ## VSCode Extension
 
-[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/JounQin.vscode-mdx)](https://marketplace.visualstudio.com/items?itemName=JounQin.vscode-mdx)
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/unifiedjs.vscode-mdx)](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)
 
 [VSCode MDX][]\: Integrates with [VSCode ESLint][], syntaxes highlighting and error reporting.
 

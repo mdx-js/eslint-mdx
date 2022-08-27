@@ -5,37 +5,6 @@
   "repository": "git+https://github.com/mdx-js/eslint-mdx.git",
   "homepage": "https://github.com/mdx-js/eslint-mdx/blob/master/packages/eslint-plugin-mdx",
   "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
-  "donate": {
-    "recipients": [
-      {
-        "name": "unts",
-        "platform": "opencollective",
-        "address": "https://opencollective.com/unts",
-        "weight": 60
-      },
-      {
-        "name": "rxts",
-        "platform": "opencollective",
-        "address": "https://opencollective.com/rxts",
-        "weight": 20
-      },
-      {
-        "name": "1stG",
-        "email": "i@1stg.me",
-        "weight": 20,
-        "platforms": [
-          {
-            "platform": "opencollective",
-            "address": "https://opencollective.com/1stG"
-          },
-          {
-            "platform": "patreon",
-            "address": "https://www.patreon.com/1stG"
-          }
-        ]
-      }
-    ]
-  },
   "funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/unified"
@@ -64,7 +33,7 @@
   "dependencies": {
     "eslint-mdx": "^2.0.2",
     "eslint-plugin-markdown": "^3.0.0",
-    "remark-mdx": "^2.1.2",
+    "remark-mdx": "^2.1.3",
     "remark-parse": "^10.0.1",
     "remark-stringify": "^10.0.2",
     "tslib": "^2.4.0",

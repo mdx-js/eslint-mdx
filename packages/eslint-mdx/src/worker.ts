@@ -23,7 +23,7 @@ import type { BlockContent, PhrasingContent } from 'mdast'
 import type { Options } from 'micromark-extension-mdx-expression'
 import type { Root } from 'remark-mdx'
 import { extractProperties, runAsWorker } from 'synckit'
-import type { FrozenProcessor } from 'unified'
+import type { FrozenProcessor, Plugin } from 'unified'
 import type { Node } from 'unist'
 import { ok as assert } from 'uvu/assert'
 import type { VFileMessage } from 'vfile-message'
@@ -147,7 +147,7 @@ export const getRemarkProcessor = async (
         return (await processor).use(
           /* istanbul ignore next */
           typeof plugin === 'string'
-            ? await requirePkg(plugin, 'remark', result.filepath)
+            ? await requirePkg<Plugin>(plugin, 'remark', result.filepath)
             : plugin,
           ...pluginSettings,
         )
