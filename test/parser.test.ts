@@ -41,14 +41,14 @@ describe('parser', () => {
         parser: '@typescript-eslint/parser',
       }),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"The \\"path\\" argument must be of type string. Received undefined"`,
+      `"The "path" argument must be of type string. Received undefined"`,
     )
     expect(() =>
       parser.parse('Header\n<>', {
         parser: '@babel/eslint-parser',
       }),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"The \\"path\\" argument must be of type string. Received undefined"`,
+      `"The "path" argument must be of type string. Received undefined"`,
     )
     expect(() =>
       parser.parse('<main><</main>', DEFAULT_PARSER_OPTIONS),
