@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.0.3
+
+### Patch Changes
+
+- [#424](https://github.com/mdx-js/eslint-mdx/pull/424) [`2ae592a`](https://github.com/mdx-js/eslint-mdx/commit/2ae592a06b54e252dfbc1c79f9b2beeac9e7a418) Thanks [@JounQin](https://github.com/JounQin)! - fix: pass consistent acorn parser for micromark-extension-mdxjs
+
+- [#422](https://github.com/mdx-js/eslint-mdx/pull/422) [`d321cf2`](https://github.com/mdx-js/eslint-mdx/commit/d321cf26724631f1184fe57c5f0f365fe652bb68) Thanks [@JounQin](https://github.com/JounQin)! - chore(deps): bump (dev)dependencies
+
 ## 2.0.2
 
 ### Patch Changes
