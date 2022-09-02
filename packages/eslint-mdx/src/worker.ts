@@ -46,6 +46,10 @@ import type {
 } from './types'
 
 let acorn: typeof import('acorn')
+let acornJsx: {
+  default: typeof import('acorn-jsx')
+}
+let acornParser: typeof import('acorn').Parser
 
 let tokTypes: typeof _tokTypes
 let jsxTokTypes: Record<string, TokenType>
@@ -60,6 +64,7 @@ const explorer = cosmiconfig('remark', {
 export const processorCache = new Map<string, FrozenProcessor>()
 
 const getRemarkMdxOptions = (tokens: Token[]): Options => ({
+  acorn: acornParser,
   acornOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -181,6 +186,20 @@ runAsWorker(
   WorkerOptions): Promise<WorkerResult> => {
     sharedTokens.length = 0
 
+    /**
+     * unified plugins are using ESM version of acorn,
+     * so we have to use the same version as well,
+     * otherwise the TokenType will be different class
+     * @see also https://github.com/acornjs/acorn-jsx/issues/133
+     */
+    if (!acorn) {
+      acorn = await loadEsmModule<typeof import('acorn')>('acorn')
+      acornJsx = await loadEsmModule<{ default: typeof import('acorn-jsx') }>(
+        'acorn-jsx',
+      )
+      acornParser = acorn.Parser.extend(acornJsx.default())
+    }
+
     const processor = await getRemarkProcessor(
       physicalFilename,
       isMdx,
@@ -205,27 +224,13 @@ runAsWorker(
       }
     }
 
-    /**
-     * unified plugins are using ESM version of acorn,
-     * so we have to use the same version as well,
-     * otherwise the TokenType will be different class
-     * @see also https://github.com/acornjs/acorn-jsx/issues/133
-     */
-    if (!acorn) {
-      acorn = await loadEsmModule<typeof import('acorn')>('acorn')
-    }
-
     if (!tokTypes) {
       tokTypes = acorn.tokTypes
     }
 
     if (!jsxTokTypes) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-      jsxTokTypes = (
-        await loadEsmModule<{ default: typeof import('acorn-jsx') }>(
-          'acorn-jsx',
-        )
-      ).default(
+      jsxTokTypes = acornJsx.default(
         {
           allowNamespacedObjects: true,
         },
