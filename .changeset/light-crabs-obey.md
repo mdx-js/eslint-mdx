@@ -2,4 +2,4 @@
 'eslint-mdx': patch
 ---
 
-fix: fix name ast
+fix: incorrect jsx attribute `name` AST
