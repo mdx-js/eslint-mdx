@@ -82,12 +82,12 @@ exports[`parser should match all AST snapshots: 287.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 94,
+                "end": 56,
                 "loc": {
                   "end": {
-                    "column": 94,
+                    "column": 56,
                     "line": 1,
-                    "offset": 94,
+                    "offset": 56,
                   },
                   "start": {
                     "column": 52,
@@ -98,9 +98,9 @@ exports[`parser should match all AST snapshots: 287.mdx 1`] = `
                 "name": "href",
                 "range": [
                   52,
-                  94,
+                  56,
                 ],
-                "raw": "href="/blog/2020-10-10-webpack-5-release/"",
+                "raw": "href",
                 "start": 52,
                 "type": "JSXIdentifier",
               },
@@ -287,12 +287,12 @@ exports[`parser should match all AST snapshots: 287.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 169,
+                "end": 140,
                 "loc": {
                   "end": {
-                    "column": 169,
+                    "column": 140,
                     "line": 1,
-                    "offset": 169,
+                    "offset": 140,
                   },
                   "start": {
                     "column": 136,
@@ -303,9 +303,9 @@ exports[`parser should match all AST snapshots: 287.mdx 1`] = `
                 "name": "href",
                 "range": [
                   136,
-                  169,
+                  140,
                 ],
-                "raw": "href="https://v4.webpack.js.org/"",
+                "raw": "href",
                 "start": 136,
                 "type": "JSXIdentifier",
               },
@@ -1028,12 +1028,12 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 40,
+                "end": 34,
                 "loc": {
                   "end": {
-                    "column": 30,
+                    "column": 24,
                     "line": 3,
-                    "offset": 40,
+                    "offset": 34,
                   },
                   "start": {
                     "column": 15,
@@ -1044,9 +1044,9 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
                 "name": "className",
                 "range": [
                   25,
-                  40,
+                  34,
                 ],
-                "raw": "className="abc"",
+                "raw": "className",
                 "start": 25,
                 "type": "JSXIdentifier",
               },
@@ -1233,12 +1233,12 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 100,
+                "end": 69,
                 "loc": {
                   "end": {
-                    "column": 44,
+                    "column": 13,
                     "line": 5,
-                    "offset": 100,
+                    "offset": 69,
                   },
                   "start": {
                     "column": 9,
@@ -1249,9 +1249,9 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
                 "name": "kind",
                 "range": [
                   65,
-                  100,
+                  69,
                 ],
-                "raw": "kind="docs-packages-vuetify-preset"",
+                "raw": "kind",
                 "start": 65,
                 "type": "JSXIdentifier",
               },
@@ -1301,12 +1301,12 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 113,
+                "end": 106,
                 "loc": {
                   "end": {
-                    "column": 57,
+                    "column": 50,
                     "line": 5,
-                    "offset": 113,
+                    "offset": 106,
                   },
                   "start": {
                     "column": 45,
@@ -1317,9 +1317,9 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
                 "name": "story",
                 "range": [
                   101,
-                  113,
+                  106,
                 ],
-                "raw": "story="page"",
+                "raw": "story",
                 "start": 101,
                 "type": "JSXIdentifier",
               },
@@ -5015,12 +5015,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 438,
+                "end": 431,
                 "loc": {
                   "end": {
-                    "column": 14,
+                    "column": 7,
                     "line": 20,
-                    "offset": 438,
+                    "offset": 431,
                   },
                   "start": {
                     "column": 2,
@@ -5031,9 +5031,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                 "name": "title",
                 "range": [
                   426,
-                  438,
+                  431,
                 ],
-                "raw": "title="Tabs"",
+                "raw": "title",
                 "start": 426,
                 "type": "JSXIdentifier",
               },
@@ -5083,12 +5083,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 720,
+                "end": 451,
                 "loc": {
                   "end": {
-                    "column": 4,
-                    "line": 34,
-                    "offset": 720,
+                    "column": 12,
+                    "line": 21,
+                    "offset": 451,
                   },
                   "start": {
                     "column": 2,
@@ -5099,22 +5099,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                 "name": "decorators",
                 "range": [
                   441,
-                  720,
+                  451,
                 ],
-                "raw": "decorators={[
-    moduleMetadata({
-      imports: [
-        ButtonModule,
-        IconModule,
-        FormsModule,
-        FormModule,
-        RadioModule,
-        TabsModule,
-        CardModule,
-      ],
-      declarations: [ActiveTestComponent, LazyTestComponent],
-    }),
-  ]}",
+                "raw": "decorators",
                 "start": 441,
                 "type": "JSXIdentifier",
               },
@@ -6080,12 +6067,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     },
                   },
                   "name": {
-                    "end": 836,
+                    "end": 828,
                     "loc": {
                       "end": {
-                        "column": 16,
+                        "column": 8,
                         "line": 45,
-                        "offset": 836,
+                        "offset": 828,
                       },
                       "start": {
                         "column": 4,
@@ -6096,9 +6083,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     "name": "name",
                     "range": [
                       824,
-                      836,
+                      828,
                     ],
-                    "raw": "name="Basic"",
+                    "raw": "name",
                     "start": 824,
                     "type": "JSXIdentifier",
                   },
@@ -6148,12 +6135,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     },
                   },
                   "name": {
-                    "end": 855,
+                    "end": 847,
                     "loc": {
                       "end": {
-                        "column": 18,
+                        "column": 10,
                         "line": 46,
-                        "offset": 855,
+                        "offset": 847,
                       },
                       "start": {
                         "column": 4,
@@ -6164,9 +6151,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     "name": "height",
                     "range": [
                       841,
-                      855,
+                      847,
                     ],
-                    "raw": "height="100px"",
+                    "raw": "height",
                     "start": 841,
                     "type": "JSXIdentifier",
                   },
@@ -6853,12 +6840,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     },
                   },
                   "name": {
-                    "end": 1510,
+                    "end": 1503,
                     "loc": {
                       "end": {
-                        "column": 15,
+                        "column": 8,
                         "line": 82,
-                        "offset": 1510,
+                        "offset": 1503,
                       },
                       "start": {
                         "column": 4,
@@ -6869,9 +6856,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     "name": "name",
                     "range": [
                       1499,
-                      1510,
+                      1503,
                     ],
-                    "raw": "name="Card"",
+                    "raw": "name",
                     "start": 1499,
                     "type": "JSXIdentifier",
                   },
@@ -6921,12 +6908,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     },
                   },
                   "name": {
-                    "end": 1529,
+                    "end": 1521,
                     "loc": {
                       "end": {
-                        "column": 18,
+                        "column": 10,
                         "line": 83,
-                        "offset": 1529,
+                        "offset": 1521,
                       },
                       "start": {
                         "column": 4,
@@ -6937,9 +6924,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     "name": "height",
                     "range": [
                       1515,
-                      1529,
+                      1521,
                     ],
-                    "raw": "height="200px"",
+                    "raw": "height",
                     "start": 1515,
                     "type": "JSXIdentifier",
                   },
@@ -7620,12 +7607,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     },
                   },
                   "name": {
-                    "end": 1993,
+                    "end": 1986,
                     "loc": {
                       "end": {
-                        "column": 15,
+                        "column": 8,
                         "line": 104,
-                        "offset": 1993,
+                        "offset": 1986,
                       },
                       "start": {
                         "column": 4,
@@ -7636,9 +7623,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     "name": "name",
                     "range": [
                       1982,
-                      1993,
+                      1986,
                     ],
-                    "raw": "name="Size"",
+                    "raw": "name",
                     "start": 1982,
                     "type": "JSXIdentifier",
                   },
@@ -7688,12 +7675,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     },
                   },
                   "name": {
-                    "end": 2012,
+                    "end": 2004,
                     "loc": {
                       "end": {
-                        "column": 18,
+                        "column": 10,
                         "line": 105,
-                        "offset": 2012,
+                        "offset": 2004,
                       },
                       "start": {
                         "column": 4,
@@ -7704,9 +7691,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     "name": "height",
                     "range": [
                       1998,
-                      2012,
+                      2004,
                     ],
-                    "raw": "height="200px"",
+                    "raw": "height",
                     "start": 1998,
                     "type": "JSXIdentifier",
                   },
@@ -8594,12 +8581,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     },
                   },
                   "name": {
-                    "end": 2938,
+                    "end": 2924,
                     "loc": {
                       "end": {
-                        "column": 22,
+                        "column": 8,
                         "line": 138,
-                        "offset": 2938,
+                        "offset": 2924,
                       },
                       "start": {
                         "column": 4,
@@ -8610,9 +8597,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     "name": "name",
                     "range": [
                       2920,
-                      2938,
+                      2924,
                     ],
-                    "raw": "name="CustomLabel"",
+                    "raw": "name",
                     "start": 2920,
                     "type": "JSXIdentifier",
                   },
@@ -8662,12 +8649,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     },
                   },
                   "name": {
-                    "end": 2957,
+                    "end": 2949,
                     "loc": {
                       "end": {
-                        "column": 18,
+                        "column": 10,
                         "line": 139,
-                        "offset": 2957,
+                        "offset": 2949,
                       },
                       "start": {
                         "column": 4,
@@ -8678,9 +8665,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     "name": "height",
                     "range": [
                       2943,
-                      2957,
+                      2949,
                     ],
-                    "raw": "height="200px"",
+                    "raw": "height",
                     "start": 2943,
                     "type": "JSXIdentifier",
                   },
@@ -10864,12 +10851,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     },
                   },
                   "name": {
-                    "end": 3765,
+                    "end": 3754,
                     "loc": {
                       "end": {
-                        "column": 19,
+                        "column": 8,
                         "line": 173,
-                        "offset": 3765,
+                        "offset": 3754,
                       },
                       "start": {
                         "column": 4,
@@ -10880,9 +10867,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     "name": "name",
                     "range": [
                       3750,
-                      3765,
+                      3754,
                     ],
-                    "raw": "name="Editable"",
+                    "raw": "name",
                     "start": 3750,
                     "type": "JSXIdentifier",
                   },
@@ -10932,12 +10919,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     },
                   },
                   "name": {
-                    "end": 3784,
+                    "end": 3776,
                     "loc": {
                       "end": {
-                        "column": 18,
+                        "column": 10,
                         "line": 174,
-                        "offset": 3784,
+                        "offset": 3776,
                       },
                       "start": {
                         "column": 4,
@@ -10948,9 +10935,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     "name": "height",
                     "range": [
                       3770,
-                      3784,
+                      3776,
                     ],
-                    "raw": "height="100px"",
+                    "raw": "height",
                     "start": 3770,
                     "type": "JSXIdentifier",
                   },
@@ -11858,12 +11845,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     },
                   },
                   "name": {
-                    "end": 4803,
+                    "end": 4792,
                     "loc": {
                       "end": {
-                        "column": 19,
+                        "column": 8,
                         "line": 219,
-                        "offset": 4803,
+                        "offset": 4792,
                       },
                       "start": {
                         "column": 4,
@@ -11874,9 +11861,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     "name": "name",
                     "range": [
                       4788,
-                      4803,
+                      4792,
                     ],
-                    "raw": "name="Disabled"",
+                    "raw": "name",
                     "start": 4788,
                     "type": "JSXIdentifier",
                   },
@@ -11926,12 +11913,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     },
                   },
                   "name": {
-                    "end": 4822,
+                    "end": 4814,
                     "loc": {
                       "end": {
-                        "column": 18,
+                        "column": 10,
                         "line": 220,
-                        "offset": 4822,
+                        "offset": 4814,
                       },
                       "start": {
                         "column": 4,
@@ -11942,9 +11929,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     "name": "height",
                     "range": [
                       4808,
-                      4822,
+                      4814,
                     ],
-                    "raw": "height="100px"",
+                    "raw": "height",
                     "start": 4808,
                     "type": "JSXIdentifier",
                   },
@@ -12920,12 +12907,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     },
                   },
                   "name": {
-                    "end": 5592,
+                    "end": 5585,
                     "loc": {
                       "end": {
-                        "column": 15,
+                        "column": 8,
                         "line": 252,
-                        "offset": 5592,
+                        "offset": 5585,
                       },
                       "start": {
                         "column": 4,
@@ -12936,9 +12923,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     "name": "name",
                     "range": [
                       5581,
-                      5592,
+                      5585,
                     ],
-                    "raw": "name="Lazy"",
+                    "raw": "name",
                     "start": 5581,
                     "type": "JSXIdentifier",
                   },
@@ -12988,12 +12975,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     },
                   },
                   "name": {
-                    "end": 5611,
+                    "end": 5603,
                     "loc": {
                       "end": {
-                        "column": 18,
+                        "column": 10,
                         "line": 253,
-                        "offset": 5611,
+                        "offset": 5603,
                       },
                       "start": {
                         "column": 4,
@@ -13004,9 +12991,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     "name": "height",
                     "range": [
                       5597,
-                      5611,
+                      5603,
                     ],
-                    "raw": "height="150px"",
+                    "raw": "height",
                     "start": 5597,
                     "type": "JSXIdentifier",
                   },
@@ -13721,12 +13708,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     },
                   },
                   "name": {
-                    "end": 6803,
+                    "end": 6796,
                     "loc": {
                       "end": {
-                        "column": 15,
+                        "column": 8,
                         "line": 298,
-                        "offset": 6803,
+                        "offset": 6796,
                       },
                       "start": {
                         "column": 4,
@@ -13737,9 +13724,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     "name": "name",
                     "range": [
                       6792,
-                      6803,
+                      6796,
                     ],
-                    "raw": "name="Nest"",
+                    "raw": "name",
                     "start": 6792,
                     "type": "JSXIdentifier",
                   },
@@ -13789,12 +13776,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     },
                   },
                   "name": {
-                    "end": 6822,
+                    "end": 6814,
                     "loc": {
                       "end": {
-                        "column": 18,
+                        "column": 10,
                         "line": 299,
-                        "offset": 6822,
+                        "offset": 6814,
                       },
                       "start": {
                         "column": 4,
@@ -13805,9 +13792,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     "name": "height",
                     "range": [
                       6808,
-                      6822,
+                      6814,
                     ],
-                    "raw": "height="100px"",
+                    "raw": "height",
                     "start": 6808,
                     "type": "JSXIdentifier",
                   },
@@ -14338,12 +14325,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     },
                   },
                   "name": {
-                    "end": 8245,
+                    "end": 8237,
                     "loc": {
                       "end": {
-                        "column": 16,
+                        "column": 8,
                         "line": 347,
-                        "offset": 8245,
+                        "offset": 8237,
                       },
                       "start": {
                         "column": 4,
@@ -14354,9 +14341,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     "name": "name",
                     "range": [
                       8233,
-                      8245,
+                      8237,
                     ],
-                    "raw": "name="Title"",
+                    "raw": "name",
                     "start": 8233,
                     "type": "JSXIdentifier",
                   },
@@ -14406,12 +14393,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     },
                   },
                   "name": {
-                    "end": 8264,
+                    "end": 8256,
                     "loc": {
                       "end": {
-                        "column": 18,
+                        "column": 10,
                         "line": 348,
-                        "offset": 8264,
+                        "offset": 8256,
                       },
                       "start": {
                         "column": 4,
@@ -14422,9 +14409,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                     "name": "height",
                     "range": [
                       8250,
-                      8264,
+                      8256,
                     ],
-                    "raw": "height="100px"",
+                    "raw": "height",
                     "start": 8250,
                     "type": "JSXIdentifier",
                   },
@@ -32309,12 +32296,12 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 168,
+                "end": 164,
                 "loc": {
                   "end": {
-                    "column": 7,
+                    "column": 3,
                     "line": 9,
-                    "offset": 168,
+                    "offset": 164,
                   },
                   "start": {
                     "column": 2,
@@ -32325,9 +32312,9 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
                 "name": "p",
                 "range": [
                   163,
-                  168,
+                  164,
                 ],
-                "raw": "p={3}",
+                "raw": "p",
                 "start": 163,
                 "type": "JSXIdentifier",
               },
@@ -32399,12 +32386,12 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 185,
+                "end": 173,
                 "loc": {
                   "end": {
-                    "column": 16,
+                    "column": 4,
                     "line": 10,
-                    "offset": 185,
+                    "offset": 173,
                   },
                   "start": {
                     "column": 2,
@@ -32415,9 +32402,9 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
                 "name": "bg",
                 "range": [
                   171,
-                  185,
+                  173,
                 ],
-                "raw": "bg='lightgray'",
+                "raw": "bg",
                 "start": 171,
                 "type": "JSXIdentifier",
               },
@@ -32467,12 +32454,12 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 250,
+                "end": 193,
                 "loc": {
                   "end": {
-                    "column": 4,
-                    "line": 14,
-                    "offset": 250,
+                    "column": 7,
+                    "line": 11,
+                    "offset": 193,
                   },
                   "start": {
                     "column": 2,
@@ -32483,12 +32470,9 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
                 "name": "style",
                 "range": [
                   188,
-                  250,
+                  193,
                 ],
-                "raw": "style={{
-    textAlign: 'center',
-    fontWeight: 'bold',
-  }}",
+                "raw": "style",
                 "start": 188,
                 "type": "JSXIdentifier",
               },
@@ -32820,12 +32804,12 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 630,
+                "end": 608,
                 "loc": {
                   "end": {
-                    "column": 36,
+                    "column": 14,
                     "line": 31,
-                    "offset": 630,
+                    "offset": 608,
                   },
                   "start": {
                     "column": 7,
@@ -32836,9 +32820,9 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
                 "name": "tweetId",
                 "range": [
                   601,
-                  630,
+                  608,
                 ],
-                "raw": "tweetId="1116723357410447360"",
+                "raw": "tweetId",
                 "start": 601,
                 "type": "JSXIdentifier",
               },
@@ -33121,12 +33105,12 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 764,
+                "end": 750,
                 "loc": {
                   "end": {
-                    "column": 30,
+                    "column": 16,
                     "line": 41,
-                    "offset": 764,
+                    "offset": 750,
                   },
                   "start": {
                     "column": 9,
@@ -33137,9 +33121,9 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
                 "name": "videoId",
                 "range": [
                   743,
-                  764,
+                  750,
                 ],
-                "raw": "videoId="4fHw4GeW3EU"",
+                "raw": "videoId",
                 "start": 743,
                 "type": "JSXIdentifier",
               },
@@ -35046,12 +35030,12 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 44,
+                "end": 13,
                 "loc": {
                   "end": {
-                    "column": 44,
+                    "column": 13,
                     "line": 1,
-                    "offset": 44,
+                    "offset": 13,
                   },
                   "start": {
                     "column": 9,
@@ -35062,9 +35046,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 "name": "kind",
                 "range": [
                   9,
-                  44,
+                  13,
                 ],
-                "raw": "kind="docs-packages-vuetify-preset"",
+                "raw": "kind",
                 "start": 9,
                 "type": "JSXIdentifier",
               },
@@ -35114,12 +35098,12 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 57,
+                "end": 50,
                 "loc": {
                   "end": {
-                    "column": 57,
+                    "column": 50,
                     "line": 1,
-                    "offset": 57,
+                    "offset": 50,
                   },
                   "start": {
                     "column": 45,
@@ -35130,9 +35114,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 "name": "story",
                 "range": [
                   45,
-                  57,
+                  50,
                 ],
-                "raw": "story="page"",
+                "raw": "story",
                 "start": 45,
                 "type": "JSXIdentifier",
               },
@@ -35321,12 +35305,12 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 179,
+                "end": 148,
                 "loc": {
                   "end": {
-                    "column": 44,
+                    "column": 13,
                     "line": 5,
-                    "offset": 179,
+                    "offset": 148,
                   },
                   "start": {
                     "column": 9,
@@ -35337,9 +35321,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 "name": "kind",
                 "range": [
                   144,
-                  179,
+                  148,
                 ],
-                "raw": "kind="docs-packages-vuetify-preset"",
+                "raw": "kind",
                 "start": 144,
                 "type": "JSXIdentifier",
               },
@@ -35389,12 +35373,12 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 192,
+                "end": 185,
                 "loc": {
                   "end": {
-                    "column": 57,
+                    "column": 50,
                     "line": 5,
-                    "offset": 192,
+                    "offset": 185,
                   },
                   "start": {
                     "column": 45,
@@ -35405,9 +35389,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 "name": "story",
                 "range": [
                   180,
-                  192,
+                  185,
                 ],
-                "raw": "story="page"",
+                "raw": "story",
                 "start": 180,
                 "type": "JSXIdentifier",
               },
@@ -35596,12 +35580,12 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 314,
+                "end": 283,
                 "loc": {
                   "end": {
-                    "column": 44,
+                    "column": 13,
                     "line": 9,
-                    "offset": 314,
+                    "offset": 283,
                   },
                   "start": {
                     "column": 9,
@@ -35612,9 +35596,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 "name": "kind",
                 "range": [
                   279,
-                  314,
+                  283,
                 ],
-                "raw": "kind="docs-packages-vuetify-preset"",
+                "raw": "kind",
                 "start": 279,
                 "type": "JSXIdentifier",
               },
@@ -35664,12 +35648,12 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 327,
+                "end": 320,
                 "loc": {
                   "end": {
-                    "column": 57,
+                    "column": 50,
                     "line": 9,
-                    "offset": 327,
+                    "offset": 320,
                   },
                   "start": {
                     "column": 45,
@@ -35680,9 +35664,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 "name": "story",
                 "range": [
                   315,
-                  327,
+                  320,
                 ],
-                "raw": "story="page"",
+                "raw": "story",
                 "start": 315,
                 "type": "JSXIdentifier",
               },
@@ -35871,12 +35855,12 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 449,
+                "end": 418,
                 "loc": {
                   "end": {
-                    "column": 44,
+                    "column": 13,
                     "line": 13,
-                    "offset": 449,
+                    "offset": 418,
                   },
                   "start": {
                     "column": 9,
@@ -35887,9 +35871,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 "name": "kind",
                 "range": [
                   414,
-                  449,
+                  418,
                 ],
-                "raw": "kind="docs-packages-vuetify-preset"",
+                "raw": "kind",
                 "start": 414,
                 "type": "JSXIdentifier",
               },
@@ -35939,12 +35923,12 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 462,
+                "end": 455,
                 "loc": {
                   "end": {
-                    "column": 57,
+                    "column": 50,
                     "line": 13,
-                    "offset": 462,
+                    "offset": 455,
                   },
                   "start": {
                     "column": 45,
@@ -35955,9 +35939,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 "name": "story",
                 "range": [
                   450,
-                  462,
+                  455,
                 ],
-                "raw": "story="page"",
+                "raw": "story",
                 "start": 450,
                 "type": "JSXIdentifier",
               },
@@ -36146,12 +36130,12 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 584,
+                "end": 553,
                 "loc": {
                   "end": {
-                    "column": 44,
+                    "column": 13,
                     "line": 17,
-                    "offset": 584,
+                    "offset": 553,
                   },
                   "start": {
                     "column": 9,
@@ -36162,9 +36146,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 "name": "kind",
                 "range": [
                   549,
-                  584,
+                  553,
                 ],
-                "raw": "kind="docs-packages-vuetify-preset"",
+                "raw": "kind",
                 "start": 549,
                 "type": "JSXIdentifier",
               },
@@ -36214,12 +36198,12 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 597,
+                "end": 590,
                 "loc": {
                   "end": {
-                    "column": 57,
+                    "column": 50,
                     "line": 17,
-                    "offset": 597,
+                    "offset": 590,
                   },
                   "start": {
                     "column": 45,
@@ -36230,9 +36214,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 "name": "story",
                 "range": [
                   585,
-                  597,
+                  590,
                 ],
-                "raw": "story="page"",
+                "raw": "story",
                 "start": 585,
                 "type": "JSXIdentifier",
               },
@@ -36421,12 +36405,12 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 719,
+                "end": 688,
                 "loc": {
                   "end": {
-                    "column": 44,
+                    "column": 13,
                     "line": 21,
-                    "offset": 719,
+                    "offset": 688,
                   },
                   "start": {
                     "column": 9,
@@ -36437,9 +36421,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 "name": "kind",
                 "range": [
                   684,
-                  719,
+                  688,
                 ],
-                "raw": "kind="docs-packages-vuetify-preset"",
+                "raw": "kind",
                 "start": 684,
                 "type": "JSXIdentifier",
               },
@@ -36489,12 +36473,12 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 },
               },
               "name": {
-                "end": 732,
+                "end": 725,
                 "loc": {
                   "end": {
-                    "column": 57,
+                    "column": 50,
                     "line": 21,
-                    "offset": 732,
+                    "offset": 725,
                   },
                   "start": {
                     "column": 45,
@@ -36505,9 +36489,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
                 "name": "story",
                 "range": [
                   720,
-                  732,
+                  725,
                 ],
-                "raw": "story="page"",
+                "raw": "story",
                 "start": 720,
                 "type": "JSXIdentifier",
               },

@@ -499,7 +499,7 @@ runAsWorker(
                     ...attrNamePos,
                     type: 'JSXAttribute',
                     name: {
-                      ...normalizeNode(attrStart, lastAttrOffset + 1),
+                      ...attrNamePos,
                       type: 'JSXIdentifier',
                       name: attrName,
                     },
