@@ -40833,12 +40833,12 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
         "openingElement": {
           "attributes": [
             {
-              "end": 12,
+              "end": 13,
               "loc": {
                 "end": {
-                  "column": 5,
-                  "line": 2,
-                  "offset": 12,
+                  "column": 0,
+                  "line": 3,
+                  "offset": 13,
                 },
                 "start": {
                   "column": 2,
@@ -40871,9 +40871,10 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
               },
               "range": [
                 9,
-                12,
+                13,
               ],
-              "raw": "abc",
+              "raw": "abc
+",
               "start": 9,
               "type": "JSXAttribute",
               "value": null,
