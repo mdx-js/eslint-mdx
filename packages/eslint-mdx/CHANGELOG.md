@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.4
+
+### Patch Changes
+
+- [#425](https://github.com/mdx-js/eslint-mdx/pull/425) [`fb3f154`](https://github.com/mdx-js/eslint-mdx/commit/fb3f154d89b6081d671e2590eb59fd2bf158a213) Thanks [@chenxsan](https://github.com/chenxsan)! - fix: incorrect jsx attribute `name` AST
+
 ## 2.0.3
 
 ### Patch Changes
