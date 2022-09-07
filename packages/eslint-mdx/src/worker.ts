@@ -443,7 +443,7 @@ runAsWorker(
 
                   if (attrValue == null) {
                     return {
-                      ...attrNamePos,
+                      ...normalizeNode(attrStart, lastAttrOffset + 1),
                       type: 'JSXAttribute',
                       name: {
                         ...attrNamePos,
@@ -499,7 +499,7 @@ runAsWorker(
                     ...attrNamePos,
                     type: 'JSXAttribute',
                     name: {
-                      ...normalizeNode(attrStart, lastAttrOffset + 1),
+                      ...attrNamePos,
                       type: 'JSXIdentifier',
                       name: attrName,
                     },
