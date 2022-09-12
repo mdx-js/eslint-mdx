@@ -90,8 +90,14 @@ export const loadModule = async <T>(modulePath: string): Promise<T> => {
         // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-return
         return require(modulePath)
       } catch (err) {
+        const code = (err as { code: string }).code
         /* istanbul ignore if */
-        if ((err as { code: string }).code === 'ERR_REQUIRE_ESM') {
+        if (
+          code === 'ERR_REQUIRE_ESM' ||
+          // A pure ESM could have no `exports.require` and then throw the following error,
+          // related to #427.
+          code === 'ERR_PACKAGE_PATH_NOT_EXPORTED'
+        ) {
           // Load the ESM configuration file using the TypeScript dynamic import workaround.
           // Once TypeScript provides support for keeping the dynamic import this workaround can be
           // changed to a direct dynamic import.
