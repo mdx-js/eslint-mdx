@@ -30175,14 +30175,153 @@ exports[`parser should match all AST snapshots: 429.mdx 1`] = `
       "start": 0,
       "type": "ExpressionStatement",
     },
+    {
+      "end": 51,
+      "expression": {
+        "children": [],
+        "closingElement": null,
+        "end": 51,
+        "loc": {
+          "end": {
+            "column": 18,
+            "line": 3,
+            "offset": 51,
+          },
+          "start": {
+            "column": 0,
+            "line": 3,
+            "offset": 33,
+          },
+        },
+        "openingElement": {
+          "attributes": [
+            {
+              "end": 50,
+              "loc": {
+                "end": {
+                  "column": 17,
+                  "line": 3,
+                  "offset": 50,
+                },
+                "start": {
+                  "column": 8,
+                  "line": 3,
+                  "offset": 41,
+                },
+              },
+              "name": {
+                "end": 49,
+                "loc": {
+                  "end": {
+                    "column": 16,
+                    "line": 3,
+                    "offset": 49,
+                  },
+                  "start": {
+                    "column": 8,
+                    "line": 3,
+                    "offset": 41,
+                  },
+                },
+                "name": "disabled",
+                "range": [
+                  41,
+                  49,
+                ],
+                "raw": "disabled",
+                "start": 41,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                41,
+                50,
+              ],
+              "raw": "disabled/",
+              "start": 41,
+              "type": "JSXAttribute",
+              "value": null,
+            },
+          ],
+          "end": 51,
+          "loc": {
+            "end": {
+              "column": 18,
+              "line": 3,
+              "offset": 51,
+            },
+            "start": {
+              "column": 0,
+              "line": 3,
+              "offset": 33,
+            },
+          },
+          "name": {
+            "end": 40,
+            "loc": {
+              "end": {
+                "column": 7,
+                "line": 3,
+                "offset": 40,
+              },
+              "start": {
+                "column": 1,
+                "line": 3,
+                "offset": 34,
+              },
+            },
+            "name": "button",
+            "range": [
+              34,
+              40,
+            ],
+            "raw": "button",
+            "start": 34,
+            "type": "JSXIdentifier",
+          },
+          "range": [
+            33,
+            51,
+          ],
+          "raw": "<button disabled/>",
+          "selfClosing": true,
+          "start": 33,
+          "type": "JSXOpeningElement",
+        },
+        "range": [
+          33,
+          51,
+        ],
+        "raw": "<button disabled/>",
+        "start": 33,
+        "type": "JSXElement",
+      },
+      "loc": {
+        "end": {
+          "column": 19,
+          "line": 3,
+          "offset": 51,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+          "offset": 33,
+        },
+      },
+      "range": [
+        33,
+        51,
+      ],
+      "start": 33,
+      "type": "ExpressionStatement",
+    },
   ],
   "comments": [],
-  "end": 32,
+  "end": 52,
   "loc": {
     "end": {
       "column": 1,
-      "line": 2,
-      "offset": 32,
+      "line": 4,
+      "offset": 52,
     },
     "start": {
       "column": 1,
@@ -30192,7 +30331,7 @@ exports[`parser should match all AST snapshots: 429.mdx 1`] = `
   },
   "range": [
     0,
-    32,
+    52,
   ],
   "sourceType": undefined,
   "start": 0,
@@ -30370,6 +30509,116 @@ exports[`parser should match all AST snapshots: 429.mdx 1`] = `
         31,
       ],
       "start": 30,
+      "type": "Punctuator",
+      "value": ">",
+    },
+    {
+      "end": 34,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 3,
+          "offset": 34,
+        },
+        "start": {
+          "column": 0,
+          "line": 3,
+          "offset": 33,
+        },
+      },
+      "range": [
+        33,
+        34,
+      ],
+      "start": 33,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 40,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 3,
+          "offset": 40,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+          "offset": 34,
+        },
+      },
+      "range": [
+        34,
+        40,
+      ],
+      "start": 34,
+      "type": "JSXIdentifier",
+      "value": "button",
+    },
+    {
+      "end": 49,
+      "loc": {
+        "end": {
+          "column": 16,
+          "line": 3,
+          "offset": 49,
+        },
+        "start": {
+          "column": 8,
+          "line": 3,
+          "offset": 41,
+        },
+      },
+      "range": [
+        41,
+        49,
+      ],
+      "start": 41,
+      "type": "JSXIdentifier",
+      "value": "disabled",
+    },
+    {
+      "end": 50,
+      "loc": {
+        "end": {
+          "column": 17,
+          "line": 3,
+          "offset": 50,
+        },
+        "start": {
+          "column": 16,
+          "line": 3,
+          "offset": 49,
+        },
+      },
+      "range": [
+        49,
+        50,
+      ],
+      "start": 49,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    {
+      "end": 51,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 3,
+          "offset": 51,
+        },
+        "start": {
+          "column": 17,
+          "line": 3,
+          "offset": 50,
+        },
+      },
+      "range": [
+        50,
+        51,
+      ],
+      "start": 50,
       "type": "Punctuator",
       "value": ">",
     },
@@ -42013,6 +42262,28 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
       "value": "<",
     },
     {
+      "end": 75,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 10,
+          "offset": 75,
+        },
+        "start": {
+          "column": 0,
+          "line": 10,
+          "offset": 74,
+        },
+      },
+      "range": [
+        74,
+        75,
+      ],
+      "start": 74,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
       "end": 86,
       "loc": {
         "end": {
@@ -42033,50 +42304,6 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
       "start": 76,
       "type": "JSXText",
       "value": " Fragment ",
-    },
-    {
-      "end": 87,
-      "loc": {
-        "end": {
-          "column": 13,
-          "line": 10,
-          "offset": 87,
-        },
-        "start": {
-          "column": 12,
-          "line": 10,
-          "offset": 86,
-        },
-      },
-      "range": [
-        86,
-        87,
-      ],
-      "start": 86,
-      "type": "Punctuator",
-      "value": "<",
-    },
-    {
-      "end": 88,
-      "loc": {
-        "end": {
-          "column": 14,
-          "line": 10,
-          "offset": 88,
-        },
-        "start": {
-          "column": 13,
-          "line": 10,
-          "offset": 87,
-        },
-      },
-      "range": [
-        87,
-        88,
-      ],
-      "start": 87,
-      "type": "Punctuator",
-      "value": "/",
     },
     {
       "end": 89,

@@ -394,7 +394,28 @@ exports[`fixtures should match all snapshots: 391.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: 429.mdx 1`] = `[]`;
+exports[`fixtures should match all snapshots: 429.mdx 1`] = `
+[
+  {
+    "column": 17,
+    "endColumn": 17,
+    "endLine": 3,
+    "fix": {
+      "range": [
+        49,
+        49,
+      ],
+      "text": " ",
+    },
+    "line": 3,
+    "message": "Insert \`·\`",
+    "messageId": "insert",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+]
+`;
 
 exports[`fixtures should match all snapshots: acorn.mdx 1`] = `
 [

@@ -529,12 +529,12 @@ runAsWorker(
             let nextOffset = nextCharOffset(lastAttrOffset + 1)
             let nextChar = text[nextOffset]
 
-            if (!selfClosing && nextChar !== '>') {
+            const expectedNextChar = selfClosing ? '/' : '>'
+
+            if (nextChar !== expectedNextChar) {
               nextOffset = /** @type {number} */ nextCharOffset(lastAttrOffset)
               nextChar = text[nextOffset]
             }
-
-            const expectedNextChar = selfClosing ? '/' : '>'
 
             assert(
               nextChar === expectedNextChar,
