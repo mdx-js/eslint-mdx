@@ -200,15 +200,22 @@ export const restoreTokens = (
       assert(text[lastAttrOffset] === attrQuote)
     }
 
-    const nextOffset = nextCharOffset(lastAttrOffset + 1)
-
-    const nextChar = text[nextOffset]
+    let nextOffset = nextCharOffset(lastAttrOffset + 1)
+    let nextChar = text[nextOffset]
 
     // self closing tag
     if (nextChar === '/') {
       tokens.push(newToken(tt.slash, nextOffset, nextOffset + 1, '/'))
     } else {
-      assert(nextChar === '>')
+      if (nextChar !== '>') {
+        nextOffset = /** @type {number} */ nextCharOffset(lastAttrOffset)
+        nextChar = text[nextOffset]
+      }
+
+      assert(
+        nextChar === '>',
+        `\`nextChar\` must be '>' but actually is '${nextChar}'`,
+      )
 
       const prevOffset = prevCharOffset(nodeEnd - 2)
 
