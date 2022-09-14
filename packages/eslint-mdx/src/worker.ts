@@ -526,11 +526,20 @@ runAsWorker(
               children,
             }
 
-            const nextOffset = nextCharOffset(lastAttrOffset + 1)
+            let nextOffset = nextCharOffset(lastAttrOffset + 1)
+            let nextChar = text[nextOffset]
 
-            const nextChar = text[nextOffset]
+            const expectedNextChar = selfClosing ? '/' : '>'
 
-            assert(nextChar === (selfClosing ? '/' : '>'))
+            if (nextChar !== expectedNextChar) {
+              nextOffset = /** @type {number} */ nextCharOffset(lastAttrOffset)
+              nextChar = text[nextOffset]
+            }
+
+            assert(
+              nextChar === expectedNextChar,
+              `\`nextChar\` must be '${expectedNextChar}' but actually is '${nextChar}'`,
+            )
 
             Object.assign(
               jsxEl.openingElement,

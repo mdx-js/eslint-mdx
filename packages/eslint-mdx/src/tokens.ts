@@ -57,6 +57,8 @@ export const restoreTokens = (
     const nodeStart = nodePos.start.offset
     const nodeEnd = nodePos.end.offset
 
+    const lastCharOffset = prevCharOffset(nodeEnd - 2)
+
     assert(nodeStart != null)
     assert(nodeEnd != null)
 
@@ -78,6 +80,8 @@ export const restoreTokens = (
 
     const nodeName = node.name
     const nodeNameLength = nodeName?.length ?? 0
+
+    const selfClosing = text[lastCharOffset] === '/'
 
     let nodeNameStart = nodeStart + 1
 
@@ -200,15 +204,23 @@ export const restoreTokens = (
       assert(text[lastAttrOffset] === attrQuote)
     }
 
-    const nextOffset = nextCharOffset(lastAttrOffset + 1)
+    let nextOffset = nextCharOffset(lastAttrOffset + 1)
+    let nextChar = text[nextOffset]
 
-    const nextChar = text[nextOffset]
+    const expectedNextChar = selfClosing ? '/' : '>'
 
-    // self closing tag
-    if (nextChar === '/') {
+    if (nextChar !== expectedNextChar) {
+      nextOffset = /** @type {number} */ nextCharOffset(lastAttrOffset)
+      nextChar = text[nextOffset]
+    }
+
+    if (selfClosing) {
       tokens.push(newToken(tt.slash, nextOffset, nextOffset + 1, '/'))
     } else {
-      assert(nextChar === '>')
+      assert(
+        nextChar === '>',
+        `\`nextChar\` must be '>' but actually is '${nextChar}'`,
+      )
 
       const prevOffset = prevCharOffset(nodeEnd - 2)
 

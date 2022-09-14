@@ -29989,6 +29989,644 @@ exports[`parser should match all AST snapshots: 391.mdx 1`] = `
 }
 `;
 
+exports[`parser should match all AST snapshots: 429.mdx 1`] = `
+{
+  "body": [
+    {
+      "end": 31,
+      "expression": {
+        "children": [],
+        "closingElement": {
+          "end": 31,
+          "loc": {
+            "end": {
+              "column": 31,
+              "line": 1,
+              "offset": 31,
+            },
+            "start": {
+              "column": 22,
+              "line": 1,
+              "offset": 22,
+            },
+          },
+          "name": {
+            "end": 30,
+            "loc": {
+              "end": {
+                "column": 30,
+                "line": 1,
+                "offset": 30,
+              },
+              "start": {
+                "column": 24,
+                "line": 1,
+                "offset": 24,
+              },
+            },
+            "name": "button",
+            "range": [
+              24,
+              30,
+            ],
+            "raw": "button",
+            "start": 24,
+            "type": "JSXIdentifier",
+          },
+          "range": [
+            22,
+            31,
+          ],
+          "raw": "</button>",
+          "start": 22,
+          "type": "JSXClosingElement",
+        },
+        "end": 31,
+        "loc": {
+          "end": {
+            "column": 31,
+            "line": 1,
+            "offset": 31,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "openingElement": {
+          "attributes": [
+            {
+              "end": 17,
+              "loc": {
+                "end": {
+                  "column": 17,
+                  "line": 1,
+                  "offset": 17,
+                },
+                "start": {
+                  "column": 8,
+                  "line": 1,
+                  "offset": 8,
+                },
+              },
+              "name": {
+                "end": 16,
+                "loc": {
+                  "end": {
+                    "column": 16,
+                    "line": 1,
+                    "offset": 16,
+                  },
+                  "start": {
+                    "column": 8,
+                    "line": 1,
+                    "offset": 8,
+                  },
+                },
+                "name": "disabled",
+                "range": [
+                  8,
+                  16,
+                ],
+                "raw": "disabled",
+                "start": 8,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                8,
+                17,
+              ],
+              "raw": "disabled>",
+              "start": 8,
+              "type": "JSXAttribute",
+              "value": null,
+            },
+          ],
+          "end": 17,
+          "loc": {
+            "end": {
+              "column": 17,
+              "line": 1,
+              "offset": 17,
+            },
+            "start": {
+              "column": 0,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "name": {
+            "end": 7,
+            "loc": {
+              "end": {
+                "column": 7,
+                "line": 1,
+                "offset": 7,
+              },
+              "start": {
+                "column": 1,
+                "line": 1,
+                "offset": 1,
+              },
+            },
+            "name": "button",
+            "range": [
+              1,
+              7,
+            ],
+            "raw": "button",
+            "start": 1,
+            "type": "JSXIdentifier",
+          },
+          "range": [
+            0,
+            17,
+          ],
+          "raw": "<button disabled>",
+          "selfClosing": false,
+          "start": 0,
+          "type": "JSXOpeningElement",
+        },
+        "range": [
+          0,
+          31,
+        ],
+        "raw": "<button disabled>Hello</button>",
+        "start": 0,
+        "type": "JSXElement",
+      },
+      "loc": {
+        "end": {
+          "column": 32,
+          "line": 1,
+          "offset": 31,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "range": [
+        0,
+        31,
+      ],
+      "start": 0,
+      "type": "ExpressionStatement",
+    },
+    {
+      "end": 51,
+      "expression": {
+        "children": [],
+        "closingElement": null,
+        "end": 51,
+        "loc": {
+          "end": {
+            "column": 18,
+            "line": 3,
+            "offset": 51,
+          },
+          "start": {
+            "column": 0,
+            "line": 3,
+            "offset": 33,
+          },
+        },
+        "openingElement": {
+          "attributes": [
+            {
+              "end": 50,
+              "loc": {
+                "end": {
+                  "column": 17,
+                  "line": 3,
+                  "offset": 50,
+                },
+                "start": {
+                  "column": 8,
+                  "line": 3,
+                  "offset": 41,
+                },
+              },
+              "name": {
+                "end": 49,
+                "loc": {
+                  "end": {
+                    "column": 16,
+                    "line": 3,
+                    "offset": 49,
+                  },
+                  "start": {
+                    "column": 8,
+                    "line": 3,
+                    "offset": 41,
+                  },
+                },
+                "name": "disabled",
+                "range": [
+                  41,
+                  49,
+                ],
+                "raw": "disabled",
+                "start": 41,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                41,
+                50,
+              ],
+              "raw": "disabled/",
+              "start": 41,
+              "type": "JSXAttribute",
+              "value": null,
+            },
+          ],
+          "end": 51,
+          "loc": {
+            "end": {
+              "column": 18,
+              "line": 3,
+              "offset": 51,
+            },
+            "start": {
+              "column": 0,
+              "line": 3,
+              "offset": 33,
+            },
+          },
+          "name": {
+            "end": 40,
+            "loc": {
+              "end": {
+                "column": 7,
+                "line": 3,
+                "offset": 40,
+              },
+              "start": {
+                "column": 1,
+                "line": 3,
+                "offset": 34,
+              },
+            },
+            "name": "button",
+            "range": [
+              34,
+              40,
+            ],
+            "raw": "button",
+            "start": 34,
+            "type": "JSXIdentifier",
+          },
+          "range": [
+            33,
+            51,
+          ],
+          "raw": "<button disabled/>",
+          "selfClosing": true,
+          "start": 33,
+          "type": "JSXOpeningElement",
+        },
+        "range": [
+          33,
+          51,
+        ],
+        "raw": "<button disabled/>",
+        "start": 33,
+        "type": "JSXElement",
+      },
+      "loc": {
+        "end": {
+          "column": 19,
+          "line": 3,
+          "offset": 51,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+          "offset": 33,
+        },
+      },
+      "range": [
+        33,
+        51,
+      ],
+      "start": 33,
+      "type": "ExpressionStatement",
+    },
+  ],
+  "comments": [],
+  "end": 52,
+  "loc": {
+    "end": {
+      "column": 1,
+      "line": 4,
+      "offset": 52,
+    },
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "range": [
+    0,
+    52,
+  ],
+  "sourceType": undefined,
+  "start": 0,
+  "tokens": [
+    {
+      "end": 1,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 1,
+          "offset": 1,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "range": [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 7,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 1,
+          "offset": 7,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 1,
+        },
+      },
+      "range": [
+        1,
+        7,
+      ],
+      "start": 1,
+      "type": "JSXIdentifier",
+      "value": "button",
+    },
+    {
+      "end": 16,
+      "loc": {
+        "end": {
+          "column": 16,
+          "line": 1,
+          "offset": 16,
+        },
+        "start": {
+          "column": 8,
+          "line": 1,
+          "offset": 8,
+        },
+      },
+      "range": [
+        8,
+        16,
+      ],
+      "start": 8,
+      "type": "JSXIdentifier",
+      "value": "disabled",
+    },
+    {
+      "end": 22,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 1,
+          "offset": 22,
+        },
+        "start": {
+          "column": 17,
+          "line": 1,
+          "offset": 17,
+        },
+      },
+      "range": [
+        17,
+        22,
+      ],
+      "start": 17,
+      "type": "JSXText",
+      "value": "Hello",
+    },
+    {
+      "end": 23,
+      "loc": {
+        "end": {
+          "column": 23,
+          "line": 1,
+          "offset": 23,
+        },
+        "start": {
+          "column": 22,
+          "line": 1,
+          "offset": 22,
+        },
+      },
+      "range": [
+        22,
+        23,
+      ],
+      "start": 22,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 24,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 1,
+          "offset": 24,
+        },
+        "start": {
+          "column": 23,
+          "line": 1,
+          "offset": 23,
+        },
+      },
+      "range": [
+        23,
+        24,
+      ],
+      "start": 23,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    {
+      "end": 30,
+      "loc": {
+        "end": {
+          "column": 30,
+          "line": 1,
+          "offset": 30,
+        },
+        "start": {
+          "column": 24,
+          "line": 1,
+          "offset": 24,
+        },
+      },
+      "range": [
+        24,
+        30,
+      ],
+      "start": 24,
+      "type": "JSXIdentifier",
+      "value": "button",
+    },
+    {
+      "end": 31,
+      "loc": {
+        "end": {
+          "column": 31,
+          "line": 1,
+          "offset": 31,
+        },
+        "start": {
+          "column": 30,
+          "line": 1,
+          "offset": 30,
+        },
+      },
+      "range": [
+        30,
+        31,
+      ],
+      "start": 30,
+      "type": "Punctuator",
+      "value": ">",
+    },
+    {
+      "end": 34,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 3,
+          "offset": 34,
+        },
+        "start": {
+          "column": 0,
+          "line": 3,
+          "offset": 33,
+        },
+      },
+      "range": [
+        33,
+        34,
+      ],
+      "start": 33,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 40,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 3,
+          "offset": 40,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+          "offset": 34,
+        },
+      },
+      "range": [
+        34,
+        40,
+      ],
+      "start": 34,
+      "type": "JSXIdentifier",
+      "value": "button",
+    },
+    {
+      "end": 49,
+      "loc": {
+        "end": {
+          "column": 16,
+          "line": 3,
+          "offset": 49,
+        },
+        "start": {
+          "column": 8,
+          "line": 3,
+          "offset": 41,
+        },
+      },
+      "range": [
+        41,
+        49,
+      ],
+      "start": 41,
+      "type": "JSXIdentifier",
+      "value": "disabled",
+    },
+    {
+      "end": 50,
+      "loc": {
+        "end": {
+          "column": 17,
+          "line": 3,
+          "offset": 50,
+        },
+        "start": {
+          "column": 16,
+          "line": 3,
+          "offset": 49,
+        },
+      },
+      "range": [
+        49,
+        50,
+      ],
+      "start": 49,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    {
+      "end": 51,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 3,
+          "offset": 51,
+        },
+        "start": {
+          "column": 17,
+          "line": 3,
+          "offset": 50,
+        },
+      },
+      "range": [
+        50,
+        51,
+      ],
+      "start": 50,
+      "type": "Punctuator",
+      "value": ">",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
 exports[`parser should match all AST snapshots: acorn.mdx 1`] = `"Unexpected character \`\\\` (U+005C) in name, expected a name character such as letters, digits, \`$\`, or \`_\`; whitespace before attributes; or the end of the tag"`;
 
 exports[`parser should match all AST snapshots: adjacent.mdx 1`] = `
@@ -41624,6 +42262,28 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
       "value": "<",
     },
     {
+      "end": 75,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 10,
+          "offset": 75,
+        },
+        "start": {
+          "column": 0,
+          "line": 10,
+          "offset": 74,
+        },
+      },
+      "range": [
+        74,
+        75,
+      ],
+      "start": 74,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
       "end": 86,
       "loc": {
         "end": {
@@ -41644,50 +42304,6 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
       "start": 76,
       "type": "JSXText",
       "value": " Fragment ",
-    },
-    {
-      "end": 87,
-      "loc": {
-        "end": {
-          "column": 13,
-          "line": 10,
-          "offset": 87,
-        },
-        "start": {
-          "column": 12,
-          "line": 10,
-          "offset": 86,
-        },
-      },
-      "range": [
-        86,
-        87,
-      ],
-      "start": 86,
-      "type": "Punctuator",
-      "value": "<",
-    },
-    {
-      "end": 88,
-      "loc": {
-        "end": {
-          "column": 14,
-          "line": 10,
-          "offset": 88,
-        },
-        "start": {
-          "column": 13,
-          "line": 10,
-          "offset": 87,
-        },
-      },
-      "range": [
-        87,
-        88,
-      ],
-      "start": 87,
-      "type": "Punctuator",
-      "value": "/",
     },
     {
       "end": 89,
