@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.0.5
+
+### Patch Changes
+
+- [#431](https://github.com/mdx-js/eslint-mdx/pull/431) [`bebc564`](https://github.com/mdx-js/eslint-mdx/commit/bebc564fdf0587b2aa47bb13707031da676b851c) Thanks [@JounQin](https://github.com/JounQin)! - fix: parse error on void boolean attributes
+
+- [#428](https://github.com/mdx-js/eslint-mdx/pull/428) [`ff52be2`](https://github.com/mdx-js/eslint-mdx/commit/ff52be232611275307681a53c69ed40c3a419da1) Thanks [@JounQin](https://github.com/JounQin)! - fix: handle pure ESM robustly
+
 ## 2.0.4
 
 ### Patch Changes
