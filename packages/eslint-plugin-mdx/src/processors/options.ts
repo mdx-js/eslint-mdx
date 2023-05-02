@@ -39,6 +39,7 @@ ESLinter.prototype.verify = function (
     (typeof config.extractConfig === 'function'
       ? config.extractConfig(
           /* istanbul ignore next */
+          // eslint-disable-next-line unicorn/no-typeof-undefined
           typeof options === 'undefined' || typeof options === 'string'
             ? options
             : options.filename,

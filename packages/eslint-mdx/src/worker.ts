@@ -16,10 +16,13 @@ import type {
   ObjectExpression,
   Program,
   SpreadElement,
-  TemplateElement,
 } from 'estree'
 import type { JSXClosingElement, JSXElement, JSXFragment } from 'estree-jsx'
-import type { BlockContent, PhrasingContent } from 'mdast'
+import type {
+  BlockContent,
+  PhrasingContent,
+  Literal as MdastLiteral,
+} from 'mdast'
 import type { Options } from 'micromark-extension-mdx-expression'
 import type { Root } from 'remark-mdx'
 import { extractProperties, runAsWorker } from 'synckit'
@@ -301,7 +304,9 @@ runAsWorker(
 
         processed.add(node)
 
-        function handleChildren(node: BlockContent | PhrasingContent) {
+        function handleChildren(
+          node: BlockContent | MdastLiteral | PhrasingContent,
+        ) {
           return 'children' in node
             ? (node.children as Array<BlockContent | PhrasingContent>).reduce<
                 JSXElement['children']
@@ -336,7 +341,9 @@ runAsWorker(
             : []
         }
 
-        function handleNode(node: BlockContent | PhrasingContent) {
+        function handleNode(
+          node: BlockContent | MdastLiteral | PhrasingContent,
+        ) {
           if (
             node.type !== 'mdxJsxTextElement' &&
             node.type !== 'mdxJsxFlowElement'
@@ -355,7 +362,7 @@ runAsWorker(
 
           let expression: BaseExpression
 
-          if (node.name) {
+          if ('name' in node && node.name) {
             const nodeNameLength = node.name.length
             const nodeNameStart = nextCharOffset(nodeStart + 1)
 
@@ -612,7 +619,7 @@ runAsWorker(
         /**
          * Copied from @see https://github.com/eslint/espree/blob/main/lib/espree.js#L206-L220
          */
-        const templateElement = node as TemplateElement
+        const templateElement = node
 
         const startOffset = -1
         const endOffset = templateElement.tail ? 1 : 2

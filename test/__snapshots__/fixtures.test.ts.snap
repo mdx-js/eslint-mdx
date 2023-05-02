@@ -174,6 +174,17 @@ exports[`fixtures should match all snapshots: 292.mdx 1`] = `
     "ruleId": "prettier/prettier",
     "severity": 2,
   },
+  {
+    "column": 46,
+    "endColumn": 51,
+    "endLine": 5,
+    "line": 5,
+    "message": "Unknown property 'story' found",
+    "messageId": "unknownProp",
+    "nodeType": "JSXAttribute",
+    "ruleId": "react/no-unknown-property",
+    "severity": 2,
+  },
 ]
 `;
 
@@ -277,6 +288,7 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "severity": 2,
     "suggestions": [
       {
+        "data": {},
         "desc": "First argument is an \`array\`.",
         "fix": {
           "range": [
@@ -290,6 +302,7 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
         "messageId": "argument-is-spreadable",
       },
       {
+        "data": {},
         "desc": "First argument is not an \`array\`.",
         "fix": {
           "range": [
@@ -739,6 +752,17 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
     "severity": 2,
   },
   {
+    "column": 46,
+    "endColumn": 51,
+    "endLine": 1,
+    "line": 1,
+    "message": "Unknown property 'story' found",
+    "messageId": "unknownProp",
+    "nodeType": "JSXAttribute",
+    "ruleId": "react/no-unknown-property",
+    "severity": 2,
+  },
+  {
     "column": 9,
     "endColumn": 58,
     "endLine": 5,
@@ -757,6 +781,17 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
     "messageId": "replace",
     "nodeType": null,
     "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 46,
+    "endColumn": 51,
+    "endLine": 5,
+    "line": 5,
+    "message": "Unknown property 'story' found",
+    "messageId": "unknownProp",
+    "nodeType": "JSXAttribute",
+    "ruleId": "react/no-unknown-property",
     "severity": 2,
   },
   {
@@ -781,6 +816,17 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
     "severity": 2,
   },
   {
+    "column": 46,
+    "endColumn": 51,
+    "endLine": 9,
+    "line": 9,
+    "message": "Unknown property 'story' found",
+    "messageId": "unknownProp",
+    "nodeType": "JSXAttribute",
+    "ruleId": "react/no-unknown-property",
+    "severity": 2,
+  },
+  {
     "column": 9,
     "endColumn": 58,
     "endLine": 13,
@@ -799,6 +845,17 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
     "messageId": "replace",
     "nodeType": null,
     "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 46,
+    "endColumn": 51,
+    "endLine": 13,
+    "line": 13,
+    "message": "Unknown property 'story' found",
+    "messageId": "unknownProp",
+    "nodeType": "JSXAttribute",
+    "ruleId": "react/no-unknown-property",
     "severity": 2,
   },
   {
@@ -823,6 +880,17 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
     "severity": 2,
   },
   {
+    "column": 46,
+    "endColumn": 51,
+    "endLine": 17,
+    "line": 17,
+    "message": "Unknown property 'story' found",
+    "messageId": "unknownProp",
+    "nodeType": "JSXAttribute",
+    "ruleId": "react/no-unknown-property",
+    "severity": 2,
+  },
+  {
     "column": 9,
     "endColumn": 58,
     "endLine": 21,
@@ -841,6 +909,17 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
     "messageId": "replace",
     "nodeType": null,
     "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 46,
+    "endColumn": 51,
+    "endLine": 21,
+    "line": 21,
+    "message": "Unknown property 'story' found",
+    "messageId": "unknownProp",
+    "nodeType": "JSXAttribute",
+    "ruleId": "react/no-unknown-property",
     "severity": 2,
   },
 ]
