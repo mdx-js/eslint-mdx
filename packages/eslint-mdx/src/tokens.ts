@@ -151,7 +151,9 @@ export const restoreTokens = (
 
       const attrValue = attr.value
 
-      if (!attrValue) {
+      // void attribute and empty attribute are different
+      // @see #450
+      if (attrValue == null) {
         lastAttrOffset = attrStart + attrNameLength
         continue
       }

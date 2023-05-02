@@ -430,6 +430,173 @@ exports[`fixtures should match all snapshots: 429.mdx 1`] = `
 ]
 `;
 
+exports[`fixtures should match all snapshots: 450.mdx 1`] = `
+[
+  {
+    "column": 45,
+    "endColumn": 46,
+    "endLine": 1,
+    "fix": {
+      "range": [
+        44,
+        45,
+      ],
+      "text": "",
+    },
+    "line": 1,
+    "message": "Delete \`;\`",
+    "messageId": "delete",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 3,
+    "endLine": 14,
+    "fix": {
+      "range": [
+        177,
+        179,
+      ],
+      "text": "",
+    },
+    "line": 14,
+    "message": "Delete \`··\`",
+    "messageId": "delete",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 3,
+    "endLine": 15,
+    "fix": {
+      "range": [
+        200,
+        202,
+      ],
+      "text": "",
+    },
+    "line": 15,
+    "message": "Delete \`··\`",
+    "messageId": "delete",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 3,
+    "endLine": 16,
+    "fix": {
+      "range": [
+        214,
+        216,
+      ],
+      "text": "",
+    },
+    "line": 16,
+    "message": "Delete \`··\`",
+    "messageId": "delete",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 3,
+    "endLine": 17,
+    "fix": {
+      "range": [
+        229,
+        231,
+      ],
+      "text": "",
+    },
+    "line": 17,
+    "message": "Delete \`··\`",
+    "messageId": "delete",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 3,
+    "endLine": 18,
+    "fix": {
+      "range": [
+        247,
+        249,
+      ],
+      "text": "",
+    },
+    "line": 18,
+    "message": "Delete \`··\`",
+    "messageId": "delete",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 3,
+    "endLine": 19,
+    "fix": {
+      "range": [
+        278,
+        280,
+      ],
+      "text": "",
+    },
+    "line": 19,
+    "message": "Delete \`··\`",
+    "messageId": "delete",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 3,
+    "endLine": 20,
+    "fix": {
+      "range": [
+        317,
+        319,
+      ],
+      "text": "",
+    },
+    "line": 20,
+    "message": "Delete \`··\`",
+    "messageId": "delete",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 3,
+    "endLine": 21,
+    "fix": {
+      "range": [
+        358,
+        360,
+      ],
+      "text": "",
+    },
+    "line": 21,
+    "message": "Delete \`··\`",
+    "messageId": "delete",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+]
+`;
+
 exports[`fixtures should match all snapshots: acorn.mdx 1`] = `
 [
   {
