@@ -453,29 +453,11 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
   {
     "column": 1,
     "endColumn": 3,
-    "endLine": 14,
-    "fix": {
-      "range": [
-        177,
-        179,
-      ],
-      "text": "",
-    },
-    "line": 14,
-    "message": "Delete \`··\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
-    "column": 1,
-    "endColumn": 3,
     "endLine": 15,
     "fix": {
       "range": [
-        200,
-        202,
+        193,
+        195,
       ],
       "text": "",
     },
@@ -492,8 +474,8 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "endLine": 16,
     "fix": {
       "range": [
-        214,
         216,
+        218,
       ],
       "text": "",
     },
@@ -510,8 +492,8 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "endLine": 17,
     "fix": {
       "range": [
-        229,
-        231,
+        230,
+        232,
       ],
       "text": "",
     },
@@ -528,8 +510,8 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "endLine": 18,
     "fix": {
       "range": [
+        245,
         247,
-        249,
       ],
       "text": "",
     },
@@ -546,8 +528,8 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "endLine": 19,
     "fix": {
       "range": [
-        278,
-        280,
+        263,
+        265,
       ],
       "text": "",
     },
@@ -564,8 +546,8 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "endLine": 20,
     "fix": {
       "range": [
-        317,
-        319,
+        294,
+        296,
       ],
       "text": "",
     },
@@ -582,12 +564,30 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "endLine": 21,
     "fix": {
       "range": [
-        358,
-        360,
+        333,
+        335,
       ],
       "text": "",
     },
     "line": 21,
+    "message": "Delete \`··\`",
+    "messageId": "delete",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 3,
+    "endLine": 22,
+    "fix": {
+      "range": [
+        374,
+        376,
+      ],
+      "text": "",
+    },
+    "line": 22,
     "message": "Delete \`··\`",
     "messageId": "delete",
     "nodeType": null,
