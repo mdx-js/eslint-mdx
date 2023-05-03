@@ -450,7 +450,7 @@ runAsWorker(
 
                   if (attrValue == null) {
                     return {
-                      ...normalizeNode(attrStart, lastAttrOffset + 1),
+                      ...normalizeNode(attrStart, lastAttrOffset),
                       type: 'JSXAttribute',
                       name: {
                         ...attrNamePos,
