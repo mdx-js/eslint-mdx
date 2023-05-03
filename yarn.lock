@@ -10871,7 +10871,7 @@ unicode-property-aliases-ecmascript@^2.0.0:
   resolved "https://registry.yarnpkg.com/unicode-property-aliases-ecmascript/-/unicode-property-aliases-ecmascript-2.1.0.tgz#43d41e3be698bd493ef911077c9b131f827e8ccd"
   integrity sha512-6t3foTQI9qne+OZoVQB/8x8rk2k1eVy1gRXhV3oFQ5T6R1dqQ1xtin3XqSlx3+ATBkliTaR/hHyJBm+LVPNM8w==
 
-unified-engine@^10.0.1:
+unified-engine@^10.0.1, unified-engine@^10.1.0:
   version "10.1.0"
   resolved "https://registry.yarnpkg.com/unified-engine/-/unified-engine-10.1.0.tgz#6899f00d1f53ee9af94f7abd0ec21242aae3f56c"
   integrity sha512-5+JDIs4hqKfHnJcVCxTid1yBoI/++FfF/1PFdSMpaftZZZY+qg2JFruRbf7PaIwa9KgLotXQV3gSjtY0IdcFGQ==

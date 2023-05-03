@@ -1,6 +1,4 @@
-import path from 'node:path'
-
-import { arrayify, requirePkg } from 'eslint-mdx'
+import { arrayify } from 'eslint-mdx'
 import { getGlobals, getShortLang } from 'eslint-plugin-mdx'
 
 describe('Helpers', () => {
@@ -25,22 +23,4 @@ describe('Helpers', () => {
       b: false,
     })
   })
-
-  it('should resolve package correctly', async () => {
-    expect(await requirePkg('@1stg/config', 'commitlint')).toBeDefined()
-    // expect(await requirePkg('lint', 'remark')).toBeDefined()
-    // expect(await requirePkg('remark-parse', 'non-existed')).toBeDefined()
-    expect(
-      await requirePkg(
-        './.eslintrc',
-        'non-existed',
-        path.resolve('package.json'),
-      ),
-    ).toBeDefined()
-  })
-
-  it('should throw on non existed package', () =>
-    expect(requirePkg('@1stg/x-config', 'unexpected-')).rejects.toThrow(
-      "Cannot find module '@1stg/x-config'",
-    ))
 })

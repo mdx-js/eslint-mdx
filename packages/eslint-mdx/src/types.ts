@@ -2,7 +2,6 @@ import type { Position } from 'acorn'
 import type { AST, Linter } from 'eslint'
 import type { Program } from 'estree'
 import type { Root } from 'mdast'
-import type { Plugin } from 'unified'
 import type { VFileOptions } from 'vfile'
 import type { VFileMessage } from 'vfile-message'
 
@@ -21,13 +20,6 @@ export interface NormalPosition {
     end: Position
   }
   range: [number, number]
-}
-
-export type RemarkPlugin = Plugin | string
-
-export interface RemarkConfig {
-  settings: Record<string, string>
-  plugins: Array<RemarkPlugin | [RemarkPlugin, ...unknown[]]>
 }
 
 export interface WorkerOptions {

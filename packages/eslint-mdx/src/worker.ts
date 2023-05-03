@@ -4,8 +4,6 @@ import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 
 import type { Token, TokenType, tokTypes as _tokTypes } from 'acorn'
-import { cosmiconfig } from 'cosmiconfig'
-import type { CosmiconfigResult } from 'cosmiconfig/dist/types'
 import type { AST } from 'eslint'
 import type { EsprimaToken } from 'espree/lib/token-translator'
 import type {
@@ -26,27 +24,22 @@ import type {
 import type { Options } from 'micromark-extension-mdx-expression'
 import type { Root } from 'remark-mdx'
 import { extractProperties, runAsWorker } from 'synckit'
-import type { FrozenProcessor, Plugin } from 'unified'
+import type { FrozenProcessor } from 'unified'
+import type { Config, Configuration } from 'unified-engine/lib/configuration'
 import type { Node } from 'unist'
 import { ok as assert } from 'uvu/assert'
 import type { VFileMessage } from 'vfile-message'
 
 import {
-  arrayify,
   loadEsmModule,
   nextCharOffsetFactory,
   normalizePosition,
   prevCharOffsetFactory,
-  requirePkg,
 } from './helpers'
 import { restoreTokens } from './tokens'
-import type {
-  NormalPosition,
-  RemarkConfig,
-  RemarkPlugin,
-  WorkerOptions,
-  WorkerResult,
-} from './types'
+import type { NormalPosition, WorkerOptions, WorkerResult } from './types'
+
+let config: Configuration
 
 let acorn: typeof import('acorn')
 let acornJsx: {
@@ -60,11 +53,28 @@ let tt: Record<string, TokenType> & typeof _tokTypes
 
 let TokenTranslator: typeof import('espree/lib/token-translator')['default']
 
-const explorer = cosmiconfig('remark', {
-  packageProp: 'remarkConfig',
-})
-
 export const processorCache = new Map<string, FrozenProcessor>()
+
+const getRemarkConfig = async (searchFrom: string) => {
+  if (!config) {
+    const { Configuration } = await loadEsmModule<
+      typeof import('unified-engine/lib/configuration')
+    >('unified-engine/lib/configuration.js')
+    config = new Configuration({
+      cwd: process.cwd(),
+      packageField: 'remarkConfig',
+      pluginPrefix: 'remark',
+      rcName: '.remarkrc',
+      detectConfig: true,
+    })
+  }
+
+  return new Promise<Config>((resolve, reject) =>
+    config.load(searchFrom, (error, result) =>
+      error ? reject(error) : resolve(result),
+    ),
+  )
+}
 
 const getRemarkMdxOptions = (tokens: Token[]): Options => ({
   acorn: acornParser,
@@ -83,7 +93,6 @@ export const getRemarkProcessor = async (
   searchFrom: string,
   isMdx: boolean,
   ignoreRemarkConfig?: boolean,
-  // eslint-disable-next-line sonarjs/cognitive-complexity
 ) => {
   const initCacheKey = `${String(isMdx)}-${searchFrom}`
 
@@ -93,12 +102,10 @@ export const getRemarkProcessor = async (
     return cachedProcessor
   }
 
-  const result: CosmiconfigResult = ignoreRemarkConfig
-    ? null
-    : await explorer.search(searchFrom)
+  const result = ignoreRemarkConfig ? null : await getRemarkConfig(searchFrom)
 
-  const cacheKey = result
-    ? `${String(isMdx)}-${result.filepath}`
+  const cacheKey = result?.filePath
+    ? `${String(isMdx)}-${result.filePath}`
     : String(isMdx)
 
   cachedProcessor = processorCache.get(cacheKey)
@@ -120,11 +127,8 @@ export const getRemarkProcessor = async (
 
   const remarkProcessor = unified().use(remarkParse).freeze()
 
-  if (result) {
-    /* istanbul ignore next */
-    const { plugins = [], settings } =
-      // type-coverage:ignore-next-line -- cosmiconfig's typings issue
-      (result.config || {}) as Partial<RemarkConfig>
+  if (result?.filePath) {
+    const { plugins, settings } = result
 
     // disable this rule automatically since we already have a parser option `extensions`
     // only disable this plugin if there are at least one plugin enabled
@@ -132,7 +136,14 @@ export const getRemarkProcessor = async (
     /* istanbul ignore else */
     if (plugins.length > 0) {
       try {
-        plugins.push([await requirePkg('lint-file-extension', 'remark'), false])
+        plugins.push([
+          (
+            await loadEsmModule<typeof import('remark-lint-file-extension')>(
+              'remark-lint-file-extension',
+            )
+          ).default,
+          false,
+        ])
       } catch {
         // just ignore if the package does not exist
       }
@@ -146,21 +157,9 @@ export const getRemarkProcessor = async (
       initProcessor.use(remarkMdx, getRemarkMdxOptions(sharedTokens))
     }
 
-    cachedProcessor = (
-      await plugins.reduce(async (processor, pluginWithSettings) => {
-        const [plugin, ...pluginSettings] = arrayify(pluginWithSettings) as [
-          RemarkPlugin,
-          ...unknown[],
-        ]
-        return (await processor).use(
-          /* istanbul ignore next */
-          typeof plugin === 'string'
-            ? await requirePkg<Plugin>(plugin, 'remark', result.filepath)
-            : plugin,
-          ...pluginSettings,
-        )
-      }, Promise.resolve(initProcessor))
-    ).freeze()
+    cachedProcessor = plugins
+      .reduce((processor, plugin) => processor.use(...plugin), initProcessor)
+      .freeze()
   } else {
     const initProcessor = remarkProcessor().use(remarkStringify)
 
