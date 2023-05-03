@@ -17,7 +17,14 @@ import type {
   Program,
   SpreadElement,
 } from 'estree'
-import type { JSXClosingElement, JSXElement, JSXFragment } from 'estree-jsx'
+import type {
+  JSXClosingElement,
+  JSXElement,
+  JSXFragment,
+  JSXIdentifier,
+  JSXMemberExpression,
+  JSXNamespacedName,
+} from 'estree-jsx'
 import type {
   BlockContent,
   PhrasingContent,
@@ -290,6 +297,58 @@ runAsWorker(
         raw: text.slice(start, end),
       })
 
+      const handleJsxName = (
+        nodeName: string,
+        start: number,
+      ): JSXIdentifier | JSXMemberExpression | JSXNamespacedName => {
+        const name = nodeName.trim()
+        const nameIndex = nodeName.indexOf(name)
+
+        const colonIndex = nodeName.indexOf(':')
+        if (colonIndex !== -1) {
+          const [fullNamespace, fullName] = nodeName.split(':')
+          return {
+            ...normalizeNode(
+              start + nameIndex,
+              start + nameIndex + name.length,
+            ),
+            type: 'JSXNamespacedName',
+            namespace: handleJsxName(fullNamespace, start) as JSXIdentifier,
+            name: handleJsxName(
+              fullName,
+              start + colonIndex + 1,
+            ) as JSXIdentifier,
+          }
+        }
+
+        const lastPointIndex = nodeName.lastIndexOf('.')
+        if (lastPointIndex === -1) {
+          return {
+            ...normalizeNode(
+              start + nameIndex,
+              start + nameIndex + name.length,
+            ),
+            type: 'JSXIdentifier',
+            name,
+          }
+        }
+
+        const objectName = nodeName.slice(0, lastPointIndex)
+        const propertyName = nodeName.slice(lastPointIndex + 1)
+
+        return {
+          ...normalizeNode(start + nameIndex, start + nameIndex + name.length),
+          type: 'JSXMemberExpression',
+          object: handleJsxName(objectName, start) as
+            | JSXIdentifier
+            | JSXMemberExpression,
+          property: handleJsxName(
+            propertyName,
+            start + lastPointIndex + 1,
+          ) as JSXIdentifier,
+        }
+      }
+
       visit(root, node => {
         if (
           processed.has(node) ||
@@ -375,20 +434,16 @@ runAsWorker(
             if (!selfClosing) {
               const prevOffset = prevCharOffset(lastCharOffset)
               const slashOffset = prevCharOffset(prevOffset - nodeNameLength)
-              assert(text[slashOffset] === '/')
+              assert(
+                text[slashOffset] === '/',
+                `expect \`${text[slashOffset]}\` to be \`/\`, the node is ${node.name}`,
+              )
               const tagStartOffset = prevCharOffset(slashOffset - 1)
               assert(text[tagStartOffset] === '<')
               closingElement = {
                 ...normalizeNode(tagStartOffset, nodeEnd),
                 type: 'JSXClosingElement',
-                name: {
-                  ...normalizeNode(
-                    prevOffset + 1 - nodeNameLength,
-                    prevOffset + 1,
-                  ),
-                  type: 'JSXIdentifier',
-                  name: node.name,
-                },
+                name: handleJsxName(node.name, prevOffset + 1 - nodeNameLength),
               }
             }
 
@@ -397,14 +452,7 @@ runAsWorker(
               type: 'JSXElement',
               openingElement: {
                 type: 'JSXOpeningElement',
-                name: {
-                  ...normalizeNode(
-                    nodeNameStart,
-                    nodeNameStart + nodeNameLength,
-                  ),
-                  type: 'JSXIdentifier',
-                  name: node.name,
-                },
+                name: handleJsxName(node.name, nodeNameStart),
                 attributes: node.attributes.map(attr => {
                   if (attr.type === 'mdxJsxExpressionAttribute') {
                     assert(attr.data)
