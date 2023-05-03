@@ -1,7 +1,5 @@
-/* eslint-disable unicorn/no-await-expression-member */
 import fs from 'node:fs'
 import path from 'node:path'
-import { pathToFileURL } from 'node:url'
 
 import type { Position } from 'acorn'
 import type { Point } from 'unist'
@@ -63,83 +61,6 @@ export const loadEsmModule = <T>(modulePath: URL | string): Promise<T> =>
   new Function('modulePath', `return import(modulePath);`)(
     modulePath,
   ) as Promise<T>
-
-/**
- * Loads CJS and ESM modules based on extension
- * @param modulePath path to the module
- * @returns
- */
-export const loadModule = async <T>(modulePath: string): Promise<T> => {
-  const esModulePath = path.isAbsolute(modulePath)
-    ? pathToFileURL(modulePath)
-    : modulePath
-  switch (path.extname(modulePath)) {
-    /* istanbul ignore next */
-    case '.mjs': {
-      return (await loadEsmModule<{ default: T }>(esModulePath)).default
-    }
-    /* istanbul ignore next */
-    case '.cjs': {
-      // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-return
-      return require(modulePath)
-    }
-    default: {
-      // The file could be either CommonJS or ESM.
-      // CommonJS is tried first then ESM if loading fails.
-      try {
-        // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-return
-        return require(modulePath)
-      } catch (err) {
-        const code = (err as { code: string }).code
-        /* istanbul ignore if */
-        if (
-          code === 'ERR_REQUIRE_ESM' ||
-          // A pure ESM could have no `exports.require` and then throw the following error,
-          // related to #427.
-          code === 'ERR_PACKAGE_PATH_NOT_EXPORTED'
-        ) {
-          // Load the ESM configuration file using the TypeScript dynamic import workaround.
-          // Once TypeScript provides support for keeping the dynamic import this workaround can be
-          // changed to a direct dynamic import.
-          return (await loadEsmModule<{ default: T }>(esModulePath)).default
-        }
-
-        throw err
-      }
-    }
-  }
-}
-
-export const requirePkg = async <T>(
-  plugin: string,
-  prefix: string,
-  filePath?: string,
-): Promise<T> => {
-  let packages: string[]
-  if (filePath && /^\.\.?(?:[/\\]|$)/.test(plugin)) {
-    packages = [path.resolve(path.dirname(filePath), plugin)]
-  } else {
-    prefix = prefix.endsWith('-') ? prefix : prefix + '-'
-    packages = [
-      plugin,
-      /* istanbul ignore next */
-      plugin.startsWith('@')
-        ? plugin.replace('/', '/' + prefix)
-        : prefix + plugin,
-    ]
-  }
-  let error: Error
-  for (const pkg of packages) {
-    try {
-      return await loadModule<T>(pkg)
-    } catch (err) {
-      if (!error) {
-        error = err as Error
-      }
-    }
-  }
-  throw error
-}
 
 /* istanbul ignore next -- used in worker */
 export const getPositionAtFactory = (text: string) => {

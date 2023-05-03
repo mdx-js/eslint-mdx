@@ -1145,6 +1145,36 @@ exports[`fixtures should match all snapshots: remark.md 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: remark.mdx 1`] = `[]`;
 
+exports[`fixtures should match all snapshots: test.md 1`] = `
+[
+  {
+    "column": 1,
+    "endColumn": 15,
+    "endLine": 1,
+    "line": 1,
+    "message": "Link to unknown file: \`test\`",
+    "nodeType": "Program",
+    "ruleId": "remark-validate-links-missing-file",
+    "severity": 1,
+  },
+]
+`;
+
+exports[`fixtures should match all snapshots: test.md 2`] = `
+[
+  {
+    "column": 1,
+    "endColumn": 15,
+    "endLine": 1,
+    "line": 1,
+    "message": "Link to unknown file: \`test\`",
+    "nodeType": "Program",
+    "ruleId": "remark-validate-links-missing-file",
+    "severity": 1,
+  },
+]
+`;
+
 exports[`fixtures should match all snapshots: unicorn.jsx 1`] = `
 [
   {
