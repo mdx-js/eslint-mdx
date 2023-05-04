@@ -430,6 +430,22 @@ exports[`fixtures should match all snapshots: 429.mdx 1`] = `
 ]
 `;
 
+exports[`fixtures should match all snapshots: 445.mdx 1`] = `
+[
+  {
+    "column": 2,
+    "endColumn": 3,
+    "endLine": 9,
+    "line": 9,
+    "message": "'A' is not defined.",
+    "messageId": "undefined",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+]
+`;
+
 exports[`fixtures should match all snapshots: 450.mdx 1`] = `
 [
   {
