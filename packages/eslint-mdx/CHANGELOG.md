@@ -1,5 +1,17 @@
 # Change Log
 
+## 2.1.0
+
+### Minor Changes
+
+- [#461](https://github.com/mdx-js/eslint-mdx/pull/461) [`296a319`](https://github.com/mdx-js/eslint-mdx/commit/296a319bf7f385d97c6d647e093233552e7d99b3) Thanks [@JounQin](https://github.com/JounQin)! - feat: use unified-engine to load ESM configurations
+
+### Patch Changes
+
+- [#460](https://github.com/mdx-js/eslint-mdx/pull/460) [`58639a0`](https://github.com/mdx-js/eslint-mdx/commit/58639a0aa214ec930d07dada0afc1d1449c52a9e) Thanks [@JounQin](https://github.com/JounQin)! - fix: jsx name could be namespace or member expression
+
+- [#458](https://github.com/mdx-js/eslint-mdx/pull/458) [`9a71318`](https://github.com/mdx-js/eslint-mdx/commit/9a71318de1b6d8d5adac5b7cf7fba0526d294c49) Thanks [@JounQin](https://github.com/JounQin)! - fix: void attribute and empty attribute are different
+
 ## 2.0.5
 
 ### Patch Changes
