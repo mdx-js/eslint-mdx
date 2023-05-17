@@ -1,0 +1,12 @@
+diff --git a/node_modules/eslint-plugin-sonar/lib/index.cjs b/node_modules/eslint-plugin-sonar/lib/index.cjs
+index b912dd9..c9ca1fb 100644
+--- a/node_modules/eslint-plugin-sonar/lib/index.cjs
++++ b/node_modules/eslint-plugin-sonar/lib/index.cjs
+@@ -3608,6 +3608,7 @@ function interceptReport(rule, onReport, contextOverrider) {
+                     parserPath: originalContext.parserPath,
+                     parserOptions: originalContext.parserOptions,
+                     parserServices: originalContext.parserServices,
++                    sourceCode: originalContext.sourceCode,
+                     getCwd() {
+                         return originalContext.getCwd();
+                     },
