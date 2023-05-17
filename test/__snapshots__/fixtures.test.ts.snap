@@ -430,6 +430,168 @@ exports[`fixtures should match all snapshots: 429.mdx 1`] = `
 ]
 `;
 
+exports[`fixtures should match all snapshots: 435.mdx 1`] = `
+[
+  {
+    "column": 1,
+    "endColumn": 2,
+    "endLine": 2,
+    "fix": {
+      "range": [
+        8,
+        9,
+      ],
+      "text": "  ",
+    },
+    "line": 2,
+    "message": "Replace \`↹\` with \`··\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 3,
+    "endLine": 3,
+    "fix": {
+      "range": [
+        18,
+        20,
+      ],
+      "text": "    ",
+    },
+    "line": 3,
+    "message": "Replace \`↹↹\` with \`····\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 3,
+    "endLine": 4,
+    "fix": {
+      "range": [
+        39,
+        41,
+      ],
+      "text": "    ",
+    },
+    "line": 4,
+    "message": "Replace \`↹↹\` with \`····\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 2,
+    "endLine": 5,
+    "fix": {
+      "range": [
+        66,
+        67,
+      ],
+      "text": "  ",
+    },
+    "line": 5,
+    "message": "Replace \`↹\` with \`··\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 2,
+    "endLine": 7,
+    "fix": {
+      "range": [
+        72,
+        73,
+      ],
+      "text": "  ",
+    },
+    "line": 7,
+    "message": "Replace \`↹\` with \`··\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 2,
+    "endColumn": 4,
+    "endLine": 10,
+    "fix": {
+      "range": [
+        91,
+        93,
+      ],
+      "text": "",
+    },
+    "line": 10,
+    "message": "Delete \`··\`",
+    "messageId": "delete",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 16,
+    "endLine": 12,
+    "fix": {
+      "range": [
+        102,
+        115,
+      ],
+      "text": "<Components
+   ",
+    },
+    "line": 12,
+    "message": "Replace \`··<Components\` with \`<Components⏎···\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 6,
+    "endColumn": 16,
+    "endLine": 12,
+    "line": 12,
+    "message": "'Components' is not defined.",
+    "messageId": "undefined",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 7,
+    "endLine": 13,
+    "fix": {
+      "range": [
+        124,
+        130,
+      ],
+      "text": "\`}
+ ",
+    },
+    "line": 13,
+    "message": "Replace \`····\`}\` with \`\`}⏎·\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+]
+`;
+
 exports[`fixtures should match all snapshots: 445.mdx 1`] = `
 [
   {
@@ -714,8 +876,8 @@ the installation guides.
   p={3}
   bg="lightgray"
   style={{
-   textAlign: 'center',
-   fontWeight: 'bold',
+    textAlign: 'center',
+    fontWeight: 'bold',
   }}
 >
   [Next.js](/getting-started/next) |

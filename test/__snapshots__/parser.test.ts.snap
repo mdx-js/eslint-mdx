@@ -15572,226 +15572,6 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       "value": "'@storybook/angular'",
     },
     {
-      "end": 158,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-        "start": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-      },
-      "range": [
-        158,
-        158,
-      ],
-      "start": 158,
-      "type": "Keyword",
-      "value": "var",
-    },
-    {
-      "end": 158,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-        "start": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-      },
-      "range": [
-        158,
-        158,
-      ],
-      "start": 158,
-      "type": "Identifier",
-      "value": "FormsModule",
-    },
-    {
-      "end": 158,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-        "start": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-      },
-      "range": [
-        158,
-        158,
-      ],
-      "start": 158,
-      "type": "Punctuator",
-      "value": "",
-    },
-    {
-      "end": 158,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-        "start": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-      },
-      "range": [
-        158,
-        158,
-      ],
-      "start": 158,
-      "type": "Identifier",
-      "value": "Canvas",
-    },
-    {
-      "end": 158,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-        "start": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-      },
-      "range": [
-        158,
-        158,
-      ],
-      "start": 158,
-      "type": "Punctuator",
-      "value": "",
-    },
-    {
-      "end": 158,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-        "start": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-      },
-      "range": [
-        158,
-        158,
-      ],
-      "start": 158,
-      "type": "Identifier",
-      "value": "Meta",
-    },
-    {
-      "end": 158,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-        "start": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-      },
-      "range": [
-        158,
-        158,
-      ],
-      "start": 158,
-      "type": "Punctuator",
-      "value": "",
-    },
-    {
-      "end": 158,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-        "start": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-      },
-      "range": [
-        158,
-        158,
-      ],
-      "start": 158,
-      "type": "Identifier",
-      "value": "Story",
-    },
-    {
-      "end": 158,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-        "start": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-      },
-      "range": [
-        158,
-        158,
-      ],
-      "start": 158,
-      "type": "Punctuator",
-      "value": "",
-    },
-    {
-      "end": 158,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-        "start": {
-          "column": 0,
-          "line": 5,
-          "offset": 158,
-        },
-      },
-      "range": [
-        158,
-        158,
-      ],
-      "start": 158,
-      "type": "Identifier",
-      "value": "moduleMetadata",
-    },
-    {
       "end": 164,
       "loc": {
         "end": {
@@ -16054,314 +15834,6 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       "start": 254,
       "type": "String",
       "value": "'./lazy-test.component'",
-    },
-    {
-      "end": 279,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-        "start": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-      },
-      "range": [
-        279,
-        279,
-      ],
-      "start": 279,
-      "type": "Keyword",
-      "value": "var",
-    },
-    {
-      "end": 279,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-        "start": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-      },
-      "range": [
-        279,
-        279,
-      ],
-      "start": 279,
-      "type": "Identifier",
-      "value": "FormsModule",
-    },
-    {
-      "end": 279,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-        "start": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-      },
-      "range": [
-        279,
-        279,
-      ],
-      "start": 279,
-      "type": "Punctuator",
-      "value": "",
-    },
-    {
-      "end": 279,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-        "start": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-      },
-      "range": [
-        279,
-        279,
-      ],
-      "start": 279,
-      "type": "Identifier",
-      "value": "Canvas",
-    },
-    {
-      "end": 279,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-        "start": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-      },
-      "range": [
-        279,
-        279,
-      ],
-      "start": 279,
-      "type": "Punctuator",
-      "value": "",
-    },
-    {
-      "end": 279,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-        "start": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-      },
-      "range": [
-        279,
-        279,
-      ],
-      "start": 279,
-      "type": "Identifier",
-      "value": "Meta",
-    },
-    {
-      "end": 279,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-        "start": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-      },
-      "range": [
-        279,
-        279,
-      ],
-      "start": 279,
-      "type": "Punctuator",
-      "value": "",
-    },
-    {
-      "end": 279,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-        "start": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-      },
-      "range": [
-        279,
-        279,
-      ],
-      "start": 279,
-      "type": "Identifier",
-      "value": "Story",
-    },
-    {
-      "end": 279,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-        "start": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-      },
-      "range": [
-        279,
-        279,
-      ],
-      "start": 279,
-      "type": "Punctuator",
-      "value": "",
-    },
-    {
-      "end": 279,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-        "start": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-      },
-      "range": [
-        279,
-        279,
-      ],
-      "start": 279,
-      "type": "Identifier",
-      "value": "moduleMetadata",
-    },
-    {
-      "end": 279,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-        "start": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-      },
-      "range": [
-        279,
-        279,
-      ],
-      "start": 279,
-      "type": "Punctuator",
-      "value": "",
-    },
-    {
-      "end": 279,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-        "start": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-      },
-      "range": [
-        279,
-        279,
-      ],
-      "start": 279,
-      "type": "Identifier",
-      "value": "ActiveTestComponent",
-    },
-    {
-      "end": 279,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-        "start": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-      },
-      "range": [
-        279,
-        279,
-      ],
-      "start": 279,
-      "type": "Punctuator",
-      "value": "",
-    },
-    {
-      "end": 279,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-        "start": {
-          "column": 0,
-          "line": 8,
-          "offset": 279,
-        },
-      },
-      "range": [
-        279,
-        279,
-      ],
-      "start": 279,
-      "type": "Identifier",
-      "value": "LazyTestComponent",
     },
     {
       "end": 285,
@@ -30627,6 +30099,1316 @@ exports[`parser should match all AST snapshots: 429.mdx 1`] = `
 }
 `;
 
+exports[`parser should match all AST snapshots: 435.mdx 1`] = `
+{
+  "body": [
+    {
+      "end": 88,
+      "expression": {
+        "children": [],
+        "closingElement": {
+          "end": 88,
+          "loc": {
+            "end": {
+              "column": 9,
+              "line": 8,
+              "offset": 88,
+            },
+            "start": {
+              "column": 0,
+              "line": 8,
+              "offset": 79,
+            },
+          },
+          "name": {
+            "end": 87,
+            "loc": {
+              "end": {
+                "column": 8,
+                "line": 8,
+                "offset": 87,
+              },
+              "start": {
+                "column": 2,
+                "line": 8,
+                "offset": 81,
+              },
+            },
+            "name": "button",
+            "range": [
+              81,
+              87,
+            ],
+            "raw": "button",
+            "start": 81,
+            "type": "JSXIdentifier",
+          },
+          "range": [
+            79,
+            88,
+          ],
+          "raw": "</button>",
+          "start": 79,
+          "type": "JSXClosingElement",
+        },
+        "end": 88,
+        "loc": {
+          "end": {
+            "column": 9,
+            "line": 8,
+            "offset": 88,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "openingElement": {
+          "attributes": [
+            {
+              "end": 14,
+              "loc": {
+                "end": {
+                  "column": 6,
+                  "line": 2,
+                  "offset": 14,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 2,
+                  "offset": 9,
+                },
+              },
+              "name": {
+                "end": 14,
+                "loc": {
+                  "end": {
+                    "column": 6,
+                    "line": 2,
+                    "offset": 14,
+                  },
+                  "start": {
+                    "column": 1,
+                    "line": 2,
+                    "offset": 9,
+                  },
+                },
+                "name": "style",
+                "range": [
+                  9,
+                  14,
+                ],
+                "raw": "style",
+                "start": 9,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                9,
+                14,
+              ],
+              "raw": "style",
+              "start": 9,
+              "type": "JSXAttribute",
+              "value": {
+                "end": 69,
+                "expression": {
+                  "end": 68,
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 5,
+                      "offset": 68,
+                    },
+                    "start": {
+                      "column": 8,
+                      "line": 2,
+                      "offset": 16,
+                    },
+                  },
+                  "properties": [
+                    {
+                      "computed": false,
+                      "end": 37,
+                      "key": {
+                        "end": 30,
+                        "loc": {
+                          "end": {
+                            "column": 12,
+                            "line": 3,
+                            "offset": 30,
+                          },
+                          "start": {
+                            "column": 2,
+                            "line": 3,
+                            "offset": 20,
+                          },
+                        },
+                        "name": "background",
+                        "range": [
+                          20,
+                          30,
+                        ],
+                        "start": 20,
+                        "type": "Identifier",
+                      },
+                      "kind": "init",
+                      "loc": {
+                        "end": {
+                          "column": 19,
+                          "line": 3,
+                          "offset": 37,
+                        },
+                        "start": {
+                          "column": 2,
+                          "line": 3,
+                          "offset": 20,
+                        },
+                      },
+                      "method": false,
+                      "range": [
+                        20,
+                        37,
+                      ],
+                      "shorthand": false,
+                      "start": 20,
+                      "type": "Property",
+                      "value": {
+                        "end": 37,
+                        "loc": {
+                          "end": {
+                            "column": 19,
+                            "line": 3,
+                            "offset": 37,
+                          },
+                          "start": {
+                            "column": 14,
+                            "line": 3,
+                            "offset": 32,
+                          },
+                        },
+                        "range": [
+                          32,
+                          37,
+                        ],
+                        "raw": "'red'",
+                        "start": 32,
+                        "type": "Literal",
+                        "value": "red",
+                      },
+                    },
+                    {
+                      "computed": false,
+                      "end": 64,
+                      "key": {
+                        "end": 47,
+                        "loc": {
+                          "end": {
+                            "column": 8,
+                            "line": 4,
+                            "offset": 47,
+                          },
+                          "start": {
+                            "column": 2,
+                            "line": 4,
+                            "offset": 41,
+                          },
+                        },
+                        "name": "border",
+                        "range": [
+                          41,
+                          47,
+                        ],
+                        "start": 41,
+                        "type": "Identifier",
+                      },
+                      "kind": "init",
+                      "loc": {
+                        "end": {
+                          "column": 25,
+                          "line": 4,
+                          "offset": 64,
+                        },
+                        "start": {
+                          "column": 2,
+                          "line": 4,
+                          "offset": 41,
+                        },
+                      },
+                      "method": false,
+                      "range": [
+                        41,
+                        64,
+                      ],
+                      "shorthand": false,
+                      "start": 41,
+                      "type": "Property",
+                      "value": {
+                        "end": 64,
+                        "loc": {
+                          "end": {
+                            "column": 25,
+                            "line": 4,
+                            "offset": 64,
+                          },
+                          "start": {
+                            "column": 10,
+                            "line": 4,
+                            "offset": 49,
+                          },
+                        },
+                        "range": [
+                          49,
+                          64,
+                        ],
+                        "raw": "'1px solid red'",
+                        "start": 49,
+                        "type": "Literal",
+                        "value": "1px solid red",
+                      },
+                    },
+                  ],
+                  "range": [
+                    16,
+                    68,
+                  ],
+                  "start": 16,
+                  "type": "ObjectExpression",
+                },
+                "loc": {
+                  "end": {
+                    "column": 3,
+                    "line": 5,
+                    "offset": 69,
+                  },
+                  "start": {
+                    "column": 7,
+                    "line": 2,
+                    "offset": 15,
+                  },
+                },
+                "range": [
+                  15,
+                  69,
+                ],
+                "raw": "{{
+		background: 'red',
+		border: '1px solid red',
+	}}",
+                "start": 15,
+                "type": "JSXExpressionContainer",
+              },
+            },
+          ],
+          "end": 71,
+          "loc": {
+            "end": {
+              "column": 1,
+              "line": 6,
+              "offset": 71,
+            },
+            "start": {
+              "column": 0,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "name": {
+            "end": 7,
+            "loc": {
+              "end": {
+                "column": 7,
+                "line": 1,
+                "offset": 7,
+              },
+              "start": {
+                "column": 1,
+                "line": 1,
+                "offset": 1,
+              },
+            },
+            "name": "button",
+            "range": [
+              1,
+              7,
+            ],
+            "raw": "button",
+            "start": 1,
+            "type": "JSXIdentifier",
+          },
+          "range": [
+            0,
+            71,
+          ],
+          "raw": "<button
+	style={{
+		background: 'red',
+		border: '1px solid red',
+	}}
+>",
+          "selfClosing": false,
+          "start": 0,
+          "type": "JSXOpeningElement",
+        },
+        "range": [
+          0,
+          88,
+        ],
+        "raw": "<button
+	style={{
+		background: 'red',
+		border: '1px solid red',
+	}}
+>
+	Hello
+</button>",
+        "start": 0,
+        "type": "JSXElement",
+      },
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 8,
+          "offset": 88,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "range": [
+        0,
+        88,
+      ],
+      "start": 0,
+      "type": "ExpressionStatement",
+    },
+    {
+      "end": 133,
+      "expression": {
+        "children": [],
+        "closingElement": null,
+        "end": 133,
+        "loc": {
+          "end": {
+            "column": 9,
+            "line": 13,
+            "offset": 133,
+          },
+          "start": {
+            "column": 4,
+            "line": 12,
+            "offset": 104,
+          },
+        },
+        "openingElement": {
+          "attributes": [
+            {
+              "end": 120,
+              "loc": {
+                "end": {
+                  "column": 20,
+                  "line": 12,
+                  "offset": 120,
+                },
+                "start": {
+                  "column": 16,
+                  "line": 12,
+                  "offset": 116,
+                },
+              },
+              "name": {
+                "end": 120,
+                "loc": {
+                  "end": {
+                    "column": 20,
+                    "line": 12,
+                    "offset": 120,
+                  },
+                  "start": {
+                    "column": 16,
+                    "line": 12,
+                    "offset": 116,
+                  },
+                },
+                "name": "data",
+                "range": [
+                  116,
+                  120,
+                ],
+                "raw": "data",
+                "start": 116,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                116,
+                120,
+              ],
+              "raw": "data",
+              "start": 116,
+              "type": "JSXAttribute",
+              "value": {
+                "end": 130,
+                "expression": {
+                  "end": 129,
+                  "expressions": [],
+                  "loc": {
+                    "end": {
+                      "column": 5,
+                      "line": 13,
+                      "offset": 129,
+                    },
+                    "start": {
+                      "column": 22,
+                      "line": 12,
+                      "offset": 122,
+                    },
+                  },
+                  "quasis": [
+                    {
+                      "end": 129,
+                      "loc": {
+                        "end": {
+                          "column": 5,
+                          "line": 13,
+                          "offset": 128,
+                        },
+                        "start": {
+                          "column": 22,
+                          "line": 12,
+                          "offset": 123,
+                        },
+                      },
+                      "range": [
+                        122,
+                        129,
+                      ],
+                      "start": 122,
+                      "tail": true,
+                      "type": "TemplateElement",
+                      "value": {
+                        "cooked": "
+",
+                        "raw": "
+",
+                      },
+                    },
+                  ],
+                  "range": [
+                    122,
+                    129,
+                  ],
+                  "start": 122,
+                  "type": "TemplateLiteral",
+                },
+                "loc": {
+                  "end": {
+                    "column": 6,
+                    "line": 13,
+                    "offset": 130,
+                  },
+                  "start": {
+                    "column": 21,
+                    "line": 12,
+                    "offset": 121,
+                  },
+                },
+                "range": [
+                  121,
+                  130,
+                ],
+                "raw": "{\`
+    \`}",
+                "start": 121,
+                "type": "JSXExpressionContainer",
+              },
+            },
+          ],
+          "end": 133,
+          "loc": {
+            "end": {
+              "column": 9,
+              "line": 13,
+              "offset": 133,
+            },
+            "start": {
+              "column": 4,
+              "line": 12,
+              "offset": 104,
+            },
+          },
+          "name": {
+            "end": 115,
+            "loc": {
+              "end": {
+                "column": 15,
+                "line": 12,
+                "offset": 115,
+              },
+              "start": {
+                "column": 5,
+                "line": 12,
+                "offset": 105,
+              },
+            },
+            "name": "Components",
+            "range": [
+              105,
+              115,
+            ],
+            "raw": "Components",
+            "start": 105,
+            "type": "JSXIdentifier",
+          },
+          "range": [
+            104,
+            133,
+          ],
+          "raw": "<Components data={\`
+    \`} />",
+          "selfClosing": true,
+          "start": 104,
+          "type": "JSXOpeningElement",
+        },
+        "range": [
+          104,
+          133,
+        ],
+        "raw": "<Components data={\`
+    \`} />",
+        "start": 104,
+        "type": "JSXElement",
+      },
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 13,
+          "offset": 133,
+        },
+        "start": {
+          "column": 5,
+          "line": 12,
+          "offset": 104,
+        },
+      },
+      "range": [
+        104,
+        133,
+      ],
+      "start": 104,
+      "type": "ExpressionStatement",
+    },
+  ],
+  "comments": [],
+  "end": 134,
+  "loc": {
+    "end": {
+      "column": 1,
+      "line": 14,
+      "offset": 134,
+    },
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "range": [
+    0,
+    134,
+  ],
+  "sourceType": undefined,
+  "start": 0,
+  "tokens": [
+    {
+      "end": 1,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 1,
+          "offset": 1,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "range": [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 7,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 1,
+          "offset": 7,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 1,
+        },
+      },
+      "range": [
+        1,
+        7,
+      ],
+      "start": 1,
+      "type": "JSXIdentifier",
+      "value": "button",
+    },
+    {
+      "end": 14,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 2,
+          "offset": 14,
+        },
+        "start": {
+          "column": 1,
+          "line": 2,
+          "offset": 9,
+        },
+      },
+      "range": [
+        9,
+        14,
+      ],
+      "start": 9,
+      "type": "JSXIdentifier",
+      "value": "style",
+    },
+    {
+      "end": 15,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 2,
+          "offset": 15,
+        },
+        "start": {
+          "column": 6,
+          "line": 2,
+          "offset": 14,
+        },
+      },
+      "range": [
+        14,
+        15,
+      ],
+      "start": 14,
+      "type": "Punctuator",
+      "value": "=",
+    },
+    {
+      "end": 16,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 2,
+          "offset": 16,
+        },
+        "start": {
+          "column": 7,
+          "line": 2,
+          "offset": 15,
+        },
+      },
+      "range": [
+        15,
+        16,
+      ],
+      "start": 15,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 17,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 2,
+          "offset": 17,
+        },
+        "start": {
+          "column": 8,
+          "line": 2,
+          "offset": 16,
+        },
+      },
+      "range": [
+        16,
+        17,
+      ],
+      "start": 16,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 30,
+      "loc": {
+        "end": {
+          "column": 12,
+          "line": 3,
+          "offset": 30,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+          "offset": 20,
+        },
+      },
+      "range": [
+        20,
+        30,
+      ],
+      "start": 20,
+      "type": "Identifier",
+      "value": "background",
+    },
+    {
+      "end": 31,
+      "loc": {
+        "end": {
+          "column": 13,
+          "line": 3,
+          "offset": 31,
+        },
+        "start": {
+          "column": 12,
+          "line": 3,
+          "offset": 30,
+        },
+      },
+      "range": [
+        30,
+        31,
+      ],
+      "start": 30,
+      "type": "Punctuator",
+      "value": ":",
+    },
+    {
+      "end": 37,
+      "loc": {
+        "end": {
+          "column": 19,
+          "line": 3,
+          "offset": 37,
+        },
+        "start": {
+          "column": 14,
+          "line": 3,
+          "offset": 32,
+        },
+      },
+      "range": [
+        32,
+        37,
+      ],
+      "start": 32,
+      "type": "String",
+      "value": "'red'",
+    },
+    {
+      "end": 38,
+      "loc": {
+        "end": {
+          "column": 20,
+          "line": 3,
+          "offset": 38,
+        },
+        "start": {
+          "column": 19,
+          "line": 3,
+          "offset": 37,
+        },
+      },
+      "range": [
+        37,
+        38,
+      ],
+      "start": 37,
+      "type": "Punctuator",
+      "value": ",",
+    },
+    {
+      "end": 47,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 4,
+          "offset": 47,
+        },
+        "start": {
+          "column": 2,
+          "line": 4,
+          "offset": 41,
+        },
+      },
+      "range": [
+        41,
+        47,
+      ],
+      "start": 41,
+      "type": "Identifier",
+      "value": "border",
+    },
+    {
+      "end": 48,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 4,
+          "offset": 48,
+        },
+        "start": {
+          "column": 8,
+          "line": 4,
+          "offset": 47,
+        },
+      },
+      "range": [
+        47,
+        48,
+      ],
+      "start": 47,
+      "type": "Punctuator",
+      "value": ":",
+    },
+    {
+      "end": 64,
+      "loc": {
+        "end": {
+          "column": 25,
+          "line": 4,
+          "offset": 64,
+        },
+        "start": {
+          "column": 10,
+          "line": 4,
+          "offset": 49,
+        },
+      },
+      "range": [
+        49,
+        64,
+      ],
+      "start": 49,
+      "type": "String",
+      "value": "'1px solid red'",
+    },
+    {
+      "end": 65,
+      "loc": {
+        "end": {
+          "column": 26,
+          "line": 4,
+          "offset": 65,
+        },
+        "start": {
+          "column": 25,
+          "line": 4,
+          "offset": 64,
+        },
+      },
+      "range": [
+        64,
+        65,
+      ],
+      "start": 64,
+      "type": "Punctuator",
+      "value": ",",
+    },
+    {
+      "end": 68,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 5,
+          "offset": 68,
+        },
+        "start": {
+          "column": 1,
+          "line": 5,
+          "offset": 67,
+        },
+      },
+      "range": [
+        67,
+        68,
+      ],
+      "start": 67,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 69,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 5,
+          "offset": 69,
+        },
+        "start": {
+          "column": 2,
+          "line": 5,
+          "offset": 68,
+        },
+      },
+      "range": [
+        68,
+        69,
+      ],
+      "start": 68,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 78,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 7,
+          "offset": 78,
+        },
+        "start": {
+          "column": 1,
+          "line": 7,
+          "offset": 73,
+        },
+      },
+      "range": [
+        73,
+        78,
+      ],
+      "start": 73,
+      "type": "JSXText",
+      "value": "Hello",
+    },
+    {
+      "end": 80,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 8,
+          "offset": 80,
+        },
+        "start": {
+          "column": 0,
+          "line": 8,
+          "offset": 79,
+        },
+      },
+      "range": [
+        79,
+        80,
+      ],
+      "start": 79,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 81,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 8,
+          "offset": 81,
+        },
+        "start": {
+          "column": 1,
+          "line": 8,
+          "offset": 80,
+        },
+      },
+      "range": [
+        80,
+        81,
+      ],
+      "start": 80,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    {
+      "end": 87,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 8,
+          "offset": 87,
+        },
+        "start": {
+          "column": 2,
+          "line": 8,
+          "offset": 81,
+        },
+      },
+      "range": [
+        81,
+        87,
+      ],
+      "start": 81,
+      "type": "JSXIdentifier",
+      "value": "button",
+    },
+    {
+      "end": 88,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 8,
+          "offset": 88,
+        },
+        "start": {
+          "column": 8,
+          "line": 8,
+          "offset": 87,
+        },
+      },
+      "range": [
+        87,
+        88,
+      ],
+      "start": 87,
+      "type": "Punctuator",
+      "value": ">",
+    },
+    {
+      "end": 98,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 10,
+          "offset": 98,
+        },
+        "start": {
+          "column": 4,
+          "line": 10,
+          "offset": 94,
+        },
+      },
+      "range": [
+        94,
+        98,
+      ],
+      "start": 94,
+      "type": "JSXText",
+      "value": "list",
+    },
+    {
+      "end": 105,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 12,
+          "offset": 105,
+        },
+        "start": {
+          "column": 4,
+          "line": 12,
+          "offset": 104,
+        },
+      },
+      "range": [
+        104,
+        105,
+      ],
+      "start": 104,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 115,
+      "loc": {
+        "end": {
+          "column": 15,
+          "line": 12,
+          "offset": 115,
+        },
+        "start": {
+          "column": 5,
+          "line": 12,
+          "offset": 105,
+        },
+      },
+      "range": [
+        105,
+        115,
+      ],
+      "start": 105,
+      "type": "JSXIdentifier",
+      "value": "Components",
+    },
+    {
+      "end": 120,
+      "loc": {
+        "end": {
+          "column": 20,
+          "line": 12,
+          "offset": 120,
+        },
+        "start": {
+          "column": 16,
+          "line": 12,
+          "offset": 116,
+        },
+      },
+      "range": [
+        116,
+        120,
+      ],
+      "start": 116,
+      "type": "JSXIdentifier",
+      "value": "data",
+    },
+    {
+      "end": 121,
+      "loc": {
+        "end": {
+          "column": 21,
+          "line": 12,
+          "offset": 121,
+        },
+        "start": {
+          "column": 20,
+          "line": 12,
+          "offset": 120,
+        },
+      },
+      "range": [
+        120,
+        121,
+      ],
+      "start": 120,
+      "type": "Punctuator",
+      "value": "=",
+    },
+    {
+      "end": 122,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 12,
+          "offset": 122,
+        },
+        "start": {
+          "column": 21,
+          "line": 12,
+          "offset": 121,
+        },
+      },
+      "range": [
+        121,
+        122,
+      ],
+      "start": 121,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 129,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 13,
+          "offset": 129,
+        },
+        "start": {
+          "column": 22,
+          "line": 12,
+          "offset": 122,
+        },
+      },
+      "range": [
+        122,
+        129,
+      ],
+      "start": 122,
+      "type": "Template",
+      "value": "\`
+    \`",
+    },
+    {
+      "end": 130,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 13,
+          "offset": 130,
+        },
+        "start": {
+          "column": 5,
+          "line": 13,
+          "offset": 129,
+        },
+      },
+      "range": [
+        129,
+        130,
+      ],
+      "start": 129,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 132,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 13,
+          "offset": 132,
+        },
+        "start": {
+          "column": 7,
+          "line": 13,
+          "offset": 131,
+        },
+      },
+      "range": [
+        131,
+        132,
+      ],
+      "start": 131,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    {
+      "end": 133,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 13,
+          "offset": 133,
+        },
+        "start": {
+          "column": 8,
+          "line": 13,
+          "offset": 132,
+        },
+      },
+      "range": [
+        132,
+        133,
+      ],
+      "start": 132,
+      "type": "Punctuator",
+      "value": ">",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
 exports[`parser should match all AST snapshots: 445.mdx 1`] = `
 {
   "body": [
@@ -37557,50 +38339,6 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
       "value": "'./basic'",
     },
     {
-      "end": 29,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 3,
-          "offset": 29,
-        },
-        "start": {
-          "column": 0,
-          "line": 3,
-          "offset": 29,
-        },
-      },
-      "range": [
-        29,
-        29,
-      ],
-      "start": 29,
-      "type": "Keyword",
-      "value": "var",
-    },
-    {
-      "end": 29,
-      "loc": {
-        "end": {
-          "column": 0,
-          "line": 3,
-          "offset": 29,
-        },
-        "start": {
-          "column": 0,
-          "line": 3,
-          "offset": 29,
-        },
-      },
-      "range": [
-        29,
-        29,
-      ],
-      "start": 29,
-      "type": "Identifier",
-      "value": "Basic",
-    },
-    {
       "end": 35,
       "loc": {
         "end": {
@@ -37797,28 +38535,6 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
       "start": 69,
       "type": "Punctuator",
       "value": ",",
-    },
-    {
-      "end": 72,
-      "loc": {
-        "end": {
-          "column": 1,
-          "line": 5,
-          "offset": 72,
-        },
-        "start": {
-          "column": 0,
-          "line": 5,
-          "offset": 71,
-        },
-      },
-      "range": [
-        71,
-        72,
-      ],
-      "start": 71,
-      "type": "Punctuator",
-      "value": "}",
     },
     {
       "end": 72,
