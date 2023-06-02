@@ -32,7 +32,7 @@
     "@types/eslint": "^8.37.0",
     "@types/eslint-plugin-markdown": "^2.0.0",
     "@types/jest": "^29.5.2",
-    "@types/node": "^18.16.3",
+    "@types/node": "^18.16.16",
     "@types/react": "^18.2.0",
     "@types/unist": "^2.0.6",
     "jest": "^29.5.0",
