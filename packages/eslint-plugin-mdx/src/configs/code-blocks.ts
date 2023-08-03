@@ -1,6 +1,6 @@
 import type { Linter } from 'eslint'
 
-export const codeBlocks: Linter.Config = {
+export const codeBlocks = {
   parserOptions: {
     ecmaFeatures: {
       // Adding a "use strict" directive at the top of
@@ -31,4 +31,4 @@ export const codeBlocks: Linter.Config = {
     // Mark from the Markdown parser.
     'unicode-bom': 'off',
   },
-}
+} satisfies Linter.Config

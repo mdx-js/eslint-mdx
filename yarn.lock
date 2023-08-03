@@ -2636,34 +2636,34 @@
   integrity sha512-YUbEfRmjVW/CCjL8yUyawS8IAYmbWliaGlYUmYBNJpHyIDusrrvjbTQ+NwRemPfgNRW7/YbOUW7S6rFAlfD8Qg==
 
 "@pkgr/rollup@^4.1.1":
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/@pkgr/rollup/-/rollup-4.1.2.tgz#fe9d06b221861e8644dafaf9f697619220308ec5"
-  integrity sha512-fEiAzeWOSq6+3lp/S/wGGRDSpgYsunmYqfo7LzMeZYbjcTlw1jnoPFfOEapQEhw85VIShmHpoVeyKi0/upJqoA==
+  version "4.1.3"
+  resolved "https://registry.yarnpkg.com/@pkgr/rollup/-/rollup-4.1.3.tgz#a79331a0f2ac597411020e8968cf6f2694a527d5"
+  integrity sha512-CWoYPIeXSvOG72DV2Z5R5ZCgK00DZAwDYcn85yQj/rlQOzW3uvgFYMITjm0dLWW5++6czxB/48P/feFt6U1ZwQ==
   dependencies:
     "@pkgr/es-modules" "^0.6.3"
     "@pkgr/umd-globals" "^0.8.3"
     "@pkgr/utils" "^2.4.2"
     "@rollup/plugin-alias" "^5.0.0"
-    "@rollup/plugin-commonjs" "^25.0.2"
+    "@rollup/plugin-commonjs" "^25.0.3"
     "@rollup/plugin-json" "^6.0.0"
     "@rollup/plugin-node-resolve" "^15.1.0"
     "@rollup/plugin-url" "^8.0.1"
     builtin-modules "^3.3.0"
     commander "^11.0.0"
-    core-js "^3.31.1"
+    core-js "^3.32.0"
     debug "^4.3.4"
-    esbuild "^0.18.11"
+    esbuild "^0.18.17"
     is-glob "^4.0.3"
     jsox "^1.2.118"
     lodash-es "^4.17.21"
     micromatch "^4.0.5"
-    rollup "^3.26.1"
+    rollup "^3.27.1"
     rollup-plugin-copy "^3.4.0"
     rollup-plugin-esbuild "^5.0.0"
     rollup-plugin-unassert "^0.6.0"
     rollup-plugin-vue "^6.0.0"
     rollup-plugin-vue-jsx-compat "^0.0.6"
-    tslib "^2.6.0"
+    tslib "^2.6.1"
     unassert "^2.0.2"
 
 "@pkgr/umd-globals@^0.8.3":
@@ -2712,7 +2712,7 @@
   dependencies:
     slash "^4.0.0"
 
-"@rollup/plugin-commonjs@^25.0.2":
+"@rollup/plugin-commonjs@^25.0.3":
   version "25.0.3"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-25.0.3.tgz#eb5217ebae43d63a172b516655be270ed258bdcc"
   integrity sha512-uBdtWr/H3BVcgm97MUdq2oJmqBR23ny1hOrWe2PKo9FTbjsGqg32jfasJUKYAI5ouqacjRnj65mBB/S79F+GQA==
@@ -4274,7 +4274,7 @@ core-js-compat@^3.25.1:
   dependencies:
     browserslist "^4.21.5"
 
-core-js@^3.25.2, core-js@^3.31.1:
+core-js@^3.25.2, core-js@^3.32.0:
   version "3.32.0"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.32.0.tgz#7643d353d899747ab1f8b03d2803b0312a0fb3b6"
   integrity sha512-rd4rYZNlF3WuoYuRIDEmbR/ga9CeuWX9U05umAvgrrZoHY4Z++cp/xwPQMvUpBB4Ag6J8KfD80G0zwCyaSxDww==
@@ -4817,7 +4817,7 @@ es6-weak-map@^2.0.3:
     es6-iterator "^2.0.3"
     es6-symbol "^3.1.1"
 
-esbuild@^0.18.11:
+esbuild@^0.18.17:
   version "0.18.17"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.18.17.tgz#2aaf6bc6759b0c605777fdc435fea3969e091cad"
   integrity sha512-1GJtYnUxsJreHYA0Y+iQz2UEykonY66HNWOb0yXYZi9/kNrORUEHVg87eQsCtqh59PEJ5YVZJO98JHznMJSWjg==
@@ -10178,7 +10178,7 @@ rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^3.26.1:
+rollup@^3.27.1:
   version "3.27.1"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-3.27.1.tgz#e6c7340889f33042b4c3247a2acb38ebcfc3a98c"
   integrity sha512-tXNDFwOkN6C2w5Blj1g6ForKeFw6c1mDu5jxoeDO3/pmYjgt+8yvIFjKzH5FQUq70OKZBkOt0zzv0THXL7vwzQ==
