@@ -1,5 +1,18 @@
 # Change Log
 
+## 2.2.0
+
+### Minor Changes
+
+- [#468](https://github.com/mdx-js/eslint-mdx/pull/468) [`5b04837`](https://github.com/mdx-js/eslint-mdx/commit/5b04837cfc8cc9881c18356f9fcd67105d423a75) Thanks [@JounQin](https://github.com/JounQin)! - feat: add metadata for parser, processor and plugin
+
+- [#468](https://github.com/mdx-js/eslint-mdx/pull/468) [`5b04837`](https://github.com/mdx-js/eslint-mdx/commit/5b04837cfc8cc9881c18356f9fcd67105d423a75) Thanks [@JounQin](https://github.com/JounQin)! - feat: support new flat config - close #455
+
+### Patch Changes
+
+- Updated dependencies [[`5b04837`](https://github.com/mdx-js/eslint-mdx/commit/5b04837cfc8cc9881c18356f9fcd67105d423a75)]:
+  - eslint-mdx@2.2.0
+
 ## 2.1.0
 
 ### Patch Changes
