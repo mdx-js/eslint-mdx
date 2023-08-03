@@ -1,6 +1,7 @@
 import type { Linter } from 'eslint'
 import { processors } from 'eslint-plugin-markdown'
 
+import { meta } from '../meta'
 import type { RemarkLintMessage } from '../rules'
 
 import { getShortLang } from './helpers'
@@ -9,6 +10,11 @@ import { processorOptions as defaultProcessorOptions } from './options'
 export const createRemarkProcessor = (
   processorOptions = defaultProcessorOptions,
 ): Linter.Processor => ({
+  // @ts-expect-error -- FIXME: https://github.com/DefinitelyTyped/DefinitelyTyped/pull/65826
+  meta: {
+    name: 'mdx/remark',
+    version: meta.version,
+  },
   supportsAutofix: true,
   preprocess(text, filename) {
     if (!processorOptions.lintCodeBlocks) {

@@ -1,0 +1,13 @@
+diff --git a/node_modules/@pkgr/rollup/lib/config.js b/node_modules/@pkgr/rollup/lib/config.js
+index ea7fc66..81a9415 100644
+--- a/node_modules/@pkgr/rollup/lib/config.js
++++ b/node_modules/@pkgr/rollup/lib/config.js
+@@ -218,7 +218,7 @@ export const config = ({ formats, monorepo, input, exclude = [], outputDir = 'li
+                     esbuild(Object.assign(Object.assign({ jsxFactory: esbuildVueJsx ? 'vueJsxCompat' : undefined, tsconfig: tryFile(path.resolve(pkg, 'tsconfig.json')) ||
+                             tryFile('tsconfig.base.json') ||
+                             tryPkg('@1stg/tsconfig'), define: defineValues, minify: prod, loaders: {
+-                            '.json': 'json',
++                            // '.json': 'json',
+                             '.js': 'jsx',
+                         } }, esbuildOptions), { target: isEsVersion
+                             ? format === 'esm'
