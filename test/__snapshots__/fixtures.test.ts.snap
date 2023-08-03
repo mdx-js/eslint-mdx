@@ -79,6 +79,17 @@ import React from 'react'
     "severity": 1,
   },
   {
+    "column": 8,
+    "endColumn": 22,
+    "endLine": 10,
+    "line": 10,
+    "message": "Unexpected var, use let or const instead.",
+    "messageId": "unexpectedVar",
+    "nodeType": "VariableDeclaration",
+    "ruleId": "no-var",
+    "severity": 2,
+  },
+  {
     "column": 18,
     "endColumn": 30,
     "endLine": 12,
@@ -145,6 +156,65 @@ import React from 'react'
     "nodeType": "Program",
     "ruleId": "remark-lint-no-duplicate-headings-in-section",
     "severity": 1,
+  },
+]
+`;
+
+exports[`fixtures lint code blocks should work as expected: code-blocks.mdx 1`] = `
+[
+  {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 2,
+    "fix": {
+      "range": [
+        6,
+        9,
+      ],
+      "text": "let",
+    },
+    "line": 2,
+    "message": "Unexpected var, use let or const instead.",
+    "messageId": "unexpectedVar",
+    "nodeType": "VariableDeclaration",
+    "ruleId": "no-var",
+    "severity": 2,
+  },
+  {
+    "column": 5,
+    "endColumn": 6,
+    "endLine": 4,
+    "fix": {
+      "range": [
+        13,
+        30,
+      ],
+      "text": "const b = [1, 2, 3]",
+    },
+    "line": 4,
+    "message": "'b' is never reassigned. Use 'const' instead.",
+    "messageId": "useConst",
+    "nodeType": "Identifier",
+    "ruleId": "prefer-const",
+    "severity": 2,
+  },
+  {
+    "column": 13,
+    "endColumn": 25,
+    "endLine": 6,
+    "fix": {
+      "range": [
+        43,
+        57,
+      ],
+      "text": ".at(-1)",
+    },
+    "line": 6,
+    "message": "Prefer \`.at(…)\` over \`[….length - index]\`.",
+    "messageId": "negative-index",
+    "nodeType": "BinaryExpression",
+    "ruleId": "unicorn/prefer-at",
+    "severity": 2,
   },
 ]
 `;
@@ -1065,6 +1135,8 @@ import React from 'react'
   },
 ]
 `;
+
+exports[`fixtures should match all snapshots: code-blocks.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: comments.mdx 1`] = `
 [

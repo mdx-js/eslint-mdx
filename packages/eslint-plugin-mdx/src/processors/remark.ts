@@ -4,9 +4,11 @@ import { processors } from 'eslint-plugin-markdown'
 import type { RemarkLintMessage } from '../rules'
 
 import { getShortLang } from './helpers'
-import { processorOptions } from './options'
+import { processorOptions as defaultProcessorOptions } from './options'
 
-export const remark: Linter.Processor = {
+export const createRemarkProcessor = (
+  processorOptions = defaultProcessorOptions,
+): Linter.Processor => ({
   supportsAutofix: true,
   preprocess(text, filename) {
     if (!processorOptions.lintCodeBlocks) {
@@ -55,4 +57,6 @@ export const remark: Linter.Processor = {
         }
       })
   },
-}
+})
+
+export const remark: Linter.Processor = createRemarkProcessor()

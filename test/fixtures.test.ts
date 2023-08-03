@@ -11,7 +11,11 @@ const getCli = (lintCodeBlocks = false) =>
         ecmaVersion: 2020,
         sourceType: 'module',
       },
+      env: {
+        node: true,
+      },
       extends: [
+        'eslint:recommended',
         'plugin:react/recommended',
         'plugin:unicorn/recommended',
         'plugin:prettier/recommended',
@@ -27,7 +31,9 @@ const getCli = (lintCodeBlocks = false) =>
             {
               files: '**/*.{md,mdx}/**',
               rules: {
-                'prettier/prettier': 0,
+                'no-var': 'error',
+                'prefer-const': 'error',
+                'prettier/prettier': 'off',
               },
             },
             {
@@ -56,7 +62,7 @@ describe('fixtures', () => {
   describe('lint code blocks', () => {
     it('should work as expected', async () => {
       const results = await getCli(true).lintFiles(
-        'test/fixtures/code-blocks.{md,mdx}',
+        'test/fixtures/**/code-blocks.{md,mdx}',
       )
       for (const { filePath, messages } of results) {
         expect(messages).toMatchSnapshot(path.basename(filePath))

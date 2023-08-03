@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`flat-config should work as expected: code-blocks.mdx 1`] = `
+[
+  {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 2,
+    "fix": {
+      "range": [
+        6,
+        9,
+      ],
+      "text": "let",
+    },
+    "line": 2,
+    "message": "Unexpected var, use let or const instead.",
+    "messageId": "unexpectedVar",
+    "nodeType": "VariableDeclaration",
+    "ruleId": "no-var",
+    "severity": 2,
+  },
+  {
+    "column": 5,
+    "endColumn": 6,
+    "endLine": 4,
+    "fix": {
+      "range": [
+        13,
+        30,
+      ],
+      "text": "const b = [1, 2, 3]",
+    },
+    "line": 4,
+    "message": "'b' is never reassigned. Use 'const' instead.",
+    "messageId": "useConst",
+    "nodeType": "Identifier",
+    "ruleId": "prefer-const",
+    "severity": 2,
+  },
+]
+`;

@@ -32,6 +32,8 @@
 - [Install](#install)
 - [Notice](#notice)
 - [Usage](#usage)
+  - [Classic](#classic)
+  - [Flat Config](#flat-config)
 - [Parser Options](#parser-options)
 - [Rules](#rules)
   - [mdx/remark](#mdxremark)
@@ -74,26 +76,58 @@ See [#251](https://github.com/mdx-js/eslint-mdx/issues/251#issuecomment-73613922
 
 ## Usage
 
-1. In your ESLint 8+ config file, just add:
+### Classic
 
-   ```jsonc
-   {
-     "extends": ["plugin:mdx/recommended"],
-     // optional, if you want to lint code blocks at the same time
-     "settings": {
-       "mdx/code-blocks": true,
-       // optional, if you want to disable language mapper, set it to `false`
-       // if you want to override the default language mapper inside, you can provide your own
-       "mdx/language-mapper": {}
-     }
-   }
-   ```
+`.eslintrc` file:
 
-2. Make sure ESLint knows to run on `.md` or `.mdx` files:
+```jsonc
+{
+  "extends": ["plugin:mdx/recommended"],
+  // optional, if you want to lint code blocks at the same time
+  "settings": {
+    "mdx/code-blocks": true,
+    // optional, if you want to disable language mapper, set it to `false`
+    // if you want to override the default language mapper inside, you can provide your own
+    "mdx/language-mapper": {}
+  }
+}
+```
 
-   ```sh
-   eslint . --ext js,md,mdx
-   ```
+### Flat Config
+
+`eslint.config.js` file:
+
+```js
+import * as mdx from 'eslint-plugin-mdx'
+
+export default [
+  {
+    ...mdx.flat,
+    // optional, if you want to lint code blocks at the same
+    processor: mdx.createRemarkProcessor({
+      lintCodeBlocks: true,
+      // optional, if you want to disable language mapper, set it to `false`
+      // if you want to override the default language mapper inside, you can provide your own
+      languageMapper: {},
+    }),
+  },
+  {
+    ...mdx.flatCodeBlocks,
+    rules: {
+      ...mdx.flatCodeBlocks.rules,
+      // if you want to override some rules for code blocks
+      'no-var': 'error',
+      'prefer-const': 'error',
+    },
+  },
+]
+```
+
+Then, make sure ESLint knows to run on `.md` or `.mdx` files:
+
+```sh
+eslint . --ext js,md,mdx
+```
 
 ## Parser Options
 
