@@ -30,15 +30,15 @@
     "eslint": ">=8.0.0"
   },
   "dependencies": {
-    "acorn": "^8.8.2",
+    "acorn": "^8.10.0",
     "acorn-jsx": "^5.3.2",
-    "espree": "^9.5.2",
+    "espree": "^9.6.1",
     "estree-util-visit": "^1.2.1",
     "remark-mdx": "^2.3.0",
     "remark-parse": "^10.0.2",
     "remark-stringify": "^10.0.3",
     "synckit": "^0.8.5",
-    "tslib": "^2.5.0",
+    "tslib": "^2.6.1",
     "unified": "^10.1.2",
     "unified-engine": "^10.1.0",
     "unist-util-visit": "^4.1.2",

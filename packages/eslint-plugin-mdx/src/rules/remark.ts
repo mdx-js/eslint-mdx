@@ -22,8 +22,10 @@ export const remark: Rule.RuleModule = {
     fixable: 'code',
   },
   create(context) {
+    // eslint-disable-next-line sonar/deprecation -- FIXME: ESLint 8.40+ required
     const filename = context.getFilename()
     const extname = path.extname(filename)
+    // eslint-disable-next-line sonar/deprecation -- FIXME: ESLint 8.40+ required
     const sourceCode = context.getSourceCode()
     const options = context.parserOptions as ParserOptions
     const isMdx = [
@@ -52,6 +54,7 @@ export const remark: Rule.RuleModule = {
           fileOptions: {
             path: physicalFilename,
             value: sourceText,
+            // eslint-disable-next-line sonar/deprecation -- FIXME: ESLint 8.40+ required
             cwd: context.getCwd(),
           },
           physicalFilename,
