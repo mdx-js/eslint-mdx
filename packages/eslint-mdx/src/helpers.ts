@@ -7,6 +7,7 @@ import type { Point } from 'unist'
 import type { NormalPosition } from './types'
 
 export const last = <T>(items: T[] | readonly T[]) =>
+  // eslint-disable-next-line unicorn/prefer-at -- FIXME: Node 16.6+ required
   items && items[items.length - 1]
 
 export const arrayify = <T, R = T extends Array<infer S> ? S : T>(

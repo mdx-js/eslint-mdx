@@ -336,6 +336,24 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "severity": 2,
   },
   {
+    "column": 40,
+    "endColumn": 60,
+    "endLine": 204,
+    "fix": {
+      "range": [
+        4593,
+        4615,
+      ],
+      "text": ".at(-1)",
+    },
+    "line": 204,
+    "message": "Prefer \`.at(…)\` over \`[….length - index]\`.",
+    "messageId": "negative-index",
+    "nodeType": "BinaryExpression",
+    "ruleId": "unicorn/prefer-at",
+    "severity": 2,
+  },
+  {
     "column": 28,
     "endColumn": 26,
     "endLine": 335,
@@ -423,6 +441,168 @@ exports[`fixtures should match all snapshots: 429.mdx 1`] = `
     "line": 3,
     "message": "Insert \`·\`",
     "messageId": "insert",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+]
+`;
+
+exports[`fixtures should match all snapshots: 435.mdx 1`] = `
+[
+  {
+    "column": 1,
+    "endColumn": 2,
+    "endLine": 2,
+    "fix": {
+      "range": [
+        8,
+        9,
+      ],
+      "text": "  ",
+    },
+    "line": 2,
+    "message": "Replace \`↹\` with \`··\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 3,
+    "endLine": 3,
+    "fix": {
+      "range": [
+        18,
+        20,
+      ],
+      "text": "    ",
+    },
+    "line": 3,
+    "message": "Replace \`↹↹\` with \`····\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 3,
+    "endLine": 4,
+    "fix": {
+      "range": [
+        39,
+        41,
+      ],
+      "text": "    ",
+    },
+    "line": 4,
+    "message": "Replace \`↹↹\` with \`····\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 2,
+    "endLine": 5,
+    "fix": {
+      "range": [
+        66,
+        67,
+      ],
+      "text": "  ",
+    },
+    "line": 5,
+    "message": "Replace \`↹\` with \`··\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 2,
+    "endLine": 7,
+    "fix": {
+      "range": [
+        72,
+        73,
+      ],
+      "text": "  ",
+    },
+    "line": 7,
+    "message": "Replace \`↹\` with \`··\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 2,
+    "endColumn": 4,
+    "endLine": 10,
+    "fix": {
+      "range": [
+        91,
+        93,
+      ],
+      "text": "",
+    },
+    "line": 10,
+    "message": "Delete \`··\`",
+    "messageId": "delete",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 16,
+    "endLine": 12,
+    "fix": {
+      "range": [
+        102,
+        115,
+      ],
+      "text": "<Components
+   ",
+    },
+    "line": 12,
+    "message": "Replace \`··<Components\` with \`<Components⏎···\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 6,
+    "endColumn": 16,
+    "endLine": 12,
+    "line": 12,
+    "message": "'Components' is not defined.",
+    "messageId": "undefined",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 7,
+    "endLine": 13,
+    "fix": {
+      "range": [
+        124,
+        130,
+      ],
+      "text": "\`}
+ ",
+    },
+    "line": 13,
+    "message": "Replace \`····\`}\` with \`\`}⏎·\`",
+    "messageId": "replace",
     "nodeType": null,
     "ruleId": "prettier/prettier",
     "severity": 2,
@@ -620,6 +800,7 @@ exports[`fixtures should match all snapshots: acorn.mdx 1`] = `
     "fatal": true,
     "line": 9,
     "message": "Parsing error: Unexpected character \`\\\` (U+005C) in name, expected a name character such as letters, digits, \`$\`, or \`_\`; whitespace before attributes; or the end of the tag",
+    "nodeType": null,
     "ruleId": null,
     "severity": 2,
   },
@@ -714,8 +895,8 @@ the installation guides.
   p={3}
   bg="lightgray"
   style={{
-   textAlign: 'center',
-   fontWeight: 'bold',
+    textAlign: 'center',
+    fontWeight: 'bold',
   }}
 >
   [Next.js](/getting-started/next) |
@@ -892,6 +1073,7 @@ exports[`fixtures should match all snapshots: comments.mdx 1`] = `
     "fatal": true,
     "line": 2,
     "message": "Parsing error: Unexpected character \`!\` (U+0021) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\` (note: to create a comment in MDX, use \`{/* text */}\`)",
+    "nodeType": null,
     "ruleId": null,
     "severity": 2,
   },
@@ -905,6 +1087,7 @@ exports[`fixtures should match all snapshots: details.mdx 1`] = `
     "fatal": true,
     "line": 1,
     "message": "Parsing error: Expected a closing tag for \`</summary>\` (1:1-1:10) before the end of \`paragraph\`",
+    "nodeType": null,
     "ruleId": null,
     "severity": 2,
   },
