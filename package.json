@@ -40,7 +40,7 @@
     "react": "^18.2.0",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
-    "type-coverage": "^2.26.0",
+    "type-coverage": "^2.27.0",
     "typescript": "^5.1.6",
     "yarn-deduplicate": "^6.0.2"
   },
