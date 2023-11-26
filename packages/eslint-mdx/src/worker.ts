@@ -65,8 +65,8 @@ export const processorCache = new Map<string, FrozenProcessor>()
 const getRemarkConfig = async (searchFrom: string) => {
   if (!config) {
     const { Configuration } = await loadEsmModule<
-      typeof import('unified-engine/lib/configuration')
-    >('unified-engine/lib/configuration.js')
+      typeof import('unified-engine')
+    >('unified-engine')
     config = new Configuration({
       cwd: process.cwd(),
       packageField: 'remarkConfig',
