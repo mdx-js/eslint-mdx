@@ -25,14 +25,14 @@ import type {
 } from 'estree-jsx'
 import type {
   BlockContent,
-  PhrasingContent,
   Literal as MdastLiteral,
+  PhrasingContent,
+  Root,
 } from 'mdast'
 import type { Options } from 'micromark-extension-mdx-expression'
-import type { Root } from 'remark-mdx'
 import { extractProperties, runAsWorker } from 'synckit'
-import type { FrozenProcessor } from 'unified'
-import type { Config, Configuration } from 'unified-engine/lib/configuration'
+import type { Processor } from 'unified'
+import type { Configuration, Result } from 'unified-engine'
 import type { Node } from 'unist'
 import { ok as assert } from 'uvu/assert'
 import type { VFileMessage } from 'vfile-message'
@@ -60,7 +60,10 @@ let tt: Record<string, TokenType> & typeof _tokTypes
 
 let TokenTranslator: typeof import('espree/lib/token-translator')['default']
 
-export const processorCache = new Map<string, FrozenProcessor>()
+export const processorCache = new Map<
+  string,
+  Processor<Root, undefined, undefined, Root, string>
+>()
 
 const getRemarkConfig = async (searchFrom: string) => {
   if (!config) {
@@ -76,10 +79,10 @@ const getRemarkConfig = async (searchFrom: string) => {
     })
   }
 
-  return new Promise<Config>((resolve, reject) =>
-    config.load(searchFrom, (error, result) =>
-      error ? reject(error) : resolve(result),
-    ),
+  return new Promise<Result>((resolve, reject) =>
+    config.load(searchFrom, (error, result) => {
+      error ? reject(error) : resolve(result)
+    }),
   )
 }
 
@@ -270,7 +273,7 @@ runAsWorker(
     const text = fileOptions.value as string
     const tokenTranslator = new TokenTranslator(tt, text)
 
-    const root = processor.parse(fileOptions) as Root
+    const root = processor.parse(fileOptions)
 
     const body: Program['body'] = []
     const comments: Comment[] = []

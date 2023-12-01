@@ -1,5 +1,7 @@
+/// <reference types="mdast-util-mdx-expression" />
+
 import type { Token, TokenType, tokTypes } from 'acorn'
-import type { Root } from 'remark-mdx'
+import type { Root } from 'mdast'
 import type { visit as visitor } from 'unist-util-visit'
 import { ok as assert } from 'uvu/assert'
 
@@ -29,6 +31,7 @@ export const restoreTokens = (
     value?: string,
   ): Token => ({
     type,
+    // @ts-expect-error -- FIXME: `value` is not a valid property of `Token`
     value,
     start,
     end,

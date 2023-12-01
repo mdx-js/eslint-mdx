@@ -1,0 +1,10 @@
+diff --git a/node_modules/unified-engine/index.d.ts b/node_modules/unified-engine/index.d.ts
+index 0e25d67..503f1ab 100644
+--- a/node_modules/unified-engine/index.d.ts
++++ b/node_modules/unified-engine/index.d.ts
+@@ -1,4 +1,4 @@
+-export { Configuration } from "./lib/configuration.js";
++export { Configuration, Result } from "./lib/configuration.js";
+ export { engine } from "./lib/index.js";
+ export type Completer = import('./lib/file-set.js').Completer;
+ export type Callback = import('./lib/index.js').Callback;
