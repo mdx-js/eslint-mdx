@@ -2892,10 +2892,10 @@
   dependencies:
     "@types/ms" "*"
 
-"@types/eslint-plugin-markdown@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@types/eslint-plugin-markdown/-/eslint-plugin-markdown-2.0.0.tgz#ac13223ce340260eef8a6f3779b0802e8befc22c"
-  integrity sha512-ACfH+3nCrdWouwuw4FcpqmKaTkcZp/IWK/9ZENAU3aaXSFB5WRyf5xb7d+C4788Z2udN1cYf4cMqSyGlItnhyw==
+"@types/eslint-plugin-markdown@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@types/eslint-plugin-markdown/-/eslint-plugin-markdown-2.0.2.tgz#1454eb825b05bec556b0ee6aa3c4b0883cc01ed6"
+  integrity sha512-ImmEw5xBVb9vCaFfQ+5kUcVatUO4XPpTvryAmhpKzalUKhDb3EZmeuHvIUO6E1/WDOTw+/b9qlWsZhxULhZdfQ==
   dependencies:
     "@types/eslint" "*"
     "@types/unist" "*"
