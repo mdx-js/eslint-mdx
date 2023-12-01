@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node.js LTS
         uses: actions/setup-node@v4
         with:
-          node-version: --lts
+          node-version: lts/*
           cache: yarn
 
       - name: Package Size Report
