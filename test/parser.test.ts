@@ -24,7 +24,7 @@ describe('parser', () => {
         DEFAULT_PARSER_OPTIONS,
       ),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"Could not parse import/exports with acorn: SyntaxError: Identifier 'A' has already been declared"`,
+      `"Could not parse import/exports with acorn"`,
     )
     expect(() =>
       parser.parse('<header><>\n</header>', DEFAULT_PARSER_OPTIONS),
@@ -58,7 +58,7 @@ describe('parser', () => {
     expect(() =>
       parser.parse('<main>{<}</main>', DEFAULT_PARSER_OPTIONS),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"Could not parse expression with acorn: Unexpected token"`,
+      `"Could not parse expression with acorn"`,
     )
     expect(() =>
       parser.parse(
