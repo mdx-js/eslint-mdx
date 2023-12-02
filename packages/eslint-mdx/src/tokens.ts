@@ -1,4 +1,4 @@
-/// <reference types="mdast-util-mdx-expression" />
+/// <reference types="remark-mdx" />
 
 import type { Token, TokenType, tokTypes } from 'acorn'
 import type { Root } from 'mdast'
