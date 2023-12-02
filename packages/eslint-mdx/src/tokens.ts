@@ -31,7 +31,7 @@ export const restoreTokens = (
     value?: string,
   ): Token => ({
     type,
-    // @ts-expect-error -- FIXME: `value` is not a valid property of `Token`
+    // @ts-expect-error -- FIXME: `value` is a valid property of `Token`
     value,
     start,
     end,
