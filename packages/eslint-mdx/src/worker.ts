@@ -32,7 +32,7 @@ import type {
 import type { Options } from 'micromark-extension-mdx-expression'
 import { extractProperties, runAsWorker } from 'synckit'
 import type { Processor } from 'unified'
-import type { Configuration, Result } from 'unified-engine'
+import type { Configuration, ConfigResult } from 'unified-engine'
 import type { Node } from 'unist'
 import { ok as assert } from 'uvu/assert'
 import type { VFileMessage } from 'vfile-message'
@@ -79,7 +79,7 @@ const getRemarkConfig = async (searchFrom: string) => {
     })
   }
 
-  return new Promise<Result>((resolve, reject) =>
+  return new Promise<ConfigResult>((resolve, reject) =>
     config.load(searchFrom, (error, result) => {
       error ? reject(error) : resolve(result)
     }),
