@@ -1,0 +1,11 @@
+diff --git a/node_modules/smartwrap/src/main.js b/node_modules/smartwrap/src/main.js
+index acdc39b..4e4abb4 100644
+--- a/node_modules/smartwrap/src/main.js
++++ b/node_modules/smartwrap/src/main.js
+@@ -1,5 +1,5 @@
+ const breakword = require("breakword")
+-const stripansi = require("strip-ansi")
++const stripansi = require("strip-ansi-cjs")
+ const wcwidth = require("wcwidth")
+ const flat = require("array.prototype.flat")
+ if (!Array.prototype.flat) flat.shim()
