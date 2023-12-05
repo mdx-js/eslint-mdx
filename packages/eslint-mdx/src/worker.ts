@@ -375,7 +375,7 @@ runAsWorker(
                 processed.add(child)
 
                 if (child.data && 'estree' in child.data && child.data.estree) {
-                  const estree = child.data.estree as Program
+                  const { estree } = child.data
 
                   assert(estree.body.length <= 1)
 
@@ -641,7 +641,9 @@ runAsWorker(
           })
         }
 
-        const estree = (node.data?.estree || {
+        const estree = ((node.data &&
+          'estree' in node.data &&
+          node.data.estree) || {
           body: [],
           comments: [],
         }) as Program
