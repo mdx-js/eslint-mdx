@@ -1,0 +1,23 @@
+diff --git a/node_modules/tty-table/src/format.js b/node_modules/tty-table/src/format.js
+index e187721..77e6dff 100644
+--- a/node_modules/tty-table/src/format.js
++++ b/node_modules/tty-table/src/format.js
+@@ -1,4 +1,4 @@
+-const stripAnsi = require("strip-ansi")
++const stripAnsi = require("strip-ansi-cjs")
+ const smartwrap = require("smartwrap")
+ const wcwidth = require("wcwidth")
+ 
+diff --git a/node_modules/tty-table/src/style.js b/node_modules/tty-table/src/style.js
+index e37f2b6..fc652ee 100644
+--- a/node_modules/tty-table/src/style.js
++++ b/node_modules/tty-table/src/style.js
+@@ -4,7 +4,7 @@ const kleur = require("kleur")
+ // user kleur if we are in the browser
+ const colorLib = (process && process.stdout) ? chalk : kleur
+ 
+-const stripAnsi = require("strip-ansi")
++const stripAnsi = require("strip-ansi-cjs")
+ 
+ module.exports.style = (str, ...colors) => {
+   const out = colors.reduce(function (input, color) {
