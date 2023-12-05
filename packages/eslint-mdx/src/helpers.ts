@@ -77,7 +77,6 @@ export const getPositionAtFactory = (text: string) => {
         return {
           line,
           column: offset - currOffset,
-          offset,
         }
       }
 

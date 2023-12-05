@@ -11,7 +11,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": "^12.20.0 || ^14.18.0 || >=16.0.0"
+    "node": ">=18.0.0"
   },
   "main": "lib/index.js",
   "module": "lib/index.es2015.mjs",
@@ -33,11 +33,11 @@
   "dependencies": {
     "eslint-mdx": "^2.2.0",
     "eslint-plugin-markdown": "^3.0.1",
-    "remark-mdx": "^2.3.0",
-    "remark-parse": "^10.0.2",
-    "remark-stringify": "^10.0.3",
-    "tslib": "^2.6.1",
-    "unified": "^10.1.2",
-    "vfile": "^5.3.7"
+    "remark-mdx": "^3.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-stringify": "^11.0.0",
+    "tslib": "^2.6.2",
+    "unified": "^11.0.4",
+    "vfile": "^6.0.1"
   }
 }

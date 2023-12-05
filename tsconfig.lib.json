@@ -1,6 +1,6 @@
 {
   // used by all files but do not includes paths
-  "extends": "@1stg/tsconfig/node",
+  "extends": "./node_modules/@1stg/tsconfig/node",
   "compilerOptions": {
     "strictFunctionTypes": false,
     "strictNullChecks": false

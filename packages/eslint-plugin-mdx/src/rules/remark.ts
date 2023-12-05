@@ -72,7 +72,7 @@ export const remark: Rule.RuleModule = {
           fatal,
           line,
           column,
-          position: { start, end },
+          place,
         } of messages) {
           // https://github.com/remarkjs/remark-lint/issues/65#issuecomment-220800231
           /* istanbul ignore next */
@@ -89,22 +89,24 @@ export const remark: Rule.RuleModule = {
             ruleId,
             severity,
           }
+
+          const point = {
+            line,
+            // ! eslint ast column is 0-indexed, but unified is 1-indexed
+            column: column - 1,
+          }
+
           context.report({
             // related to https://github.com/eslint/eslint/issues/14198
             message: JSON.stringify(message),
-            loc: {
-              line,
-              // ! eslint ast column is 0-indexed, but unified is 1-indexed
-              column: column - 1,
-              start: {
-                ...start,
-                column: start.column - 1,
-              },
-              end: {
-                ...end,
-                column: end.column - 1,
-              },
-            },
+            loc:
+              /* istanbul ignore next */ 'start' in place
+                ? {
+                    ...point,
+                    start: { ...place.start, column: place.start.column - 1 },
+                    end: { ...place.end, column: place.end.column - 1 },
+                  }
+                : point,
             node,
             fix:
               fixedText === sourceText

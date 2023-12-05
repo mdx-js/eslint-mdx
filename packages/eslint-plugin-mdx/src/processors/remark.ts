@@ -10,7 +10,6 @@ import { processorOptions as defaultProcessorOptions } from './options'
 export const createRemarkProcessor = (
   processorOptions = defaultProcessorOptions,
 ): Linter.Processor => ({
-  // @ts-expect-error -- FIXME: https://github.com/DefinitelyTyped/DefinitelyTyped/pull/65826
   meta: {
     name: 'mdx/remark',
     version: meta.version,
