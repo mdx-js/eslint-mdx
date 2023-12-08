@@ -1,5 +1,18 @@
 # Change Log
 
+## 3.0.0
+
+### Major Changes
+
+- [#486](https://github.com/mdx-js/eslint-mdx/pull/486) [`508e7ce`](https://github.com/mdx-js/eslint-mdx/commit/508e7cef15d1cdafe2a4ac1c635b8c320567de46) Thanks [@JounQin](https://github.com/JounQin)! - feat!: bump all unified ecosystem dependencies, support mdx v3
+
+- [#486](https://github.com/mdx-js/eslint-mdx/pull/486) [`508e7ce`](https://github.com/mdx-js/eslint-mdx/commit/508e7cef15d1cdafe2a4ac1c635b8c320567de46) Thanks [@JounQin](https://github.com/JounQin)! - chore!: require node >= 18, drop node 12, 14 and 16
+
+### Patch Changes
+
+- Updated dependencies [[`508e7ce`](https://github.com/mdx-js/eslint-mdx/commit/508e7cef15d1cdafe2a4ac1c635b8c320567de46), [`508e7ce`](https://github.com/mdx-js/eslint-mdx/commit/508e7cef15d1cdafe2a4ac1c635b8c320567de46)]:
+  - eslint-mdx@3.0.0
+
 ## 2.2.0
 
 ### Minor Changes
