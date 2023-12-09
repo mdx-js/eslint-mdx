@@ -14,7 +14,7 @@
     ]
   ],
   "access": "public",
-  "baseBranch": "master",
+  "baseBranch": "release-v2",
   "updateInternalDependencies": "patch",
   "ignore": []
 }
