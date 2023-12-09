@@ -139,6 +139,24 @@ import React from 'react'
   },
   {
     "column": 1,
+    "endColumn": 9,
+    "endLine": 46,
+    "fix": {
+      "range": [
+        476,
+        492,
+      ],
+      "text": " />",
+    },
+    "line": 46,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+  {
+    "column": 1,
     "endColumn": 6,
     "endLine": 50,
     "line": 50,
@@ -219,10 +237,85 @@ exports[`fixtures lint code blocks should work as expected: code-blocks.mdx 1`] 
 ]
 `;
 
-exports[`fixtures should match all snapshots: 287.mdx 1`] = `[]`;
+exports[`fixtures should match all snapshots: 287.mdx 1`] = `
+[
+  {
+    "column": 50,
+    "endColumn": 96,
+    "endLine": 1,
+    "fix": {
+      "range": [
+        94,
+        111,
+      ],
+      "text": " />",
+    },
+    "line": 1,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+  {
+    "column": 134,
+    "endColumn": 171,
+    "endLine": 1,
+    "fix": {
+      "range": [
+        169,
+        202,
+      ],
+      "text": " />",
+    },
+    "line": 1,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+]
+`;
 
 exports[`fixtures should match all snapshots: 292.mdx 1`] = `
 [
+  {
+    "column": 11,
+    "endColumn": 32,
+    "endLine": 3,
+    "fix": {
+      "range": [
+        40,
+        54,
+      ],
+      "text": " />",
+    },
+    "line": 3,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+  {
+    "column": 5,
+    "endColumn": 59,
+    "endLine": 5,
+    "fix": {
+      "range": [
+        113,
+        146,
+      ],
+      "text": " />",
+    },
+    "line": 5,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
   {
     "column": 9,
     "endColumn": 58,
@@ -262,10 +355,85 @@ exports[`fixtures should match all snapshots: 334.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: 336.mdx 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: 367.mdx 1`] = `[]`;
+exports[`fixtures should match all snapshots: 367.mdx 1`] = `
+[
+  {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 7,
+    "fix": {
+      "range": [
+        49,
+        86,
+      ],
+      "text": " />",
+    },
+    "line": 7,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 6,
+    "endLine": 8,
+    "fix": {
+      "range": [
+        55,
+        64,
+      ],
+      "text": " />",
+    },
+    "line": 8,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 6,
+    "endLine": 10,
+    "fix": {
+      "range": [
+        70,
+        79,
+      ],
+      "text": " />",
+    },
+    "line": 10,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+]
+`;
 
 exports[`fixtures should match all snapshots: 371.mdx 1`] = `
 [
+  {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 3,
+    "fix": {
+      "range": [
+        21,
+        74,
+      ],
+      "text": " />",
+    },
+    "line": 3,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
   {
     "column": 13,
     "endColumn": 14,
@@ -498,6 +666,24 @@ exports[`fixtures should match all snapshots: 391.mdx 1`] = `
 exports[`fixtures should match all snapshots: 429.mdx 1`] = `
 [
   {
+    "column": 1,
+    "endColumn": 18,
+    "endLine": 1,
+    "fix": {
+      "range": [
+        16,
+        31,
+      ],
+      "text": " />",
+    },
+    "line": 1,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+  {
     "column": 17,
     "endColumn": 17,
     "endLine": 3,
@@ -520,6 +706,24 @@ exports[`fixtures should match all snapshots: 429.mdx 1`] = `
 
 exports[`fixtures should match all snapshots: 435.mdx 1`] = `
 [
+  {
+    "column": 1,
+    "endColumn": 2,
+    "endLine": 6,
+    "fix": {
+      "range": [
+        70,
+        88,
+      ],
+      "text": " />",
+    },
+    "line": 1,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
   {
     "column": 1,
     "endColumn": 2,
@@ -680,8 +884,114 @@ exports[`fixtures should match all snapshots: 435.mdx 1`] = `
 ]
 `;
 
+exports[`fixtures should match all snapshots: 437.mdx 1`] = `
+[
+  {
+    "column": 1,
+    "endColumn": 19,
+    "endLine": 1,
+    "fix": {
+      "range": [
+        17,
+        27,
+      ],
+      "text": " />",
+    },
+    "line": 1,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+  {
+    "column": 2,
+    "endColumn": 5,
+    "endLine": 1,
+    "line": 1,
+    "message": "'App' is not defined.",
+    "messageId": "undefined",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+  {
+    "column": 11,
+    "endColumn": 18,
+    "endLine": 1,
+    "fix": {
+      "range": [
+        10,
+        17,
+      ],
+      "text": ""foo"",
+    },
+    "line": 1,
+    "message": "Curly braces are unnecessary here.",
+    "messageId": "unnecessaryCurly",
+    "nodeType": "JSXExpressionContainer",
+    "ruleId": "react/jsx-curly-brace-presence",
+    "severity": 2,
+  },
+]
+`;
+
 exports[`fixtures should match all snapshots: 445.mdx 1`] = `
 [
+  {
+    "column": 1,
+    "endColumn": 26,
+    "endLine": 3,
+    "fix": {
+      "range": [
+        75,
+        155,
+      ],
+      "text": " />",
+    },
+    "line": 3,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 25,
+    "endLine": 4,
+    "fix": {
+      "range": [
+        100,
+        137,
+      ],
+      "text": " />",
+    },
+    "line": 4,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 8,
+    "endLine": 9,
+    "fix": {
+      "range": [
+        178,
+        187,
+      ],
+      "text": " />",
+    },
+    "line": 9,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
   {
     "column": 2,
     "endColumn": 3,
@@ -920,6 +1230,42 @@ exports[`fixtures should match all snapshots: basic.mdx 1`] = `
     "ruleId": "prettier/prettier",
     "severity": 2,
   },
+  {
+    "column": 77,
+    "endColumn": 80,
+    "endLine": 9,
+    "fix": {
+      "range": [
+        165,
+        175,
+      ],
+      "text": " />",
+    },
+    "line": 9,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 8,
+    "endLine": 19,
+    "fix": {
+      "range": [
+        275,
+        309,
+      ],
+      "text": " />",
+    },
+    "line": 19,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
 ]
 `;
 
@@ -943,6 +1289,24 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "messageId": "replace",
     "nodeType": null,
     "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 2,
+    "endLine": 15,
+    "fix": {
+      "range": [
+        251,
+        546,
+      ],
+      "text": " />",
+    },
+    "line": 8,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
     "severity": 2,
   },
   {
@@ -1008,6 +1372,24 @@ Here's a YouTube shortcode:
     "messageId": "undefined",
     "nodeType": "JSXIdentifier",
     "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 15,
+    "endLine": 33,
+    "fix": {
+      "range": [
+        648,
+        703,
+      ],
+      "text": " />",
+    },
+    "line": 33,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
     "severity": 2,
   },
   {
@@ -1169,6 +1551,24 @@ exports[`fixtures should match all snapshots: details.mdx 1`] = `
 exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
 [
   {
+    "column": 5,
+    "endColumn": 59,
+    "endLine": 1,
+    "fix": {
+      "range": [
+        57,
+        90,
+      ],
+      "text": " />",
+    },
+    "line": 1,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+  {
     "column": 9,
     "endColumn": 58,
     "endLine": 1,
@@ -1198,6 +1598,24 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
     "messageId": "unknownProp",
     "nodeType": "JSXAttribute",
     "ruleId": "react/no-unknown-property",
+    "severity": 2,
+  },
+  {
+    "column": 5,
+    "endColumn": 59,
+    "endLine": 5,
+    "fix": {
+      "range": [
+        192,
+        225,
+      ],
+      "text": " />",
+    },
+    "line": 5,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
     "severity": 2,
   },
   {
@@ -1233,6 +1651,24 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
     "severity": 2,
   },
   {
+    "column": 5,
+    "endColumn": 59,
+    "endLine": 9,
+    "fix": {
+      "range": [
+        327,
+        360,
+      ],
+      "text": " />",
+    },
+    "line": 9,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+  {
     "column": 9,
     "endColumn": 58,
     "endLine": 9,
@@ -1262,6 +1698,24 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
     "messageId": "unknownProp",
     "nodeType": "JSXAttribute",
     "ruleId": "react/no-unknown-property",
+    "severity": 2,
+  },
+  {
+    "column": 5,
+    "endColumn": 59,
+    "endLine": 13,
+    "fix": {
+      "range": [
+        462,
+        495,
+      ],
+      "text": " />",
+    },
+    "line": 13,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
     "severity": 2,
   },
   {
@@ -1297,6 +1751,24 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
     "severity": 2,
   },
   {
+    "column": 5,
+    "endColumn": 59,
+    "endLine": 17,
+    "fix": {
+      "range": [
+        597,
+        630,
+      ],
+      "text": " />",
+    },
+    "line": 17,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+  {
     "column": 9,
     "endColumn": 58,
     "endLine": 17,
@@ -1326,6 +1798,24 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
     "messageId": "unknownProp",
     "nodeType": "JSXAttribute",
     "ruleId": "react/no-unknown-property",
+    "severity": 2,
+  },
+  {
+    "column": 5,
+    "endColumn": 59,
+    "endLine": 21,
+    "fix": {
+      "range": [
+        732,
+        765,
+      ],
+      "text": " />",
+    },
+    "line": 21,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
     "severity": 2,
   },
   {
@@ -1363,13 +1853,145 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: leading-spaces.mdx 1`] = `[]`;
+exports[`fixtures should match all snapshots: leading-spaces.mdx 1`] = `
+[
+  {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 1,
+    "fix": {
+      "range": [
+        4,
+        41,
+      ],
+      "text": " />",
+    },
+    "line": 1,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 6,
+    "endLine": 2,
+    "fix": {
+      "range": [
+        10,
+        19,
+      ],
+      "text": " />",
+    },
+    "line": 2,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 6,
+    "endLine": 4,
+    "fix": {
+      "range": [
+        25,
+        34,
+      ],
+      "text": " />",
+    },
+    "line": 4,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+]
+`;
 
 exports[`fixtures should match all snapshots: markdown.md 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: nested.md 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `[]`;
+exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `
+[
+  {
+    "column": 1,
+    "endColumn": 9,
+    "endLine": 1,
+    "fix": {
+      "range": [
+        7,
+        25,
+      ],
+      "text": " />",
+    },
+    "line": 1,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 7,
+    "endLine": 2,
+    "fix": {
+      "range": [
+        31,
+        42,
+      ],
+      "text": " />",
+    },
+    "line": 2,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+  {
+    "column": 8,
+    "endColumn": 16,
+    "endLine": 4,
+    "fix": {
+      "range": [
+        58,
+        76,
+      ],
+      "text": " />",
+    },
+    "line": 4,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+  {
+    "column": 6,
+    "endColumn": 12,
+    "endLine": 5,
+    "fix": {
+      "range": [
+        87,
+        98,
+      ],
+      "text": " />",
+    },
+    "line": 5,
+    "message": "Empty components are self-closing",
+    "messageId": "notSelfClosing",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/self-closing-comp",
+    "severity": 2,
+  },
+]
+`;
 
 exports[`fixtures should match all snapshots: no-unused-expressions.mdx 1`] = `
 [

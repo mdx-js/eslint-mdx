@@ -26,6 +26,10 @@ const getCli = (lintCodeBlocks = false) =>
           version: 'detect',
         },
       },
+      rules: {
+        'react/jsx-curly-brace-presence': 'error',
+        'react/self-closing-comp': 'error',
+      },
       overrides: lintCodeBlocks
         ? [
             {
