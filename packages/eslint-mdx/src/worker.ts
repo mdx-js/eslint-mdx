@@ -28,6 +28,7 @@ import type {
 import type {
   BlockContent,
   Code,
+  Heading,
   Paragraph,
   PhrasingContent,
   Literal,
@@ -51,6 +52,7 @@ import { restoreTokens } from './tokens'
 import type {
   Arrayable,
   MDXJSXCode,
+  MDXJSXHeading,
   NormalPosition,
   WorkerOptions,
   WorkerResult,
@@ -442,14 +444,25 @@ runAsWorker(
 
           if (node.type === 'code') {
             const { lang, meta, value } = node as Code
-            const jsxCode: MDXJSXCode = {
+            const mdxJsxCode: MDXJSXCode = {
               ...normalizeNode(start, end),
-              type: 'MDXJSXCode' as const,
+              type: 'MDXJSXCode',
               lang,
               meta,
               value,
             }
-            return jsxCode
+            return mdxJsxCode
+          }
+
+          if (node.type === 'heading') {
+            const { depth } = node as Heading
+            const mdxJsxHeading: MDXJSXHeading = {
+              ...normalizeNode(start, end),
+              type: 'MDXJSXHeading',
+              depth,
+              children: handleChildren(node),
+            }
+            return mdxJsxHeading
           }
 
           if (node.type === 'text') {

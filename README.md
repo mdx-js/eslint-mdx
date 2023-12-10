@@ -37,6 +37,7 @@
 - [Parser Options](#parser-options)
 - [Parser API](#parser-api)
   - [`MDXJSXCode`](#mdxjsxcode)
+  - [`MDXJSXHeading`](#mdxjsxheading)
   - [Typings](#typings)
 - [Rules](#rules)
   - [mdx/remark](#mdxremark)
@@ -160,16 +161,39 @@ export function foo() {
 
 See also <https://github.com/syntax-tree/mdast#code>
 
+### `MDXJSXHeading`
+
+A new `MDXJSXHeading` estree node type is exported from `eslint-mdx` which represents code blocks in `mdx` like the following:
+
+```mdx
+<div>
+
+# Here's a text gradient short code!
+
+</div>
+```
+
+See also <https://github.com/syntax-tree/mdast#heading>
+
 ### Typings
 
 ```ts
 import type { BaseNode } from 'estree'
+import type { JSXElement } from 'estree-jsx'
 
 export interface MDXJSXCode extends BaseNode {
   type: 'MDXJSXCode'
   value: string
   lang?: string | null
   meta?: string | null
+}
+
+export type HeadingDepth = 1 | 2 | 3 | 4 | 5 | 6
+
+export interface MDXJSXHeading extends BaseNode {
+  type: 'MDXJSXHeading'
+  depth: HeadingDepth
+  children: JSXElement['children']
 }
 ```
 

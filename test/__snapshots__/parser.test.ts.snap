@@ -40897,7 +40897,56 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
     {
       "end": 703,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "children": [
+              {
+                "end": 686,
+                "loc": {
+                  "end": {
+                    "column": 35,
+                    "line": 35,
+                    "offset": 686,
+                  },
+                  "start": {
+                    "column": 2,
+                    "line": 35,
+                    "offset": 653,
+                  },
+                },
+                "range": [
+                  653,
+                  686,
+                ],
+                "raw": "Here's a text gradient shortcode!",
+                "start": 653,
+                "type": "JSXText",
+                "value": "Here's a text gradient shortcode!",
+              },
+            ],
+            "depth": 1,
+            "end": 686,
+            "loc": {
+              "end": {
+                "column": 35,
+                "line": 35,
+                "offset": 686,
+              },
+              "start": {
+                "column": 0,
+                "line": 35,
+                "offset": 651,
+              },
+            },
+            "range": [
+              651,
+              686,
+            ],
+            "raw": "# Here's a text gradient shortcode!",
+            "start": 651,
+            "type": "MDXJSXHeading",
+          },
+        ],
         "closingElement": {
           "end": 703,
           "loc": {

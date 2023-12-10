@@ -29,5 +29,11 @@ module.exports = {
         'mdx/code-blocks': true,
       },
     },
+    {
+      files: '**/*.{md,mdx}/**/*.ts',
+      rules: {
+        'no-magic-numbers': 'off',
+      },
+    },
   ],
 }

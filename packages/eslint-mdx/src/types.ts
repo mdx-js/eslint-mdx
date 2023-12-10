@@ -1,6 +1,7 @@
 import type { Position } from 'acorn'
 import type { AST, Linter } from 'eslint'
 import type { BaseNode, Program } from 'estree'
+import type { JSXElement } from 'estree-jsx'
 import type { Root } from 'mdast'
 import type { VFileOptions } from 'vfile'
 import type { VFileMessage } from 'vfile-message'
@@ -53,4 +54,12 @@ export interface MDXJSXCode extends BaseNode {
   value: string
   lang?: string | null
   meta?: string | null
+}
+
+export type HeadingDepth = 1 | 2 | 3 | 4 | 5 | 6
+
+export interface MDXJSXHeading extends BaseNode {
+  type: 'MDXJSXHeading'
+  depth: HeadingDepth
+  children: JSXElement['children']
 }

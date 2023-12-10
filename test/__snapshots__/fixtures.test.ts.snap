@@ -1063,24 +1063,6 @@ Here's a YouTube shortcode:
     "severity": 2,
   },
   {
-    "column": 1,
-    "endColumn": 15,
-    "endLine": 33,
-    "fix": {
-      "range": [
-        648,
-        703,
-      ],
-      "text": " />",
-    },
-    "line": 33,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
-    "severity": 2,
-  },
-  {
     "column": 2,
     "endColumn": 14,
     "endLine": 33,
