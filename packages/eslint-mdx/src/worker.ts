@@ -196,6 +196,12 @@ export const getRemarkProcessor = async (
   return cachedProcessor
 }
 
+function isExpressionStatement(
+  statement: Program['body'][number],
+): asserts statement is ExpressionStatement | undefined {
+  assert(!statement || statement.type === 'ExpressionStatement')
+}
+
 runAsWorker(
   async ({
     fileOptions,
@@ -388,13 +394,11 @@ runAsWorker(
 
                   assert(estree.body.length <= 1)
 
-                  const expStat = estree.body[0] as ExpressionStatement
+                  const statement = estree.body[0]
 
-                  let expression: Expression
+                  isExpressionStatement(statement)
 
-                  if (expStat) {
-                    expression = expStat.expression
-                  }
+                  const expression = statement?.expression
 
                   if (child.type === 'mdxTextExpression') {
                     const {
@@ -411,10 +415,8 @@ runAsWorker(
                       },
                     }
                     acc.push(expressionContainer)
-                  } else if (expStat) {
-                    acc.push(
-                      expression as BaseExpression as JSXElement['children'][number],
-                    )
+                  } else if (expression) {
+                    acc.push(expression as JSXElement['children'][number])
                   }
 
                   comments.push(...estree.comments)
