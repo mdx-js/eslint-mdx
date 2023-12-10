@@ -22,12 +22,9 @@ import type {
   JSXIdentifier,
   JSXMemberExpression,
   JSXNamespacedName,
+  JSXText,
 } from 'estree-jsx'
-import type {
-  BlockContent,
-  PhrasingContent,
-  Literal as MdastLiteral,
-} from 'mdast'
+import type { BlockContent, PhrasingContent, Literal } from 'mdast'
 import type { Options } from 'micromark-extension-mdx-expression'
 import type { Root } from 'remark-mdx'
 import { extractProperties, runAsWorker } from 'synckit'
@@ -363,12 +360,12 @@ runAsWorker(
         processed.add(node)
 
         function handleChildren(
-          node: BlockContent | MdastLiteral | PhrasingContent,
+          node: BlockContent | Literal | PhrasingContent,
         ) {
           return 'children' in node
-            ? (node.children as Array<BlockContent | PhrasingContent>).reduce<
-                JSXElement['children']
-              >((acc, child) => {
+            ? (
+                node.children as Array<BlockContent | Literal | PhrasingContent>
+              ).reduce<JSXElement['children']>((acc, child) => {
                 processed.add(child)
 
                 if (child.data && 'estree' in child.data && child.data.estree) {
@@ -399,9 +396,20 @@ runAsWorker(
             : []
         }
 
-        function handleNode(
-          node: BlockContent | MdastLiteral | PhrasingContent,
-        ) {
+        function handleNode(node: BlockContent | Literal | PhrasingContent) {
+          if (node.type === 'text') {
+            const {
+              start: { offset: start },
+              end: { offset: end },
+            } = node.position
+            const jsxText: JSXText = {
+              ...normalizeNode(start, end),
+              type: 'JSXText',
+              value: node.value,
+            }
+            return jsxText
+          }
+
           if (
             node.type !== 'mdxJsxTextElement' &&
             node.type !== 'mdxJsxFlowElement'

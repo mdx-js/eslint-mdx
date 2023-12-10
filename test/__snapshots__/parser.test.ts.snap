@@ -6,7 +6,31 @@ exports[`parser should match all AST snapshots: 287.mdx 1`] = `
     {
       "end": 111,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 107,
+            "loc": {
+              "end": {
+                "column": 107,
+                "line": 1,
+                "offset": 107,
+              },
+              "start": {
+                "column": 95,
+                "line": 1,
+                "offset": 95,
+              },
+            },
+            "range": [
+              95,
+              107,
+            ],
+            "raw": "announcement",
+            "start": 95,
+            "type": "JSXText",
+            "value": "announcement",
+          },
+        ],
         "closingElement": {
           "end": 111,
           "loc": {
@@ -211,7 +235,31 @@ exports[`parser should match all AST snapshots: 287.mdx 1`] = `
     {
       "end": 202,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 198,
+            "loc": {
+              "end": {
+                "column": 198,
+                "line": 1,
+                "offset": 198,
+              },
+              "start": {
+                "column": 170,
+                "line": 1,
+                "offset": 170,
+              },
+            },
+            "range": [
+              170,
+              198,
+            ],
+            "raw": "webpack 4 documentation here",
+            "start": 170,
+            "type": "JSXText",
+            "value": "webpack 4 documentation here",
+          },
+        ],
         "closingElement": {
           "end": 202,
           "loc": {
@@ -952,7 +1000,31 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
     {
       "end": 54,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 48,
+            "loc": {
+              "end": {
+                "column": 38,
+                "line": 3,
+                "offset": 48,
+              },
+              "start": {
+                "column": 31,
+                "line": 3,
+                "offset": 41,
+              },
+            },
+            "range": [
+              41,
+              48,
+            ],
+            "raw": "content",
+            "start": 41,
+            "type": "JSXText",
+            "value": "content",
+          },
+        ],
         "closingElement": {
           "end": 54,
           "loc": {
@@ -2662,7 +2734,31 @@ exports[`parser should match all AST snapshots: 367.mdx 1`] = `
     {
       "end": 64,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 60,
+            "loc": {
+              "end": {
+                "column": 9,
+                "line": 8,
+                "offset": 60,
+              },
+              "start": {
+                "column": 5,
+                "line": 8,
+                "offset": 56,
+              },
+            },
+            "range": [
+              56,
+              60,
+            ],
+            "raw": "test",
+            "start": 56,
+            "type": "JSXText",
+            "value": "test",
+          },
+        ],
         "closingElement": {
           "end": 64,
           "loc": {
@@ -2798,7 +2894,31 @@ exports[`parser should match all AST snapshots: 367.mdx 1`] = `
     {
       "end": 79,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 75,
+            "loc": {
+              "end": {
+                "column": 9,
+                "line": 10,
+                "offset": 75,
+              },
+              "start": {
+                "column": 5,
+                "line": 10,
+                "offset": 71,
+              },
+            },
+            "range": [
+              71,
+              75,
+            ],
+            "raw": "test",
+            "start": 71,
+            "type": "JSXText",
+            "value": "test",
+          },
+        ],
         "closingElement": {
           "end": 79,
           "loc": {
@@ -29467,7 +29587,31 @@ exports[`parser should match all AST snapshots: 429.mdx 1`] = `
     {
       "end": 31,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 22,
+            "loc": {
+              "end": {
+                "column": 22,
+                "line": 1,
+                "offset": 22,
+              },
+              "start": {
+                "column": 17,
+                "line": 1,
+                "offset": 17,
+              },
+            },
+            "range": [
+              17,
+              22,
+            ],
+            "raw": "Hello",
+            "start": 17,
+            "type": "JSXText",
+            "value": "Hello",
+          },
+        ],
         "closingElement": {
           "end": 31,
           "loc": {
@@ -31415,7 +31559,31 @@ exports[`parser should match all AST snapshots: 437.mdx 1`] = `
     {
       "end": 27,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 21,
+            "loc": {
+              "end": {
+                "column": 21,
+                "line": 1,
+                "offset": 21,
+              },
+              "start": {
+                "column": 18,
+                "line": 1,
+                "offset": 18,
+              },
+            },
+            "range": [
+              18,
+              21,
+            ],
+            "raw": "bar",
+            "start": 18,
+            "type": "JSXText",
+            "value": "bar",
+          },
+        ],
         "closingElement": {
           "end": 27,
           "loc": {
@@ -32254,7 +32422,31 @@ exports[`parser should match all AST snapshots: 445.mdx 1`] = `
     {
       "end": 137,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 114,
+            "loc": {
+              "end": {
+                "column": 37,
+                "line": 4,
+                "offset": 114,
+              },
+              "start": {
+                "column": 24,
+                "line": 4,
+                "offset": 101,
+              },
+            },
+            "range": [
+              101,
+              114,
+            ],
+            "raw": "Hello World !",
+            "start": 101,
+            "type": "JSXText",
+            "value": "Hello World !",
+          },
+        ],
         "closingElement": {
           "end": 137,
           "loc": {
@@ -38435,7 +38627,31 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
     {
       "end": 175,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 171,
+            "loc": {
+              "end": {
+                "column": 84,
+                "line": 9,
+                "offset": 171,
+              },
+              "start": {
+                "column": 79,
+                "line": 9,
+                "offset": 166,
+              },
+            },
+            "range": [
+              166,
+              171,
+            ],
+            "raw": "velit",
+            "start": 166,
+            "type": "JSXText",
+            "value": "velit",
+          },
+        ],
         "closingElement": {
           "end": 175,
           "loc": {
@@ -46155,7 +46371,31 @@ exports[`parser should match all AST snapshots: leading-spaces.mdx 1`] = `
     {
       "end": 19,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 15,
+            "loc": {
+              "end": {
+                "column": 9,
+                "line": 2,
+                "offset": 15,
+              },
+              "start": {
+                "column": 5,
+                "line": 2,
+                "offset": 11,
+              },
+            },
+            "range": [
+              11,
+              15,
+            ],
+            "raw": "test",
+            "start": 11,
+            "type": "JSXText",
+            "value": "test",
+          },
+        ],
         "closingElement": {
           "end": 19,
           "loc": {
@@ -46291,7 +46531,31 @@ exports[`parser should match all AST snapshots: leading-spaces.mdx 1`] = `
     {
       "end": 34,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 30,
+            "loc": {
+              "end": {
+                "column": 9,
+                "line": 4,
+                "offset": 30,
+              },
+              "start": {
+                "column": 5,
+                "line": 4,
+                "offset": 26,
+              },
+            },
+            "range": [
+              26,
+              30,
+            ],
+            "raw": "test",
+            "start": 26,
+            "type": "JSXText",
+            "value": "test",
+          },
+        ],
         "closingElement": {
           "end": 34,
           "loc": {
@@ -46925,7 +47189,31 @@ exports[`parser should match all AST snapshots: no-unescaped-entities.mdx 1`] = 
     {
       "end": 25,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 16,
+            "loc": {
+              "end": {
+                "column": 16,
+                "line": 1,
+                "offset": 16,
+              },
+              "start": {
+                "column": 8,
+                "line": 1,
+                "offset": 8,
+              },
+            },
+            "range": [
+              8,
+              16,
+            ],
+            "raw": " &apos; ",
+            "start": 8,
+            "type": "JSXText",
+            "value": " ' ",
+          },
+        ],
         "closingElement": {
           "end": 25,
           "loc": {
@@ -47061,7 +47349,31 @@ exports[`parser should match all AST snapshots: no-unescaped-entities.mdx 1`] = 
     {
       "end": 42,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 35,
+            "loc": {
+              "end": {
+                "column": 9,
+                "line": 2,
+                "offset": 35,
+              },
+              "start": {
+                "column": 6,
+                "line": 2,
+                "offset": 32,
+              },
+            },
+            "range": [
+              32,
+              35,
+            ],
+            "raw": " > ",
+            "start": 32,
+            "type": "JSXText",
+            "value": " > ",
+          },
+        ],
         "closingElement": {
           "end": 42,
           "loc": {
@@ -47197,7 +47509,31 @@ exports[`parser should match all AST snapshots: no-unescaped-entities.mdx 1`] = 
     {
       "end": 76,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 67,
+            "loc": {
+              "end": {
+                "column": 23,
+                "line": 4,
+                "offset": 67,
+              },
+              "start": {
+                "column": 15,
+                "line": 4,
+                "offset": 59,
+              },
+            },
+            "range": [
+              59,
+              67,
+            ],
+            "raw": " &apos; ",
+            "start": 59,
+            "type": "JSXText",
+            "value": " ' ",
+          },
+        ],
         "closingElement": {
           "end": 76,
           "loc": {
@@ -47333,7 +47669,31 @@ exports[`parser should match all AST snapshots: no-unescaped-entities.mdx 1`] = 
     {
       "end": 98,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 91,
+            "loc": {
+              "end": {
+                "column": 14,
+                "line": 5,
+                "offset": 91,
+              },
+              "start": {
+                "column": 11,
+                "line": 5,
+                "offset": 88,
+              },
+            },
+            "range": [
+              88,
+              91,
+            ],
+            "raw": " > ",
+            "start": 88,
+            "type": "JSXText",
+            "value": " > ",
+          },
+        ],
         "closingElement": {
           "end": 98,
           "loc": {
@@ -48541,7 +48901,31 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
     {
       "end": 89,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 86,
+            "loc": {
+              "end": {
+                "column": 12,
+                "line": 10,
+                "offset": 86,
+              },
+              "start": {
+                "column": 2,
+                "line": 10,
+                "offset": 76,
+              },
+            },
+            "range": [
+              76,
+              86,
+            ],
+            "raw": " Fragment ",
+            "start": 76,
+            "type": "JSXText",
+            "value": " Fragment ",
+          },
+        ],
         "closingFragment": {
           "end": 89,
           "loc": {

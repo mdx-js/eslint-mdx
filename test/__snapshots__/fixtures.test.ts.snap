@@ -139,24 +139,6 @@ import React from 'react'
   },
   {
     "column": 1,
-    "endColumn": 9,
-    "endLine": 46,
-    "fix": {
-      "range": [
-        476,
-        492,
-      ],
-      "text": " />",
-    },
-    "line": 46,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
-    "severity": 2,
-  },
-  {
-    "column": 1,
     "endColumn": 6,
     "endLine": 50,
     "line": 50,
@@ -237,67 +219,10 @@ exports[`fixtures lint code blocks should work as expected: code-blocks.mdx 1`] 
 ]
 `;
 
-exports[`fixtures should match all snapshots: 287.mdx 1`] = `
-[
-  {
-    "column": 50,
-    "endColumn": 96,
-    "endLine": 1,
-    "fix": {
-      "range": [
-        94,
-        111,
-      ],
-      "text": " />",
-    },
-    "line": 1,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
-    "severity": 2,
-  },
-  {
-    "column": 134,
-    "endColumn": 171,
-    "endLine": 1,
-    "fix": {
-      "range": [
-        169,
-        202,
-      ],
-      "text": " />",
-    },
-    "line": 1,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
-    "severity": 2,
-  },
-]
-`;
+exports[`fixtures should match all snapshots: 287.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: 292.mdx 1`] = `
 [
-  {
-    "column": 11,
-    "endColumn": 32,
-    "endLine": 3,
-    "fix": {
-      "range": [
-        40,
-        54,
-      ],
-      "text": " />",
-    },
-    "line": 3,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
-    "severity": 2,
-  },
   {
     "column": 5,
     "endColumn": 59,
@@ -369,42 +294,6 @@ exports[`fixtures should match all snapshots: 367.mdx 1`] = `
       "text": " />",
     },
     "line": 7,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
-    "severity": 2,
-  },
-  {
-    "column": 3,
-    "endColumn": 6,
-    "endLine": 8,
-    "fix": {
-      "range": [
-        55,
-        64,
-      ],
-      "text": " />",
-    },
-    "line": 8,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
-    "severity": 2,
-  },
-  {
-    "column": 3,
-    "endColumn": 6,
-    "endLine": 10,
-    "fix": {
-      "range": [
-        70,
-        79,
-      ],
-      "text": " />",
-    },
-    "line": 10,
     "message": "Empty components are self-closing",
     "messageId": "notSelfClosing",
     "nodeType": "JSXOpeningElement",
@@ -666,24 +555,6 @@ exports[`fixtures should match all snapshots: 391.mdx 1`] = `
 exports[`fixtures should match all snapshots: 429.mdx 1`] = `
 [
   {
-    "column": 1,
-    "endColumn": 18,
-    "endLine": 1,
-    "fix": {
-      "range": [
-        16,
-        31,
-      ],
-      "text": " />",
-    },
-    "line": 1,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
-    "severity": 2,
-  },
-  {
     "column": 17,
     "endColumn": 17,
     "endLine": 3,
@@ -887,24 +758,6 @@ exports[`fixtures should match all snapshots: 435.mdx 1`] = `
 exports[`fixtures should match all snapshots: 437.mdx 1`] = `
 [
   {
-    "column": 1,
-    "endColumn": 19,
-    "endLine": 1,
-    "fix": {
-      "range": [
-        17,
-        27,
-      ],
-      "text": " />",
-    },
-    "line": 1,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
-    "severity": 2,
-  },
-  {
     "column": 2,
     "endColumn": 5,
     "endLine": 1,
@@ -950,24 +803,6 @@ exports[`fixtures should match all snapshots: 445.mdx 1`] = `
       "text": " />",
     },
     "line": 3,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
-    "severity": 2,
-  },
-  {
-    "column": 3,
-    "endColumn": 25,
-    "endLine": 4,
-    "fix": {
-      "range": [
-        100,
-        137,
-      ],
-      "text": " />",
-    },
-    "line": 4,
     "message": "Empty components are self-closing",
     "messageId": "notSelfClosing",
     "nodeType": "JSXOpeningElement",
@@ -1228,24 +1063,6 @@ exports[`fixtures should match all snapshots: basic.mdx 1`] = `
     "messageId": "replace",
     "nodeType": null,
     "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
-    "column": 77,
-    "endColumn": 80,
-    "endLine": 9,
-    "fix": {
-      "range": [
-        165,
-        175,
-      ],
-      "text": " />",
-    },
-    "line": 9,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
     "severity": 2,
   },
   {
@@ -1873,42 +1690,6 @@ exports[`fixtures should match all snapshots: leading-spaces.mdx 1`] = `
     "ruleId": "react/self-closing-comp",
     "severity": 2,
   },
-  {
-    "column": 3,
-    "endColumn": 6,
-    "endLine": 2,
-    "fix": {
-      "range": [
-        10,
-        19,
-      ],
-      "text": " />",
-    },
-    "line": 2,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
-    "severity": 2,
-  },
-  {
-    "column": 3,
-    "endColumn": 6,
-    "endLine": 4,
-    "fix": {
-      "range": [
-        25,
-        34,
-      ],
-      "text": " />",
-    },
-    "line": 4,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
-    "severity": 2,
-  },
 ]
 `;
 
@@ -1919,75 +1700,21 @@ exports[`fixtures should match all snapshots: nested.md 1`] = `[]`;
 exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `
 [
   {
-    "column": 1,
-    "endColumn": 9,
-    "endLine": 1,
-    "fix": {
-      "range": [
-        7,
-        25,
-      ],
-      "text": " />",
-    },
-    "line": 1,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
-    "severity": 2,
-  },
-  {
-    "column": 1,
-    "endColumn": 7,
-    "endLine": 2,
-    "fix": {
-      "range": [
-        31,
-        42,
-      ],
-      "text": " />",
-    },
-    "line": 2,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
-    "severity": 2,
-  },
-  {
     "column": 8,
-    "endColumn": 16,
-    "endLine": 4,
-    "fix": {
-      "range": [
-        58,
-        76,
-      ],
-      "text": " />",
-    },
-    "line": 4,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
+    "line": 2,
+    "message": "\`>\` can be escaped with \`&gt;\`.",
+    "messageId": "unescapedEntityAlts",
+    "nodeType": "JSXText",
+    "ruleId": "react/no-unescaped-entities",
     "severity": 2,
   },
   {
-    "column": 6,
-    "endColumn": 12,
-    "endLine": 5,
-    "fix": {
-      "range": [
-        87,
-        98,
-      ],
-      "text": " />",
-    },
+    "column": 13,
     "line": 5,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
+    "message": "\`>\` can be escaped with \`&gt;\`.",
+    "messageId": "unescapedEntityAlts",
+    "nodeType": "JSXText",
+    "ruleId": "react/no-unescaped-entities",
     "severity": 2,
   },
 ]
