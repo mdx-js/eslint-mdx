@@ -267,24 +267,6 @@ exports[`fixtures should match all snapshots: 367.mdx 1`] = `[]`;
 exports[`fixtures should match all snapshots: 371.mdx 1`] = `
 [
   {
-    "column": 1,
-    "endColumn": 6,
-    "endLine": 3,
-    "fix": {
-      "range": [
-        21,
-        74,
-      ],
-      "text": " />",
-    },
-    "line": 3,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
-    "severity": 2,
-  },
-  {
     "column": 13,
     "endColumn": 14,
     "endLine": 7,

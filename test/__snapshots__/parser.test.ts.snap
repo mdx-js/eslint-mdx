@@ -3507,7 +3507,39 @@ exports[`parser should match all AST snapshots: 371.mdx 1`] = `
     {
       "end": 74,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 66,
+            "lang": "js",
+            "loc": {
+              "end": {
+                "column": 3,
+                "line": 9,
+                "offset": 66,
+              },
+              "start": {
+                "column": 0,
+                "line": 5,
+                "offset": 24,
+              },
+            },
+            "meta": null,
+            "range": [
+              24,
+              66,
+            ],
+            "raw": "\`\`\`js
+function foo() {
+  return 123;
+}
+\`\`\`",
+            "start": 24,
+            "type": "MDXJSXCode",
+            "value": "function foo() {
+  return 123;
+}",
+          },
+        ],
         "closingElement": {
           "end": 74,
           "loc": {

@@ -1,6 +1,6 @@
 import type { Position } from 'acorn'
 import type { AST, Linter } from 'eslint'
-import type { Program } from 'estree'
+import type { BaseNode, Program } from 'estree'
 import type { Root } from 'mdast'
 import type { VFileOptions } from 'vfile'
 import type { VFileMessage } from 'vfile-message'
@@ -47,3 +47,10 @@ export type WorkerResult = WorkerParseResult | WorkerProcessResult
 type _Arrayable<T, R = T extends Array<infer U> ? U : T> = R | R[]
 
 export type Arrayable<T> = _Arrayable<T>
+
+export interface MDXJSXCode extends BaseNode {
+  type: 'MDXJSXCode'
+  value: string
+  lang?: string | null
+  meta?: string | null
+}

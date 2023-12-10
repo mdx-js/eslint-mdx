@@ -35,6 +35,9 @@
   - [Classic](#classic)
   - [Flat Config](#flat-config)
 - [Parser Options](#parser-options)
+- [Parser API](#parser-api)
+  - [`MDXJSXCode`](#mdxjsxcode)
+  - [Typings](#typings)
 - [Rules](#rules)
   - [mdx/remark](#mdxremark)
 - [Prettier Integration](#prettier-integration)
@@ -47,7 +50,7 @@
 
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/unifiedjs.vscode-mdx)](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)
 
-[VSCode MDX][]\: Integrates with [VSCode ESLint][], syntaxes highlighting and error reporting.
+[VSCode MDX][]: Integrates with [VSCode ESLint][], syntaxes highlighting and error reporting.
 
 ## Packages
 
@@ -136,6 +139,39 @@ eslint . --ext js,md,mdx
 2. `markdownExtensions` (`string | string[]`): `eslint-mdx` will only treat `.md` files as plain markdown by default, and will lint them via remark plugins. If you want to resolve other extensions as like `.md`, you can use this option.
 
 3. `ignoreRemarkConfig` (`boolean`): Ignore the `remark` configuration defined in the project.
+
+## Parser API
+
+### `MDXJSXCode`
+
+A new `MDXJSXCode` estree node type is exported from `eslint-mdx` which represents code blocks in `mdx` like the following:
+
+````mdx
+<div>
+
+```js
+export function foo() {
+  return 'bar'
+}
+```
+
+</div>
+````
+
+See also <https://github.com/syntax-tree/mdast#code>
+
+### Typings
+
+```ts
+import type { BaseNode } from 'estree'
+
+export interface MDXJSXCode extends BaseNode {
+  type: 'MDXJSXCode'
+  value: string
+  lang?: string | null
+  meta?: string | null
+}
+```
 
 ## Rules
 

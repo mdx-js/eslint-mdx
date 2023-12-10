@@ -24,7 +24,13 @@ import type {
   JSXNamespacedName,
   JSXText,
 } from 'estree-jsx'
-import type { BlockContent, Paragraph, PhrasingContent, Literal } from 'mdast'
+import type {
+  BlockContent,
+  Code,
+  Paragraph,
+  PhrasingContent,
+  Literal,
+} from 'mdast'
 import type { Options } from 'micromark-extension-mdx-expression'
 import type { Root } from 'remark-mdx'
 import { extractProperties, runAsWorker } from 'synckit'
@@ -43,6 +49,7 @@ import {
 import { restoreTokens } from './tokens'
 import type {
   Arrayable,
+  MDXJSXCode,
   NormalPosition,
   WorkerOptions,
   WorkerResult,
@@ -404,17 +411,30 @@ runAsWorker(
         }
 
         function handleNode(
-          node: BlockContent | Literal | Paragraph | PhrasingContent,
+          node: BlockContent | Code | Literal | Paragraph | PhrasingContent,
         ) {
           if (node.type === 'paragraph') {
             return handleChildren(node)
           }
 
+          const {
+            start: { offset: start },
+            end: { offset: end },
+          } = node.position
+
+          if (node.type === 'code') {
+            const { lang, meta, value } = node as Code
+            const jsxCode: MDXJSXCode = {
+              ...normalizeNode(start, end),
+              type: 'MDXJSXCode' as const,
+              lang,
+              meta,
+              value,
+            }
+            return jsxCode
+          }
+
           if (node.type === 'text') {
-            const {
-              start: { offset: start },
-              end: { offset: end },
-            } = node.position
             const jsxText: JSXText = {
               ...normalizeNode(start, end),
               type: 'JSXText',
