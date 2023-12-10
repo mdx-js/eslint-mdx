@@ -312,7 +312,7 @@ exports[`fixtures should match all snapshots: 292.mdx 1`] = `
   },
   {
     "column": 46,
-    "endColumn": 51,
+    "endColumn": 58,
     "endLine": 5,
     "line": 5,
     "message": "Unknown property 'story' found",
@@ -392,10 +392,23 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "fix": {
       "range": [
         426,
-        451,
+        720,
       ],
-      "text": "decorators="Tabs"
-  title",
+      "text": "decorators={[
+    moduleMetadata({
+      imports: [
+        ButtonModule,
+        IconModule,
+        FormsModule,
+        FormModule,
+        RadioModule,
+        TabsModule,
+        CardModule,
+      ],
+      declarations: [ActiveTestComponent, LazyTestComponent],
+    }),
+  ]}
+  title="Tabs"",
     },
     "line": 21,
     "message": "Props should be sorted alphabetically",
@@ -411,10 +424,10 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "fix": {
       "range": [
         824,
-        847,
+        855,
       ],
-      "text": "height="Basic"
-    name",
+      "text": "height="100px"
+    name="Basic"",
     },
     "line": 46,
     "message": "Props should be sorted alphabetically",
@@ -430,10 +443,10 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "fix": {
       "range": [
         1499,
-        1521,
+        1529,
       ],
-      "text": "height="Card"
-    name",
+      "text": "height="200px"
+    name="Card"",
     },
     "line": 83,
     "message": "Props should be sorted alphabetically",
@@ -449,10 +462,10 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "fix": {
       "range": [
         1982,
-        2004,
+        2012,
       ],
-      "text": "height="Size"
-    name",
+      "text": "height="200px"
+    name="Size"",
     },
     "line": 105,
     "message": "Props should be sorted alphabetically",
@@ -468,10 +481,10 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "fix": {
       "range": [
         2920,
-        2949,
+        2957,
       ],
-      "text": "height="CustomLabel"
-    name",
+      "text": "height="200px"
+    name="CustomLabel"",
     },
     "line": 139,
     "message": "Props should be sorted alphabetically",
@@ -524,10 +537,10 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "fix": {
       "range": [
         3750,
-        3776,
+        3784,
       ],
-      "text": "height="Editable"
-    name",
+      "text": "height="100px"
+    name="Editable"",
     },
     "line": 174,
     "message": "Props should be sorted alphabetically",
@@ -640,10 +653,10 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "fix": {
       "range": [
         4788,
-        4814,
+        4822,
       ],
-      "text": "height="Disabled"
-    name",
+      "text": "height="100px"
+    name="Disabled"",
     },
     "line": 220,
     "message": "Props should be sorted alphabetically",
@@ -659,10 +672,10 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "fix": {
       "range": [
         5581,
-        5603,
+        5611,
       ],
-      "text": "height="Lazy"
-    name",
+      "text": "height="150px"
+    name="Lazy"",
     },
     "line": 253,
     "message": "Props should be sorted alphabetically",
@@ -678,10 +691,10 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "fix": {
       "range": [
         6792,
-        6814,
+        6822,
       ],
-      "text": "height="Nest"
-    name",
+      "text": "height="100px"
+    name="Nest"",
     },
     "line": 299,
     "message": "Props should be sorted alphabetically",
@@ -750,10 +763,10 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "fix": {
       "range": [
         8233,
-        8256,
+        8264,
       ],
-      "text": "height="Title"
-    name",
+      "text": "height="100px"
+    name="Title"",
     },
     "line": 348,
     "message": "Props should be sorted alphabetically",
@@ -785,8 +798,7 @@ import {
 } from '@alauda/ui'
 
 <Meta
-  decorators="Tabs"
-  title={[
+  decorators={[
     moduleMetadata({
       imports: [
         ButtonModule,
@@ -800,6 +812,7 @@ import {
       declarations: [ActiveTestComponent, LazyTestComponent],
     }),
   ]}
+  title="Tabs"
 />
 
 # Tabs
@@ -810,8 +823,8 @@ import {
 
 <Canvas>
   <Story
-    height="Basic"
-    name="100px"
+    height="100px"
+    name="Basic"
   >
     {{
       template: /* HTML */ \`
@@ -847,8 +860,8 @@ import {
 
 <Canvas>
   <Story
-    height="Card"
-    name="200px"
+    height="200px"
+    name="Card"
   >
     {{
       template: /* HTML */ \`
@@ -869,8 +882,8 @@ import {
 
 <Canvas>
   <Story
-    height="Size"
-    name="200px"
+    height="200px"
+    name="Size"
   >
     {{
       template: /* HTML */ \`
@@ -903,8 +916,8 @@ import {
 
 <Canvas>
   <Story
-    height="CustomLabel"
-    name="200px"
+    height="200px"
+    name="CustomLabel"
   >
     {{
       template: /* HTML */ \`
@@ -940,8 +953,8 @@ import {
 
 <Canvas>
   <Story
-    height="Editable"
-    name="100px"
+    height="100px"
+    name="Editable"
   >
     {{
       template: /* HTML */ \`
@@ -986,8 +999,8 @@ import {
 
 <Canvas>
   <Story
-    height="Disabled"
-    name="100px"
+    height="100px"
+    name="Disabled"
   >
     {{
       template: /* HTML */ \`
@@ -1019,8 +1032,8 @@ import {
 
 <Canvas>
   <Story
-    height="Lazy"
-    name="150px"
+    height="150px"
+    name="Lazy"
   >
     {{
       template: /* HTML */ \`
@@ -1065,8 +1078,8 @@ import {
 
 <Canvas>
   <Story
-    height="Nest"
-    name="100px"
+    height="100px"
+    name="Nest"
   >
     {{
       template: /* HTML */ \`
@@ -1116,8 +1129,8 @@ import {
 
 <Canvas>
   <Story
-    height="Title"
-    name="100px"
+    height="100px"
+    name="Title"
   >
     {{
       template: /* HTML */ \`
@@ -1544,21 +1557,21 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "fix": {
       "range": [
         114,
-        383,
+        414,
       ],
-      "text": "alt="https://via.placeholder.com/250x250"
-  aria-disabled=""
-  className=""
-  height
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
 
-  loading="my-image"
-  onClick={250}
-  onError={250}
-  onLoad="eager"
-  src={{ display: 'block' }}
-  style={() => console.log('onLoad')}
-  title={() => console.log('onError')}
-  width",
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
     },
     "line": 11,
     "message": "Props should be sorted alphabetically",
@@ -1574,21 +1587,21 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "fix": {
       "range": [
         114,
-        383,
+        414,
       ],
-      "text": "alt="https://via.placeholder.com/250x250"
-  aria-disabled=""
-  className=""
-  height
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
 
-  loading="my-image"
-  onClick={250}
-  onError={250}
-  onLoad="eager"
-  src={{ display: 'block' }}
-  style={() => console.log('onLoad')}
-  title={() => console.log('onError')}
-  width",
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
     },
     "line": 13,
     "message": "Props should be sorted alphabetically",
@@ -1622,21 +1635,21 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "fix": {
       "range": [
         114,
-        383,
+        414,
       ],
-      "text": "alt="https://via.placeholder.com/250x250"
-  aria-disabled=""
-  className=""
-  height
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
 
-  loading="my-image"
-  onClick={250}
-  onError={250}
-  onLoad="eager"
-  src={{ display: 'block' }}
-  style={() => console.log('onLoad')}
-  title={() => console.log('onError')}
-  width",
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
     },
     "line": 15,
     "message": "Props should be sorted alphabetically",
@@ -1688,21 +1701,21 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "fix": {
       "range": [
         114,
-        383,
+        414,
       ],
-      "text": "alt="https://via.placeholder.com/250x250"
-  aria-disabled=""
-  className=""
-  height
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
 
-  loading="my-image"
-  onClick={250}
-  onError={250}
-  onLoad="eager"
-  src={{ display: 'block' }}
-  style={() => console.log('onLoad')}
-  title={() => console.log('onError')}
-  width",
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
     },
     "line": 17,
     "message": "Props should be sorted alphabetically",
@@ -1736,21 +1749,21 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "fix": {
       "range": [
         114,
-        383,
+        414,
       ],
-      "text": "alt="https://via.placeholder.com/250x250"
-  aria-disabled=""
-  className=""
-  height
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
 
-  loading="my-image"
-  onClick={250}
-  onError={250}
-  onLoad="eager"
-  src={{ display: 'block' }}
-  style={() => console.log('onLoad')}
-  title={() => console.log('onError')}
-  width",
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
     },
     "line": 18,
     "message": "Props should be sorted alphabetically",
@@ -1784,21 +1797,21 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "fix": {
       "range": [
         114,
-        383,
+        414,
       ],
-      "text": "alt="https://via.placeholder.com/250x250"
-  aria-disabled=""
-  className=""
-  height
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
 
-  loading="my-image"
-  onClick={250}
-  onError={250}
-  onLoad="eager"
-  src={{ display: 'block' }}
-  style={() => console.log('onLoad')}
-  title={() => console.log('onError')}
-  width",
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
     },
     "line": 19,
     "message": "Props should be sorted alphabetically",
@@ -1832,21 +1845,21 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "fix": {
       "range": [
         114,
-        383,
+        414,
       ],
-      "text": "alt="https://via.placeholder.com/250x250"
-  aria-disabled=""
-  className=""
-  height
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
 
-  loading="my-image"
-  onClick={250}
-  onError={250}
-  onLoad="eager"
-  src={{ display: 'block' }}
-  style={() => console.log('onLoad')}
-  title={() => console.log('onError')}
-  width",
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
     },
     "line": 20,
     "message": "Props should be sorted alphabetically",
@@ -1880,21 +1893,21 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "fix": {
       "range": [
         114,
-        383,
+        414,
       ],
-      "text": "alt="https://via.placeholder.com/250x250"
-  aria-disabled=""
-  className=""
-  height
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
 
-  loading="my-image"
-  onClick={250}
-  onError={250}
-  onLoad="eager"
-  src={{ display: 'block' }}
-  style={() => console.log('onLoad')}
-  title={() => console.log('onError')}
-  width",
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
     },
     "line": 21,
     "message": "Props should be sorted alphabetically",
@@ -1928,21 +1941,21 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "fix": {
       "range": [
         114,
-        383,
+        414,
       ],
-      "text": "alt="https://via.placeholder.com/250x250"
-  aria-disabled=""
-  className=""
-  height
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
 
-  loading="my-image"
-  onClick={250}
-  onError={250}
-  onLoad="eager"
-  src={{ display: 'block' }}
-  style={() => console.log('onLoad')}
-  title={() => console.log('onError')}
-  width",
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
     },
     "line": 22,
     "message": "Props should be sorted alphabetically",
@@ -1964,19 +1977,19 @@ exports[`fixtures should match all snapshots: 450.mdx 2`] = `
 Lorem ipsum dolor sit amet.
 
 <img
-  alt="https://via.placeholder.com/250x250"
-  aria-disabled=""
-  className=""
-  height
+  alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
 
-loading="my-image"
-onClick={250}
-onError={250}
-onLoad="eager"
-src={{ display: 'block' }}
-style={() => console.log('onLoad')}
-title={() => console.log('onError')}
-width={() => console.log('onClick')}
+loading="eager"
+onClick={() => console.log('onClick')}
+onError={() => console.log('onError')}
+onLoad={() => console.log('onLoad')}
+src="https://via.placeholder.com/250x250"
+style={{ display: 'block' }}
+title=""
+width={250}
 />
 "
 `;
@@ -2001,13 +2014,13 @@ exports[`fixtures should match all snapshots: 488.mdx 1`] = `
     "fix": {
       "range": [
         9,
-        68,
+        74,
       ],
       "text": "alt="alt"
-  format="src"
-  height="315"
-  src="100"
-  width",
+  format="svg"
+  height="100"
+  src="src"
+  width="315"",
     },
     "line": 5,
     "message": "Props should be sorted alphabetically",
@@ -2023,13 +2036,13 @@ exports[`fixtures should match all snapshots: 488.mdx 1`] = `
     "fix": {
       "range": [
         9,
-        68,
+        74,
       ],
       "text": "alt="alt"
-  format="src"
-  height="315"
-  src="100"
-  width",
+  format="svg"
+  height="100"
+  src="src"
+  width="315"",
     },
     "line": 6,
     "message": "Props should be sorted alphabetically",
@@ -2044,10 +2057,10 @@ exports[`fixtures should match all snapshots: 488.mdx 1`] = `
 exports[`fixtures should match all snapshots: 488.mdx 2`] = `
 "<Image
   alt="alt"
-  format="src"
-  height="315"
-  src="100"
-  width="svg"
+  format="svg"
+  height="100"
+  src="src"
+  width="315"
 />
 "
 `;
@@ -2177,11 +2190,14 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "fix": {
       "range": [
         163,
-        193,
+        250,
       ],
-      "text": "bg={3}
-  p='lightgray'
-  style",
+      "text": "bg='lightgray'
+  p={3}
+  style={{
+    textAlign: 'center',
+    fontWeight: 'bold',
+  }}",
     },
     "line": 10,
     "message": "Props should be sorted alphabetically",
@@ -2299,8 +2315,8 @@ If you have an existing project you want to integrate MDX with, check out
 the installation guides.
 
 <Box
-  bg={3}
-  p="lightgray"
+  bg="lightgray"
+  p={3}
   style={{
     textAlign: 'center',
     fontWeight: 'bold',
@@ -2529,7 +2545,7 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
   },
   {
     "column": 46,
-    "endColumn": 51,
+    "endColumn": 58,
     "endLine": 1,
     "line": 1,
     "message": "Unknown property 'story' found",
@@ -2561,7 +2577,7 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
   },
   {
     "column": 46,
-    "endColumn": 51,
+    "endColumn": 58,
     "endLine": 5,
     "line": 5,
     "message": "Unknown property 'story' found",
@@ -2593,7 +2609,7 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
   },
   {
     "column": 46,
-    "endColumn": 51,
+    "endColumn": 58,
     "endLine": 9,
     "line": 9,
     "message": "Unknown property 'story' found",
@@ -2625,7 +2641,7 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
   },
   {
     "column": 46,
-    "endColumn": 51,
+    "endColumn": 58,
     "endLine": 13,
     "line": 13,
     "message": "Unknown property 'story' found",
@@ -2657,7 +2673,7 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
   },
   {
     "column": 46,
-    "endColumn": 51,
+    "endColumn": 58,
     "endLine": 17,
     "line": 17,
     "message": "Unknown property 'story' found",
@@ -2689,7 +2705,7 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
   },
   {
     "column": 46,
-    "endColumn": 51,
+    "endColumn": 58,
     "endLine": 21,
     "line": 21,
     "message": "Unknown property 'story' found",

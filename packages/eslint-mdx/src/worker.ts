@@ -633,7 +633,7 @@ runAsWorker(
                   }
 
                   return {
-                    ...attrNamePos,
+                    ...normalizeNode(attrStart, lastAttrOffset + 1),
                     type: 'JSXAttribute',
                     name: {
                       ...attrNamePos,
@@ -713,11 +713,16 @@ runAsWorker(
 
         const expression = handleNode(node)
 
+        // keep for debugging
+        // if (+1 === 1) {
+        //   throw new SyntaxError(JSON.stringify({ node, expression }, null, 2))
+        // }
+
         if (expression) {
           body.push({
             ...normalizePosition(node.position),
             type: 'ExpressionStatement',
-            expression: handleNode(node) as Expression,
+            expression: expression as Expression,
           })
         }
 
