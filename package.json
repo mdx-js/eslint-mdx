@@ -58,6 +58,7 @@
     "fixtures",
     "lib",
     "CHANGELOG.md",
+    "/test.*",
     "!/.*.js"
   ],
   "jest": {

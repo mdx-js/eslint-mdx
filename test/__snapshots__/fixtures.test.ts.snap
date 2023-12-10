@@ -972,24 +972,6 @@ exports[`fixtures should match all snapshots: basic.mdx 1`] = `
     "ruleId": "prettier/prettier",
     "severity": 2,
   },
-  {
-    "column": 1,
-    "endColumn": 8,
-    "endLine": 19,
-    "fix": {
-      "range": [
-        275,
-        309,
-      ],
-      "text": " />",
-    },
-    "line": 19,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "nodeType": "JSXOpeningElement",
-    "ruleId": "react/self-closing-comp",
-    "severity": 2,
-  },
 ]
 `;
 

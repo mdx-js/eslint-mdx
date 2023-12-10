@@ -38806,7 +38806,52 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
     {
       "end": 309,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 309,
+            "expression": {
+              "end": 308,
+              "loc": {
+                "end": {
+                  "column": 39,
+                  "line": 19,
+                  "offset": 308,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 19,
+                  "offset": 270,
+                },
+              },
+              "range": [
+                270,
+                308,
+              ],
+              "raw": "Basic>{/* This is a comment */}</Basic",
+              "start": 270,
+              "type": "JSXEmptyExpression",
+            },
+            "loc": {
+              "end": {
+                "column": 40,
+                "line": 19,
+                "offset": 309,
+              },
+              "start": {
+                "column": 0,
+                "line": 19,
+                "offset": 269,
+              },
+            },
+            "range": [
+              269,
+              309,
+            ],
+            "raw": "<Basic>{/* This is a comment */}</Basic>",
+            "start": 269,
+            "type": "JSXExpressionContainer",
+          },
+        ],
         "closingElement": {
           "end": 309,
           "loc": {
