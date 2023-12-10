@@ -31596,84 +31596,106 @@ exports[`parser should match all AST snapshots: 437.mdx 1`] = `
 {
   "body": [
     {
-      "end": 27,
+      "end": 31,
       "expression": {
         "children": [
           {
-            "end": 21,
+            "end": 31,
+            "expression": {
+              "end": 24,
+              "loc": {
+                "end": {
+                  "column": 24,
+                  "line": 1,
+                  "offset": 24,
+                },
+                "start": {
+                  "column": 19,
+                  "line": 1,
+                  "offset": 19,
+                },
+              },
+              "range": [
+                19,
+                24,
+              ],
+              "raw": "'bar'",
+              "start": 19,
+              "type": "Literal",
+              "value": "bar",
+            },
             "loc": {
               "end": {
-                "column": 21,
+                "column": 31,
                 "line": 1,
-                "offset": 21,
+                "offset": 31,
               },
               "start": {
-                "column": 18,
+                "column": 0,
                 "line": 1,
-                "offset": 18,
+                "offset": 0,
               },
             },
             "range": [
-              18,
-              21,
+              0,
+              31,
             ],
-            "raw": "bar",
-            "start": 18,
-            "type": "JSXText",
-            "value": "bar",
+            "raw": "<App prop={'foo'}>{'bar'}</App>",
+            "start": 0,
+            "type": "JSXExpressionContainer",
           },
         ],
         "closingElement": {
-          "end": 27,
+          "end": 31,
           "loc": {
             "end": {
-              "column": 27,
+              "column": 31,
               "line": 1,
-              "offset": 27,
+              "offset": 31,
             },
             "start": {
-              "column": 21,
+              "column": 25,
               "line": 1,
-              "offset": 21,
+              "offset": 25,
             },
           },
           "name": {
-            "end": 26,
+            "end": 30,
             "loc": {
               "end": {
-                "column": 26,
+                "column": 30,
                 "line": 1,
-                "offset": 26,
+                "offset": 30,
               },
               "start": {
-                "column": 23,
+                "column": 27,
                 "line": 1,
-                "offset": 23,
+                "offset": 27,
               },
             },
             "name": "App",
             "range": [
-              23,
-              26,
+              27,
+              30,
             ],
             "raw": "App",
-            "start": 23,
+            "start": 27,
             "type": "JSXIdentifier",
           },
           "range": [
-            21,
-            27,
+            25,
+            31,
           ],
           "raw": "</App>",
-          "start": 21,
+          "start": 25,
           "type": "JSXClosingElement",
         },
-        "end": 27,
+        "end": 31,
         "loc": {
           "end": {
-            "column": 27,
+            "column": 31,
             "line": 1,
-            "offset": 27,
+            "offset": 31,
           },
           "start": {
             "column": 0,
@@ -31821,17 +31843,17 @@ exports[`parser should match all AST snapshots: 437.mdx 1`] = `
         },
         "range": [
           0,
-          27,
+          31,
         ],
-        "raw": "<App prop={'foo'}>bar</App>",
+        "raw": "<App prop={'foo'}>{'bar'}</App>",
         "start": 0,
         "type": "JSXElement",
       },
       "loc": {
         "end": {
-          "column": 28,
+          "column": 32,
           "line": 1,
-          "offset": 27,
+          "offset": 31,
         },
         "start": {
           "column": 1,
@@ -31841,19 +31863,19 @@ exports[`parser should match all AST snapshots: 437.mdx 1`] = `
       },
       "range": [
         0,
-        27,
+        31,
       ],
       "start": 0,
       "type": "ExpressionStatement",
     },
   ],
   "comments": [],
-  "end": 28,
+  "end": 32,
   "loc": {
     "end": {
       "column": 1,
       "line": 2,
-      "offset": 28,
+      "offset": 32,
     },
     "start": {
       "column": 1,
@@ -31863,7 +31885,7 @@ exports[`parser should match all AST snapshots: 437.mdx 1`] = `
   },
   "range": [
     0,
-    28,
+    32,
   ],
   "sourceType": undefined,
   "start": 0,
@@ -32045,70 +32067,26 @@ exports[`parser should match all AST snapshots: 437.mdx 1`] = `
       "value": "}",
     },
     {
-      "end": 21,
+      "end": 24,
       "loc": {
         "end": {
-          "column": 21,
+          "column": 24,
           "line": 1,
-          "offset": 21,
+          "offset": 24,
         },
         "start": {
-          "column": 18,
+          "column": 19,
           "line": 1,
-          "offset": 18,
+          "offset": 19,
         },
       },
       "range": [
-        18,
-        21,
+        19,
+        24,
       ],
-      "start": 18,
-      "type": "JSXText",
-      "value": "bar",
-    },
-    {
-      "end": 22,
-      "loc": {
-        "end": {
-          "column": 22,
-          "line": 1,
-          "offset": 22,
-        },
-        "start": {
-          "column": 21,
-          "line": 1,
-          "offset": 21,
-        },
-      },
-      "range": [
-        21,
-        22,
-      ],
-      "start": 21,
-      "type": "Punctuator",
-      "value": "<",
-    },
-    {
-      "end": 23,
-      "loc": {
-        "end": {
-          "column": 23,
-          "line": 1,
-          "offset": 23,
-        },
-        "start": {
-          "column": 22,
-          "line": 1,
-          "offset": 22,
-        },
-      },
-      "range": [
-        22,
-        23,
-      ],
-      "start": 22,
-      "type": "Punctuator",
-      "value": "/",
+      "start": 19,
+      "type": "String",
+      "value": "'bar'",
     },
     {
       "end": 26,
@@ -32119,18 +32097,18 @@ exports[`parser should match all AST snapshots: 437.mdx 1`] = `
           "offset": 26,
         },
         "start": {
-          "column": 23,
+          "column": 25,
           "line": 1,
-          "offset": 23,
+          "offset": 25,
         },
       },
       "range": [
-        23,
+        25,
         26,
       ],
-      "start": 23,
-      "type": "JSXIdentifier",
-      "value": "App",
+      "start": 25,
+      "type": "Punctuator",
+      "value": "<",
     },
     {
       "end": 27,
@@ -32151,6 +32129,50 @@ exports[`parser should match all AST snapshots: 437.mdx 1`] = `
         27,
       ],
       "start": 26,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    {
+      "end": 30,
+      "loc": {
+        "end": {
+          "column": 30,
+          "line": 1,
+          "offset": 30,
+        },
+        "start": {
+          "column": 27,
+          "line": 1,
+          "offset": 27,
+        },
+      },
+      "range": [
+        27,
+        30,
+      ],
+      "start": 27,
+      "type": "JSXIdentifier",
+      "value": "App",
+    },
+    {
+      "end": 31,
+      "loc": {
+        "end": {
+          "column": 31,
+          "line": 1,
+          "offset": 31,
+        },
+        "start": {
+          "column": 30,
+          "line": 1,
+          "offset": 30,
+        },
+      },
+      "range": [
+        30,
+        31,
+      ],
+      "start": 30,
       "type": "Punctuator",
       "value": ">",
     },

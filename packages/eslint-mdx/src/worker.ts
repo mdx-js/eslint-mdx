@@ -386,6 +386,16 @@ runAsWorker(
                 if (child.data && 'estree' in child.data && child.data.estree) {
                   const estree = child.data.estree as Program
 
+                  assert(estree.body.length <= 1)
+
+                  const expStat = estree.body[0] as ExpressionStatement
+
+                  let expression: Expression
+
+                  if (expStat) {
+                    expression = expStat.expression
+                  }
+
                   if (child.type === 'mdxTextExpression') {
                     const {
                       start: { offset: start },
@@ -395,22 +405,16 @@ runAsWorker(
                     const expressionContainer: JSXExpressionContainer = {
                       ...normalizeNode(start, end),
                       type: 'JSXExpressionContainer',
-                      expression: {
+                      expression: expression || {
                         ...normalizeNode(start + 1, end - 1),
                         type: 'JSXEmptyExpression',
                       },
                     }
                     acc.push(expressionContainer)
-                  } else {
-                    assert(estree.body.length <= 1)
-
-                    const expStat = estree.body[0] as ExpressionStatement
-
-                    if (expStat) {
-                      const expression =
-                        expStat.expression as BaseExpression as JSXElement['children'][number]
-                      acc.push(expression)
-                    }
+                  } else if (expStat) {
+                    acc.push(
+                      expression as BaseExpression as JSXElement['children'][number],
+                    )
                   }
 
                   comments.push(...estree.comments)
