@@ -24,7 +24,7 @@ import type {
   JSXNamespacedName,
   JSXText,
 } from 'estree-jsx'
-import type { BlockContent, PhrasingContent, Literal } from 'mdast'
+import type { BlockContent, Paragraph, PhrasingContent, Literal } from 'mdast'
 import type { Options } from 'micromark-extension-mdx-expression'
 import type { Root } from 'remark-mdx'
 import { extractProperties, runAsWorker } from 'synckit'
@@ -41,7 +41,12 @@ import {
   prevCharOffsetFactory,
 } from './helpers'
 import { restoreTokens } from './tokens'
-import type { NormalPosition, WorkerOptions, WorkerResult } from './types'
+import type {
+  Arrayable,
+  NormalPosition,
+  WorkerOptions,
+  WorkerResult,
+} from './types'
 
 let config: Configuration
 
@@ -360,7 +365,7 @@ runAsWorker(
         processed.add(node)
 
         function handleChildren(
-          node: BlockContent | Literal | PhrasingContent,
+          node: BlockContent | Literal | Paragraph | PhrasingContent,
         ) {
           return 'children' in node
             ? (
@@ -383,10 +388,12 @@ runAsWorker(
 
                   comments.push(...estree.comments)
                 } else {
-                  const expression = handleNode(
-                    child,
-                  ) as JSXElement['children'][number]
-                  if (expression) {
+                  const expression = handleNode(child) as Arrayable<
+                    JSXElement['children']
+                  >
+                  if (Array.isArray(expression)) {
+                    acc.push(...expression)
+                  } else if (expression) {
                     acc.push(expression)
                   }
                 }
@@ -396,7 +403,13 @@ runAsWorker(
             : []
         }
 
-        function handleNode(node: BlockContent | Literal | PhrasingContent) {
+        function handleNode(
+          node: BlockContent | Literal | Paragraph | PhrasingContent,
+        ) {
+          if (node.type === 'paragraph') {
+            return handleChildren(node)
+          }
+
           if (node.type === 'text') {
             const {
               start: { offset: start },
@@ -418,6 +431,11 @@ runAsWorker(
           }
 
           const children = handleChildren(node)
+
+          // keep for debugging
+          // if (+1 === 1) {
+          //   throw new SyntaxError(JSON.stringify({ node, children }, null, 2))
+          // }
 
           const nodePos = node.position
 
@@ -672,7 +690,7 @@ runAsWorker(
         }
 
         /**
-         * Copied from @see https://github.com/eslint/espree/blob/main/lib/espree.js#L206-L220
+         * Copied from @see https://github.com/eslint/espree/blob/1584ddb00f0b4e3ada764ac86ae20e1480003de3/lib/espree.js#L227-L241
          */
         const templateElement = node
 

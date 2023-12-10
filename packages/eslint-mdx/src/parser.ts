@@ -64,7 +64,7 @@ export class Parser {
     } catch (err: unknown) {
       const error = err as VFileMessage
       throw Object.assign(
-        new SyntaxError(`message: ${error.message}\nstack: ${error.stack}`, {
+        new SyntaxError(error.message, {
           cause: error,
         }),
         {

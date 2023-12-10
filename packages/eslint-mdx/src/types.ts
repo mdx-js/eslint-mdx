@@ -43,3 +43,7 @@ export interface WorkerProcessResult {
 }
 
 export type WorkerResult = WorkerParseResult | WorkerProcessResult
+
+type _Arrayable<T, R = T extends Array<infer U> ? U : T> = R | R[]
+
+export type Arrayable<T> = _Arrayable<T>
