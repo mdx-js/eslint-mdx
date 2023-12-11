@@ -3534,7 +3534,7 @@ function foo() {
 }
 \`\`\`",
             "start": 24,
-            "type": "MDXJSXCode",
+            "type": "MDXCode",
             "value": "function foo() {
   return 123;
 }",
@@ -40966,7 +40966,7 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
             ],
             "raw": "# Here's a text gradient shortcode!",
             "start": 651,
-            "type": "MDXJSXHeading",
+            "type": "MDXHeading",
           },
         ],
         "closingElement": {

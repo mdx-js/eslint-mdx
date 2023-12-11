@@ -51,8 +51,8 @@ import {
 import { restoreTokens } from './tokens'
 import type {
   Arrayable,
-  MDXJSXCode,
-  MDXJSXHeading,
+  MDXCode,
+  MDXHeading,
   NormalPosition,
   WorkerOptions,
   WorkerResult,
@@ -450,9 +450,9 @@ runAsWorker(
 
           if (node.type === 'code') {
             const { lang, meta, value } = node as Code
-            const mdxJsxCode: MDXJSXCode = {
+            const mdxJsxCode: MDXCode = {
               ...normalizeNode(start, end),
-              type: 'MDXJSXCode',
+              type: 'MDXCode',
               lang,
               meta,
               value,
@@ -462,9 +462,9 @@ runAsWorker(
 
           if (node.type === 'heading') {
             const { depth } = node as Heading
-            const mdxJsxHeading: MDXJSXHeading = {
+            const mdxJsxHeading: MDXHeading = {
               ...normalizeNode(start, end),
-              type: 'MDXJSXHeading',
+              type: 'MDXHeading',
               depth,
               children: handleChildren(node),
             }

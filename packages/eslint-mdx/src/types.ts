@@ -49,8 +49,8 @@ type _Arrayable<T, R = T extends Array<infer U> ? U : T> = R | R[]
 
 export type Arrayable<T> = _Arrayable<T>
 
-export interface MDXJSXCode extends BaseNode {
-  type: 'MDXJSXCode'
+export interface MDXCode extends BaseNode {
+  type: 'MDXCode'
   value: string
   lang?: string | null
   meta?: string | null
@@ -58,8 +58,8 @@ export interface MDXJSXCode extends BaseNode {
 
 export type HeadingDepth = 1 | 2 | 3 | 4 | 5 | 6
 
-export interface MDXJSXHeading extends BaseNode {
-  type: 'MDXJSXHeading'
+export interface MDXHeading extends BaseNode {
+  type: 'MDXHeading'
   depth: HeadingDepth
   children: JSXElement['children']
 }
