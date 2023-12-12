@@ -160,6 +160,59 @@ import React from 'react'
 ]
 `;
 
+exports[`fixtures lint code blocks should work as expected: code-blocks.md 2`] = `
+"# abc
+
+# abc
+
+<div>Hello World!</div>
+
+<!-- eslint-disable unicorn/prefer-spread -->
+
+\`\`\`JavaScript
+export var a = 1 == 2
+
+export const b = [a].flat()
+\`\`\`
+
+    export var a = 1 == 2
+
+\`\`\`log
+This is not parsable as JavaScript!
+\`\`\`
+
+<!-- eslint-mdx -->
+
+\`\`\`jsx
+export const App = () => <div>2 > 1</div>
+\`\`\`
+
+<!-- eslint-skip -->
+
+\`\`\`TypeScript
+export type Value = 1 | 2 | 3 | 4 | 5
+\`\`\`
+
+\`\`\`MarkDown
+# abc
+
+# abc
+\`\`\`
+
+<!-- mdx -->
+
+\`\`\`mdx
+import React from 'react'
+
+<header>Header</header>
+
+# abc
+
+# abc
+\`\`\`
+"
+`;
+
 exports[`fixtures lint code blocks should work as expected: code-blocks.mdx 1`] = `
 [
   {
@@ -219,6 +272,19 @@ exports[`fixtures lint code blocks should work as expected: code-blocks.mdx 1`] 
 ]
 `;
 
+exports[`fixtures lint code blocks should work as expected: code-blocks.mdx 2`] = `
+"\`\`\`js
+let a
+
+const b = [1, 2, 3]
+
+const c = b.at(-1)
+
+export { c }
+\`\`\`
+"
+`;
+
 exports[`fixtures should match all snapshots: 287.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: 292.mdx 1`] = `
@@ -246,7 +312,7 @@ exports[`fixtures should match all snapshots: 292.mdx 1`] = `
   },
   {
     "column": 46,
-    "endColumn": 51,
+    "endColumn": 58,
     "endLine": 5,
     "line": 5,
     "message": "Unknown property 'story' found",
@@ -256,6 +322,21 @@ exports[`fixtures should match all snapshots: 292.mdx 1`] = `
     "severity": 2,
   },
 ]
+`;
+
+exports[`fixtures should match all snapshots: 292.mdx 2`] = `
+"# Header
+
+paragraph <div className="abc">content</div>
+
+- - <div
+      kind="docs-packages-vuetify-preset"
+      story="page"
+    >
+      Vuetify preset
+    </div>
+    : some extra text describing the preset
+"
 `;
 
 exports[`fixtures should match all snapshots: 334.mdx 1`] = `[]`;
@@ -287,8 +368,131 @@ exports[`fixtures should match all snapshots: 371.mdx 1`] = `
 ]
 `;
 
+exports[`fixtures should match all snapshots: 371.mdx 2`] = `
+"# Hello, World!
+
+<div>
+
+\`\`\`js
+function foo() {
+  return 123
+}
+\`\`\`
+
+</div>
+"
+`;
+
 exports[`fixtures should match all snapshots: 380.mdx 1`] = `
 [
+  {
+    "column": 3,
+    "endColumn": 13,
+    "endLine": 21,
+    "fix": {
+      "range": [
+        426,
+        720,
+      ],
+      "text": "decorators={[
+    moduleMetadata({
+      imports: [
+        ButtonModule,
+        IconModule,
+        FormsModule,
+        FormModule,
+        RadioModule,
+        TabsModule,
+        CardModule,
+      ],
+      declarations: [ActiveTestComponent, LazyTestComponent],
+    }),
+  ]}
+  title="Tabs"",
+    },
+    "line": 21,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
+  {
+    "column": 5,
+    "endColumn": 11,
+    "endLine": 46,
+    "fix": {
+      "range": [
+        824,
+        855,
+      ],
+      "text": "height="100px"
+    name="Basic"",
+    },
+    "line": 46,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
+  {
+    "column": 5,
+    "endColumn": 11,
+    "endLine": 83,
+    "fix": {
+      "range": [
+        1499,
+        1529,
+      ],
+      "text": "height="200px"
+    name="Card"",
+    },
+    "line": 83,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
+  {
+    "column": 5,
+    "endColumn": 11,
+    "endLine": 105,
+    "fix": {
+      "range": [
+        1982,
+        2012,
+      ],
+      "text": "height="200px"
+    name="Size"",
+    },
+    "line": 105,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
+  {
+    "column": 5,
+    "endColumn": 11,
+    "endLine": 139,
+    "fix": {
+      "range": [
+        2920,
+        2957,
+      ],
+      "text": "height="200px"
+    name="CustomLabel"",
+    },
+    "line": 139,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
   {
     "column": 28,
     "endColumn": 24,
@@ -324,6 +528,25 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "messageId": "template-indent",
     "nodeType": "TemplateLiteral",
     "ruleId": "unicorn/template-indent",
+    "severity": 2,
+  },
+  {
+    "column": 5,
+    "endColumn": 11,
+    "endLine": 174,
+    "fix": {
+      "range": [
+        3750,
+        3784,
+      ],
+      "text": "height="100px"
+    name="Editable"",
+    },
+    "line": 174,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
     "severity": 2,
   },
   {
@@ -424,6 +647,63 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "severity": 2,
   },
   {
+    "column": 5,
+    "endColumn": 11,
+    "endLine": 220,
+    "fix": {
+      "range": [
+        4788,
+        4822,
+      ],
+      "text": "height="100px"
+    name="Disabled"",
+    },
+    "line": 220,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
+  {
+    "column": 5,
+    "endColumn": 11,
+    "endLine": 253,
+    "fix": {
+      "range": [
+        5581,
+        5611,
+      ],
+      "text": "height="150px"
+    name="Lazy"",
+    },
+    "line": 253,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
+  {
+    "column": 5,
+    "endColumn": 11,
+    "endLine": 299,
+    "fix": {
+      "range": [
+        6792,
+        6822,
+      ],
+      "text": "height="100px"
+    name="Nest"",
+    },
+    "line": 299,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
+  {
     "column": 28,
     "endColumn": 26,
     "endLine": 335,
@@ -476,7 +756,445 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "ruleId": "unicorn/template-indent",
     "severity": 2,
   },
+  {
+    "column": 5,
+    "endColumn": 11,
+    "endLine": 348,
+    "fix": {
+      "range": [
+        8233,
+        8264,
+      ],
+      "text": "height="100px"
+    name="Title"",
+    },
+    "line": 348,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
 ]
+`;
+
+exports[`fixtures should match all snapshots: 380.mdx 2`] = `
+"import { FormsModule } from '@angular/forms'
+import { Canvas, Meta, Story } from '@storybook/addon-docs'
+import { moduleMetadata } from '@storybook/angular'
+
+import { ActiveTestComponent } from './active-test.component'
+import { LazyTestComponent } from './lazy-test.component'
+
+import {
+  ButtonModule,
+  IconModule,
+  FormModule,
+  RadioModule,
+  TabSize,
+  TabType,
+  TabsModule,
+  CardModule,
+} from '@alauda/ui'
+
+<Meta
+  decorators={[
+    moduleMetadata({
+      imports: [
+        ButtonModule,
+        IconModule,
+        FormsModule,
+        FormModule,
+        RadioModule,
+        TabsModule,
+        CardModule,
+      ],
+      declarations: [ActiveTestComponent, LazyTestComponent],
+    }),
+  ]}
+  title="Tabs"
+/>
+
+# Tabs
+
+> 移植自 Angular Material, 增加了风格（卡片/线条）和尺寸（大/中/小）选项和 lazy 模式。
+
+## 基础用法
+
+<Canvas>
+  <Story
+    height="100px"
+    name="Basic"
+  >
+    {{
+      template: /* HTML */ \`
+        <aui-tab-group [(tab)]="tab">
+          <aui-tab
+            name="a"
+            label="Tab 0"
+          >
+            <aui-card> Content 1</aui-card>
+          </aui-tab>
+          <aui-tab
+            name="b"
+            label="Tab 1"
+          >
+            <aui-card> Content 2</aui-card>
+          </aui-tab>
+          <aui-tab
+            name="c"
+            label="Tab 2"
+          >
+            <aui-card> Content 3</aui-card>
+          </aui-tab>
+        </aui-tab-group>
+      \`,
+      props: {
+        tab: 'a',
+      },
+    }}
+  </Story>
+</Canvas>
+
+## Card
+
+<Canvas>
+  <Story
+    height="200px"
+    name="Card"
+  >
+    {{
+      template: /* HTML */ \`
+        <aui-tab-group [type]="type">
+          <aui-tab label="Tab 0"><aui-card> Content 1 </aui-card></aui-tab>
+          <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
+          <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+        </aui-tab-group>
+      \`,
+      props: {
+        type: TabType.Card,
+      },
+    }}
+  </Story>
+</Canvas>
+
+## Size
+
+<Canvas>
+  <Story
+    height="200px"
+    name="Size"
+  >
+    {{
+      template: /* HTML */ \`
+        <aui-form-item>
+          <label auiFormItemLabel>尺寸</label>
+          <aui-radio-group
+            auiFormItemControl
+            [(ngModel)]="size"
+            [plain]="false"
+          >
+            <aui-radio-button value="large">大</aui-radio-button>
+            <aui-radio-button value="medium">中</aui-radio-button>
+            <aui-radio-button value="small">小</aui-radio-button>
+          </aui-radio-group>
+        </aui-form-item>
+        <aui-tab-group [size]="size">
+          <aui-tab label="Tab 0"><aui-card> Content 1 </aui-card></aui-tab>
+          <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
+          <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+        </aui-tab-group>
+      \`,
+      props: {
+        size: TabSize.Medium,
+      },
+    }}
+  </Story>
+</Canvas>
+
+## 自定义 Label
+
+<Canvas>
+  <Story
+    height="200px"
+    name="CustomLabel"
+  >
+    {{
+      template: /* HTML */ \`
+        <aui-tab-group>
+          <ng-container *auiTabTitle>aa2</ng-container>
+          <aui-tab>
+            <ng-container *auiTabLabel>
+              <aui-icon icon="sun"></aui-icon>
+              Custom Label
+            </ng-container>
+            <aui-card> Content 1 </aui-card>
+          </aui-tab>
+          <aui-tab label="Tab 1"><aui-card>Content 2</aui-card></aui-tab>
+          <aui-tab>
+            <ng-container *auiTabLabel>
+              <aui-icon icon="moon"></aui-icon>
+              Custom Label
+            </ng-container>
+            <aui-card> Content 3 </aui-card>
+          </aui-tab>
+        </aui-tab-group>
+      \`,
+      props: {
+        tabs: Array.from({ length: 3 }).fill(),
+      },
+    }}
+  </Story>
+</Canvas>
+
+## 添加删除
+
+> 通过自定义 Group Header 实现
+
+<Canvas>
+  <Story
+    height="100px"
+    name="Editable"
+  >
+    {{
+      template: /* HTML */ \`
+        <aui-tab-group>
+          <aui-tab
+            *ngFor="let tab of tabs; index as i; count as len"
+            [closeable]="len > 1"
+            [label]="'tab' + tab"
+            (close)="remove(i)"
+          >
+            <aui-card> content {{ i }} </aui-card>
+          </aui-tab>
+          <button
+            *auiTabHeaderAddon
+            aui-button="primary"
+            (click)="add()"
+            size="small"
+            [square]="true"
+          >
+            <aui-icon icon="plus"></aui-icon>
+          </button>
+        </aui-tab-group>
+      \`,
+      props: {
+        tabs: [1, 2, 3],
+        add(number_ = 1) {
+          this.tabs = this.tabs.concat(
+            Array.from({ length: number_ })
+              .fill()
+              .map((_, index) => this.tabs.at(-1) + index + 1),
+          )
+        },
+        remove(index) {
+          this.tabs.splice(index, 1)
+        },
+      },
+    }}
+  </Story>
+</Canvas>
+
+## 禁用
+
+<Canvas>
+  <Story
+    height="100px"
+    name="Disabled"
+  >
+    {{
+      template: /* HTML */ \`
+        <aui-tab-group>
+          <aui-tab label="Tab 0"> <aui-card> Content 1 </aui-card> </aui-tab>
+          <aui-tab
+            label="Tab 1"
+            [disabled]="true"
+            ><aui-card> Content 2 </aui-card></aui-tab
+          >
+          <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+          <aui-tab
+            label="Tab 3"
+            [disabled]="true"
+            ><aui-card> Content 4 </aui-card></aui-tab
+          >
+        </aui-tab-group>
+      \`,
+      props: {
+        tabs: Array.from({ length: 10 }).fill(),
+      },
+    }}
+  </Story>
+</Canvas>
+
+## Lazy 模式
+
+> 依赖 \`*auiTabContent\`，与默认模式按需加载每次切换 Tab 都会销毁重新创建相比，lazy 启用时在按需加载组件的同时会缓存已加载的 Tab 内容。
+
+<Canvas>
+  <Story
+    height="150px"
+    name="Lazy"
+  >
+    {{
+      template: /* HTML */ \`
+        <aui-form-item>
+          <label auiFormItemLabel>启用</label>
+          <aui-radio-group
+            auiFormItemControl
+            [(ngModel)]="lazy"
+            [plain]="false"
+          >
+            <aui-radio-button [value]="true">是</aui-radio-button>
+            <aui-radio-button [value]="false">否</aui-radio-button>
+          </aui-radio-group>
+        </aui-form-item>
+        <aui-tab-group [lazy]="lazy">
+          <aui-tab label="Tab 1">
+            <tabs-lazy-test *auiTabContent
+              ><aui-card> Content 1 </aui-card></tabs-lazy-test
+            >
+          </aui-tab>
+          <aui-tab label="Tab 2">
+            <tabs-lazy-test *auiTabContent
+              ><aui-card> Content 2 </aui-card></tabs-lazy-test
+            >
+          </aui-tab>
+          <aui-tab label="Tab 3">
+            <tabs-lazy-test *auiTabContent
+              ><aui-card> Content 3 </aui-card></tabs-lazy-test
+            >
+          </aui-tab>
+        </aui-tab-group>
+      \`,
+      props: {
+        tabs: Array.from({ length: 10 }).fill(),
+        lazy: true,
+      },
+    }}
+  </Story>
+</Canvas>
+
+## Tab 嵌套
+
+<Canvas>
+  <Story
+    height="100px"
+    name="Nest"
+  >
+    {{
+      template: /* HTML */ \`
+        <aui-form-item>
+          <label auiFormItemLabel>启用 Lazy</label>
+          <aui-radio-group
+            auiFormItemControl
+            [(ngModel)]="lazy"
+            [plain]="false"
+          >
+            <aui-radio-button [value]="true">是</aui-radio-button>
+            <aui-radio-button [value]="false">否</aui-radio-button>
+          </aui-radio-group>
+        </aui-form-item>
+        <aui-tab-group [lazy]="lazy">
+          <aui-tab label="Tab 1">
+            <tabs-active-test *auiTabContent
+              ><aui-card>Content 1</aui-card></tabs-active-test
+            >
+          </aui-tab>
+          <aui-tab label="Tab 2">
+            <tabs-active-test *auiTabContent>
+              <aui-tab-group [lazy]="true">
+                <aui-tab label="Tab 2-1">
+                  <tabs-active-test *auiTabContent>
+                    <aui-card> Content 2-1 </aui-card>
+                  </tabs-active-test>
+                </aui-tab>
+                <aui-tab label="Tab 2-2">
+                  <tabs-active-test *auiTabContent>
+                    <aui-card> Content 2-2 </aui-card>
+                  </tabs-active-test>
+                </aui-tab>
+              </aui-tab-group>
+            </tabs-active-test>
+          </aui-tab>
+        </aui-tab-group>
+      \`,
+      props: {
+        lazy: true,
+      },
+    }}
+  </Story>
+</Canvas>
+
+## 自定义 Title
+
+<Canvas>
+  <Story
+    height="100px"
+    name="Title"
+  >
+    {{
+      template: /* HTML */ \`
+        <aui-tab-group size="large">
+          <ng-container *auiTabTitle>Title</ng-container>
+          <aui-tab label="Tab 0"> <aui-card> Content 1 </aui-card> </aui-tab>
+          <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
+          <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+          <aui-tab label="Tab 3"><aui-card> Content 4 </aui-card></aui-tab>
+        </aui-tab-group>
+      \`,
+    }}
+  </Story>
+</Canvas>
+
+## TabGroupComponent Inputs
+
+| 名称          | 类型    | 默认值         | 描述            |
+| ------------- | ------- | -------------- | --------------- |
+| type          | TabType | TabType.Line   | 样式主题        |
+| size          | TabSize | TabSize.Medium | 尺寸            |
+| tab           | string  | -              | 选中 Tab 的名称 |
+| selectedIndex | number  | -              | 选中 Tab 的索引 |
+| lazy          | boolean | false          | 懒加载模式      |
+
+## TabGroupComponent Outputs
+
+\`\`\`ts
+interface TabChangeEvent {
+  index: number
+  tab: TabComponent
+}
+\`\`\`
+
+| 名称                | 类型           | 描述                          |
+| ------------------- | -------------- | ----------------------------- |
+| tabChange           | string         | Tab 切换时发射 Tab 的名称     |
+| selectedIndexChange | number         | Tab 切换时发射 Tab 的索引     |
+| selectedTabChange   | TabChangeEvent | Tab 切换时发射 TabChangeEvent |
+| focusChange         | TabChangeEvent | Tab \`focus\` 切换时发射        |
+
+## TabComponent Inputs
+
+| 名称      | 类型    | 默认值 | 说明             |
+| --------- | ------- | ------ | ---------------- |
+| name      | string  | -      | tab 的名称       |
+| label     | string  | -      | 文字 label       |
+| closeable | boolean | false  | 是否显示关闭按键 |
+| disabled  | boolean | false  | 是否禁用此 tab   |
+
+## TabComponent Outputs
+
+| 名称  | 类型 | 描述                 |
+| ----- | ---- | -------------------- |
+| close | void | 关闭按键被点击时发射 |
+
+## Directives
+
+| 名称              | 作用范围          | 描述                        |
+| ----------------- | ----------------- | --------------------------- |
+| auiTabHeaderAddon | TabGroupComponent | 自定义 Group Header         |
+| auiTabLabel       | TabComponent      | 自定义 Tab Label            |
+| auiTabContent     | TabComponent      | Tab 内容区域，lazy 模式必用 |
+"
 `;
 
 exports[`fixtures should match all snapshots: 391.mdx 1`] = `
@@ -494,6 +1212,8 @@ exports[`fixtures should match all snapshots: 391.mdx 1`] = `
   },
 ]
 `;
+
+exports[`fixtures should match all snapshots: 391.mdx 2`] = `undefined`;
 
 exports[`fixtures should match all snapshots: 429.mdx 1`] = `
 [
@@ -516,6 +1236,13 @@ exports[`fixtures should match all snapshots: 429.mdx 1`] = `
     "severity": 2,
   },
 ]
+`;
+
+exports[`fixtures should match all snapshots: 429.mdx 2`] = `
+"<button disabled>Hello</button>
+
+<button disabled />
+"
 `;
 
 exports[`fixtures should match all snapshots: 435.mdx 1`] = `
@@ -680,6 +1407,25 @@ exports[`fixtures should match all snapshots: 435.mdx 1`] = `
 ]
 `;
 
+exports[`fixtures should match all snapshots: 435.mdx 2`] = `
+"<button
+  style={{
+    background: 'red',
+    border: '1px solid red',
+  }}
+>
+  Hello
+</button>
+
+- list
+
+  <Components
+    data={\`
+\`}
+  />
+"
+`;
+
 exports[`fixtures should match all snapshots: 437.mdx 1`] = `
 [
   {
@@ -732,6 +1478,11 @@ exports[`fixtures should match all snapshots: 437.mdx 1`] = `
 ]
 `;
 
+exports[`fixtures should match all snapshots: 437.mdx 2`] = `
+"bar
+"
+`;
+
 exports[`fixtures should match all snapshots: 445.mdx 1`] = `
 [
   {
@@ -766,6 +1517,19 @@ exports[`fixtures should match all snapshots: 445.mdx 1`] = `
 ]
 `;
 
+exports[`fixtures should match all snapshots: 445.mdx 2`] = `
+"import { DefinitionList } from './DefinitionList'
+
+<DefinitionList disabled>
+  <DefinitionList.Title>Hello World !</DefinitionList.Title>
+</DefinitionList>
+
+<A:B ></A:B >
+
+<A.B.C />
+"
+`;
+
 exports[`fixtures should match all snapshots: 450.mdx 1`] = `
 [
   {
@@ -787,6 +1551,66 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "severity": 2,
   },
   {
+    "column": 3,
+    "endColumn": 6,
+    "endLine": 11,
+    "fix": {
+      "range": [
+        114,
+        414,
+      ],
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
+
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
+    },
+    "line": 11,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 16,
+    "endLine": 13,
+    "fix": {
+      "range": [
+        114,
+        414,
+      ],
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
+
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
+    },
+    "line": 13,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
+  {
     "column": 1,
     "endColumn": 3,
     "endLine": 15,
@@ -802,6 +1626,36 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "messageId": "delete",
     "nodeType": null,
     "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 12,
+    "endLine": 15,
+    "fix": {
+      "range": [
+        114,
+        414,
+      ],
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
+
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
+    },
+    "line": 15,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
     "severity": 2,
   },
   {
@@ -841,6 +1695,36 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "severity": 2,
   },
   {
+    "column": 3,
+    "endColumn": 9,
+    "endLine": 17,
+    "fix": {
+      "range": [
+        114,
+        414,
+      ],
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
+
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
+    },
+    "line": 17,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
+  {
     "column": 1,
     "endColumn": 3,
     "endLine": 18,
@@ -856,6 +1740,36 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "messageId": "delete",
     "nodeType": null,
     "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 10,
+    "endLine": 18,
+    "fix": {
+      "range": [
+        114,
+        414,
+      ],
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
+
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
+    },
+    "line": 18,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
     "severity": 2,
   },
   {
@@ -877,6 +1791,36 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "severity": 2,
   },
   {
+    "column": 3,
+    "endColumn": 8,
+    "endLine": 19,
+    "fix": {
+      "range": [
+        114,
+        414,
+      ],
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
+
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
+    },
+    "line": 19,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
+  {
     "column": 1,
     "endColumn": 3,
     "endLine": 20,
@@ -892,6 +1836,36 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "messageId": "delete",
     "nodeType": null,
     "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 9,
+    "endLine": 20,
+    "fix": {
+      "range": [
+        114,
+        414,
+      ],
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
+
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
+    },
+    "line": 20,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
     "severity": 2,
   },
   {
@@ -913,6 +1887,36 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "severity": 2,
   },
   {
+    "column": 3,
+    "endColumn": 10,
+    "endLine": 21,
+    "fix": {
+      "range": [
+        114,
+        414,
+      ],
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
+
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
+    },
+    "line": 21,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
+  {
     "column": 1,
     "endColumn": 3,
     "endLine": 22,
@@ -930,7 +1934,135 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "ruleId": "prettier/prettier",
     "severity": 2,
   },
+  {
+    "column": 3,
+    "endColumn": 10,
+    "endLine": 22,
+    "fix": {
+      "range": [
+        114,
+        414,
+      ],
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
+
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
+    },
+    "line": 22,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
 ]
+`;
+
+exports[`fixtures should match all snapshots: 450.mdx 2`] = `
+"import { Meta } from '@storybook/addon-docs'
+
+<Meta title="Test" />
+
+# Test
+
+Lorem ipsum dolor sit amet.
+
+<img
+  alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
+
+loading="eager"
+onClick={() => console.log('onClick')}
+onError={() => console.log('onError')}
+onLoad={() => console.log('onLoad')}
+src="https://via.placeholder.com/250x250"
+style={{ display: 'block' }}
+title=""
+width={250}
+/>
+"
+`;
+
+exports[`fixtures should match all snapshots: 488.mdx 1`] = `
+[
+  {
+    "column": 2,
+    "endColumn": 7,
+    "endLine": 1,
+    "line": 1,
+    "message": "'Image' is not defined.",
+    "messageId": "undefined",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 9,
+    "endLine": 5,
+    "fix": {
+      "range": [
+        9,
+        74,
+      ],
+      "text": "alt="alt"
+  format="svg"
+  height="100"
+  src="src"
+  width="315"",
+    },
+    "line": 5,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 9,
+    "endLine": 6,
+    "fix": {
+      "range": [
+        9,
+        74,
+      ],
+      "text": "alt="alt"
+  format="svg"
+  height="100"
+  src="src"
+  width="315"",
+    },
+    "line": 6,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
+]
+`;
+
+exports[`fixtures should match all snapshots: 488.mdx 2`] = `
+"<Image
+  alt="alt"
+  format="svg"
+  height="100"
+  src="src"
+  width="315"
+/>
+"
 `;
 
 exports[`fixtures should match all snapshots: acorn.mdx 1`] = `
@@ -946,6 +2078,8 @@ exports[`fixtures should match all snapshots: acorn.mdx 1`] = `
   },
 ]
 `;
+
+exports[`fixtures should match all snapshots: acorn.mdx 2`] = `undefined`;
 
 exports[`fixtures should match all snapshots: adjacent.mdx 1`] = `
 [
@@ -968,6 +2102,13 @@ exports[`fixtures should match all snapshots: adjacent.mdx 1`] = `
     "severity": 2,
   },
 ]
+`;
+
+exports[`fixtures should match all snapshots: adjacent.mdx 2`] = `
+"import Basic from './basic'
+
+<Basic /> <Basic />
+"
 `;
 
 exports[`fixtures should match all snapshots: basic.mdx 1`] = `
@@ -993,6 +2134,33 @@ exports[`fixtures should match all snapshots: basic.mdx 1`] = `
 ]
 `;
 
+exports[`fixtures should match all snapshots: basic.mdx 2`] = `
+"import Basic from './basic'
+
+export const meta = {
+  title: 'Blog Post',
+}
+
+# Blog Post
+
+Lorem ipsum dolor sit amet, consectetur adipiscing **elit**. Ut ac lobortis <b>velit</b>.
+
+{/* This is a comment */}
+
+\`\`\`css
+@media (min-width: 400px) {
+  border-color: #000;
+}
+\`\`\`
+
+<Basic>{/* This is a comment */}</Basic>
+
+## Subtitle
+
+Lorem ipsum dolor sit _amet_, consectetur adipiscing elit. Ut ac lobortis velit.
+"
+`;
+
 exports[`fixtures should match all snapshots: basic.tsx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
@@ -1013,6 +2181,29 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "messageId": "replace",
     "nodeType": null,
     "ruleId": "prettier/prettier",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 5,
+    "endLine": 10,
+    "fix": {
+      "range": [
+        163,
+        250,
+      ],
+      "text": "bg='lightgray'
+  p={3}
+  style={{
+    textAlign: 'center',
+    fontWeight: 'bold',
+  }}",
+    },
+    "line": 10,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
     "severity": 2,
   },
   {
@@ -1115,6 +2306,42 @@ Here's a YouTube shortcode:
 ]
 `;
 
+exports[`fixtures should match all snapshots: blank-lines.mdx 2`] = `
+"import { Box } from '@rebass/emotion'
+
+# Getting Started
+
+If you have an existing project you want to integrate MDX with, check out
+the installation guides.
+
+<Box
+  bg="lightgray"
+  p={3}
+  style={{
+    textAlign: 'center',
+    fontWeight: 'bold',
+  }}
+>
+  [Next.js](/getting-started/next) | [Gatsby](/getting-started/gatsby) | [Create
+  React App](/getting-started/create-react-app) | [React
+  Static](/getting-started/react-static) | [Webpack](/getting-started/webpack) |
+  [Parcel](/getting-started/parcel) | [Zero](/getting-started/zero)
+</Box>
+
+# Hello, world!
+
+Here's a Twitter shortcode:
+
+<Tweet tweetId="1116723357410447360" />
+
+<TextGradient># Here's a text gradient shortcode!</TextGradient>
+
+Here's a YouTube shortcode:
+
+<YouTube videoId="4fHw4GeW3EU" />
+"
+`;
+
 exports[`fixtures should match all snapshots: code-blocks.md 1`] = `
 [
   {
@@ -1206,6 +2433,59 @@ import React from 'react'
 ]
 `;
 
+exports[`fixtures should match all snapshots: code-blocks.md 2`] = `
+"# abc
+
+# abc
+
+<div>Hello World!</div>
+
+<!-- eslint-disable unicorn/prefer-spread -->
+
+\`\`\`JavaScript
+export var a = 1 == 2
+
+export const b = [].concat(a)
+\`\`\`
+
+    export var a = 1 == 2
+
+\`\`\`log
+This is not parsable as JavaScript!
+\`\`\`
+
+<!-- eslint-mdx -->
+
+\`\`\`jsx
+export const App = () => <div>2 > 1</div>
+\`\`\`
+
+<!-- eslint-skip -->
+
+\`\`\`TypeScript
+export type Value = 1 | 2 | 3 | 4 | 5
+\`\`\`
+
+\`\`\`MarkDown
+# abc
+
+# abc
+\`\`\`
+
+<!-- mdx -->
+
+\`\`\`mdx
+import React from 'react'
+
+<header>Header</header>
+
+# abc
+
+# abc
+\`\`\`
+"
+`;
+
 exports[`fixtures should match all snapshots: code-blocks.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: comments.mdx 1`] = `
@@ -1222,6 +2502,8 @@ exports[`fixtures should match all snapshots: comments.mdx 1`] = `
 ]
 `;
 
+exports[`fixtures should match all snapshots: comments.mdx 2`] = `undefined`;
+
 exports[`fixtures should match all snapshots: details.mdx 1`] = `
 [
   {
@@ -1235,6 +2517,8 @@ exports[`fixtures should match all snapshots: details.mdx 1`] = `
   },
 ]
 `;
+
+exports[`fixtures should match all snapshots: details.mdx 2`] = `undefined`;
 
 exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
 [
@@ -1261,7 +2545,7 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
   },
   {
     "column": 46,
-    "endColumn": 51,
+    "endColumn": 58,
     "endLine": 1,
     "line": 1,
     "message": "Unknown property 'story' found",
@@ -1293,7 +2577,7 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
   },
   {
     "column": 46,
-    "endColumn": 51,
+    "endColumn": 58,
     "endLine": 5,
     "line": 5,
     "message": "Unknown property 'story' found",
@@ -1325,7 +2609,7 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
   },
   {
     "column": 46,
-    "endColumn": 51,
+    "endColumn": 58,
     "endLine": 9,
     "line": 9,
     "message": "Unknown property 'story' found",
@@ -1357,7 +2641,7 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
   },
   {
     "column": 46,
-    "endColumn": 51,
+    "endColumn": 58,
     "endLine": 13,
     "line": 13,
     "message": "Unknown property 'story' found",
@@ -1389,7 +2673,7 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
   },
   {
     "column": 46,
-    "endColumn": 51,
+    "endColumn": 58,
     "endLine": 17,
     "line": 17,
     "message": "Unknown property 'story' found",
@@ -1421,7 +2705,7 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
   },
   {
     "column": 46,
-    "endColumn": 51,
+    "endColumn": 58,
     "endLine": 21,
     "line": 21,
     "message": "Unknown property 'story' found",
@@ -1431,6 +2715,52 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
     "severity": 2,
   },
 ]
+`;
+
+exports[`fixtures should match all snapshots: jsx-in-list.mdx 2`] = `
+"- - <div
+      kind="docs-packages-vuetify-preset"
+      story="page"
+    >
+      Vuetify preset
+    </div>
+    : some extra text describing the preset
+  - <div
+      kind="docs-packages-vuetify-preset"
+      story="page"
+    >
+      Vuetify preset
+    </div>
+    : some extra text describing the preset
+  - <div
+      kind="docs-packages-vuetify-preset"
+      story="page"
+    >
+      Vuetify preset
+    </div>
+    : some extra text describing the preset
+- - <div
+      kind="docs-packages-vuetify-preset"
+      story="page"
+    >
+      Vuetify preset
+    </div>
+    : some extra text describing the preset
+  - <div
+      kind="docs-packages-vuetify-preset"
+      story="page"
+    >
+      Vuetify preset
+    </div>
+    : some extra text describing the preset
+  - <div
+      kind="docs-packages-vuetify-preset"
+      story="page"
+    >
+      Vuetify preset
+    </div>
+    : some extra text describing the preset
+"
 `;
 
 exports[`fixtures should match all snapshots: leading-spaces.mdx 1`] = `[]`;
@@ -1462,6 +2792,8 @@ exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `
 ]
 `;
 
+exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 2`] = `undefined`;
+
 exports[`fixtures should match all snapshots: no-unused-expressions.mdx 1`] = `
 [
   {
@@ -1477,6 +2809,8 @@ exports[`fixtures should match all snapshots: no-unused-expressions.mdx 1`] = `
   },
 ]
 `;
+
+exports[`fixtures should match all snapshots: no-unused-expressions.mdx 2`] = `undefined`;
 
 exports[`fixtures should match all snapshots: processor.mdx 1`] = `
 [
@@ -1502,6 +2836,8 @@ exports[`fixtures should match all snapshots: processor.mdx 1`] = `
   },
 ]
 `;
+
+exports[`fixtures should match all snapshots: processor.mdx 2`] = `undefined`;
 
 exports[`fixtures should match all snapshots: remark.md 1`] = `[]`;
 
@@ -1536,6 +2872,10 @@ exports[`fixtures should match all snapshots: test.md 2`] = `
   },
 ]
 `;
+
+exports[`fixtures should match all snapshots: test.md 3`] = `undefined`;
+
+exports[`fixtures should match all snapshots: test.md 4`] = `undefined`;
 
 exports[`fixtures should match all snapshots: unicorn.jsx 1`] = `
 [
@@ -1587,6 +2927,20 @@ exports[`fixtures should match all snapshots: unicorn.jsx 1`] = `
 ]
 `;
 
+exports[`fixtures should match all snapshots: unicorn.jsx 2`] = `
+";<Story>
+  {{
+    template: /* HTML */ \`
+      <div abc>
+        <div>Nested</div>
+        Hello World
+      </div>
+    \`,
+  }}
+</Story>
+"
+`;
+
 exports[`fixtures should match all snapshots: unicorn.mdx 1`] = `
 [
   {
@@ -1624,4 +2978,18 @@ exports[`fixtures should match all snapshots: unicorn.mdx 1`] = `
     "severity": 2,
   },
 ]
+`;
+
+exports[`fixtures should match all snapshots: unicorn.mdx 2`] = `
+"<Story>
+  {{
+    template: /* HTML */ \`
+      <div abc>
+        <div>Nested</div>
+        Hello World
+      </div>
+    \`,
+  }}
+</Story>
+"
 `;

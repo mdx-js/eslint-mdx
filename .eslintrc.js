@@ -22,6 +22,7 @@ module.exports = {
       files: '*.{md,mdx}',
       rules: {
         'react/jsx-curly-brace-presence': 'error',
+        'react/jsx-sort-props': 'error',
         'react/self-closing-comp': 'error',
         'react/no-unescaped-entities': 'warn',
       },
