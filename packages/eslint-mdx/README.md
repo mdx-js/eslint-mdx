@@ -149,13 +149,11 @@ A new `MDXCode` estree node type is exported from `eslint-mdx` which represents 
 
 ````mdx
 <div>
-
-```js
-export function foo() {
-  return 'bar'
-}
-```
-
+  ```js
+  export function foo() {
+    return 'bar'
+  }
+  ```
 </div>
 ````
 
@@ -163,14 +161,10 @@ See also <https://github.com/syntax-tree/mdast#code>
 
 ### `MDXHeading`
 
-A new `MDXHeading` estree node type is exported from `eslint-mdx` which represents code blocks in `mdx` like the following:
+A new `MDXHeading` estree node type is exported from `eslint-mdx` which represents markdown heading in `mdx` like the following:
 
 ```mdx
-<div>
-
-# Here's a text gradient short code!
-
-</div>
+<div># Here's a text gradient short code!</div>
 ```
 
 See also <https://github.com/syntax-tree/mdast#heading>
