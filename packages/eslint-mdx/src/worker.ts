@@ -437,7 +437,7 @@ runAsWorker(
         }
 
         function handleNode(
-          node: BlockContent | Code | Literal | Paragraph | PhrasingContent,
+          node: BlockContent | Literal | Paragraph | PhrasingContent,
         ) {
           if (node.type === 'paragraph') {
             return handleChildren(node)
