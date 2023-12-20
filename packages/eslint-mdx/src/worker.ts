@@ -18,15 +18,20 @@ import type {
 import type {
   JSXClosingElement,
   JSXElement,
+  JSXExpressionContainer,
   JSXFragment,
   JSXIdentifier,
   JSXMemberExpression,
   JSXNamespacedName,
+  JSXText,
 } from 'estree-jsx'
 import type {
   BlockContent,
+  Code,
+  Heading,
+  Paragraph,
   PhrasingContent,
-  Literal as MdastLiteral,
+  Literal,
 } from 'mdast'
 import type { Options } from 'micromark-extension-mdx-expression'
 import type { Root } from 'remark-mdx'
@@ -44,7 +49,14 @@ import {
   prevCharOffsetFactory,
 } from './helpers'
 import { restoreTokens } from './tokens'
-import type { NormalPosition, WorkerOptions, WorkerResult } from './types'
+import type {
+  Arrayable,
+  MDXCode,
+  MDXHeading,
+  NormalPosition,
+  WorkerOptions,
+  WorkerResult,
+} from './types'
 
 let config: Configuration
 
@@ -182,6 +194,12 @@ export const getRemarkProcessor = async (
     .set(cacheKey, cachedProcessor)
 
   return cachedProcessor
+}
+
+function isExpressionStatement(
+  statement: Program['body'][number],
+): asserts statement is ExpressionStatement | undefined {
+  assert(!statement || statement.type === 'ExpressionStatement')
 }
 
 runAsWorker(
@@ -363,12 +381,12 @@ runAsWorker(
         processed.add(node)
 
         function handleChildren(
-          node: BlockContent | MdastLiteral | PhrasingContent,
+          node: BlockContent | Literal | Paragraph | PhrasingContent,
         ) {
           return 'children' in node
-            ? (node.children as Array<BlockContent | PhrasingContent>).reduce<
-                JSXElement['children']
-              >((acc, child) => {
+            ? (
+                node.children as Array<BlockContent | Literal | PhrasingContent>
+              ).reduce<JSXElement['children']>((acc, child) => {
                 processed.add(child)
 
                 if (child.data && 'estree' in child.data && child.data.estree) {
@@ -376,20 +394,39 @@ runAsWorker(
 
                   assert(estree.body.length <= 1)
 
-                  const expStat = estree.body[0] as ExpressionStatement
+                  const statement = estree.body[0]
 
-                  if (expStat) {
-                    const expression =
-                      expStat.expression as BaseExpression as JSXElement['children'][number]
-                    acc.push(expression)
+                  isExpressionStatement(statement)
+
+                  const expression = statement?.expression
+
+                  if (child.type === 'mdxTextExpression') {
+                    const {
+                      start: { offset: start },
+                      end: { offset: end },
+                    } = node.position
+
+                    const expressionContainer: JSXExpressionContainer = {
+                      ...normalizeNode(start, end),
+                      type: 'JSXExpressionContainer',
+                      expression: expression || {
+                        ...normalizeNode(start + 1, end - 1),
+                        type: 'JSXEmptyExpression',
+                      },
+                    }
+                    acc.push(expressionContainer)
+                  } else if (expression) {
+                    acc.push(expression as JSXElement['children'][number])
                   }
 
                   comments.push(...estree.comments)
                 } else {
-                  const expression = handleNode(
-                    child,
-                  ) as JSXElement['children'][number]
-                  if (expression) {
+                  const expression = handleNode(child) as Arrayable<
+                    JSXElement['children']
+                  >
+                  if (Array.isArray(expression)) {
+                    acc.push(...expression)
+                  } else if (expression) {
                     acc.push(expression)
                   }
                 }
@@ -400,8 +437,49 @@ runAsWorker(
         }
 
         function handleNode(
-          node: BlockContent | MdastLiteral | PhrasingContent,
+          node: BlockContent | Literal | Paragraph | PhrasingContent,
         ) {
+          if (node.type === 'paragraph') {
+            return handleChildren(node)
+          }
+
+          const {
+            start: { offset: start },
+            end: { offset: end },
+          } = node.position
+
+          if (node.type === 'code') {
+            const { lang, meta, value } = node as Code
+            const mdxJsxCode: MDXCode = {
+              ...normalizeNode(start, end),
+              type: 'MDXCode',
+              lang,
+              meta,
+              value,
+            }
+            return mdxJsxCode
+          }
+
+          if (node.type === 'heading') {
+            const { depth } = node as Heading
+            const mdxJsxHeading: MDXHeading = {
+              ...normalizeNode(start, end),
+              type: 'MDXHeading',
+              depth,
+              children: handleChildren(node),
+            }
+            return mdxJsxHeading
+          }
+
+          if (node.type === 'text') {
+            const jsxText: JSXText = {
+              ...normalizeNode(start, end),
+              type: 'JSXText',
+              value: node.value,
+            }
+            return jsxText
+          }
+
           if (
             node.type !== 'mdxJsxTextElement' &&
             node.type !== 'mdxJsxFlowElement'
@@ -410,6 +488,11 @@ runAsWorker(
           }
 
           const children = handleChildren(node)
+
+          // keep for debugging
+          // if (+1 === 1) {
+          //   throw new SyntaxError(JSON.stringify({ node, children }, null, 2))
+          // }
 
           const nodePos = node.position
 
@@ -550,7 +633,7 @@ runAsWorker(
                   }
 
                   return {
-                    ...attrNamePos,
+                    ...normalizeNode(attrStart, lastAttrOffset + 1),
                     type: 'JSXAttribute',
                     name: {
                       ...attrNamePos,
@@ -628,13 +711,18 @@ runAsWorker(
           return expression
         }
 
-        const expression = handleNode(node) as Expression
+        const expression = handleNode(node)
+
+        // keep for debugging
+        // if (+1 === 1) {
+        //   throw new SyntaxError(JSON.stringify({ node, expression }, null, 2))
+        // }
 
         if (expression) {
           body.push({
             ...normalizePosition(node.position),
             type: 'ExpressionStatement',
-            expression: handleNode(node) as Expression,
+            expression: expression as Expression,
           })
         }
 
@@ -664,7 +752,7 @@ runAsWorker(
         }
 
         /**
-         * Copied from @see https://github.com/eslint/espree/blob/main/lib/espree.js#L206-L220
+         * Copied from @see https://github.com/eslint/espree/blob/1584ddb00f0b4e3ada764ac86ae20e1480003de3/lib/espree.js#L227-L241
          */
         const templateElement = node
 
