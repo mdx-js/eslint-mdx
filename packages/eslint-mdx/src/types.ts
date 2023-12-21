@@ -1,6 +1,7 @@
 import type { Position } from 'acorn'
 import type { AST, Linter } from 'eslint'
-import type { Program } from 'estree'
+import type { BaseNode, Program } from 'estree'
+import type { JSXElement } from 'estree-jsx'
 import type { Root } from 'mdast'
 import type { VFileOptions } from 'vfile'
 import type { VFileMessage } from 'vfile-message'
@@ -43,3 +44,22 @@ export interface WorkerProcessResult {
 }
 
 export type WorkerResult = WorkerParseResult | WorkerProcessResult
+
+type _Arrayable<T, R = T extends Array<infer U> ? U : T> = R | R[]
+
+export type Arrayable<T> = _Arrayable<T>
+
+export interface MDXCode extends BaseNode {
+  type: 'MDXCode'
+  value: string
+  lang?: string | null
+  meta?: string | null
+}
+
+export type HeadingDepth = 1 | 2 | 3 | 4 | 5 | 6
+
+export interface MDXHeading extends BaseNode {
+  type: 'MDXHeading'
+  depth: HeadingDepth
+  children: JSXElement['children']
+}

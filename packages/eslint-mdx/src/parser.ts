@@ -64,11 +64,16 @@ export class Parser {
     } catch (err: unknown) {
       const { message, line, column, place } = err as VFileMessage
       const point = place && ('start' in place ? place.start : place)
-      throw Object.assign(new SyntaxError(message), {
-        lineNumber: line,
-        column,
-        index: /* istanbul ignore next */ point?.offset,
-      })
+      throw Object.assign(
+        new SyntaxError(message, {
+          cause: err,
+        }),
+        {
+          lineNumber: line,
+          column,
+          index: /* istanbul ignore next */ point?.offset,
+        },
+      )
     }
 
     const { root, body, comments, tokens } = result

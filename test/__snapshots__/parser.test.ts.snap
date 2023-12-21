@@ -6,7 +6,29 @@ exports[`parser should match all AST snapshots: 287.mdx 1`] = `
     {
       "end": 111,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 107,
+            "loc": {
+              "end": {
+                "column": 107,
+                "line": 1,
+              },
+              "start": {
+                "column": 95,
+                "line": 1,
+              },
+            },
+            "range": [
+              95,
+              107,
+            ],
+            "raw": "announcement",
+            "start": 95,
+            "type": "JSXText",
+            "value": "announcement",
+          },
+        ],
         "closingElement": {
           "end": 111,
           "loc": {
@@ -62,10 +84,10 @@ exports[`parser should match all AST snapshots: 287.mdx 1`] = `
         "openingElement": {
           "attributes": [
             {
-              "end": 56,
+              "end": 94,
               "loc": {
                 "end": {
-                  "column": 56,
+                  "column": 94,
                   "line": 1,
                 },
                 "start": {
@@ -96,9 +118,9 @@ exports[`parser should match all AST snapshots: 287.mdx 1`] = `
               },
               "range": [
                 52,
-                56,
+                94,
               ],
-              "raw": "href",
+              "raw": "href="/blog/2020-10-10-webpack-5-release/"",
               "start": 52,
               "type": "JSXAttribute",
               "value": {
@@ -195,7 +217,29 @@ exports[`parser should match all AST snapshots: 287.mdx 1`] = `
     {
       "end": 202,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 198,
+            "loc": {
+              "end": {
+                "column": 198,
+                "line": 1,
+              },
+              "start": {
+                "column": 170,
+                "line": 1,
+              },
+            },
+            "range": [
+              170,
+              198,
+            ],
+            "raw": "webpack 4 documentation here",
+            "start": 170,
+            "type": "JSXText",
+            "value": "webpack 4 documentation here",
+          },
+        ],
         "closingElement": {
           "end": 202,
           "loc": {
@@ -251,10 +295,10 @@ exports[`parser should match all AST snapshots: 287.mdx 1`] = `
         "openingElement": {
           "attributes": [
             {
-              "end": 140,
+              "end": 169,
               "loc": {
                 "end": {
-                  "column": 140,
+                  "column": 169,
                   "line": 1,
                 },
                 "start": {
@@ -285,9 +329,9 @@ exports[`parser should match all AST snapshots: 287.mdx 1`] = `
               },
               "range": [
                 136,
-                140,
+                169,
               ],
-              "raw": "href",
+              "raw": "href="https://v4.webpack.js.org/"",
               "start": 136,
               "type": "JSXAttribute",
               "value": {
@@ -874,7 +918,29 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
     {
       "end": 54,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 48,
+            "loc": {
+              "end": {
+                "column": 38,
+                "line": 3,
+              },
+              "start": {
+                "column": 31,
+                "line": 3,
+              },
+            },
+            "range": [
+              41,
+              48,
+            ],
+            "raw": "content",
+            "start": 41,
+            "type": "JSXText",
+            "value": "content",
+          },
+        ],
         "closingElement": {
           "end": 54,
           "loc": {
@@ -930,10 +996,10 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
         "openingElement": {
           "attributes": [
             {
-              "end": 34,
+              "end": 40,
               "loc": {
                 "end": {
-                  "column": 24,
+                  "column": 30,
                   "line": 3,
                 },
                 "start": {
@@ -964,9 +1030,9 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
               },
               "range": [
                 25,
-                34,
+                40,
               ],
-              "raw": "className",
+              "raw": "className="abc"",
               "start": 25,
               "type": "JSXAttribute",
               "value": {
@@ -1063,7 +1129,29 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
     {
       "end": 146,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 135,
+            "loc": {
+              "end": {
+                "column": 20,
+                "line": 6,
+              },
+              "start": {
+                "column": 6,
+                "line": 6,
+              },
+            },
+            "range": [
+              121,
+              135,
+            ],
+            "raw": "Vuetify preset",
+            "start": 121,
+            "type": "JSXText",
+            "value": "Vuetify preset",
+          },
+        ],
         "closingElement": {
           "end": 146,
           "loc": {
@@ -1119,10 +1207,10 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
         "openingElement": {
           "attributes": [
             {
-              "end": 69,
+              "end": 100,
               "loc": {
                 "end": {
-                  "column": 13,
+                  "column": 44,
                   "line": 5,
                 },
                 "start": {
@@ -1153,9 +1241,9 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
               },
               "range": [
                 65,
-                69,
+                100,
               ],
-              "raw": "kind",
+              "raw": "kind="docs-packages-vuetify-preset"",
               "start": 65,
               "type": "JSXAttribute",
               "value": {
@@ -1181,10 +1269,10 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
               },
             },
             {
-              "end": 106,
+              "end": 113,
               "loc": {
                 "end": {
-                  "column": 50,
+                  "column": 57,
                   "line": 5,
                 },
                 "start": {
@@ -1215,9 +1303,9 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
               },
               "range": [
                 101,
-                106,
+                113,
               ],
-              "raw": "story",
+              "raw": "story="page"",
               "start": 101,
               "type": "JSXAttribute",
               "value": {
@@ -2318,7 +2406,262 @@ exports[`parser should match all AST snapshots: 367.mdx 1`] = `
     {
       "end": 86,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "children": [
+              {
+                "end": 60,
+                "loc": {
+                  "end": {
+                    "column": 9,
+                    "line": 8,
+                  },
+                  "start": {
+                    "column": 5,
+                    "line": 8,
+                  },
+                },
+                "range": [
+                  56,
+                  60,
+                ],
+                "raw": "test",
+                "start": 56,
+                "type": "JSXText",
+                "value": "test",
+              },
+            ],
+            "closingElement": {
+              "end": 64,
+              "loc": {
+                "end": {
+                  "column": 13,
+                  "line": 8,
+                },
+                "start": {
+                  "column": 9,
+                  "line": 8,
+                },
+              },
+              "name": {
+                "end": 63,
+                "loc": {
+                  "end": {
+                    "column": 12,
+                    "line": 8,
+                  },
+                  "start": {
+                    "column": 11,
+                    "line": 8,
+                  },
+                },
+                "name": "p",
+                "range": [
+                  62,
+                  63,
+                ],
+                "raw": "p",
+                "start": 62,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                60,
+                64,
+              ],
+              "raw": "</p>",
+              "start": 60,
+              "type": "JSXClosingElement",
+            },
+            "end": 64,
+            "loc": {
+              "end": {
+                "column": 13,
+                "line": 8,
+              },
+              "start": {
+                "column": 2,
+                "line": 8,
+              },
+            },
+            "openingElement": {
+              "attributes": [],
+              "end": 56,
+              "loc": {
+                "end": {
+                  "column": 5,
+                  "line": 8,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 8,
+                },
+              },
+              "name": {
+                "end": 55,
+                "loc": {
+                  "end": {
+                    "column": 4,
+                    "line": 8,
+                  },
+                  "start": {
+                    "column": 3,
+                    "line": 8,
+                  },
+                },
+                "name": "p",
+                "range": [
+                  54,
+                  55,
+                ],
+                "raw": "p",
+                "start": 54,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                53,
+                56,
+              ],
+              "raw": "<p>",
+              "selfClosing": false,
+              "start": 53,
+              "type": "JSXOpeningElement",
+            },
+            "range": [
+              53,
+              64,
+            ],
+            "raw": "<p>test</p>",
+            "start": 53,
+            "type": "JSXElement",
+          },
+          {
+            "children": [
+              {
+                "end": 75,
+                "loc": {
+                  "end": {
+                    "column": 9,
+                    "line": 10,
+                  },
+                  "start": {
+                    "column": 5,
+                    "line": 10,
+                  },
+                },
+                "range": [
+                  71,
+                  75,
+                ],
+                "raw": "test",
+                "start": 71,
+                "type": "JSXText",
+                "value": "test",
+              },
+            ],
+            "closingElement": {
+              "end": 79,
+              "loc": {
+                "end": {
+                  "column": 13,
+                  "line": 10,
+                },
+                "start": {
+                  "column": 9,
+                  "line": 10,
+                },
+              },
+              "name": {
+                "end": 78,
+                "loc": {
+                  "end": {
+                    "column": 12,
+                    "line": 10,
+                  },
+                  "start": {
+                    "column": 11,
+                    "line": 10,
+                  },
+                },
+                "name": "p",
+                "range": [
+                  77,
+                  78,
+                ],
+                "raw": "p",
+                "start": 77,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                75,
+                79,
+              ],
+              "raw": "</p>",
+              "start": 75,
+              "type": "JSXClosingElement",
+            },
+            "end": 79,
+            "loc": {
+              "end": {
+                "column": 13,
+                "line": 10,
+              },
+              "start": {
+                "column": 2,
+                "line": 10,
+              },
+            },
+            "openingElement": {
+              "attributes": [],
+              "end": 71,
+              "loc": {
+                "end": {
+                  "column": 5,
+                  "line": 10,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 10,
+                },
+              },
+              "name": {
+                "end": 70,
+                "loc": {
+                  "end": {
+                    "column": 4,
+                    "line": 10,
+                  },
+                  "start": {
+                    "column": 3,
+                    "line": 10,
+                  },
+                },
+                "name": "p",
+                "range": [
+                  69,
+                  70,
+                ],
+                "raw": "p",
+                "start": 69,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                68,
+                71,
+              ],
+              "raw": "<p>",
+              "selfClosing": false,
+              "start": 68,
+              "type": "JSXOpeningElement",
+            },
+            "range": [
+              68,
+              79,
+            ],
+            "raw": "<p>test</p>",
+            "start": 68,
+            "type": "JSXElement",
+          },
+        ],
         "closingElement": {
           "end": 86,
           "loc": {
@@ -2443,258 +2786,6 @@ exports[`parser should match all AST snapshots: 367.mdx 1`] = `
         86,
       ],
       "start": 45,
-      "type": "ExpressionStatement",
-    },
-    {
-      "end": 64,
-      "expression": {
-        "children": [],
-        "closingElement": {
-          "end": 64,
-          "loc": {
-            "end": {
-              "column": 13,
-              "line": 8,
-            },
-            "start": {
-              "column": 9,
-              "line": 8,
-            },
-          },
-          "name": {
-            "end": 63,
-            "loc": {
-              "end": {
-                "column": 12,
-                "line": 8,
-              },
-              "start": {
-                "column": 11,
-                "line": 8,
-              },
-            },
-            "name": "p",
-            "range": [
-              62,
-              63,
-            ],
-            "raw": "p",
-            "start": 62,
-            "type": "JSXIdentifier",
-          },
-          "range": [
-            60,
-            64,
-          ],
-          "raw": "</p>",
-          "start": 60,
-          "type": "JSXClosingElement",
-        },
-        "end": 64,
-        "loc": {
-          "end": {
-            "column": 13,
-            "line": 8,
-          },
-          "start": {
-            "column": 2,
-            "line": 8,
-          },
-        },
-        "openingElement": {
-          "attributes": [],
-          "end": 56,
-          "loc": {
-            "end": {
-              "column": 5,
-              "line": 8,
-            },
-            "start": {
-              "column": 2,
-              "line": 8,
-            },
-          },
-          "name": {
-            "end": 55,
-            "loc": {
-              "end": {
-                "column": 4,
-                "line": 8,
-              },
-              "start": {
-                "column": 3,
-                "line": 8,
-              },
-            },
-            "name": "p",
-            "range": [
-              54,
-              55,
-            ],
-            "raw": "p",
-            "start": 54,
-            "type": "JSXIdentifier",
-          },
-          "range": [
-            53,
-            56,
-          ],
-          "raw": "<p>",
-          "selfClosing": false,
-          "start": 53,
-          "type": "JSXOpeningElement",
-        },
-        "range": [
-          53,
-          64,
-        ],
-        "raw": "<p>test</p>",
-        "start": 53,
-        "type": "JSXElement",
-      },
-      "loc": {
-        "end": {
-          "column": 14,
-          "line": 8,
-          "offset": 64,
-        },
-        "start": {
-          "column": 3,
-          "line": 8,
-          "offset": 53,
-        },
-      },
-      "range": [
-        53,
-        64,
-      ],
-      "start": 53,
-      "type": "ExpressionStatement",
-    },
-    {
-      "end": 79,
-      "expression": {
-        "children": [],
-        "closingElement": {
-          "end": 79,
-          "loc": {
-            "end": {
-              "column": 13,
-              "line": 10,
-            },
-            "start": {
-              "column": 9,
-              "line": 10,
-            },
-          },
-          "name": {
-            "end": 78,
-            "loc": {
-              "end": {
-                "column": 12,
-                "line": 10,
-              },
-              "start": {
-                "column": 11,
-                "line": 10,
-              },
-            },
-            "name": "p",
-            "range": [
-              77,
-              78,
-            ],
-            "raw": "p",
-            "start": 77,
-            "type": "JSXIdentifier",
-          },
-          "range": [
-            75,
-            79,
-          ],
-          "raw": "</p>",
-          "start": 75,
-          "type": "JSXClosingElement",
-        },
-        "end": 79,
-        "loc": {
-          "end": {
-            "column": 13,
-            "line": 10,
-          },
-          "start": {
-            "column": 2,
-            "line": 10,
-          },
-        },
-        "openingElement": {
-          "attributes": [],
-          "end": 71,
-          "loc": {
-            "end": {
-              "column": 5,
-              "line": 10,
-            },
-            "start": {
-              "column": 2,
-              "line": 10,
-            },
-          },
-          "name": {
-            "end": 70,
-            "loc": {
-              "end": {
-                "column": 4,
-                "line": 10,
-              },
-              "start": {
-                "column": 3,
-                "line": 10,
-              },
-            },
-            "name": "p",
-            "range": [
-              69,
-              70,
-            ],
-            "raw": "p",
-            "start": 69,
-            "type": "JSXIdentifier",
-          },
-          "range": [
-            68,
-            71,
-          ],
-          "raw": "<p>",
-          "selfClosing": false,
-          "start": 68,
-          "type": "JSXOpeningElement",
-        },
-        "range": [
-          68,
-          79,
-        ],
-        "raw": "<p>test</p>",
-        "start": 68,
-        "type": "JSXElement",
-      },
-      "loc": {
-        "end": {
-          "column": 14,
-          "line": 10,
-          "offset": 79,
-        },
-        "start": {
-          "column": 3,
-          "line": 10,
-          "offset": 68,
-        },
-      },
-      "range": [
-        68,
-        79,
-      ],
-      "start": 68,
       "type": "ExpressionStatement",
     },
   ],
@@ -3130,7 +3221,37 @@ exports[`parser should match all AST snapshots: 371.mdx 1`] = `
     {
       "end": 74,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 66,
+            "lang": "js",
+            "loc": {
+              "end": {
+                "column": 3,
+                "line": 9,
+              },
+              "start": {
+                "column": 0,
+                "line": 5,
+              },
+            },
+            "meta": null,
+            "range": [
+              24,
+              66,
+            ],
+            "raw": "\`\`\`js
+function foo() {
+  return 123;
+}
+\`\`\`",
+            "start": 24,
+            "type": "MDXCode",
+            "value": "function foo() {
+  return 123;
+}",
+          },
+        ],
         "closingElement": {
           "end": 74,
           "loc": {
@@ -4701,10 +4822,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
         "openingElement": {
           "attributes": [
             {
-              "end": 431,
+              "end": 438,
               "loc": {
                 "end": {
-                  "column": 7,
+                  "column": 14,
                   "line": 20,
                 },
                 "start": {
@@ -4735,9 +4856,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
               },
               "range": [
                 426,
-                431,
+                438,
               ],
-              "raw": "title",
+              "raw": "title="Tabs"",
               "start": 426,
               "type": "JSXAttribute",
               "value": {
@@ -4763,11 +4884,11 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
               },
             },
             {
-              "end": 451,
+              "end": 720,
               "loc": {
                 "end": {
-                  "column": 12,
-                  "line": 21,
+                  "column": 4,
+                  "line": 34,
                 },
                 "start": {
                   "column": 2,
@@ -4797,9 +4918,22 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
               },
               "range": [
                 441,
-                451,
+                720,
               ],
-              "raw": "decorators",
+              "raw": "decorators={[
+    moduleMetadata({
+      imports: [
+        ButtonModule,
+        IconModule,
+        FormsModule,
+        FormModule,
+        RadioModule,
+        TabsModule,
+        CardModule,
+      ],
+      declarations: [ActiveTestComponent, LazyTestComponent],
+    }),
+  ]}",
               "start": 441,
               "type": "JSXAttribute",
               "value": {
@@ -5731,10 +5865,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             "openingElement": {
               "attributes": [
                 {
-                  "end": 828,
+                  "end": 836,
                   "loc": {
                     "end": {
-                      "column": 8,
+                      "column": 16,
                       "line": 45,
                     },
                     "start": {
@@ -5765,9 +5899,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                   "range": [
                     824,
-                    828,
+                    836,
                   ],
-                  "raw": "name",
+                  "raw": "name="Basic"",
                   "start": 824,
                   "type": "JSXAttribute",
                   "value": {
@@ -5793,10 +5927,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                 },
                 {
-                  "end": 847,
+                  "end": 855,
                   "loc": {
                     "end": {
-                      "column": 10,
+                      "column": 18,
                       "line": 46,
                     },
                     "start": {
@@ -5827,9 +5961,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                   "range": [
                     841,
-                    847,
+                    855,
                   ],
-                  "raw": "height",
+                  "raw": "height="100px"",
                   "start": 841,
                   "type": "JSXAttribute",
                   "value": {
@@ -6472,10 +6606,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             "openingElement": {
               "attributes": [
                 {
-                  "end": 1503,
+                  "end": 1510,
                   "loc": {
                     "end": {
-                      "column": 8,
+                      "column": 15,
                       "line": 82,
                     },
                     "start": {
@@ -6506,9 +6640,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                   "range": [
                     1499,
-                    1503,
+                    1510,
                   ],
-                  "raw": "name",
+                  "raw": "name="Card"",
                   "start": 1499,
                   "type": "JSXAttribute",
                   "value": {
@@ -6534,10 +6668,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                 },
                 {
-                  "end": 1521,
+                  "end": 1529,
                   "loc": {
                     "end": {
-                      "column": 10,
+                      "column": 18,
                       "line": 83,
                     },
                     "start": {
@@ -6568,9 +6702,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                   "range": [
                     1515,
-                    1521,
+                    1529,
                   ],
-                  "raw": "height",
+                  "raw": "height="200px"",
                   "start": 1515,
                   "type": "JSXAttribute",
                   "value": {
@@ -7207,10 +7341,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             "openingElement": {
               "attributes": [
                 {
-                  "end": 1986,
+                  "end": 1993,
                   "loc": {
                     "end": {
-                      "column": 8,
+                      "column": 15,
                       "line": 104,
                     },
                     "start": {
@@ -7241,9 +7375,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                   "range": [
                     1982,
-                    1986,
+                    1993,
                   ],
-                  "raw": "name",
+                  "raw": "name="Size"",
                   "start": 1982,
                   "type": "JSXAttribute",
                   "value": {
@@ -7269,10 +7403,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                 },
                 {
-                  "end": 2004,
+                  "end": 2012,
                   "loc": {
                     "end": {
-                      "column": 10,
+                      "column": 18,
                       "line": 105,
                     },
                     "start": {
@@ -7303,9 +7437,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                   "range": [
                     1998,
-                    2004,
+                    2012,
                   ],
-                  "raw": "height",
+                  "raw": "height="200px"",
                   "start": 1998,
                   "type": "JSXAttribute",
                   "value": {
@@ -8149,10 +8283,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             "openingElement": {
               "attributes": [
                 {
-                  "end": 2924,
+                  "end": 2938,
                   "loc": {
                     "end": {
-                      "column": 8,
+                      "column": 22,
                       "line": 138,
                     },
                     "start": {
@@ -8183,9 +8317,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                   "range": [
                     2920,
-                    2924,
+                    2938,
                   ],
-                  "raw": "name",
+                  "raw": "name="CustomLabel"",
                   "start": 2920,
                   "type": "JSXAttribute",
                   "value": {
@@ -8211,10 +8345,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                 },
                 {
-                  "end": 2949,
+                  "end": 2957,
                   "loc": {
                     "end": {
-                      "column": 10,
+                      "column": 18,
                       "line": 139,
                     },
                     "start": {
@@ -8245,9 +8379,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                   "range": [
                     2943,
-                    2949,
+                    2957,
                   ],
-                  "raw": "height",
+                  "raw": "height="200px"",
                   "start": 2943,
                   "type": "JSXAttribute",
                   "value": {
@@ -10387,10 +10521,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             "openingElement": {
               "attributes": [
                 {
-                  "end": 3754,
+                  "end": 3765,
                   "loc": {
                     "end": {
-                      "column": 8,
+                      "column": 19,
                       "line": 173,
                     },
                     "start": {
@@ -10421,9 +10555,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                   "range": [
                     3750,
-                    3754,
+                    3765,
                   ],
-                  "raw": "name",
+                  "raw": "name="Editable"",
                   "start": 3750,
                   "type": "JSXAttribute",
                   "value": {
@@ -10449,10 +10583,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                 },
                 {
-                  "end": 3776,
+                  "end": 3784,
                   "loc": {
                     "end": {
-                      "column": 10,
+                      "column": 18,
                       "line": 174,
                     },
                     "start": {
@@ -10483,9 +10617,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                   "range": [
                     3770,
-                    3776,
+                    3784,
                   ],
-                  "raw": "height",
+                  "raw": "height="100px"",
                   "start": 3770,
                   "type": "JSXAttribute",
                   "value": {
@@ -11349,10 +11483,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             "openingElement": {
               "attributes": [
                 {
-                  "end": 4792,
+                  "end": 4803,
                   "loc": {
                     "end": {
-                      "column": 8,
+                      "column": 19,
                       "line": 219,
                     },
                     "start": {
@@ -11383,9 +11517,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                   "range": [
                     4788,
-                    4792,
+                    4803,
                   ],
-                  "raw": "name",
+                  "raw": "name="Disabled"",
                   "start": 4788,
                   "type": "JSXAttribute",
                   "value": {
@@ -11411,10 +11545,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                 },
                 {
-                  "end": 4814,
+                  "end": 4822,
                   "loc": {
                     "end": {
-                      "column": 10,
+                      "column": 18,
                       "line": 220,
                     },
                     "start": {
@@ -11445,9 +11579,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                   "range": [
                     4808,
-                    4814,
+                    4822,
                   ],
-                  "raw": "height",
+                  "raw": "height="100px"",
                   "start": 4808,
                   "type": "JSXAttribute",
                   "value": {
@@ -12379,10 +12513,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             "openingElement": {
               "attributes": [
                 {
-                  "end": 5585,
+                  "end": 5592,
                   "loc": {
                     "end": {
-                      "column": 8,
+                      "column": 15,
                       "line": 252,
                     },
                     "start": {
@@ -12413,9 +12547,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                   "range": [
                     5581,
-                    5585,
+                    5592,
                   ],
-                  "raw": "name",
+                  "raw": "name="Lazy"",
                   "start": 5581,
                   "type": "JSXAttribute",
                   "value": {
@@ -12441,10 +12575,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                 },
                 {
-                  "end": 5603,
+                  "end": 5611,
                   "loc": {
                     "end": {
-                      "column": 10,
+                      "column": 18,
                       "line": 253,
                     },
                     "start": {
@@ -12475,9 +12609,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                   "range": [
                     5597,
-                    5603,
+                    5611,
                   ],
-                  "raw": "height",
+                  "raw": "height="150px"",
                   "start": 5597,
                   "type": "JSXAttribute",
                   "value": {
@@ -13148,10 +13282,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             "openingElement": {
               "attributes": [
                 {
-                  "end": 6796,
+                  "end": 6803,
                   "loc": {
                     "end": {
-                      "column": 8,
+                      "column": 15,
                       "line": 298,
                     },
                     "start": {
@@ -13182,9 +13316,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                   "range": [
                     6792,
-                    6796,
+                    6803,
                   ],
-                  "raw": "name",
+                  "raw": "name="Nest"",
                   "start": 6792,
                   "type": "JSXAttribute",
                   "value": {
@@ -13210,10 +13344,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                 },
                 {
-                  "end": 6814,
+                  "end": 6822,
                   "loc": {
                     "end": {
-                      "column": 10,
+                      "column": 18,
                       "line": 299,
                     },
                     "start": {
@@ -13244,9 +13378,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                   "range": [
                     6808,
-                    6814,
+                    6822,
                   ],
-                  "raw": "height",
+                  "raw": "height="100px"",
                   "start": 6808,
                   "type": "JSXAttribute",
                   "value": {
@@ -13733,10 +13867,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             "openingElement": {
               "attributes": [
                 {
-                  "end": 8237,
+                  "end": 8245,
                   "loc": {
                     "end": {
-                      "column": 8,
+                      "column": 16,
                       "line": 347,
                     },
                     "start": {
@@ -13767,9 +13901,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                   "range": [
                     8233,
-                    8237,
+                    8245,
                   ],
-                  "raw": "name",
+                  "raw": "name="Title"",
                   "start": 8233,
                   "type": "JSXAttribute",
                   "value": {
@@ -13795,10 +13929,10 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                 },
                 {
-                  "end": 8256,
+                  "end": 8264,
                   "loc": {
                     "end": {
-                      "column": 10,
+                      "column": 18,
                       "line": 348,
                     },
                     "start": {
@@ -13829,9 +13963,9 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                   },
                   "range": [
                     8250,
-                    8256,
+                    8264,
                   ],
-                  "raw": "height",
+                  "raw": "height="100px"",
                   "start": 8250,
                   "type": "JSXAttribute",
                   "value": {
@@ -14089,28 +14223,6 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       "value": " HTML ",
     },
     {
-      "end": 893,
-      "loc": {
-        "end": {
-          "column": 26,
-          "line": 49,
-          "offset": 893,
-        },
-        "start": {
-          "column": 16,
-          "line": 49,
-          "offset": 883,
-        },
-      },
-      "range": [
-        883,
-        893,
-      ],
-      "start": 883,
-      "type": "Block",
-      "value": " HTML ",
-    },
-    {
       "end": 1567,
       "loc": {
         "end": {
@@ -14129,50 +14241,6 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
         1567,
       ],
       "start": 1557,
-      "type": "Block",
-      "value": " HTML ",
-    },
-    {
-      "end": 1567,
-      "loc": {
-        "end": {
-          "column": 26,
-          "line": 86,
-          "offset": 1567,
-        },
-        "start": {
-          "column": 16,
-          "line": 86,
-          "offset": 1557,
-        },
-      },
-      "range": [
-        1557,
-        1567,
-      ],
-      "start": 1557,
-      "type": "Block",
-      "value": " HTML ",
-    },
-    {
-      "end": 2050,
-      "loc": {
-        "end": {
-          "column": 26,
-          "line": 108,
-          "offset": 2050,
-        },
-        "start": {
-          "column": 16,
-          "line": 108,
-          "offset": 2040,
-        },
-      },
-      "range": [
-        2040,
-        2050,
-      ],
-      "start": 2040,
       "type": "Block",
       "value": " HTML ",
     },
@@ -14221,28 +14289,6 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       "value": " HTML ",
     },
     {
-      "end": 2995,
-      "loc": {
-        "end": {
-          "column": 26,
-          "line": 142,
-          "offset": 2995,
-        },
-        "start": {
-          "column": 16,
-          "line": 142,
-          "offset": 2985,
-        },
-      },
-      "range": [
-        2985,
-        2995,
-      ],
-      "start": 2985,
-      "type": "Block",
-      "value": " HTML ",
-    },
-    {
       "end": 3822,
       "loc": {
         "end": {
@@ -14261,50 +14307,6 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
         3822,
       ],
       "start": 3812,
-      "type": "Block",
-      "value": " HTML ",
-    },
-    {
-      "end": 3822,
-      "loc": {
-        "end": {
-          "column": 26,
-          "line": 177,
-          "offset": 3822,
-        },
-        "start": {
-          "column": 16,
-          "line": 177,
-          "offset": 3812,
-        },
-      },
-      "range": [
-        3812,
-        3822,
-      ],
-      "start": 3812,
-      "type": "Block",
-      "value": " HTML ",
-    },
-    {
-      "end": 4860,
-      "loc": {
-        "end": {
-          "column": 26,
-          "line": 223,
-          "offset": 4860,
-        },
-        "start": {
-          "column": 16,
-          "line": 223,
-          "offset": 4850,
-        },
-      },
-      "range": [
-        4850,
-        4860,
-      ],
-      "start": 4850,
       "type": "Block",
       "value": " HTML ",
     },
@@ -14353,28 +14355,6 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       "value": " HTML ",
     },
     {
-      "end": 5649,
-      "loc": {
-        "end": {
-          "column": 26,
-          "line": 256,
-          "offset": 5649,
-        },
-        "start": {
-          "column": 16,
-          "line": 256,
-          "offset": 5639,
-        },
-      },
-      "range": [
-        5639,
-        5649,
-      ],
-      "start": 5639,
-      "type": "Block",
-      "value": " HTML ",
-    },
-    {
       "end": 6860,
       "loc": {
         "end": {
@@ -14393,50 +14373,6 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
         6860,
       ],
       "start": 6850,
-      "type": "Block",
-      "value": " HTML ",
-    },
-    {
-      "end": 6860,
-      "loc": {
-        "end": {
-          "column": 26,
-          "line": 302,
-          "offset": 6860,
-        },
-        "start": {
-          "column": 16,
-          "line": 302,
-          "offset": 6850,
-        },
-      },
-      "range": [
-        6850,
-        6860,
-      ],
-      "start": 6850,
-      "type": "Block",
-      "value": " HTML ",
-    },
-    {
-      "end": 8302,
-      "loc": {
-        "end": {
-          "column": 26,
-          "line": 351,
-          "offset": 8302,
-        },
-        "start": {
-          "column": 16,
-          "line": 351,
-          "offset": 8292,
-        },
-      },
-      "range": [
-        8292,
-        8302,
-      ],
-      "start": 8292,
       "type": "Block",
       "value": " HTML ",
     },
@@ -28271,7 +28207,29 @@ exports[`parser should match all AST snapshots: 429.mdx 1`] = `
     {
       "end": 31,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 22,
+            "loc": {
+              "end": {
+                "column": 22,
+                "line": 1,
+              },
+              "start": {
+                "column": 17,
+                "line": 1,
+              },
+            },
+            "range": [
+              17,
+              22,
+            ],
+            "raw": "Hello",
+            "start": 17,
+            "type": "JSXText",
+            "value": "Hello",
+          },
+        ],
         "closingElement": {
           "end": 31,
           "loc": {
@@ -28859,7 +28817,29 @@ exports[`parser should match all AST snapshots: 435.mdx 1`] = `
     {
       "end": 88,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 78,
+            "loc": {
+              "end": {
+                "column": 6,
+                "line": 7,
+              },
+              "start": {
+                "column": 1,
+                "line": 7,
+              },
+            },
+            "range": [
+              73,
+              78,
+            ],
+            "raw": "Hello",
+            "start": 73,
+            "type": "JSXText",
+            "value": "Hello",
+          },
+        ],
         "closingElement": {
           "end": 88,
           "loc": {
@@ -28915,11 +28895,11 @@ exports[`parser should match all AST snapshots: 435.mdx 1`] = `
         "openingElement": {
           "attributes": [
             {
-              "end": 14,
+              "end": 69,
               "loc": {
                 "end": {
-                  "column": 6,
-                  "line": 2,
+                  "column": 3,
+                  "line": 5,
                 },
                 "start": {
                   "column": 1,
@@ -28949,9 +28929,12 @@ exports[`parser should match all AST snapshots: 435.mdx 1`] = `
               },
               "range": [
                 9,
-                14,
+                69,
               ],
-              "raw": "style",
+              "raw": "style={{
+		background: 'red',
+		border: '1px solid red',
+	}}",
               "start": 9,
               "type": "JSXAttribute",
               "value": {
@@ -29241,11 +29224,11 @@ exports[`parser should match all AST snapshots: 435.mdx 1`] = `
         "openingElement": {
           "attributes": [
             {
-              "end": 120,
+              "end": 130,
               "loc": {
                 "end": {
-                  "column": 20,
-                  "line": 12,
+                  "column": 6,
+                  "line": 13,
                 },
                 "start": {
                   "column": 16,
@@ -29275,9 +29258,10 @@ exports[`parser should match all AST snapshots: 435.mdx 1`] = `
               },
               "range": [
                 116,
-                120,
+                130,
               ],
-              "raw": "data",
+              "raw": "data={\`
+    \`}",
               "start": 116,
               "type": "JSXAttribute",
               "value": {
@@ -30095,6 +30079,555 @@ exports[`parser should match all AST snapshots: 435.mdx 1`] = `
 }
 `;
 
+exports[`parser should match all AST snapshots: 437.mdx 1`] = `
+{
+  "body": [
+    {
+      "end": 31,
+      "expression": {
+        "children": [
+          {
+            "end": 24,
+            "loc": {
+              "end": {
+                "column": 24,
+                "line": 1,
+                "offset": 24,
+              },
+              "start": {
+                "column": 19,
+                "line": 1,
+                "offset": 19,
+              },
+            },
+            "range": [
+              19,
+              24,
+            ],
+            "raw": "'bar'",
+            "start": 19,
+            "type": "Literal",
+            "value": "bar",
+          },
+        ],
+        "closingElement": {
+          "end": 31,
+          "loc": {
+            "end": {
+              "column": 31,
+              "line": 1,
+            },
+            "start": {
+              "column": 25,
+              "line": 1,
+            },
+          },
+          "name": {
+            "end": 30,
+            "loc": {
+              "end": {
+                "column": 30,
+                "line": 1,
+              },
+              "start": {
+                "column": 27,
+                "line": 1,
+              },
+            },
+            "name": "App",
+            "range": [
+              27,
+              30,
+            ],
+            "raw": "App",
+            "start": 27,
+            "type": "JSXIdentifier",
+          },
+          "range": [
+            25,
+            31,
+          ],
+          "raw": "</App>",
+          "start": 25,
+          "type": "JSXClosingElement",
+        },
+        "end": 31,
+        "loc": {
+          "end": {
+            "column": 31,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "openingElement": {
+          "attributes": [
+            {
+              "end": 17,
+              "loc": {
+                "end": {
+                  "column": 17,
+                  "line": 1,
+                },
+                "start": {
+                  "column": 5,
+                  "line": 1,
+                },
+              },
+              "name": {
+                "end": 9,
+                "loc": {
+                  "end": {
+                    "column": 9,
+                    "line": 1,
+                  },
+                  "start": {
+                    "column": 5,
+                    "line": 1,
+                  },
+                },
+                "name": "prop",
+                "range": [
+                  5,
+                  9,
+                ],
+                "raw": "prop",
+                "start": 5,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                5,
+                17,
+              ],
+              "raw": "prop={'foo'}",
+              "start": 5,
+              "type": "JSXAttribute",
+              "value": {
+                "end": 17,
+                "expression": {
+                  "end": 16,
+                  "loc": {
+                    "end": {
+                      "column": 16,
+                      "line": 1,
+                      "offset": 16,
+                    },
+                    "start": {
+                      "column": 11,
+                      "line": 1,
+                      "offset": 11,
+                    },
+                  },
+                  "range": [
+                    11,
+                    16,
+                  ],
+                  "raw": "'foo'",
+                  "start": 11,
+                  "type": "Literal",
+                  "value": "foo",
+                },
+                "loc": {
+                  "end": {
+                    "column": 17,
+                    "line": 1,
+                  },
+                  "start": {
+                    "column": 10,
+                    "line": 1,
+                  },
+                },
+                "range": [
+                  10,
+                  17,
+                ],
+                "raw": "{'foo'}",
+                "start": 10,
+                "type": "JSXExpressionContainer",
+              },
+            },
+          ],
+          "end": 18,
+          "loc": {
+            "end": {
+              "column": 18,
+              "line": 1,
+            },
+            "start": {
+              "column": 0,
+              "line": 1,
+            },
+          },
+          "name": {
+            "end": 4,
+            "loc": {
+              "end": {
+                "column": 4,
+                "line": 1,
+              },
+              "start": {
+                "column": 1,
+                "line": 1,
+              },
+            },
+            "name": "App",
+            "range": [
+              1,
+              4,
+            ],
+            "raw": "App",
+            "start": 1,
+            "type": "JSXIdentifier",
+          },
+          "range": [
+            0,
+            18,
+          ],
+          "raw": "<App prop={'foo'}>",
+          "selfClosing": false,
+          "start": 0,
+          "type": "JSXOpeningElement",
+        },
+        "range": [
+          0,
+          31,
+        ],
+        "raw": "<App prop={'foo'}>{'bar'}</App>",
+        "start": 0,
+        "type": "JSXElement",
+      },
+      "loc": {
+        "end": {
+          "column": 32,
+          "line": 1,
+          "offset": 31,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "range": [
+        0,
+        31,
+      ],
+      "start": 0,
+      "type": "ExpressionStatement",
+    },
+  ],
+  "comments": [],
+  "end": 32,
+  "loc": {
+    "end": {
+      "column": 1,
+      "line": 2,
+      "offset": 32,
+    },
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "range": [
+    0,
+    32,
+  ],
+  "sourceType": undefined,
+  "start": 0,
+  "tokens": [
+    {
+      "end": 1,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 1,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 4,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        1,
+        4,
+      ],
+      "start": 1,
+      "type": "JSXIdentifier",
+      "value": "App",
+    },
+    {
+      "end": 9,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 1,
+        },
+        "start": {
+          "column": 5,
+          "line": 1,
+        },
+      },
+      "range": [
+        5,
+        9,
+      ],
+      "start": 5,
+      "type": "JSXIdentifier",
+      "value": "prop",
+    },
+    {
+      "end": 10,
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 1,
+        },
+        "start": {
+          "column": 9,
+          "line": 1,
+        },
+      },
+      "range": [
+        9,
+        10,
+      ],
+      "start": 9,
+      "type": "Punctuator",
+      "value": "=",
+    },
+    {
+      "end": 11,
+      "loc": {
+        "end": {
+          "column": 11,
+          "line": 1,
+        },
+        "start": {
+          "column": 10,
+          "line": 1,
+        },
+      },
+      "range": [
+        10,
+        11,
+      ],
+      "start": 10,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 16,
+      "loc": {
+        "end": {
+          "column": 16,
+          "line": 1,
+          "offset": 16,
+        },
+        "start": {
+          "column": 11,
+          "line": 1,
+          "offset": 11,
+        },
+      },
+      "range": [
+        11,
+        16,
+      ],
+      "start": 11,
+      "type": "String",
+      "value": "'foo'",
+    },
+    {
+      "end": 17,
+      "loc": {
+        "end": {
+          "column": 17,
+          "line": 1,
+        },
+        "start": {
+          "column": 16,
+          "line": 1,
+        },
+      },
+      "range": [
+        16,
+        17,
+      ],
+      "start": 16,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 19,
+      "loc": {
+        "end": {
+          "column": 19,
+          "line": 1,
+        },
+        "start": {
+          "column": 18,
+          "line": 1,
+        },
+      },
+      "range": [
+        18,
+        19,
+      ],
+      "start": 18,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 24,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 1,
+          "offset": 24,
+        },
+        "start": {
+          "column": 19,
+          "line": 1,
+          "offset": 19,
+        },
+      },
+      "range": [
+        19,
+        24,
+      ],
+      "start": 19,
+      "type": "String",
+      "value": "'bar'",
+    },
+    {
+      "end": 25,
+      "loc": {
+        "end": {
+          "column": 25,
+          "line": 1,
+        },
+        "start": {
+          "column": 24,
+          "line": 1,
+        },
+      },
+      "range": [
+        24,
+        25,
+      ],
+      "start": 24,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 26,
+      "loc": {
+        "end": {
+          "column": 26,
+          "line": 1,
+        },
+        "start": {
+          "column": 25,
+          "line": 1,
+        },
+      },
+      "range": [
+        25,
+        26,
+      ],
+      "start": 25,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 27,
+      "loc": {
+        "end": {
+          "column": 27,
+          "line": 1,
+        },
+        "start": {
+          "column": 26,
+          "line": 1,
+        },
+      },
+      "range": [
+        26,
+        27,
+      ],
+      "start": 26,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    {
+      "end": 30,
+      "loc": {
+        "end": {
+          "column": 30,
+          "line": 1,
+        },
+        "start": {
+          "column": 27,
+          "line": 1,
+        },
+      },
+      "range": [
+        27,
+        30,
+      ],
+      "start": 27,
+      "type": "JSXIdentifier",
+      "value": "App",
+    },
+    {
+      "end": 31,
+      "loc": {
+        "end": {
+          "column": 31,
+          "line": 1,
+        },
+        "start": {
+          "column": 30,
+          "line": 1,
+        },
+      },
+      "range": [
+        30,
+        31,
+      ],
+      "start": 30,
+      "type": "Punctuator",
+      "value": ">",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
 exports[`parser should match all AST snapshots: 445.mdx 1`] = `
 {
   "body": [
@@ -30212,7 +30745,217 @@ exports[`parser should match all AST snapshots: 445.mdx 1`] = `
     {
       "end": 155,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "children": [
+              {
+                "end": 114,
+                "loc": {
+                  "end": {
+                    "column": 37,
+                    "line": 4,
+                  },
+                  "start": {
+                    "column": 24,
+                    "line": 4,
+                  },
+                },
+                "range": [
+                  101,
+                  114,
+                ],
+                "raw": "Hello World !",
+                "start": 101,
+                "type": "JSXText",
+                "value": "Hello World !",
+              },
+            ],
+            "closingElement": {
+              "end": 137,
+              "loc": {
+                "end": {
+                  "column": 60,
+                  "line": 4,
+                },
+                "start": {
+                  "column": 37,
+                  "line": 4,
+                },
+              },
+              "name": {
+                "end": 136,
+                "loc": {
+                  "end": {
+                    "column": 59,
+                    "line": 4,
+                  },
+                  "start": {
+                    "column": 39,
+                    "line": 4,
+                  },
+                },
+                "object": {
+                  "end": 130,
+                  "loc": {
+                    "end": {
+                      "column": 53,
+                      "line": 4,
+                    },
+                    "start": {
+                      "column": 39,
+                      "line": 4,
+                    },
+                  },
+                  "name": "DefinitionList",
+                  "range": [
+                    116,
+                    130,
+                  ],
+                  "raw": "DefinitionList",
+                  "start": 116,
+                  "type": "JSXIdentifier",
+                },
+                "property": {
+                  "end": 136,
+                  "loc": {
+                    "end": {
+                      "column": 59,
+                      "line": 4,
+                    },
+                    "start": {
+                      "column": 54,
+                      "line": 4,
+                    },
+                  },
+                  "name": "Title",
+                  "range": [
+                    131,
+                    136,
+                  ],
+                  "raw": "Title",
+                  "start": 131,
+                  "type": "JSXIdentifier",
+                },
+                "range": [
+                  116,
+                  136,
+                ],
+                "raw": "DefinitionList.Title",
+                "start": 116,
+                "type": "JSXMemberExpression",
+              },
+              "range": [
+                114,
+                137,
+              ],
+              "raw": "</DefinitionList.Title>",
+              "start": 114,
+              "type": "JSXClosingElement",
+            },
+            "end": 137,
+            "loc": {
+              "end": {
+                "column": 60,
+                "line": 4,
+              },
+              "start": {
+                "column": 2,
+                "line": 4,
+              },
+            },
+            "openingElement": {
+              "attributes": [],
+              "end": 101,
+              "loc": {
+                "end": {
+                  "column": 24,
+                  "line": 4,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 4,
+                },
+              },
+              "name": {
+                "end": 100,
+                "loc": {
+                  "end": {
+                    "column": 23,
+                    "line": 4,
+                  },
+                  "start": {
+                    "column": 3,
+                    "line": 4,
+                  },
+                },
+                "object": {
+                  "end": 94,
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 4,
+                    },
+                    "start": {
+                      "column": 3,
+                      "line": 4,
+                    },
+                  },
+                  "name": "DefinitionList",
+                  "range": [
+                    80,
+                    94,
+                  ],
+                  "raw": "DefinitionList",
+                  "start": 80,
+                  "type": "JSXIdentifier",
+                },
+                "property": {
+                  "end": 100,
+                  "loc": {
+                    "end": {
+                      "column": 23,
+                      "line": 4,
+                    },
+                    "start": {
+                      "column": 18,
+                      "line": 4,
+                    },
+                  },
+                  "name": "Title",
+                  "range": [
+                    95,
+                    100,
+                  ],
+                  "raw": "Title",
+                  "start": 95,
+                  "type": "JSXIdentifier",
+                },
+                "range": [
+                  80,
+                  100,
+                ],
+                "raw": "DefinitionList.Title",
+                "start": 80,
+                "type": "JSXMemberExpression",
+              },
+              "range": [
+                79,
+                101,
+              ],
+              "raw": "<DefinitionList.Title>",
+              "selfClosing": false,
+              "start": 79,
+              "type": "JSXOpeningElement",
+            },
+            "range": [
+              79,
+              137,
+            ],
+            "raw": "<DefinitionList.Title>Hello World !</DefinitionList.Title>",
+            "start": 79,
+            "type": "JSXElement",
+          },
+        ],
         "closingElement": {
           "end": 155,
           "loc": {
@@ -30378,214 +31121,6 @@ exports[`parser should match all AST snapshots: 445.mdx 1`] = `
         155,
       ],
       "start": 51,
-      "type": "ExpressionStatement",
-    },
-    {
-      "end": 137,
-      "expression": {
-        "children": [],
-        "closingElement": {
-          "end": 137,
-          "loc": {
-            "end": {
-              "column": 60,
-              "line": 4,
-            },
-            "start": {
-              "column": 37,
-              "line": 4,
-            },
-          },
-          "name": {
-            "end": 136,
-            "loc": {
-              "end": {
-                "column": 59,
-                "line": 4,
-              },
-              "start": {
-                "column": 39,
-                "line": 4,
-              },
-            },
-            "object": {
-              "end": 130,
-              "loc": {
-                "end": {
-                  "column": 53,
-                  "line": 4,
-                },
-                "start": {
-                  "column": 39,
-                  "line": 4,
-                },
-              },
-              "name": "DefinitionList",
-              "range": [
-                116,
-                130,
-              ],
-              "raw": "DefinitionList",
-              "start": 116,
-              "type": "JSXIdentifier",
-            },
-            "property": {
-              "end": 136,
-              "loc": {
-                "end": {
-                  "column": 59,
-                  "line": 4,
-                },
-                "start": {
-                  "column": 54,
-                  "line": 4,
-                },
-              },
-              "name": "Title",
-              "range": [
-                131,
-                136,
-              ],
-              "raw": "Title",
-              "start": 131,
-              "type": "JSXIdentifier",
-            },
-            "range": [
-              116,
-              136,
-            ],
-            "raw": "DefinitionList.Title",
-            "start": 116,
-            "type": "JSXMemberExpression",
-          },
-          "range": [
-            114,
-            137,
-          ],
-          "raw": "</DefinitionList.Title>",
-          "start": 114,
-          "type": "JSXClosingElement",
-        },
-        "end": 137,
-        "loc": {
-          "end": {
-            "column": 60,
-            "line": 4,
-          },
-          "start": {
-            "column": 2,
-            "line": 4,
-          },
-        },
-        "openingElement": {
-          "attributes": [],
-          "end": 101,
-          "loc": {
-            "end": {
-              "column": 24,
-              "line": 4,
-            },
-            "start": {
-              "column": 2,
-              "line": 4,
-            },
-          },
-          "name": {
-            "end": 100,
-            "loc": {
-              "end": {
-                "column": 23,
-                "line": 4,
-              },
-              "start": {
-                "column": 3,
-                "line": 4,
-              },
-            },
-            "object": {
-              "end": 94,
-              "loc": {
-                "end": {
-                  "column": 17,
-                  "line": 4,
-                },
-                "start": {
-                  "column": 3,
-                  "line": 4,
-                },
-              },
-              "name": "DefinitionList",
-              "range": [
-                80,
-                94,
-              ],
-              "raw": "DefinitionList",
-              "start": 80,
-              "type": "JSXIdentifier",
-            },
-            "property": {
-              "end": 100,
-              "loc": {
-                "end": {
-                  "column": 23,
-                  "line": 4,
-                },
-                "start": {
-                  "column": 18,
-                  "line": 4,
-                },
-              },
-              "name": "Title",
-              "range": [
-                95,
-                100,
-              ],
-              "raw": "Title",
-              "start": 95,
-              "type": "JSXIdentifier",
-            },
-            "range": [
-              80,
-              100,
-            ],
-            "raw": "DefinitionList.Title",
-            "start": 80,
-            "type": "JSXMemberExpression",
-          },
-          "range": [
-            79,
-            101,
-          ],
-          "raw": "<DefinitionList.Title>",
-          "selfClosing": false,
-          "start": 79,
-          "type": "JSXOpeningElement",
-        },
-        "range": [
-          79,
-          137,
-        ],
-        "raw": "<DefinitionList.Title>Hello World !</DefinitionList.Title>",
-        "start": 79,
-        "type": "JSXElement",
-      },
-      "loc": {
-        "end": {
-          "column": 61,
-          "line": 4,
-          "offset": 137,
-        },
-        "start": {
-          "column": 3,
-          "line": 4,
-          "offset": 79,
-        },
-      },
-      "range": [
-        79,
-        137,
-      ],
-      "start": 79,
       "type": "ExpressionStatement",
     },
     {
@@ -31898,10 +32433,10 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
         "openingElement": {
           "attributes": [
             {
-              "end": 58,
+              "end": 65,
               "loc": {
                 "end": {
-                  "column": 11,
+                  "column": 18,
                   "line": 3,
                 },
                 "start": {
@@ -31932,9 +32467,9 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
               "range": [
                 53,
-                58,
+                65,
               ],
-              "raw": "title",
+              "raw": "title="Test"",
               "start": 53,
               "type": "JSXAttribute",
               "value": {
@@ -32047,10 +32582,10 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
         "openingElement": {
           "attributes": [
             {
-              "end": 117,
+              "end": 155,
               "loc": {
                 "end": {
-                  "column": 5,
+                  "column": 43,
                   "line": 10,
                 },
                 "start": {
@@ -32081,9 +32616,9 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
               "range": [
                 114,
-                117,
+                155,
               ],
-              "raw": "src",
+              "raw": "src="https://via.placeholder.com/250x250"",
               "start": 114,
               "type": "JSXAttribute",
               "value": {
@@ -32109,10 +32644,10 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
             },
             {
-              "end": 161,
+              "end": 164,
               "loc": {
                 "end": {
-                  "column": 5,
+                  "column": 8,
                   "line": 11,
                 },
                 "start": {
@@ -32143,9 +32678,9 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
               "range": [
                 158,
-                161,
+                164,
               ],
-              "raw": "alt",
+              "raw": "alt=""",
               "start": 158,
               "type": "JSXAttribute",
               "value": {
@@ -32171,10 +32706,10 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
             },
             {
-              "end": 172,
+              "end": 175,
               "loc": {
                 "end": {
-                  "column": 7,
+                  "column": 10,
                   "line": 12,
                 },
                 "start": {
@@ -32205,9 +32740,9 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
               "range": [
                 167,
-                172,
+                175,
               ],
-              "raw": "title",
+              "raw": "title=""",
               "start": 167,
               "type": "JSXAttribute",
               "value": {
@@ -32275,10 +32810,10 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               "value": null,
             },
             {
-              "end": 204,
+              "end": 215,
               "loc": {
                 "end": {
-                  "column": 11,
+                  "column": 22,
                   "line": 15,
                 },
                 "start": {
@@ -32309,9 +32844,9 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
               "range": [
                 195,
-                204,
+                215,
               ],
-              "raw": "className",
+              "raw": "className="my-image"",
               "start": 195,
               "type": "JSXAttribute",
               "value": {
@@ -32337,10 +32872,10 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
             },
             {
-              "end": 223,
+              "end": 229,
               "loc": {
                 "end": {
-                  "column": 7,
+                  "column": 13,
                   "line": 16,
                 },
                 "start": {
@@ -32371,9 +32906,9 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
               "range": [
                 218,
-                223,
+                229,
               ],
-              "raw": "width",
+              "raw": "width={250}",
               "start": 218,
               "type": "JSXAttribute",
               "value": {
@@ -32421,10 +32956,10 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
             },
             {
-              "end": 238,
+              "end": 244,
               "loc": {
                 "end": {
-                  "column": 8,
+                  "column": 14,
                   "line": 17,
                 },
                 "start": {
@@ -32455,9 +32990,9 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
               "range": [
                 232,
-                238,
+                244,
               ],
-              "raw": "height",
+              "raw": "height={250}",
               "start": 232,
               "type": "JSXAttribute",
               "value": {
@@ -32505,10 +33040,10 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
             },
             {
-              "end": 254,
+              "end": 262,
               "loc": {
                 "end": {
-                  "column": 9,
+                  "column": 17,
                   "line": 18,
                 },
                 "start": {
@@ -32539,9 +33074,9 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
               "range": [
                 247,
-                254,
+                262,
               ],
-              "raw": "loading",
+              "raw": "loading="eager"",
               "start": 247,
               "type": "JSXAttribute",
               "value": {
@@ -32567,10 +33102,10 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
             },
             {
-              "end": 270,
+              "end": 293,
               "loc": {
                 "end": {
-                  "column": 7,
+                  "column": 30,
                   "line": 19,
                 },
                 "start": {
@@ -32601,9 +33136,9 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
               "range": [
                 265,
-                270,
+                293,
               ],
-              "raw": "style",
+              "raw": "style={{ display: 'block' }}",
               "start": 265,
               "type": "JSXAttribute",
               "value": {
@@ -32721,10 +33256,10 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
             },
             {
-              "end": 302,
+              "end": 332,
               "loc": {
                 "end": {
-                  "column": 8,
+                  "column": 38,
                   "line": 20,
                 },
                 "start": {
@@ -32755,9 +33290,9 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
               "range": [
                 296,
-                302,
+                332,
               ],
-              "raw": "onLoad",
+              "raw": "onLoad={() => console.log('onLoad')}",
               "start": 296,
               "type": "JSXAttribute",
               "value": {
@@ -32922,10 +33457,10 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
             },
             {
-              "end": 342,
+              "end": 373,
               "loc": {
                 "end": {
-                  "column": 9,
+                  "column": 40,
                   "line": 21,
                 },
                 "start": {
@@ -32956,9 +33491,9 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
               "range": [
                 335,
-                342,
+                373,
               ],
-              "raw": "onError",
+              "raw": "onError={() => console.log('onError')}",
               "start": 335,
               "type": "JSXAttribute",
               "value": {
@@ -33123,10 +33658,10 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
             },
             {
-              "end": 383,
+              "end": 414,
               "loc": {
                 "end": {
-                  "column": 9,
+                  "column": 40,
                   "line": 22,
                 },
                 "start": {
@@ -33157,9 +33692,9 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               },
               "range": [
                 376,
-                383,
+                414,
               ],
-              "raw": "onClick",
+              "raw": "onClick={() => console.log('onClick')}",
               "start": 376,
               "type": "JSXAttribute",
               "value": {
@@ -35409,6 +35944,825 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
 }
 `;
 
+exports[`parser should match all AST snapshots: 488.mdx 1`] = `
+{
+  "body": [
+    {
+      "end": 77,
+      "expression": {
+        "children": [],
+        "closingElement": null,
+        "end": 77,
+        "loc": {
+          "end": {
+            "column": 2,
+            "line": 7,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "openingElement": {
+          "attributes": [
+            {
+              "end": 18,
+              "loc": {
+                "end": {
+                  "column": 11,
+                  "line": 2,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 2,
+                },
+              },
+              "name": {
+                "end": 12,
+                "loc": {
+                  "end": {
+                    "column": 5,
+                    "line": 2,
+                  },
+                  "start": {
+                    "column": 2,
+                    "line": 2,
+                  },
+                },
+                "name": "alt",
+                "range": [
+                  9,
+                  12,
+                ],
+                "raw": "alt",
+                "start": 9,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                9,
+                18,
+              ],
+              "raw": "alt="alt"",
+              "start": 9,
+              "type": "JSXAttribute",
+              "value": {
+                "end": 18,
+                "loc": {
+                  "end": {
+                    "column": 11,
+                    "line": 2,
+                  },
+                  "start": {
+                    "column": 6,
+                    "line": 2,
+                  },
+                },
+                "range": [
+                  13,
+                  18,
+                ],
+                "raw": ""alt"",
+                "start": 13,
+                "type": "Literal",
+                "value": "alt",
+              },
+            },
+            {
+              "end": 30,
+              "loc": {
+                "end": {
+                  "column": 11,
+                  "line": 3,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 3,
+                },
+              },
+              "name": {
+                "end": 24,
+                "loc": {
+                  "end": {
+                    "column": 5,
+                    "line": 3,
+                  },
+                  "start": {
+                    "column": 2,
+                    "line": 3,
+                  },
+                },
+                "name": "src",
+                "range": [
+                  21,
+                  24,
+                ],
+                "raw": "src",
+                "start": 21,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                21,
+                30,
+              ],
+              "raw": "src="src"",
+              "start": 21,
+              "type": "JSXAttribute",
+              "value": {
+                "end": 30,
+                "loc": {
+                  "end": {
+                    "column": 11,
+                    "line": 3,
+                  },
+                  "start": {
+                    "column": 6,
+                    "line": 3,
+                  },
+                },
+                "range": [
+                  25,
+                  30,
+                ],
+                "raw": ""src"",
+                "start": 25,
+                "type": "Literal",
+                "value": "src",
+              },
+            },
+            {
+              "end": 44,
+              "loc": {
+                "end": {
+                  "column": 13,
+                  "line": 4,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 4,
+                },
+              },
+              "name": {
+                "end": 38,
+                "loc": {
+                  "end": {
+                    "column": 7,
+                    "line": 4,
+                  },
+                  "start": {
+                    "column": 2,
+                    "line": 4,
+                  },
+                },
+                "name": "width",
+                "range": [
+                  33,
+                  38,
+                ],
+                "raw": "width",
+                "start": 33,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                33,
+                44,
+              ],
+              "raw": "width="315"",
+              "start": 33,
+              "type": "JSXAttribute",
+              "value": {
+                "end": 44,
+                "loc": {
+                  "end": {
+                    "column": 13,
+                    "line": 4,
+                  },
+                  "start": {
+                    "column": 8,
+                    "line": 4,
+                  },
+                },
+                "range": [
+                  39,
+                  44,
+                ],
+                "raw": ""315"",
+                "start": 39,
+                "type": "Literal",
+                "value": "315",
+              },
+            },
+            {
+              "end": 59,
+              "loc": {
+                "end": {
+                  "column": 14,
+                  "line": 5,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 5,
+                },
+              },
+              "name": {
+                "end": 53,
+                "loc": {
+                  "end": {
+                    "column": 8,
+                    "line": 5,
+                  },
+                  "start": {
+                    "column": 2,
+                    "line": 5,
+                  },
+                },
+                "name": "height",
+                "range": [
+                  47,
+                  53,
+                ],
+                "raw": "height",
+                "start": 47,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                47,
+                59,
+              ],
+              "raw": "height="100"",
+              "start": 47,
+              "type": "JSXAttribute",
+              "value": {
+                "end": 59,
+                "loc": {
+                  "end": {
+                    "column": 14,
+                    "line": 5,
+                  },
+                  "start": {
+                    "column": 9,
+                    "line": 5,
+                  },
+                },
+                "range": [
+                  54,
+                  59,
+                ],
+                "raw": ""100"",
+                "start": 54,
+                "type": "Literal",
+                "value": "100",
+              },
+            },
+            {
+              "end": 74,
+              "loc": {
+                "end": {
+                  "column": 14,
+                  "line": 6,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 6,
+                },
+              },
+              "name": {
+                "end": 68,
+                "loc": {
+                  "end": {
+                    "column": 8,
+                    "line": 6,
+                  },
+                  "start": {
+                    "column": 2,
+                    "line": 6,
+                  },
+                },
+                "name": "format",
+                "range": [
+                  62,
+                  68,
+                ],
+                "raw": "format",
+                "start": 62,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                62,
+                74,
+              ],
+              "raw": "format="svg"",
+              "start": 62,
+              "type": "JSXAttribute",
+              "value": {
+                "end": 74,
+                "loc": {
+                  "end": {
+                    "column": 14,
+                    "line": 6,
+                  },
+                  "start": {
+                    "column": 9,
+                    "line": 6,
+                  },
+                },
+                "range": [
+                  69,
+                  74,
+                ],
+                "raw": ""svg"",
+                "start": 69,
+                "type": "Literal",
+                "value": "svg",
+              },
+            },
+          ],
+          "end": 77,
+          "loc": {
+            "end": {
+              "column": 2,
+              "line": 7,
+            },
+            "start": {
+              "column": 0,
+              "line": 1,
+            },
+          },
+          "name": {
+            "end": 6,
+            "loc": {
+              "end": {
+                "column": 6,
+                "line": 1,
+              },
+              "start": {
+                "column": 1,
+                "line": 1,
+              },
+            },
+            "name": "Image",
+            "range": [
+              1,
+              6,
+            ],
+            "raw": "Image",
+            "start": 1,
+            "type": "JSXIdentifier",
+          },
+          "range": [
+            0,
+            77,
+          ],
+          "raw": "<Image
+  alt="alt"
+  src="src"
+  width="315"
+  height="100"
+  format="svg"
+/>",
+          "selfClosing": true,
+          "start": 0,
+          "type": "JSXOpeningElement",
+        },
+        "range": [
+          0,
+          77,
+        ],
+        "raw": "<Image
+  alt="alt"
+  src="src"
+  width="315"
+  height="100"
+  format="svg"
+/>",
+        "start": 0,
+        "type": "JSXElement",
+      },
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 7,
+          "offset": 77,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "range": [
+        0,
+        77,
+      ],
+      "start": 0,
+      "type": "ExpressionStatement",
+    },
+  ],
+  "comments": [],
+  "end": 78,
+  "loc": {
+    "end": {
+      "column": 1,
+      "line": 8,
+      "offset": 78,
+    },
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "range": [
+    0,
+    78,
+  ],
+  "sourceType": undefined,
+  "start": 0,
+  "tokens": [
+    {
+      "end": 1,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 1,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 6,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        1,
+        6,
+      ],
+      "start": 1,
+      "type": "JSXIdentifier",
+      "value": "Image",
+    },
+    {
+      "end": 12,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 2,
+        },
+        "start": {
+          "column": 2,
+          "line": 2,
+        },
+      },
+      "range": [
+        9,
+        12,
+      ],
+      "start": 9,
+      "type": "JSXIdentifier",
+      "value": "alt",
+    },
+    {
+      "end": 13,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 2,
+        },
+        "start": {
+          "column": 5,
+          "line": 2,
+        },
+      },
+      "range": [
+        12,
+        13,
+      ],
+      "start": 12,
+      "type": "Punctuator",
+      "value": "=",
+    },
+    {
+      "end": 18,
+      "loc": {
+        "end": {
+          "column": 11,
+          "line": 2,
+        },
+        "start": {
+          "column": 6,
+          "line": 2,
+        },
+      },
+      "range": [
+        13,
+        18,
+      ],
+      "start": 13,
+      "type": "String",
+      "value": ""alt"",
+    },
+    {
+      "end": 24,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+      "range": [
+        21,
+        24,
+      ],
+      "start": 21,
+      "type": "JSXIdentifier",
+      "value": "src",
+    },
+    {
+      "end": 25,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 3,
+        },
+        "start": {
+          "column": 5,
+          "line": 3,
+        },
+      },
+      "range": [
+        24,
+        25,
+      ],
+      "start": 24,
+      "type": "Punctuator",
+      "value": "=",
+    },
+    {
+      "end": 30,
+      "loc": {
+        "end": {
+          "column": 11,
+          "line": 3,
+        },
+        "start": {
+          "column": 6,
+          "line": 3,
+        },
+      },
+      "range": [
+        25,
+        30,
+      ],
+      "start": 25,
+      "type": "String",
+      "value": ""src"",
+    },
+    {
+      "end": 38,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 4,
+        },
+        "start": {
+          "column": 2,
+          "line": 4,
+        },
+      },
+      "range": [
+        33,
+        38,
+      ],
+      "start": 33,
+      "type": "JSXIdentifier",
+      "value": "width",
+    },
+    {
+      "end": 39,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 4,
+        },
+        "start": {
+          "column": 7,
+          "line": 4,
+        },
+      },
+      "range": [
+        38,
+        39,
+      ],
+      "start": 38,
+      "type": "Punctuator",
+      "value": "=",
+    },
+    {
+      "end": 44,
+      "loc": {
+        "end": {
+          "column": 13,
+          "line": 4,
+        },
+        "start": {
+          "column": 8,
+          "line": 4,
+        },
+      },
+      "range": [
+        39,
+        44,
+      ],
+      "start": 39,
+      "type": "String",
+      "value": ""315"",
+    },
+    {
+      "end": 53,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 5,
+        },
+        "start": {
+          "column": 2,
+          "line": 5,
+        },
+      },
+      "range": [
+        47,
+        53,
+      ],
+      "start": 47,
+      "type": "JSXIdentifier",
+      "value": "height",
+    },
+    {
+      "end": 54,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 5,
+        },
+        "start": {
+          "column": 8,
+          "line": 5,
+        },
+      },
+      "range": [
+        53,
+        54,
+      ],
+      "start": 53,
+      "type": "Punctuator",
+      "value": "=",
+    },
+    {
+      "end": 59,
+      "loc": {
+        "end": {
+          "column": 14,
+          "line": 5,
+        },
+        "start": {
+          "column": 9,
+          "line": 5,
+        },
+      },
+      "range": [
+        54,
+        59,
+      ],
+      "start": 54,
+      "type": "String",
+      "value": ""100"",
+    },
+    {
+      "end": 68,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 6,
+        },
+        "start": {
+          "column": 2,
+          "line": 6,
+        },
+      },
+      "range": [
+        62,
+        68,
+      ],
+      "start": 62,
+      "type": "JSXIdentifier",
+      "value": "format",
+    },
+    {
+      "end": 69,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 6,
+        },
+        "start": {
+          "column": 8,
+          "line": 6,
+        },
+      },
+      "range": [
+        68,
+        69,
+      ],
+      "start": 68,
+      "type": "Punctuator",
+      "value": "=",
+    },
+    {
+      "end": 74,
+      "loc": {
+        "end": {
+          "column": 14,
+          "line": 6,
+        },
+        "start": {
+          "column": 9,
+          "line": 6,
+        },
+      },
+      "range": [
+        69,
+        74,
+      ],
+      "start": 69,
+      "type": "String",
+      "value": ""svg"",
+    },
+    {
+      "end": 76,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 7,
+        },
+        "start": {
+          "column": 0,
+          "line": 7,
+        },
+      },
+      "range": [
+        75,
+        76,
+      ],
+      "start": 75,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    {
+      "end": 77,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 7,
+        },
+        "start": {
+          "column": 1,
+          "line": 7,
+        },
+      },
+      "range": [
+        76,
+        77,
+      ],
+      "start": 76,
+      "type": "Punctuator",
+      "value": ">",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
 exports[`parser should match all AST snapshots: acorn.mdx 1`] = `"Unexpected character \`\\\` (U+005C) in name, expected a name character such as letters, digits, \`$\`, or \`_\`; whitespace before attributes; or the end of the tag"`;
 
 exports[`parser should match all AST snapshots: adjacent.mdx 1`] = `
@@ -36228,7 +37582,29 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
     {
       "end": 175,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 171,
+            "loc": {
+              "end": {
+                "column": 84,
+                "line": 9,
+              },
+              "start": {
+                "column": 79,
+                "line": 9,
+              },
+            },
+            "range": [
+              166,
+              171,
+            ],
+            "raw": "velit",
+            "start": 166,
+            "type": "JSXText",
+            "value": "velit",
+          },
+        ],
         "closingElement": {
           "end": 175,
           "loc": {
@@ -36498,28 +37874,6 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
         202,
       ],
       "start": 179,
-      "type": "Block",
-      "value": " This is a comment ",
-    },
-    {
-      "end": 300,
-      "loc": {
-        "end": {
-          "column": 31,
-          "line": 19,
-          "offset": 300,
-        },
-        "start": {
-          "column": 8,
-          "line": 19,
-          "offset": 277,
-        },
-      },
-      "range": [
-        277,
-        300,
-      ],
-      "start": 277,
       "type": "Block",
       "value": " This is a comment ",
     },
@@ -37518,7 +38872,146 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
     {
       "end": 546,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 290,
+            "loc": {
+              "end": {
+                "column": 0,
+                "line": 18,
+              },
+              "start": {
+                "column": 32,
+                "line": 17,
+              },
+            },
+            "range": [
+              286,
+              290,
+            ],
+            "raw": " \\|
+",
+            "start": 286,
+            "type": "JSXText",
+            "value": " |
+",
+          },
+          {
+            "end": 327,
+            "loc": {
+              "end": {
+                "column": 0,
+                "line": 19,
+              },
+              "start": {
+                "column": 33,
+                "line": 18,
+              },
+            },
+            "range": [
+              323,
+              327,
+            ],
+            "raw": " \\|
+",
+            "start": 323,
+            "type": "JSXText",
+            "value": " |
+",
+          },
+          {
+            "end": 384,
+            "loc": {
+              "end": {
+                "column": 0,
+                "line": 20,
+              },
+              "start": {
+                "column": 53,
+                "line": 19,
+              },
+            },
+            "range": [
+              380,
+              384,
+            ],
+            "raw": " \\|
+",
+            "start": 380,
+            "type": "JSXText",
+            "value": " |
+",
+          },
+          {
+            "end": 433,
+            "loc": {
+              "end": {
+                "column": 0,
+                "line": 21,
+              },
+              "start": {
+                "column": 45,
+                "line": 20,
+              },
+            },
+            "range": [
+              429,
+              433,
+            ],
+            "raw": " \\|
+",
+            "start": 429,
+            "type": "JSXText",
+            "value": " |
+",
+          },
+          {
+            "end": 472,
+            "loc": {
+              "end": {
+                "column": 0,
+                "line": 22,
+              },
+              "start": {
+                "column": 35,
+                "line": 21,
+              },
+            },
+            "range": [
+              468,
+              472,
+            ],
+            "raw": " \\|
+",
+            "start": 468,
+            "type": "JSXText",
+            "value": " |
+",
+          },
+          {
+            "end": 509,
+            "loc": {
+              "end": {
+                "column": 0,
+                "line": 23,
+              },
+              "start": {
+                "column": 33,
+                "line": 22,
+              },
+            },
+            "range": [
+              505,
+              509,
+            ],
+            "raw": " \\|
+",
+            "start": 505,
+            "type": "JSXText",
+            "value": " |
+",
+          },
+        ],
         "closingElement": {
           "end": 546,
           "loc": {
@@ -37574,10 +39067,10 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
         "openingElement": {
           "attributes": [
             {
-              "end": 164,
+              "end": 168,
               "loc": {
                 "end": {
-                  "column": 3,
+                  "column": 7,
                   "line": 9,
                 },
                 "start": {
@@ -37608,9 +39101,9 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
               },
               "range": [
                 163,
-                164,
+                168,
               ],
-              "raw": "p",
+              "raw": "p={3}",
               "start": 163,
               "type": "JSXAttribute",
               "value": {
@@ -37658,10 +39151,10 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
               },
             },
             {
-              "end": 173,
+              "end": 185,
               "loc": {
                 "end": {
-                  "column": 4,
+                  "column": 16,
                   "line": 10,
                 },
                 "start": {
@@ -37692,9 +39185,9 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
               },
               "range": [
                 171,
-                173,
+                185,
               ],
-              "raw": "bg",
+              "raw": "bg='lightgray'",
               "start": 171,
               "type": "JSXAttribute",
               "value": {
@@ -37720,11 +39213,11 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
               },
             },
             {
-              "end": 193,
+              "end": 250,
               "loc": {
                 "end": {
-                  "column": 7,
-                  "line": 11,
+                  "column": 4,
+                  "line": 14,
                 },
                 "start": {
                   "column": 2,
@@ -37754,9 +39247,12 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
               },
               "range": [
                 188,
-                193,
+                250,
               ],
-              "raw": "style",
+              "raw": "style={{
+    textAlign: 'center',
+    fontWeight: 'bold',
+  }}",
               "start": 188,
               "type": "JSXAttribute",
               "value": {
@@ -38058,10 +39554,10 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
         "openingElement": {
           "attributes": [
             {
-              "end": 608,
+              "end": 630,
               "loc": {
                 "end": {
-                  "column": 14,
+                  "column": 36,
                   "line": 31,
                 },
                 "start": {
@@ -38092,9 +39588,9 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
               },
               "range": [
                 601,
-                608,
+                630,
               ],
-              "raw": "tweetId",
+              "raw": "tweetId="1116723357410447360"",
               "start": 601,
               "type": "JSXAttribute",
               "value": {
@@ -38191,7 +39687,52 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
     {
       "end": 703,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "children": [
+              {
+                "end": 686,
+                "loc": {
+                  "end": {
+                    "column": 35,
+                    "line": 35,
+                  },
+                  "start": {
+                    "column": 2,
+                    "line": 35,
+                  },
+                },
+                "range": [
+                  653,
+                  686,
+                ],
+                "raw": "Here's a text gradient shortcode!",
+                "start": 653,
+                "type": "JSXText",
+                "value": "Here's a text gradient shortcode!",
+              },
+            ],
+            "depth": 1,
+            "end": 686,
+            "loc": {
+              "end": {
+                "column": 35,
+                "line": 35,
+              },
+              "start": {
+                "column": 0,
+                "line": 35,
+              },
+            },
+            "range": [
+              651,
+              686,
+            ],
+            "raw": "# Here's a text gradient shortcode!",
+            "start": 651,
+            "type": "MDXHeading",
+          },
+        ],
         "closingElement": {
           "end": 703,
           "loc": {
@@ -38337,10 +39878,10 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
         "openingElement": {
           "attributes": [
             {
-              "end": 750,
+              "end": 764,
               "loc": {
                 "end": {
-                  "column": 16,
+                  "column": 30,
                   "line": 41,
                 },
                 "start": {
@@ -38371,9 +39912,9 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
               },
               "range": [
                 743,
-                750,
+                764,
               ],
-              "raw": "videoId",
+              "raw": "videoId="4fHw4GeW3EU"",
               "start": 743,
               "type": "JSXAttribute",
               "value": {
@@ -40074,7 +41615,29 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
     {
       "end": 90,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 79,
+            "loc": {
+              "end": {
+                "column": 20,
+                "line": 2,
+              },
+              "start": {
+                "column": 6,
+                "line": 2,
+              },
+            },
+            "range": [
+              65,
+              79,
+            ],
+            "raw": "Vuetify preset",
+            "start": 65,
+            "type": "JSXText",
+            "value": "Vuetify preset",
+          },
+        ],
         "closingElement": {
           "end": 90,
           "loc": {
@@ -40130,10 +41693,10 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
         "openingElement": {
           "attributes": [
             {
-              "end": 13,
+              "end": 44,
               "loc": {
                 "end": {
-                  "column": 13,
+                  "column": 44,
                   "line": 1,
                 },
                 "start": {
@@ -40164,9 +41727,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
               },
               "range": [
                 9,
-                13,
+                44,
               ],
-              "raw": "kind",
+              "raw": "kind="docs-packages-vuetify-preset"",
               "start": 9,
               "type": "JSXAttribute",
               "value": {
@@ -40192,10 +41755,10 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
               },
             },
             {
-              "end": 50,
+              "end": 57,
               "loc": {
                 "end": {
-                  "column": 50,
+                  "column": 57,
                   "line": 1,
                 },
                 "start": {
@@ -40226,9 +41789,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
               },
               "range": [
                 45,
-                50,
+                57,
               ],
-              "raw": "story",
+              "raw": "story="page"",
               "start": 45,
               "type": "JSXAttribute",
               "value": {
@@ -40327,7 +41890,29 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
     {
       "end": 225,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 214,
+            "loc": {
+              "end": {
+                "column": 20,
+                "line": 6,
+              },
+              "start": {
+                "column": 6,
+                "line": 6,
+              },
+            },
+            "range": [
+              200,
+              214,
+            ],
+            "raw": "Vuetify preset",
+            "start": 200,
+            "type": "JSXText",
+            "value": "Vuetify preset",
+          },
+        ],
         "closingElement": {
           "end": 225,
           "loc": {
@@ -40383,10 +41968,10 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
         "openingElement": {
           "attributes": [
             {
-              "end": 148,
+              "end": 179,
               "loc": {
                 "end": {
-                  "column": 13,
+                  "column": 44,
                   "line": 5,
                 },
                 "start": {
@@ -40417,9 +42002,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
               },
               "range": [
                 144,
-                148,
+                179,
               ],
-              "raw": "kind",
+              "raw": "kind="docs-packages-vuetify-preset"",
               "start": 144,
               "type": "JSXAttribute",
               "value": {
@@ -40445,10 +42030,10 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
               },
             },
             {
-              "end": 185,
+              "end": 192,
               "loc": {
                 "end": {
-                  "column": 50,
+                  "column": 57,
                   "line": 5,
                 },
                 "start": {
@@ -40479,9 +42064,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
               },
               "range": [
                 180,
-                185,
+                192,
               ],
-              "raw": "story",
+              "raw": "story="page"",
               "start": 180,
               "type": "JSXAttribute",
               "value": {
@@ -40580,7 +42165,29 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
     {
       "end": 360,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 349,
+            "loc": {
+              "end": {
+                "column": 20,
+                "line": 10,
+              },
+              "start": {
+                "column": 6,
+                "line": 10,
+              },
+            },
+            "range": [
+              335,
+              349,
+            ],
+            "raw": "Vuetify preset",
+            "start": 335,
+            "type": "JSXText",
+            "value": "Vuetify preset",
+          },
+        ],
         "closingElement": {
           "end": 360,
           "loc": {
@@ -40636,10 +42243,10 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
         "openingElement": {
           "attributes": [
             {
-              "end": 283,
+              "end": 314,
               "loc": {
                 "end": {
-                  "column": 13,
+                  "column": 44,
                   "line": 9,
                 },
                 "start": {
@@ -40670,9 +42277,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
               },
               "range": [
                 279,
-                283,
+                314,
               ],
-              "raw": "kind",
+              "raw": "kind="docs-packages-vuetify-preset"",
               "start": 279,
               "type": "JSXAttribute",
               "value": {
@@ -40698,10 +42305,10 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
               },
             },
             {
-              "end": 320,
+              "end": 327,
               "loc": {
                 "end": {
-                  "column": 50,
+                  "column": 57,
                   "line": 9,
                 },
                 "start": {
@@ -40732,9 +42339,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
               },
               "range": [
                 315,
-                320,
+                327,
               ],
-              "raw": "story",
+              "raw": "story="page"",
               "start": 315,
               "type": "JSXAttribute",
               "value": {
@@ -40833,7 +42440,29 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
     {
       "end": 495,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 484,
+            "loc": {
+              "end": {
+                "column": 20,
+                "line": 14,
+              },
+              "start": {
+                "column": 6,
+                "line": 14,
+              },
+            },
+            "range": [
+              470,
+              484,
+            ],
+            "raw": "Vuetify preset",
+            "start": 470,
+            "type": "JSXText",
+            "value": "Vuetify preset",
+          },
+        ],
         "closingElement": {
           "end": 495,
           "loc": {
@@ -40889,10 +42518,10 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
         "openingElement": {
           "attributes": [
             {
-              "end": 418,
+              "end": 449,
               "loc": {
                 "end": {
-                  "column": 13,
+                  "column": 44,
                   "line": 13,
                 },
                 "start": {
@@ -40923,9 +42552,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
               },
               "range": [
                 414,
-                418,
+                449,
               ],
-              "raw": "kind",
+              "raw": "kind="docs-packages-vuetify-preset"",
               "start": 414,
               "type": "JSXAttribute",
               "value": {
@@ -40951,10 +42580,10 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
               },
             },
             {
-              "end": 455,
+              "end": 462,
               "loc": {
                 "end": {
-                  "column": 50,
+                  "column": 57,
                   "line": 13,
                 },
                 "start": {
@@ -40985,9 +42614,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
               },
               "range": [
                 450,
-                455,
+                462,
               ],
-              "raw": "story",
+              "raw": "story="page"",
               "start": 450,
               "type": "JSXAttribute",
               "value": {
@@ -41086,7 +42715,29 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
     {
       "end": 630,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 619,
+            "loc": {
+              "end": {
+                "column": 20,
+                "line": 18,
+              },
+              "start": {
+                "column": 6,
+                "line": 18,
+              },
+            },
+            "range": [
+              605,
+              619,
+            ],
+            "raw": "Vuetify preset",
+            "start": 605,
+            "type": "JSXText",
+            "value": "Vuetify preset",
+          },
+        ],
         "closingElement": {
           "end": 630,
           "loc": {
@@ -41142,10 +42793,10 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
         "openingElement": {
           "attributes": [
             {
-              "end": 553,
+              "end": 584,
               "loc": {
                 "end": {
-                  "column": 13,
+                  "column": 44,
                   "line": 17,
                 },
                 "start": {
@@ -41176,9 +42827,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
               },
               "range": [
                 549,
-                553,
+                584,
               ],
-              "raw": "kind",
+              "raw": "kind="docs-packages-vuetify-preset"",
               "start": 549,
               "type": "JSXAttribute",
               "value": {
@@ -41204,10 +42855,10 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
               },
             },
             {
-              "end": 590,
+              "end": 597,
               "loc": {
                 "end": {
-                  "column": 50,
+                  "column": 57,
                   "line": 17,
                 },
                 "start": {
@@ -41238,9 +42889,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
               },
               "range": [
                 585,
-                590,
+                597,
               ],
-              "raw": "story",
+              "raw": "story="page"",
               "start": 585,
               "type": "JSXAttribute",
               "value": {
@@ -41339,7 +42990,29 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
     {
       "end": 765,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 754,
+            "loc": {
+              "end": {
+                "column": 20,
+                "line": 22,
+              },
+              "start": {
+                "column": 6,
+                "line": 22,
+              },
+            },
+            "range": [
+              740,
+              754,
+            ],
+            "raw": "Vuetify preset",
+            "start": 740,
+            "type": "JSXText",
+            "value": "Vuetify preset",
+          },
+        ],
         "closingElement": {
           "end": 765,
           "loc": {
@@ -41395,10 +43068,10 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
         "openingElement": {
           "attributes": [
             {
-              "end": 688,
+              "end": 719,
               "loc": {
                 "end": {
-                  "column": 13,
+                  "column": 44,
                   "line": 21,
                 },
                 "start": {
@@ -41429,9 +43102,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
               },
               "range": [
                 684,
-                688,
+                719,
               ],
-              "raw": "kind",
+              "raw": "kind="docs-packages-vuetify-preset"",
               "start": 684,
               "type": "JSXAttribute",
               "value": {
@@ -41457,10 +43130,10 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
               },
             },
             {
-              "end": 725,
+              "end": 732,
               "loc": {
                 "end": {
-                  "column": 50,
+                  "column": 57,
                   "line": 21,
                 },
                 "start": {
@@ -41491,9 +43164,9 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
               },
               "range": [
                 720,
-                725,
+                732,
               ],
-              "raw": "story",
+              "raw": "story="page"",
               "start": 720,
               "type": "JSXAttribute",
               "value": {
@@ -43302,7 +44975,262 @@ exports[`parser should match all AST snapshots: leading-spaces.mdx 1`] = `
     {
       "end": 41,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "children": [
+              {
+                "end": 15,
+                "loc": {
+                  "end": {
+                    "column": 9,
+                    "line": 2,
+                  },
+                  "start": {
+                    "column": 5,
+                    "line": 2,
+                  },
+                },
+                "range": [
+                  11,
+                  15,
+                ],
+                "raw": "test",
+                "start": 11,
+                "type": "JSXText",
+                "value": "test",
+              },
+            ],
+            "closingElement": {
+              "end": 19,
+              "loc": {
+                "end": {
+                  "column": 13,
+                  "line": 2,
+                },
+                "start": {
+                  "column": 9,
+                  "line": 2,
+                },
+              },
+              "name": {
+                "end": 18,
+                "loc": {
+                  "end": {
+                    "column": 12,
+                    "line": 2,
+                  },
+                  "start": {
+                    "column": 11,
+                    "line": 2,
+                  },
+                },
+                "name": "p",
+                "range": [
+                  17,
+                  18,
+                ],
+                "raw": "p",
+                "start": 17,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                15,
+                19,
+              ],
+              "raw": "</p>",
+              "start": 15,
+              "type": "JSXClosingElement",
+            },
+            "end": 19,
+            "loc": {
+              "end": {
+                "column": 13,
+                "line": 2,
+              },
+              "start": {
+                "column": 2,
+                "line": 2,
+              },
+            },
+            "openingElement": {
+              "attributes": [],
+              "end": 11,
+              "loc": {
+                "end": {
+                  "column": 5,
+                  "line": 2,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 2,
+                },
+              },
+              "name": {
+                "end": 10,
+                "loc": {
+                  "end": {
+                    "column": 4,
+                    "line": 2,
+                  },
+                  "start": {
+                    "column": 3,
+                    "line": 2,
+                  },
+                },
+                "name": "p",
+                "range": [
+                  9,
+                  10,
+                ],
+                "raw": "p",
+                "start": 9,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                8,
+                11,
+              ],
+              "raw": "<p>",
+              "selfClosing": false,
+              "start": 8,
+              "type": "JSXOpeningElement",
+            },
+            "range": [
+              8,
+              19,
+            ],
+            "raw": "<p>test</p>",
+            "start": 8,
+            "type": "JSXElement",
+          },
+          {
+            "children": [
+              {
+                "end": 30,
+                "loc": {
+                  "end": {
+                    "column": 9,
+                    "line": 4,
+                  },
+                  "start": {
+                    "column": 5,
+                    "line": 4,
+                  },
+                },
+                "range": [
+                  26,
+                  30,
+                ],
+                "raw": "test",
+                "start": 26,
+                "type": "JSXText",
+                "value": "test",
+              },
+            ],
+            "closingElement": {
+              "end": 34,
+              "loc": {
+                "end": {
+                  "column": 13,
+                  "line": 4,
+                },
+                "start": {
+                  "column": 9,
+                  "line": 4,
+                },
+              },
+              "name": {
+                "end": 33,
+                "loc": {
+                  "end": {
+                    "column": 12,
+                    "line": 4,
+                  },
+                  "start": {
+                    "column": 11,
+                    "line": 4,
+                  },
+                },
+                "name": "p",
+                "range": [
+                  32,
+                  33,
+                ],
+                "raw": "p",
+                "start": 32,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                30,
+                34,
+              ],
+              "raw": "</p>",
+              "start": 30,
+              "type": "JSXClosingElement",
+            },
+            "end": 34,
+            "loc": {
+              "end": {
+                "column": 13,
+                "line": 4,
+              },
+              "start": {
+                "column": 2,
+                "line": 4,
+              },
+            },
+            "openingElement": {
+              "attributes": [],
+              "end": 26,
+              "loc": {
+                "end": {
+                  "column": 5,
+                  "line": 4,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 4,
+                },
+              },
+              "name": {
+                "end": 25,
+                "loc": {
+                  "end": {
+                    "column": 4,
+                    "line": 4,
+                  },
+                  "start": {
+                    "column": 3,
+                    "line": 4,
+                  },
+                },
+                "name": "p",
+                "range": [
+                  24,
+                  25,
+                ],
+                "raw": "p",
+                "start": 24,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                23,
+                26,
+              ],
+              "raw": "<p>",
+              "selfClosing": false,
+              "start": 23,
+              "type": "JSXOpeningElement",
+            },
+            "range": [
+              23,
+              34,
+            ],
+            "raw": "<p>test</p>",
+            "start": 23,
+            "type": "JSXElement",
+          },
+        ],
         "closingElement": {
           "end": 41,
           "loc": {
@@ -43427,258 +45355,6 @@ exports[`parser should match all AST snapshots: leading-spaces.mdx 1`] = `
         41,
       ],
       "start": 0,
-      "type": "ExpressionStatement",
-    },
-    {
-      "end": 19,
-      "expression": {
-        "children": [],
-        "closingElement": {
-          "end": 19,
-          "loc": {
-            "end": {
-              "column": 13,
-              "line": 2,
-            },
-            "start": {
-              "column": 9,
-              "line": 2,
-            },
-          },
-          "name": {
-            "end": 18,
-            "loc": {
-              "end": {
-                "column": 12,
-                "line": 2,
-              },
-              "start": {
-                "column": 11,
-                "line": 2,
-              },
-            },
-            "name": "p",
-            "range": [
-              17,
-              18,
-            ],
-            "raw": "p",
-            "start": 17,
-            "type": "JSXIdentifier",
-          },
-          "range": [
-            15,
-            19,
-          ],
-          "raw": "</p>",
-          "start": 15,
-          "type": "JSXClosingElement",
-        },
-        "end": 19,
-        "loc": {
-          "end": {
-            "column": 13,
-            "line": 2,
-          },
-          "start": {
-            "column": 2,
-            "line": 2,
-          },
-        },
-        "openingElement": {
-          "attributes": [],
-          "end": 11,
-          "loc": {
-            "end": {
-              "column": 5,
-              "line": 2,
-            },
-            "start": {
-              "column": 2,
-              "line": 2,
-            },
-          },
-          "name": {
-            "end": 10,
-            "loc": {
-              "end": {
-                "column": 4,
-                "line": 2,
-              },
-              "start": {
-                "column": 3,
-                "line": 2,
-              },
-            },
-            "name": "p",
-            "range": [
-              9,
-              10,
-            ],
-            "raw": "p",
-            "start": 9,
-            "type": "JSXIdentifier",
-          },
-          "range": [
-            8,
-            11,
-          ],
-          "raw": "<p>",
-          "selfClosing": false,
-          "start": 8,
-          "type": "JSXOpeningElement",
-        },
-        "range": [
-          8,
-          19,
-        ],
-        "raw": "<p>test</p>",
-        "start": 8,
-        "type": "JSXElement",
-      },
-      "loc": {
-        "end": {
-          "column": 14,
-          "line": 2,
-          "offset": 19,
-        },
-        "start": {
-          "column": 3,
-          "line": 2,
-          "offset": 8,
-        },
-      },
-      "range": [
-        8,
-        19,
-      ],
-      "start": 8,
-      "type": "ExpressionStatement",
-    },
-    {
-      "end": 34,
-      "expression": {
-        "children": [],
-        "closingElement": {
-          "end": 34,
-          "loc": {
-            "end": {
-              "column": 13,
-              "line": 4,
-            },
-            "start": {
-              "column": 9,
-              "line": 4,
-            },
-          },
-          "name": {
-            "end": 33,
-            "loc": {
-              "end": {
-                "column": 12,
-                "line": 4,
-              },
-              "start": {
-                "column": 11,
-                "line": 4,
-              },
-            },
-            "name": "p",
-            "range": [
-              32,
-              33,
-            ],
-            "raw": "p",
-            "start": 32,
-            "type": "JSXIdentifier",
-          },
-          "range": [
-            30,
-            34,
-          ],
-          "raw": "</p>",
-          "start": 30,
-          "type": "JSXClosingElement",
-        },
-        "end": 34,
-        "loc": {
-          "end": {
-            "column": 13,
-            "line": 4,
-          },
-          "start": {
-            "column": 2,
-            "line": 4,
-          },
-        },
-        "openingElement": {
-          "attributes": [],
-          "end": 26,
-          "loc": {
-            "end": {
-              "column": 5,
-              "line": 4,
-            },
-            "start": {
-              "column": 2,
-              "line": 4,
-            },
-          },
-          "name": {
-            "end": 25,
-            "loc": {
-              "end": {
-                "column": 4,
-                "line": 4,
-              },
-              "start": {
-                "column": 3,
-                "line": 4,
-              },
-            },
-            "name": "p",
-            "range": [
-              24,
-              25,
-            ],
-            "raw": "p",
-            "start": 24,
-            "type": "JSXIdentifier",
-          },
-          "range": [
-            23,
-            26,
-          ],
-          "raw": "<p>",
-          "selfClosing": false,
-          "start": 23,
-          "type": "JSXOpeningElement",
-        },
-        "range": [
-          23,
-          34,
-        ],
-        "raw": "<p>test</p>",
-        "start": 23,
-        "type": "JSXElement",
-      },
-      "loc": {
-        "end": {
-          "column": 14,
-          "line": 4,
-          "offset": 34,
-        },
-        "start": {
-          "column": 3,
-          "line": 4,
-          "offset": 23,
-        },
-      },
-      "range": [
-        23,
-        34,
-      ],
-      "start": 23,
       "type": "ExpressionStatement",
     },
   ],
@@ -44142,7 +45818,29 @@ exports[`parser should match all AST snapshots: no-unescaped-entities.mdx 1`] = 
     {
       "end": 25,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 16,
+            "loc": {
+              "end": {
+                "column": 16,
+                "line": 1,
+              },
+              "start": {
+                "column": 8,
+                "line": 1,
+              },
+            },
+            "range": [
+              8,
+              16,
+            ],
+            "raw": " &apos; ",
+            "start": 8,
+            "type": "JSXText",
+            "value": " ' ",
+          },
+        ],
         "closingElement": {
           "end": 25,
           "loc": {
@@ -44268,7 +45966,29 @@ exports[`parser should match all AST snapshots: no-unescaped-entities.mdx 1`] = 
     {
       "end": 42,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 35,
+            "loc": {
+              "end": {
+                "column": 9,
+                "line": 2,
+              },
+              "start": {
+                "column": 6,
+                "line": 2,
+              },
+            },
+            "range": [
+              32,
+              35,
+            ],
+            "raw": " > ",
+            "start": 32,
+            "type": "JSXText",
+            "value": " > ",
+          },
+        ],
         "closingElement": {
           "end": 42,
           "loc": {
@@ -44394,7 +46114,29 @@ exports[`parser should match all AST snapshots: no-unescaped-entities.mdx 1`] = 
     {
       "end": 76,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 67,
+            "loc": {
+              "end": {
+                "column": 23,
+                "line": 4,
+              },
+              "start": {
+                "column": 15,
+                "line": 4,
+              },
+            },
+            "range": [
+              59,
+              67,
+            ],
+            "raw": " &apos; ",
+            "start": 59,
+            "type": "JSXText",
+            "value": " ' ",
+          },
+        ],
         "closingElement": {
           "end": 76,
           "loc": {
@@ -44520,7 +46262,29 @@ exports[`parser should match all AST snapshots: no-unescaped-entities.mdx 1`] = 
     {
       "end": 98,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 91,
+            "loc": {
+              "end": {
+                "column": 14,
+                "line": 5,
+              },
+              "start": {
+                "column": 11,
+                "line": 5,
+              },
+            },
+            "range": [
+              88,
+              91,
+            ],
+            "raw": " > ",
+            "start": 88,
+            "type": "JSXText",
+            "value": " > ",
+          },
+        ],
         "closingElement": {
           "end": 98,
           "loc": {
@@ -45640,7 +47404,29 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
     {
       "end": 89,
       "expression": {
-        "children": [],
+        "children": [
+          {
+            "end": 86,
+            "loc": {
+              "end": {
+                "column": 12,
+                "line": 10,
+              },
+              "start": {
+                "column": 2,
+                "line": 10,
+              },
+            },
+            "range": [
+              76,
+              86,
+            ],
+            "raw": " Fragment ",
+            "start": 76,
+            "type": "JSXText",
+            "value": " Fragment ",
+          },
+        ],
         "closingFragment": {
           "end": 89,
           "loc": {
@@ -45721,28 +47507,6 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
     },
   ],
   "comments": [
-    {
-      "end": 54,
-      "loc": {
-        "end": {
-          "column": 24,
-          "line": 6,
-          "offset": 54,
-        },
-        "start": {
-          "column": 14,
-          "line": 6,
-          "offset": 44,
-        },
-      },
-      "range": [
-        44,
-        54,
-      ],
-      "start": 44,
-      "type": "Block",
-      "value": " HTML ",
-    },
     {
       "end": 54,
       "loc": {
@@ -47026,28 +48790,6 @@ exports[`parser should match all AST snapshots: unicorn.mdx 1`] = `
     },
   ],
   "comments": [
-    {
-      "end": 37,
-      "loc": {
-        "end": {
-          "column": 24,
-          "line": 3,
-          "offset": 37,
-        },
-        "start": {
-          "column": 14,
-          "line": 3,
-          "offset": 27,
-        },
-      },
-      "range": [
-        27,
-        37,
-      ],
-      "start": 27,
-      "type": "Block",
-      "value": " HTML ",
-    },
     {
       "end": 37,
       "loc": {

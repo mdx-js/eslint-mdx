@@ -2,8 +2,9 @@ import path from 'node:path'
 
 import { ESLint } from 'eslint'
 
-const getCli = (lintCodeBlocks = false) =>
+const getCli = (lintCodeBlocks = false, fix?: boolean) =>
   new ESLint({
+    fix,
     ignore: false,
     useEslintrc: false,
     baseConfig: {
@@ -25,6 +26,11 @@ const getCli = (lintCodeBlocks = false) =>
         react: {
           version: 'detect',
         },
+      },
+      rules: {
+        'react/jsx-curly-brace-presence': 'error',
+        'react/jsx-sort-props': 'error',
+        'react/self-closing-comp': 'error',
       },
       overrides: lintCodeBlocks
         ? [
@@ -50,22 +56,41 @@ const getCli = (lintCodeBlocks = false) =>
 
 describe('fixtures', () => {
   it('should match all snapshots', async () => {
-    const results = await getCli().lintFiles([
+    let results = await getCli().lintFiles([
       'test/fixtures/*',
       'test/fixtures/**/*{md,mdx}',
     ])
     for (const { filePath, messages } of results) {
       expect(messages).toMatchSnapshot(path.basename(filePath))
     }
+    results = await getCli(false, true).lintFiles([
+      'test/fixtures/*',
+      'test/fixtures/**/*{md,mdx}',
+    ])
+    for (const { filePath, source, output } of results) {
+      if (source !== output) {
+        // eslint-disable-next-line jest/no-conditional-expect
+        expect(output).toMatchSnapshot(path.basename(filePath))
+      }
+    }
   })
 
   describe('lint code blocks', () => {
     it('should work as expected', async () => {
-      const results = await getCli(true).lintFiles(
+      let results = await getCli(true).lintFiles(
         'test/fixtures/**/code-blocks.{md,mdx}',
       )
       for (const { filePath, messages } of results) {
         expect(messages).toMatchSnapshot(path.basename(filePath))
+      }
+      results = await getCli(true, true).lintFiles(
+        'test/fixtures/**/code-blocks.{md,mdx}',
+      )
+      for (const { filePath, source, output } of results) {
+        if (source !== output) {
+          // eslint-disable-next-line jest/no-conditional-expect
+          expect(output).toMatchSnapshot(path.basename(filePath))
+        }
       }
     })
   })

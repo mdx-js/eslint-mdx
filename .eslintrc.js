@@ -21,10 +21,19 @@ module.exports = {
     {
       files: '*.{md,mdx}',
       rules: {
+        'react/jsx-curly-brace-presence': 'error',
+        'react/jsx-sort-props': 'error',
+        'react/self-closing-comp': 'error',
         'react/no-unescaped-entities': 'warn',
       },
       settings: {
         'mdx/code-blocks': true,
+      },
+    },
+    {
+      files: '**/*.{md,mdx}/**/*.ts',
+      rules: {
+        'no-magic-numbers': 'off',
       },
     },
   ],
