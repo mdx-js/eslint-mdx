@@ -21,7 +21,8 @@
     "prelint": "yarn build",
     "prepare": "patch-package && simple-git-hooks && yarn-deduplicate --strategy fewer || exit 0",
     "prerelease": "yarn build",
-    "release": "changeset publish --tag release-v2",
+    "release": "yarn release:only",
+    "release:only": "changeset publish --tag release-v2",
     "test": "jest",
     "typecov": "type-coverage"
   },
