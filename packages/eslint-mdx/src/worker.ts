@@ -377,60 +377,53 @@ runAsWorker(
 
         function handleChildren(node: Nodes) {
           return 'children' in node
-            ? (node.children as Nodes[]).reduce<JSXElement['children']>(
-                (acc, child) => {
-                  processed.add(child)
+            ? node.children.reduce<JSXElement['children']>((acc, child) => {
+                processed.add(child)
 
-                  if (
-                    child.data &&
-                    'estree' in child.data &&
-                    child.data.estree
-                  ) {
-                    const { estree } = child.data
+                if (child.data && 'estree' in child.data && child.data.estree) {
+                  const { estree } = child.data
 
-                    assert(estree.body.length <= 1)
+                  assert(estree.body.length <= 1)
 
-                    const statement = estree.body[0]
+                  const statement = estree.body[0]
 
-                    isExpressionStatement(statement)
+                  isExpressionStatement(statement)
 
-                    const expression = statement?.expression
+                  const expression = statement?.expression
 
-                    if (child.type === 'mdxTextExpression') {
-                      const {
-                        start: { offset: start },
-                        end: { offset: end },
-                      } = node.position
+                  if (child.type === 'mdxTextExpression') {
+                    const {
+                      start: { offset: start },
+                      end: { offset: end },
+                    } = node.position
 
-                      const expressionContainer: JSXExpressionContainer = {
-                        ...normalizeNode(start, end),
-                        type: 'JSXExpressionContainer',
-                        expression: expression || {
-                          ...normalizeNode(start + 1, end - 1),
-                          type: 'JSXEmptyExpression',
-                        },
-                      }
-                      acc.push(expressionContainer)
-                    } else if (expression) {
-                      acc.push(expression as JSXElement['children'][number])
+                    const expressionContainer: JSXExpressionContainer = {
+                      ...normalizeNode(start, end),
+                      type: 'JSXExpressionContainer',
+                      expression: expression || {
+                        ...normalizeNode(start + 1, end - 1),
+                        type: 'JSXEmptyExpression',
+                      },
                     }
-
-                    comments.push(...estree.comments)
-                  } else {
-                    const expression = handleNode(child) as Arrayable<
-                      JSXElement['children']
-                    >
-                    if (Array.isArray(expression)) {
-                      acc.push(...expression)
-                    } else if (expression) {
-                      acc.push(expression)
-                    }
+                    acc.push(expressionContainer)
+                  } else if (expression) {
+                    acc.push(expression as JSXElement['children'][number])
                   }
 
-                  return acc
-                },
-                [],
-              )
+                  comments.push(...estree.comments)
+                } else {
+                  const expression = handleNode(child) as Arrayable<
+                    JSXElement['children']
+                  >
+                  if (Array.isArray(expression)) {
+                    acc.push(...expression)
+                  } else if (expression) {
+                    acc.push(expression)
+                  }
+                }
+
+                return acc
+              }, [])
             : []
         }
 
