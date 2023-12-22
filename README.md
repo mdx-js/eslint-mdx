@@ -55,7 +55,7 @@
 
 ## Packages
 
-This repository is a monorepo managed by [Lerna][] what means we actually publish several packages to npm from same codebase, including:
+This repository is a monorepo managed by [changesets][] what means we actually publish several packages to npm from same codebase, including:
 
 | Package                                            | Description                                    | Version                                                                                                       |
 | -------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
@@ -197,7 +197,7 @@ export interface MDXHeading extends BaseNode {
 
 _possible fixable depends on your remark plugins_:
 
-Integration with [remark-lint][] plugins, it will read [remark's configuration](https://github.com/remarkjs/remark/tree/master/packages/remark-cli#remark-cli) automatically via [cosmiconfig][]. But `.remarkignore` will not be respected, you should use `.eslintignore` instead.
+Integration with [remark-lint][] plugins, it will read [remark's configuration](https://github.com/remarkjs/remark/tree/master/packages/remark-cli#remark-cli) automatically via [unified-engine][]. But `.remarkignore` will not be respected, you should use `.eslintignore` instead.
 
 If you want to disable or change severity of some related rules, it won't work by setting rules in eslint config like `'remark-lint-no-duplicate-headings': 0`, you should change your remark config instead like following:
 
@@ -241,6 +241,8 @@ If you're using [remark-lint][] feature with [Prettier][] both together, you can
 
 ## Backers
 
+[![Backers](https://raw.githubusercontent.com/1stG/static/master/sponsors.svg)](https://github.com/sponsors/JounQin)
+
 | 1stG                                                                                                                             | RxTS                                                                                                                             | UnTS                                                                                                                             |
 | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | [![1stG Open Collective backers and sponsors](https://opencollective.com/1stG/individuals.svg)](https://opencollective.com/1stG) | [![RxTS Open Collective backers and sponsors](https://opencollective.com/rxts/individuals.svg)](https://opencollective.com/rxts) | [![UnTS Open Collective backers and sponsors](https://opencollective.com/unts/individuals.svg)](https://opencollective.com/unts) |
@@ -256,14 +258,14 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 [MIT][] © [JounQin][]@[1stG.me][]
 
 [1stg.me]: https://www.1stg.me
-[cosmiconfig]: https://github.com/davidtheclark/cosmiconfig
+[changesets]: https://github.com/changesets/changesets
 [eslint]: https://eslint.org
-[jounqin]: https://GitHub.com/JounQin
-[lerna]: https://github.com/lerna/lerna
+[jounqin]: https://github.com/JounQin
 [mdx]: https://github.com/mdx-js/mdx
 [mit]: http://opensource.org/licenses/MIT
 [prettier]: https://prettier.io
 [remark-lint]: https://github.com/remarkjs/remark-lint
-[remark-preset-prettier]: https://github.com/JounQin/remark-preset-prettier
+[remark-preset-prettier]: https://github.com/un-ts/remark-preset-prettier
+[unified-engine]: https://github.com/unifiedjs/unified-engine
 [vscode eslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
-[vscode mdx]: https://github.com/mdx-js/vscode-mdx
+[vscode mdx]: https://github.com/mdx-js/mdx-analyzer/tree/main/packages/vscode-mdx
