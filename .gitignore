@@ -2,9 +2,9 @@
 *.tsbuildinfo
 .*cache
 .changelog
+.idea
 .type-coverage
 coverage
 lib
 node_modules
-/test.mdx
-.idea/
+/test.*

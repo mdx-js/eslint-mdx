@@ -35,20 +35,20 @@
     "@commitlint/config-lerna-scopes" "^17.0.2"
     "@pkgr/utils" "^2.3.1"
 
-"@1stg/common-config@^9.0.0":
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/@1stg/common-config/-/common-config-9.0.0.tgz#7755fb2b47f7e5020c7a65944aaaca4a02bba8a4"
-  integrity sha512-4eObSMl7h7ZJZeat82SQykv4H38QVp38kB/nxZyIwRWhBptHpXvEIA62AQ5pear/+qJkQ6blq78X86lgbh90dg==
+"@1stg/common-config@^9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@1stg/common-config/-/common-config-9.0.1.tgz#6398ee154a277ef52193ffd9e2671b14a8ed18fc"
+  integrity sha512-XEAcqqjQyRcDyqYXRLgPLs12Vi6sLqQMjkgewJo3awXVUuFgJD2ppHdSjS9AlBujsf9XwYeEBBWAk2CJUVmD2Q==
   dependencies:
     "@1stg/babel-preset" "^3.2.3"
     "@1stg/commitlint-config" "^3.2.0"
-    "@1stg/eslint-config" "^7.0.0"
+    "@1stg/eslint-config" "^7.0.1"
     "@1stg/lint-staged" "^3.4.1"
     "@1stg/markuplint-config" "^3.0.1"
     "@1stg/prettier-config" "^3.9.2"
     "@1stg/remark-preset" "^2.0.0"
     "@1stg/simple-git-hooks" "^0.2.3"
-    "@1stg/tsconfig" "^2.3.2"
+    "@1stg/tsconfig" "^2.3.3"
     "@babel/core" "^7.22.5"
     "@commitlint/cli" "^17.6.5"
     eslint "^8.43.0"
@@ -63,10 +63,10 @@
   resolved "https://registry.yarnpkg.com/@1stg/config/-/config-0.2.1.tgz#12d35ff8e243bd4b35b55c2f244cd5cbfea844d4"
   integrity sha512-fStBgzyQnL0/bdIcHCplmrjFN9SBfnkldQ+TnpKnBFmp7jIxoggSRL3kaEFbGlq2lbV/H7Udy3bmJWTtdDH5Iw==
 
-"@1stg/eslint-config@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@1stg/eslint-config/-/eslint-config-7.0.0.tgz#986eb594bc3cb6957cbb30e2a1ebddfda071b472"
-  integrity sha512-J1+0FbTvZK2CB/JokzP/D37GhAtJi42yAJep1wBw213QdDhktI2iV7VmwKvoPlLL8CB8JwF955UFKusG9lC7tA==
+"@1stg/eslint-config@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@1stg/eslint-config/-/eslint-config-7.0.1.tgz#3e814033ce327ef59205b068fc353cfcfecbd0f7"
+  integrity sha512-qdGayfrv/LPanOs4N/yjt1yfMyeqYHGen/33wbBDVs9mmAJ+W9LCeueYaSfEzm0GOWeIJ6qIiLSHYiTcpGCDnw==
   dependencies:
     "@1stg/config" "^0.2.1"
     "@angular-eslint/eslint-plugin" "^16.0.3"
@@ -108,12 +108,12 @@
     eslint-plugin-vue "^9.15.0"
     eslint-plugin-yml "^1.8.0"
 
-"@1stg/lib-config@^12.0.0":
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/@1stg/lib-config/-/lib-config-12.0.0.tgz#843891ecd0478efd5ae28b74c22d88d9f6884dce"
-  integrity sha512-Dkz0ouc5M9DvkY0EG/RXNjTkcE544e5gScU2mKBInc8W7QOidBjji9OCsw29jxjS0o6cPRSELXZJbSJC2xfkrg==
+"@1stg/lib-config@^12.0.1":
+  version "12.0.1"
+  resolved "https://registry.yarnpkg.com/@1stg/lib-config/-/lib-config-12.0.1.tgz#1fdf045b6ab57439eba4df1ab8a5cfc26909ac91"
+  integrity sha512-IovDXaUtwI4+mb0Ker81Hb618jDsaz1qXaQ+gMFX52l6G93DTFdULqfwCsqu0Mie4787bxL8l3r6ORHwuVq2Ww==
   dependencies:
-    "@1stg/common-config" "^9.0.0"
+    "@1stg/common-config" "^9.0.1"
     "@pkgr/rollup" "^4.1.1"
 
 "@1stg/lint-staged@^3.4.1":
@@ -177,10 +177,10 @@
   dependencies:
     "@pkgr/utils" "^2.3.1"
 
-"@1stg/tsconfig@^2.3.2":
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/@1stg/tsconfig/-/tsconfig-2.3.2.tgz#d843c542845d4d14350162507f711f216159cd8c"
-  integrity sha512-vNYoC1cvdGHCA3tJMUskaVsNVTt6QIOFO+eDtdO4JvqHllvi+o2QSqy5vTpAGMODSqbyFcLdPW7sD5kj9VQmNA==
+"@1stg/tsconfig@^2.3.2", "@1stg/tsconfig@^2.3.3":
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/@1stg/tsconfig/-/tsconfig-2.3.3.tgz#dc598fea2f75bf24a6da6039827679ca0213ece3"
+  integrity sha512-JHXiryRSs4w/ho/Uf3lDMlrYIf2p8+2gMgp23/j/HJfGF2+XwgRCnPgLA2VZ+LtGdqYX8ZJ4EmMgjFDdEdTMbg==
 
 "@aashutoshrathi/word-wrap@^1.2.3":
   version "1.2.6"
@@ -4947,6 +4947,10 @@ eslint-import-resolver-typescript@^3.5.5:
     is-core-module "^2.11.0"
     is-glob "^4.0.3"
 
+"eslint-mdx@link:packages/eslint-mdx":
+  version "0.0.0"
+  uid ""
+
 eslint-module-utils@^2.7.4, eslint-module-utils@^2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/eslint-module-utils/-/eslint-module-utils-2.8.0.tgz#e439fee65fc33f6bba630ff621efc38ec0375c49"
@@ -5037,6 +5041,14 @@ eslint-plugin-markup@^0.11.0:
     markuplint "^3.7.0"
     synckit "^0.8.5"
     tslib "^2.5.0"
+
+eslint-plugin-mdx@^2.1.0:
+  version "0.0.0"
+  uid ""
+
+"eslint-plugin-mdx@link:packages/eslint-plugin-mdx":
+  version "0.0.0"
+  uid ""
 
 eslint-plugin-n@^16.0.0:
   version "16.3.1"
@@ -11586,22 +11598,6 @@ unist-util-stringify-position@^4.0.0:
   dependencies:
     "@types/unist" "^3.0.0"
 
-unist-util-visit-parents@^4.0.0:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/unist-util-visit-parents/-/unist-util-visit-parents-4.1.1.tgz#e83559a4ad7e6048a46b1bdb22614f2f3f4724f2"
-  integrity sha512-1xAFJXAKpnnJl8G7K5KgU7FY55y3GcLIXqkzUj5QF/QVP7biUm0K0O2oqVkYsdjzJKifYeWn9+o6piAK2hGSHw==
-  dependencies:
-    "@types/unist" "^2.0.0"
-    unist-util-is "^5.0.0"
-
-unist-util-visit-parents@^5.1.1:
-  version "5.1.3"
-  resolved "https://registry.yarnpkg.com/unist-util-visit-parents/-/unist-util-visit-parents-5.1.3.tgz#b4520811b0ca34285633785045df7a8d6776cfeb"
-  integrity sha512-x6+y8g7wWMyQhL1iZfhIPhDAs7Xwbn9nRosDXl7qoPTSCy0yNxnKc+hWokFifWQIDGi154rdUqKvbCa4+1kLhg==
-  dependencies:
-    "@types/unist" "^2.0.0"
-    unist-util-is "^5.0.0"
-
 unist-util-visit-parents@^6.0.0:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/unist-util-visit-parents/-/unist-util-visit-parents-6.0.1.tgz#4d5f85755c3b8f0dc69e21eca5d6d82d22162815"
@@ -11610,25 +11606,7 @@ unist-util-visit-parents@^6.0.0:
     "@types/unist" "^3.0.0"
     unist-util-is "^6.0.0"
 
-unist-util-visit@^3.0.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/unist-util-visit/-/unist-util-visit-3.1.0.tgz#9420d285e1aee938c7d9acbafc8e160186dbaf7b"
-  integrity sha512-Szoh+R/Ll68QWAyQyZZpQzZQm2UPbxibDvaY8Xc9SUtYgPsDzx5AWSk++UUt2hJuow8mvwR+rG+LQLw+KsuAKA==
-  dependencies:
-    "@types/unist" "^2.0.0"
-    unist-util-is "^5.0.0"
-    unist-util-visit-parents "^4.0.0"
-
-unist-util-visit@^4.0.0:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/unist-util-visit/-/unist-util-visit-4.1.2.tgz#125a42d1eb876283715a3cb5cceaa531828c72e2"
-  integrity sha512-MSd8OUGISqHdVvfY9TPhyK2VdUrPgxkUtWSuMHF6XAAFuL4LokseigBnZtPnJMu+FbynTkFNnFlyjxpVKujMRg==
-  dependencies:
-    "@types/unist" "^2.0.0"
-    unist-util-is "^5.0.0"
-    unist-util-visit-parents "^5.1.1"
-
-unist-util-visit@^5.0.0:
+unist-util-visit@^3.0.0, unist-util-visit@^4.0.0, unist-util-visit@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/unist-util-visit/-/unist-util-visit-5.0.0.tgz#a7de1f31f72ffd3519ea71814cccf5fd6a9217d6"
   integrity sha512-MR04uvD+07cwl/yhVuVWAtw+3GOR/knlL55Nd/wAdblk27GCVt3lqpTivy/tkJcZoNPzTwS1Y+KMojlLDhoTzg==

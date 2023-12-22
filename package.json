@@ -27,7 +27,7 @@
     "typecov": "type-coverage"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^12.0.0",
+    "@1stg/lib-config": "^12.0.1",
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.1",
     "@types/eslint": "^8.44.8",
@@ -50,12 +50,15 @@
     "@types/mdast": "^4.0.3",
     "acorn": "^8.11.2",
     "cliui": "npm:@isaacs/cliui@^8.0.2",
+    "eslint-mdx": "link:packages/eslint-mdx",
     "eslint-plugin-markdown": "JounQin/eslint-plugin-markdown#feat/bump",
+    "eslint-plugin-mdx": "link:packages/eslint-plugin-mdx",
     "mdast-util-frontmatter": "^2.0.1",
     "mdast-util-gfm": "^3.0.0",
     "prettier": "^2.8.8",
     "unified": "^11.0.4",
-    "unified-engine": "^11.2.0"
+    "unified-engine": "^11.2.0",
+    "unist-util-visit": "^5.0.0"
   },
   "commitlint": {
     "extends": [
@@ -68,6 +71,7 @@
     "fixtures",
     "lib",
     "CHANGELOG.md",
+    "/test.*",
     "!/.*.js"
   ],
   "jest": {
