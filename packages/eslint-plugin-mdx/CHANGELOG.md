@@ -1,5 +1,14 @@
 # Change Log
 
+## 3.0.1
+
+### Patch Changes
+
+- [#493](https://github.com/mdx-js/eslint-mdx/pull/493) [`e3c225b`](https://github.com/mdx-js/eslint-mdx/commit/e3c225bbc3e3908984982adbdc259008081db852) Thanks [@JounQin](https://github.com/JounQin)! - fix: incompatible with some react rules: `jsx-curly-brace-presence`, `jsx-sort-props`, `self-closing-comp`
+
+- Updated dependencies [[`e3c225b`](https://github.com/mdx-js/eslint-mdx/commit/e3c225bbc3e3908984982adbdc259008081db852), [`e3c225b`](https://github.com/mdx-js/eslint-mdx/commit/e3c225bbc3e3908984982adbdc259008081db852)]:
+  - eslint-mdx@3.0.1
+
 ## 3.0.0
 
 ### Major Changes
