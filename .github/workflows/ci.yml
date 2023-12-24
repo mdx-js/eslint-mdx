@@ -35,7 +35,6 @@ jobs:
         run: |
           yarn lint
           yarn test
-        continue-on-error: ${{ matrix.os == 'windows-latest' }}
         env:
           EFF_NO_LINK_RULES: true
           PARSER_NO_WATCH: true
