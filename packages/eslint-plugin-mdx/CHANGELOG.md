@@ -1,5 +1,14 @@
 # Change Log
 
+## 3.1.1
+
+### Patch Changes
+
+- [#499](https://github.com/mdx-js/eslint-mdx/pull/499) [`97ade8f`](https://github.com/mdx-js/eslint-mdx/commit/97ade8f39bad40709bbf25ac5ec9750168281f8d) Thanks [@JounQin](https://github.com/JounQin)! - fix: incorrect docs due to prettier + mdx v2+ incompatible
+
+- Updated dependencies [[`97ade8f`](https://github.com/mdx-js/eslint-mdx/commit/97ade8f39bad40709bbf25ac5ec9750168281f8d)]:
+  - eslint-mdx@3.1.1
+
 ## 3.1.0
 
 ### Minor Changes
