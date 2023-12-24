@@ -163,8 +163,12 @@ See also <https://github.com/syntax-tree/mdast#code>
 
 A new `MDXHeading` estree node type is exported from `eslint-mdx` which represents markdown heading in `mdx` like the following:
 
+<!-- mdx v2+ incompatible -->
+<!-- prettier-ignore -->
 ```mdx
-<div># Here's a text gradient short code!</div>
+<div>
+# Here's a text gradient short code!
+</div>
 ```
 
 See also <https://github.com/syntax-tree/mdast#heading>
