@@ -1,5 +1,18 @@
 # Change Log
 
+## 2.3.0
+
+### Minor Changes
+
+- [`f3d4ff4`](https://github.com/mdx-js/eslint-mdx/commit/f3d4ff490ca8164aa8963e51cc7a09ae8dcb917e) Thanks [@JounQin](https://github.com/JounQin)! - feat: only enable `prettier/prettier` rule for `eslint-plugin-prettier` `<5.1.2`
+
+### Patch Changes
+
+- [`b4583e5`](https://github.com/mdx-js/eslint-mdx/commit/b4583e5f23ce45c7d9024c114cb84729f440e80d) Thanks [@JounQin](https://github.com/JounQin)! - fix: incorrect docs due to prettier + mdx v2+ incompatible
+
+- Updated dependencies [[`b4583e5`](https://github.com/mdx-js/eslint-mdx/commit/b4583e5f23ce45c7d9024c114cb84729f440e80d)]:
+  - eslint-mdx@2.3.0
+
 ## 2.2.1
 
 ### Patch Changes

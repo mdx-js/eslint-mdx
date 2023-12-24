@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.3.0
+
+### Patch Changes
+
+- [`b4583e5`](https://github.com/mdx-js/eslint-mdx/commit/b4583e5f23ce45c7d9024c114cb84729f440e80d) Thanks [@JounQin](https://github.com/JounQin)! - fix: incorrect docs due to prettier + mdx v2+ incompatible
+
 ## 2.2.1
 
 ### Patch Changes
