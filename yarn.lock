@@ -2900,10 +2900,10 @@
     "@types/eslint" "*"
     "@types/unist" "*"
 
-"@types/eslint@*", "@types/eslint@^8.44.1":
-  version "8.44.1"
-  resolved "https://registry.yarnpkg.com/@types/eslint/-/eslint-8.44.1.tgz#d1811559bb6bcd1a76009e3f7883034b78a0415e"
-  integrity sha512-XpNDc4Z5Tb4x+SW1MriMVeIsMoONHCkWFMkR/aPJbzEsxqHy+4Glu/BqTdPrApfDeMaXbtNh6bseNgl5KaWrSg==
+"@types/eslint@*", "@types/eslint@^8.56.0":
+  version "8.56.0"
+  resolved "https://registry.yarnpkg.com/@types/eslint/-/eslint-8.56.0.tgz#e28d045b8e530a33c9cbcfbf02332df0d1380a2c"
+  integrity sha512-FlsN0p4FhuYRjIxpbdXovvHQhtlG05O1GG/RNWvdAxTboR438IOTwmrY/vLA+Xfgg06BTkP045M3vpFwTMv1dg==
   dependencies:
     "@types/estree" "*"
     "@types/json-schema" "*"
