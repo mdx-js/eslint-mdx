@@ -20,11 +20,13 @@ export const recommended: Linter.Config = {
   overrides,
 }
 
+/* istanbul ignore next */
 // hack to bypass syntax error for commonjs
 const getImportMetaUrl = () =>
   // eslint-disable-next-line @typescript-eslint/no-implied-eval, no-new-func
   new Function('return import.meta.url')() as string
 
+/* istanbul ignore next */
 const cjsRequire =
   typeof require === 'undefined' ? createRequire(getImportMetaUrl()) : require
 
@@ -33,6 +35,8 @@ const addPrettierRules = () => {
     cjsRequire.resolve('prettier')
 
     const { meta } = cjsRequire('eslint-plugin-prettier') as ESLint.Plugin
+
+    /* istanbul ignore next */
     const version = meta?.version || ''
 
     /**
@@ -40,7 +44,9 @@ const addPrettierRules = () => {
      */
     const [major, minor, patch] = version.split('.')
 
+    /* istanbul ignore if -- We're using `eslint-plugin-prettier@4.2.1` for now */
     if (
+      /* istanbul ignore next */
       +major > 5 ||
       (+major === 5 &&
         (+minor > 1 || (+minor === 1 && Number.parseInt(patch) >= 2)))
