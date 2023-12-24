@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.1.0
+
+### Minor Changes
+
+- [#497](https://github.com/mdx-js/eslint-mdx/pull/497) [`0f39ad0`](https://github.com/mdx-js/eslint-mdx/commit/0f39ad030fa95d458d4feb2beae506f23d5c9a67) Thanks [@JounQin](https://github.com/JounQin)! - feat: only enable `prettier/prettier` rule for `eslint-plugin-prettier` `<5.1.2`
+
+### Patch Changes
+
+- Updated dependencies []:
+  - eslint-mdx@3.1.0
+
 ## 3.0.1
 
 ### Patch Changes
