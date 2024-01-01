@@ -3077,10 +3077,10 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.11.tgz#2596fb352ee96a1379c657734d4b913a613ad563"
   integrity sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==
 
-"@types/react@^18.2.42":
-  version "18.2.42"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.42.tgz#6f6b11a904f6d96dda3c2920328a97011a00aba7"
-  integrity sha512-c1zEr96MjakLYus/wPnuWDo1/zErfdU9rNsIGmE+NV71nx88FG9Ttgo5dqorXTu/LImX2f63WBP986gJkMPNbA==
+"@types/react@^18.2.46":
+  version "18.2.46"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.46.tgz#f04d6c528f8f136ea66333bc66abcae46e2680df"
+  integrity sha512-nNCvVBcZlvX4NU1nRRNV/mFl1nNRuTuslAJglQsq+8ldXe5Xv0Wd2f7WTE3jOxhLH2BFfiZGC6GCp+kHQbgG+w==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -4948,8 +4948,22 @@ eslint-import-resolver-typescript@^3.5.5:
     is-glob "^4.0.3"
 
 "eslint-mdx@link:packages/eslint-mdx":
-  version "0.0.0"
-  uid ""
+  version "3.1.1"
+  dependencies:
+    acorn "^8.11.2"
+    acorn-jsx "^5.3.2"
+    espree "^9.6.1"
+    estree-util-visit "^2.0.0"
+    remark-mdx "^3.0.0"
+    remark-parse "^11.0.0"
+    remark-stringify "^11.0.0"
+    synckit "^0.8.6"
+    tslib "^2.6.2"
+    unified "^11.0.4"
+    unified-engine "^11.2.0"
+    unist-util-visit "^5.0.0"
+    uvu "^0.5.6"
+    vfile "^6.0.1"
 
 eslint-module-utils@^2.7.4, eslint-module-utils@^2.8.0:
   version "2.8.0"
@@ -5043,12 +5057,28 @@ eslint-plugin-markup@^0.11.0:
     tslib "^2.5.0"
 
 eslint-plugin-mdx@^2.1.0:
-  version "0.0.0"
-  uid ""
+  version "3.1.1"
+  dependencies:
+    eslint-mdx "^3.1.1"
+    eslint-plugin-markdown "^3.0.1"
+    remark-mdx "^3.0.0"
+    remark-parse "^11.0.0"
+    remark-stringify "^11.0.0"
+    tslib "^2.6.2"
+    unified "^11.0.4"
+    vfile "^6.0.1"
 
 "eslint-plugin-mdx@link:packages/eslint-plugin-mdx":
-  version "0.0.0"
-  uid ""
+  version "3.1.1"
+  dependencies:
+    eslint-mdx "^3.1.1"
+    eslint-plugin-markdown "^3.0.1"
+    remark-mdx "^3.0.0"
+    remark-parse "^11.0.0"
+    remark-stringify "^11.0.0"
+    tslib "^2.6.2"
+    unified "^11.0.4"
+    vfile "^6.0.1"
 
 eslint-plugin-n@^16.0.0:
   version "16.3.1"
