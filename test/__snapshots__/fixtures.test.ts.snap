@@ -1065,8 +1065,6 @@ exports[`fixtures should match all snapshots: 391.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: 391.mdx 2`] = `undefined`;
-
 exports[`fixtures should match all snapshots: 429.mdx 1`] = `
 [
   {
@@ -1931,8 +1929,6 @@ exports[`fixtures should match all snapshots: acorn.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: acorn.mdx 2`] = `undefined`;
-
 exports[`fixtures should match all snapshots: adjacent.mdx 1`] = `
 [
   {
@@ -2247,8 +2243,6 @@ exports[`fixtures should match all snapshots: code-blocks.md 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: code-blocks.md 2`] = `undefined`;
-
 exports[`fixtures should match all snapshots: code-blocks.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: comments.mdx 1`] = `
@@ -2265,8 +2259,6 @@ exports[`fixtures should match all snapshots: comments.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: comments.mdx 2`] = `undefined`;
-
 exports[`fixtures should match all snapshots: details.mdx 1`] = `
 [
   {
@@ -2280,8 +2272,6 @@ exports[`fixtures should match all snapshots: details.mdx 1`] = `
   },
 ]
 `;
-
-exports[`fixtures should match all snapshots: details.mdx 2`] = `undefined`;
 
 exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
 [
@@ -2555,8 +2545,6 @@ exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 2`] = `undefined`;
-
 exports[`fixtures should match all snapshots: no-unused-expressions.mdx 1`] = `
 [
   {
@@ -2572,8 +2560,6 @@ exports[`fixtures should match all snapshots: no-unused-expressions.mdx 1`] = `
   },
 ]
 `;
-
-exports[`fixtures should match all snapshots: no-unused-expressions.mdx 2`] = `undefined`;
 
 exports[`fixtures should match all snapshots: processor.mdx 1`] = `
 [
@@ -2599,8 +2585,6 @@ exports[`fixtures should match all snapshots: processor.mdx 1`] = `
   },
 ]
 `;
-
-exports[`fixtures should match all snapshots: processor.mdx 2`] = `undefined`;
 
 exports[`fixtures should match all snapshots: remark.md 1`] = `[]`;
 
@@ -2636,10 +2620,6 @@ exports[`fixtures should match all snapshots: test.md 2`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: test.md 3`] = `undefined`;
-
-exports[`fixtures should match all snapshots: test.md 4`] = `undefined`;
-
 exports[`fixtures should match all snapshots: unicorn.jsx 1`] = `
 [
   {
@@ -2667,8 +2647,6 @@ exports[`fixtures should match all snapshots: unicorn.jsx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: unicorn.jsx 2`] = `undefined`;
-
 exports[`fixtures should match all snapshots: unicorn.mdx 1`] = `
 [
   {
@@ -2684,5 +2662,3 @@ exports[`fixtures should match all snapshots: unicorn.mdx 1`] = `
   },
 ]
 `;
-
-exports[`fixtures should match all snapshots: unicorn.mdx 2`] = `undefined`;
