@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.1.2
+
+### Patch Changes
+
+- [#511](https://github.com/mdx-js/eslint-mdx/pull/511) [`f2067c1`](https://github.com/mdx-js/eslint-mdx/commit/f2067c1df1ebc06effaab119251db9247affbbd8) Thanks [@JounQin](https://github.com/JounQin)! - chore: log error details on `--debug` flag enabled
+
 ## 3.1.1
 
 ### Patch Changes
