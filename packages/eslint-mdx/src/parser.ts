@@ -62,6 +62,10 @@ export class Parser {
         ignoreRemarkConfig,
       })
     } catch (err: unknown) {
+      /* istanbul ignore if */
+      if (process.argv.includes('--debug')) {
+        console.error(err)
+      }
       const error = err as VFileMessage
       throw Object.assign(
         new SyntaxError(error.message, {
