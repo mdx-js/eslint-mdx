@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`fixtures lint code blocks should work as expected: code-blocks.md 1`] = `
+exports[`fixtures > lint code blocks > should work as expected > code-blocks.md 1`] = `
 [
   {
     "column": 1,
@@ -104,7 +104,7 @@ exports[`fixtures lint code blocks should work as expected: code-blocks.md 1`] =
 ]
 `;
 
-exports[`fixtures lint code blocks should work as expected: code-blocks.md 2`] = `
+exports[`fixtures > lint code blocks > should work as expected > code-blocks.md 2`] = `
 "# abc
 
 # abc
@@ -159,7 +159,7 @@ import React from 'react'
 "
 `;
 
-exports[`fixtures lint code blocks should work as expected: code-blocks.mdx 1`] = `
+exports[`fixtures > lint code blocks > should work as expected > code-blocks.mdx 1`] = `
 [
   {
     "column": 1,
@@ -218,7 +218,7 @@ exports[`fixtures lint code blocks should work as expected: code-blocks.mdx 1`] 
 ]
 `;
 
-exports[`fixtures lint code blocks should work as expected: code-blocks.mdx 2`] = `
+exports[`fixtures > lint code blocks > should work as expected > code-blocks.mdx 2`] = `
 "\`\`\`js
 let a
 
@@ -231,9 +231,9 @@ export { c }
 "
 `;
 
-exports[`fixtures should match all snapshots: 287.mdx 1`] = `[]`;
+exports[`fixtures > should match all snapshots > 287.mdx 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: 292.mdx 1`] = `
+exports[`fixtures > should match all snapshots > 292.mdx 1`] = `
 [
   {
     "column": 9,
@@ -270,7 +270,7 @@ exports[`fixtures should match all snapshots: 292.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: 292.mdx 2`] = `
+exports[`fixtures > should match all snapshots > 292.mdx 2`] = `
 "# Header
 
 paragraph <div className="abc">content</div>
@@ -285,13 +285,13 @@ paragraph <div className="abc">content</div>
 "
 `;
 
-exports[`fixtures should match all snapshots: 334.mdx 1`] = `[]`;
+exports[`fixtures > should match all snapshots > 334.mdx 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: 336.mdx 1`] = `[]`;
+exports[`fixtures > should match all snapshots > 336.mdx 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: 367.mdx 1`] = `[]`;
+exports[`fixtures > should match all snapshots > 367.mdx 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: 371.mdx 1`] = `
+exports[`fixtures > should match all snapshots > 371.mdx 1`] = `
 [
   {
     "column": 13,
@@ -314,7 +314,7 @@ exports[`fixtures should match all snapshots: 371.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: 371.mdx 2`] = `
+exports[`fixtures > should match all snapshots > 371.mdx 2`] = `
 "# Hello, World!
 
 <div>
@@ -329,7 +329,7 @@ function foo() {
 "
 `;
 
-exports[`fixtures should match all snapshots: 380.mdx 1`] = `
+exports[`fixtures > should match all snapshots > 380.mdx 1`] = `
 [
   {
     "column": 3,
@@ -437,43 +437,6 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "messageId": "sortPropsByAlpha",
     "nodeType": "JSXIdentifier",
     "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 28,
-    "endColumn": 24,
-    "endLine": 159,
-    "fix": {
-      "range": [
-        2997,
-        3590,
-      ],
-      "text": "
-        <aui-tab-group>
-                <ng-container *auiTabTitle>aa2</ng-container>
-                <aui-tab>
-                  <ng-container *auiTabLabel>
-                    <aui-icon icon="sun"></aui-icon>
-                    Custom Label
-                  </ng-container>
-                  <aui-card> Content 1 </aui-card>
-                </aui-tab>
-                <aui-tab label="Tab 1"><aui-card>Content 2</aui-card></aui-tab>
-                <aui-tab>
-                  <ng-container *auiTabLabel>
-                    <aui-icon icon="moon"></aui-icon>
-                    Custom Label
-                  </ng-container>
-                  <aui-card> Content 3 </aui-card>
-                </aui-tab>
-              </aui-tab-group>
-      ",
-    },
-    "line": 142,
-    "message": "Templates should be properly indented.",
-    "messageId": "template-indent",
-    "nodeType": "TemplateLiteral",
-    "ruleId": "unicorn/template-indent",
     "severity": 2,
   },
   {
@@ -650,59 +613,6 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "severity": 2,
   },
   {
-    "column": 28,
-    "endColumn": 26,
-    "endLine": 335,
-    "fix": {
-      "range": [
-        6862,
-        8121,
-      ],
-      "text": "
-        <aui-form-item>
-                 <label auiFormItemLabel>启用 Lazy</label>
-                 <aui-radio-group
-                   auiFormItemControl
-                   [(ngModel)]="lazy"
-                   [plain]="false"
-                 >
-                   <aui-radio-button [value]="true">是</aui-radio-button>
-                   <aui-radio-button [value]="false">否</aui-radio-button>
-                 </aui-radio-group>
-               </aui-form-item>
-               <aui-tab-group [lazy]="lazy">
-                 <aui-tab label="Tab 1">
-                   <tabs-active-test *auiTabContent
-                     ><aui-card>Content 1</aui-card></tabs-active-test
-                   >
-                 </aui-tab>
-                 <aui-tab label="Tab 2">
-                   <tabs-active-test *auiTabContent>
-                     <aui-tab-group [lazy]="true">
-                       <aui-tab label="Tab 2-1">
-                         <tabs-active-test *auiTabContent>
-                           <aui-card> Content 2-1 </aui-card>
-                         </tabs-active-test>
-                       </aui-tab>
-                       <aui-tab label="Tab 2-2">
-                         <tabs-active-test *auiTabContent>
-                           <aui-card> Content 2-2 </aui-card>
-                         </tabs-active-test>
-                       </aui-tab>
-                     </aui-tab-group>
-                   </tabs-active-test>
-                 </aui-tab>
-               </aui-tab-group>
-      ",
-    },
-    "line": 302,
-    "message": "Templates should be properly indented.",
-    "messageId": "template-indent",
-    "nodeType": "TemplateLiteral",
-    "ruleId": "unicorn/template-indent",
-    "severity": 2,
-  },
-  {
     "column": 5,
     "endColumn": 11,
     "endLine": 348,
@@ -724,7 +634,7 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: 380.mdx 2`] = `
+exports[`fixtures > should match all snapshots > 380.mdx 2`] = `
 "import { FormsModule } from '@angular/forms'
 import { Canvas, Meta, Story } from '@storybook/addon-docs'
 import { moduleMetadata } from '@storybook/angular'
@@ -866,26 +776,24 @@ import {
     name="CustomLabel"
   >
     {{
-      template: /* HTML */ \`
-        <aui-tab-group>
-          <ng-container *auiTabTitle>aa2</ng-container>
-          <aui-tab>
-            <ng-container *auiTabLabel>
-              <aui-icon icon="sun"></aui-icon>
-              Custom Label
-            </ng-container>
-            <aui-card> Content 1 </aui-card>
-          </aui-tab>
-          <aui-tab label="Tab 1"><aui-card>Content 2</aui-card></aui-tab>
-          <aui-tab>
-            <ng-container *auiTabLabel>
-              <aui-icon icon="moon"></aui-icon>
-              Custom Label
-            </ng-container>
-            <aui-card> Content 3 </aui-card>
-          </aui-tab>
-        </aui-tab-group>
-      \`,
+      template: /* HTML */ \`<aui-tab-group>
+        <ng-container *auiTabTitle>aa2</ng-container>
+        <aui-tab>
+          <ng-container *auiTabLabel>
+            <aui-icon icon="sun"></aui-icon>
+            Custom Label
+          </ng-container>
+          <aui-card> Content 1 </aui-card>
+        </aui-tab>
+        <aui-tab label="Tab 1"><aui-card>Content 2</aui-card></aui-tab>
+        <aui-tab>
+          <ng-container *auiTabLabel>
+            <aui-icon icon="moon"></aui-icon>
+            Custom Label
+          </ng-container>
+          <aui-card> Content 3 </aui-card>
+        </aui-tab>
+      </aui-tab-group>\`,
       props: {
         tabs: Array.from({ length: 3 }).fill(),
       },
@@ -1028,8 +936,7 @@ import {
     name="Nest"
   >
     {{
-      template: /* HTML */ \`
-        <aui-form-item>
+      template: /* HTML */ \` <aui-form-item>
           <label auiFormItemLabel>启用 Lazy</label>
           <aui-radio-group
             auiFormItemControl
@@ -1062,8 +969,7 @@ import {
               </aui-tab-group>
             </tabs-active-test>
           </aui-tab>
-        </aui-tab-group>
-      \`,
+        </aui-tab-group>\`,
       props: {
         lazy: true,
       },
@@ -1143,7 +1049,7 @@ interface TabChangeEvent {
 "
 `;
 
-exports[`fixtures should match all snapshots: 391.mdx 1`] = `
+exports[`fixtures > should match all snapshots > 391.mdx 1`] = `
 [
   {
     "column": 2,
@@ -1159,9 +1065,9 @@ exports[`fixtures should match all snapshots: 391.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: 391.mdx 2`] = `undefined`;
+exports[`fixtures > should match all snapshots > 391.mdx 2`] = `undefined`;
 
-exports[`fixtures should match all snapshots: 429.mdx 1`] = `
+exports[`fixtures > should match all snapshots > 429.mdx 1`] = `
 [
   {
     "column": 17,
@@ -1184,14 +1090,14 @@ exports[`fixtures should match all snapshots: 429.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: 429.mdx 2`] = `
+exports[`fixtures > should match all snapshots > 429.mdx 2`] = `
 "<button disabled>Hello</button>
 
 <button disabled />
 "
 `;
 
-exports[`fixtures should match all snapshots: 435.mdx 1`] = `
+exports[`fixtures > should match all snapshots > 435.mdx 1`] = `
 [
   {
     "column": 1,
@@ -1353,7 +1259,7 @@ exports[`fixtures should match all snapshots: 435.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: 435.mdx 2`] = `
+exports[`fixtures > should match all snapshots > 435.mdx 2`] = `
 "<button
   style={{
     background: 'red',
@@ -1372,7 +1278,7 @@ exports[`fixtures should match all snapshots: 435.mdx 2`] = `
 "
 `;
 
-exports[`fixtures should match all snapshots: 437.mdx 1`] = `
+exports[`fixtures > should match all snapshots > 437.mdx 1`] = `
 [
   {
     "column": 2,
@@ -1424,12 +1330,12 @@ exports[`fixtures should match all snapshots: 437.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: 437.mdx 2`] = `
+exports[`fixtures > should match all snapshots > 437.mdx 2`] = `
 "<App prop="foo">{'bar'}</App>
 "
 `;
 
-exports[`fixtures should match all snapshots: 445.mdx 1`] = `
+exports[`fixtures > should match all snapshots > 445.mdx 1`] = `
 [
   {
     "column": 1,
@@ -1463,7 +1369,7 @@ exports[`fixtures should match all snapshots: 445.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: 445.mdx 2`] = `
+exports[`fixtures > should match all snapshots > 445.mdx 2`] = `
 "import { DefinitionList } from './DefinitionList'
 
 <DefinitionList disabled>
@@ -1476,7 +1382,7 @@ exports[`fixtures should match all snapshots: 445.mdx 2`] = `
 "
 `;
 
-exports[`fixtures should match all snapshots: 450.mdx 1`] = `
+exports[`fixtures > should match all snapshots > 450.mdx 1`] = `
 [
   {
     "column": 45,
@@ -1913,7 +1819,7 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: 450.mdx 2`] = `
+exports[`fixtures > should match all snapshots > 450.mdx 2`] = `
 "import { Meta } from '@storybook/addon-docs'
 
 <Meta title="Test" />
@@ -1940,7 +1846,7 @@ width={250}
 "
 `;
 
-exports[`fixtures should match all snapshots: 488.mdx 1`] = `
+exports[`fixtures > should match all snapshots > 488.mdx 1`] = `
 [
   {
     "column": 2,
@@ -2000,7 +1906,7 @@ exports[`fixtures should match all snapshots: 488.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: 488.mdx 2`] = `
+exports[`fixtures > should match all snapshots > 488.mdx 2`] = `
 "<Image
   alt="alt"
   format="svg"
@@ -2011,7 +1917,7 @@ exports[`fixtures should match all snapshots: 488.mdx 2`] = `
 "
 `;
 
-exports[`fixtures should match all snapshots: acorn.mdx 1`] = `
+exports[`fixtures > should match all snapshots > acorn.mdx 1`] = `
 [
   {
     "column": 33,
@@ -2025,9 +1931,9 @@ exports[`fixtures should match all snapshots: acorn.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: acorn.mdx 2`] = `undefined`;
+exports[`fixtures > should match all snapshots > acorn.mdx 2`] = `undefined`;
 
-exports[`fixtures should match all snapshots: adjacent.mdx 1`] = `
+exports[`fixtures > should match all snapshots > adjacent.mdx 1`] = `
 [
   {
     "column": 14,
@@ -2050,14 +1956,14 @@ exports[`fixtures should match all snapshots: adjacent.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: adjacent.mdx 2`] = `
+exports[`fixtures > should match all snapshots > adjacent.mdx 2`] = `
 "import Basic from './basic'
 
 <Basic /> <Basic />
 "
 `;
 
-exports[`fixtures should match all snapshots: basic.mdx 1`] = `
+exports[`fixtures > should match all snapshots > basic.mdx 1`] = `
 [
   {
     "column": 18,
@@ -2098,7 +2004,7 @@ exports[`fixtures should match all snapshots: basic.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: basic.mdx 2`] = `
+exports[`fixtures > should match all snapshots > basic.mdx 2`] = `
 "import Basic from './basic'
 
 export const meta = {
@@ -2125,9 +2031,9 @@ Lorem ipsum dolor sit _amet_, consectetur adipiscing elit. Ut ac lobortis velit.
 "
 `;
 
-exports[`fixtures should match all snapshots: basic.tsx 1`] = `[]`;
+exports[`fixtures > should match all snapshots > basic.tsx 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
+exports[`fixtures > should match all snapshots > blank-lines.mdx 1`] = `
 [
   {
     "column": 9,
@@ -2270,7 +2176,7 @@ Here's a YouTube shortcode:
 ]
 `;
 
-exports[`fixtures should match all snapshots: blank-lines.mdx 2`] = `
+exports[`fixtures > should match all snapshots > blank-lines.mdx 2`] = `
 "import { Box } from '@rebass/emotion'
 
 # Getting Started
@@ -2306,7 +2212,7 @@ Here's a YouTube shortcode:
 "
 `;
 
-exports[`fixtures should match all snapshots: code-blocks.md 1`] = `
+exports[`fixtures > should match all snapshots > code-blocks.md 1`] = `
 [
   {
     "column": 1,
@@ -2341,11 +2247,11 @@ exports[`fixtures should match all snapshots: code-blocks.md 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: code-blocks.md 2`] = `undefined`;
+exports[`fixtures > should match all snapshots > code-blocks.md 2`] = `undefined`;
 
-exports[`fixtures should match all snapshots: code-blocks.mdx 1`] = `[]`;
+exports[`fixtures > should match all snapshots > code-blocks.mdx 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: comments.mdx 1`] = `
+exports[`fixtures > should match all snapshots > comments.mdx 1`] = `
 [
   {
     "column": 2,
@@ -2359,9 +2265,9 @@ exports[`fixtures should match all snapshots: comments.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: comments.mdx 2`] = `undefined`;
+exports[`fixtures > should match all snapshots > comments.mdx 2`] = `undefined`;
 
-exports[`fixtures should match all snapshots: details.mdx 1`] = `
+exports[`fixtures > should match all snapshots > details.mdx 1`] = `
 [
   {
     "column": 1,
@@ -2375,9 +2281,9 @@ exports[`fixtures should match all snapshots: details.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: details.mdx 2`] = `undefined`;
+exports[`fixtures > should match all snapshots > details.mdx 2`] = `undefined`;
 
-exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
+exports[`fixtures > should match all snapshots > jsx-in-list.mdx 1`] = `
 [
   {
     "column": 9,
@@ -2574,7 +2480,7 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: jsx-in-list.mdx 2`] = `
+exports[`fixtures > should match all snapshots > jsx-in-list.mdx 2`] = `
 "- - <div
       kind="docs-packages-vuetify-preset"
       story="page"
@@ -2620,13 +2526,13 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 2`] = `
 "
 `;
 
-exports[`fixtures should match all snapshots: leading-spaces.mdx 1`] = `[]`;
+exports[`fixtures > should match all snapshots > leading-spaces.mdx 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: markdown.md 1`] = `[]`;
+exports[`fixtures > should match all snapshots > markdown.md 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: nested.md 1`] = `[]`;
+exports[`fixtures > should match all snapshots > nested.md 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `
+exports[`fixtures > should match all snapshots > no-unescaped-entities.mdx 1`] = `
 [
   {
     "column": 8,
@@ -2649,9 +2555,9 @@ exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 2`] = `undefined`;
+exports[`fixtures > should match all snapshots > no-unescaped-entities.mdx 2`] = `undefined`;
 
-exports[`fixtures should match all snapshots: no-unused-expressions.mdx 1`] = `
+exports[`fixtures > should match all snapshots > no-unused-expressions.mdx 1`] = `
 [
   {
     "column": 2,
@@ -2667,9 +2573,9 @@ exports[`fixtures should match all snapshots: no-unused-expressions.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: no-unused-expressions.mdx 2`] = `undefined`;
+exports[`fixtures > should match all snapshots > no-unused-expressions.mdx 2`] = `undefined`;
 
-exports[`fixtures should match all snapshots: processor.mdx 1`] = `
+exports[`fixtures > should match all snapshots > processor.mdx 1`] = `
 [
   {
     "column": 1,
@@ -2694,13 +2600,13 @@ exports[`fixtures should match all snapshots: processor.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: processor.mdx 2`] = `undefined`;
+exports[`fixtures > should match all snapshots > processor.mdx 2`] = `undefined`;
 
-exports[`fixtures should match all snapshots: remark.md 1`] = `[]`;
+exports[`fixtures > should match all snapshots > remark.md 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: remark.mdx 1`] = `[]`;
+exports[`fixtures > should match all snapshots > remark.mdx 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: test.md 1`] = `
+exports[`fixtures > should match all snapshots > test.md 1`] = `
 [
   {
     "column": 1,
@@ -2715,7 +2621,7 @@ exports[`fixtures should match all snapshots: test.md 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: test.md 2`] = `
+exports[`fixtures > should match all snapshots > test.md 2`] = `
 [
   {
     "column": 1,
@@ -2730,11 +2636,11 @@ exports[`fixtures should match all snapshots: test.md 2`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: test.md 3`] = `undefined`;
+exports[`fixtures > should match all snapshots > test.md 3`] = `undefined`;
 
-exports[`fixtures should match all snapshots: test.md 4`] = `undefined`;
+exports[`fixtures > should match all snapshots > test.md 4`] = `undefined`;
 
-exports[`fixtures should match all snapshots: unicorn.jsx 1`] = `
+exports[`fixtures > should match all snapshots > unicorn.jsx 1`] = `
 [
   {
     "column": 2,
@@ -2758,47 +2664,12 @@ exports[`fixtures should match all snapshots: unicorn.jsx 1`] = `
     "ruleId": "react/jsx-no-undef",
     "severity": 2,
   },
-  {
-    "column": 26,
-    "endColumn": 12,
-    "endLine": 6,
-    "fix": {
-      "range": [
-        40,
-        102,
-      ],
-      "text": "
-      <div abc>
-            <div>Nested</div>
-            Hello World
-          </div>
-    ",
-    },
-    "line": 3,
-    "message": "Templates should be properly indented.",
-    "messageId": "template-indent",
-    "nodeType": "TemplateLiteral",
-    "ruleId": "unicorn/template-indent",
-    "severity": 2,
-  },
 ]
 `;
 
-exports[`fixtures should match all snapshots: unicorn.jsx 2`] = `
-";<Story>
-  {{
-    template: /* HTML */ \`
-      <div abc>
-        <div>Nested</div>
-        Hello World
-      </div>
-    \`,
-  }}
-</Story>
-"
-`;
+exports[`fixtures > should match all snapshots > unicorn.jsx 2`] = `undefined`;
 
-exports[`fixtures should match all snapshots: unicorn.mdx 1`] = `
+exports[`fixtures > should match all snapshots > unicorn.mdx 1`] = `
 [
   {
     "column": 2,
@@ -2811,42 +2682,7 @@ exports[`fixtures should match all snapshots: unicorn.mdx 1`] = `
     "ruleId": "react/jsx-no-undef",
     "severity": 2,
   },
-  {
-    "column": 26,
-    "endColumn": 12,
-    "endLine": 6,
-    "fix": {
-      "range": [
-        39,
-        101,
-      ],
-      "text": "
-      <div abc>
-            <div>Nested</div>
-            Hello World
-          </div>
-    ",
-    },
-    "line": 3,
-    "message": "Templates should be properly indented.",
-    "messageId": "template-indent",
-    "nodeType": "TemplateLiteral",
-    "ruleId": "unicorn/template-indent",
-    "severity": 2,
-  },
 ]
 `;
 
-exports[`fixtures should match all snapshots: unicorn.mdx 2`] = `
-"<Story>
-  {{
-    template: /* HTML */ \`
-      <div abc>
-        <div>Nested</div>
-        Hello World
-      </div>
-    \`,
-  }}
-</Story>
-"
-`;
+exports[`fixtures > should match all snapshots > unicorn.mdx 2`] = `undefined`;

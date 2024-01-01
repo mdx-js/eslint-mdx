@@ -62,7 +62,7 @@ let tokTypes: typeof _tokTypes
 let jsxTokTypes: Record<string, TokenType>
 let tt: Record<string, TokenType> & typeof _tokTypes
 
-let TokenTranslator: typeof import('espree/lib/token-translator')['default']
+let TokenTranslator: (typeof import('espree/lib/token-translator'))['default']
 
 export const processorCache = new Map<
   string,
@@ -71,9 +71,8 @@ export const processorCache = new Map<
 
 const getRemarkConfig = async (searchFrom: string) => {
   if (!config) {
-    const { Configuration } = await loadEsmModule<
-      typeof import('unified-engine')
-    >('unified-engine')
+    const { Configuration } =
+      await loadEsmModule<typeof import('unified-engine')>('unified-engine')
     config = new Configuration({
       cwd: process.cwd(),
       packageField: 'remarkConfig',
@@ -251,13 +250,12 @@ runAsWorker(
     }
 
     if (!jsxTokTypes) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-      jsxTokTypes = acornJsx.default(
-        {
-          allowNamespacedObjects: true,
-        },
-        // @ts-expect-error
-      )(acorn.Parser).acornJsx.tokTypes
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      jsxTokTypes = acornJsx.default({
+        allowNamespacedObjects: true,
+        // @ts-expect-error -- no type
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      })(acorn.Parser).acornJsx.tokTypes
     }
 
     if (!TokenTranslator) {
@@ -289,9 +287,8 @@ runAsWorker(
     const comments: Comment[] = []
     const tokens: AST.Token[] = []
 
-    const { visit } = await loadEsmModule<typeof import('unist-util-visit')>(
-      'unist-util-visit',
-    )
+    const { visit } =
+      await loadEsmModule<typeof import('unist-util-visit')>('unist-util-visit')
 
     const processed = new WeakSet<Node>()
 
@@ -727,9 +724,10 @@ runAsWorker(
       })
     }
 
-    const { visit: visitEstree } = await loadEsmModule<
-      typeof import('estree-util-visit')
-    >('estree-util-visit')
+    const { visit: visitEstree } =
+      await loadEsmModule<typeof import('estree-util-visit')>(
+        'estree-util-visit',
+      )
 
     visitEstree(
       {

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`parser should match all AST snapshots: 287.mdx 1`] = `
+exports[`parser > should match all AST snapshots > 287.mdx 1`] = `
 {
   "body": [
     {
@@ -912,7 +912,7 @@ exports[`parser should match all AST snapshots: 287.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: 292.mdx 1`] = `
+exports[`parser > should match all AST snapshots > 292.mdx 1`] = `
 {
   "body": [
     {
@@ -1948,7 +1948,7 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: 334.mdx 1`] = `
+exports[`parser > should match all AST snapshots > 334.mdx 1`] = `
 {
   "body": [
     {
@@ -2372,7 +2372,7 @@ exports[`parser should match all AST snapshots: 334.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: 336.mdx 1`] = `
+exports[`parser > should match all AST snapshots > 336.mdx 1`] = `
 {
   "body": [],
   "comments": [],
@@ -2400,7 +2400,7 @@ exports[`parser should match all AST snapshots: 336.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: 367.mdx 1`] = `
+exports[`parser > should match all AST snapshots > 367.mdx 1`] = `
 {
   "body": [
     {
@@ -3215,7 +3215,7 @@ exports[`parser should match all AST snapshots: 367.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: 371.mdx 1`] = `
+exports[`parser > should match all AST snapshots > 371.mdx 1`] = `
 {
   "body": [
     {
@@ -3549,7 +3549,7 @@ function foo() {
 }
 `;
 
-exports[`parser should match all AST snapshots: 380.mdx 1`] = `
+exports[`parser > should match all AST snapshots > 380.mdx 1`] = `
 {
   "body": [
     {
@@ -27985,7 +27985,7 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: 391.mdx 1`] = `
+exports[`parser > should match all AST snapshots > 391.mdx 1`] = `
 {
   "body": [
     {
@@ -28201,7 +28201,7 @@ exports[`parser should match all AST snapshots: 391.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: 429.mdx 1`] = `
+exports[`parser > should match all AST snapshots > 429.mdx 1`] = `
 {
   "body": [
     {
@@ -28811,7 +28811,7 @@ exports[`parser should match all AST snapshots: 429.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: 435.mdx 1`] = `
+exports[`parser > should match all AST snapshots > 435.mdx 1`] = `
 {
   "body": [
     {
@@ -30079,7 +30079,7 @@ exports[`parser should match all AST snapshots: 435.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: 437.mdx 1`] = `
+exports[`parser > should match all AST snapshots > 437.mdx 1`] = `
 {
   "body": [
     {
@@ -30628,7 +30628,7 @@ exports[`parser should match all AST snapshots: 437.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: 445.mdx 1`] = `
+exports[`parser > should match all AST snapshots > 445.mdx 1`] = `
 {
   "body": [
     {
@@ -32300,7 +32300,7 @@ exports[`parser should match all AST snapshots: 445.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: 450.mdx 1`] = `
+exports[`parser > should match all AST snapshots > 450.mdx 1`] = `
 {
   "body": [
     {
@@ -35944,7 +35944,7 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: 488.mdx 1`] = `
+exports[`parser > should match all AST snapshots > 488.mdx 1`] = `
 {
   "body": [
     {
@@ -36763,9 +36763,9 @@ exports[`parser should match all AST snapshots: 488.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: acorn.mdx 1`] = `"Unexpected character \`\\\` (U+005C) in name, expected a name character such as letters, digits, \`$\`, or \`_\`; whitespace before attributes; or the end of the tag"`;
+exports[`parser > should match all AST snapshots > acorn.mdx 1`] = `"Unexpected character \`\\\` (U+005C) in name, expected a name character such as letters, digits, \`$\`, or \`_\`; whitespace before attributes; or the end of the tag"`;
 
-exports[`parser should match all AST snapshots: adjacent.mdx 1`] = `
+exports[`parser > should match all AST snapshots > adjacent.mdx 1`] = `
 {
   "body": [
     {
@@ -37304,7 +37304,7 @@ exports[`parser should match all AST snapshots: adjacent.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: basic.mdx 1`] = `
+exports[`parser > should match all AST snapshots > basic.mdx 1`] = `
 {
   "body": [
     {
@@ -38753,9 +38753,9 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: basic.tsx 1`] = `"Unsupported file extension, make sure setting the \`extensions\` or \`markdownExtensions\` option correctly."`;
+exports[`parser > should match all AST snapshots > basic.tsx 1`] = `"Unsupported file extension, make sure setting the \`extensions\` or \`markdownExtensions\` option correctly."`;
 
-exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
+exports[`parser > should match all AST snapshots > blank-lines.mdx 1`] = `
 {
   "body": [
     {
@@ -41536,7 +41536,7 @@ the installation guides.",
 }
 `;
 
-exports[`parser should match all AST snapshots: code-blocks.md 1`] = `
+exports[`parser > should match all AST snapshots > code-blocks.md 1`] = `
 {
   "body": [],
   "comments": [],
@@ -41605,11 +41605,11 @@ exports[`parser should match all AST snapshots: code-blocks.md 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: comments.mdx 1`] = `"Unexpected character \`!\` (U+0021) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\` (note: to create a comment in MDX, use \`{/* text */}\`)"`;
+exports[`parser > should match all AST snapshots > comments.mdx 1`] = `"Unexpected character \`!\` (U+0021) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\` (note: to create a comment in MDX, use \`{/* text */}\`)"`;
 
-exports[`parser should match all AST snapshots: details.mdx 1`] = `"Expected a closing tag for \`</summary>\` (1:1-1:10) before the end of \`paragraph\`"`;
+exports[`parser > should match all AST snapshots > details.mdx 1`] = `"Expected a closing tag for \`</summary>\` (1:1-1:10) before the end of \`paragraph\`"`;
 
-exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
+exports[`parser > should match all AST snapshots > jsx-in-list.mdx 1`] = `
 {
   "body": [
     {
@@ -44969,7 +44969,7 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: leading-spaces.mdx 1`] = `
+exports[`parser > should match all AST snapshots > leading-spaces.mdx 1`] = `
 {
   "body": [
     {
@@ -45784,7 +45784,7 @@ exports[`parser should match all AST snapshots: leading-spaces.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: markdown.md 1`] = `
+exports[`parser > should match all AST snapshots > markdown.md 1`] = `
 {
   "body": [],
   "comments": [],
@@ -45812,7 +45812,7 @@ exports[`parser should match all AST snapshots: markdown.md 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: no-unescaped-entities.mdx 1`] = `
+exports[`parser > should match all AST snapshots > no-unescaped-entities.mdx 1`] = `
 {
   "body": [
     {
@@ -47056,7 +47056,7 @@ Main ",
 }
 `;
 
-exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = `
+exports[`parser > should match all AST snapshots > no-unused-expressions.mdx 1`] = `
 {
   "body": [
     {
@@ -48053,7 +48053,7 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
 }
 `;
 
-exports[`parser should match all AST snapshots: processor.mdx 1`] = `
+exports[`parser > should match all AST snapshots > processor.mdx 1`] = `
 {
   "body": [],
   "comments": [],
@@ -48122,7 +48122,7 @@ exports[`parser should match all AST snapshots: processor.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: remark.md 1`] = `
+exports[`parser > should match all AST snapshots > remark.md 1`] = `
 {
   "body": [],
   "comments": [],
@@ -48291,7 +48291,7 @@ exports[`parser should match all AST snapshots: remark.md 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: remark.mdx 1`] = `
+exports[`parser > should match all AST snapshots > remark.mdx 1`] = `
 {
   "body": [],
   "comments": [
@@ -48523,9 +48523,9 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
 }
 `;
 
-exports[`parser should match all AST snapshots: unicorn.jsx 1`] = `"Unsupported file extension, make sure setting the \`extensions\` or \`markdownExtensions\` option correctly."`;
+exports[`parser > should match all AST snapshots > unicorn.jsx 1`] = `"Unsupported file extension, make sure setting the \`extensions\` or \`markdownExtensions\` option correctly."`;
 
-exports[`parser should match all AST snapshots: unicorn.mdx 1`] = `
+exports[`parser > should match all AST snapshots > unicorn.mdx 1`] = `
 {
   "body": [
     {
@@ -49133,7 +49133,7 @@ exports[`parser should match all AST snapshots: unicorn.mdx 1`] = `
 }
 `;
 
-exports[`parser should parse jsx spread correctly 1`] = `
+exports[`parser > should parse jsx spread correctly 1`] = `
 {
   "body": [
     {

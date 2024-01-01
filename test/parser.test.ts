@@ -13,7 +13,7 @@ describe('parser', () => {
         filePath: '__placeholder__.js',
       }),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"Unsupported file extension, make sure setting the \`extensions\` or \`markdownExtensions\` option correctly."`,
+      `[Error: Unsupported file extension, make sure setting the \`extensions\` or \`markdownExtensions\` option correctly.]`,
     )
   })
 
@@ -24,41 +24,41 @@ describe('parser', () => {
         DEFAULT_PARSER_OPTIONS,
       ),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"Could not parse import/exports with acorn"`,
+      `[SyntaxError: Could not parse import/exports with acorn]`,
     )
     expect(() =>
       parser.parse('<header><>\n</header>', DEFAULT_PARSER_OPTIONS),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"Unexpected closing tag \`</header>\`, expected corresponding closing tag for \`<>\` (1:9-1:11)"`,
+      `[SyntaxError: Unexpected closing tag \`</header>\`, expected corresponding closing tag for \`<>\` (1:9-1:11)]`,
     )
     expect(() =>
       parser.parse('<h1></h2>', DEFAULT_PARSER_OPTIONS),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"Unexpected closing tag \`</h2>\`, expected corresponding closing tag for \`<h1>\` (1:1-1:5)"`,
+      `[SyntaxError: Unexpected closing tag \`</h2>\`, expected corresponding closing tag for \`<h1>\` (1:1-1:5)]`,
     )
     expect(() =>
       parser.parse('Header\n<>', {
         parser: '@typescript-eslint/parser',
       }),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"The "path" argument must be of type string. Received undefined"`,
+      `[TypeError: The "path" argument must be of type string. Received undefined]`,
     )
     expect(() =>
       parser.parse('Header\n<>', {
         parser: '@babel/eslint-parser',
       }),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"The "path" argument must be of type string. Received undefined"`,
+      `[TypeError: The "path" argument must be of type string. Received undefined]`,
     )
     expect(() =>
       parser.parse('<main><</main>', DEFAULT_PARSER_OPTIONS),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"Unexpected character \`<\` (U+003C) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\`"`,
+      `[SyntaxError: Unexpected character \`<\` (U+003C) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\`]`,
     )
     expect(() =>
       parser.parse('<main>{<}</main>', DEFAULT_PARSER_OPTIONS),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"Could not parse expression with acorn"`,
+      `[SyntaxError: Could not parse expression with acorn]`,
     )
     expect(() =>
       parser.parse(
@@ -66,7 +66,7 @@ describe('parser', () => {
         DEFAULT_PARSER_OPTIONS,
       ),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"Unexpected character \`<\` (U+003C) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\`"`,
+      `[SyntaxError: Unexpected character \`<\` (U+003C) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\`]`,
     )
   })
 
@@ -115,7 +115,6 @@ describe('parser', () => {
           }),
         ).toMatchSnapshot(fileName)
       } catch (err) {
-        // eslint-disable-next-line jest/no-conditional-expect
         expect((err as Error).message).toMatchSnapshot(fileName)
       }
     }
