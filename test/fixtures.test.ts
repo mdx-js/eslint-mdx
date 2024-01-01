@@ -68,7 +68,7 @@ describe('fixtures', () => {
       'test/fixtures/**/*{md,mdx}',
     ])
     for (const { filePath, source, output } of results) {
-      if (source !== output) {
+      if (output != null && source !== output) {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(output).toMatchSnapshot(path.basename(filePath))
       }
@@ -87,7 +87,7 @@ describe('fixtures', () => {
         'test/fixtures/**/code-blocks.{md,mdx}',
       )
       for (const { filePath, source, output } of results) {
-        if (source !== output) {
+        if (output != null && source !== output) {
           // eslint-disable-next-line jest/no-conditional-expect
           expect(output).toMatchSnapshot(path.basename(filePath))
         }

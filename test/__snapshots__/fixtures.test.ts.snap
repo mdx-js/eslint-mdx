@@ -440,43 +440,6 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "severity": 2,
   },
   {
-    "column": 28,
-    "endColumn": 24,
-    "endLine": 159,
-    "fix": {
-      "range": [
-        2997,
-        3590,
-      ],
-      "text": "
-        <aui-tab-group>
-                <ng-container *auiTabTitle>aa2</ng-container>
-                <aui-tab>
-                  <ng-container *auiTabLabel>
-                    <aui-icon icon="sun"></aui-icon>
-                    Custom Label
-                  </ng-container>
-                  <aui-card> Content 1 </aui-card>
-                </aui-tab>
-                <aui-tab label="Tab 1"><aui-card>Content 2</aui-card></aui-tab>
-                <aui-tab>
-                  <ng-container *auiTabLabel>
-                    <aui-icon icon="moon"></aui-icon>
-                    Custom Label
-                  </ng-container>
-                  <aui-card> Content 3 </aui-card>
-                </aui-tab>
-              </aui-tab-group>
-      ",
-    },
-    "line": 142,
-    "message": "Templates should be properly indented.",
-    "messageId": "template-indent",
-    "nodeType": "TemplateLiteral",
-    "ruleId": "unicorn/template-indent",
-    "severity": 2,
-  },
-  {
     "column": 5,
     "endColumn": 11,
     "endLine": 174,
@@ -650,59 +613,6 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "severity": 2,
   },
   {
-    "column": 28,
-    "endColumn": 26,
-    "endLine": 335,
-    "fix": {
-      "range": [
-        6862,
-        8121,
-      ],
-      "text": "
-        <aui-form-item>
-                 <label auiFormItemLabel>启用 Lazy</label>
-                 <aui-radio-group
-                   auiFormItemControl
-                   [(ngModel)]="lazy"
-                   [plain]="false"
-                 >
-                   <aui-radio-button [value]="true">是</aui-radio-button>
-                   <aui-radio-button [value]="false">否</aui-radio-button>
-                 </aui-radio-group>
-               </aui-form-item>
-               <aui-tab-group [lazy]="lazy">
-                 <aui-tab label="Tab 1">
-                   <tabs-active-test *auiTabContent
-                     ><aui-card>Content 1</aui-card></tabs-active-test
-                   >
-                 </aui-tab>
-                 <aui-tab label="Tab 2">
-                   <tabs-active-test *auiTabContent>
-                     <aui-tab-group [lazy]="true">
-                       <aui-tab label="Tab 2-1">
-                         <tabs-active-test *auiTabContent>
-                           <aui-card> Content 2-1 </aui-card>
-                         </tabs-active-test>
-                       </aui-tab>
-                       <aui-tab label="Tab 2-2">
-                         <tabs-active-test *auiTabContent>
-                           <aui-card> Content 2-2 </aui-card>
-                         </tabs-active-test>
-                       </aui-tab>
-                     </aui-tab-group>
-                   </tabs-active-test>
-                 </aui-tab>
-               </aui-tab-group>
-      ",
-    },
-    "line": 302,
-    "message": "Templates should be properly indented.",
-    "messageId": "template-indent",
-    "nodeType": "TemplateLiteral",
-    "ruleId": "unicorn/template-indent",
-    "severity": 2,
-  },
-  {
     "column": 5,
     "endColumn": 11,
     "endLine": 348,
@@ -866,26 +776,24 @@ import {
     name="CustomLabel"
   >
     {{
-      template: /* HTML */ \`
-        <aui-tab-group>
-          <ng-container *auiTabTitle>aa2</ng-container>
-          <aui-tab>
-            <ng-container *auiTabLabel>
-              <aui-icon icon="sun"></aui-icon>
-              Custom Label
-            </ng-container>
-            <aui-card> Content 1 </aui-card>
-          </aui-tab>
-          <aui-tab label="Tab 1"><aui-card>Content 2</aui-card></aui-tab>
-          <aui-tab>
-            <ng-container *auiTabLabel>
-              <aui-icon icon="moon"></aui-icon>
-              Custom Label
-            </ng-container>
-            <aui-card> Content 3 </aui-card>
-          </aui-tab>
-        </aui-tab-group>
-      \`,
+      template: /* HTML */ \`<aui-tab-group>
+        <ng-container *auiTabTitle>aa2</ng-container>
+        <aui-tab>
+          <ng-container *auiTabLabel>
+            <aui-icon icon="sun"></aui-icon>
+            Custom Label
+          </ng-container>
+          <aui-card> Content 1 </aui-card>
+        </aui-tab>
+        <aui-tab label="Tab 1"><aui-card>Content 2</aui-card></aui-tab>
+        <aui-tab>
+          <ng-container *auiTabLabel>
+            <aui-icon icon="moon"></aui-icon>
+            Custom Label
+          </ng-container>
+          <aui-card> Content 3 </aui-card>
+        </aui-tab>
+      </aui-tab-group>\`,
       props: {
         tabs: Array.from({ length: 3 }).fill(),
       },
@@ -1028,8 +936,7 @@ import {
     name="Nest"
   >
     {{
-      template: /* HTML */ \`
-        <aui-form-item>
+      template: /* HTML */ \` <aui-form-item>
           <label auiFormItemLabel>启用 Lazy</label>
           <aui-radio-group
             auiFormItemControl
@@ -1062,8 +969,7 @@ import {
               </aui-tab-group>
             </tabs-active-test>
           </aui-tab>
-        </aui-tab-group>
-      \`,
+        </aui-tab-group>\`,
       props: {
         lazy: true,
       },
@@ -1158,8 +1064,6 @@ exports[`fixtures should match all snapshots: 391.mdx 1`] = `
   },
 ]
 `;
-
-exports[`fixtures should match all snapshots: 391.mdx 2`] = `undefined`;
 
 exports[`fixtures should match all snapshots: 429.mdx 1`] = `
 [
@@ -2025,8 +1929,6 @@ exports[`fixtures should match all snapshots: acorn.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: acorn.mdx 2`] = `undefined`;
-
 exports[`fixtures should match all snapshots: adjacent.mdx 1`] = `
 [
   {
@@ -2341,8 +2243,6 @@ exports[`fixtures should match all snapshots: code-blocks.md 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: code-blocks.md 2`] = `undefined`;
-
 exports[`fixtures should match all snapshots: code-blocks.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: comments.mdx 1`] = `
@@ -2359,8 +2259,6 @@ exports[`fixtures should match all snapshots: comments.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: comments.mdx 2`] = `undefined`;
-
 exports[`fixtures should match all snapshots: details.mdx 1`] = `
 [
   {
@@ -2374,8 +2272,6 @@ exports[`fixtures should match all snapshots: details.mdx 1`] = `
   },
 ]
 `;
-
-exports[`fixtures should match all snapshots: details.mdx 2`] = `undefined`;
 
 exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
 [
@@ -2649,8 +2545,6 @@ exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 2`] = `undefined`;
-
 exports[`fixtures should match all snapshots: no-unused-expressions.mdx 1`] = `
 [
   {
@@ -2666,8 +2560,6 @@ exports[`fixtures should match all snapshots: no-unused-expressions.mdx 1`] = `
   },
 ]
 `;
-
-exports[`fixtures should match all snapshots: no-unused-expressions.mdx 2`] = `undefined`;
 
 exports[`fixtures should match all snapshots: processor.mdx 1`] = `
 [
@@ -2693,8 +2585,6 @@ exports[`fixtures should match all snapshots: processor.mdx 1`] = `
   },
 ]
 `;
-
-exports[`fixtures should match all snapshots: processor.mdx 2`] = `undefined`;
 
 exports[`fixtures should match all snapshots: remark.md 1`] = `[]`;
 
@@ -2730,10 +2620,6 @@ exports[`fixtures should match all snapshots: test.md 2`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: test.md 3`] = `undefined`;
-
-exports[`fixtures should match all snapshots: test.md 4`] = `undefined`;
-
 exports[`fixtures should match all snapshots: unicorn.jsx 1`] = `
 [
   {
@@ -2758,44 +2644,7 @@ exports[`fixtures should match all snapshots: unicorn.jsx 1`] = `
     "ruleId": "react/jsx-no-undef",
     "severity": 2,
   },
-  {
-    "column": 26,
-    "endColumn": 12,
-    "endLine": 6,
-    "fix": {
-      "range": [
-        40,
-        102,
-      ],
-      "text": "
-      <div abc>
-            <div>Nested</div>
-            Hello World
-          </div>
-    ",
-    },
-    "line": 3,
-    "message": "Templates should be properly indented.",
-    "messageId": "template-indent",
-    "nodeType": "TemplateLiteral",
-    "ruleId": "unicorn/template-indent",
-    "severity": 2,
-  },
 ]
-`;
-
-exports[`fixtures should match all snapshots: unicorn.jsx 2`] = `
-";<Story>
-  {{
-    template: /* HTML */ \`
-      <div abc>
-        <div>Nested</div>
-        Hello World
-      </div>
-    \`,
-  }}
-</Story>
-"
 `;
 
 exports[`fixtures should match all snapshots: unicorn.mdx 1`] = `
@@ -2811,42 +2660,5 @@ exports[`fixtures should match all snapshots: unicorn.mdx 1`] = `
     "ruleId": "react/jsx-no-undef",
     "severity": 2,
   },
-  {
-    "column": 26,
-    "endColumn": 12,
-    "endLine": 6,
-    "fix": {
-      "range": [
-        39,
-        101,
-      ],
-      "text": "
-      <div abc>
-            <div>Nested</div>
-            Hello World
-          </div>
-    ",
-    },
-    "line": 3,
-    "message": "Templates should be properly indented.",
-    "messageId": "template-indent",
-    "nodeType": "TemplateLiteral",
-    "ruleId": "unicorn/template-indent",
-    "severity": 2,
-  },
 ]
-`;
-
-exports[`fixtures should match all snapshots: unicorn.mdx 2`] = `
-"<Story>
-  {{
-    template: /* HTML */ \`
-      <div abc>
-        <div>Nested</div>
-        Hello World
-      </div>
-    \`,
-  }}
-</Story>
-"
 `;
