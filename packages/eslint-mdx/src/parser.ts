@@ -62,6 +62,10 @@ export class Parser {
         ignoreRemarkConfig,
       })
     } catch (err: unknown) {
+      /* istanbul ignore if */
+      if (process.argv.includes('--debug')) {
+        console.error(err)
+      }
       const { message, line, column, place } = err as VFileMessage
       const point = place && ('start' in place ? place.start : place)
       throw Object.assign(
