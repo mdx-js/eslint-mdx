@@ -32,7 +32,7 @@
     "@changesets/cli": "^2.27.1",
     "@types/eslint": "^8.44.8",
     "@types/eslint-plugin-markdown": "^2.0.2",
-    "@types/jest": "^29.5.10",
+    "@types/jest": "^29.5.11",
     "@types/node": "^20.10.3",
     "@types/react": "^18.2.42",
     "@types/unist": "^3.0.2",

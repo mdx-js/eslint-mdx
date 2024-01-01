@@ -2998,10 +2998,10 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@^29.5.10":
-  version "29.5.10"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.5.10.tgz#a10fc5bab9e426081c12b2ef73d24d4f0c9b7f50"
-  integrity sha512-tE4yxKEphEyxj9s4inideLHktW/x6DwesIwWZ9NN1FKf9zbJYsnhBoA9vrHA/IuIOKwPa5PcFBNV4lpMIOEzyQ==
+"@types/jest@^29.5.11":
+  version "29.5.11"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.5.11.tgz#0c13aa0da7d0929f078ab080ae5d4ced80fa2f2c"
+  integrity sha512-S2mHmYIVe13vrm6q4kN6fLYYAka15ALQki/vgDC3mIukEOx8WJlv0kQPM+d4w8Gp6u0uSdKND04IlTXBv0rwnQ==
   dependencies:
     expect "^29.0.0"
     pretty-format "^29.0.0"
@@ -4948,8 +4948,22 @@ eslint-import-resolver-typescript@^3.5.5:
     is-glob "^4.0.3"
 
 "eslint-mdx@link:packages/eslint-mdx":
-  version "0.0.0"
-  uid ""
+  version "3.1.1"
+  dependencies:
+    acorn "^8.11.2"
+    acorn-jsx "^5.3.2"
+    espree "^9.6.1"
+    estree-util-visit "^2.0.0"
+    remark-mdx "^3.0.0"
+    remark-parse "^11.0.0"
+    remark-stringify "^11.0.0"
+    synckit "^0.8.6"
+    tslib "^2.6.2"
+    unified "^11.0.4"
+    unified-engine "^11.2.0"
+    unist-util-visit "^5.0.0"
+    uvu "^0.5.6"
+    vfile "^6.0.1"
 
 eslint-module-utils@^2.7.4, eslint-module-utils@^2.8.0:
   version "2.8.0"
@@ -5043,12 +5057,28 @@ eslint-plugin-markup@^0.11.0:
     tslib "^2.5.0"
 
 eslint-plugin-mdx@^2.1.0:
-  version "0.0.0"
-  uid ""
+  version "3.1.1"
+  dependencies:
+    eslint-mdx "^3.1.1"
+    eslint-plugin-markdown "^3.0.1"
+    remark-mdx "^3.0.0"
+    remark-parse "^11.0.0"
+    remark-stringify "^11.0.0"
+    tslib "^2.6.2"
+    unified "^11.0.4"
+    vfile "^6.0.1"
 
 "eslint-plugin-mdx@link:packages/eslint-plugin-mdx":
-  version "0.0.0"
-  uid ""
+  version "3.1.1"
+  dependencies:
+    eslint-mdx "^3.1.1"
+    eslint-plugin-markdown "^3.0.1"
+    remark-mdx "^3.0.0"
+    remark-parse "^11.0.0"
+    remark-stringify "^11.0.0"
+    tslib "^2.6.2"
+    unified "^11.0.4"
+    vfile "^6.0.1"
 
 eslint-plugin-n@^16.0.0:
   version "16.3.1"
