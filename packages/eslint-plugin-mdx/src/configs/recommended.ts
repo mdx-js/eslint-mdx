@@ -65,6 +65,7 @@ const addPrettierRules = () => {
       return
     }
 
+    /* istanbul ignore next */
     overrides.push(
       {
         files: '*.md',

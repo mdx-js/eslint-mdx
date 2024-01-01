@@ -257,12 +257,10 @@ runAsWorker(
 
     if (!jsxTokTypes) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-      jsxTokTypes = acornJsx.default(
-        {
-          allowNamespacedObjects: true,
-        },
-        // @ts-expect-error
-      )(acorn.Parser).acornJsx.tokTypes
+      jsxTokTypes = acornJsx.default({
+        allowNamespacedObjects: true,
+        // @ts-expect-error -- no type
+      })(acorn.Parser).acornJsx.tokTypes
     }
 
     if (!TokenTranslator) {

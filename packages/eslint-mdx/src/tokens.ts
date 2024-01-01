@@ -29,6 +29,7 @@ export const restoreTokens = (
     value?: string,
   ): Token => ({
     type,
+    // @ts-expect-error -- intended
     value,
     start,
     end,

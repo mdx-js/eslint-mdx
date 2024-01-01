@@ -23,19 +23,20 @@ describe('parser', () => {
         "import A from 'a'\nimport A from 'a'",
         DEFAULT_PARSER_OPTIONS,
       ),
-    ).toThrowErrorMatchingInlineSnapshot(
-      `"Could not parse import/exports with acorn: SyntaxError: Identifier 'A' has already been declared"`,
-    )
-    expect(() =>
-      parser.parse('<header><>\n</header>', DEFAULT_PARSER_OPTIONS),
-    ).toThrowErrorMatchingInlineSnapshot(
-      `"Unexpected closing tag \`</header>\`, expected corresponding closing tag for \`<>\` (1:9-1:11)"`,
-    )
-    expect(() =>
-      parser.parse('<h1></h2>', DEFAULT_PARSER_OPTIONS),
-    ).toThrowErrorMatchingInlineSnapshot(
-      `"Unexpected closing tag \`</h2>\`, expected corresponding closing tag for \`<h1>\` (1:1-1:5)"`,
-    )
+    ).toThrowErrorMatchingInlineSnapshot(`
+      "Could not parse import/exports with acorn: SyntaxError: Identifier 'A' has already been declared
+      Cause: Could not parse import/exports with acorn: SyntaxError: Identifier 'A' has already been declared"
+    `)
+    expect(() => parser.parse('<header><>\n</header>', DEFAULT_PARSER_OPTIONS))
+      .toThrowErrorMatchingInlineSnapshot(`
+      "Unexpected closing tag \`</header>\`, expected corresponding closing tag for \`<>\` (1:9-1:11)
+      Cause: Unexpected closing tag \`</header>\`, expected corresponding closing tag for \`<>\` (1:9-1:11)"
+    `)
+    expect(() => parser.parse('<h1></h2>', DEFAULT_PARSER_OPTIONS))
+      .toThrowErrorMatchingInlineSnapshot(`
+      "Unexpected closing tag \`</h2>\`, expected corresponding closing tag for \`<h1>\` (1:1-1:5)
+      Cause: Unexpected closing tag \`</h2>\`, expected corresponding closing tag for \`<h1>\` (1:1-1:5)"
+    `)
     expect(() =>
       parser.parse('Header\n<>', {
         parser: '@typescript-eslint/parser',
@@ -50,24 +51,25 @@ describe('parser', () => {
     ).toThrowErrorMatchingInlineSnapshot(
       `"The "path" argument must be of type string. Received undefined"`,
     )
-    expect(() =>
-      parser.parse('<main><</main>', DEFAULT_PARSER_OPTIONS),
-    ).toThrowErrorMatchingInlineSnapshot(
-      `"Unexpected character \`<\` (U+003C) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\`"`,
-    )
-    expect(() =>
-      parser.parse('<main>{<}</main>', DEFAULT_PARSER_OPTIONS),
-    ).toThrowErrorMatchingInlineSnapshot(
-      `"Could not parse expression with acorn: Unexpected token"`,
-    )
+    expect(() => parser.parse('<main><</main>', DEFAULT_PARSER_OPTIONS))
+      .toThrowErrorMatchingInlineSnapshot(`
+      "Unexpected character \`<\` (U+003C) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\`
+      Cause: Unexpected character \`<\` (U+003C) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\`"
+    `)
+    expect(() => parser.parse('<main>{<}</main>', DEFAULT_PARSER_OPTIONS))
+      .toThrowErrorMatchingInlineSnapshot(`
+      "Could not parse expression with acorn: Unexpected token
+      Cause: Could not parse expression with acorn: Unexpected token"
+    `)
     expect(() =>
       parser.parse(
         '<main>\n<section><</section></main>',
         DEFAULT_PARSER_OPTIONS,
       ),
-    ).toThrowErrorMatchingInlineSnapshot(
-      `"Unexpected character \`<\` (U+003C) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\`"`,
-    )
+    ).toThrowErrorMatchingInlineSnapshot(`
+      "Unexpected character \`<\` (U+003C) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\`
+      Cause: Unexpected character \`<\` (U+003C) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\`"
+    `)
   })
 
   it('should not throw on adjacent JSX nodes', () =>

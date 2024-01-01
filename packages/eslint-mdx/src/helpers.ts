@@ -77,6 +77,7 @@ export const getPositionAtFactory = (text: string) => {
         return {
           line,
           column: offset - currOffset,
+          // @ts-expect-error -- intended
           offset,
         }
       }
