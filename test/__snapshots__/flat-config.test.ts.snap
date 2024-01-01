@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`flat-config > should work as expected > code-blocks.mdx 1`] = `
+exports[`flat-config should work as expected: code-blocks.mdx 1`] = `
 [
   {
     "column": 1,

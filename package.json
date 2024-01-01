@@ -22,7 +22,7 @@
     "release": "run-s build release:only",
     "release:only": "changeset publish",
     "version": "changeset version && yarn --no-immutable",
-    "test": "vitest run --coverage --passWithNoTests",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "typecov": "type-coverage"
   },
   "devDependencies": {
@@ -34,21 +34,24 @@
     "@types/acorn": "^6.0.0",
     "@types/eslint": "^8.56.0",
     "@types/eslint-plugin-markdown": "^2.0.2",
+    "@types/jest": "^29.5.11",
     "@types/node": "^20.10.6",
     "@types/react": "^18.2.46",
     "@types/unist": "^3.0.2",
-    "@vitest/coverage-istanbul": "^1.1.1",
+    "cross-env": "^7.0.3",
     "eslint": "^8.56.0",
+    "jest": "^30.0.0-alpha.2",
     "lint-staged": "^15.2.0",
     "npm-run-all2": "^6.1.1",
     "patch-package": "^8.0.0",
+    "prettier": "^3.1.1",
     "react": "^18.2.0",
     "rimraf": "^5.0.5",
     "simple-git-hooks": "^2.9.0",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.2",
     "type-coverage": "^2.27.1",
-    "typescript": "^5.3.3",
-    "unplugin-auto-import": "^0.17.3",
-    "vitest": "^1.1.1"
+    "typescript": "^5.3.3"
   },
   "resolutions": {
     "@types/acorn": "^6.0.0",
@@ -75,10 +78,28 @@
     "fixtures",
     "lib",
     "CHANGELOG.md",
-    "/auto-imports.d.ts",
     "/test.*",
     "!/.*.js"
   ],
+  "jest": {
+    "preset": "ts-jest",
+    "setupFiles": [
+      "<rootDir>/node_modules/eslint/lib/linter/linter.js"
+    ],
+    "moduleNameMapper": {
+      "^eslint-mdx$": "<rootDir>/packages/eslint-mdx/src",
+      "^eslint-plugin-mdx$": "<rootDir>/packages/eslint-plugin-mdx/src"
+    },
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
+  },
   "prettier": "@1stg/prettier-config",
   "remarkConfig": {
     "plugins": [

@@ -2,7 +2,6 @@
   // used by @pkgr/rollup and ESLint
   "extends": "./tsconfig.lib",
   "compilerOptions": {
-    "module": "ESNext",
     "paths": {
       "eslint-mdx": ["./packages/eslint-mdx/src"],
       "eslint-plugin-mdx": ["./packages/eslint-plugin-mdx/src"]

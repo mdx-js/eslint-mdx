@@ -69,6 +69,7 @@ describe('fixtures', () => {
     ])
     for (const { filePath, source, output } of results) {
       if (source !== output) {
+        // eslint-disable-next-line jest/no-conditional-expect
         expect(output).toMatchSnapshot(path.basename(filePath))
       }
     }
@@ -87,6 +88,7 @@ describe('fixtures', () => {
       )
       for (const { filePath, source, output } of results) {
         if (source !== output) {
+          // eslint-disable-next-line jest/no-conditional-expect
           expect(output).toMatchSnapshot(path.basename(filePath))
         }
       }
