@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.3.1
+
+### Patch Changes
+
+- Updated dependencies [[`6913aa1`](https://github.com/mdx-js/eslint-mdx/commit/6913aa1e5e9793cca80f34dd206b264fecdb5347)]:
+  - eslint-mdx@2.3.1
+
 ## 2.3.0
 
 ### Minor Changes
