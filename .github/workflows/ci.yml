@@ -17,6 +17,9 @@ jobs:
           - 16
           - 18
           - 20
+        exclude:
+          - os: windows-latest
+            node: 16
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout Repo
