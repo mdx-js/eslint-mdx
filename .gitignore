@@ -4,6 +4,10 @@
 .changelog
 .idea
 .type-coverage
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
 coverage
 lib
 node_modules
