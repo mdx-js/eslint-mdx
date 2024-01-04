@@ -45,8 +45,8 @@ jobs:
         with:
           commit: 'chore: release package(s)'
           title: 'chore: release package(s)'
-          publish: yarn release:only
           version: yarn run version
+          publish: yarn release:only
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
