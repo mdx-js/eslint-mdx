@@ -3457,10 +3457,10 @@ __metadata:
     "@1stg/common-config": "npm:^9.0.1"
     "@changesets/changelog-github": "npm:^0.5.0"
     "@changesets/cli": "npm:^2.27.1"
-    "@commitlint/cli": "npm:^18.4.3"
+    "@commitlint/cli": "npm:^18.4.4"
     "@pkgr/rollup": "npm:^5.0.0"
     "@types/acorn": "npm:^6.0.0"
-    "@types/eslint": "npm:^8.56.0"
+    "@types/eslint": "npm:^8.56.1"
     "@types/eslint-plugin-markdown": "npm:^2.0.2"
     "@types/jest": "npm:^29.5.11"
     "@types/node": "npm:^20.10.6"
@@ -4071,13 +4071,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:*, @types/eslint@npm:^8.56.0":
-  version: 8.56.0
-  resolution: "@types/eslint@npm:8.56.0"
+"@types/eslint@npm:*, @types/eslint@npm:^8.56.1":
+  version: 8.56.1
+  resolution: "@types/eslint@npm:8.56.1"
   dependencies:
     "@types/estree": "npm:*"
     "@types/json-schema": "npm:*"
-  checksum: afba97b10d02cb7c7e7658de38f626c65b81be0fe45bc479e058ab14bc089911193811dce681edd656fc6b59c91fd8d0c976972476fc98b5e782b2c3b08aaa6c
+  checksum: a2aa5e2ec16f07944a60b825d6447d66f83369783e31c014ccf582fa92df963aa8d62c447a8fdc4fbfcd7299ad74ed1a753e06e560ce184eab4efceccfa66262
   languageName: node
   linkType: hard
 
@@ -6967,7 +6967,7 @@ __metadata:
     remark-mdx: "npm:^2.3.0"
     remark-parse: "npm:^10.0.2"
     remark-stringify: "npm:^10.0.3"
-    synckit: "npm:^0.8.5"
+    synckit: "npm:^0.9.0"
     tslib: "npm:^2.6.1"
     unified: "npm:^10.1.2"
     unified-engine: "npm:^10.1.0"
@@ -15103,6 +15103,16 @@ __metadata:
     "@pkgr/core": "npm:^0.1.0"
     tslib: "npm:^2.6.2"
   checksum: c3d3aa8e284f3f84f2f868b960c9f49239b364e35f6d20825a448449a3e9c8f49fe36cdd5196b30615682f007830d46f2ea354003954c7336723cb821e4b6519
+  languageName: node
+  linkType: hard
+
+"synckit@npm:^0.9.0":
+  version: 0.9.0
+  resolution: "synckit@npm:0.9.0"
+  dependencies:
+    "@pkgr/core": "npm:^0.1.0"
+    tslib: "npm:^2.6.2"
+  checksum: b5c1e7c03fefe3d36a9ab4e71dd21859cb32be4138712c31a893382a568fd00efc59ede8f521dd7e53d43a2fea92bdf717e987ea9ed6ad94f97ef28d71d0ba2f
   languageName: node
   linkType: hard
 
