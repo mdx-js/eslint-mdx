@@ -6956,7 +6956,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-mdx@npm:^2.3.1, eslint-mdx@workspace:packages/eslint-mdx":
+"eslint-mdx@npm:^2.3.2, eslint-mdx@workspace:packages/eslint-mdx":
   version: 0.0.0-use.local
   resolution: "eslint-mdx@workspace:packages/eslint-mdx"
   dependencies:
@@ -7119,7 +7119,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "eslint-plugin-mdx@workspace:packages/eslint-plugin-mdx"
   dependencies:
-    eslint-mdx: "npm:^2.3.1"
+    eslint-mdx: "npm:^2.3.2"
     eslint-plugin-markdown: "npm:^3.0.1"
     remark-mdx: "npm:^2.3.0"
     remark-parse: "npm:^10.0.2"
