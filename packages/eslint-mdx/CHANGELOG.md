@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.1.3
+
+### Patch Changes
+
+- [#514](https://github.com/mdx-js/eslint-mdx/pull/514) [`1f2dd73`](https://github.com/mdx-js/eslint-mdx/commit/1f2dd73c2be73cc6882e12a693530079c4dc74f1) Thanks [@JounQin](https://github.com/JounQin)! - chore: bump synckit
+
 ## 3.1.2
 
 ### Patch Changes
