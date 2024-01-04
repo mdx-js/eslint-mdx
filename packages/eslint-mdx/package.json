@@ -37,7 +37,7 @@
     "remark-mdx": "^3.0.0",
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0",
-    "synckit": "^0.8.8",
+    "synckit": "^0.9.0",
     "tslib": "^2.6.2",
     "unified": "^11.0.4",
     "unified-engine": "^11.2.0",
