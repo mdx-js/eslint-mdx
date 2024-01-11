@@ -15,15 +15,16 @@
     "build:r": "r -f es2015",
     "build:ts": "tsc -b",
     "clean": "rimraf --glob 'packages/*/{lib,*.tsbuildinfo}'",
+    "codesandbox:install": "yarn --ignore-engines",
     "lint": "yarn build && concurrently -r 'yarn:lint:*'",
     "lint:es": "eslint . --cache -f friendly",
     "lint:tsc": "tsc --noEmit",
     "prepare": "patch-package && simple-git-hooks",
     "release": "run-s build release:only",
     "release:only": "changeset publish",
-    "version": "changeset version && yarn --no-immutable",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-    "typecov": "type-coverage"
+    "typecov": "type-coverage",
+    "version": "changeset version && yarn --no-immutable"
   },
   "devDependencies": {
     "@1stg/common-config": "^10.0.0",
