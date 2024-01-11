@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.3.3
+
+### Patch Changes
+
+- [`047410f`](https://github.com/mdx-js/eslint-mdx/commit/047410fb5c247cd5f9ee53452143c96dad6a7ba3) Thanks [@JounQin](https://github.com/JounQin)! - fix: should release on tag release-v2
+
 ## 2.3.2
 
 ### Patch Changes
