@@ -20,7 +20,7 @@
     "lint:tsc": "tsc --noEmit",
     "prepare": "patch-package && simple-git-hooks",
     "release": "run-s build release:only",
-    "release:only": "changeset publish",
+    "release:only": "changeset publish --tag release-v2",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "typecov": "type-coverage",
     "version": "changeset version && yarn --no-immutable"
