@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.1.4
+
+### Patch Changes
+
+- [`d593901`](https://github.com/mdx-js/eslint-mdx/commit/d593901379672aeca11d4f60729a7eaa5762fe5c) Thanks [@JounQin](https://github.com/JounQin)! - fix: re-release as latest tag - close #517
+
 ## 3.1.3
 
 ### Patch Changes
