@@ -72,7 +72,7 @@ export const remark: Rule.RuleModule = {
           fatal,
           line,
           column,
-          position: { start, end },
+          position,
         } of messages) {
           // https://github.com/remarkjs/remark-lint/issues/65#issuecomment-220800231
           /* istanbul ignore next */
@@ -82,6 +82,8 @@ export const remark: Rule.RuleModule = {
             // should never happen, just for robustness
             continue
           }
+
+          const { start, end } = position || {}
 
           const message: RemarkLintMessage = {
             reason,
@@ -96,11 +98,11 @@ export const remark: Rule.RuleModule = {
               line,
               // ! eslint ast column is 0-indexed, but unified is 1-indexed
               column: column - 1,
-              start: {
+              start: start && {
                 ...start,
                 column: start.column - 1,
               },
-              end: {
+              end: end && {
                 ...end,
                 column: end.column - 1,
               },
