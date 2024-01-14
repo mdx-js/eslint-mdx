@@ -1,5 +1,19 @@
 # Change Log
 
+## 3.1.5
+
+### Patch Changes
+
+- [#521](https://github.com/mdx-js/eslint-mdx/pull/521) [`1a81c44`](https://github.com/mdx-js/eslint-mdx/commit/1a81c44a2dc9f4eff94e79f72cf7b7a82ae23de5) Thanks [@EthanShoeDev](https://github.com/EthanShoeDev)! - fix: `undefined` `place` in vFile message causes TypeError
+
+  Many `remark-lint` errors do not set a place variable in the vFile
+  message. This code should accept `undefined` for this field.
+
+  fixes #520
+
+- Updated dependencies []:
+  - eslint-mdx@3.1.5
+
 ## 3.1.4
 
 ### Patch Changes
