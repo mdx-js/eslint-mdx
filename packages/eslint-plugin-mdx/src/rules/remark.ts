@@ -83,7 +83,7 @@ export const remark: Rule.RuleModule = {
             continue
           }
 
-          const { start, end } = position || {}
+          const { start, end } = position || /* istanbul ignore next */ {}
 
           const message: RemarkLintMessage = {
             reason,
