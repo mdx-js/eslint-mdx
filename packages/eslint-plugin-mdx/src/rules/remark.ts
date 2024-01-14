@@ -100,7 +100,7 @@ export const remark: Rule.RuleModule = {
             // related to https://github.com/eslint/eslint/issues/14198
             message: JSON.stringify(message),
             loc:
-              /* istanbul ignore next */ 'start' in place
+              /* istanbul ignore next */ place && 'start' in place
                 ? {
                     ...point,
                     start: { ...place.start, column: place.start.column - 1 },
