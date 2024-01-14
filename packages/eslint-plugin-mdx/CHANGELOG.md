@@ -1,5 +1,14 @@
 # Change Log
 
+## 2.3.4
+
+### Patch Changes
+
+- [#524](https://github.com/mdx-js/eslint-mdx/pull/524) [`ee3b593`](https://github.com/mdx-js/eslint-mdx/commit/ee3b5937cf6f793e0fa992b9f9dea88cc89e63be) Thanks [@JounQin](https://github.com/JounQin)! - fix: `position` could be `null` actually - related to #520
+
+- Updated dependencies []:
+  - eslint-mdx@2.3.4
+
 ## 2.3.3
 
 ### Patch Changes
