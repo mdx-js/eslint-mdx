@@ -4909,7 +4909,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ungap/structured-clone@npm:^1.0.0, @ungap/structured-clone@npm:^1.2.0":
+"@ungap/structured-clone@npm:^1.2.0":
   version: 1.2.0
   resolution: "@ungap/structured-clone@npm:1.2.0"
   checksum: 8209c937cb39119f44eb63cf90c0b73e7c754209a6411c707be08e50e29ee81356dca1a848a405c8bdeebfe2f5e4f831ad310ae1689eeef65e7445c090c6657d
@@ -16435,18 +16435,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unified-engine@npm:^11.2.0":
-  version: 11.2.0
-  resolution: "unified-engine@npm:11.2.0"
+"unified-engine@npm:^11.2.1":
+  version: 11.2.1
+  resolution: "unified-engine@npm:11.2.1"
   dependencies:
     "@types/concat-stream": "npm:^2.0.0"
     "@types/debug": "npm:^4.0.0"
     "@types/is-empty": "npm:^1.0.0"
     "@types/node": "npm:^20.0.0"
     "@types/unist": "npm:^3.0.0"
-    "@ungap/structured-clone": "npm:^1.0.0"
     concat-stream: "npm:^2.0.0"
     debug: "npm:^4.0.0"
+    extend: "npm:^3.0.0"
     glob: "npm:^10.0.0"
     ignore: "npm:^5.0.0"
     is-empty: "npm:^1.0.0"
@@ -16460,7 +16460,7 @@ __metadata:
     vfile-reporter: "npm:^8.0.0"
     vfile-statistics: "npm:^3.0.0"
     yaml: "npm:^2.0.0"
-  checksum: 2d72d19850640e4808733f8ecbef9e669138c99b686f4aa4da9603f8401f76624183c0a56a1186c3b90e5dcda0a3cbf908aa333bb37ca708d8742deec658803f
+  checksum: bd5f13c79ad6c279780a6a3461ac46a63191c7237b7e8c09bbe945e75302d021db773a16c70fbbb2bdd5d231feb3bc4b0d4bd74499eb3f71e4d91c678f33669b
   languageName: node
   linkType: hard
 
