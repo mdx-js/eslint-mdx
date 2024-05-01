@@ -65,7 +65,7 @@
     "mdast-util-frontmatter": "^2.0.1",
     "mdast-util-gfm": "^3.0.0",
     "unified": "^11.0.4",
-    "unified-engine": "^11.2.0",
+    "unified-engine": "^11.2.1",
     "unist-util-visit": "^5.0.0"
   },
   "commitlint": {
