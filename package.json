@@ -33,7 +33,7 @@
     "@commitlint/cli": "^18.6.1",
     "@pkgr/rollup": "^5.0.0",
     "@types/acorn": "^6.0.0",
-    "@types/eslint": "^8.56.1",
+    "@types/eslint": "^8.56.12",
     "@types/eslint-plugin-markdown": "^2.0.2",
     "@types/jest": "^29.5.11",
     "@types/node": "^20.10.6",
