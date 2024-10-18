@@ -33,7 +33,7 @@
   "dependencies": {
     "eslint-mdx": "^3.1.5",
     "eslint-plugin-markdown": "^3.0.1",
-    "remark-mdx": "^3.0.0",
+    "remark-mdx": "^3.1.0",
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0",
     "tslib": "^2.6.2",
