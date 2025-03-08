@@ -55,7 +55,7 @@
   },
   "resolutions": {
     "@types/acorn": "^6.0.0",
-    "@types/mdast": "^4.0.3",
+    "@types/mdast": "^4.0.4",
     "@pkgr/utils": "^3.0.0",
     "acorn": "^8.11.3",
     "cliui": "npm:@isaacs/cliui@^8.0.2",
