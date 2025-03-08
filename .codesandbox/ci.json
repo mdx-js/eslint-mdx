@@ -1,6 +1,5 @@
 {
-  "node": "18",
-  "installCommand": "codesandbox:install",
+  "node": "20",
   "packages": [
     "packages/*"
   ],

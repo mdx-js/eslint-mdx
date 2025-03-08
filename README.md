@@ -92,8 +92,8 @@ See [#251](https://github.com/mdx-js/eslint-mdx/issues/251#issuecomment-73613922
     "mdx/code-blocks": true,
     // optional, if you want to disable language mapper, set it to `false`
     // if you want to override the default language mapper inside, you can provide your own
-    "mdx/language-mapper": {}
-  }
+    "mdx/language-mapper": {},
+  },
 }
 ```
 
@@ -214,9 +214,9 @@ If you want to disable or change severity of some related rules, it won't work b
     // disable following plugin
     [
       "lint-no-multiple-toplevel-headings",
-      [0] // or false
-    ]
-  ]
+      [0], // or false
+    ],
+  ],
 }
 ```
 
