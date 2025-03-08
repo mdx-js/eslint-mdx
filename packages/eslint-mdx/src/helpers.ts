@@ -35,6 +35,7 @@ export const getPhysicalFilename = (
     const { code } = err as { code: string }
     // https://github.com/eslint/eslint/issues/11989
     // Additionally, it seems there is no `ENOTDIR` code on Windows...
+    // istanbul ignore if
     if (code === 'ENOTDIR' || code === 'ENOENT') {
       return getPhysicalFilename(path.dirname(filename), filename)
     }

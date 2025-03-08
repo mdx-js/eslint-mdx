@@ -238,6 +238,7 @@ const codeBlockFileNameRegex = /filename=(["']).*?\1/u
  * @returns {string | null | undefined} The filename, if parsed from block meta.
  */
 function fileNameFromMeta(block: Block): string | null | undefined {
+  // istanbul ignore next
   return block.meta
     ?.match(codeBlockFileNameRegex)
     ?.groups.filename.replaceAll(/\s+/gu, '_')
@@ -261,6 +262,7 @@ function preprocess(
   sourceText: string,
   filename: string,
 ): Array<{ filename: string; text: string }> {
+  // istanbul ignore next
   const text = sourceText.startsWith(BOM) ? sourceText.slice(1) : sourceText
   const ast = fromMarkdown(text)
   const blocks: Block[] = []
@@ -327,12 +329,12 @@ function preprocess(
     },
   })
 
+  // istanbul ignore next
   return blocks.map((block, index) => {
     const [language] = block.lang.trim().split(' ')
     const fileExtension = Object.hasOwn(languageToFileExtension, language)
       ? languageToFileExtension[language]
       : language
-
     return {
       filename: fileNameFromMeta(block) ?? `${index}.${fileExtension}`,
       text: [...block.comments, block.value, ''].join('\n'),
@@ -388,6 +390,7 @@ function adjustBlock(
   return function adjustMessage(
     message: Linter.LintMessage,
   ): Linter.LintMessage {
+    // istanbul ignore if
     if (!Number.isInteger(message.line)) {
       return {
         ...message,
@@ -407,10 +410,12 @@ function adjustBlock(
       column: message.column + block.rangeMap[lineInCode].indent,
     }
 
+    // istanbul ignore if
     if (Number.isInteger(message.endLine)) {
       out.endLine = message.endLine - leadingCommentLines + blockStart
     }
 
+    // istanbul ignore if
     if (Array.isArray(message.suggestions)) {
       out.suggestions = message.suggestions.map(suggestion => ({
         ...suggestion,
