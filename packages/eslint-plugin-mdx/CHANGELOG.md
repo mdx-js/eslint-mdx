@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.2.0
+
+### Minor Changes
+
+- [#550](https://github.com/mdx-js/eslint-mdx/pull/550) [`f093ff9`](https://github.com/mdx-js/eslint-mdx/commit/f093ff9e2f159fffead825dd9f0ff97170e45441) Thanks [@JounQin](https://github.com/JounQin)! - chore: drop `eslint-plugin-markdown` dep
+
+### Patch Changes
+
+- Updated dependencies [[`f093ff9`](https://github.com/mdx-js/eslint-mdx/commit/f093ff9e2f159fffead825dd9f0ff97170e45441)]:
+  - eslint-mdx@3.2.0
+
 ## 3.1.5
 
 ### Patch Changes

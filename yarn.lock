@@ -7271,7 +7271,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "eslint-plugin-mdx@workspace:packages/eslint-plugin-mdx"
   dependencies:
-    eslint-mdx: "npm:^3.1.5"
+    eslint-mdx: "npm:^3.2.0"
     mdast-util-from-markdown: "npm:^2.0.2"
     remark-mdx: "npm:^3.1.0"
     remark-parse: "npm:^11.0.0"
