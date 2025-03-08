@@ -236,27 +236,6 @@ exports[`fixtures should match all snapshots: 287.mdx 1`] = `[]`;
 exports[`fixtures should match all snapshots: 292.mdx 1`] = `
 [
   {
-    "column": 9,
-    "endColumn": 58,
-    "endLine": 5,
-    "fix": {
-      "range": [
-        64,
-        113,
-      ],
-      "text": "
-      kind="docs-packages-vuetify-preset"
-      story="page"
-    ",
-    },
-    "line": 5,
-    "message": "Replace \`·kind="docs-packages-vuetify-preset"·story="page"\` with \`⏎······kind="docs-packages-vuetify-preset"⏎······story="page"⏎····\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
     "column": 46,
     "endColumn": 58,
     "endLine": 5,
@@ -270,64 +249,13 @@ exports[`fixtures should match all snapshots: 292.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: 292.mdx 2`] = `
-"# Header
-
-paragraph <div className="abc">content</div>
-
-- - <div
-      kind="docs-packages-vuetify-preset"
-      story="page"
-    >
-      Vuetify preset
-    </div>
-    : some extra text describing the preset
-"
-`;
-
 exports[`fixtures should match all snapshots: 334.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: 336.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: 367.mdx 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: 371.mdx 1`] = `
-[
-  {
-    "column": 13,
-    "endColumn": 14,
-    "endLine": 7,
-    "fix": {
-      "range": [
-        59,
-        60,
-      ],
-      "text": "",
-    },
-    "line": 7,
-    "message": "Delete \`;\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-]
-`;
-
-exports[`fixtures should match all snapshots: 371.mdx 2`] = `
-"# Hello, World!
-
-<div>
-
-\`\`\`js
-function foo() {
-  return 123
-}
-\`\`\`
-
-</div>
-"
-`;
+exports[`fixtures should match all snapshots: 371.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: 380.mdx 1`] = `
 [
@@ -1065,165 +993,10 @@ exports[`fixtures should match all snapshots: 391.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: 429.mdx 1`] = `
-[
-  {
-    "column": 17,
-    "endColumn": 17,
-    "endLine": 3,
-    "fix": {
-      "range": [
-        49,
-        49,
-      ],
-      "text": " ",
-    },
-    "line": 3,
-    "message": "Insert \`·\`",
-    "messageId": "insert",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-]
-`;
-
-exports[`fixtures should match all snapshots: 429.mdx 2`] = `
-"<button disabled>Hello</button>
-
-<button disabled />
-"
-`;
+exports[`fixtures should match all snapshots: 429.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: 435.mdx 1`] = `
 [
-  {
-    "column": 1,
-    "endColumn": 2,
-    "endLine": 2,
-    "fix": {
-      "range": [
-        8,
-        9,
-      ],
-      "text": "  ",
-    },
-    "line": 2,
-    "message": "Replace \`↹\` with \`··\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
-    "column": 1,
-    "endColumn": 3,
-    "endLine": 3,
-    "fix": {
-      "range": [
-        18,
-        20,
-      ],
-      "text": "    ",
-    },
-    "line": 3,
-    "message": "Replace \`↹↹\` with \`····\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
-    "column": 1,
-    "endColumn": 3,
-    "endLine": 4,
-    "fix": {
-      "range": [
-        39,
-        41,
-      ],
-      "text": "    ",
-    },
-    "line": 4,
-    "message": "Replace \`↹↹\` with \`····\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
-    "column": 1,
-    "endColumn": 2,
-    "endLine": 5,
-    "fix": {
-      "range": [
-        66,
-        67,
-      ],
-      "text": "  ",
-    },
-    "line": 5,
-    "message": "Replace \`↹\` with \`··\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
-    "column": 1,
-    "endColumn": 2,
-    "endLine": 7,
-    "fix": {
-      "range": [
-        72,
-        73,
-      ],
-      "text": "  ",
-    },
-    "line": 7,
-    "message": "Replace \`↹\` with \`··\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
-    "column": 2,
-    "endColumn": 4,
-    "endLine": 10,
-    "fix": {
-      "range": [
-        91,
-        93,
-      ],
-      "text": "",
-    },
-    "line": 10,
-    "message": "Delete \`··\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
-    "column": 3,
-    "endColumn": 16,
-    "endLine": 12,
-    "fix": {
-      "range": [
-        102,
-        115,
-      ],
-      "text": "<Components
-   ",
-    },
-    "line": 12,
-    "message": "Replace \`··<Components\` with \`<Components⏎···\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
   {
     "column": 6,
     "endColumn": 16,
@@ -1235,45 +1008,7 @@ exports[`fixtures should match all snapshots: 435.mdx 1`] = `
     "ruleId": "react/jsx-no-undef",
     "severity": 2,
   },
-  {
-    "column": 1,
-    "endColumn": 7,
-    "endLine": 13,
-    "fix": {
-      "range": [
-        124,
-        130,
-      ],
-      "text": "\`}
- ",
-    },
-    "line": 13,
-    "message": "Replace \`····\`}\` with \`\`}⏎·\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
 ]
-`;
-
-exports[`fixtures should match all snapshots: 435.mdx 2`] = `
-"<button
-  style={{
-    background: 'red',
-    border: '1px solid red',
-  }}
->
-  Hello
-</button>
-
-- list
-
-  <Components
-    data={\`
-\`}
-  />
-"
 `;
 
 exports[`fixtures should match all snapshots: 437.mdx 1`] = `
@@ -1383,37 +1118,18 @@ exports[`fixtures should match all snapshots: 445.mdx 2`] = `
 exports[`fixtures should match all snapshots: 450.mdx 1`] = `
 [
   {
-    "column": 45,
-    "endColumn": 46,
-    "endLine": 1,
-    "fix": {
-      "range": [
-        44,
-        45,
-      ],
-      "text": "",
-    },
-    "line": 1,
-    "message": "Delete \`;\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
     "column": 3,
     "endColumn": 6,
     "endLine": 11,
     "fix": {
       "range": [
         114,
-        414,
+        413,
       ],
       "text": "alt=""
   aria-disabled
   className="my-image"
   height={250}
-
   loading="eager"
   onClick={() => console.log('onClick')}
   onError={() => console.log('onError')}
@@ -1437,13 +1153,12 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "fix": {
       "range": [
         114,
-        414,
+        413,
       ],
       "text": "alt=""
   aria-disabled
   className="my-image"
   height={250}
-
   loading="eager"
   onClick={() => console.log('onClick')}
   onError={() => console.log('onError')}
@@ -1461,37 +1176,18 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "severity": 2,
   },
   {
-    "column": 1,
-    "endColumn": 3,
-    "endLine": 15,
-    "fix": {
-      "range": [
-        193,
-        195,
-      ],
-      "text": "",
-    },
-    "line": 15,
-    "message": "Delete \`··\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
     "column": 3,
     "endColumn": 12,
-    "endLine": 15,
+    "endLine": 14,
     "fix": {
       "range": [
         114,
-        414,
+        413,
       ],
       "text": "alt=""
   aria-disabled
   className="my-image"
   height={250}
-
   loading="eager"
   onClick={() => console.log('onClick')}
   onError={() => console.log('onError')}
@@ -1501,63 +1197,55 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
   title=""
   width={250}",
     },
-    "line": 15,
+    "line": 14,
     "message": "Props should be sorted alphabetically",
     "messageId": "sortPropsByAlpha",
     "nodeType": "JSXIdentifier",
     "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 1,
-    "endColumn": 3,
-    "endLine": 16,
-    "fix": {
-      "range": [
-        216,
-        218,
-      ],
-      "text": "",
-    },
-    "line": 16,
-    "message": "Delete \`··\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
-    "column": 1,
-    "endColumn": 3,
-    "endLine": 17,
-    "fix": {
-      "range": [
-        230,
-        232,
-      ],
-      "text": "",
-    },
-    "line": 17,
-    "message": "Delete \`··\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
     "severity": 2,
   },
   {
     "column": 3,
     "endColumn": 9,
-    "endLine": 17,
+    "endLine": 16,
     "fix": {
       "range": [
         114,
-        414,
+        413,
       ],
       "text": "alt=""
   aria-disabled
   className="my-image"
   height={250}
-
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
+    },
+    "line": 16,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 10,
+    "endLine": 17,
+    "fix": {
+      "range": [
+        114,
+        413,
+      ],
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
   loading="eager"
   onClick={() => console.log('onClick')}
   onError={() => console.log('onError')}
@@ -1572,88 +1260,50 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "messageId": "sortPropsByAlpha",
     "nodeType": "JSXIdentifier",
     "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 1,
-    "endColumn": 3,
-    "endLine": 18,
-    "fix": {
-      "range": [
-        245,
-        247,
-      ],
-      "text": "",
-    },
-    "line": 18,
-    "message": "Delete \`··\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
-    "column": 3,
-    "endColumn": 10,
-    "endLine": 18,
-    "fix": {
-      "range": [
-        114,
-        414,
-      ],
-      "text": "alt=""
-  aria-disabled
-  className="my-image"
-  height={250}
-
-  loading="eager"
-  onClick={() => console.log('onClick')}
-  onError={() => console.log('onError')}
-  onLoad={() => console.log('onLoad')}
-  src="https://via.placeholder.com/250x250"
-  style={{ display: 'block' }}
-  title=""
-  width={250}",
-    },
-    "line": 18,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 1,
-    "endColumn": 3,
-    "endLine": 19,
-    "fix": {
-      "range": [
-        263,
-        265,
-      ],
-      "text": "",
-    },
-    "line": 19,
-    "message": "Delete \`··\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
     "severity": 2,
   },
   {
     "column": 3,
     "endColumn": 8,
-    "endLine": 19,
+    "endLine": 18,
     "fix": {
       "range": [
         114,
-        414,
+        413,
       ],
       "text": "alt=""
   aria-disabled
   className="my-image"
   height={250}
-
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}",
+    },
+    "line": 18,
+    "message": "Props should be sorted alphabetically",
+    "messageId": "sortPropsByAlpha",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "react/jsx-sort-props",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 9,
+    "endLine": 19,
+    "fix": {
+      "range": [
+        114,
+        413,
+      ],
+      "text": "alt=""
+  aria-disabled
+  className="my-image"
+  height={250}
   loading="eager"
   onClick={() => console.log('onClick')}
   onError={() => console.log('onError')}
@@ -1671,37 +1321,18 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "severity": 2,
   },
   {
-    "column": 1,
-    "endColumn": 3,
-    "endLine": 20,
-    "fix": {
-      "range": [
-        294,
-        296,
-      ],
-      "text": "",
-    },
-    "line": 20,
-    "message": "Delete \`··\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
     "column": 3,
-    "endColumn": 9,
+    "endColumn": 10,
     "endLine": 20,
     "fix": {
       "range": [
         114,
-        414,
+        413,
       ],
       "text": "alt=""
   aria-disabled
   className="my-image"
   height={250}
-
   loading="eager"
   onClick={() => console.log('onClick')}
   onError={() => console.log('onError')}
@@ -1719,37 +1350,18 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
     "severity": 2,
   },
   {
-    "column": 1,
-    "endColumn": 3,
-    "endLine": 21,
-    "fix": {
-      "range": [
-        333,
-        335,
-      ],
-      "text": "",
-    },
-    "line": 21,
-    "message": "Delete \`··\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
     "column": 3,
     "endColumn": 10,
     "endLine": 21,
     "fix": {
       "range": [
         114,
-        414,
+        413,
       ],
       "text": "alt=""
   aria-disabled
   className="my-image"
   height={250}
-
   loading="eager"
   onClick={() => console.log('onClick')}
   onError={() => console.log('onError')}
@@ -1760,54 +1372,6 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
   width={250}",
     },
     "line": 21,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 1,
-    "endColumn": 3,
-    "endLine": 22,
-    "fix": {
-      "range": [
-        374,
-        376,
-      ],
-      "text": "",
-    },
-    "line": 22,
-    "message": "Delete \`··\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
-    "column": 3,
-    "endColumn": 10,
-    "endLine": 22,
-    "fix": {
-      "range": [
-        114,
-        414,
-      ],
-      "text": "alt=""
-  aria-disabled
-  className="my-image"
-  height={250}
-
-  loading="eager"
-  onClick={() => console.log('onClick')}
-  onError={() => console.log('onError')}
-  onLoad={() => console.log('onLoad')}
-  src="https://via.placeholder.com/250x250"
-  style={{ display: 'block' }}
-  title=""
-  width={250}",
-    },
-    "line": 22,
     "message": "Props should be sorted alphabetically",
     "messageId": "sortPropsByAlpha",
     "nodeType": "JSXIdentifier",
@@ -1818,7 +1382,7 @@ exports[`fixtures should match all snapshots: 450.mdx 1`] = `
 `;
 
 exports[`fixtures should match all snapshots: 450.mdx 2`] = `
-"import { Meta } from '@storybook/addon-docs'
+"import { Meta } from '@storybook/addon-docs';
 
 <Meta title="Test" />
 
@@ -1831,15 +1395,14 @@ Lorem ipsum dolor sit amet.
   aria-disabled
   className="my-image"
   height={250}
-
-loading="eager"
-onClick={() => console.log('onClick')}
-onError={() => console.log('onError')}
-onLoad={() => console.log('onLoad')}
-src="https://via.placeholder.com/250x250"
-style={{ display: 'block' }}
-title=""
-width={250}
+  loading="eager"
+  onClick={() => console.log('onClick')}
+  onError={() => console.log('onError')}
+  onLoad={() => console.log('onLoad')}
+  src="https://via.placeholder.com/250x250"
+  style={{ display: 'block' }}
+  title=""
+  width={250}
 />
 "
 `;
@@ -1929,56 +1492,10 @@ exports[`fixtures should match all snapshots: acorn.mdx 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: adjacent.mdx 1`] = `
-[
-  {
-    "column": 14,
-    "endColumn": 15,
-    "endLine": 1,
-    "fix": {
-      "range": [
-        13,
-        14,
-      ],
-      "text": "",
-    },
-    "line": 1,
-    "message": "Delete \`·\`",
-    "messageId": "delete",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-]
-`;
-
-exports[`fixtures should match all snapshots: adjacent.mdx 2`] = `
-"import Basic from './basic'
-
-<Basic /> <Basic />
-"
-`;
+exports[`fixtures should match all snapshots: adjacent.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: basic.mdx 1`] = `
 [
-  {
-    "column": 18,
-    "endColumn": 19,
-    "endLine": 3,
-    "fix": {
-      "range": [
-        46,
-        47,
-      ],
-      "text": " = ",
-    },
-    "line": 3,
-    "message": "Replace \`=\` with \`·=·\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
   {
     "column": 1,
     "endColumn": 8,
@@ -2003,7 +1520,7 @@ exports[`fixtures should match all snapshots: basic.mdx 1`] = `
 exports[`fixtures should match all snapshots: basic.mdx 2`] = `
 "import Basic from './basic'
 
-export const meta = {
+export const meta={
   title: 'Blog Post',
 }
 
@@ -2031,24 +1548,6 @@ exports[`fixtures should match all snapshots: basic.tsx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
 [
-  {
-    "column": 9,
-    "endColumn": 12,
-    "endLine": 1,
-    "fix": {
-      "range": [
-        8,
-        11,
-      ],
-      "text": " Box ",
-    },
-    "line": 1,
-    "message": "Replace \`Box\` with \`·Box·\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
   {
     "column": 3,
     "endColumn": 5,
@@ -2173,7 +1672,7 @@ Here's a YouTube shortcode:
 `;
 
 exports[`fixtures should match all snapshots: blank-lines.mdx 2`] = `
-"import { Box } from '@rebass/emotion'
+"import {Box} from '@rebass/emotion'
 
 # Getting Started
 
@@ -2188,10 +1687,13 @@ the installation guides.
     fontWeight: 'bold',
   }}
 >
-  [Next.js](/getting-started/next) | [Gatsby](/getting-started/gatsby) | [Create
-  React App](/getting-started/create-react-app) | [React
-  Static](/getting-started/react-static) | [Webpack](/getting-started/webpack) |
-  [Parcel](/getting-started/parcel) | [Zero](/getting-started/zero)
+  [Next.js](/getting-started/next) |
+  [Gatsby](/getting-started/gatsby) |
+  [Create React App](/getting-started/create-react-app) |
+  [React Static](/getting-started/react-static) |
+  [Webpack](/getting-started/webpack) |
+  [Parcel](/getting-started/parcel) |
+  [Zero](/getting-started/zero)
 </Box>
 
 # Hello, world!
@@ -2200,7 +1702,9 @@ Here's a Twitter shortcode:
 
 <Tweet tweetId="1116723357410447360" />
 
-<TextGradient># Here's a text gradient shortcode!</TextGradient>
+<TextGradient>
+  # Here's a text gradient shortcode!
+</TextGradient>
 
 Here's a YouTube shortcode:
 
@@ -2276,27 +1780,6 @@ exports[`fixtures should match all snapshots: details.mdx 1`] = `
 exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
 [
   {
-    "column": 9,
-    "endColumn": 58,
-    "endLine": 1,
-    "fix": {
-      "range": [
-        8,
-        57,
-      ],
-      "text": "
-      kind="docs-packages-vuetify-preset"
-      story="page"
-    ",
-    },
-    "line": 1,
-    "message": "Replace \`·kind="docs-packages-vuetify-preset"·story="page"\` with \`⏎······kind="docs-packages-vuetify-preset"⏎······story="page"⏎····\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
     "column": 46,
     "endColumn": 58,
     "endLine": 1,
@@ -2305,27 +1788,6 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
     "messageId": "unknownProp",
     "nodeType": "JSXAttribute",
     "ruleId": "react/no-unknown-property",
-    "severity": 2,
-  },
-  {
-    "column": 9,
-    "endColumn": 58,
-    "endLine": 5,
-    "fix": {
-      "range": [
-        143,
-        192,
-      ],
-      "text": "
-      kind="docs-packages-vuetify-preset"
-      story="page"
-    ",
-    },
-    "line": 5,
-    "message": "Replace \`·kind="docs-packages-vuetify-preset"·story="page"\` with \`⏎······kind="docs-packages-vuetify-preset"⏎······story="page"⏎····\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
     "severity": 2,
   },
   {
@@ -2340,27 +1802,6 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
     "severity": 2,
   },
   {
-    "column": 9,
-    "endColumn": 58,
-    "endLine": 9,
-    "fix": {
-      "range": [
-        278,
-        327,
-      ],
-      "text": "
-      kind="docs-packages-vuetify-preset"
-      story="page"
-    ",
-    },
-    "line": 9,
-    "message": "Replace \`·kind="docs-packages-vuetify-preset"·story="page"\` with \`⏎······kind="docs-packages-vuetify-preset"⏎······story="page"⏎····\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
     "column": 46,
     "endColumn": 58,
     "endLine": 9,
@@ -2369,27 +1810,6 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
     "messageId": "unknownProp",
     "nodeType": "JSXAttribute",
     "ruleId": "react/no-unknown-property",
-    "severity": 2,
-  },
-  {
-    "column": 9,
-    "endColumn": 58,
-    "endLine": 13,
-    "fix": {
-      "range": [
-        413,
-        462,
-      ],
-      "text": "
-      kind="docs-packages-vuetify-preset"
-      story="page"
-    ",
-    },
-    "line": 13,
-    "message": "Replace \`·kind="docs-packages-vuetify-preset"·story="page"\` with \`⏎······kind="docs-packages-vuetify-preset"⏎······story="page"⏎····\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
     "severity": 2,
   },
   {
@@ -2404,27 +1824,6 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
     "severity": 2,
   },
   {
-    "column": 9,
-    "endColumn": 58,
-    "endLine": 17,
-    "fix": {
-      "range": [
-        548,
-        597,
-      ],
-      "text": "
-      kind="docs-packages-vuetify-preset"
-      story="page"
-    ",
-    },
-    "line": 17,
-    "message": "Replace \`·kind="docs-packages-vuetify-preset"·story="page"\` with \`⏎······kind="docs-packages-vuetify-preset"⏎······story="page"⏎····\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
-    "severity": 2,
-  },
-  {
     "column": 46,
     "endColumn": 58,
     "endLine": 17,
@@ -2433,27 +1832,6 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
     "messageId": "unknownProp",
     "nodeType": "JSXAttribute",
     "ruleId": "react/no-unknown-property",
-    "severity": 2,
-  },
-  {
-    "column": 9,
-    "endColumn": 58,
-    "endLine": 21,
-    "fix": {
-      "range": [
-        683,
-        732,
-      ],
-      "text": "
-      kind="docs-packages-vuetify-preset"
-      story="page"
-    ",
-    },
-    "line": 21,
-    "message": "Replace \`·kind="docs-packages-vuetify-preset"·story="page"\` with \`⏎······kind="docs-packages-vuetify-preset"⏎······story="page"⏎····\`",
-    "messageId": "replace",
-    "nodeType": null,
-    "ruleId": "prettier/prettier",
     "severity": 2,
   },
   {
@@ -2468,52 +1846,6 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
     "severity": 2,
   },
 ]
-`;
-
-exports[`fixtures should match all snapshots: jsx-in-list.mdx 2`] = `
-"- - <div
-      kind="docs-packages-vuetify-preset"
-      story="page"
-    >
-      Vuetify preset
-    </div>
-    : some extra text describing the preset
-  - <div
-      kind="docs-packages-vuetify-preset"
-      story="page"
-    >
-      Vuetify preset
-    </div>
-    : some extra text describing the preset
-  - <div
-      kind="docs-packages-vuetify-preset"
-      story="page"
-    >
-      Vuetify preset
-    </div>
-    : some extra text describing the preset
-- - <div
-      kind="docs-packages-vuetify-preset"
-      story="page"
-    >
-      Vuetify preset
-    </div>
-    : some extra text describing the preset
-  - <div
-      kind="docs-packages-vuetify-preset"
-      story="page"
-    >
-      Vuetify preset
-    </div>
-    : some extra text describing the preset
-  - <div
-      kind="docs-packages-vuetify-preset"
-      story="page"
-    >
-      Vuetify preset
-    </div>
-    : some extra text describing the preset
-"
 `;
 
 exports[`fixtures should match all snapshots: leading-spaces.mdx 1`] = `[]`;

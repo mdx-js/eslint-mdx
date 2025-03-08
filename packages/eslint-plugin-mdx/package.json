@@ -32,10 +32,11 @@
   },
   "dependencies": {
     "eslint-mdx": "^3.1.5",
-    "eslint-plugin-markdown": "^3.0.1",
+    "mdast-util-from-markdown": "^2.0.2",
     "remark-mdx": "^3.0.0",
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0",
+    "synckit": "^0.9.0",
     "tslib": "^2.6.2",
     "unified": "^11.0.4",
     "vfile": "^6.0.1"

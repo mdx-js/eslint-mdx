@@ -1,10 +1,10 @@
 import type { Linter } from 'eslint'
-import { processors } from 'eslint-plugin-markdown'
 
 import { meta } from '../meta'
 import type { RemarkLintMessage } from '../rules'
 
 import { getShortLang } from './helpers'
+import { markdownProcessor } from './markdown'
 import { processorOptions as defaultProcessorOptions } from './options'
 
 export const createRemarkProcessor = (
@@ -22,7 +22,7 @@ export const createRemarkProcessor = (
 
     return [
       text,
-      ...processors.markdown
+      ...markdownProcessor
         .preprocess(text, filename)
         .map(({ text, filename }) => ({
           text,
@@ -36,7 +36,7 @@ export const createRemarkProcessor = (
   postprocess([mdxMessages, ...markdownMessages], filename) {
     return [
       ...mdxMessages,
-      ...processors.markdown.postprocess(markdownMessages, filename),
+      ...markdownProcessor.postprocess(markdownMessages, filename),
     ]
       .sort((a, b) => a.line - b.line || a.column - b.column)
       .map(lintMessage => {

@@ -32564,15 +32564,15 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       "type": "ExpressionStatement",
     },
     {
-      "end": 417,
+      "end": 416,
       "expression": {
         "children": [],
         "closingElement": null,
-        "end": 417,
+        "end": 416,
         "loc": {
           "end": {
             "column": 2,
-            "line": 23,
+            "line": 22,
           },
           "start": {
             "column": 0,
@@ -32810,1060 +32810,1060 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
               "value": null,
             },
             {
-              "end": 215,
+              "end": 214,
               "loc": {
                 "end": {
                   "column": 22,
-                  "line": 15,
+                  "line": 14,
                 },
                 "start": {
                   "column": 2,
-                  "line": 15,
+                  "line": 14,
                 },
               },
               "name": {
-                "end": 204,
+                "end": 203,
                 "loc": {
                   "end": {
                     "column": 11,
-                    "line": 15,
+                    "line": 14,
                   },
                   "start": {
                     "column": 2,
-                    "line": 15,
+                    "line": 14,
                   },
                 },
                 "name": "className",
                 "range": [
-                  195,
-                  204,
+                  194,
+                  203,
                 ],
                 "raw": "className",
-                "start": 195,
+                "start": 194,
                 "type": "JSXIdentifier",
               },
               "range": [
-                195,
-                215,
+                194,
+                214,
               ],
               "raw": "className="my-image"",
-              "start": 195,
+              "start": 194,
               "type": "JSXAttribute",
               "value": {
-                "end": 215,
+                "end": 214,
                 "loc": {
                   "end": {
                     "column": 22,
-                    "line": 15,
+                    "line": 14,
                   },
                   "start": {
                     "column": 12,
-                    "line": 15,
+                    "line": 14,
                   },
                 },
                 "range": [
-                  205,
-                  215,
+                  204,
+                  214,
                 ],
                 "raw": ""my-image"",
-                "start": 205,
+                "start": 204,
                 "type": "Literal",
                 "value": "my-image",
               },
             },
             {
-              "end": 229,
+              "end": 228,
               "loc": {
                 "end": {
                   "column": 13,
-                  "line": 16,
+                  "line": 15,
                 },
                 "start": {
                   "column": 2,
-                  "line": 16,
+                  "line": 15,
                 },
               },
               "name": {
-                "end": 223,
+                "end": 222,
                 "loc": {
                   "end": {
                     "column": 7,
-                    "line": 16,
+                    "line": 15,
                   },
                   "start": {
                     "column": 2,
-                    "line": 16,
+                    "line": 15,
                   },
                 },
                 "name": "width",
                 "range": [
-                  218,
-                  223,
+                  217,
+                  222,
                 ],
                 "raw": "width",
-                "start": 218,
+                "start": 217,
                 "type": "JSXIdentifier",
               },
               "range": [
-                218,
-                229,
+                217,
+                228,
               ],
               "raw": "width={250}",
-              "start": 218,
+              "start": 217,
               "type": "JSXAttribute",
               "value": {
-                "end": 229,
+                "end": 228,
                 "expression": {
-                  "end": 228,
+                  "end": 227,
                   "loc": {
                     "end": {
                       "column": 12,
-                      "line": 16,
-                      "offset": 228,
+                      "line": 15,
+                      "offset": 227,
                     },
                     "start": {
                       "column": 9,
-                      "line": 16,
-                      "offset": 225,
+                      "line": 15,
+                      "offset": 224,
                     },
                   },
                   "range": [
-                    225,
-                    228,
+                    224,
+                    227,
                   ],
                   "raw": "250",
-                  "start": 225,
+                  "start": 224,
                   "type": "Literal",
                   "value": 250,
                 },
                 "loc": {
                   "end": {
                     "column": 13,
-                    "line": 16,
+                    "line": 15,
                   },
                   "start": {
                     "column": 8,
-                    "line": 16,
+                    "line": 15,
                   },
                 },
                 "range": [
-                  224,
-                  229,
+                  223,
+                  228,
                 ],
                 "raw": "{250}",
-                "start": 224,
+                "start": 223,
                 "type": "JSXExpressionContainer",
               },
             },
             {
-              "end": 244,
+              "end": 243,
               "loc": {
                 "end": {
                   "column": 14,
-                  "line": 17,
+                  "line": 16,
                 },
                 "start": {
                   "column": 2,
-                  "line": 17,
+                  "line": 16,
                 },
               },
               "name": {
-                "end": 238,
+                "end": 237,
                 "loc": {
                   "end": {
                     "column": 8,
-                    "line": 17,
+                    "line": 16,
                   },
                   "start": {
                     "column": 2,
-                    "line": 17,
+                    "line": 16,
                   },
                 },
                 "name": "height",
                 "range": [
-                  232,
-                  238,
+                  231,
+                  237,
                 ],
                 "raw": "height",
-                "start": 232,
+                "start": 231,
                 "type": "JSXIdentifier",
               },
               "range": [
-                232,
-                244,
+                231,
+                243,
               ],
               "raw": "height={250}",
-              "start": 232,
+              "start": 231,
               "type": "JSXAttribute",
               "value": {
-                "end": 244,
+                "end": 243,
                 "expression": {
-                  "end": 243,
+                  "end": 242,
                   "loc": {
                     "end": {
                       "column": 13,
-                      "line": 17,
-                      "offset": 243,
+                      "line": 16,
+                      "offset": 242,
                     },
                     "start": {
                       "column": 10,
-                      "line": 17,
-                      "offset": 240,
+                      "line": 16,
+                      "offset": 239,
                     },
                   },
                   "range": [
-                    240,
-                    243,
+                    239,
+                    242,
                   ],
                   "raw": "250",
-                  "start": 240,
+                  "start": 239,
                   "type": "Literal",
                   "value": 250,
                 },
                 "loc": {
                   "end": {
                     "column": 14,
-                    "line": 17,
+                    "line": 16,
                   },
                   "start": {
                     "column": 9,
-                    "line": 17,
+                    "line": 16,
                   },
                 },
                 "range": [
-                  239,
-                  244,
+                  238,
+                  243,
                 ],
                 "raw": "{250}",
-                "start": 239,
+                "start": 238,
                 "type": "JSXExpressionContainer",
               },
             },
             {
-              "end": 262,
+              "end": 261,
               "loc": {
                 "end": {
                   "column": 17,
-                  "line": 18,
+                  "line": 17,
                 },
                 "start": {
                   "column": 2,
-                  "line": 18,
+                  "line": 17,
                 },
               },
               "name": {
-                "end": 254,
+                "end": 253,
                 "loc": {
                   "end": {
                     "column": 9,
-                    "line": 18,
+                    "line": 17,
                   },
                   "start": {
                     "column": 2,
-                    "line": 18,
+                    "line": 17,
                   },
                 },
                 "name": "loading",
                 "range": [
-                  247,
-                  254,
+                  246,
+                  253,
                 ],
                 "raw": "loading",
-                "start": 247,
+                "start": 246,
                 "type": "JSXIdentifier",
               },
               "range": [
-                247,
-                262,
+                246,
+                261,
               ],
               "raw": "loading="eager"",
-              "start": 247,
+              "start": 246,
               "type": "JSXAttribute",
               "value": {
-                "end": 262,
+                "end": 261,
                 "loc": {
                   "end": {
                     "column": 17,
-                    "line": 18,
+                    "line": 17,
                   },
                   "start": {
                     "column": 10,
-                    "line": 18,
+                    "line": 17,
                   },
                 },
                 "range": [
-                  255,
-                  262,
+                  254,
+                  261,
                 ],
                 "raw": ""eager"",
-                "start": 255,
+                "start": 254,
                 "type": "Literal",
                 "value": "eager",
               },
             },
             {
-              "end": 293,
+              "end": 292,
               "loc": {
                 "end": {
                   "column": 30,
-                  "line": 19,
+                  "line": 18,
                 },
                 "start": {
                   "column": 2,
-                  "line": 19,
+                  "line": 18,
                 },
               },
               "name": {
-                "end": 270,
+                "end": 269,
                 "loc": {
                   "end": {
                     "column": 7,
-                    "line": 19,
+                    "line": 18,
                   },
                   "start": {
                     "column": 2,
-                    "line": 19,
+                    "line": 18,
                   },
                 },
                 "name": "style",
                 "range": [
-                  265,
-                  270,
+                  264,
+                  269,
                 ],
                 "raw": "style",
-                "start": 265,
+                "start": 264,
                 "type": "JSXIdentifier",
               },
               "range": [
-                265,
-                293,
+                264,
+                292,
               ],
               "raw": "style={{ display: 'block' }}",
-              "start": 265,
+              "start": 264,
               "type": "JSXAttribute",
               "value": {
-                "end": 293,
+                "end": 292,
                 "expression": {
-                  "end": 292,
+                  "end": 291,
                   "loc": {
                     "end": {
                       "column": 29,
-                      "line": 19,
-                      "offset": 292,
+                      "line": 18,
+                      "offset": 291,
                     },
                     "start": {
                       "column": 9,
-                      "line": 19,
-                      "offset": 272,
+                      "line": 18,
+                      "offset": 271,
                     },
                   },
                   "properties": [
                     {
                       "computed": false,
-                      "end": 290,
+                      "end": 289,
                       "key": {
-                        "end": 281,
+                        "end": 280,
                         "loc": {
                           "end": {
                             "column": 18,
-                            "line": 19,
-                            "offset": 281,
+                            "line": 18,
+                            "offset": 280,
                           },
                           "start": {
                             "column": 11,
-                            "line": 19,
-                            "offset": 274,
+                            "line": 18,
+                            "offset": 273,
                           },
                         },
                         "name": "display",
                         "range": [
-                          274,
-                          281,
+                          273,
+                          280,
                         ],
-                        "start": 274,
+                        "start": 273,
                         "type": "Identifier",
                       },
                       "kind": "init",
                       "loc": {
                         "end": {
                           "column": 27,
-                          "line": 19,
-                          "offset": 290,
+                          "line": 18,
+                          "offset": 289,
                         },
                         "start": {
                           "column": 11,
-                          "line": 19,
-                          "offset": 274,
+                          "line": 18,
+                          "offset": 273,
                         },
                       },
                       "method": false,
                       "range": [
-                        274,
-                        290,
+                        273,
+                        289,
                       ],
                       "shorthand": false,
-                      "start": 274,
+                      "start": 273,
                       "type": "Property",
                       "value": {
-                        "end": 290,
+                        "end": 289,
                         "loc": {
                           "end": {
                             "column": 27,
-                            "line": 19,
-                            "offset": 290,
+                            "line": 18,
+                            "offset": 289,
                           },
                           "start": {
                             "column": 20,
-                            "line": 19,
-                            "offset": 283,
+                            "line": 18,
+                            "offset": 282,
                           },
                         },
                         "range": [
-                          283,
-                          290,
+                          282,
+                          289,
                         ],
                         "raw": "'block'",
-                        "start": 283,
+                        "start": 282,
                         "type": "Literal",
                         "value": "block",
                       },
                     },
                   ],
                   "range": [
-                    272,
-                    292,
+                    271,
+                    291,
                   ],
-                  "start": 272,
+                  "start": 271,
                   "type": "ObjectExpression",
                 },
                 "loc": {
                   "end": {
                     "column": 30,
-                    "line": 19,
+                    "line": 18,
                   },
                   "start": {
                     "column": 8,
-                    "line": 19,
+                    "line": 18,
                   },
                 },
                 "range": [
-                  271,
-                  293,
+                  270,
+                  292,
                 ],
                 "raw": "{{ display: 'block' }}",
-                "start": 271,
+                "start": 270,
                 "type": "JSXExpressionContainer",
               },
             },
             {
-              "end": 332,
+              "end": 331,
               "loc": {
                 "end": {
                   "column": 38,
-                  "line": 20,
+                  "line": 19,
                 },
                 "start": {
                   "column": 2,
-                  "line": 20,
+                  "line": 19,
                 },
               },
               "name": {
-                "end": 302,
+                "end": 301,
                 "loc": {
                   "end": {
                     "column": 8,
-                    "line": 20,
+                    "line": 19,
                   },
                   "start": {
                     "column": 2,
-                    "line": 20,
+                    "line": 19,
                   },
                 },
                 "name": "onLoad",
                 "range": [
-                  296,
-                  302,
+                  295,
+                  301,
                 ],
                 "raw": "onLoad",
-                "start": 296,
+                "start": 295,
                 "type": "JSXIdentifier",
               },
               "range": [
-                296,
-                332,
+                295,
+                331,
               ],
               "raw": "onLoad={() => console.log('onLoad')}",
-              "start": 296,
+              "start": 295,
               "type": "JSXAttribute",
               "value": {
-                "end": 332,
+                "end": 331,
                 "expression": {
                   "async": false,
                   "body": {
                     "arguments": [
                       {
-                        "end": 330,
+                        "end": 329,
                         "loc": {
                           "end": {
                             "column": 36,
-                            "line": 20,
-                            "offset": 330,
+                            "line": 19,
+                            "offset": 329,
                           },
                           "start": {
                             "column": 28,
-                            "line": 20,
-                            "offset": 322,
+                            "line": 19,
+                            "offset": 321,
                           },
                         },
                         "range": [
-                          322,
-                          330,
+                          321,
+                          329,
                         ],
                         "raw": "'onLoad'",
-                        "start": 322,
+                        "start": 321,
                         "type": "Literal",
                         "value": "onLoad",
                       },
                     ],
                     "callee": {
                       "computed": false,
-                      "end": 321,
+                      "end": 320,
                       "loc": {
                         "end": {
                           "column": 27,
-                          "line": 20,
-                          "offset": 321,
+                          "line": 19,
+                          "offset": 320,
                         },
                         "start": {
                           "column": 16,
-                          "line": 20,
-                          "offset": 310,
+                          "line": 19,
+                          "offset": 309,
                         },
                       },
                       "object": {
-                        "end": 317,
+                        "end": 316,
                         "loc": {
                           "end": {
                             "column": 23,
-                            "line": 20,
-                            "offset": 317,
+                            "line": 19,
+                            "offset": 316,
                           },
                           "start": {
                             "column": 16,
-                            "line": 20,
-                            "offset": 310,
+                            "line": 19,
+                            "offset": 309,
                           },
                         },
                         "name": "console",
                         "range": [
-                          310,
-                          317,
+                          309,
+                          316,
                         ],
-                        "start": 310,
+                        "start": 309,
                         "type": "Identifier",
                       },
                       "optional": false,
                       "property": {
-                        "end": 321,
+                        "end": 320,
                         "loc": {
                           "end": {
                             "column": 27,
-                            "line": 20,
-                            "offset": 321,
+                            "line": 19,
+                            "offset": 320,
                           },
                           "start": {
                             "column": 24,
-                            "line": 20,
-                            "offset": 318,
+                            "line": 19,
+                            "offset": 317,
                           },
                         },
                         "name": "log",
                         "range": [
-                          318,
-                          321,
+                          317,
+                          320,
                         ],
-                        "start": 318,
+                        "start": 317,
                         "type": "Identifier",
                       },
                       "range": [
-                        310,
-                        321,
+                        309,
+                        320,
                       ],
-                      "start": 310,
+                      "start": 309,
                       "type": "MemberExpression",
                     },
-                    "end": 331,
+                    "end": 330,
                     "loc": {
                       "end": {
                         "column": 37,
-                        "line": 20,
-                        "offset": 331,
+                        "line": 19,
+                        "offset": 330,
                       },
                       "start": {
                         "column": 16,
-                        "line": 20,
-                        "offset": 310,
+                        "line": 19,
+                        "offset": 309,
                       },
                     },
                     "optional": false,
                     "range": [
-                      310,
-                      331,
+                      309,
+                      330,
                     ],
-                    "start": 310,
+                    "start": 309,
                     "type": "CallExpression",
                   },
-                  "end": 331,
+                  "end": 330,
                   "expression": true,
                   "generator": false,
                   "id": null,
                   "loc": {
                     "end": {
                       "column": 37,
-                      "line": 20,
-                      "offset": 331,
+                      "line": 19,
+                      "offset": 330,
                     },
                     "start": {
                       "column": 10,
-                      "line": 20,
-                      "offset": 304,
+                      "line": 19,
+                      "offset": 303,
                     },
                   },
                   "params": [],
                   "range": [
-                    304,
-                    331,
+                    303,
+                    330,
                   ],
-                  "start": 304,
+                  "start": 303,
                   "type": "ArrowFunctionExpression",
                 },
                 "loc": {
                   "end": {
                     "column": 38,
-                    "line": 20,
+                    "line": 19,
                   },
                   "start": {
                     "column": 9,
-                    "line": 20,
+                    "line": 19,
                   },
                 },
                 "range": [
-                  303,
-                  332,
+                  302,
+                  331,
                 ],
                 "raw": "{() => console.log('onLoad')}",
-                "start": 303,
+                "start": 302,
                 "type": "JSXExpressionContainer",
               },
             },
             {
-              "end": 373,
+              "end": 372,
               "loc": {
                 "end": {
                   "column": 40,
-                  "line": 21,
+                  "line": 20,
                 },
                 "start": {
                   "column": 2,
-                  "line": 21,
+                  "line": 20,
                 },
               },
               "name": {
-                "end": 342,
+                "end": 341,
                 "loc": {
                   "end": {
                     "column": 9,
-                    "line": 21,
+                    "line": 20,
                   },
                   "start": {
                     "column": 2,
-                    "line": 21,
+                    "line": 20,
                   },
                 },
                 "name": "onError",
                 "range": [
-                  335,
-                  342,
+                  334,
+                  341,
                 ],
                 "raw": "onError",
-                "start": 335,
+                "start": 334,
                 "type": "JSXIdentifier",
               },
               "range": [
-                335,
-                373,
+                334,
+                372,
               ],
               "raw": "onError={() => console.log('onError')}",
-              "start": 335,
+              "start": 334,
               "type": "JSXAttribute",
               "value": {
-                "end": 373,
+                "end": 372,
                 "expression": {
                   "async": false,
                   "body": {
                     "arguments": [
                       {
-                        "end": 371,
+                        "end": 370,
                         "loc": {
                           "end": {
                             "column": 38,
-                            "line": 21,
-                            "offset": 371,
+                            "line": 20,
+                            "offset": 370,
                           },
                           "start": {
                             "column": 29,
-                            "line": 21,
-                            "offset": 362,
+                            "line": 20,
+                            "offset": 361,
                           },
                         },
                         "range": [
-                          362,
-                          371,
+                          361,
+                          370,
                         ],
                         "raw": "'onError'",
-                        "start": 362,
+                        "start": 361,
                         "type": "Literal",
                         "value": "onError",
                       },
                     ],
                     "callee": {
                       "computed": false,
-                      "end": 361,
+                      "end": 360,
                       "loc": {
                         "end": {
                           "column": 28,
-                          "line": 21,
-                          "offset": 361,
+                          "line": 20,
+                          "offset": 360,
                         },
                         "start": {
                           "column": 17,
-                          "line": 21,
-                          "offset": 350,
+                          "line": 20,
+                          "offset": 349,
                         },
                       },
                       "object": {
-                        "end": 357,
+                        "end": 356,
                         "loc": {
                           "end": {
                             "column": 24,
-                            "line": 21,
-                            "offset": 357,
+                            "line": 20,
+                            "offset": 356,
                           },
                           "start": {
                             "column": 17,
-                            "line": 21,
-                            "offset": 350,
+                            "line": 20,
+                            "offset": 349,
                           },
                         },
                         "name": "console",
                         "range": [
-                          350,
-                          357,
+                          349,
+                          356,
                         ],
-                        "start": 350,
+                        "start": 349,
                         "type": "Identifier",
                       },
                       "optional": false,
                       "property": {
-                        "end": 361,
+                        "end": 360,
                         "loc": {
                           "end": {
                             "column": 28,
-                            "line": 21,
-                            "offset": 361,
+                            "line": 20,
+                            "offset": 360,
                           },
                           "start": {
                             "column": 25,
-                            "line": 21,
-                            "offset": 358,
+                            "line": 20,
+                            "offset": 357,
                           },
                         },
                         "name": "log",
                         "range": [
-                          358,
-                          361,
+                          357,
+                          360,
                         ],
-                        "start": 358,
+                        "start": 357,
                         "type": "Identifier",
                       },
                       "range": [
-                        350,
-                        361,
+                        349,
+                        360,
                       ],
-                      "start": 350,
+                      "start": 349,
                       "type": "MemberExpression",
                     },
-                    "end": 372,
+                    "end": 371,
                     "loc": {
                       "end": {
                         "column": 39,
-                        "line": 21,
-                        "offset": 372,
+                        "line": 20,
+                        "offset": 371,
                       },
                       "start": {
                         "column": 17,
-                        "line": 21,
-                        "offset": 350,
+                        "line": 20,
+                        "offset": 349,
                       },
                     },
                     "optional": false,
                     "range": [
-                      350,
-                      372,
+                      349,
+                      371,
                     ],
-                    "start": 350,
+                    "start": 349,
                     "type": "CallExpression",
                   },
-                  "end": 372,
+                  "end": 371,
                   "expression": true,
                   "generator": false,
                   "id": null,
                   "loc": {
                     "end": {
                       "column": 39,
-                      "line": 21,
-                      "offset": 372,
+                      "line": 20,
+                      "offset": 371,
                     },
                     "start": {
                       "column": 11,
-                      "line": 21,
-                      "offset": 344,
+                      "line": 20,
+                      "offset": 343,
                     },
                   },
                   "params": [],
                   "range": [
-                    344,
-                    372,
+                    343,
+                    371,
                   ],
-                  "start": 344,
+                  "start": 343,
                   "type": "ArrowFunctionExpression",
                 },
                 "loc": {
                   "end": {
                     "column": 40,
-                    "line": 21,
+                    "line": 20,
                   },
                   "start": {
                     "column": 10,
-                    "line": 21,
+                    "line": 20,
                   },
                 },
                 "range": [
-                  343,
-                  373,
+                  342,
+                  372,
                 ],
                 "raw": "{() => console.log('onError')}",
-                "start": 343,
+                "start": 342,
                 "type": "JSXExpressionContainer",
               },
             },
             {
-              "end": 414,
+              "end": 413,
               "loc": {
                 "end": {
                   "column": 40,
-                  "line": 22,
+                  "line": 21,
                 },
                 "start": {
                   "column": 2,
-                  "line": 22,
+                  "line": 21,
                 },
               },
               "name": {
-                "end": 383,
+                "end": 382,
                 "loc": {
                   "end": {
                     "column": 9,
-                    "line": 22,
+                    "line": 21,
                   },
                   "start": {
                     "column": 2,
-                    "line": 22,
+                    "line": 21,
                   },
                 },
                 "name": "onClick",
                 "range": [
-                  376,
-                  383,
+                  375,
+                  382,
                 ],
                 "raw": "onClick",
-                "start": 376,
+                "start": 375,
                 "type": "JSXIdentifier",
               },
               "range": [
-                376,
-                414,
+                375,
+                413,
               ],
               "raw": "onClick={() => console.log('onClick')}",
-              "start": 376,
+              "start": 375,
               "type": "JSXAttribute",
               "value": {
-                "end": 414,
+                "end": 413,
                 "expression": {
                   "async": false,
                   "body": {
                     "arguments": [
                       {
-                        "end": 412,
+                        "end": 411,
                         "loc": {
                           "end": {
                             "column": 38,
-                            "line": 22,
-                            "offset": 412,
+                            "line": 21,
+                            "offset": 411,
                           },
                           "start": {
                             "column": 29,
-                            "line": 22,
-                            "offset": 403,
+                            "line": 21,
+                            "offset": 402,
                           },
                         },
                         "range": [
-                          403,
-                          412,
+                          402,
+                          411,
                         ],
                         "raw": "'onClick'",
-                        "start": 403,
+                        "start": 402,
                         "type": "Literal",
                         "value": "onClick",
                       },
                     ],
                     "callee": {
                       "computed": false,
-                      "end": 402,
+                      "end": 401,
                       "loc": {
                         "end": {
                           "column": 28,
-                          "line": 22,
-                          "offset": 402,
+                          "line": 21,
+                          "offset": 401,
                         },
                         "start": {
                           "column": 17,
-                          "line": 22,
-                          "offset": 391,
+                          "line": 21,
+                          "offset": 390,
                         },
                       },
                       "object": {
-                        "end": 398,
+                        "end": 397,
                         "loc": {
                           "end": {
                             "column": 24,
-                            "line": 22,
-                            "offset": 398,
+                            "line": 21,
+                            "offset": 397,
                           },
                           "start": {
                             "column": 17,
-                            "line": 22,
-                            "offset": 391,
+                            "line": 21,
+                            "offset": 390,
                           },
                         },
                         "name": "console",
                         "range": [
-                          391,
-                          398,
+                          390,
+                          397,
                         ],
-                        "start": 391,
+                        "start": 390,
                         "type": "Identifier",
                       },
                       "optional": false,
                       "property": {
-                        "end": 402,
+                        "end": 401,
                         "loc": {
                           "end": {
                             "column": 28,
-                            "line": 22,
-                            "offset": 402,
+                            "line": 21,
+                            "offset": 401,
                           },
                           "start": {
                             "column": 25,
-                            "line": 22,
-                            "offset": 399,
+                            "line": 21,
+                            "offset": 398,
                           },
                         },
                         "name": "log",
                         "range": [
-                          399,
-                          402,
+                          398,
+                          401,
                         ],
-                        "start": 399,
+                        "start": 398,
                         "type": "Identifier",
                       },
                       "range": [
-                        391,
-                        402,
+                        390,
+                        401,
                       ],
-                      "start": 391,
+                      "start": 390,
                       "type": "MemberExpression",
                     },
-                    "end": 413,
+                    "end": 412,
                     "loc": {
                       "end": {
                         "column": 39,
-                        "line": 22,
-                        "offset": 413,
+                        "line": 21,
+                        "offset": 412,
                       },
                       "start": {
                         "column": 17,
-                        "line": 22,
-                        "offset": 391,
+                        "line": 21,
+                        "offset": 390,
                       },
                     },
                     "optional": false,
                     "range": [
-                      391,
-                      413,
+                      390,
+                      412,
                     ],
-                    "start": 391,
+                    "start": 390,
                     "type": "CallExpression",
                   },
-                  "end": 413,
+                  "end": 412,
                   "expression": true,
                   "generator": false,
                   "id": null,
                   "loc": {
                     "end": {
                       "column": 39,
-                      "line": 22,
-                      "offset": 413,
+                      "line": 21,
+                      "offset": 412,
                     },
                     "start": {
                       "column": 11,
-                      "line": 22,
-                      "offset": 385,
+                      "line": 21,
+                      "offset": 384,
                     },
                   },
                   "params": [],
                   "range": [
-                    385,
-                    413,
+                    384,
+                    412,
                   ],
-                  "start": 385,
+                  "start": 384,
                   "type": "ArrowFunctionExpression",
                 },
                 "loc": {
                   "end": {
                     "column": 40,
-                    "line": 22,
+                    "line": 21,
                   },
                   "start": {
                     "column": 10,
-                    "line": 22,
+                    "line": 21,
                   },
                 },
                 "range": [
-                  384,
-                  414,
+                  383,
+                  413,
                 ],
                 "raw": "{() => console.log('onClick')}",
-                "start": 384,
+                "start": 383,
                 "type": "JSXExpressionContainer",
               },
             },
           ],
-          "end": 417,
+          "end": 416,
           "loc": {
             "end": {
               "column": 2,
-              "line": 23,
+              "line": 22,
             },
             "start": {
               "column": 0,
@@ -33893,14 +33893,13 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
           },
           "range": [
             107,
-            417,
+            416,
           ],
           "raw": "<img
   src="https://via.placeholder.com/250x250"
   alt=""
   title=""
   aria-disabled
-
   className="my-image"
   width={250}
   height={250}
@@ -33916,14 +33915,13 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
         },
         "range": [
           107,
-          417,
+          416,
         ],
         "raw": "<img
   src="https://via.placeholder.com/250x250"
   alt=""
   title=""
   aria-disabled
-
   className="my-image"
   width={250}
   height={250}
@@ -33939,8 +33937,8 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       "loc": {
         "end": {
           "column": 3,
-          "line": 23,
-          "offset": 417,
+          "line": 22,
+          "offset": 416,
         },
         "start": {
           "column": 1,
@@ -33950,19 +33948,19 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       },
       "range": [
         107,
-        417,
+        416,
       ],
       "start": 107,
       "type": "ExpressionStatement",
     },
   ],
   "comments": [],
-  "end": 418,
+  "end": 417,
   "loc": {
     "end": {
       "column": 1,
-      "line": 24,
-      "offset": 418,
+      "line": 23,
+      "offset": 417,
     },
     "start": {
       "column": 1,
@@ -33972,7 +33970,7 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
   },
   "range": [
     0,
-    418,
+    417,
   ],
   "sourceType": undefined,
   "start": 0,
@@ -34552,10 +34550,70 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       "value": "aria-disabled",
     },
     {
-      "end": 204,
+      "end": 203,
       "loc": {
         "end": {
           "column": 11,
+          "line": 14,
+        },
+        "start": {
+          "column": 2,
+          "line": 14,
+        },
+      },
+      "range": [
+        194,
+        203,
+      ],
+      "start": 194,
+      "type": "JSXIdentifier",
+      "value": "className",
+    },
+    {
+      "end": 204,
+      "loc": {
+        "end": {
+          "column": 12,
+          "line": 14,
+        },
+        "start": {
+          "column": 11,
+          "line": 14,
+        },
+      },
+      "range": [
+        203,
+        204,
+      ],
+      "start": 203,
+      "type": "Punctuator",
+      "value": "=",
+    },
+    {
+      "end": 214,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 14,
+        },
+        "start": {
+          "column": 12,
+          "line": 14,
+        },
+      },
+      "range": [
+        204,
+        214,
+      ],
+      "start": 204,
+      "type": "String",
+      "value": ""my-image"",
+    },
+    {
+      "end": 222,
+      "loc": {
+        "end": {
+          "column": 7,
           "line": 15,
         },
         "start": {
@@ -34564,83 +34622,43 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
         },
       },
       "range": [
-        195,
-        204,
+        217,
+        222,
       ],
-      "start": 195,
+      "start": 217,
       "type": "JSXIdentifier",
-      "value": "className",
-    },
-    {
-      "end": 205,
-      "loc": {
-        "end": {
-          "column": 12,
-          "line": 15,
-        },
-        "start": {
-          "column": 11,
-          "line": 15,
-        },
-      },
-      "range": [
-        204,
-        205,
-      ],
-      "start": 204,
-      "type": "Punctuator",
-      "value": "=",
-    },
-    {
-      "end": 215,
-      "loc": {
-        "end": {
-          "column": 22,
-          "line": 15,
-        },
-        "start": {
-          "column": 12,
-          "line": 15,
-        },
-      },
-      "range": [
-        205,
-        215,
-      ],
-      "start": 205,
-      "type": "String",
-      "value": ""my-image"",
+      "value": "width",
     },
     {
       "end": 223,
       "loc": {
         "end": {
-          "column": 7,
-          "line": 16,
+          "column": 8,
+          "line": 15,
         },
         "start": {
-          "column": 2,
-          "line": 16,
+          "column": 7,
+          "line": 15,
         },
       },
       "range": [
-        218,
+        222,
         223,
       ],
-      "start": 218,
-      "type": "JSXIdentifier",
-      "value": "width",
+      "start": 222,
+      "type": "Punctuator",
+      "value": "=",
     },
     {
       "end": 224,
       "loc": {
         "end": {
-          "column": 8,
-          "line": 16,
+          "column": 9,
+          "line": 15,
         },
         "start": {
-          "column": 7,
-          "line": 16,
+          "column": 8,
+          "line": 15,
         },
       },
       "range": [
@@ -34649,100 +34667,100 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       ],
       "start": 223,
       "type": "Punctuator",
-      "value": "=",
+      "value": "{",
     },
     {
-      "end": 225,
+      "end": 227,
       "loc": {
         "end": {
-          "column": 9,
-          "line": 16,
+          "column": 12,
+          "line": 15,
+          "offset": 227,
         },
         "start": {
-          "column": 8,
-          "line": 16,
+          "column": 9,
+          "line": 15,
+          "offset": 224,
         },
       },
       "range": [
         224,
-        225,
+        227,
       ],
       "start": 224,
-      "type": "Punctuator",
-      "value": "{",
+      "type": "Numeric",
+      "value": "250",
     },
     {
       "end": 228,
       "loc": {
         "end": {
-          "column": 12,
-          "line": 16,
-          "offset": 228,
-        },
-        "start": {
-          "column": 9,
-          "line": 16,
-          "offset": 225,
-        },
-      },
-      "range": [
-        225,
-        228,
-      ],
-      "start": 225,
-      "type": "Numeric",
-      "value": "250",
-    },
-    {
-      "end": 229,
-      "loc": {
-        "end": {
           "column": 13,
-          "line": 16,
+          "line": 15,
         },
         "start": {
           "column": 12,
-          "line": 16,
+          "line": 15,
         },
       },
       "range": [
+        227,
         228,
-        229,
       ],
-      "start": 228,
+      "start": 227,
       "type": "Punctuator",
       "value": "}",
+    },
+    {
+      "end": 237,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 16,
+        },
+        "start": {
+          "column": 2,
+          "line": 16,
+        },
+      },
+      "range": [
+        231,
+        237,
+      ],
+      "start": 231,
+      "type": "JSXIdentifier",
+      "value": "height",
     },
     {
       "end": 238,
       "loc": {
         "end": {
-          "column": 8,
-          "line": 17,
+          "column": 9,
+          "line": 16,
         },
         "start": {
-          "column": 2,
-          "line": 17,
+          "column": 8,
+          "line": 16,
         },
       },
       "range": [
-        232,
+        237,
         238,
       ],
-      "start": 232,
-      "type": "JSXIdentifier",
-      "value": "height",
+      "start": 237,
+      "type": "Punctuator",
+      "value": "=",
     },
     {
       "end": 239,
       "loc": {
         "end": {
-          "column": 9,
-          "line": 17,
+          "column": 10,
+          "line": 16,
         },
         "start": {
-          "column": 8,
-          "line": 17,
+          "column": 9,
+          "line": 16,
         },
       },
       "range": [
@@ -34751,75 +34769,115 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       ],
       "start": 238,
       "type": "Punctuator",
-      "value": "=",
+      "value": "{",
     },
     {
-      "end": 240,
+      "end": 242,
       "loc": {
         "end": {
-          "column": 10,
-          "line": 17,
+          "column": 13,
+          "line": 16,
+          "offset": 242,
         },
         "start": {
-          "column": 9,
-          "line": 17,
+          "column": 10,
+          "line": 16,
+          "offset": 239,
         },
       },
       "range": [
         239,
-        240,
+        242,
       ],
       "start": 239,
-      "type": "Punctuator",
-      "value": "{",
+      "type": "Numeric",
+      "value": "250",
     },
     {
       "end": 243,
       "loc": {
         "end": {
-          "column": 13,
-          "line": 17,
-          "offset": 243,
-        },
-        "start": {
-          "column": 10,
-          "line": 17,
-          "offset": 240,
-        },
-      },
-      "range": [
-        240,
-        243,
-      ],
-      "start": 240,
-      "type": "Numeric",
-      "value": "250",
-    },
-    {
-      "end": 244,
-      "loc": {
-        "end": {
           "column": 14,
-          "line": 17,
+          "line": 16,
         },
         "start": {
           "column": 13,
-          "line": 17,
+          "line": 16,
         },
       },
       "range": [
+        242,
         243,
-        244,
       ],
-      "start": 243,
+      "start": 242,
       "type": "Punctuator",
       "value": "}",
+    },
+    {
+      "end": 253,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 17,
+        },
+        "start": {
+          "column": 2,
+          "line": 17,
+        },
+      },
+      "range": [
+        246,
+        253,
+      ],
+      "start": 246,
+      "type": "JSXIdentifier",
+      "value": "loading",
     },
     {
       "end": 254,
       "loc": {
         "end": {
+          "column": 10,
+          "line": 17,
+        },
+        "start": {
           "column": 9,
+          "line": 17,
+        },
+      },
+      "range": [
+        253,
+        254,
+      ],
+      "start": 253,
+      "type": "Punctuator",
+      "value": "=",
+    },
+    {
+      "end": 261,
+      "loc": {
+        "end": {
+          "column": 17,
+          "line": 17,
+        },
+        "start": {
+          "column": 10,
+          "line": 17,
+        },
+      },
+      "range": [
+        254,
+        261,
+      ],
+      "start": 254,
+      "type": "String",
+      "value": ""eager"",
+    },
+    {
+      "end": 269,
+      "loc": {
+        "end": {
+          "column": 7,
           "line": 18,
         },
         "start": {
@@ -34828,83 +34886,43 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
         },
       },
       "range": [
-        247,
-        254,
+        264,
+        269,
       ],
-      "start": 247,
+      "start": 264,
       "type": "JSXIdentifier",
-      "value": "loading",
-    },
-    {
-      "end": 255,
-      "loc": {
-        "end": {
-          "column": 10,
-          "line": 18,
-        },
-        "start": {
-          "column": 9,
-          "line": 18,
-        },
-      },
-      "range": [
-        254,
-        255,
-      ],
-      "start": 254,
-      "type": "Punctuator",
-      "value": "=",
-    },
-    {
-      "end": 262,
-      "loc": {
-        "end": {
-          "column": 17,
-          "line": 18,
-        },
-        "start": {
-          "column": 10,
-          "line": 18,
-        },
-      },
-      "range": [
-        255,
-        262,
-      ],
-      "start": 255,
-      "type": "String",
-      "value": ""eager"",
+      "value": "style",
     },
     {
       "end": 270,
       "loc": {
         "end": {
-          "column": 7,
-          "line": 19,
+          "column": 8,
+          "line": 18,
         },
         "start": {
-          "column": 2,
-          "line": 19,
+          "column": 7,
+          "line": 18,
         },
       },
       "range": [
-        265,
+        269,
         270,
       ],
-      "start": 265,
-      "type": "JSXIdentifier",
-      "value": "style",
+      "start": 269,
+      "type": "Punctuator",
+      "value": "=",
     },
     {
       "end": 271,
       "loc": {
         "end": {
-          "column": 8,
-          "line": 19,
+          "column": 9,
+          "line": 18,
         },
         "start": {
-          "column": 7,
-          "line": 19,
+          "column": 8,
+          "line": 18,
         },
       },
       "range": [
@@ -34913,18 +34931,20 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       ],
       "start": 270,
       "type": "Punctuator",
-      "value": "=",
+      "value": "{",
     },
     {
       "end": 272,
       "loc": {
         "end": {
-          "column": 9,
-          "line": 19,
+          "column": 10,
+          "line": 18,
+          "offset": 272,
         },
         "start": {
-          "column": 8,
-          "line": 19,
+          "column": 9,
+          "line": 18,
+          "offset": 271,
         },
       },
       "range": [
@@ -34936,105 +34956,103 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       "value": "{",
     },
     {
-      "end": 273,
+      "end": 280,
       "loc": {
         "end": {
-          "column": 10,
-          "line": 19,
-          "offset": 273,
+          "column": 18,
+          "line": 18,
+          "offset": 280,
         },
         "start": {
-          "column": 9,
-          "line": 19,
-          "offset": 272,
+          "column": 11,
+          "line": 18,
+          "offset": 273,
         },
       },
       "range": [
-        272,
         273,
+        280,
       ],
-      "start": 272,
-      "type": "Punctuator",
-      "value": "{",
+      "start": 273,
+      "type": "Identifier",
+      "value": "display",
     },
     {
       "end": 281,
       "loc": {
         "end": {
-          "column": 18,
-          "line": 19,
-          "offset": 281,
-        },
-        "start": {
-          "column": 11,
-          "line": 19,
-          "offset": 274,
-        },
-      },
-      "range": [
-        274,
-        281,
-      ],
-      "start": 274,
-      "type": "Identifier",
-      "value": "display",
-    },
-    {
-      "end": 282,
-      "loc": {
-        "end": {
           "column": 19,
-          "line": 19,
-          "offset": 282,
+          "line": 18,
+          "offset": 281,
         },
         "start": {
           "column": 18,
-          "line": 19,
-          "offset": 281,
+          "line": 18,
+          "offset": 280,
         },
       },
       "range": [
+        280,
         281,
-        282,
       ],
-      "start": 281,
+      "start": 280,
       "type": "Punctuator",
       "value": ":",
     },
     {
-      "end": 290,
+      "end": 289,
       "loc": {
         "end": {
           "column": 27,
-          "line": 19,
-          "offset": 290,
+          "line": 18,
+          "offset": 289,
         },
         "start": {
           "column": 20,
-          "line": 19,
-          "offset": 283,
+          "line": 18,
+          "offset": 282,
         },
       },
       "range": [
-        283,
-        290,
+        282,
+        289,
       ],
-      "start": 283,
+      "start": 282,
       "type": "String",
       "value": "'block'",
+    },
+    {
+      "end": 291,
+      "loc": {
+        "end": {
+          "column": 29,
+          "line": 18,
+          "offset": 291,
+        },
+        "start": {
+          "column": 28,
+          "line": 18,
+          "offset": 290,
+        },
+      },
+      "range": [
+        290,
+        291,
+      ],
+      "start": 290,
+      "type": "Punctuator",
+      "value": "}",
     },
     {
       "end": 292,
       "loc": {
         "end": {
-          "column": 29,
-          "line": 19,
-          "offset": 292,
+          "column": 30,
+          "line": 18,
         },
         "start": {
-          "column": 28,
-          "line": 19,
-          "offset": 291,
+          "column": 29,
+          "line": 18,
         },
       },
       "range": [
@@ -35046,55 +35064,55 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       "value": "}",
     },
     {
-      "end": 293,
+      "end": 301,
       "loc": {
         "end": {
-          "column": 30,
+          "column": 8,
           "line": 19,
         },
         "start": {
-          "column": 29,
+          "column": 2,
           "line": 19,
         },
       },
       "range": [
-        292,
-        293,
+        295,
+        301,
       ],
-      "start": 292,
-      "type": "Punctuator",
-      "value": "}",
+      "start": 295,
+      "type": "JSXIdentifier",
+      "value": "onLoad",
     },
     {
       "end": 302,
       "loc": {
         "end": {
-          "column": 8,
-          "line": 20,
+          "column": 9,
+          "line": 19,
         },
         "start": {
-          "column": 2,
-          "line": 20,
+          "column": 8,
+          "line": 19,
         },
       },
       "range": [
-        296,
+        301,
         302,
       ],
-      "start": 296,
-      "type": "JSXIdentifier",
-      "value": "onLoad",
+      "start": 301,
+      "type": "Punctuator",
+      "value": "=",
     },
     {
       "end": 303,
       "loc": {
         "end": {
-          "column": 9,
-          "line": 20,
+          "column": 10,
+          "line": 19,
         },
         "start": {
-          "column": 8,
-          "line": 20,
+          "column": 9,
+          "line": 19,
         },
       },
       "range": [
@@ -35103,18 +35121,20 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       ],
       "start": 302,
       "type": "Punctuator",
-      "value": "=",
+      "value": "{",
     },
     {
       "end": 304,
       "loc": {
         "end": {
-          "column": 10,
-          "line": 20,
+          "column": 11,
+          "line": 19,
+          "offset": 304,
         },
         "start": {
-          "column": 9,
-          "line": 20,
+          "column": 10,
+          "line": 19,
+          "offset": 303,
         },
       },
       "range": [
@@ -35123,19 +35143,19 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       ],
       "start": 303,
       "type": "Punctuator",
-      "value": "{",
+      "value": "(",
     },
     {
       "end": 305,
       "loc": {
         "end": {
-          "column": 11,
-          "line": 20,
+          "column": 12,
+          "line": 19,
           "offset": 305,
         },
         "start": {
-          "column": 10,
-          "line": 20,
+          "column": 11,
+          "line": 19,
           "offset": 304,
         },
       },
@@ -35145,174 +35165,172 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       ],
       "start": 304,
       "type": "Punctuator",
-      "value": "(",
-    },
-    {
-      "end": 306,
-      "loc": {
-        "end": {
-          "column": 12,
-          "line": 20,
-          "offset": 306,
-        },
-        "start": {
-          "column": 11,
-          "line": 20,
-          "offset": 305,
-        },
-      },
-      "range": [
-        305,
-        306,
-      ],
-      "start": 305,
-      "type": "Punctuator",
       "value": ")",
     },
     {
-      "end": 309,
+      "end": 308,
       "loc": {
         "end": {
           "column": 15,
-          "line": 20,
-          "offset": 309,
+          "line": 19,
+          "offset": 308,
         },
         "start": {
           "column": 13,
-          "line": 20,
-          "offset": 307,
+          "line": 19,
+          "offset": 306,
         },
       },
       "range": [
-        307,
-        309,
+        306,
+        308,
       ],
-      "start": 307,
+      "start": 306,
       "type": "Punctuator",
       "value": "=>",
+    },
+    {
+      "end": 316,
+      "loc": {
+        "end": {
+          "column": 23,
+          "line": 19,
+          "offset": 316,
+        },
+        "start": {
+          "column": 16,
+          "line": 19,
+          "offset": 309,
+        },
+      },
+      "range": [
+        309,
+        316,
+      ],
+      "start": 309,
+      "type": "Identifier",
+      "value": "console",
     },
     {
       "end": 317,
       "loc": {
         "end": {
-          "column": 23,
-          "line": 20,
-          "offset": 317,
-        },
-        "start": {
-          "column": 16,
-          "line": 20,
-          "offset": 310,
-        },
-      },
-      "range": [
-        310,
-        317,
-      ],
-      "start": 310,
-      "type": "Identifier",
-      "value": "console",
-    },
-    {
-      "end": 318,
-      "loc": {
-        "end": {
           "column": 24,
-          "line": 20,
-          "offset": 318,
+          "line": 19,
+          "offset": 317,
         },
         "start": {
           "column": 23,
-          "line": 20,
-          "offset": 317,
+          "line": 19,
+          "offset": 316,
         },
       },
       "range": [
+        316,
         317,
-        318,
       ],
-      "start": 317,
+      "start": 316,
       "type": "Punctuator",
       "value": ".",
+    },
+    {
+      "end": 320,
+      "loc": {
+        "end": {
+          "column": 27,
+          "line": 19,
+          "offset": 320,
+        },
+        "start": {
+          "column": 24,
+          "line": 19,
+          "offset": 317,
+        },
+      },
+      "range": [
+        317,
+        320,
+      ],
+      "start": 317,
+      "type": "Identifier",
+      "value": "log",
     },
     {
       "end": 321,
       "loc": {
         "end": {
-          "column": 27,
-          "line": 20,
-          "offset": 321,
-        },
-        "start": {
-          "column": 24,
-          "line": 20,
-          "offset": 318,
-        },
-      },
-      "range": [
-        318,
-        321,
-      ],
-      "start": 318,
-      "type": "Identifier",
-      "value": "log",
-    },
-    {
-      "end": 322,
-      "loc": {
-        "end": {
           "column": 28,
-          "line": 20,
-          "offset": 322,
+          "line": 19,
+          "offset": 321,
         },
         "start": {
           "column": 27,
-          "line": 20,
-          "offset": 321,
+          "line": 19,
+          "offset": 320,
         },
       },
       "range": [
+        320,
         321,
-        322,
       ],
-      "start": 321,
+      "start": 320,
       "type": "Punctuator",
       "value": "(",
+    },
+    {
+      "end": 329,
+      "loc": {
+        "end": {
+          "column": 36,
+          "line": 19,
+          "offset": 329,
+        },
+        "start": {
+          "column": 28,
+          "line": 19,
+          "offset": 321,
+        },
+      },
+      "range": [
+        321,
+        329,
+      ],
+      "start": 321,
+      "type": "String",
+      "value": "'onLoad'",
     },
     {
       "end": 330,
       "loc": {
         "end": {
-          "column": 36,
-          "line": 20,
+          "column": 37,
+          "line": 19,
           "offset": 330,
         },
         "start": {
-          "column": 28,
-          "line": 20,
-          "offset": 322,
+          "column": 36,
+          "line": 19,
+          "offset": 329,
         },
       },
       "range": [
-        322,
+        329,
         330,
       ],
-      "start": 322,
-      "type": "String",
-      "value": "'onLoad'",
+      "start": 329,
+      "type": "Punctuator",
+      "value": ")",
     },
     {
       "end": 331,
       "loc": {
         "end": {
-          "column": 37,
-          "line": 20,
-          "offset": 331,
+          "column": 38,
+          "line": 19,
         },
         "start": {
-          "column": 36,
-          "line": 20,
-          "offset": 330,
+          "column": 37,
+          "line": 19,
         },
       },
       "range": [
@@ -35321,58 +35339,58 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       ],
       "start": 330,
       "type": "Punctuator",
-      "value": ")",
+      "value": "}",
     },
     {
-      "end": 332,
+      "end": 341,
       "loc": {
         "end": {
-          "column": 38,
+          "column": 9,
           "line": 20,
         },
         "start": {
-          "column": 37,
+          "column": 2,
           "line": 20,
         },
       },
       "range": [
-        331,
-        332,
+        334,
+        341,
       ],
-      "start": 331,
-      "type": "Punctuator",
-      "value": "}",
+      "start": 334,
+      "type": "JSXIdentifier",
+      "value": "onError",
     },
     {
       "end": 342,
       "loc": {
         "end": {
-          "column": 9,
-          "line": 21,
+          "column": 10,
+          "line": 20,
         },
         "start": {
-          "column": 2,
-          "line": 21,
+          "column": 9,
+          "line": 20,
         },
       },
       "range": [
-        335,
+        341,
         342,
       ],
-      "start": 335,
-      "type": "JSXIdentifier",
-      "value": "onError",
+      "start": 341,
+      "type": "Punctuator",
+      "value": "=",
     },
     {
       "end": 343,
       "loc": {
         "end": {
-          "column": 10,
-          "line": 21,
+          "column": 11,
+          "line": 20,
         },
         "start": {
-          "column": 9,
-          "line": 21,
+          "column": 10,
+          "line": 20,
         },
       },
       "range": [
@@ -35381,18 +35399,20 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       ],
       "start": 342,
       "type": "Punctuator",
-      "value": "=",
+      "value": "{",
     },
     {
       "end": 344,
       "loc": {
         "end": {
-          "column": 11,
-          "line": 21,
+          "column": 12,
+          "line": 20,
+          "offset": 344,
         },
         "start": {
-          "column": 10,
-          "line": 21,
+          "column": 11,
+          "line": 20,
+          "offset": 343,
         },
       },
       "range": [
@@ -35401,19 +35421,19 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       ],
       "start": 343,
       "type": "Punctuator",
-      "value": "{",
+      "value": "(",
     },
     {
       "end": 345,
       "loc": {
         "end": {
-          "column": 12,
-          "line": 21,
+          "column": 13,
+          "line": 20,
           "offset": 345,
         },
         "start": {
-          "column": 11,
-          "line": 21,
+          "column": 12,
+          "line": 20,
           "offset": 344,
         },
       },
@@ -35423,174 +35443,172 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       ],
       "start": 344,
       "type": "Punctuator",
-      "value": "(",
-    },
-    {
-      "end": 346,
-      "loc": {
-        "end": {
-          "column": 13,
-          "line": 21,
-          "offset": 346,
-        },
-        "start": {
-          "column": 12,
-          "line": 21,
-          "offset": 345,
-        },
-      },
-      "range": [
-        345,
-        346,
-      ],
-      "start": 345,
-      "type": "Punctuator",
       "value": ")",
     },
     {
-      "end": 349,
+      "end": 348,
       "loc": {
         "end": {
           "column": 16,
-          "line": 21,
-          "offset": 349,
+          "line": 20,
+          "offset": 348,
         },
         "start": {
           "column": 14,
-          "line": 21,
-          "offset": 347,
+          "line": 20,
+          "offset": 346,
         },
       },
       "range": [
-        347,
-        349,
+        346,
+        348,
       ],
-      "start": 347,
+      "start": 346,
       "type": "Punctuator",
       "value": "=>",
+    },
+    {
+      "end": 356,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 20,
+          "offset": 356,
+        },
+        "start": {
+          "column": 17,
+          "line": 20,
+          "offset": 349,
+        },
+      },
+      "range": [
+        349,
+        356,
+      ],
+      "start": 349,
+      "type": "Identifier",
+      "value": "console",
     },
     {
       "end": 357,
       "loc": {
         "end": {
-          "column": 24,
-          "line": 21,
-          "offset": 357,
-        },
-        "start": {
-          "column": 17,
-          "line": 21,
-          "offset": 350,
-        },
-      },
-      "range": [
-        350,
-        357,
-      ],
-      "start": 350,
-      "type": "Identifier",
-      "value": "console",
-    },
-    {
-      "end": 358,
-      "loc": {
-        "end": {
           "column": 25,
-          "line": 21,
-          "offset": 358,
+          "line": 20,
+          "offset": 357,
         },
         "start": {
           "column": 24,
-          "line": 21,
-          "offset": 357,
+          "line": 20,
+          "offset": 356,
         },
       },
       "range": [
+        356,
         357,
-        358,
       ],
-      "start": 357,
+      "start": 356,
       "type": "Punctuator",
       "value": ".",
+    },
+    {
+      "end": 360,
+      "loc": {
+        "end": {
+          "column": 28,
+          "line": 20,
+          "offset": 360,
+        },
+        "start": {
+          "column": 25,
+          "line": 20,
+          "offset": 357,
+        },
+      },
+      "range": [
+        357,
+        360,
+      ],
+      "start": 357,
+      "type": "Identifier",
+      "value": "log",
     },
     {
       "end": 361,
       "loc": {
         "end": {
-          "column": 28,
-          "line": 21,
-          "offset": 361,
-        },
-        "start": {
-          "column": 25,
-          "line": 21,
-          "offset": 358,
-        },
-      },
-      "range": [
-        358,
-        361,
-      ],
-      "start": 358,
-      "type": "Identifier",
-      "value": "log",
-    },
-    {
-      "end": 362,
-      "loc": {
-        "end": {
           "column": 29,
-          "line": 21,
-          "offset": 362,
+          "line": 20,
+          "offset": 361,
         },
         "start": {
           "column": 28,
-          "line": 21,
-          "offset": 361,
+          "line": 20,
+          "offset": 360,
         },
       },
       "range": [
+        360,
         361,
-        362,
       ],
-      "start": 361,
+      "start": 360,
       "type": "Punctuator",
       "value": "(",
+    },
+    {
+      "end": 370,
+      "loc": {
+        "end": {
+          "column": 38,
+          "line": 20,
+          "offset": 370,
+        },
+        "start": {
+          "column": 29,
+          "line": 20,
+          "offset": 361,
+        },
+      },
+      "range": [
+        361,
+        370,
+      ],
+      "start": 361,
+      "type": "String",
+      "value": "'onError'",
     },
     {
       "end": 371,
       "loc": {
         "end": {
-          "column": 38,
-          "line": 21,
+          "column": 39,
+          "line": 20,
           "offset": 371,
         },
         "start": {
-          "column": 29,
-          "line": 21,
-          "offset": 362,
+          "column": 38,
+          "line": 20,
+          "offset": 370,
         },
       },
       "range": [
-        362,
+        370,
         371,
       ],
-      "start": 362,
-      "type": "String",
-      "value": "'onError'",
+      "start": 370,
+      "type": "Punctuator",
+      "value": ")",
     },
     {
       "end": 372,
       "loc": {
         "end": {
-          "column": 39,
-          "line": 21,
-          "offset": 372,
+          "column": 40,
+          "line": 20,
         },
         "start": {
-          "column": 38,
-          "line": 21,
-          "offset": 371,
+          "column": 39,
+          "line": 20,
         },
       },
       "range": [
@@ -35599,58 +35617,58 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       ],
       "start": 371,
       "type": "Punctuator",
-      "value": ")",
+      "value": "}",
     },
     {
-      "end": 373,
+      "end": 382,
       "loc": {
         "end": {
-          "column": 40,
+          "column": 9,
           "line": 21,
         },
         "start": {
-          "column": 39,
+          "column": 2,
           "line": 21,
         },
       },
       "range": [
-        372,
-        373,
+        375,
+        382,
       ],
-      "start": 372,
-      "type": "Punctuator",
-      "value": "}",
+      "start": 375,
+      "type": "JSXIdentifier",
+      "value": "onClick",
     },
     {
       "end": 383,
       "loc": {
         "end": {
-          "column": 9,
-          "line": 22,
+          "column": 10,
+          "line": 21,
         },
         "start": {
-          "column": 2,
-          "line": 22,
+          "column": 9,
+          "line": 21,
         },
       },
       "range": [
-        376,
+        382,
         383,
       ],
-      "start": 376,
-      "type": "JSXIdentifier",
-      "value": "onClick",
+      "start": 382,
+      "type": "Punctuator",
+      "value": "=",
     },
     {
       "end": 384,
       "loc": {
         "end": {
-          "column": 10,
-          "line": 22,
+          "column": 11,
+          "line": 21,
         },
         "start": {
-          "column": 9,
-          "line": 22,
+          "column": 10,
+          "line": 21,
         },
       },
       "range": [
@@ -35659,18 +35677,20 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       ],
       "start": 383,
       "type": "Punctuator",
-      "value": "=",
+      "value": "{",
     },
     {
       "end": 385,
       "loc": {
         "end": {
-          "column": 11,
-          "line": 22,
+          "column": 12,
+          "line": 21,
+          "offset": 385,
         },
         "start": {
-          "column": 10,
-          "line": 22,
+          "column": 11,
+          "line": 21,
+          "offset": 384,
         },
       },
       "range": [
@@ -35679,19 +35699,19 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       ],
       "start": 384,
       "type": "Punctuator",
-      "value": "{",
+      "value": "(",
     },
     {
       "end": 386,
       "loc": {
         "end": {
-          "column": 12,
-          "line": 22,
+          "column": 13,
+          "line": 21,
           "offset": 386,
         },
         "start": {
-          "column": 11,
-          "line": 22,
+          "column": 12,
+          "line": 21,
           "offset": 385,
         },
       },
@@ -35701,174 +35721,172 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       ],
       "start": 385,
       "type": "Punctuator",
-      "value": "(",
-    },
-    {
-      "end": 387,
-      "loc": {
-        "end": {
-          "column": 13,
-          "line": 22,
-          "offset": 387,
-        },
-        "start": {
-          "column": 12,
-          "line": 22,
-          "offset": 386,
-        },
-      },
-      "range": [
-        386,
-        387,
-      ],
-      "start": 386,
-      "type": "Punctuator",
       "value": ")",
     },
     {
-      "end": 390,
+      "end": 389,
       "loc": {
         "end": {
           "column": 16,
-          "line": 22,
-          "offset": 390,
+          "line": 21,
+          "offset": 389,
         },
         "start": {
           "column": 14,
-          "line": 22,
-          "offset": 388,
+          "line": 21,
+          "offset": 387,
         },
       },
       "range": [
-        388,
-        390,
+        387,
+        389,
       ],
-      "start": 388,
+      "start": 387,
       "type": "Punctuator",
       "value": "=>",
+    },
+    {
+      "end": 397,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 21,
+          "offset": 397,
+        },
+        "start": {
+          "column": 17,
+          "line": 21,
+          "offset": 390,
+        },
+      },
+      "range": [
+        390,
+        397,
+      ],
+      "start": 390,
+      "type": "Identifier",
+      "value": "console",
     },
     {
       "end": 398,
       "loc": {
         "end": {
-          "column": 24,
-          "line": 22,
-          "offset": 398,
-        },
-        "start": {
-          "column": 17,
-          "line": 22,
-          "offset": 391,
-        },
-      },
-      "range": [
-        391,
-        398,
-      ],
-      "start": 391,
-      "type": "Identifier",
-      "value": "console",
-    },
-    {
-      "end": 399,
-      "loc": {
-        "end": {
           "column": 25,
-          "line": 22,
-          "offset": 399,
+          "line": 21,
+          "offset": 398,
         },
         "start": {
           "column": 24,
-          "line": 22,
-          "offset": 398,
+          "line": 21,
+          "offset": 397,
         },
       },
       "range": [
+        397,
         398,
-        399,
       ],
-      "start": 398,
+      "start": 397,
       "type": "Punctuator",
       "value": ".",
+    },
+    {
+      "end": 401,
+      "loc": {
+        "end": {
+          "column": 28,
+          "line": 21,
+          "offset": 401,
+        },
+        "start": {
+          "column": 25,
+          "line": 21,
+          "offset": 398,
+        },
+      },
+      "range": [
+        398,
+        401,
+      ],
+      "start": 398,
+      "type": "Identifier",
+      "value": "log",
     },
     {
       "end": 402,
       "loc": {
         "end": {
-          "column": 28,
-          "line": 22,
-          "offset": 402,
-        },
-        "start": {
-          "column": 25,
-          "line": 22,
-          "offset": 399,
-        },
-      },
-      "range": [
-        399,
-        402,
-      ],
-      "start": 399,
-      "type": "Identifier",
-      "value": "log",
-    },
-    {
-      "end": 403,
-      "loc": {
-        "end": {
           "column": 29,
-          "line": 22,
-          "offset": 403,
+          "line": 21,
+          "offset": 402,
         },
         "start": {
           "column": 28,
-          "line": 22,
-          "offset": 402,
+          "line": 21,
+          "offset": 401,
         },
       },
       "range": [
+        401,
         402,
-        403,
       ],
-      "start": 402,
+      "start": 401,
       "type": "Punctuator",
       "value": "(",
+    },
+    {
+      "end": 411,
+      "loc": {
+        "end": {
+          "column": 38,
+          "line": 21,
+          "offset": 411,
+        },
+        "start": {
+          "column": 29,
+          "line": 21,
+          "offset": 402,
+        },
+      },
+      "range": [
+        402,
+        411,
+      ],
+      "start": 402,
+      "type": "String",
+      "value": "'onClick'",
     },
     {
       "end": 412,
       "loc": {
         "end": {
-          "column": 38,
-          "line": 22,
+          "column": 39,
+          "line": 21,
           "offset": 412,
         },
         "start": {
-          "column": 29,
-          "line": 22,
-          "offset": 403,
+          "column": 38,
+          "line": 21,
+          "offset": 411,
         },
       },
       "range": [
-        403,
+        411,
         412,
       ],
-      "start": 403,
-      "type": "String",
-      "value": "'onClick'",
+      "start": 411,
+      "type": "Punctuator",
+      "value": ")",
     },
     {
       "end": 413,
       "loc": {
         "end": {
-          "column": 39,
-          "line": 22,
-          "offset": 413,
+          "column": 40,
+          "line": 21,
         },
         "start": {
-          "column": 38,
-          "line": 22,
-          "offset": 412,
+          "column": 39,
+          "line": 21,
         },
       },
       "range": [
@@ -35877,38 +35895,38 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       ],
       "start": 412,
       "type": "Punctuator",
-      "value": ")",
+      "value": "}",
     },
     {
-      "end": 414,
+      "end": 415,
       "loc": {
         "end": {
-          "column": 40,
+          "column": 1,
           "line": 22,
         },
         "start": {
-          "column": 39,
+          "column": 0,
           "line": 22,
         },
       },
       "range": [
-        413,
         414,
+        415,
       ],
-      "start": 413,
+      "start": 414,
       "type": "Punctuator",
-      "value": "}",
+      "value": "/",
     },
     {
       "end": 416,
       "loc": {
         "end": {
-          "column": 1,
-          "line": 23,
+          "column": 2,
+          "line": 22,
         },
         "start": {
-          "column": 0,
-          "line": 23,
+          "column": 1,
+          "line": 22,
         },
       },
       "range": [
@@ -35916,26 +35934,6 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
         416,
       ],
       "start": 415,
-      "type": "Punctuator",
-      "value": "/",
-    },
-    {
-      "end": 417,
-      "loc": {
-        "end": {
-          "column": 2,
-          "line": 23,
-        },
-        "start": {
-          "column": 1,
-          "line": 23,
-        },
-      },
-      "range": [
-        416,
-        417,
-      ],
-      "start": 416,
       "type": "Punctuator",
       "value": ">",
     },
