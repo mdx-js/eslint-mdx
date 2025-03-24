@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.3.1
+
+### Patch Changes
+
+- [#554](https://github.com/mdx-js/eslint-mdx/pull/554) [`816a2a6`](https://github.com/mdx-js/eslint-mdx/commit/816a2a632a4c96c12e8b549321168db428a12917) Thanks [@JounQin](https://github.com/JounQin)! - chore: add `module-sync` entry
+
 ## 3.3.0
 
 ### Minor Changes
