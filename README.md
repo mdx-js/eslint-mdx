@@ -6,7 +6,7 @@
     <img src="https://rx-ts.github.io/assets/heart.svg" height="50">
   </a>
   <a href="https://github.com/mdx-js/mdx">
-    <img src="https://mdx-logo.now.sh"  height="50">
+    <img src="https://avatars.githubusercontent.com/u/37453691"  height="50">
   </a>
 </p>
 
