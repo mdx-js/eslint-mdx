@@ -1,3 +1,6 @@
-import { name, version } from '../package.json'
+import { cjsRequire } from './helpers.js'
+import type { PackageJson } from './types.js'
 
-export const meta = { name, version }
+const pkg = cjsRequire<PackageJson>('../package.json')
+
+export const meta = { name: pkg.name, version: pkg.version }

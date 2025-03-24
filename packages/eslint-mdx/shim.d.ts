@@ -1,8 +1,7 @@
 declare module 'espree/lib/token-translator' {
-  export default TokenTranslator
+  import type * as acorn from 'acorn'
 
-  // eslint-disable-next-line @typescript-eslint/consistent-type-imports
-  export type acorn = typeof import('acorn')
+  export default TokenTranslator
 
   export interface Location {
     /**
@@ -57,7 +56,6 @@ declare module 'espree/lib/token-translator' {
     onToken(
       token: acorn.Token,
       extra: {
-        // eslint-disable-next-line no-magic-numbers, sonar/max-union-size
         ecmaVersion: 'latest' | 3 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13
         tokens: EsprimaToken[]
       },

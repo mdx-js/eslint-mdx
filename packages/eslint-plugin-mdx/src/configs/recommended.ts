@@ -1,9 +1,8 @@
-import { createRequire } from 'node:module'
-import path from 'node:path'
-
 import type { ESLint, Linter } from 'eslint'
 
-import { base } from './base'
+import { cjsRequire } from '../helpers.js'
+
+import { base } from './base.js'
 
 const overrides: Linter.ConfigOverride[] = [
   {
@@ -17,35 +16,15 @@ const overrides: Linter.ConfigOverride[] = [
   },
 ]
 
-export const recommended: Linter.Config = {
+export const recommended: Linter.LegacyConfig = {
   overrides,
 }
-
-/* istanbul ignore next */
-// hack to bypass syntax error for commonjs
-const getImportMetaUrl = () => {
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-implied-eval, no-new-func
-    return new Function('return import.meta.url')() as string
-  } catch {
-    // if `--experimental-vm-modules` is not enabled, the following error would be thrown:
-    // `SyntaxError: Cannot use 'import.meta' outside a module`,
-    // then we fallback to `process.cwd()` resolution which could fail actually,
-    // but we're only trying to resolve `prettier` and `eslint-plugin-prettier` dependencies,
-    // it would be fine enough
-    return path.resolve(process.cwd(), '__test__.js')
-  }
-}
-
-/* istanbul ignore next */
-const cjsRequire =
-  typeof require === 'undefined' ? createRequire(getImportMetaUrl()) : require
 
 const addPrettierRules = () => {
   try {
     cjsRequire.resolve('prettier')
 
-    const { meta } = cjsRequire('eslint-plugin-prettier') as ESLint.Plugin
+    const { meta } = cjsRequire<ESLint.Plugin>('eslint-plugin-prettier')
 
     /* istanbul ignore next */
     const version = meta?.version || ''
@@ -55,7 +34,7 @@ const addPrettierRules = () => {
      */
     const [major, minor, patch] = version.split('.')
 
-    /* istanbul ignore if -- We're using `eslint-plugin-prettier@4.2.1` for now */
+    /* istanbul ignore if -- We can't cover all versions in one test */
     if (
       /* istanbul ignore next */
       +major > 5 ||

@@ -20,6 +20,7 @@ export const codeBlocks = {
     'no-undef': 'off',
     'no-unused-expressions': 'off',
     'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
     'padded-blocks': 'off',
 
     // Adding a "use strict" directive at the top of every
@@ -31,4 +32,4 @@ export const codeBlocks = {
     // Mark from the Markdown parser.
     'unicode-bom': 'off',
   },
-} satisfies Linter.Config
+} satisfies Linter.LegacyConfig

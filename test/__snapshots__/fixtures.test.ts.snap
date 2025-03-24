@@ -7,7 +7,7 @@ exports[`fixtures lint code blocks should work as expected: code-blocks.md 1`] =
     "endColumn": 6,
     "endLine": 3,
     "line": 3,
-    "message": "Don’t use multiple top level headings (1:1)",
+    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
     "nodeType": "Program",
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
@@ -17,7 +17,7 @@ exports[`fixtures lint code blocks should work as expected: code-blocks.md 1`] =
     "endColumn": 6,
     "endLine": 3,
     "line": 3,
-    "message": "Do not use headings with similar content per section (1:1)",
+    "message": "Unexpected heading with equivalent text in section, expected unique headings",
     "nodeType": "Program",
     "ruleId": "remark-lint-no-duplicate-headings-in-section",
     "severity": 1,
@@ -56,17 +56,26 @@ exports[`fixtures lint code blocks should work as expected: code-blocks.md 1`] =
     "endColumn": 4,
     "endLine": 17,
     "line": 15,
-    "message": "Missing code language flag",
+    "message": "Unexpected missing fenced code language flag in info string, expected keyword",
     "nodeType": "Program",
     "ruleId": "remark-lint-fenced-code-flag",
     "severity": 1,
+  },
+  {
+    "column": 33,
+    "fatal": true,
+    "line": 26,
+    "message": "Parsing error: Unexpected token \`>\`. Did you mean \`&gt;\` or \`{">"}\`?",
+    "nodeType": null,
+    "ruleId": null,
+    "severity": 2,
   },
   {
     "column": 1,
     "endColumn": 6,
     "endLine": 38,
     "line": 38,
-    "message": "Don’t use multiple top level headings (1:1)",
+    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
     "nodeType": "Program",
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
@@ -76,7 +85,7 @@ exports[`fixtures lint code blocks should work as expected: code-blocks.md 1`] =
     "endColumn": 6,
     "endLine": 38,
     "line": 38,
-    "message": "Do not use headings with similar content per section (1:1)",
+    "message": "Unexpected heading with equivalent text in section, expected unique headings",
     "nodeType": "Program",
     "ruleId": "remark-lint-no-duplicate-headings-in-section",
     "severity": 1,
@@ -86,7 +95,7 @@ exports[`fixtures lint code blocks should work as expected: code-blocks.md 1`] =
     "endColumn": 6,
     "endLine": 50,
     "line": 50,
-    "message": "Don’t use multiple top level headings (5:1)",
+    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
     "nodeType": "Program",
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
@@ -96,7 +105,7 @@ exports[`fixtures lint code blocks should work as expected: code-blocks.md 1`] =
     "endColumn": 6,
     "endLine": 50,
     "line": 50,
-    "message": "Do not use headings with similar content per section (5:1)",
+    "message": "Unexpected heading with equivalent text in section, expected unique headings",
     "nodeType": "Program",
     "ruleId": "remark-lint-no-duplicate-headings-in-section",
     "severity": 1,
@@ -1050,6 +1059,64 @@ exports[`fixtures should match all snapshots: 437.mdx 1`] = `
     "nodeType": "Literal",
     "ruleId": "react/no-unescaped-entities",
     "severity": 2,
+    "suggestions": [
+      {
+        "data": {
+          "alt": "&apos;",
+        },
+        "desc": "Replace with \`&apos;\`.",
+        "fix": {
+          "range": [
+            19,
+            24,
+          ],
+          "text": "&apos;bar'",
+        },
+        "messageId": "replaceWithAlt",
+      },
+      {
+        "data": {
+          "alt": "&lsquo;",
+        },
+        "desc": "Replace with \`&lsquo;\`.",
+        "fix": {
+          "range": [
+            19,
+            24,
+          ],
+          "text": "&lsquo;bar'",
+        },
+        "messageId": "replaceWithAlt",
+      },
+      {
+        "data": {
+          "alt": "&#39;",
+        },
+        "desc": "Replace with \`&#39;\`.",
+        "fix": {
+          "range": [
+            19,
+            24,
+          ],
+          "text": "&#39;bar'",
+        },
+        "messageId": "replaceWithAlt",
+      },
+      {
+        "data": {
+          "alt": "&rsquo;",
+        },
+        "desc": "Replace with \`&rsquo;\`.",
+        "fix": {
+          "range": [
+            19,
+            24,
+          ],
+          "text": "&rsquo;bar'",
+        },
+        "messageId": "replaceWithAlt",
+      },
+    ],
   },
   {
     "column": 24,
@@ -1059,6 +1126,64 @@ exports[`fixtures should match all snapshots: 437.mdx 1`] = `
     "nodeType": "Literal",
     "ruleId": "react/no-unescaped-entities",
     "severity": 2,
+    "suggestions": [
+      {
+        "data": {
+          "alt": "&apos;",
+        },
+        "desc": "Replace with \`&apos;\`.",
+        "fix": {
+          "range": [
+            19,
+            24,
+          ],
+          "text": "'bar&apos;",
+        },
+        "messageId": "replaceWithAlt",
+      },
+      {
+        "data": {
+          "alt": "&lsquo;",
+        },
+        "desc": "Replace with \`&lsquo;\`.",
+        "fix": {
+          "range": [
+            19,
+            24,
+          ],
+          "text": "'bar&lsquo;",
+        },
+        "messageId": "replaceWithAlt",
+      },
+      {
+        "data": {
+          "alt": "&#39;",
+        },
+        "desc": "Replace with \`&#39;\`.",
+        "fix": {
+          "range": [
+            19,
+            24,
+          ],
+          "text": "'bar&#39;",
+        },
+        "messageId": "replaceWithAlt",
+      },
+      {
+        "data": {
+          "alt": "&rsquo;",
+        },
+        "desc": "Replace with \`&rsquo;\`.",
+        "fix": {
+          "range": [
+            19,
+            24,
+          ],
+          "text": "'bar&rsquo;",
+        },
+        "messageId": "replaceWithAlt",
+      },
+    ],
   },
 ]
 `;
@@ -1573,6 +1698,76 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
   },
   {
     "column": 1,
+    "endColumn": 33,
+    "endLine": 17,
+    "line": 17,
+    "message": "Cannot find file <RELATIVE_GETTING_STARTED_NEXT>",
+    "nodeType": "Program",
+    "ruleId": "remark-validate-links:missing-file-missing-file",
+    "severity": 1,
+  },
+  {
+    "column": 1,
+    "endColumn": 34,
+    "endLine": 18,
+    "line": 18,
+    "message": "Cannot find file <RELATIVE_GETTING_STARTED_GATSBY>",
+    "nodeType": "Program",
+    "ruleId": "remark-validate-links:missing-file-missing-file",
+    "severity": 1,
+  },
+  {
+    "column": 1,
+    "endColumn": 54,
+    "endLine": 19,
+    "line": 19,
+    "message": "Cannot find file <RELATIVE_GETTING_STARTED_CREATE_REACT_APP>",
+    "nodeType": "Program",
+    "ruleId": "remark-validate-links:missing-file-missing-file",
+    "severity": 1,
+  },
+  {
+    "column": 1,
+    "endColumn": 46,
+    "endLine": 20,
+    "line": 20,
+    "message": "Cannot find file <RELATIVE_GETTING_STARTED_REACT_STATIC>",
+    "nodeType": "Program",
+    "ruleId": "remark-validate-links:missing-file-missing-file",
+    "severity": 1,
+  },
+  {
+    "column": 1,
+    "endColumn": 36,
+    "endLine": 21,
+    "line": 21,
+    "message": "Cannot find file <RELATIVE_GETTING_STARTED_WEBPACK>",
+    "nodeType": "Program",
+    "ruleId": "remark-validate-links:missing-file-missing-file",
+    "severity": 1,
+  },
+  {
+    "column": 1,
+    "endColumn": 34,
+    "endLine": 22,
+    "line": 22,
+    "message": "Cannot find file <RELATIVE_GETTING_STARTED_PARCEL>",
+    "nodeType": "Program",
+    "ruleId": "remark-validate-links:missing-file-missing-file",
+    "severity": 1,
+  },
+  {
+    "column": 1,
+    "endColumn": 30,
+    "endLine": 23,
+    "line": 23,
+    "message": "Cannot find file <RELATIVE_GETTING_STARTED_ZERO>",
+    "nodeType": "Program",
+    "ruleId": "remark-validate-links:missing-file-missing-file",
+    "severity": 1,
+  },
+  {
+    "column": 1,
     "endColumn": 16,
     "endLine": 27,
     "fix": {
@@ -1620,7 +1815,7 @@ Here's a YouTube shortcode:
 ",
     },
     "line": 27,
-    "message": "Don’t use multiple top level headings (3:1)",
+    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
     "nodeType": "Program",
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
@@ -1652,7 +1847,7 @@ Here's a YouTube shortcode:
     "endColumn": 36,
     "endLine": 35,
     "line": 35,
-    "message": "Don’t use multiple top level headings (3:1)",
+    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
     "nodeType": "Program",
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
@@ -1719,7 +1914,7 @@ exports[`fixtures should match all snapshots: code-blocks.md 1`] = `
     "endColumn": 6,
     "endLine": 3,
     "line": 3,
-    "message": "Don’t use multiple top level headings (1:1)",
+    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
     "nodeType": "Program",
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
@@ -1729,7 +1924,7 @@ exports[`fixtures should match all snapshots: code-blocks.md 1`] = `
     "endColumn": 6,
     "endLine": 3,
     "line": 3,
-    "message": "Do not use headings with similar content per section (1:1)",
+    "message": "Unexpected heading with equivalent text in section, expected unique headings",
     "nodeType": "Program",
     "ruleId": "remark-lint-no-duplicate-headings-in-section",
     "severity": 1,
@@ -1739,7 +1934,7 @@ exports[`fixtures should match all snapshots: code-blocks.md 1`] = `
     "endColumn": 4,
     "endLine": 17,
     "line": 15,
-    "message": "Missing code language flag",
+    "message": "Unexpected missing fenced code language flag in info string, expected keyword",
     "nodeType": "Program",
     "ruleId": "remark-lint-fenced-code-flag",
     "severity": 1,
@@ -1864,6 +2059,22 @@ exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `
     "nodeType": "JSXText",
     "ruleId": "react/no-unescaped-entities",
     "severity": 2,
+    "suggestions": [
+      {
+        "data": {
+          "alt": "&gt;",
+        },
+        "desc": "Replace with \`&gt;\`.",
+        "fix": {
+          "range": [
+            32,
+            35,
+          ],
+          "text": " &gt; ",
+        },
+        "messageId": "replaceWithAlt",
+      },
+    ],
   },
   {
     "column": 13,
@@ -1873,6 +2084,22 @@ exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `
     "nodeType": "JSXText",
     "ruleId": "react/no-unescaped-entities",
     "severity": 2,
+    "suggestions": [
+      {
+        "data": {
+          "alt": "&gt;",
+        },
+        "desc": "Replace with \`&gt;\`.",
+        "fix": {
+          "range": [
+            88,
+            91,
+          ],
+          "text": " &gt; ",
+        },
+        "messageId": "replaceWithAlt",
+      },
+    ],
   },
 ]
 `;
@@ -1900,7 +2127,7 @@ exports[`fixtures should match all snapshots: processor.mdx 1`] = `
     "endColumn": 6,
     "endLine": 3,
     "line": 3,
-    "message": "Don’t use multiple top level headings (1:1)",
+    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
     "nodeType": "Program",
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
@@ -1910,7 +2137,7 @@ exports[`fixtures should match all snapshots: processor.mdx 1`] = `
     "endColumn": 6,
     "endLine": 3,
     "line": 3,
-    "message": "Do not use headings with similar content per section (1:1)",
+    "message": "Unexpected heading with equivalent text in section, expected unique headings",
     "nodeType": "Program",
     "ruleId": "remark-lint-no-duplicate-headings-in-section",
     "severity": 1,
@@ -1929,9 +2156,9 @@ exports[`fixtures should match all snapshots: test.md 1`] = `
     "endColumn": 15,
     "endLine": 1,
     "line": 1,
-    "message": "Link to unknown file: \`test\`",
+    "message": "Cannot find file \`test\`",
     "nodeType": "Program",
-    "ruleId": "remark-validate-links-missing-file",
+    "ruleId": "remark-validate-links:missing-file-missing-file",
     "severity": 1,
   },
 ]
@@ -1944,9 +2171,9 @@ exports[`fixtures should match all snapshots: test.md 2`] = `
     "endColumn": 15,
     "endLine": 1,
     "line": 1,
-    "message": "Link to unknown file: \`test\`",
+    "message": "Cannot find file \`test\`",
     "nodeType": "Program",
-    "ruleId": "remark-validate-links-missing-file",
+    "ruleId": "remark-validate-links:missing-file-missing-file",
     "severity": 1,
   },
 ]

@@ -1,3 +1,7 @@
+import { createRequire } from 'node:module'
+
+import type { CjsRequire } from 'eslint-mdx'
+
 export const getGlobals = <
   T extends Record<string, unknown> | string[],
   G extends Record<string, boolean>,
@@ -15,6 +19,9 @@ export const getGlobals = <
       Object.assign(globals, {
         [source]: false,
       }),
-    // eslint-disable-next-line @typescript-eslint/prefer-reduce-type-parameter
     initialGlobals as R,
   )
+
+/* istanbul ignore next */
+export const cjsRequire: CjsRequire =
+  typeof require === 'undefined' ? createRequire(import.meta.url) : require

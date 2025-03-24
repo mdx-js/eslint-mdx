@@ -10,8 +10,9 @@ import type {
   Html as HtmlNode,
 } from 'mdast'
 
-import { fromMarkdown } from './from-markdown'
-import type { Block, RangeMap } from './types'
+import { fromMarkdown } from '../from-markdown.ts'
+
+import type { Block, RangeMap } from './types.js'
 
 const UNSATISFIABLE_RULES = new Set([
   'eol-last', // The Markdown parser strips trailing newlines in code fences
@@ -239,8 +240,8 @@ const codeBlockFileNameRegex = /filename=(["']).*?\1/u
  */
 function fileNameFromMeta(block: Block): string | null | undefined {
   // istanbul ignore next
-  return block.meta
-    ?.match(codeBlockFileNameRegex)
+  return codeBlockFileNameRegex
+    .exec(block.meta)
     ?.groups.filename.replaceAll(/\s+/gu, '_')
 }
 
@@ -257,7 +258,7 @@ const languageToFileExtension: Record<string, string> = {
  * @param {string} filename The filename of the file
  * @returns {Array<{ filename: string, text: string }>} Source code blocks to lint.
  */
-// eslint-disable-next-line sonarjs/cognitive-complexity
+
 function preprocess(
   sourceText: string,
   filename: string,
@@ -401,6 +402,7 @@ function adjustBlock(
 
     const lineInCode = message.line - leadingCommentLines
 
+    // istanbul ignore if
     if (lineInCode < 1 || lineInCode >= block.rangeMap.length) {
       return null
     }
