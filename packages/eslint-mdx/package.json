@@ -1,6 +1,6 @@
 {
   "name": "eslint-mdx",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "type": "module",
   "description": "ESLint Parser for MDX",
   "repository": "https://github.com/mdx-js/eslint-mdx.git",

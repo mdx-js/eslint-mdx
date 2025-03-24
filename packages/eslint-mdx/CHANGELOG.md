@@ -1,5 +1,25 @@
 # Change Log
 
+## 3.3.0
+
+### Minor Changes
+
+- [#552](https://github.com/mdx-js/eslint-mdx/pull/552) [`1c31834`](https://github.com/mdx-js/eslint-mdx/commit/1c31834fa987452df774111e60c36e5912756ad7) Thanks [@JounQin](https://github.com/JounQin)! - feat: the new version is ESM primary, while commonjs is still supported.
+
+  ESM migration:
+
+  ```ts
+  // before
+  import eslintMdx from 'eslint-mdx'
+  import eslintPluginMdx from 'eslint-plugin-mdx'
+  ```
+
+  ```ts
+  // after
+  import * as eslintMdx from 'eslint-mdx'
+  import * as eslintPluginMdx from 'eslint-plugin-mdx'
+  ```
+
 ## 3.2.0
 
 ### Minor Changes
