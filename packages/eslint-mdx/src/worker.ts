@@ -1,11 +1,12 @@
-/* eslint-disable @typescript-eslint/consistent-type-imports */
 /* eslint-disable unicorn/no-await-expression-member */
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 
-import type { Token, TokenType, tokTypes as _tokTypes } from 'acorn'
+import type { Parser, Token, TokenType, tokTypes as _tokTypes } from 'acorn'
+import * as acorn from 'acorn'
+import acornJsx from 'acorn-jsx'
 import type { AST } from 'eslint'
-import type { EsprimaToken } from 'espree/lib/token-translator'
+import type * as TokenTranslator_ from 'espree/lib/token-translator'
 import type {
   BaseExpression,
   Comment,
@@ -25,22 +26,31 @@ import type {
   JSXNamespacedName,
   JSXText,
 } from 'estree-jsx'
+import { visit as visitEstree } from 'estree-util-visit'
 import type { Nodes, Root } from 'mdast'
 import type { Options } from 'micromark-extension-mdx-expression'
+import type * as remarkLintFileExtension from 'remark-lint-file-extension'
+import remarkMdx from 'remark-mdx'
+import remarkParse from 'remark-parse'
+import remarkStringify from 'remark-stringify'
 import { extractProperties, runAsWorker } from 'synckit'
-import type { Processor } from 'unified'
-import type { Configuration, ConfigResult } from 'unified-engine'
+import { unified, type Processor } from 'unified'
+import type { ConfigResult } from 'unified-engine'
+import { Configuration } from 'unified-engine'
 import type { Node } from 'unist'
+import { visit } from 'unist-util-visit'
 import { ok as assert } from 'uvu/assert'
+import { VFile } from 'vfile'
 import type { VFileMessage } from 'vfile-message'
 
 import {
+  cjsRequire,
   loadEsmModule,
   nextCharOffsetFactory,
   normalizePosition,
   prevCharOffsetFactory,
-} from './helpers'
-import { restoreTokens } from './tokens'
+} from './helpers.ts'
+import { restoreTokens } from './tokens.ts'
 import type {
   Arrayable,
   MDXCode,
@@ -48,21 +58,17 @@ import type {
   NormalPosition,
   WorkerOptions,
   WorkerResult,
-} from './types'
+} from './types.ts'
 
 let config: Configuration
 
-let acorn: typeof import('acorn')
-let acornJsx: {
-  default: typeof import('acorn-jsx')
-}
-let acornParser: typeof import('acorn').Parser
+let acornParser: typeof Parser
 
 let tokTypes: typeof _tokTypes
 let jsxTokTypes: Record<string, TokenType>
 let tt: Record<string, TokenType> & typeof _tokTypes
 
-let TokenTranslator: (typeof import('espree/lib/token-translator'))['default']
+let TokenTranslator: (typeof TokenTranslator_)['default']
 
 export const processorCache = new Map<
   string,
@@ -71,8 +77,6 @@ export const processorCache = new Map<
 
 const getRemarkConfig = async (searchFrom: string) => {
   if (!config) {
-    const { Configuration } =
-      await loadEsmModule<typeof import('unified-engine')>('unified-engine')
     config = new Configuration({
       cwd: process.cwd(),
       packageField: 'remarkConfig',
@@ -84,7 +88,11 @@ const getRemarkConfig = async (searchFrom: string) => {
 
   return new Promise<ConfigResult>((resolve, reject) =>
     config.load(searchFrom, (error, result) => {
-      error ? reject(error) : resolve(result)
+      if (error) {
+        reject(error)
+      } else {
+        resolve(result)
+      }
     }),
   )
 }
@@ -127,17 +135,6 @@ export const getRemarkProcessor = async (
     return cachedProcessor
   }
 
-  const { unified } = await loadEsmModule<typeof import('unified')>('unified')
-  const remarkParse = (
-    await loadEsmModule<typeof import('remark-parse')>('remark-parse')
-  ).default
-  const remarkStringify = (
-    await loadEsmModule<typeof import('remark-stringify')>('remark-stringify')
-  ).default
-  const remarkMdx = (
-    await loadEsmModule<typeof import('remark-mdx')>('remark-mdx')
-  ).default
-
   const remarkProcessor = unified().use(remarkParse).freeze()
 
   if (result?.filePath) {
@@ -151,7 +148,7 @@ export const getRemarkProcessor = async (
       try {
         plugins.push([
           (
-            await loadEsmModule<typeof import('remark-lint-file-extension')>(
+            await loadEsmModule<typeof remarkLintFileExtension>(
               'remark-lint-file-extension',
             )
           ).default,
@@ -203,8 +200,7 @@ runAsWorker(
     isMdx,
     process,
     ignoreRemarkConfig,
-  }: // eslint-disable-next-line sonarjs/cognitive-complexity
-  WorkerOptions): Promise<WorkerResult> => {
+  }: WorkerOptions): Promise<WorkerResult> => {
     sharedTokens.length = 0
 
     /**
@@ -213,12 +209,8 @@ runAsWorker(
      * otherwise the TokenType will be different class
      * @see also https://github.com/acornjs/acorn-jsx/issues/133
      */
-    if (!acorn) {
-      acorn = await loadEsmModule<typeof import('acorn')>('acorn')
-      acornJsx = await loadEsmModule<{ default: typeof import('acorn-jsx') }>(
-        'acorn-jsx',
-      )
-      acornParser = acorn.Parser.extend(acornJsx.default())
+    if (!acornParser) {
+      acornParser = acorn.Parser.extend(acornJsx())
     }
 
     const processor = await getRemarkProcessor(
@@ -228,7 +220,6 @@ runAsWorker(
     )
 
     if (process) {
-      const { VFile } = await loadEsmModule<typeof import('vfile')>('vfile')
       const file = new VFile(fileOptions)
       try {
         await processor.process(file)
@@ -251,7 +242,7 @@ runAsWorker(
 
     if (!jsxTokTypes) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      jsxTokTypes = acornJsx.default({
+      jsxTokTypes = acornJsx({
         allowNamespacedObjects: true,
         // @ts-expect-error -- no type
         // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
@@ -260,10 +251,10 @@ runAsWorker(
 
     if (!TokenTranslator) {
       TokenTranslator = (
-        await loadEsmModule<typeof import('espree/lib/token-translator')>(
+        await loadEsmModule<typeof TokenTranslator_>(
           pathToFileURL(
             path.resolve(
-              require.resolve('espree/package.json'),
+              cjsRequire.resolve('espree/package.json'),
               '../lib/token-translator.js',
             ),
           ),
@@ -286,9 +277,6 @@ runAsWorker(
     const body: Program['body'] = []
     const comments: Comment[] = []
     const tokens: AST.Token[] = []
-
-    const { visit } =
-      await loadEsmModule<typeof import('unist-util-visit')>('unist-util-visit')
 
     const processed = new WeakSet<Node>()
 
@@ -424,6 +412,7 @@ runAsWorker(
             : []
         }
 
+        // eslint-disable-next-line sonarjs/cognitive-complexity, sonarjs/function-return-type
         function handleNode(node: Nodes) {
           if (node.type === 'paragraph') {
             return handleChildren(node)
@@ -474,11 +463,6 @@ runAsWorker(
           }
 
           const children = handleChildren(node)
-
-          // keep for debugging
-          // if (+1 === 1) {
-          //   throw new SyntaxError(JSON.stringify({ node, children }, null, 2))
-          // }
 
           const nodePos = node.position
 
@@ -699,11 +683,6 @@ runAsWorker(
 
         const expression = handleNode(node)
 
-        // keep for debugging
-        // if (+1 === 1) {
-        //   throw new SyntaxError(JSON.stringify({ node, expression }, null, 2))
-        // }
-
         if (expression) {
           body.push({
             ...normalizePosition(node.position),
@@ -723,11 +702,6 @@ runAsWorker(
         comments.push(...estree.comments)
       })
     }
-
-    const { visit: visitEstree } =
-      await loadEsmModule<typeof import('estree-util-visit')>(
-        'estree-util-visit',
-      )
 
     visitEstree(
       {
@@ -768,7 +742,7 @@ runAsWorker(
     for (const token of restoreTokens(text, root, sharedTokens, tt, visit)) {
       tokenTranslator.onToken(token, {
         ecmaVersion: 'latest',
-        tokens: tokens as EsprimaToken[],
+        tokens: tokens as TokenTranslator_.EsprimaToken[],
       })
     }
 

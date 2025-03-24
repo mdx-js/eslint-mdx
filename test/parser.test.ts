@@ -1,9 +1,11 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-import { DEFAULT_PARSER_OPTIONS } from './helpers'
+import { DEFAULT_PARSER_OPTIONS } from './helpers.js'
 
 import { parser } from 'eslint-mdx'
+
+const _dirname = import.meta.dirname
 
 describe('parser', () => {
   it('should throw on incorrect extension', () => {
@@ -102,7 +104,7 @@ describe('parser', () => {
     ).toMatchSnapshot())
 
   it('should match all AST snapshots', async () => {
-    const dirents = await fs.readdir(path.join(__dirname, 'fixtures'), {
+    const dirents = await fs.readdir(path.join(_dirname, 'fixtures'), {
       withFileTypes: true,
     })
 
@@ -111,7 +113,7 @@ describe('parser', () => {
         continue
       }
       const fileName = dirent.name
-      const filePath = path.resolve(__dirname, 'fixtures', fileName)
+      const filePath = path.resolve(_dirname, 'fixtures', fileName)
       try {
         expect(
           parser.parse(await fs.readFile(filePath, 'utf8'), {

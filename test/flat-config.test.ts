@@ -7,9 +7,11 @@ import * as mdx from 'eslint-plugin-mdx'
 
 const linter = new Linter({ configType: 'flat' })
 
+const _dirname = import.meta.dirname
+
 describe('flat-config', () => {
   it('should work as expected', async () => {
-    const dirname = path.resolve(__dirname, 'fixtures/flat-config')
+    const dirname = path.resolve(_dirname, 'fixtures/flat-config')
     const files = await fs.readdir(dirname)
     for (const file of files) {
       expect(

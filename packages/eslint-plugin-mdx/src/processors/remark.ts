@@ -1,11 +1,11 @@
 import type { Linter } from 'eslint'
 
-import { meta } from '../meta'
-import type { RemarkLintMessage } from '../rules'
+import { meta } from '../meta.js'
+import type { RemarkLintMessage } from '../rules/index.js'
 
-import { getShortLang } from './helpers'
-import { markdownProcessor } from './markdown'
-import { processorOptions as defaultProcessorOptions } from './options'
+import { getShortLang } from './helpers.js'
+import { markdownProcessor } from './markdown.js'
+import { processorOptions as defaultProcessorOptions } from './options.js'
 
 export const createRemarkProcessor = (
   processorOptions = defaultProcessorOptions,
@@ -58,7 +58,10 @@ export const createRemarkProcessor = (
           ...lintMessage,
           ruleId: `${source}-${ruleId}`,
           message: reason,
-          severity: Math.max(eslintSeverity, severity) as Linter.Severity,
+          severity: Math.max(
+            eslintSeverity,
+            severity,
+          ) as Linter.LintMessage['severity'],
         }
       })
   },

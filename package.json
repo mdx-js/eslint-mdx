@@ -1,9 +1,10 @@
 {
   "name": "@mdx-js/eslint",
   "version": "0.0.0",
+  "type": "module",
   "description": "ESLint Parser/Plugin for MDX",
-  "repository": "git+https://github.com/mdx-js/eslint-mdx.git",
-  "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
+  "repository": "https://github.com/mdx-js/eslint-mdx.git",
+  "author": "JounQin <admin@1stg.me> (https://www.1stG.me)",
   "license": "MIT",
   "private": true,
   "workspaces": [
@@ -12,60 +13,58 @@
   "packageManager": "yarn@4.7.0",
   "scripts": {
     "build": "concurrently -r 'yarn:build:*'",
-    "build:r": "r -f es2015",
+    "build:r": "r -f cjs",
     "build:ts": "tsc -b",
     "clean": "rimraf --glob 'packages/*/{lib,*.tsbuildinfo}'",
-    "lint": "yarn build && concurrently -r 'yarn:lint:*'",
-    "lint:es": "eslint . --cache -f friendly",
+    "lint": "concurrently -r 'yarn:lint:*'",
+    "lint:es": "eslint . --cache",
     "lint:tsc": "tsc --noEmit",
-    "prepare": "patch-package && simple-git-hooks",
+    "prepare": "patch-package && simple-git-hooks && yarn-berry-deduplicate || exit 0",
+    "prettier": "prettier --log-level silent",
     "release": "run-s build release:only",
     "release:only": "changeset publish",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "typecov": "type-coverage",
-    "version": "changeset version && yarn --no-immutable",
-    "prettier": "prettier --log-level silent"
+    "version": "changeset version && yarn --no-immutable"
   },
   "devDependencies": {
-    "@1stg/common-config": "^10.0.0",
+    "@1stg/common-config": "^11.0.5",
     "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.28.1",
-    "@commitlint/cli": "^18.6.1",
-    "@pkgr/rollup": "^5.0.0",
+    "@commitlint/cli": "^19.8.0",
+    "@pkgr/rollup": "^6.0.1",
+    "@swc/core": "^1.11.13",
+    "@swc/jest": "^0.2.37",
     "@types/acorn": "^6.0.4",
-    "@types/eslint": "^8.56.12",
     "@types/jest": "^29.5.14",
-    "@types/node": "^20.17.24",
-    "@types/react": "^18.3.18",
+    "@types/node": "^22.13.13",
+    "@types/react": "^19.0.12",
     "@types/unist": "^3.0.3",
     "@unts/patch-package": "^8.1.1",
-    "concurrently": "^8.2.2",
-    "cross-env": "^7.0.3",
-    "eslint": "^8.57.1",
+    "@vitest/coverage-istanbul": "^3.0.9",
+    "concurrently": "^9.1.2",
+    "eslint": "^9.23.0",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^16.0.0",
     "jest": "^30.0.0-alpha.7",
-    "lint-staged": "^15.4.3",
+    "lint-staged": "^15.5.0",
+    "path-serializer": "^0.3.4",
     "prettier": "^3.5.3",
-    "react": "^18.3.1",
-    "rimraf": "^5.0.10",
-    "simple-git-hooks": "^2.11.1",
-    "ts-jest": "^29.2.6",
+    "react": "^19.0.0",
+    "rimraf": "^6.0.1",
+    "simple-git-hooks": "^2.12.1",
     "ts-node": "^10.9.2",
     "type-coverage": "^2.29.7",
-    "typescript": "~5.3.3"
+    "typescript": "^5.8.2",
+    "unplugin-auto-import": "^19.1.1",
+    "vite-tsconfig-paths": "^5.1.4",
+    "yarn-berry-deduplicate": "^6.1.1"
   },
   "resolutions": {
-    "@types/acorn": "^6.0.0",
-    "@types/mdast": "^4.0.4",
-    "@pkgr/utils": "^3.0.0",
-    "acorn": "^8.11.3",
-    "cliui": "npm:@isaacs/cliui@^8.0.2",
+    "@types/acorn": "^6.0.4",
+    "es5-ext": "npm:@unes/es5-ext@^0.10.64-1",
     "eslint-mdx": "link:packages/eslint-mdx",
     "eslint-plugin-mdx": "link:packages/eslint-plugin-mdx",
-    "mdast-util-frontmatter": "^2.0.1",
-    "mdast-util-gfm": "^3.0.0",
-    "unified": "^11.0.4",
-    "unified-engine": "^11.2.2",
-    "unist-util-visit": "^5.0.0",
     "prettier": "^3.5.3"
   },
   "commitlint": {
@@ -73,23 +72,24 @@
       "@1stg"
     ]
   },
-  "eslintIgnore": [
-    "coverage",
-    "dist",
-    "fixtures",
-    "lib",
-    "CHANGELOG.md",
-    "/test.*",
-    "!/.*.js"
-  ],
   "jest": {
-    "preset": "ts-jest",
+    "extensionsToTreatAsEsm": [
+      ".ts",
+      ".tsx"
+    ],
     "setupFiles": [
       "<rootDir>/node_modules/eslint/lib/linter/linter.js"
     ],
+    "snapshotSerializers": [
+      "<rootDir>/test/jest.serializer.cjs"
+    ],
+    "transform": {
+      "^.+\\.[cm]?tsx?$": "@swc/jest"
+    },
     "moduleNameMapper": {
-      "^eslint-mdx$": "<rootDir>/packages/eslint-mdx/src",
-      "^eslint-plugin-mdx$": "<rootDir>/packages/eslint-plugin-mdx/src"
+      "^(\\.{1,2}/.*)\\.js$": "$1",
+      "^eslint-mdx$": "<rootDir>/packages/eslint-mdx/src/index.ts",
+      "^eslint-plugin-mdx$": "<rootDir>/packages/eslint-plugin-mdx/src/index.ts"
     },
     "collectCoverage": true,
     "coverageThreshold": {

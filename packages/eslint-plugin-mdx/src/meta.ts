@@ -1,3 +1,7 @@
-import { name, version } from '../package.json'
+import type { PackageJson } from 'eslint-mdx'
 
-export const meta = { name, version }
+import { cjsRequire } from './helpers.ts'
+
+const pkg = cjsRequire<PackageJson>('../package.json')
+
+export const meta = { name: pkg.name, version: pkg.version }

@@ -3,9 +3,9 @@ import path from 'node:path'
 import type { Linter } from 'eslint'
 import type { VFileMessage } from 'vfile-message'
 
-import { arrayify, normalizePosition, getPhysicalFilename } from './helpers'
-import { performSyncWork } from './sync'
-import type { ParserOptions, WorkerParseResult } from './types'
+import { arrayify, normalizePosition, getPhysicalFilename } from './helpers.js'
+import { performSyncWork } from './sync.js'
+import type { ParserOptions, WorkerParseResult } from './types.js'
 
 export const DEFAULT_EXTENSIONS: readonly string[] = ['.mdx']
 export const MARKDOWN_EXTENSIONS: readonly string[] = ['.md']
@@ -86,6 +86,7 @@ export class Parser {
       ast: {
         ...normalizePosition(root.position),
         type: 'Program',
+        // @ts-expect-error -- should we change?
         sourceType,
         body,
         comments,

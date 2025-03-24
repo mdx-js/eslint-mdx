@@ -1,7 +1,7 @@
 /* istanbul ignore file */
-import { remark } from './remark'
+import { remark } from './remark.js'
 
-export * from './types'
+export type * from './types.js'
 
 export { remark }
 

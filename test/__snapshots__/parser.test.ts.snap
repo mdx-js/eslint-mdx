@@ -3553,6 +3553,7 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
 {
   "body": [
     {
+      "attributes": [],
       "end": 44,
       "loc": {
         "end": {
@@ -3664,6 +3665,7 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       "type": "ImportDeclaration",
     },
     {
+      "attributes": [],
       "end": 104,
       "loc": {
         "end": {
@@ -3905,6 +3907,7 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       "type": "ImportDeclaration",
     },
     {
+      "attributes": [],
       "end": 156,
       "loc": {
         "end": {
@@ -4016,6 +4019,7 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       "type": "ImportDeclaration",
     },
     {
+      "attributes": [],
       "end": 219,
       "loc": {
         "end": {
@@ -4127,6 +4131,7 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       "type": "ImportDeclaration",
     },
     {
+      "attributes": [],
       "end": 277,
       "loc": {
         "end": {
@@ -4238,6 +4243,7 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       "type": "ImportDeclaration",
     },
     {
+      "attributes": [],
       "end": 416,
       "loc": {
         "end": {
@@ -30632,6 +30638,7 @@ exports[`parser should match all AST snapshots: 445.mdx 1`] = `
 {
   "body": [
     {
+      "attributes": [],
       "end": 49,
       "loc": {
         "end": {
@@ -32304,6 +32311,7 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
 {
   "body": [
     {
+      "attributes": [],
       "end": 45,
       "loc": {
         "end": {
@@ -36767,6 +36775,7 @@ exports[`parser should match all AST snapshots: adjacent.mdx 1`] = `
 {
   "body": [
     {
+      "attributes": [],
       "end": 28,
       "loc": {
         "end": {
@@ -37306,6 +37315,7 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
 {
   "body": [
     {
+      "attributes": [],
       "end": 27,
       "loc": {
         "end": {
@@ -37395,6 +37405,7 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
       "type": "ImportDeclaration",
     },
     {
+      "attributes": [],
       "declaration": {
         "declarations": [
           {
@@ -38757,6 +38768,7 @@ exports[`parser should match all AST snapshots: blank-lines.mdx 1`] = `
 {
   "body": [
     {
+      "attributes": [],
       "end": 35,
       "loc": {
         "end": {

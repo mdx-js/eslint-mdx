@@ -1,6 +1,9 @@
-import { RuleTester } from 'eslint'
+import type { Linter } from 'eslint'
+import eslintPackage from 'eslint'
+import eslintUnsupportedApi from 'eslint/use-at-your-own-risk'
 
 import type { ParserOptions } from 'eslint-mdx'
+import * as eslintMdx from 'eslint-mdx'
 
 export const DEFAULT_PARSER_OPTIONS: ParserOptions = {
   filePath: '__placeholder__.mdx',
@@ -17,6 +20,17 @@ export const DEFAULT_PARSER_OPTIONS: ParserOptions = {
   range: true,
 }
 
-export const parser = require.resolve('eslint-mdx')
+export const parser = eslintMdx
+
+// istanbul ignore next
+const RuleTester =
+  'FlatRuleTester' in eslintUnsupportedApi
+    ? (eslintUnsupportedApi.FlatRuleTester as typeof eslintPackage.RuleTester)
+    : eslintPackage.RuleTester
 
 export const ruleTester = new RuleTester()
+
+export const languageOptions: Linter.LanguageOptions = {
+  parser,
+  parserOptions: DEFAULT_PARSER_OPTIONS,
+}

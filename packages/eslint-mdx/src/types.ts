@@ -63,3 +63,12 @@ export interface MDXHeading extends BaseNode {
   depth: HeadingDepth
   children: JSXElement['children']
 }
+
+export interface CjsRequire extends NodeJS.Require {
+  <T>(id: string): T
+}
+
+export interface PackageJson {
+  name: string
+  version: string
+}

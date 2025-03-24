@@ -15,5 +15,5 @@ export interface RemarkLintMessage {
   reason: string
   source: string
   ruleId: string
-  severity: Linter.Severity
+  severity: Linter.LintMessage['severity']
 }

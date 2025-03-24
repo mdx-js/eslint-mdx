@@ -1,14 +1,13 @@
 import { createSyncFn } from 'synckit'
 
+import { cjsRequire } from './helpers.ts'
 import type {
   WorkerOptions,
   WorkerParseResult,
   WorkerProcessResult,
-} from './types'
+} from './types.js'
 
-const workerPath = require.resolve('./worker')
-
-export const performSyncWork = createSyncFn(workerPath) as ((
-  options: Omit<WorkerOptions, 'process'>,
-) => WorkerParseResult) &
+export const performSyncWork = createSyncFn(
+  cjsRequire.resolve('./worker.js'),
+) as ((options: Omit<WorkerOptions, 'process'>) => WorkerParseResult) &
   ((options: WorkerOptions & { process: true }) => WorkerProcessResult)

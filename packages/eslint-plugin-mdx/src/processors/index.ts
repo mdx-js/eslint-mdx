@@ -1,8 +1,8 @@
-import { remark } from './remark'
+import { remark } from './remark.js'
 
-export * from './helpers'
-export * from './options'
-export { createRemarkProcessor } from './remark'
-export * from './types'
+export * from './helpers.js'
+export * from './options.js'
+export { createRemarkProcessor } from './remark.js'
+export type * from './types.js'
 
 export const processors = { remark }

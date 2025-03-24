@@ -1,6 +1,6 @@
 import type { Linter } from 'eslint'
 
-export const base: Linter.Config = {
+export const base: Linter.LegacyConfig = {
   parser: 'eslint-mdx',
   parserOptions: {
     sourceType: 'module',

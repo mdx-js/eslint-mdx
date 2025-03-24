@@ -9,7 +9,7 @@ import {
   getPositionAtFactory,
   nextCharOffsetFactory,
   prevCharOffsetFactory,
-} from './helpers'
+} from './helpers.js'
 
 export const restoreTokens = (
   text: string,

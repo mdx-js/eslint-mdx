@@ -1,10 +1,11 @@
 import fs from 'node:fs'
+import { createRequire } from 'node:module'
 import path from 'node:path'
 
 import type { Position } from 'acorn'
 import type { Point } from 'unist'
 
-import type { NormalPosition } from './types'
+import type { CjsRequire, NormalPosition } from './types.js'
 
 export const last = <T>(items: T[] | readonly T[]) =>
   // eslint-disable-next-line unicorn/prefer-at -- FIXME: Node 16.6+ required
@@ -14,6 +15,7 @@ export const arrayify = <T, R = T extends Array<infer S> ? S : T>(
   ...args: T[]
 ) =>
   args.reduce<R[]>((arr, curr) => {
+    // eslint-disable-next-line sonarjs/no-nested-conditional
     arr.push(...(Array.isArray(curr) ? curr : curr == null ? [] : [curr]))
     return arr
   }, [])
@@ -59,7 +61,7 @@ export const getPhysicalFilename = (
  */
 /* istanbul ignore next */
 export const loadEsmModule = <T>(modulePath: URL | string): Promise<T> =>
-  // eslint-disable-next-line @typescript-eslint/no-implied-eval, no-new-func
+  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-call
   new Function('modulePath', `return import(modulePath);`)(
     modulePath,
   ) as Promise<T>
@@ -143,3 +145,7 @@ export const nextCharOffsetFactory = (text: string) => {
     }
   }
 }
+
+/* istanbul ignore next */
+export const cjsRequire: CjsRequire =
+  typeof require === 'undefined' ? createRequire(import.meta.url) : require

@@ -9,7 +9,7 @@ import {
   performSyncWork,
 } from 'eslint-mdx'
 
-import type { RemarkLintMessage } from './types'
+import type { RemarkLintMessage } from './types.js'
 
 export const remark: Rule.RuleModule = {
   meta: {
@@ -22,11 +22,12 @@ export const remark: Rule.RuleModule = {
     fixable: 'code',
   },
   create(context) {
-    // eslint-disable-next-line sonar/deprecation -- FIXME: ESLint 8.40+ required
+    // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
     const filename = context.getFilename()
     const extname = path.extname(filename)
-    // eslint-disable-next-line sonar/deprecation -- FIXME: ESLint 8.40+ required
+    // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
     const sourceCode = context.getSourceCode()
+    // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
     const options = context.parserOptions as ParserOptions
     const isMdx = [
       ...DEFAULT_EXTENSIONS,
@@ -37,7 +38,6 @@ export const remark: Rule.RuleModule = {
       ...(options.markdownExtensions || []),
     ].includes(extname)
     return {
-      // eslint-disable-next-line sonarjs/cognitive-complexity
       Program(node) {
         /* istanbul ignore if */
         if (!isMdx && !isMarkdown) {
@@ -54,7 +54,7 @@ export const remark: Rule.RuleModule = {
           fileOptions: {
             path: physicalFilename,
             value: sourceText,
-            // eslint-disable-next-line sonar/deprecation -- FIXME: ESLint 8.40+ required
+            // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
             cwd: context.getCwd(),
           },
           physicalFilename,
@@ -76,6 +76,7 @@ export const remark: Rule.RuleModule = {
         } of messages) {
           // https://github.com/remarkjs/remark-lint/issues/65#issuecomment-220800231
           /* istanbul ignore next */
+          // eslint-disable-next-line sonarjs/no-nested-conditional
           const severity = fatal ? 2 : fatal == null ? 0 : 1
           /* istanbul ignore if */
           if (!severity) {
