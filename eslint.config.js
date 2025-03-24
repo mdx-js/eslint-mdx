@@ -54,6 +54,7 @@ export default config([
     rules: {
       ...mdx.flatCodeBlocks.rules,
       'no-magic-numbers': 'off',
+      'sonarjs/unused-import': 'off',
     },
   },
 ])
