@@ -109,7 +109,7 @@
   },
   "renovate": {
     "extends": [
-      "@1stg"
+      "github>1stG/configs"
     ]
   },
   "typeCoverage": {
