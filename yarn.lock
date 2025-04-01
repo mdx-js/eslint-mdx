@@ -3730,7 +3730,7 @@ __metadata:
     ts-node: "npm:^10.9.2"
     type-coverage: "npm:^2.29.7"
     typescript: "npm:^5.8.2"
-    unplugin-auto-import: "npm:^19.1.1"
+    unplugin-auto-import: "npm:^19.1.2"
     vite-tsconfig-paths: "npm:^5.1.4"
     yarn-berry-deduplicate: "npm:^6.1.1"
   languageName: unknown
@@ -11018,7 +11018,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"local-pkg@npm:^1.0.0":
+"local-pkg@npm:^1.0.0, local-pkg@npm:^1.1.1":
   version: 1.1.1
   resolution: "local-pkg@npm:1.1.1"
   dependencies:
@@ -16344,15 +16344,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unplugin-auto-import@npm:^19.1.1":
-  version: 19.1.1
-  resolution: "unplugin-auto-import@npm:19.1.1"
+"unplugin-auto-import@npm:^19.1.2":
+  version: 19.1.2
+  resolution: "unplugin-auto-import@npm:19.1.2"
   dependencies:
-    local-pkg: "npm:^1.0.0"
+    local-pkg: "npm:^1.1.1"
     magic-string: "npm:^0.30.17"
     picomatch: "npm:^4.0.2"
     unimport: "npm:^4.1.2"
-    unplugin: "npm:^2.2.0"
+    unplugin: "npm:^2.2.2"
     unplugin-utils: "npm:^0.2.4"
   peerDependencies:
     "@nuxt/kit": ^3.2.2
@@ -16362,7 +16362,7 @@ __metadata:
       optional: true
     "@vueuse/core":
       optional: true
-  checksum: 10c0/22763f078c20eb3b124f6bd5b26fa4fbad3d6addafabaad9e16b31bd1f1f50b263d0100a5d45a82c74c903bf4ae6a464068c3d77f68459be09850ae767561a6c
+  checksum: 10c0/5d71b807405778085f7a83c1997172908981c3e8837321ab8e27ea7aae82717d36fa63617b2585b0dd6aa98399423d4643ef26efafd5ce72425ec112917b7e54
   languageName: node
   linkType: hard
 
@@ -16376,7 +16376,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unplugin@npm:^2.2.0":
+"unplugin@npm:^2.2.0, unplugin@npm:^2.2.2":
   version: 2.2.2
   resolution: "unplugin@npm:2.2.2"
   dependencies:
