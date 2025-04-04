@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.3.2
+
+### Patch Changes
+
+- [#558](https://github.com/mdx-js/eslint-mdx/pull/558) [`cb2a660`](https://github.com/mdx-js/eslint-mdx/commit/cb2a660fc1a712b0ac91a603f5b34f7b8a050aac) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): pin dependencies, bump `synckit`
+
 ## 3.3.1
 
 ### Patch Changes
