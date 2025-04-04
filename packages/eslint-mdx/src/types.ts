@@ -3,7 +3,6 @@ import type { AST, Linter } from 'eslint'
 import type { BaseNode, Program } from 'estree'
 import type { JSXElement } from 'estree-jsx'
 import type { Root } from 'mdast'
-import type { VFileOptions } from 'vfile'
 import type { VFileMessage } from 'vfile-message'
 
 export interface ParserOptions extends Linter.ParserOptions {
@@ -24,8 +23,9 @@ export interface NormalPosition {
 }
 
 export interface WorkerOptions {
-  fileOptions: VFileOptions
-  physicalFilename: string
+  filePath: string
+  code: string
+  cwd?: string
   isMdx: boolean
   process?: boolean
   ignoreRemarkConfig?: boolean
@@ -40,7 +40,7 @@ export interface WorkerParseResult {
 
 export interface WorkerProcessResult {
   messages: VFileMessage[]
-  content: string
+  content?: string
 }
 
 export type WorkerResult = WorkerParseResult | WorkerProcessResult

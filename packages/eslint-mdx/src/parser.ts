@@ -47,17 +47,12 @@ export class Parser {
       )
     }
 
-    const physicalFilename = getPhysicalFilename(filePath)
-
     let result: WorkerParseResult
 
     try {
       result = performSyncWork({
-        fileOptions: {
-          path: physicalFilename,
-          value: code,
-        },
-        physicalFilename,
+        filePath: getPhysicalFilename(filePath),
+        code,
         isMdx,
         ignoreRemarkConfig,
       })

@@ -46,18 +46,13 @@ export const remark: Rule.RuleModule = {
 
         const ignoreRemarkConfig = Boolean(options.ignoreRemarkConfig)
 
-        const physicalFilename = getPhysicalFilename(filename)
-
         const sourceText = sourceCode.getText(node)
 
         const { messages, content: fixedText } = performSyncWork({
-          fileOptions: {
-            path: physicalFilename,
-            value: sourceText,
-            // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
-            cwd: context.getCwd(),
-          },
-          physicalFilename,
+          filePath: getPhysicalFilename(filename),
+          code: sourceText,
+          // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
+          cwd: context.getCwd(),
           isMdx,
           process: true,
           ignoreRemarkConfig,
@@ -110,7 +105,7 @@ export const remark: Rule.RuleModule = {
                 : point,
             node,
             fix:
-              fixedText === sourceText
+              fixedText == null || fixedText === sourceText
                 ? null
                 : () =>
                     fixed++

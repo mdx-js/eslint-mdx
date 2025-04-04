@@ -7,10 +7,6 @@ import type { Point } from 'unist'
 
 import type { CjsRequire, NormalPosition } from './types.js'
 
-export const last = <T>(items: T[] | readonly T[]) =>
-  // eslint-disable-next-line unicorn/prefer-at -- FIXME: Node 16.6+ required
-  items && items[items.length - 1]
-
 export const arrayify = <T, R = T extends Array<infer S> ? S : T>(
   ...args: T[]
 ) =>
@@ -45,30 +41,9 @@ export const getPhysicalFilename = (
   return filename
 }
 
-/**
- * ! copied from https://github.com/just-jeb/angular-builders/blob/master/packages/custom-webpack/src/utils.ts#L53-L67
- *
- * This uses a dynamic import to load a module which may be ESM.
- * CommonJS code can load ESM code via a dynamic import. Unfortunately, TypeScript
- * will currently, unconditionally downlevel dynamic import into a require call.
- * require calls cannot load ESM code and will result in a runtime error. To workaround
- * this, a Function constructor is used to prevent TypeScript from changing the dynamic import.
- * Once TypeScript provides support for keeping the dynamic import this workaround can
- * be dropped.
- *
- * @param modulePath The path of the module to load.
- * @returns A Promise that resolves to the dynamically imported module.
- */
-/* istanbul ignore next */
-export const loadEsmModule = <T>(modulePath: URL | string): Promise<T> =>
-  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-call
-  new Function('modulePath', `return import(modulePath);`)(
-    modulePath,
-  ) as Promise<T>
-
 /* istanbul ignore next -- used in worker */
-export const getPositionAtFactory = (text: string) => {
-  const lines = text.split('\n')
+export const getPositionAtFactory = (code: string) => {
+  const lines = code.split('\n')
   return (offset: number): Position => {
     let currOffset = 0
 
@@ -91,19 +66,19 @@ export const getPositionAtFactory = (text: string) => {
 export const normalizePosition = ({
   start,
   end,
-  text,
+  code,
 }: {
   start: Point | { offset: number }
   end: Point | { offset: number }
-  text?: string
+  code?: string
 }): NormalPosition => {
   const startOffset = start.offset
   const endOffset = end.offset
   const range: [number, number] = [startOffset, endOffset]
   const getPositionAt =
-    text == null
+    code == null
       ? null
-      : /* istanbul ignore next -- used in worker */ getPositionAtFactory(text)
+      : /* istanbul ignore next -- used in worker */ getPositionAtFactory(code)
   return {
     start: startOffset,
     end: endOffset,
@@ -123,10 +98,10 @@ export const normalizePosition = ({
 
 /* istanbul ignore next -- used in worker */
 export const prevCharOffsetFactory =
-  (text: string) =>
+  (code: string) =>
   (offset: number): number => {
     for (let i = offset; i >= 0; i--) {
-      const char = text[i]
+      const char = code[i]
       if (/^\S$/.test(char)) {
         return i
       }
