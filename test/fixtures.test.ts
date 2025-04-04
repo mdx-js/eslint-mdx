@@ -1,7 +1,7 @@
 import path from 'node:path'
 
 import eslintJs from '@eslint/js'
-import * as eslintPackage from 'eslint'
+import eslint from 'eslint'
 import eslintUnsupportedApi from 'eslint/use-at-your-own-risk'
 import prettierRecommended from 'eslint-plugin-prettier/recommended'
 import eslintReact from 'eslint-plugin-react'
@@ -11,7 +11,7 @@ import globals from 'globals'
 import * as mdx from 'eslint-plugin-mdx'
 
 // eslint-disable-next-line sonarjs/deprecation
-const ESLint = eslintUnsupportedApi.FlatESLint ?? eslintPackage.ESLint
+const ESLint = eslintUnsupportedApi.FlatESLint ?? eslint.ESLint
 
 const getCli = (lintCodeBlocks = false, fix?: boolean) =>
   new ESLint({

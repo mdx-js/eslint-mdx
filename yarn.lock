@@ -3828,13 +3828,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pkgr/core@npm:^0.1.0":
-  version: 0.1.2
-  resolution: "@pkgr/core@npm:0.1.2"
-  checksum: 10c0/fd4acc154c8f1b5c544b6dd152b7ce68f6cbb8b92e9abf2e5d756d6e95052d08d0d693a668dea67af1386d62635b50adfe463cce03c5620402b468498cc7592f
-  languageName: node
-  linkType: hard
-
 "@pkgr/core@npm:^0.2.0":
   version: 0.2.0
   resolution: "@pkgr/core@npm:0.2.0"
@@ -6250,9 +6243,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001688":
-  version: 1.0.30001709
-  resolution: "caniuse-lite@npm:1.0.30001709"
-  checksum: 10c0/0acf91f59f52661fc47042e4eee1b527deb54044ae4c79ae7464d0789b79146ad587153a76d78b09157261b9fad89235eb161cd8ea7a58d36fc7f25a2e937df5
+  version: 1.0.30001710
+  resolution: "caniuse-lite@npm:1.0.30001710"
+  checksum: 10c0/665bd44b4d22c071ae8e9a55c365996ad2e742d2b3927f628b3ce257bb84554c1ef8bea544dc7eeb32819e2d8efd950c3cf187a55f07c3f30b24947f08caab31
   languageName: node
   linkType: hard
 
@@ -15616,33 +15609,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"synckit@npm:^0.11.0":
-  version: 0.11.1
-  resolution: "synckit@npm:0.11.1"
+"synckit@npm:^0.11.2":
+  version: 0.11.2
+  resolution: "synckit@npm:0.11.2"
   dependencies:
     "@pkgr/core": "npm:^0.2.0"
     tslib: "npm:^2.8.1"
-  checksum: 10c0/284f6137eaf31c999634fcbe82a8fb23e50c507da2abe930714080cdd7af4365c2fa3bbab4694d451d8e0b48395ec01ffca5a83fb571a415ff4a52b2d9d3309d
-  languageName: node
-  linkType: hard
-
-"synckit@npm:^0.6.2 || ^0.7.3 || ^0.10.3":
-  version: 0.10.3
-  resolution: "synckit@npm:0.10.3"
-  dependencies:
-    "@pkgr/core": "npm:^0.2.0"
-    tslib: "npm:^2.8.1"
-  checksum: 10c0/9855d10231ae9b69c3aa08d46c96bd4befdcac33da44e29fb80e5c1430e453b5a33b8c073cdd25cfe9578f1d625c7d60c394ece1e202237116c1484def614041
-  languageName: node
-  linkType: hard
-
-"synckit@npm:^0.9.0, synckit@npm:^0.9.1, synckit@npm:^0.9.2":
-  version: 0.9.2
-  resolution: "synckit@npm:0.9.2"
-  dependencies:
-    "@pkgr/core": "npm:^0.1.0"
-    tslib: "npm:^2.6.2"
-  checksum: 10c0/e0c262817444e5b872708adb6f5ad37951ba33f6b2d1d4477d45db1f57573a784618ceed5e6614e0225db330632b1f6b95bb74d21e4d013e45ad4bde03d0cb59
+  checksum: 10c0/e7744abce8041233d6be40c05dcbff6177aec88f2625a586a01855aa97757d3b6c640714e0c73eed917a382bd76eb815d4af66ca80ca8f94f880fd4dfb9429c6
   languageName: node
   linkType: hard
 

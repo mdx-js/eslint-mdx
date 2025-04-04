@@ -64,7 +64,8 @@
     "es5-ext": "npm:@unes/es5-ext@^0.10.64-1",
     "eslint-mdx": "link:packages/eslint-mdx",
     "eslint-plugin-mdx": "link:packages/eslint-plugin-mdx",
-    "prettier": "^3.5.3"
+    "prettier": "^3.5.3",
+    "synckit": "^0.11.2"
   },
   "commitlint": {
     "extends": [
