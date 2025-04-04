@@ -16,11 +16,11 @@
     "build:r": "r -f cjs",
     "build:ts": "tsc -b",
     "clean": "rimraf --glob 'packages/*/{lib,*.tsbuildinfo}'",
+    "format": "prettier --write .",
     "lint": "concurrently -r 'yarn:lint:*'",
     "lint:es": "eslint . --cache",
     "lint:tsc": "tsc --noEmit",
     "prepare": "patch-package && simple-git-hooks && yarn-berry-deduplicate || exit 0",
-    "prettier": "prettier --log-level silent",
     "release": "run-s build release:only",
     "release:only": "changeset publish",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
@@ -61,7 +61,6 @@
     "yarn-berry-deduplicate": "^6.1.1"
   },
   "resolutions": {
-    "@types/acorn": "^6.0.4",
     "es5-ext": "npm:@unes/es5-ext@^0.10.64-1",
     "eslint-mdx": "link:packages/eslint-mdx",
     "eslint-plugin-mdx": "link:packages/eslint-plugin-mdx",

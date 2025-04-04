@@ -5613,49 +5613,49 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                           "type": "TemplateElement",
                           "value": {
                             "cooked": "
-        <aui-tab-group [(tab)]="tab">
-          <aui-tab
-            name="a"
-            label="Tab 0"
-          >
-            <aui-card> Content 1</aui-card>
-          </aui-tab>
-          <aui-tab
-            name="b"
-            label="Tab 1"
-          >
-            <aui-card> Content 2</aui-card>
-          </aui-tab>
-          <aui-tab
-            name="c"
-            label="Tab 2"
-          >
-            <aui-card> Content 3</aui-card>
-          </aui-tab>
-        </aui-tab-group>
-      ",
+      <aui-tab-group [(tab)]="tab">
+        <aui-tab
+          name="a"
+          label="Tab 0"
+        >
+          <aui-card> Content 1</aui-card>
+        </aui-tab>
+        <aui-tab
+          name="b"
+          label="Tab 1"
+        >
+          <aui-card> Content 2</aui-card>
+        </aui-tab>
+        <aui-tab
+          name="c"
+          label="Tab 2"
+        >
+          <aui-card> Content 3</aui-card>
+        </aui-tab>
+      </aui-tab-group>
+    ",
                             "raw": "
-        <aui-tab-group [(tab)]="tab">
-          <aui-tab
-            name="a"
-            label="Tab 0"
-          >
-            <aui-card> Content 1</aui-card>
-          </aui-tab>
-          <aui-tab
-            name="b"
-            label="Tab 1"
-          >
-            <aui-card> Content 2</aui-card>
-          </aui-tab>
-          <aui-tab
-            name="c"
-            label="Tab 2"
-          >
-            <aui-card> Content 3</aui-card>
-          </aui-tab>
-        </aui-tab-group>
-      ",
+      <aui-tab-group [(tab)]="tab">
+        <aui-tab
+          name="a"
+          label="Tab 0"
+        >
+          <aui-card> Content 1</aui-card>
+        </aui-tab>
+        <aui-tab
+          name="b"
+          label="Tab 1"
+        >
+          <aui-card> Content 2</aui-card>
+        </aui-tab>
+        <aui-tab
+          name="c"
+          label="Tab 2"
+        >
+          <aui-card> Content 3</aui-card>
+        </aui-tab>
+      </aui-tab-group>
+    ",
                           },
                         },
                       ],
@@ -6340,19 +6340,19 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                           "type": "TemplateElement",
                           "value": {
                             "cooked": "
-        <aui-tab-group [type]="type">
-          <aui-tab label="Tab 0"><aui-card> Content 1 </aui-card></aui-tab>
-          <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
-          <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
-        </aui-tab-group>
-      ",
+      <aui-tab-group [type]="type">
+        <aui-tab label="Tab 0"><aui-card> Content 1 </aui-card></aui-tab>
+        <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
+        <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+      </aui-tab-group>
+    ",
                             "raw": "
-        <aui-tab-group [type]="type">
-          <aui-tab label="Tab 0"><aui-card> Content 1 </aui-card></aui-tab>
-          <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
-          <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
-        </aui-tab-group>
-      ",
+      <aui-tab-group [type]="type">
+        <aui-tab label="Tab 0"><aui-card> Content 1 </aui-card></aui-tab>
+        <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
+        <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+      </aui-tab-group>
+    ",
                           },
                         },
                       ],
@@ -7051,43 +7051,43 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                           "type": "TemplateElement",
                           "value": {
                             "cooked": "
-        <aui-form-item>
-          <label auiFormItemLabel>尺寸</label>
-          <aui-radio-group
-            auiFormItemControl
-            [(ngModel)]="size"
-            [plain]="false"
-          >
-            <aui-radio-button value="large">大</aui-radio-button>
-            <aui-radio-button value="medium">中</aui-radio-button>
-            <aui-radio-button value="small">小</aui-radio-button>
-          </aui-radio-group>
-        </aui-form-item>
-        <aui-tab-group [size]="size">
-          <aui-tab label="Tab 0"><aui-card> Content 1 </aui-card></aui-tab>
-          <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
-          <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
-        </aui-tab-group>
-      ",
+      <aui-form-item>
+        <label auiFormItemLabel>尺寸</label>
+        <aui-radio-group
+          auiFormItemControl
+          [(ngModel)]="size"
+          [plain]="false"
+        >
+          <aui-radio-button value="large">大</aui-radio-button>
+          <aui-radio-button value="medium">中</aui-radio-button>
+          <aui-radio-button value="small">小</aui-radio-button>
+        </aui-radio-group>
+      </aui-form-item>
+      <aui-tab-group [size]="size">
+        <aui-tab label="Tab 0"><aui-card> Content 1 </aui-card></aui-tab>
+        <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
+        <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+      </aui-tab-group>
+    ",
                             "raw": "
-        <aui-form-item>
-          <label auiFormItemLabel>尺寸</label>
-          <aui-radio-group
-            auiFormItemControl
-            [(ngModel)]="size"
-            [plain]="false"
-          >
-            <aui-radio-button value="large">大</aui-radio-button>
-            <aui-radio-button value="medium">中</aui-radio-button>
-            <aui-radio-button value="small">小</aui-radio-button>
-          </aui-radio-group>
-        </aui-form-item>
-        <aui-tab-group [size]="size">
-          <aui-tab label="Tab 0"><aui-card> Content 1 </aui-card></aui-tab>
-          <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
-          <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
-        </aui-tab-group>
-      ",
+      <aui-form-item>
+        <label auiFormItemLabel>尺寸</label>
+        <aui-radio-group
+          auiFormItemControl
+          [(ngModel)]="size"
+          [plain]="false"
+        >
+          <aui-radio-button value="large">大</aui-radio-button>
+          <aui-radio-button value="medium">中</aui-radio-button>
+          <aui-radio-button value="small">小</aui-radio-button>
+        </aui-radio-group>
+      </aui-form-item>
+      <aui-tab-group [size]="size">
+        <aui-tab label="Tab 0"><aui-card> Content 1 </aui-card></aui-tab>
+        <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
+        <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+      </aui-tab-group>
+    ",
                           },
                         },
                       ],
@@ -7810,41 +7810,41 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                           "type": "TemplateElement",
                           "value": {
                             "cooked": "<aui-tab-group>
-        <ng-container *auiTabTitle>aa2</ng-container>
-        <aui-tab>
-          <ng-container *auiTabLabel>
-            <aui-icon icon="sun"></aui-icon>
-            Custom Label
-          </ng-container>
-          <aui-card> Content 1 </aui-card>
-        </aui-tab>
-        <aui-tab label="Tab 1"><aui-card>Content 2</aui-card></aui-tab>
-        <aui-tab>
-          <ng-container *auiTabLabel>
-            <aui-icon icon="moon"></aui-icon>
-            Custom Label
-          </ng-container>
-          <aui-card> Content 3 </aui-card>
-        </aui-tab>
-      </aui-tab-group>",
+      <ng-container *auiTabTitle>aa2</ng-container>
+      <aui-tab>
+        <ng-container *auiTabLabel>
+          <aui-icon icon="sun"></aui-icon>
+          Custom Label
+        </ng-container>
+        <aui-card> Content 1 </aui-card>
+      </aui-tab>
+      <aui-tab label="Tab 1"><aui-card>Content 2</aui-card></aui-tab>
+      <aui-tab>
+        <ng-container *auiTabLabel>
+          <aui-icon icon="moon"></aui-icon>
+          Custom Label
+        </ng-container>
+        <aui-card> Content 3 </aui-card>
+      </aui-tab>
+    </aui-tab-group>",
                             "raw": "<aui-tab-group>
-        <ng-container *auiTabTitle>aa2</ng-container>
-        <aui-tab>
-          <ng-container *auiTabLabel>
-            <aui-icon icon="sun"></aui-icon>
-            Custom Label
-          </ng-container>
-          <aui-card> Content 1 </aui-card>
-        </aui-tab>
-        <aui-tab label="Tab 1"><aui-card>Content 2</aui-card></aui-tab>
-        <aui-tab>
-          <ng-container *auiTabLabel>
-            <aui-icon icon="moon"></aui-icon>
-            Custom Label
-          </ng-container>
-          <aui-card> Content 3 </aui-card>
-        </aui-tab>
-      </aui-tab-group>",
+      <ng-container *auiTabTitle>aa2</ng-container>
+      <aui-tab>
+        <ng-container *auiTabLabel>
+          <aui-icon icon="sun"></aui-icon>
+          Custom Label
+        </ng-container>
+        <aui-card> Content 1 </aui-card>
+      </aui-tab>
+      <aui-tab label="Tab 1"><aui-card>Content 2</aui-card></aui-tab>
+      <aui-tab>
+        <ng-container *auiTabLabel>
+          <aui-icon icon="moon"></aui-icon>
+          Custom Label
+        </ng-container>
+        <aui-card> Content 3 </aui-card>
+      </aui-tab>
+    </aui-tab-group>",
                           },
                         },
                       ],
@@ -8750,47 +8750,47 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                           "type": "TemplateElement",
                           "value": {
                             "cooked": "
-        <aui-tab-group>
-          <aui-tab
-            *ngFor="let tab of tabs; index as i; count as len"
-            [closeable]="len > 1"
-            [label]="'tab' + tab"
-            (close)="remove(i)"
-          >
-            <aui-card> content {{ i }} </aui-card>
-          </aui-tab>
-          <button
-            *auiTabHeaderAddon
-            aui-button="primary"
-            (click)="add()"
-            size="small"
-            [square]="true"
-          >
-            <aui-icon icon="plus"></aui-icon>
-          </button>
-        </aui-tab-group>
-      ",
+      <aui-tab-group>
+        <aui-tab
+          *ngFor="let tab of tabs; index as i; count as len"
+          [closeable]="len > 1"
+          [label]="'tab' + tab"
+          (close)="remove(i)"
+        >
+          <aui-card> content {{ i }} </aui-card>
+        </aui-tab>
+        <button
+          *auiTabHeaderAddon
+          aui-button="primary"
+          (click)="add()"
+          size="small"
+          [square]="true"
+        >
+          <aui-icon icon="plus"></aui-icon>
+        </button>
+      </aui-tab-group>
+    ",
                             "raw": "
-        <aui-tab-group>
-          <aui-tab
-            *ngFor="let tab of tabs; index as i; count as len"
-            [closeable]="len > 1"
-            [label]="'tab' + tab"
-            (close)="remove(i)"
-          >
-            <aui-card> content {{ i }} </aui-card>
-          </aui-tab>
-          <button
-            *auiTabHeaderAddon
-            aui-button="primary"
-            (click)="add()"
-            size="small"
-            [square]="true"
-          >
-            <aui-icon icon="plus"></aui-icon>
-          </button>
-        </aui-tab-group>
-      ",
+      <aui-tab-group>
+        <aui-tab
+          *ngFor="let tab of tabs; index as i; count as len"
+          [closeable]="len > 1"
+          [label]="'tab' + tab"
+          (close)="remove(i)"
+        >
+          <aui-card> content {{ i }} </aui-card>
+        </aui-tab>
+        <button
+          *auiTabHeaderAddon
+          aui-button="primary"
+          (click)="add()"
+          size="small"
+          [square]="true"
+        >
+          <aui-icon icon="plus"></aui-icon>
+        </button>
+      </aui-tab-group>
+    ",
                           },
                         },
                       ],
@@ -11014,37 +11014,37 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                           "type": "TemplateElement",
                           "value": {
                             "cooked": "
-        <aui-tab-group>
-          <aui-tab label="Tab 0"> <aui-card> Content 1 </aui-card> </aui-tab>
-          <aui-tab
-            label="Tab 1"
-            [disabled]="true"
-            ><aui-card> Content 2 </aui-card></aui-tab
-          >
-          <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
-          <aui-tab
-            label="Tab 3"
-            [disabled]="true"
-            ><aui-card> Content 4 </aui-card></aui-tab
-          >
-        </aui-tab-group>
-      ",
+      <aui-tab-group>
+        <aui-tab label="Tab 0"> <aui-card> Content 1 </aui-card> </aui-tab>
+        <aui-tab
+          label="Tab 1"
+          [disabled]="true"
+          ><aui-card> Content 2 </aui-card></aui-tab
+        >
+        <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+        <aui-tab
+          label="Tab 3"
+          [disabled]="true"
+          ><aui-card> Content 4 </aui-card></aui-tab
+        >
+      </aui-tab-group>
+    ",
                             "raw": "
-        <aui-tab-group>
-          <aui-tab label="Tab 0"> <aui-card> Content 1 </aui-card> </aui-tab>
-          <aui-tab
-            label="Tab 1"
-            [disabled]="true"
-            ><aui-card> Content 2 </aui-card></aui-tab
-          >
-          <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
-          <aui-tab
-            label="Tab 3"
-            [disabled]="true"
-            ><aui-card> Content 4 </aui-card></aui-tab
-          >
-        </aui-tab-group>
-      ",
+      <aui-tab-group>
+        <aui-tab label="Tab 0"> <aui-card> Content 1 </aui-card> </aui-tab>
+        <aui-tab
+          label="Tab 1"
+          [disabled]="true"
+          ><aui-card> Content 2 </aui-card></aui-tab
+        >
+        <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+        <aui-tab
+          label="Tab 3"
+          [disabled]="true"
+          ><aui-card> Content 4 </aui-card></aui-tab
+        >
+      </aui-tab-group>
+    ",
                           },
                         },
                       ],
@@ -11946,65 +11946,65 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                           "type": "TemplateElement",
                           "value": {
                             "cooked": "
-        <aui-form-item>
-          <label auiFormItemLabel>启用</label>
-          <aui-radio-group
-            auiFormItemControl
-            [(ngModel)]="lazy"
-            [plain]="false"
+      <aui-form-item>
+        <label auiFormItemLabel>启用</label>
+        <aui-radio-group
+          auiFormItemControl
+          [(ngModel)]="lazy"
+          [plain]="false"
+        >
+          <aui-radio-button [value]="true">是</aui-radio-button>
+          <aui-radio-button [value]="false">否</aui-radio-button>
+        </aui-radio-group>
+      </aui-form-item>
+      <aui-tab-group [lazy]="lazy">
+        <aui-tab label="Tab 1">
+          <tabs-lazy-test *auiTabContent
+            ><aui-card> Content 1 </aui-card></tabs-lazy-test
           >
-            <aui-radio-button [value]="true">是</aui-radio-button>
-            <aui-radio-button [value]="false">否</aui-radio-button>
-          </aui-radio-group>
-        </aui-form-item>
-        <aui-tab-group [lazy]="lazy">
-          <aui-tab label="Tab 1">
-            <tabs-lazy-test *auiTabContent
-              ><aui-card> Content 1 </aui-card></tabs-lazy-test
-            >
-          </aui-tab>
-          <aui-tab label="Tab 2">
-            <tabs-lazy-test *auiTabContent
-              ><aui-card> Content 2 </aui-card></tabs-lazy-test
-            >
-          </aui-tab>
-          <aui-tab label="Tab 3">
-            <tabs-lazy-test *auiTabContent
-              ><aui-card> Content 3 </aui-card></tabs-lazy-test
-            >
-          </aui-tab>
-        </aui-tab-group>
-      ",
+        </aui-tab>
+        <aui-tab label="Tab 2">
+          <tabs-lazy-test *auiTabContent
+            ><aui-card> Content 2 </aui-card></tabs-lazy-test
+          >
+        </aui-tab>
+        <aui-tab label="Tab 3">
+          <tabs-lazy-test *auiTabContent
+            ><aui-card> Content 3 </aui-card></tabs-lazy-test
+          >
+        </aui-tab>
+      </aui-tab-group>
+    ",
                             "raw": "
-        <aui-form-item>
-          <label auiFormItemLabel>启用</label>
-          <aui-radio-group
-            auiFormItemControl
-            [(ngModel)]="lazy"
-            [plain]="false"
+      <aui-form-item>
+        <label auiFormItemLabel>启用</label>
+        <aui-radio-group
+          auiFormItemControl
+          [(ngModel)]="lazy"
+          [plain]="false"
+        >
+          <aui-radio-button [value]="true">是</aui-radio-button>
+          <aui-radio-button [value]="false">否</aui-radio-button>
+        </aui-radio-group>
+      </aui-form-item>
+      <aui-tab-group [lazy]="lazy">
+        <aui-tab label="Tab 1">
+          <tabs-lazy-test *auiTabContent
+            ><aui-card> Content 1 </aui-card></tabs-lazy-test
           >
-            <aui-radio-button [value]="true">是</aui-radio-button>
-            <aui-radio-button [value]="false">否</aui-radio-button>
-          </aui-radio-group>
-        </aui-form-item>
-        <aui-tab-group [lazy]="lazy">
-          <aui-tab label="Tab 1">
-            <tabs-lazy-test *auiTabContent
-              ><aui-card> Content 1 </aui-card></tabs-lazy-test
-            >
-          </aui-tab>
-          <aui-tab label="Tab 2">
-            <tabs-lazy-test *auiTabContent
-              ><aui-card> Content 2 </aui-card></tabs-lazy-test
-            >
-          </aui-tab>
-          <aui-tab label="Tab 3">
-            <tabs-lazy-test *auiTabContent
-              ><aui-card> Content 3 </aui-card></tabs-lazy-test
-            >
-          </aui-tab>
-        </aui-tab-group>
-      ",
+        </aui-tab>
+        <aui-tab label="Tab 2">
+          <tabs-lazy-test *auiTabContent
+            ><aui-card> Content 2 </aui-card></tabs-lazy-test
+          >
+        </aui-tab>
+        <aui-tab label="Tab 3">
+          <tabs-lazy-test *auiTabContent
+            ><aui-card> Content 3 </aui-card></tabs-lazy-test
+          >
+        </aui-tab>
+      </aui-tab-group>
+    ",
                           },
                         },
                       ],
@@ -13006,73 +13006,73 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                           "type": "TemplateElement",
                           "value": {
                             "cooked": " <aui-form-item>
-          <label auiFormItemLabel>启用 Lazy</label>
-          <aui-radio-group
-            auiFormItemControl
-            [(ngModel)]="lazy"
-            [plain]="false"
+        <label auiFormItemLabel>启用 Lazy</label>
+        <aui-radio-group
+          auiFormItemControl
+          [(ngModel)]="lazy"
+          [plain]="false"
+        >
+          <aui-radio-button [value]="true">是</aui-radio-button>
+          <aui-radio-button [value]="false">否</aui-radio-button>
+        </aui-radio-group>
+      </aui-form-item>
+      <aui-tab-group [lazy]="lazy">
+        <aui-tab label="Tab 1">
+          <tabs-active-test *auiTabContent
+            ><aui-card>Content 1</aui-card></tabs-active-test
           >
-            <aui-radio-button [value]="true">是</aui-radio-button>
-            <aui-radio-button [value]="false">否</aui-radio-button>
-          </aui-radio-group>
-        </aui-form-item>
-        <aui-tab-group [lazy]="lazy">
-          <aui-tab label="Tab 1">
-            <tabs-active-test *auiTabContent
-              ><aui-card>Content 1</aui-card></tabs-active-test
-            >
-          </aui-tab>
-          <aui-tab label="Tab 2">
-            <tabs-active-test *auiTabContent>
-              <aui-tab-group [lazy]="true">
-                <aui-tab label="Tab 2-1">
-                  <tabs-active-test *auiTabContent>
-                    <aui-card> Content 2-1 </aui-card>
-                  </tabs-active-test>
-                </aui-tab>
-                <aui-tab label="Tab 2-2">
-                  <tabs-active-test *auiTabContent>
-                    <aui-card> Content 2-2 </aui-card>
-                  </tabs-active-test>
-                </aui-tab>
-              </aui-tab-group>
-            </tabs-active-test>
-          </aui-tab>
-        </aui-tab-group>",
+        </aui-tab>
+        <aui-tab label="Tab 2">
+          <tabs-active-test *auiTabContent>
+            <aui-tab-group [lazy]="true">
+              <aui-tab label="Tab 2-1">
+                <tabs-active-test *auiTabContent>
+                  <aui-card> Content 2-1 </aui-card>
+                </tabs-active-test>
+              </aui-tab>
+              <aui-tab label="Tab 2-2">
+                <tabs-active-test *auiTabContent>
+                  <aui-card> Content 2-2 </aui-card>
+                </tabs-active-test>
+              </aui-tab>
+            </aui-tab-group>
+          </tabs-active-test>
+        </aui-tab>
+      </aui-tab-group>",
                             "raw": " <aui-form-item>
-          <label auiFormItemLabel>启用 Lazy</label>
-          <aui-radio-group
-            auiFormItemControl
-            [(ngModel)]="lazy"
-            [plain]="false"
+        <label auiFormItemLabel>启用 Lazy</label>
+        <aui-radio-group
+          auiFormItemControl
+          [(ngModel)]="lazy"
+          [plain]="false"
+        >
+          <aui-radio-button [value]="true">是</aui-radio-button>
+          <aui-radio-button [value]="false">否</aui-radio-button>
+        </aui-radio-group>
+      </aui-form-item>
+      <aui-tab-group [lazy]="lazy">
+        <aui-tab label="Tab 1">
+          <tabs-active-test *auiTabContent
+            ><aui-card>Content 1</aui-card></tabs-active-test
           >
-            <aui-radio-button [value]="true">是</aui-radio-button>
-            <aui-radio-button [value]="false">否</aui-radio-button>
-          </aui-radio-group>
-        </aui-form-item>
-        <aui-tab-group [lazy]="lazy">
-          <aui-tab label="Tab 1">
-            <tabs-active-test *auiTabContent
-              ><aui-card>Content 1</aui-card></tabs-active-test
-            >
-          </aui-tab>
-          <aui-tab label="Tab 2">
-            <tabs-active-test *auiTabContent>
-              <aui-tab-group [lazy]="true">
-                <aui-tab label="Tab 2-1">
-                  <tabs-active-test *auiTabContent>
-                    <aui-card> Content 2-1 </aui-card>
-                  </tabs-active-test>
-                </aui-tab>
-                <aui-tab label="Tab 2-2">
-                  <tabs-active-test *auiTabContent>
-                    <aui-card> Content 2-2 </aui-card>
-                  </tabs-active-test>
-                </aui-tab>
-              </aui-tab-group>
-            </tabs-active-test>
-          </aui-tab>
-        </aui-tab-group>",
+        </aui-tab>
+        <aui-tab label="Tab 2">
+          <tabs-active-test *auiTabContent>
+            <aui-tab-group [lazy]="true">
+              <aui-tab label="Tab 2-1">
+                <tabs-active-test *auiTabContent>
+                  <aui-card> Content 2-1 </aui-card>
+                </tabs-active-test>
+              </aui-tab>
+              <aui-tab label="Tab 2-2">
+                <tabs-active-test *auiTabContent>
+                  <aui-card> Content 2-2 </aui-card>
+                </tabs-active-test>
+              </aui-tab>
+            </aui-tab-group>
+          </tabs-active-test>
+        </aui-tab>
+      </aui-tab-group>",
                           },
                         },
                       ],
@@ -13781,23 +13781,23 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
                           "type": "TemplateElement",
                           "value": {
                             "cooked": "
-        <aui-tab-group size="large">
-          <ng-container *auiTabTitle>Title</ng-container>
-          <aui-tab label="Tab 0"> <aui-card> Content 1 </aui-card> </aui-tab>
-          <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
-          <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
-          <aui-tab label="Tab 3"><aui-card> Content 4 </aui-card></aui-tab>
-        </aui-tab-group>
-      ",
+      <aui-tab-group size="large">
+        <ng-container *auiTabTitle>Title</ng-container>
+        <aui-tab label="Tab 0"> <aui-card> Content 1 </aui-card> </aui-tab>
+        <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
+        <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+        <aui-tab label="Tab 3"><aui-card> Content 4 </aui-card></aui-tab>
+      </aui-tab-group>
+    ",
                             "raw": "
-        <aui-tab-group size="large">
-          <ng-container *auiTabTitle>Title</ng-container>
-          <aui-tab label="Tab 0"> <aui-card> Content 1 </aui-card> </aui-tab>
-          <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
-          <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
-          <aui-tab label="Tab 3"><aui-card> Content 4 </aui-card></aui-tab>
-        </aui-tab-group>
-      ",
+      <aui-tab-group size="large">
+        <ng-container *auiTabTitle>Title</ng-container>
+        <aui-tab label="Tab 0"> <aui-card> Content 1 </aui-card> </aui-tab>
+        <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
+        <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+        <aui-tab label="Tab 3"><aui-card> Content 4 </aui-card></aui-tab>
+      </aui-tab-group>
+    ",
                           },
                         },
                       ],
@@ -41617,7 +41617,7 @@ exports[`parser should match all AST snapshots: code-blocks.md 1`] = `
 
 exports[`parser should match all AST snapshots: comments.mdx 1`] = `"Unexpected character \`!\` (U+0021) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\` (note: to create a comment in MDX, use \`{/* text */}\`)"`;
 
-exports[`parser should match all AST snapshots: details.mdx 1`] = `"Expected a closing tag for \`</summary>\` (1:1-1:10) before the end of \`paragraph\`"`;
+exports[`parser should match all AST snapshots: details.mdx 1`] = `"Expected a closing tag for \`<details>\` (1:1-1:10) before the end of \`paragraph\`"`;
 
 exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
 {
@@ -48642,13 +48642,13 @@ exports[`parser should match all AST snapshots: unicorn.mdx 1`] = `
                       "type": "TemplateElement",
                       "value": {
                         "cooked": "<div abc>
-      <div>Nested</div>
-      Hello World
-    </div>",
+    <div>Nested</div>
+    Hello World
+  </div>",
                         "raw": "<div abc>
-      <div>Nested</div>
-      Hello World
-    </div>",
+    <div>Nested</div>
+    Hello World
+  </div>",
                       },
                     },
                   ],
