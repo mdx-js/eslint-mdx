@@ -37,7 +37,7 @@ import remarkStringify from 'remark-stringify'
 import { extractProperties, runAsWorker } from 'synckit'
 import { unified, type Processor } from 'unified'
 import type { ConfigResult } from 'unified-engine'
-import { Configuration } from 'unified-engine'
+import { Configuration, Ignore } from 'unified-engine'
 import type { Node } from 'unist'
 import { visit } from 'unist-util-visit'
 import { ok as assert } from 'uvu/assert'
@@ -73,18 +73,35 @@ export const processorCache = new Map<
   Processor<Root, undefined, undefined, Root, string>
 >()
 
+let cwd: string
+
 let configLoad: (filePath: string) => Promise<ConfigResult>
 
+let ignoreCheck: (filePath: string) => Promise<boolean>
+
 const getRemarkConfig = async (filePath: string) => {
+  if (!cwd) {
+    cwd = process.cwd()
+  }
+
   if (!configLoad) {
     const config = new Configuration({
-      cwd: process.cwd(),
+      cwd,
       packageField: 'remarkConfig',
       pluginPrefix: 'remark',
       rcName: '.remarkrc',
       detectConfig: true,
     })
     configLoad = promisify(config.load.bind(config))
+  }
+
+  if (!ignoreCheck) {
+    const ignore = new Ignore({
+      cwd,
+      ignoreName: '.remarkignore',
+      detectIgnore: true,
+    })
+    ignoreCheck = promisify(ignore.check.bind(ignore))
   }
 
   return configLoad(filePath)
@@ -216,6 +233,12 @@ runAsWorker(
     }
 
     if (process) {
+      if (await ignoreCheck(filePath)) {
+        return {
+          messages: [],
+        }
+      }
+
       const file = new VFile(fileOptions)
       try {
         await processor.process(file)
