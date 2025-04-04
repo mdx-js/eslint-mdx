@@ -1,5 +1,3 @@
-import { last } from 'eslint-mdx'
-
 export const DEFAULT_LANGUAGE_MAPPER: Record<string, string> = {
   javascript: 'js',
   javascriptreact: 'jsx',
@@ -14,7 +12,7 @@ export function getShortLang(
   filename: string,
   languageMapper?: Record<string, string> | false,
 ): string {
-  const language = last(filename.split('.'))
+  const language = filename.split('.').at(-1)
   if (languageMapper === false) {
     return language
   }

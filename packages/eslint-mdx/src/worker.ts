@@ -2,6 +2,7 @@
 
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
+import { promisify } from 'node:util'
 
 import type { Parser, Token, TokenType, tokTypes as _tokTypes } from 'acorn'
 import * as acorn from 'acorn'
@@ -30,7 +31,6 @@ import type {
 import { visit as visitEstree } from 'estree-util-visit'
 import type { Nodes, Root } from 'mdast'
 import type { Options } from 'micromark-extension-mdx-expression'
-import type * as remarkLintFileExtension from 'remark-lint-file-extension'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
 import remarkStringify from 'remark-stringify'
@@ -41,12 +41,11 @@ import { Configuration } from 'unified-engine'
 import type { Node } from 'unist'
 import { visit } from 'unist-util-visit'
 import { ok as assert } from 'uvu/assert'
-import { VFile } from 'vfile'
+import { VFile, type VFileOptions } from 'vfile'
 import type { VFileMessage } from 'vfile-message'
 
 import {
   cjsRequire,
-  loadEsmModule,
   nextCharOffsetFactory,
   normalizePosition,
   prevCharOffsetFactory,
@@ -61,8 +60,6 @@ import type {
   WorkerResult,
 } from './types.ts'
 
-let config: Configuration
-
 let acornParser: typeof Parser
 
 let tokTypes: typeof _tokTypes
@@ -76,26 +73,21 @@ export const processorCache = new Map<
   Processor<Root, undefined, undefined, Root, string>
 >()
 
-const getRemarkConfig = async (searchFrom: string) => {
-  if (!config) {
-    config = new Configuration({
+let configLoad: (filePath: string) => Promise<ConfigResult>
+
+const getRemarkConfig = async (filePath: string) => {
+  if (!configLoad) {
+    const config = new Configuration({
       cwd: process.cwd(),
       packageField: 'remarkConfig',
       pluginPrefix: 'remark',
       rcName: '.remarkrc',
       detectConfig: true,
     })
+    configLoad = promisify(config.load.bind(config))
   }
 
-  return new Promise<ConfigResult>((resolve, reject) =>
-    config.load(searchFrom, (error, result) => {
-      if (error) {
-        reject(error)
-      } else {
-        resolve(result)
-      }
-    }),
-  )
+  return configLoad(filePath)
 }
 
 const getRemarkMdxOptions = (tokens: Token[]): Options => ({
@@ -112,11 +104,11 @@ const getRemarkMdxOptions = (tokens: Token[]): Options => ({
 const sharedTokens: Token[] = []
 
 export const getRemarkProcessor = async (
-  searchFrom: string,
+  filePath: string,
   isMdx: boolean,
   ignoreRemarkConfig?: boolean,
 ) => {
-  const initCacheKey = `${String(isMdx)}-${searchFrom}`
+  const initCacheKey = `${String(isMdx)}-${filePath}`
 
   let cachedProcessor = processorCache.get(initCacheKey)
 
@@ -124,7 +116,7 @@ export const getRemarkProcessor = async (
     return cachedProcessor
   }
 
-  const result = ignoreRemarkConfig ? null : await getRemarkConfig(searchFrom)
+  const result = ignoreRemarkConfig ? null : await getRemarkConfig(filePath)
 
   const cacheKey = result?.filePath
     ? `${String(isMdx)}-${result.filePath}`
@@ -148,11 +140,7 @@ export const getRemarkProcessor = async (
     if (plugins.length > 0) {
       try {
         plugins.push([
-          (
-            await loadEsmModule<typeof remarkLintFileExtension>(
-              'remark-lint-file-extension',
-            )
-          ).default,
+          (await import('remark-lint-file-extension')).default,
           false,
         ])
       } catch {
@@ -196,8 +184,9 @@ function isExpressionStatement(
 
 runAsWorker(
   async ({
-    fileOptions,
-    physicalFilename,
+    filePath,
+    code,
+    cwd,
     isMdx,
     process,
     ignoreRemarkConfig,
@@ -215,10 +204,16 @@ runAsWorker(
     }
 
     const processor = await getRemarkProcessor(
-      physicalFilename,
+      filePath,
       isMdx,
       ignoreRemarkConfig,
     )
+
+    const fileOptions: VFileOptions = {
+      path: filePath,
+      value: code,
+      cwd,
+    }
 
     if (process) {
       const file = new VFile(fileOptions)
@@ -252,14 +247,14 @@ runAsWorker(
 
     if (!TokenTranslator) {
       TokenTranslator = (
-        await loadEsmModule<typeof TokenTranslator_>(
+        (await import(
           pathToFileURL(
             path.resolve(
               cjsRequire.resolve('espree/package.json'),
               '../lib/token-translator.js',
             ),
-          ),
-        )
+          ).href
+        )) as typeof TokenTranslator_
       ).default
     }
 
@@ -270,8 +265,7 @@ runAsWorker(
       }
     }
 
-    const text = fileOptions.value as string
-    const tokenTranslator = new TokenTranslator(tt, text)
+    const tokenTranslator = new TokenTranslator(tt, code)
 
     const root = processor.parse(fileOptions)
 
@@ -283,16 +277,16 @@ runAsWorker(
 
     // TODO: merge with `tokens.ts`
     if (isMdx) {
-      const prevCharOffset = prevCharOffsetFactory(text)
-      const nextCharOffset = nextCharOffsetFactory(text)
+      const prevCharOffset = prevCharOffsetFactory(code)
+      const nextCharOffset = nextCharOffsetFactory(code)
 
       const normalizeNode = (start: number, end: number) => ({
         ...normalizePosition({
           start: { offset: start },
           end: { offset: end },
-          text,
+          code,
         }),
-        raw: text.slice(start, end),
+        raw: code.slice(start, end),
       })
 
       const handleJsxName = (
@@ -478,7 +472,7 @@ runAsWorker(
             const nodeNameLength = node.name.length
             const nodeNameStart = nextCharOffset(nodeStart + 1)
 
-            const selfClosing = text[lastCharOffset] === '/'
+            const selfClosing = code[lastCharOffset] === '/'
 
             let lastAttrOffset = nodeNameStart + nodeNameLength - 1
 
@@ -488,11 +482,11 @@ runAsWorker(
               const prevOffset = prevCharOffset(lastCharOffset)
               const slashOffset = prevCharOffset(prevOffset - nodeNameLength)
               assert(
-                text[slashOffset] === '/',
-                `expect \`${text[slashOffset]}\` to be \`/\`, the node is ${node.name}`,
+                code[slashOffset] === '/',
+                `expect \`${code[slashOffset]}\` to be \`/\`, the node is ${node.name}`,
               )
               const tagStartOffset = prevCharOffset(slashOffset - 1)
-              assert(text[tagStartOffset] === '<')
+              assert(code[tagStartOffset] === '<')
               closingElement = {
                 ...normalizeNode(tagStartOffset, nodeEnd),
                 type: 'JSXClosingElement',
@@ -517,8 +511,8 @@ runAsWorker(
                     attrValStart = prevCharOffset(attrValStart - 1)
                     attrValEnd = nextCharOffset(attrValEnd)
 
-                    assert(text[attrValStart] === '{')
-                    assert(text[attrValEnd] === '}')
+                    assert(code[attrValStart] === '{')
+                    assert(code[attrValEnd] === '}')
 
                     lastAttrOffset = attrValEnd
 
@@ -566,14 +560,14 @@ runAsWorker(
                     attrStart + attrNameLength,
                   )
 
-                  assert(text[attrEqualOffset] === '=')
+                  assert(code[attrEqualOffset] === '=')
 
                   let attrValuePos: NormalPosition
 
                   if (typeof attrValue === 'string') {
                     const attrQuoteOffset = nextCharOffset(attrEqualOffset + 1)
 
-                    const attrQuote = text[attrQuoteOffset]
+                    const attrQuote = code[attrQuoteOffset]
 
                     assert(attrQuote === '"' || attrQuote === "'")
 
@@ -581,7 +575,7 @@ runAsWorker(
                       attrQuoteOffset + attrValue.length + 1,
                     )
 
-                    assert(text[lastAttrOffset] === attrQuote)
+                    assert(code[lastAttrOffset] === attrQuote)
 
                     attrValuePos = normalizeNode(
                       attrQuoteOffset,
@@ -595,8 +589,8 @@ runAsWorker(
                     attrValStart = prevCharOffset(attrValStart - 1)
                     attrValEnd = nextCharOffset(attrValEnd)
 
-                    assert(text[attrValStart] === '{')
-                    assert(text[attrValEnd] === '}')
+                    assert(code[attrValStart] === '{')
+                    assert(code[attrValEnd] === '}')
 
                     lastAttrOffset = attrValEnd
 
@@ -635,13 +629,13 @@ runAsWorker(
             }
 
             let nextOffset = nextCharOffset(lastAttrOffset + 1)
-            let nextChar = text[nextOffset]
+            let nextChar = code[nextOffset]
 
             const expectedNextChar = selfClosing ? '/' : '>'
 
             if (nextChar !== expectedNextChar) {
               nextOffset = /** @type {number} */ nextCharOffset(lastAttrOffset)
-              nextChar = text[nextOffset]
+              nextChar = code[nextOffset]
             }
 
             assert(
@@ -740,7 +734,7 @@ runAsWorker(
       },
     )
 
-    for (const token of restoreTokens(text, root, sharedTokens, tt, visit)) {
+    for (const token of restoreTokens(code, root, sharedTokens, tt, visit)) {
       tokenTranslator.onToken(token, {
         ecmaVersion: 'latest',
         tokens: tokens as TokenTranslator_.EsprimaToken[],

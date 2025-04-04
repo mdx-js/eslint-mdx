@@ -10,7 +10,7 @@
   </a>
 </p>
 
-[![GitHub Actions](https://github.com/mdx-js/eslint-mdx/workflows/CI/badge.svg)](https://github.com/mdx-js/eslint-mdx/actions/workflows/ci.yml)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mdx-js/eslint-mdx/ci.yml?branch=master)](https://github.com/mdx-js/eslint-mdx/actions/workflows/ci.yml?query=branch%3Amaster)
 [![Codecov](https://img.shields.io/codecov/c/gh/mdx-js/eslint-mdx)](https://codecov.io/gh/mdx-js/eslint-mdx)
 [![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fmdx-js%2Feslint-mdx%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
 [![GitHub release](https://img.shields.io/github/release/mdx-js/eslint-mdx)](https://github.com/mdx-js/eslint-mdx/releases)
