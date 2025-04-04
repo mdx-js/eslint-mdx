@@ -1786,9 +1786,9 @@ the installation guides.
   p={3}
   bg="lightgray"
   style={{
-    textAlign: 'center',
-    fontWeight: 'bold',
-  }}
+  textAlign: 'center',
+  fontWeight: 'bold',
+}}
 >
   [Next.js](/getting-started/next) |
   [Gatsby](/getting-started/gatsby) |
@@ -1878,9 +1878,9 @@ the installation guides.
   bg="lightgray"
   p={3}
   style={{
-    textAlign: 'center',
-    fontWeight: 'bold',
-  }}
+textAlign: 'center',
+fontWeight: 'bold',
+}}
 >
   [Next.js](/getting-started/next) |
   [Gatsby](/getting-started/gatsby) |
@@ -1964,7 +1964,7 @@ exports[`fixtures should match all snapshots: details.mdx 1`] = `
     "column": 1,
     "fatal": true,
     "line": 1,
-    "message": "Parsing error: Expected a closing tag for \`</summary>\` (1:1-1:10) before the end of \`paragraph\`",
+    "message": "Parsing error: Expected a closing tag for \`<details>\` (1:1-1:10) before the end of \`paragraph\`",
     "nodeType": null,
     "ruleId": null,
     "severity": 2,

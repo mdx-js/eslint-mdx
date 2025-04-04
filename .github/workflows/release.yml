@@ -9,19 +9,24 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: write
+  id-token: write
+  pull-requests: write
+
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
 
       - name: Setup Node.js LTS
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4
         with:
           node-version: lts/*
           cache: yarn
@@ -43,4 +48,5 @@ jobs:
           publish: yarn release:only
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

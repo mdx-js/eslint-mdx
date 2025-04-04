@@ -1,5 +1,5 @@
 import type { Linter } from 'eslint'
-import eslintPackage from 'eslint'
+import eslint from 'eslint'
 import eslintUnsupportedApi from 'eslint/use-at-your-own-risk'
 
 import type { ParserOptions } from 'eslint-mdx'
@@ -25,8 +25,8 @@ export const parser = eslintMdx
 // istanbul ignore next
 const RuleTester =
   'FlatRuleTester' in eslintUnsupportedApi
-    ? (eslintUnsupportedApi.FlatRuleTester as typeof eslintPackage.RuleTester)
-    : eslintPackage.RuleTester
+    ? (eslintUnsupportedApi.FlatRuleTester as typeof eslint.RuleTester)
+    : eslint.RuleTester
 
 export const ruleTester = new RuleTester()
 
