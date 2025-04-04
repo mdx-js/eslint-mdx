@@ -50,6 +50,7 @@ jobs:
           yarn lint
           yarn test
         env:
+          SYNCKIT_TIMEOUT: 10000
           PARSER_NO_WATCH: true
 
       - name: Codecov
