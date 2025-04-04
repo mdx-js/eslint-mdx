@@ -23,7 +23,6 @@ jobs:
           - 22
         eslint:
           - 8
-          - 9
       fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
@@ -39,8 +38,8 @@ jobs:
       - name: Install Dependencies
         run: yarn --immutable
 
-      - name: Install ESLint 8
-        if: ${{ matrix.eslint == 8 }}
+      - name: Install ESLint ${{ matrix.eslint }}
+        if: ${{ matrix.eslint != 9 }}
         run: |
           yarn add -D eslint@${{ matrix.eslint }} @types/eslint@9
           yarn set resolution eslint-plugin-unicorn@npm:^57.0.0 npm:^56
