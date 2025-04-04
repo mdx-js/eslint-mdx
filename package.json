@@ -32,6 +32,7 @@
     "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.28.1",
     "@commitlint/cli": "^19.8.0",
+    "@oxc-node/core": "^0.0.22",
     "@pkgr/rollup": "^6.0.1",
     "@swc/core": "^1.11.16",
     "@swc/jest": "^0.2.37",

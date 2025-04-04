@@ -3,9 +3,6 @@
   "compilerOptions": {
     "noEmit": true
   },
-  "ts-node": {
-    "swc": true
-  },
   "references": [
     {
       "path": "./packages/eslint-mdx"
