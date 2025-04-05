@@ -1,5 +1,22 @@
 # Change Log
 
+## 3.4.0
+
+### Minor Changes
+
+- [#562](https://github.com/mdx-js/eslint-mdx/pull/562) [`3aa0f20`](https://github.com/mdx-js/eslint-mdx/commit/3aa0f20174361adce25f969bfb48a4fc214fcdff) Thanks [@JounQin](https://github.com/JounQin)! - refactor: remove unnecessary `loadEsmModule` helper, use native `import()` instead
+
+- [#564](https://github.com/mdx-js/eslint-mdx/pull/564) [`2672044`](https://github.com/mdx-js/eslint-mdx/commit/267204411119fd25d498ceb727d54e94e2eafd26) Thanks [@JounQin](https://github.com/JounQin)! - feat: check nested code blocks without blank lines
+
+- [#564](https://github.com/mdx-js/eslint-mdx/pull/564) [`2672044`](https://github.com/mdx-js/eslint-mdx/commit/267204411119fd25d498ceb727d54e94e2eafd26) Thanks [@JounQin](https://github.com/JounQin)! - feat: support mdx comments as ESLint directives
+
+### Patch Changes
+
+- [#567](https://github.com/mdx-js/eslint-mdx/pull/567) [`68b2028`](https://github.com/mdx-js/eslint-mdx/commit/68b202867f20587bb3d8dc8e0cd4706080e2f42b) Thanks [@JounQin](https://github.com/JounQin)! - fix: code block filename regexp group names missed
+
+- Updated dependencies [[`3aa0f20`](https://github.com/mdx-js/eslint-mdx/commit/3aa0f20174361adce25f969bfb48a4fc214fcdff)]:
+  - eslint-mdx@3.4.0
+
 ## 3.3.2
 
 ### Patch Changes

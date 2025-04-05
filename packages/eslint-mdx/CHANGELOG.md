@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.4.0
+
+### Minor Changes
+
+- [#562](https://github.com/mdx-js/eslint-mdx/pull/562) [`3aa0f20`](https://github.com/mdx-js/eslint-mdx/commit/3aa0f20174361adce25f969bfb48a4fc214fcdff) Thanks [@JounQin](https://github.com/JounQin)! - refactor: remove unnecessary `loadEsmModule` helper, use native `import()` instead
+
+- [#561](https://github.com/mdx-js/eslint-mdx/pull/561) [`c62c541`](https://github.com/mdx-js/eslint-mdx/commit/c62c541dc317e6069f11dbd724b8fb925c2e64e5) Thanks [@JounQin](https://github.com/JounQin)! - feat: respect `.remarkignore` at the same time
+
 ## 3.3.2
 
 ### Patch Changes
