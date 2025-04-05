@@ -41642,60 +41642,82 @@ exports[`parser should match all AST snapshots: code-blocks.mdx 1`] = `
       "value": " eslint-skip ",
     },
     {
-      "end": 595,
+      "end": 570,
       "loc": {
         "end": {
-          "column": 47,
+          "column": 22,
           "line": 22,
-          "offset": 595,
+          "offset": 570,
         },
         "start": {
-          "column": 11,
+          "column": 1,
           "line": 22,
-          "offset": 559,
+          "offset": 549,
         },
       },
       "range": [
-        559,
-        595,
+        549,
+        570,
       ],
-      "start": 559,
+      "start": 549,
       "type": "Block",
-      "value": " eslint-disable-line mdx/remark ",
+      "value": " nothing special ",
     },
     {
-      "end": 640,
+      "end": 605,
       "loc": {
         "end": {
-          "column": 42,
+          "column": 32,
           "line": 24,
-          "offset": 640,
+          "offset": 605,
         },
         "start": {
           "column": 1,
           "line": 24,
-          "offset": 599,
+          "offset": 574,
         },
       },
       "range": [
-        599,
-        640,
+        574,
+        605,
       ],
-      "start": 599,
+      "start": 574,
       "type": "Block",
-      "value": " eslint-disable-next-line mdx/remark ",
+      "value": " eslint-disable mdx/remark ",
+    },
+    {
+      "end": 650,
+      "loc": {
+        "end": {
+          "column": 31,
+          "line": 28,
+          "offset": 650,
+        },
+        "start": {
+          "column": 1,
+          "line": 28,
+          "offset": 620,
+        },
+      },
+      "range": [
+        620,
+        650,
+      ],
+      "start": 620,
+      "type": "Block",
+      "value": " eslint-enable mdx/remark ",
     },
     {
       "end": 683,
       "loc": {
         "end": {
           "column": 30,
-          "line": 27,
+          "line": 30,
           "offset": 683,
         },
         "start": {
           "column": 9,
-          "line": 27,
+          "line": 30,
           "offset": 662,
         },
       },
@@ -41707,13 +41729,35 @@ exports[`parser should match all AST snapshots: code-blocks.mdx 1`] = `
       "type": "Block",
       "value": " nothing special ",
     },
+    {
+      "end": 733,
+      "loc": {
+        "end": {
+          "column": 47,
+          "line": 32,
+          "offset": 733,
+        },
+        "start": {
+          "column": 11,
+          "line": 32,
+          "offset": 697,
+        },
+      },
+      "range": [
+        697,
+        733,
+      ],
+      "start": 697,
+      "type": "Block",
+      "value": " eslint-disable-line mdx/remark ",
+    },
   ],
-  "end": 685,
+  "end": 735,
   "loc": {
     "end": {
       "column": 1,
-      "line": 28,
-      "offset": 685,
+      "line": 33,
+      "offset": 735,
     },
     "start": {
       "column": 1,
@@ -41723,7 +41767,7 @@ exports[`parser should match all AST snapshots: code-blocks.mdx 1`] = `
   },
   "range": [
     0,
-    685,
+    735,
   ],
   "sourceType": undefined,
   "start": 0,
@@ -41809,27 +41853,47 @@ exports[`parser should match all AST snapshots: code-blocks.mdx 1`] = `
       "value": "Heading",
     },
     {
-      "end": 558,
+      "end": 549,
       "loc": {
         "end": {
-          "column": 10,
+          "column": 1,
           "line": 22,
         },
         "start": {
-          "column": 2,
+          "column": 0,
           "line": 22,
         },
       },
       "range": [
-        550,
-        558,
+        548,
+        549,
       ],
-      "start": 550,
-      "type": "JSXText",
-      "value": "Heading ",
+      "start": 548,
+      "type": "Punctuator",
+      "value": "{",
     },
     {
-      "end": 599,
+      "end": 571,
+      "loc": {
+        "end": {
+          "column": 23,
+          "line": 22,
+        },
+        "start": {
+          "column": 22,
+          "line": 22,
+        },
+      },
+      "range": [
+        570,
+        571,
+      ],
+      "start": 570,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 574,
       "loc": {
         "end": {
           "column": 1,
@@ -41841,63 +41905,103 @@ exports[`parser should match all AST snapshots: code-blocks.mdx 1`] = `
         },
       },
       "range": [
-        598,
-        599,
+        573,
+        574,
       ],
-      "start": 598,
+      "start": 573,
       "type": "Punctuator",
       "value": "{",
     },
     {
-      "end": 641,
+      "end": 606,
       "loc": {
         "end": {
-          "column": 43,
+          "column": 33,
           "line": 24,
         },
         "start": {
-          "column": 42,
+          "column": 32,
           "line": 24,
         },
       },
       "range": [
-        640,
-        641,
+        605,
+        606,
       ],
-      "start": 640,
+      "start": 605,
       "type": "Punctuator",
       "value": "}",
+    },
+    {
+      "end": 617,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 26,
+        },
+        "start": {
+          "column": 2,
+          "line": 26,
+        },
+      },
+      "range": [
+        610,
+        617,
+      ],
+      "start": 610,
+      "type": "JSXText",
+      "value": "Heading",
+    },
+    {
+      "end": 620,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 28,
+        },
+        "start": {
+          "column": 0,
+          "line": 28,
+        },
+      },
+      "range": [
+        619,
+        620,
+      ],
+      "start": 619,
+      "type": "Punctuator",
+      "value": "{",
     },
     {
       "end": 651,
       "loc": {
         "end": {
-          "column": 9,
-          "line": 25,
+          "column": 32,
+          "line": 28,
         },
         "start": {
-          "column": 2,
-          "line": 25,
+          "column": 31,
+          "line": 28,
         },
       },
       "range": [
-        644,
+        650,
         651,
       ],
-      "start": 644,
-      "type": "JSXText",
-      "value": "Heading",
+      "start": 650,
+      "type": "Punctuator",
+      "value": "}",
     },
     {
       "end": 661,
       "loc": {
         "end": {
           "column": 8,
-          "line": 27,
+          "line": 30,
         },
         "start": {
           "column": 0,
-          "line": 27,
+          "line": 30,
         },
       },
       "range": [
@@ -41907,6 +42011,26 @@ exports[`parser should match all AST snapshots: code-blocks.mdx 1`] = `
       "start": 653,
       "type": "JSXText",
       "value": "Content ",
+    },
+    {
+      "end": 696,
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 32,
+        },
+        "start": {
+          "column": 2,
+          "line": 32,
+        },
+      },
+      "range": [
+        688,
+        696,
+      ],
+      "start": 688,
+      "type": "JSXText",
+      "value": "Heading ",
     },
   ],
   "type": "Program",

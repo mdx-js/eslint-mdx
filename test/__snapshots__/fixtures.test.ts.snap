@@ -195,7 +195,7 @@ exports[`fixtures lint code blocks should work as expected: code-blocks.mdx 1`] 
     "fix": {
       "range": [
         0,
-        685,
+        735,
       ],
       "text": "\`\`\`ts
 import { CommandRegister } from "@foo";
@@ -219,13 +219,17 @@ export function registerCommands(commandRegister: CommandRegister) {
 
 # Heading
 
-# Heading {/* eslint-disable-line mdx/remark */}
+{/* nothing special */}
 
-{/* eslint-disable-next-line mdx/remark */}
+{/* eslint-disable mdx/remark */}
 
 # Heading
 
+{/* eslint-enable mdx/remark */}
+
 Content {/* nothing special */}
+
+# Heading {/* eslint-disable-line mdx/remark */}
 ",
     },
     "line": 20,
@@ -270,13 +274,17 @@ export function registerCommands(commandRegister: CommandRegister) {
 
 # Heading
 
-# Heading {/* eslint-disable-line mdx/remark */}
+{/* nothing special */}
 
-{ }
+{/* eslint-disable mdx/remark */}
 
 # Heading
 
+{/* eslint-enable mdx/remark */}
+
 Content {/* nothing special */}
+
+# Heading {/* eslint-disable-line mdx/remark */}
 "
 `;
 
@@ -1507,7 +1515,7 @@ exports[`fixtures should match all snapshots: code-blocks.mdx 1`] = `
     "fix": {
       "range": [
         0,
-        685,
+        735,
       ],
       "text": "\`\`\`ts
 import { CommandRegister } from "@foo";
@@ -1531,13 +1539,17 @@ export function registerCommands(commandRegister: CommandRegister) {
 
 # Heading
 
-# Heading {/* eslint-disable-line mdx/remark */}
+{/* nothing special */}
 
-{/* eslint-disable-next-line mdx/remark */}
+{/* eslint-disable mdx/remark */}
 
 # Heading
 
+{/* eslint-enable mdx/remark */}
+
 Content {/* nothing special */}
+
+# Heading {/* eslint-disable-line mdx/remark */}
 ",
     },
     "line": 20,
@@ -1582,13 +1594,17 @@ export function registerCommands(commandRegister: CommandRegister) {
 
 # Heading
 
-# Heading {/* eslint-disable-line mdx/remark */}
+{/* nothing special */}
 
-{ }
+{/* eslint-disable mdx/remark */}
 
 # Heading
 
+{/* eslint-enable mdx/remark */}
+
 Content {/* nothing special */}
+
+# Heading {/* eslint-disable-line mdx/remark */}
 "
 `;
 
