@@ -45,7 +45,6 @@ jobs:
         run: |
           yarn add -D eslint@${{ matrix.eslint }} @types/eslint@9
           yarn set resolution eslint-plugin-unicorn@npm:^58.0.0 npm:^56
-          yarn patch-package
 
       - name: Build, Lint and Test
         run: |
