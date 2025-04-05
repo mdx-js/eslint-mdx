@@ -1,0 +1,27 @@
+```ts
+import { CommandRegister } from "@foo";
+export function registerCommands(commandRegister: CommandRegister) {
+  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
+  commandRegister.addCommand(deployProjectCommand);
+}
+```
+
+{/* eslint-skip */}
+```ts
+import { CommandRegister } from "@foo";
+export function registerCommands(commandRegister: CommandRegister) {
+  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
+  commandRegister.addCommand(deployProjectCommand);
+}
+```
+
+# Heading
+
+# Heading
+
+# Heading {/* eslint-disable-line mdx/remark */}
+
+{/* eslint-disable-next-line mdx/remark */}
+# Heading
+
+Content {/* nothing special */}

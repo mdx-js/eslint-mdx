@@ -1,4 +1,5 @@
 export const DEFAULT_LANGUAGE_MAPPER: Record<string, string> = {
+  ecmascript: 'js',
   javascript: 'js',
   javascriptreact: 'jsx',
   typescript: 'ts',

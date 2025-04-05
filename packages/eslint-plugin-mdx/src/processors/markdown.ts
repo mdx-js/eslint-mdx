@@ -3,14 +3,10 @@
  */
 
 import type { AST, Linter, Rule } from 'eslint'
-import type {
-  Node,
-  Parent as ParentNode,
-  Code as CodeNode,
-  Html as HtmlNode,
-} from 'mdast'
+import type { Node, Parent, Nodes, Root, RootContentMap } from 'mdast'
 
-import { fromMarkdown } from '../from-markdown.ts'
+import { fromMarkdown } from '../from-markdown.js'
+import { meta } from '../meta.js'
 
 import type { Block, RangeMap } from './types.js'
 
@@ -22,28 +18,28 @@ const SUPPORTS_AUTOFIX = true
 
 const BOM = '\uFEFF'
 
-/**
- * @type {Map<string, Block[]>}
- */
 const blocksCache: Map<string, Block[]> = new Map()
 
 /**
  * Performs a depth-first traversal of the Markdown AST.
- * @param {Node} node A Markdown AST node.
- * @param {{[key: string]: (node?: Node) => void}} callbacks A map of node types to callbacks.
- * @returns {void}
+ * @param node A Markdown AST node.
+ * @param callbacks A map of node types to callbacks.
  */
 function traverse(
-  node: Node,
-  callbacks: { [key: string]: (node?: Node) => void },
-): void {
+  node: Nodes,
+  callbacks: {
+    [T in Nodes['type']]?: (
+      node?: T extends keyof RootContentMap ? RootContentMap[T] : Root,
+    ) => void
+  } & { '*': () => void },
+) {
   if (callbacks[node.type]) {
-    callbacks[node.type](node)
+    callbacks[node.type](node as never)
   } else {
     callbacks['*']()
   }
 
-  const parent = node as ParentNode
+  const parent = node as Parent
 
   if ('children' in parent) {
     for (const child of parent.children) {
@@ -52,24 +48,42 @@ function traverse(
   }
 }
 
+const COMMENTS = [
+  [
+    /^<!-{2,}/,
+    // eslint-disable-next-line sonarjs/slow-regex
+    /-{2,}>$/,
+  ],
+  [
+    /^\/\*+/,
+    // eslint-disable-next-line sonarjs/slow-regex
+    /\*+\/$/,
+  ],
+] as const
+
+const eslintCommentRegex = /^(?:eslint\b|global\s)/u
+
 /**
  * Extracts `eslint-*` or `global` comments from HTML comments if present.
- * @param {string} html The text content of an HTML AST node.
- * @returns {string} The comment's text without the opening and closing tags or
+ * @param value The text content of an HTML AST node.
+ * @returns The comment's text without the opening and closing tags or
  *     an empty string if the text is not an ESLint HTML comment.
  */
-function getComment(html: string): string {
-  const commentStart = '<!--'
-  const commentEnd = '-->'
-  const regex = /^(?:eslint\b|global\s)/u
+function getComment(value: string, isMdx = false) {
+  const [commentStart, commentEnd] = COMMENTS[+isMdx]
 
-  if (!html.startsWith(commentStart) || !html.endsWith(commentEnd)) {
+  const commentStartMatched = commentStart.exec(value)
+  const commentEndMatched = commentEnd.exec(value)
+
+  if (commentStartMatched == null || commentEndMatched == null) {
     return ''
   }
 
-  const comment = html.slice(commentStart.length, -commentEnd.length)
+  const comment = value
+    .slice(commentStartMatched[0].length, -commentEndMatched[0].length)
+    .trim()
 
-  if (!regex.test(comment.trim())) {
+  if (!eslintCommentRegex.test(comment)) {
     return ''
   }
 
@@ -83,22 +97,22 @@ const leadingWhitespaceRegex = /^[>\s]*/u
 /**
  * Gets the offset for the first column of the node's first line in the
  * original source text.
- * @param {Node} node A Markdown code block AST node.
- * @returns {number} The offset for the first column of the node's first line.
+ * @param node A Markdown code block AST node.
+ * @returns The offset for the first column of the node's first line.
  */
-function getBeginningOfLineOffset(node: Node): number {
+function getBeginningOfLineOffset(node: Node) {
   return node.position.start.offset - node.position.start.column + 1
 }
 
 /**
  * Gets the leading text, typically whitespace with possible blockquote chars,
  * used to indent a code block.
- * @param {string} text The text of the file.
- * @param {Node} node A Markdown code block AST node.
- * @returns {string} The text from the start of the first line to the opening
+ * @param text The text of the file.
+ * @param node A Markdown code block AST node.
+ * @returns The text from the start of the first line to the opening
  *     fence of the code block.
  */
-function getIndentText(text: string, node: Node): string {
+function getIndentText(text: string, node: Node) {
   return leadingWhitespaceRegex.exec(
     text.slice(getBeginningOfLineOffset(node)),
   )[0]
@@ -127,20 +141,16 @@ function getIndentText(text: string, node: Node): string {
  * suffix of the corresponding line in the Markdown code block. There are no
  * differences within the line, so the mapping need only provide the offset
  * delta at the beginning of each line.
- * @param {string} text The text of the file.
- * @param {Node} node A Markdown code block AST node.
- * @param {string[]} comments List of configuration comment strings that will be
+ * @param text The text of the file.
+ * @param node A Markdown code block AST node.
+ * @param comments List of configuration comment strings that will be
  *     inserted at the beginning of the code block.
- * @returns {RangeMap[]} A list of offset-based adjustments, where lookups are
+ * @returns A list of offset-based adjustments, where lookups are
  *     done based on the `js` key, which represents the range in the linted JS,
  *     and the `md` key is the offset delta that, when added to the JS range,
  *     returns the corresponding location in the original Markdown source.
  */
-function getBlockRangeMap(
-  text: string,
-  node: Node,
-  comments: string[],
-): RangeMap[] {
+function getBlockRangeMap(text: string, node: Node, comments: string[]) {
   /*
    * The parser sets the fenced code block's start offset to wherever content
    * should normally begin (typically the first column of the line, but more
@@ -181,7 +191,7 @@ function getBlockRangeMap(
    * the lookup index will also be 0, and the lookup should always go to the
    * last range that matches, skipping this initialization entry.
    */
-  const rangeMap = [
+  const rangeMap: RangeMap[] = [
     {
       indent: baseIndent,
       js: 0,
@@ -235,37 +245,31 @@ const codeBlockFileNameRegex = /filename=(["']).*?\1/u
 
 /**
  * Parses the file name from a block meta, if available.
- * @param {Block} block A code block.
- * @returns {string | null | undefined} The filename, if parsed from block meta.
+ * @param block A code block.
+ * @returns The filename, if parsed from block meta.
  */
-function fileNameFromMeta(block: Block): string | null | undefined {
+function fileNameFromMeta(block: Block) {
   // istanbul ignore next
   return codeBlockFileNameRegex
     .exec(block.meta)
     ?.groups.filename.replaceAll(/\s+/gu, '_')
 }
 
-const languageToFileExtension: Record<string, string> = {
-  javascript: 'js',
-  ecmascript: 'js',
-  typescript: 'ts',
-  markdown: 'md',
-}
-
 /**
  * Extracts lintable code blocks from Markdown text.
- * @param {string} sourceText The text of the file.
- * @param {string} filename The filename of the file
- * @returns {Array<{ filename: string, text: string }>} Source code blocks to lint.
+ * @param sourceText The text of the file.
+ * @param filename The filename of the file
+ * @returns Source code blocks to lint.
  */
 
-function preprocess(
-  sourceText: string,
-  filename: string,
-): Array<{ filename: string; text: string }> {
+function preprocess(sourceText: string, filename: string) {
   // istanbul ignore next
   const text = sourceText.startsWith(BOM) ? sourceText.slice(1) : sourceText
-  const ast = fromMarkdown(text)
+  const ast = fromMarkdown(
+    text,
+    // FIXME: how to read `extensions` and `markdownExtensions` parser options?
+    filename.endsWith('.mdx'),
+  )
   const blocks: Block[] = []
 
   blocksCache.set(filename, blocks)
@@ -276,56 +280,70 @@ function preprocess(
    * block immediately follows such a sequence, insert the comments at the
    * top of the code block. Any non-ESLint comment or other node type breaks
    * and empties the sequence.
-   * @type {string[]}
    */
-  let htmlComments: string[] = []
+  let allComments: string[] = []
 
   traverse(ast, {
     '*'() {
-      htmlComments = []
+      allComments = []
     },
 
     /**
      * Visit a code node.
-     * @param {CodeNode} node The visited node.
-     * @returns {void}
+     * @param node The visited node.
      */
-    code(node: CodeNode): void {
-      if (node.lang) {
-        const comments: string[] = []
+    code(node) {
+      if (!node.lang) {
+        return
+      }
 
-        for (const comment of htmlComments) {
-          if (comment.trim() === 'eslint-skip') {
-            htmlComments = []
-            return
-          }
+      const comments: string[] = []
 
-          comments.push(`/*${comment}*/`)
+      for (const comment of allComments) {
+        if (comment === 'eslint-skip') {
+          allComments = []
+          return
         }
 
-        htmlComments = []
-
-        blocks.push({
-          ...node,
-          baseIndentText: getIndentText(text, node),
-          comments,
-          rangeMap: getBlockRangeMap(text, node, comments),
-        })
+        comments.push(`/* ${comment} */`)
       }
+
+      allComments = []
+
+      blocks.push({
+        ...node,
+        baseIndentText: getIndentText(text, node),
+        comments,
+        rangeMap: getBlockRangeMap(text, node, comments),
+      })
     },
 
     /**
      * Visit an HTML node.
-     * @param {HtmlNode} node The visited node.
-     * @returns {void}
+     * @param node The visited node.
      */
-    html(node: HtmlNode): void {
+    html(node) {
       const comment = getComment(node.value)
-
       if (comment) {
-        htmlComments.push(comment)
+        allComments.push(comment)
       } else {
-        htmlComments = []
+        allComments = []
+      }
+    },
+    mdxFlowExpression(node) {
+      const comment = getComment(node.value, true)
+      if (comment) {
+        allComments.push(comment)
+      } else {
+        allComments = []
+      }
+    },
+    mdxTextExpression(node) {
+      const comment = getComment(node.value, true)
+      if (comment) {
+        allComments.push(comment)
+      } else {
+        allComments = []
       }
     },
   })
@@ -333,11 +351,8 @@ function preprocess(
   // istanbul ignore next
   return blocks.map((block, index) => {
     const [language] = block.lang.trim().split(' ')
-    const fileExtension = Object.hasOwn(languageToFileExtension, language)
-      ? languageToFileExtension[language]
-      : language
     return {
-      filename: fileNameFromMeta(block) ?? `${index}.${fileExtension}`,
+      filename: fileNameFromMeta(block) ?? `${index}.${language}`,
       text: [...block.comments, block.value, ''].join('\n'),
     }
   })
@@ -345,9 +360,9 @@ function preprocess(
 
 /**
  * Adjusts a fix in a code block.
- * @param {Block} block A code block.
- * @param {Rule.Fix} fix A fix to adjust.
- * @returns {Rule.Fix} The fix with adjusted ranges.
+ * @param block A code block.
+ * @param fix A fix to adjust.
+ * @returns The fix with adjusted ranges.
  */
 function adjustFix(block: Block, fix: Rule.Fix): Rule.Fix {
   return {
@@ -370,12 +385,10 @@ function adjustFix(block: Block, fix: Rule.Fix): Rule.Fix {
 
 /**
  * Creates a map function that adjusts messages in a code block.
- * @param {Block} block A code block.
- * @returns {(message: Linter.LintMessage) => Linter.LintMessage} A function that adjusts messages in a code block.
+ * @param block A code block.
+ * @returns A function that adjusts messages in a code block.
  */
-function adjustBlock(
-  block: Block,
-): (message: Linter.LintMessage) => Linter.LintMessage {
+function adjustBlock(block: Block) {
   const leadingCommentLines = block.comments.reduce(
     (count, comment) => count + comment.split('\n').length,
     0,
@@ -385,8 +398,8 @@ function adjustBlock(
 
   /**
    * Adjusts ESLint messages to point to the correct location in the Markdown.
-   * @param {Linter.LintMessage} message A message from ESLint.
-   * @returns {Linter.LintMessage} The same message, but adjusted to the correct location.
+   * @param message A message from ESLint.
+   * @returns The same message, but adjusted to the correct location.
    */
   return function adjustMessage(
     message: Linter.LintMessage,
@@ -437,39 +450,35 @@ function adjustBlock(
 
 /**
  * Excludes unsatisfiable rules from the list of messages.
- * @param {Linter.LintMessage} message A message from the linter.
- * @returns {boolean} True if the message should be included in output.
+ * @param message A message from the linter.
+ * @returns True if the message should be included in output.
  */
-function excludeUnsatisfiableRules(message: Linter.LintMessage): boolean {
+function excludeUnsatisfiableRules(message: Linter.LintMessage) {
   return message && !UNSATISFIABLE_RULES.has(message.ruleId)
 }
 
 /**
  * Transforms generated messages for output.
- * @param {Array<Linter.LintMessage[]>} messages An array containing one array of messages
+ * @param messages An array containing one array of messages
  *     for each code block returned from `preprocess`.
- * @param {string} filename The filename of the file
- * @returns {Linter.LintMessage[]} A flattened array of messages with mapped locations.
+ * @param filename The filename of the file
+ * @returns A flattened array of messages with mapped locations.
  */
-function postprocess(
-  messages: Linter.LintMessage[][],
-  filename: string,
-): Linter.LintMessage[] {
+function postprocess(messages: Linter.LintMessage[][], filename: string) {
   const blocks = blocksCache.get(filename)
 
   blocksCache.delete(filename)
 
   return messages.flatMap((group, i) => {
     const adjust = adjustBlock(blocks[i])
-
     return group.map(adjust).filter(excludeUnsatisfiableRules)
   })
 }
 
 export const markdownProcessor = {
   meta: {
-    name: '@eslint/markdown/markdown',
-    version: '6.3.0',
+    name: 'mdx/markdown',
+    version: meta.version,
   },
   preprocess,
   postprocess,

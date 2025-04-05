@@ -41615,6 +41615,304 @@ exports[`parser should match all AST snapshots: code-blocks.md 1`] = `
 }
 `;
 
+exports[`parser should match all AST snapshots: code-blocks.mdx 1`] = `
+{
+  "body": [],
+  "comments": [
+    {
+      "end": 271,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 9,
+          "offset": 271,
+        },
+        "start": {
+          "column": 1,
+          "line": 9,
+          "offset": 254,
+        },
+      },
+      "range": [
+        254,
+        271,
+      ],
+      "start": 254,
+      "type": "Block",
+      "value": " eslint-skip ",
+    },
+    {
+      "end": 595,
+      "loc": {
+        "end": {
+          "column": 47,
+          "line": 22,
+          "offset": 595,
+        },
+        "start": {
+          "column": 11,
+          "line": 22,
+          "offset": 559,
+        },
+      },
+      "range": [
+        559,
+        595,
+      ],
+      "start": 559,
+      "type": "Block",
+      "value": " eslint-disable-line mdx/remark ",
+    },
+    {
+      "end": 640,
+      "loc": {
+        "end": {
+          "column": 42,
+          "line": 24,
+          "offset": 640,
+        },
+        "start": {
+          "column": 1,
+          "line": 24,
+          "offset": 599,
+        },
+      },
+      "range": [
+        599,
+        640,
+      ],
+      "start": 599,
+      "type": "Block",
+      "value": " eslint-disable-next-line mdx/remark ",
+    },
+    {
+      "end": 683,
+      "loc": {
+        "end": {
+          "column": 30,
+          "line": 27,
+          "offset": 683,
+        },
+        "start": {
+          "column": 9,
+          "line": 27,
+          "offset": 662,
+        },
+      },
+      "range": [
+        662,
+        683,
+      ],
+      "start": 662,
+      "type": "Block",
+      "value": " nothing special ",
+    },
+  ],
+  "end": 685,
+  "loc": {
+    "end": {
+      "column": 1,
+      "line": 28,
+      "offset": 685,
+    },
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "range": [
+    0,
+    685,
+  ],
+  "sourceType": undefined,
+  "start": 0,
+  "tokens": [
+    {
+      "end": 254,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 9,
+        },
+        "start": {
+          "column": 0,
+          "line": 9,
+        },
+      },
+      "range": [
+        253,
+        254,
+      ],
+      "start": 253,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 272,
+      "loc": {
+        "end": {
+          "column": 19,
+          "line": 9,
+        },
+        "start": {
+          "column": 18,
+          "line": 9,
+        },
+      },
+      "range": [
+        271,
+        272,
+      ],
+      "start": 271,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 535,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 18,
+        },
+        "start": {
+          "column": 2,
+          "line": 18,
+        },
+      },
+      "range": [
+        528,
+        535,
+      ],
+      "start": 528,
+      "type": "JSXText",
+      "value": "Heading",
+    },
+    {
+      "end": 546,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 20,
+        },
+        "start": {
+          "column": 2,
+          "line": 20,
+        },
+      },
+      "range": [
+        539,
+        546,
+      ],
+      "start": 539,
+      "type": "JSXText",
+      "value": "Heading",
+    },
+    {
+      "end": 558,
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 22,
+        },
+        "start": {
+          "column": 2,
+          "line": 22,
+        },
+      },
+      "range": [
+        550,
+        558,
+      ],
+      "start": 550,
+      "type": "JSXText",
+      "value": "Heading ",
+    },
+    {
+      "end": 599,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 24,
+        },
+        "start": {
+          "column": 0,
+          "line": 24,
+        },
+      },
+      "range": [
+        598,
+        599,
+      ],
+      "start": 598,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 641,
+      "loc": {
+        "end": {
+          "column": 43,
+          "line": 24,
+        },
+        "start": {
+          "column": 42,
+          "line": 24,
+        },
+      },
+      "range": [
+        640,
+        641,
+      ],
+      "start": 640,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 651,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 25,
+        },
+        "start": {
+          "column": 2,
+          "line": 25,
+        },
+      },
+      "range": [
+        644,
+        651,
+      ],
+      "start": 644,
+      "type": "JSXText",
+      "value": "Heading",
+    },
+    {
+      "end": 661,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 27,
+        },
+        "start": {
+          "column": 0,
+          "line": 27,
+        },
+      },
+      "range": [
+        653,
+        661,
+      ],
+      "start": 653,
+      "type": "JSXText",
+      "value": "Content ",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
 exports[`parser should match all AST snapshots: comments.mdx 1`] = `"Unexpected character \`!\` (U+0021) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\` (note: to create a comment in MDX, use \`{/* text */}\`)"`;
 
 exports[`parser should match all AST snapshots: details.mdx 1`] = `"Expected a closing tag for \`<details>\` (1:1-1:10) before the end of \`paragraph\`"`;
