@@ -1,0 +1,49 @@
+diff --git a/index.d.ts b/index.d.ts
+index 1f8706ea8c89e669012c0dc0d3252fd0cf010215..29ba7fce0142077501d1053726dd29b104eb247b 100644
+--- a/index.d.ts
++++ b/index.d.ts
+@@ -1,4 +1,5 @@
+ export { Configuration } from "./lib/configuration.js";
++export { Ignore } from "./lib/ignore.js";
+ export { engine } from "./lib/index.js";
+ export type ConfigResult = import("./lib/configuration.js").ConfigResult;
+ export type Completer = import("./lib/file-set.js").Completer;
+diff --git a/index.js b/index.js
+index 4c993a8cf3e0702f57b2052a318d7e20b947b8d1..d96f4ce3b2e228d3ac817734d43e7ea286de300b 100644
+--- a/index.js
++++ b/index.js
+@@ -13,5 +13,6 @@
+ 
+ // it’s mostly private, but useful for tools like `eslint-mdx`.
+ export {Configuration} from './lib/configuration.js'
++export {Ignore} from './lib/ignore.js'
+ 
+ export {engine} from './lib/index.js'
+diff --git a/lib/ignore.d.ts b/lib/ignore.d.ts
+index b2329db10269a510b36528d0647c05fd641555ba..310ab974310811181523bb52f9bfef974c8338e8 100644
+--- a/lib/ignore.d.ts
++++ b/lib/ignore.d.ts
+@@ -37,19 +37,19 @@ export type Options = {
+     /**
+      *   Whether to detect ignore files.
+      */
+-    detectIgnore: boolean | undefined;
++    detectIgnore?: boolean | undefined;
+     /**
+      *   Basename of ignore files.
+      */
+-    ignoreName: string | undefined;
++    ignoreName?: string | undefined;
+     /**
+      *   Explicit path to an ignore file.
+      */
+-    ignorePath: URL | string | undefined;
++    ignorePath?: URL | string | undefined;
+     /**
+      *   How to resolve.
+      */
+-    ignorePathResolveFrom: ResolveFrom | undefined;
++    ignorePathResolveFrom?: ResolveFrom | undefined;
+ };
+ /**
+  * How to resolve.
