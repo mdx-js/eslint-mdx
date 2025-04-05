@@ -5,6 +5,8 @@ export const DEFAULT_LANGUAGE_MAPPER: Record<string, string> = {
   typescript: 'ts',
   typescriptreact: 'tsx',
   markdown: 'md',
+  markdownjsx: 'mdx',
+  markdownreact: 'mdx',
   mdown: 'md',
   mkdn: 'md',
 }

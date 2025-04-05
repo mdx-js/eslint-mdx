@@ -39,6 +39,7 @@ const getCli = (lintCodeBlocks = false, fix?: boolean) =>
           },
         },
         rules: {
+          camelcase: 'error',
           'no-var': 'error',
           'prefer-const': 'error',
           'react/jsx-curly-brace-presence': 'error',
@@ -84,7 +85,7 @@ describe('fixtures', () => {
     it(
       'should work as expected',
       async () => {
-        const patterns = 'test/fixtures/**/code-blocks.{md,mdx}'
+        const patterns = 'test/fixtures/code-blocks/*.{md,mdx}'
         let results = await getCli(true).lintFiles(patterns)
         for (const { filePath, messages } of results) {
           expect(messages).toMatchSnapshot(relative(filePath))
