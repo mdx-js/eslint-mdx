@@ -7952,6 +7952,8 @@ __metadata:
   dependencies:
     eslint-mdx: "npm:^3.3.2"
     mdast-util-from-markdown: "npm:^2.0.2"
+    mdast-util-mdx: "npm:^3.0.0"
+    micromark-extension-mdxjs: "npm:^3.0.0"
     remark-mdx: "npm:^3.1.0"
     remark-parse: "npm:^11.0.0"
     remark-stringify: "npm:^11.0.0"

@@ -62,10 +62,10 @@ exports[`fixtures lint code blocks should work as expected: code-blocks.md 1`] =
     "severity": 1,
   },
   {
-    "column": 33,
+    "column": 32,
     "fatal": true,
     "line": 26,
-    "message": "Parsing error: Unexpected token \`>\`. Did you mean \`&gt;\` or \`{">"}\`?",
+    "message": "Parsing error: Unexpected token. Did you mean \`{'>'}\` or \`&gt;\`?",
     "nodeType": null,
     "ruleId": null,
     "severity": 2,
@@ -171,6 +171,126 @@ import React from 'react'
 exports[`fixtures lint code blocks should work as expected: code-blocks.mdx 1`] = `
 [
   {
+    "column": 7,
+    "endColumn": 49,
+    "endLine": 4,
+    "fix": {
+      "range": [
+        117,
+        193,
+      ],
+      "text": "const deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();",
+    },
+    "line": 4,
+    "message": "'deployProjectCommand' is never reassigned. Use 'const' instead.",
+    "messageId": "useConst",
+    "nodeType": "Identifier",
+    "ruleId": "prefer-const",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 10,
+    "endLine": 20,
+    "fix": {
+      "range": [
+        0,
+        735,
+      ],
+      "text": "\`\`\`ts
+import { CommandRegister } from "@foo";
+export function registerCommands(commandRegister: CommandRegister) {
+  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
+  commandRegister.addCommand(deployProjectCommand);
+}
+\`\`\`
+
+{/* eslint-skip */}
+
+\`\`\`ts
+import { CommandRegister } from "@foo";
+export function registerCommands(commandRegister: CommandRegister) {
+  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
+  commandRegister.addCommand(deployProjectCommand);
+}
+\`\`\`
+
+# Heading
+
+# Heading
+
+{/* nothing special */}
+
+{/* eslint-disable mdx/remark */}
+
+# Heading
+
+{/* eslint-enable mdx/remark */}
+
+Content {/* nothing special */}
+
+# Heading {/* eslint-disable-line mdx/remark */}
+",
+    },
+    "line": 20,
+    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
+    "severity": 1,
+  },
+  {
+    "column": 1,
+    "endColumn": 10,
+    "endLine": 20,
+    "line": 20,
+    "message": "Unexpected heading with equivalent text in section, expected unique headings",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-duplicate-headings-in-section",
+    "severity": 1,
+  },
+]
+`;
+
+exports[`fixtures lint code blocks should work as expected: code-blocks.mdx 2`] = `
+"\`\`\`ts
+import { CommandRegister } from "@foo";
+export function registerCommands(commandRegister: CommandRegister) {
+  const deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
+  commandRegister.addCommand(deployProjectCommand);
+}
+\`\`\`
+
+{/* eslint-skip */}
+
+\`\`\`ts
+import { CommandRegister } from "@foo";
+export function registerCommands(commandRegister: CommandRegister) {
+  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
+  commandRegister.addCommand(deployProjectCommand);
+}
+\`\`\`
+
+# Heading
+
+# Heading
+
+{/* nothing special */}
+
+{/* eslint-disable mdx/remark */}
+
+# Heading
+
+{/* eslint-enable mdx/remark */}
+
+Content {/* nothing special */}
+
+# Heading {/* eslint-disable-line mdx/remark */}
+"
+`;
+
+exports[`fixtures lint code blocks should work as expected: flat-config/code-blocks.mdx 1`] = `
+[
+  {
     "column": 1,
     "endColumn": 6,
     "endLine": 2,
@@ -227,7 +347,7 @@ exports[`fixtures lint code blocks should work as expected: code-blocks.mdx 1`] 
 ]
 `;
 
-exports[`fixtures lint code blocks should work as expected: code-blocks.mdx 2`] = `
+exports[`fixtures lint code blocks should work as expected: flat-config/code-blocks.mdx 2`] = `
 "\`\`\`js
 let a
 
@@ -268,133 +388,6 @@ exports[`fixtures should match all snapshots: 371.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: 380.mdx 1`] = `
 [
-  {
-    "column": 3,
-    "endColumn": 13,
-    "endLine": 21,
-    "fix": {
-      "range": [
-        426,
-        720,
-      ],
-      "text": "decorators={[
-    moduleMetadata({
-      imports: [
-        ButtonModule,
-        IconModule,
-        FormsModule,
-        FormModule,
-        RadioModule,
-        TabsModule,
-        CardModule,
-      ],
-      declarations: [ActiveTestComponent, LazyTestComponent],
-    }),
-  ]}
-  title="Tabs"",
-    },
-    "line": 21,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 5,
-    "endColumn": 11,
-    "endLine": 46,
-    "fix": {
-      "range": [
-        824,
-        855,
-      ],
-      "text": "height="100px"
-    name="Basic"",
-    },
-    "line": 46,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 5,
-    "endColumn": 11,
-    "endLine": 83,
-    "fix": {
-      "range": [
-        1499,
-        1529,
-      ],
-      "text": "height="200px"
-    name="Card"",
-    },
-    "line": 83,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 5,
-    "endColumn": 11,
-    "endLine": 105,
-    "fix": {
-      "range": [
-        1982,
-        2012,
-      ],
-      "text": "height="200px"
-    name="Size"",
-    },
-    "line": 105,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 5,
-    "endColumn": 11,
-    "endLine": 139,
-    "fix": {
-      "range": [
-        2920,
-        2957,
-      ],
-      "text": "height="200px"
-    name="CustomLabel"",
-    },
-    "line": 139,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 5,
-    "endColumn": 11,
-    "endLine": 174,
-    "fix": {
-      "range": [
-        3750,
-        3784,
-      ],
-      "text": "height="100px"
-    name="Editable"",
-    },
-    "line": 174,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
   {
     "column": 13,
     "endColumn": 16,
@@ -492,82 +485,6 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "ruleId": "unicorn/prefer-at",
     "severity": 2,
   },
-  {
-    "column": 5,
-    "endColumn": 11,
-    "endLine": 220,
-    "fix": {
-      "range": [
-        4788,
-        4822,
-      ],
-      "text": "height="100px"
-    name="Disabled"",
-    },
-    "line": 220,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 5,
-    "endColumn": 11,
-    "endLine": 253,
-    "fix": {
-      "range": [
-        5581,
-        5611,
-      ],
-      "text": "height="150px"
-    name="Lazy"",
-    },
-    "line": 253,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 5,
-    "endColumn": 11,
-    "endLine": 299,
-    "fix": {
-      "range": [
-        6792,
-        6822,
-      ],
-      "text": "height="100px"
-    name="Nest"",
-    },
-    "line": 299,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 5,
-    "endColumn": 11,
-    "endLine": 348,
-    "fix": {
-      "range": [
-        8233,
-        8264,
-      ],
-      "text": "height="100px"
-    name="Title"",
-    },
-    "line": 348,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
 ]
 `;
 
@@ -591,6 +508,7 @@ import {
 } from '@alauda/ui'
 
 <Meta
+  title="Tabs"
   decorators={[
     moduleMetadata({
       imports: [
@@ -605,7 +523,6 @@ import {
       declarations: [ActiveTestComponent, LazyTestComponent],
     }),
   ]}
-  title="Tabs"
 />
 
 # Tabs
@@ -616,8 +533,8 @@ import {
 
 <Canvas>
   <Story
-    height="100px"
     name="Basic"
+    height="100px"
   >
     {{
       template: /* HTML */ \`
@@ -653,8 +570,8 @@ import {
 
 <Canvas>
   <Story
-    height="200px"
     name="Card"
+    height="200px"
   >
     {{
       template: /* HTML */ \`
@@ -675,8 +592,8 @@ import {
 
 <Canvas>
   <Story
-    height="200px"
     name="Size"
+    height="200px"
   >
     {{
       template: /* HTML */ \`
@@ -709,8 +626,8 @@ import {
 
 <Canvas>
   <Story
-    height="200px"
     name="CustomLabel"
+    height="200px"
   >
     {{
       template: /* HTML */ \`<aui-tab-group>
@@ -744,8 +661,8 @@ import {
 
 <Canvas>
   <Story
-    height="100px"
     name="Editable"
+    height="100px"
   >
     {{
       template: /* HTML */ \`
@@ -790,8 +707,8 @@ import {
 
 <Canvas>
   <Story
-    height="100px"
     name="Disabled"
+    height="100px"
   >
     {{
       template: /* HTML */ \`
@@ -823,8 +740,8 @@ import {
 
 <Canvas>
   <Story
-    height="150px"
     name="Lazy"
+    height="150px"
   >
     {{
       template: /* HTML */ \`
@@ -869,8 +786,8 @@ import {
 
 <Canvas>
   <Story
-    height="100px"
     name="Nest"
+    height="100px"
   >
     {{
       template: /* HTML */ \` <aui-form-item>
@@ -918,8 +835,8 @@ import {
 
 <Canvas>
   <Story
-    height="100px"
     name="Title"
+    height="100px"
   >
     {{
       template: /* HTML */ \`
@@ -1240,297 +1157,7 @@ exports[`fixtures should match all snapshots: 445.mdx 2`] = `
 "
 `;
 
-exports[`fixtures should match all snapshots: 450.mdx 1`] = `
-[
-  {
-    "column": 3,
-    "endColumn": 6,
-    "endLine": 11,
-    "fix": {
-      "range": [
-        114,
-        413,
-      ],
-      "text": "alt=""
-  aria-disabled
-  className="my-image"
-  height={250}
-  loading="eager"
-  onClick={() => console.log('onClick')}
-  onError={() => console.log('onError')}
-  onLoad={() => console.log('onLoad')}
-  src="https://via.placeholder.com/250x250"
-  style={{ display: 'block' }}
-  title=""
-  width={250}",
-    },
-    "line": 11,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 3,
-    "endColumn": 16,
-    "endLine": 13,
-    "fix": {
-      "range": [
-        114,
-        413,
-      ],
-      "text": "alt=""
-  aria-disabled
-  className="my-image"
-  height={250}
-  loading="eager"
-  onClick={() => console.log('onClick')}
-  onError={() => console.log('onError')}
-  onLoad={() => console.log('onLoad')}
-  src="https://via.placeholder.com/250x250"
-  style={{ display: 'block' }}
-  title=""
-  width={250}",
-    },
-    "line": 13,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 3,
-    "endColumn": 12,
-    "endLine": 14,
-    "fix": {
-      "range": [
-        114,
-        413,
-      ],
-      "text": "alt=""
-  aria-disabled
-  className="my-image"
-  height={250}
-  loading="eager"
-  onClick={() => console.log('onClick')}
-  onError={() => console.log('onError')}
-  onLoad={() => console.log('onLoad')}
-  src="https://via.placeholder.com/250x250"
-  style={{ display: 'block' }}
-  title=""
-  width={250}",
-    },
-    "line": 14,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 3,
-    "endColumn": 9,
-    "endLine": 16,
-    "fix": {
-      "range": [
-        114,
-        413,
-      ],
-      "text": "alt=""
-  aria-disabled
-  className="my-image"
-  height={250}
-  loading="eager"
-  onClick={() => console.log('onClick')}
-  onError={() => console.log('onError')}
-  onLoad={() => console.log('onLoad')}
-  src="https://via.placeholder.com/250x250"
-  style={{ display: 'block' }}
-  title=""
-  width={250}",
-    },
-    "line": 16,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 3,
-    "endColumn": 10,
-    "endLine": 17,
-    "fix": {
-      "range": [
-        114,
-        413,
-      ],
-      "text": "alt=""
-  aria-disabled
-  className="my-image"
-  height={250}
-  loading="eager"
-  onClick={() => console.log('onClick')}
-  onError={() => console.log('onError')}
-  onLoad={() => console.log('onLoad')}
-  src="https://via.placeholder.com/250x250"
-  style={{ display: 'block' }}
-  title=""
-  width={250}",
-    },
-    "line": 17,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 3,
-    "endColumn": 8,
-    "endLine": 18,
-    "fix": {
-      "range": [
-        114,
-        413,
-      ],
-      "text": "alt=""
-  aria-disabled
-  className="my-image"
-  height={250}
-  loading="eager"
-  onClick={() => console.log('onClick')}
-  onError={() => console.log('onError')}
-  onLoad={() => console.log('onLoad')}
-  src="https://via.placeholder.com/250x250"
-  style={{ display: 'block' }}
-  title=""
-  width={250}",
-    },
-    "line": 18,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 3,
-    "endColumn": 9,
-    "endLine": 19,
-    "fix": {
-      "range": [
-        114,
-        413,
-      ],
-      "text": "alt=""
-  aria-disabled
-  className="my-image"
-  height={250}
-  loading="eager"
-  onClick={() => console.log('onClick')}
-  onError={() => console.log('onError')}
-  onLoad={() => console.log('onLoad')}
-  src="https://via.placeholder.com/250x250"
-  style={{ display: 'block' }}
-  title=""
-  width={250}",
-    },
-    "line": 19,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 3,
-    "endColumn": 10,
-    "endLine": 20,
-    "fix": {
-      "range": [
-        114,
-        413,
-      ],
-      "text": "alt=""
-  aria-disabled
-  className="my-image"
-  height={250}
-  loading="eager"
-  onClick={() => console.log('onClick')}
-  onError={() => console.log('onError')}
-  onLoad={() => console.log('onLoad')}
-  src="https://via.placeholder.com/250x250"
-  style={{ display: 'block' }}
-  title=""
-  width={250}",
-    },
-    "line": 20,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 3,
-    "endColumn": 10,
-    "endLine": 21,
-    "fix": {
-      "range": [
-        114,
-        413,
-      ],
-      "text": "alt=""
-  aria-disabled
-  className="my-image"
-  height={250}
-  loading="eager"
-  onClick={() => console.log('onClick')}
-  onError={() => console.log('onError')}
-  onLoad={() => console.log('onLoad')}
-  src="https://via.placeholder.com/250x250"
-  style={{ display: 'block' }}
-  title=""
-  width={250}",
-    },
-    "line": 21,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-]
-`;
-
-exports[`fixtures should match all snapshots: 450.mdx 2`] = `
-"import { Meta } from '@storybook/addon-docs';
-
-<Meta title="Test" />
-
-# Test
-
-Lorem ipsum dolor sit amet.
-
-<img
-  alt=""
-  aria-disabled
-  className="my-image"
-  height={250}
-  loading="eager"
-  onClick={() => console.log('onClick')}
-  onError={() => console.log('onError')}
-  onLoad={() => console.log('onLoad')}
-  src="https://via.placeholder.com/250x250"
-  style={{ display: 'block' }}
-  title=""
-  width={250}
-/>
-"
-`;
+exports[`fixtures should match all snapshots: 450.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: 488.mdx 1`] = `
 [
@@ -1545,62 +1172,7 @@ exports[`fixtures should match all snapshots: 488.mdx 1`] = `
     "ruleId": "react/jsx-no-undef",
     "severity": 2,
   },
-  {
-    "column": 3,
-    "endColumn": 9,
-    "endLine": 5,
-    "fix": {
-      "range": [
-        9,
-        74,
-      ],
-      "text": "alt="alt"
-  format="svg"
-  height="100"
-  src="src"
-  width="315"",
-    },
-    "line": 5,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
-  {
-    "column": 3,
-    "endColumn": 9,
-    "endLine": 6,
-    "fix": {
-      "range": [
-        9,
-        74,
-      ],
-      "text": "alt="alt"
-  format="svg"
-  height="100"
-  src="src"
-  width="315"",
-    },
-    "line": 6,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
 ]
-`;
-
-exports[`fixtures should match all snapshots: 488.mdx 2`] = `
-"<Image
-  alt="alt"
-  format="svg"
-  height="100"
-  src="src"
-  width="315"
-/>
-"
 `;
 
 exports[`fixtures should match all snapshots: acorn.mdx 1`] = `
@@ -1618,6 +1190,21 @@ exports[`fixtures should match all snapshots: acorn.mdx 1`] = `
 `;
 
 exports[`fixtures should match all snapshots: adjacent.mdx 1`] = `[]`;
+
+exports[`fixtures should match all snapshots: async/test.md 1`] = `
+[
+  {
+    "column": 1,
+    "endColumn": 15,
+    "endLine": 1,
+    "line": 1,
+    "message": "Cannot find file \`test\`",
+    "nodeType": "Program",
+    "ruleId": "remark-validate-links:missing-file-missing-file",
+    "severity": 1,
+  },
+]
+`;
 
 exports[`fixtures should match all snapshots: basic.mdx 1`] = `
 [
@@ -1673,29 +1260,6 @@ exports[`fixtures should match all snapshots: basic.tsx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
 [
-  {
-    "column": 3,
-    "endColumn": 5,
-    "endLine": 10,
-    "fix": {
-      "range": [
-        163,
-        250,
-      ],
-      "text": "bg='lightgray'
-  p={3}
-  style={{
-    textAlign: 'center',
-    fontWeight: 'bold',
-  }}",
-    },
-    "line": 10,
-    "message": "Props should be sorted alphabetically",
-    "messageId": "sortPropsByAlpha",
-    "nodeType": "JSXIdentifier",
-    "ruleId": "react/jsx-sort-props",
-    "severity": 2,
-  },
   {
     "column": 1,
     "endColumn": 33,
@@ -1875,8 +1439,8 @@ If you have an existing project you want to integrate MDX with, check out
 the installation guides.
 
 <Box
-  bg="lightgray"
   p={3}
+  bg="lightgray"
   style={{
 textAlign: 'center',
 fontWeight: 'bold',
@@ -1942,7 +1506,107 @@ exports[`fixtures should match all snapshots: code-blocks.md 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: code-blocks.mdx 1`] = `[]`;
+exports[`fixtures should match all snapshots: code-blocks.mdx 1`] = `
+[
+  {
+    "column": 1,
+    "endColumn": 10,
+    "endLine": 20,
+    "fix": {
+      "range": [
+        0,
+        735,
+      ],
+      "text": "\`\`\`ts
+import { CommandRegister } from "@foo";
+export function registerCommands(commandRegister: CommandRegister) {
+  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
+  commandRegister.addCommand(deployProjectCommand);
+}
+\`\`\`
+
+{/* eslint-skip */}
+
+\`\`\`ts
+import { CommandRegister } from "@foo";
+export function registerCommands(commandRegister: CommandRegister) {
+  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
+  commandRegister.addCommand(deployProjectCommand);
+}
+\`\`\`
+
+# Heading
+
+# Heading
+
+{/* nothing special */}
+
+{/* eslint-disable mdx/remark */}
+
+# Heading
+
+{/* eslint-enable mdx/remark */}
+
+Content {/* nothing special */}
+
+# Heading {/* eslint-disable-line mdx/remark */}
+",
+    },
+    "line": 20,
+    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
+    "severity": 1,
+  },
+  {
+    "column": 1,
+    "endColumn": 10,
+    "endLine": 20,
+    "line": 20,
+    "message": "Unexpected heading with equivalent text in section, expected unique headings",
+    "nodeType": "Program",
+    "ruleId": "remark-lint-no-duplicate-headings-in-section",
+    "severity": 1,
+  },
+]
+`;
+
+exports[`fixtures should match all snapshots: code-blocks.mdx 2`] = `
+"\`\`\`ts
+import { CommandRegister } from "@foo";
+export function registerCommands(commandRegister: CommandRegister) {
+  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
+  commandRegister.addCommand(deployProjectCommand);
+}
+\`\`\`
+
+{/* eslint-skip */}
+
+\`\`\`ts
+import { CommandRegister } from "@foo";
+export function registerCommands(commandRegister: CommandRegister) {
+  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
+  commandRegister.addCommand(deployProjectCommand);
+}
+\`\`\`
+
+# Heading
+
+# Heading
+
+{/* nothing special */}
+
+{/* eslint-disable mdx/remark */}
+
+# Heading
+
+{/* eslint-enable mdx/remark */}
+
+Content {/* nothing special */}
+
+# Heading {/* eslint-disable-line mdx/remark */}
+"
+`;
 
 exports[`fixtures should match all snapshots: comments.mdx 1`] = `
 [
@@ -1971,6 +1635,23 @@ exports[`fixtures should match all snapshots: details.mdx 1`] = `
   },
 ]
 `;
+
+exports[`fixtures should match all snapshots: esm/test.md 1`] = `
+[
+  {
+    "column": 1,
+    "endColumn": 15,
+    "endLine": 1,
+    "line": 1,
+    "message": "Cannot find file \`test\`",
+    "nodeType": "Program",
+    "ruleId": "remark-validate-links:missing-file-missing-file",
+    "severity": 1,
+  },
+]
+`;
+
+exports[`fixtures should match all snapshots: flat-config/code-blocks.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
 [
@@ -2046,8 +1727,6 @@ exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
 exports[`fixtures should match all snapshots: leading-spaces.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: markdown.md 1`] = `[]`;
-
-exports[`fixtures should match all snapshots: nested.md 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `
 [
@@ -2149,35 +1828,7 @@ exports[`fixtures should match all snapshots: remark.md 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: remark.mdx 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: test.md 1`] = `
-[
-  {
-    "column": 1,
-    "endColumn": 15,
-    "endLine": 1,
-    "line": 1,
-    "message": "Cannot find file \`test\`",
-    "nodeType": "Program",
-    "ruleId": "remark-validate-links:missing-file-missing-file",
-    "severity": 1,
-  },
-]
-`;
-
-exports[`fixtures should match all snapshots: test.md 2`] = `
-[
-  {
-    "column": 1,
-    "endColumn": 15,
-    "endLine": 1,
-    "line": 1,
-    "message": "Cannot find file \`test\`",
-    "nodeType": "Program",
-    "ruleId": "remark-validate-links:missing-file-missing-file",
-    "severity": 1,
-  },
-]
-`;
+exports[`fixtures should match all snapshots: style/nested.md 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: unicorn.jsx 1`] = `
 [
@@ -2201,6 +1852,28 @@ exports[`fixtures should match all snapshots: unicorn.jsx 1`] = `
     "messageId": "undefined",
     "nodeType": "JSXIdentifier",
     "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 8,
+    "endLine": 1,
+    "line": 1,
+    "message": "'Story' is not defined.",
+    "messageId": "undef",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "no-undef",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 8,
+    "endLine": 8,
+    "line": 8,
+    "message": "'Story' is not defined.",
+    "messageId": "undef",
+    "nodeType": "JSXIdentifier",
+    "ruleId": "no-undef",
     "severity": 2,
   },
 ]

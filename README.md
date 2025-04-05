@@ -32,7 +32,7 @@
 - [Install](#install)
 - [Notice](#notice)
 - [Usage](#usage)
-  - [Classic](#classic)
+  - [Classic Config](#classic-config)
   - [Flat Config](#flat-config)
 - [Parser Options](#parser-options)
 - [Parser API](#parser-api)
@@ -74,13 +74,25 @@ npm i -D eslint-plugin-mdx
 
 ## Notice
 
-If you're using multi languages, `js/jsx/ts/tsx/vue`, etc for example, you'd better to always use [`overrides`](https://eslint.org/docs/user-guide/configuring/configuration-files#how-do-overrides-work) feature of ESLint, because configs may be overridden by following configs.
+1. If you're using multi languages, `js/jsx/ts/tsx/vue`, etc for example, you'd better to always use [`overrides`](https://eslint.org/docs/user-guide/configuring/configuration-files#how-do-overrides-work) ([Classic Config](#classic-config)) or [`files`](https://eslint.org/docs/latest/use/configure/configuration-files#specifying-files-and-ignores) ([Flag Config](#flat-config)) feature of ESLint, because configs may be overridden by following configs.
 
-See [#251](https://github.com/mdx-js/eslint-mdx/issues/251#issuecomment-736139224) for more details.
+   See [#251](https://github.com/mdx-js/eslint-mdx/issues/251#issuecomment-736139224) for more details.
+
+2. If you're using `{/* eslint-disable-line mdx/remark */}` with `prettier`, this won't work because `prettier` will add a blank line after the comment, which makes it invalid. You can use `{/* eslint-disable mdx/remark */}` paired with `{/* eslint-enable mdx/remark */}` instead:
+
+   <!-- eslint-skip -->
+
+   ```mdx
+   {/* eslint-disable mdx/remark */}
+
+   # Heading
+
+   {/* eslint-enable mdx/remark */}
+   ```
 
 ## Usage
 
-### Classic
+### Classic Config
 
 `.eslintrc` file:
 
