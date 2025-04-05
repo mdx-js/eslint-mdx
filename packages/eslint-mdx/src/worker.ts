@@ -73,16 +73,18 @@ export const processorCache = new Map<
   Processor<Root, undefined, undefined, Root, string>
 >()
 
-let cwd: string
+const configLoadCache = new Map<
+  string,
+  (filePath: string) => Promise<ConfigResult>
+>()
 
-let configLoad: (filePath: string) => Promise<ConfigResult>
+const ignoreCheckCache = new Map<
+  string,
+  (filePath: string) => Promise<boolean>
+>()
 
-let ignoreCheck: (filePath: string) => Promise<boolean>
-
-const getRemarkConfig = async (filePath: string) => {
-  if (!cwd) {
-    cwd = process.cwd()
-  }
+const getRemarkConfig = async (filePath: string, cwd = process.cwd()) => {
+  let configLoad = configLoadCache.get(cwd)
 
   if (!configLoad) {
     const config = new Configuration({
@@ -93,7 +95,10 @@ const getRemarkConfig = async (filePath: string) => {
       detectConfig: true,
     })
     configLoad = promisify(config.load.bind(config))
+    configLoadCache.set(cwd, configLoad)
   }
+
+  let ignoreCheck = ignoreCheckCache.get(cwd)
 
   if (!ignoreCheck) {
     const ignore = new Ignore({
@@ -102,6 +107,7 @@ const getRemarkConfig = async (filePath: string) => {
       detectIgnore: true,
     })
     ignoreCheck = promisify(ignore.check.bind(ignore))
+    ignoreCheckCache.set(cwd, ignoreCheck)
   }
 
   return configLoad(filePath)
@@ -233,7 +239,7 @@ runAsWorker(
     }
 
     if (process) {
-      if (await ignoreCheck(filePath)) {
+      if (await ignoreCheckCache.get(cwd)(filePath)) {
         return {
           messages: [],
         }
