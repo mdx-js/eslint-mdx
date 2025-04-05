@@ -176,8 +176,8 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/455.mdx 
     "endLine": 2,
     "fix": {
       "range": [
-        6,
-        9,
+        25,
+        28,
       ],
       "text": "let",
     },
@@ -194,8 +194,8 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/455.mdx 
     "endLine": 4,
     "fix": {
       "range": [
-        13,
-        30,
+        32,
+        49,
       ],
       "text": "const b = [1, 2, 3]",
     },
@@ -212,8 +212,8 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/455.mdx 
     "endLine": 6,
     "fix": {
       "range": [
-        43,
-        57,
+        62,
+        76,
       ],
       "text": ".at(-1)",
     },
@@ -228,7 +228,7 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/455.mdx 
 `;
 
 exports[`fixtures lint code blocks should work as expected: code-blocks/455.mdx 2`] = `
-"\`\`\`js
+"\`\`\`js filename="test.js"
 let a
 
 const b = [1, 2, 3]

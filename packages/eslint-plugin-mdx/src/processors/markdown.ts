@@ -4,11 +4,12 @@
 
 import type { AST, Linter, Rule } from 'eslint'
 import type { Node, Parent, Nodes, Root, RootContentMap } from 'mdast'
+import type { MdxFlowExpression, MdxTextExpression } from 'mdast-util-mdx'
 
 import { fromMarkdown } from '../from-markdown.js'
 import { meta } from '../meta.js'
 
-import type { Block, RangeMap } from './types.js'
+import type { CodeBlock, RangeMap } from './types.js'
 
 const UNSATISFIABLE_RULES = new Set([
   'eol-last', // The Markdown parser strips trailing newlines in code fences
@@ -18,7 +19,7 @@ const SUPPORTS_AUTOFIX = true
 
 const BOM = '\uFEFF'
 
-const blocksCache: Map<string, Block[]> = new Map()
+const blocksCache: Map<string, CodeBlock[]> = new Map()
 
 /**
  * Performs a depth-first traversal of the Markdown AST.
@@ -64,10 +65,10 @@ const COMMENTS = [
 const eslintCommentRegex = /^(?:eslint\b|global\s)/u
 
 /**
- * Extracts `eslint-*` or `global` comments from HTML comments if present.
- * @param value The text content of an HTML AST node.
+ * Extracts `eslint-*` or `global` comments from HTML/MDX comments if present.
+ * @param value The text content of an HTML/MDX AST node.
  * @returns The comment's text without the opening and closing tags or
- *     an empty string if the text is not an ESLint HTML comment.
+ *     an empty string if the text is not an ESLint HTML/MDX comment.
  */
 function getComment(value: string, isMdx = false) {
   const [commentStart, commentEnd] = COMMENTS[+isMdx]
@@ -241,14 +242,15 @@ function getBlockRangeMap(text: string, node: Node, comments: string[]) {
   return rangeMap
 }
 
-const codeBlockFileNameRegex = /filename=(["']).*?\1/u
+// eslint-disable-next-line sonarjs/unused-named-groups -- https://community.sonarsource.com/t/names-of-regular-expressions-named-groups-should-be-used-for-self-reference/138306
+const codeBlockFileNameRegex = /filename=(?<quote>["'])(?<filename>.*?)\1/u
 
 /**
  * Parses the file name from a block meta, if available.
  * @param block A code block.
  * @returns The filename, if parsed from block meta.
  */
-function fileNameFromMeta(block: Block) {
+function fileNameFromMeta(block: CodeBlock) {
   // istanbul ignore next
   return codeBlockFileNameRegex
     .exec(block.meta)
@@ -270,18 +272,27 @@ function preprocess(sourceText: string, filename: string) {
     // FIXME: how to read `extensions` and `markdownExtensions` parser options?
     filename.endsWith('.mdx'),
   )
-  const blocks: Block[] = []
+  const blocks: CodeBlock[] = []
 
   blocksCache.set(filename, blocks)
 
   /**
-   * During the depth-first traversal, keep track of any sequences of HTML
+   * During the depth-first traversal, keep track of any sequences of HTML/MDX
    * comment nodes containing `eslint-*` or `global` comments. If a code
    * block immediately follows such a sequence, insert the comments at the
    * top of the code block. Any non-ESLint comment or other node type breaks
    * and empties the sequence.
    */
   let allComments: string[] = []
+
+  function mdxExpression(node: MdxFlowExpression | MdxTextExpression) {
+    const comment = getComment(node.value, true)
+    if (comment) {
+      allComments.push(comment)
+    } else {
+      allComments = []
+    }
+  }
 
   traverse(ast, {
     '*'() {
@@ -330,25 +341,11 @@ function preprocess(sourceText: string, filename: string) {
         allComments = []
       }
     },
-    mdxFlowExpression(node) {
-      const comment = getComment(node.value, true)
-      if (comment) {
-        allComments.push(comment)
-      } else {
-        allComments = []
-      }
-    },
-    mdxTextExpression(node) {
-      const comment = getComment(node.value, true)
-      if (comment) {
-        allComments.push(comment)
-      } else {
-        allComments = []
-      }
-    },
+
+    mdxFlowExpression: mdxExpression,
+    mdxTextExpression: mdxExpression,
   })
 
-  // istanbul ignore next
   return blocks.map((block, index) => {
     const [language] = block.lang.trim().split(' ')
     return {
@@ -364,7 +361,7 @@ function preprocess(sourceText: string, filename: string) {
  * @param fix A fix to adjust.
  * @returns The fix with adjusted ranges.
  */
-function adjustFix(block: Block, fix: Rule.Fix): Rule.Fix {
+function adjustFix(block: CodeBlock, fix: Rule.Fix): Rule.Fix {
   return {
     range: fix.range.map(range => {
       // Advance through the block's range map to find the last
@@ -388,7 +385,7 @@ function adjustFix(block: Block, fix: Rule.Fix): Rule.Fix {
  * @param block A code block.
  * @returns A function that adjusts messages in a code block.
  */
-function adjustBlock(block: Block) {
+function adjustBlock(block: CodeBlock) {
   const leadingCommentLines = block.comments.reduce(
     (count, comment) => count + comment.split('\n').length,
     0,
