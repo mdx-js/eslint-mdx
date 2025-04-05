@@ -168,6 +168,78 @@ import React from 'react'
 "
 `;
 
+exports[`fixtures lint code blocks should work as expected: code-blocks/455.mdx 1`] = `
+[
+  {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 2,
+    "fix": {
+      "range": [
+        6,
+        9,
+      ],
+      "text": "let",
+    },
+    "line": 2,
+    "message": "Unexpected var, use let or const instead.",
+    "messageId": "unexpectedVar",
+    "nodeType": "VariableDeclaration",
+    "ruleId": "no-var",
+    "severity": 2,
+  },
+  {
+    "column": 5,
+    "endColumn": 6,
+    "endLine": 4,
+    "fix": {
+      "range": [
+        13,
+        30,
+      ],
+      "text": "const b = [1, 2, 3]",
+    },
+    "line": 4,
+    "message": "'b' is never reassigned. Use 'const' instead.",
+    "messageId": "useConst",
+    "nodeType": "Identifier",
+    "ruleId": "prefer-const",
+    "severity": 2,
+  },
+  {
+    "column": 13,
+    "endColumn": 25,
+    "endLine": 6,
+    "fix": {
+      "range": [
+        43,
+        57,
+      ],
+      "text": ".at(-1)",
+    },
+    "line": 6,
+    "message": "Prefer \`.at(…)\` over \`[….length - index]\`.",
+    "messageId": "negative-index",
+    "nodeType": "BinaryExpression",
+    "ruleId": "unicorn/prefer-at",
+    "severity": 2,
+  },
+]
+`;
+
+exports[`fixtures lint code blocks should work as expected: code-blocks/455.mdx 2`] = `
+"\`\`\`js
+let a
+
+const b = [1, 2, 3]
+
+const c = b.at(-1)
+
+export { c }
+\`\`\`
+"
+`;
+
 exports[`fixtures lint code blocks should work as expected: code-blocks/470.mdx 1`] = `
 [
   {
@@ -1483,6 +1555,8 @@ exports[`fixtures should match all snapshots: code-blocks/278.md 1`] = `
 ]
 `;
 
+exports[`fixtures should match all snapshots: code-blocks/455.mdx 1`] = `[]`;
+
 exports[`fixtures should match all snapshots: code-blocks/470.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: code-blocks/534.mdx 1`] = `
@@ -1629,8 +1703,6 @@ exports[`fixtures should match all snapshots: esm/test.md 1`] = `
   },
 ]
 `;
-
-exports[`fixtures should match all snapshots: flat-config/code-blocks.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
 [
