@@ -16170,7 +16170,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unified-engine@npm:^11.2.2":
+"unified-engine@npm:^11.0.0, unified-engine@npm:^11.2.2":
   version: 11.2.2
   resolution: "unified-engine@npm:11.2.2"
   dependencies:
@@ -16196,35 +16196,6 @@ __metadata:
     vfile-statistics: "npm:^3.0.0"
     yaml: "npm:^2.0.0"
   checksum: 10c0/daac3b2bf18fb79a052129958e104bddfb8241ef5ea51696a214864906a61a375c4d95b42958b7ed300ebaa028172f1e8b6515f1664a0fa765eb11ca06b891ee
-  languageName: node
-  linkType: hard
-
-"unified-engine@patch:unified-engine@npm%3A^11.2.2#~/.yarn/patches/unified-engine-npm-11.2.2-d993bef8c4.patch":
-  version: 11.2.2
-  resolution: "unified-engine@patch:unified-engine@npm%3A11.2.2#~/.yarn/patches/unified-engine-npm-11.2.2-d993bef8c4.patch::version=11.2.2&hash=930546"
-  dependencies:
-    "@types/concat-stream": "npm:^2.0.0"
-    "@types/debug": "npm:^4.0.0"
-    "@types/is-empty": "npm:^1.0.0"
-    "@types/node": "npm:^22.0.0"
-    "@types/unist": "npm:^3.0.0"
-    concat-stream: "npm:^2.0.0"
-    debug: "npm:^4.0.0"
-    extend: "npm:^3.0.0"
-    glob: "npm:^10.0.0"
-    ignore: "npm:^6.0.0"
-    is-empty: "npm:^1.0.0"
-    is-plain-obj: "npm:^4.0.0"
-    load-plugin: "npm:^6.0.0"
-    parse-json: "npm:^7.0.0"
-    trough: "npm:^2.0.0"
-    unist-util-inspect: "npm:^8.0.0"
-    vfile: "npm:^6.0.0"
-    vfile-message: "npm:^4.0.0"
-    vfile-reporter: "npm:^8.0.0"
-    vfile-statistics: "npm:^3.0.0"
-    yaml: "npm:^2.0.0"
-  checksum: 10c0/3cd0e20e9a0de5583a8a21c1b2250de78a5b33eccf5c4262368458040ae230cbaae26862c30261d4cbcc7b4c50077601325f174c663e4d36a7d498732b5f671a
   languageName: node
   linkType: hard
 

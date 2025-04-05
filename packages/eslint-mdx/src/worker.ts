@@ -37,7 +37,7 @@ import remarkStringify from 'remark-stringify'
 import { extractProperties, runAsWorker } from 'synckit'
 import { unified, type Processor } from 'unified'
 import type { ConfigResult } from 'unified-engine'
-import { Configuration, Ignore } from 'unified-engine'
+import { Configuration } from 'unified-engine'
 import type { Node } from 'unist'
 import { visit } from 'unist-util-visit'
 import { ok as assert } from 'uvu/assert'
@@ -53,6 +53,7 @@ import {
 import { restoreTokens } from './tokens.ts'
 import type {
   Arrayable,
+  IgnoreClass,
   MDXCode,
   MDXHeading,
   NormalPosition,
@@ -78,6 +79,8 @@ const configLoadCache = new Map<
   (filePath: string) => Promise<ConfigResult>
 >()
 
+let Ignore: IgnoreClass
+
 const ignoreCheckCache = new Map<
   string,
   (filePath: string) => Promise<boolean>
@@ -96,6 +99,14 @@ const getRemarkConfig = async (filePath: string, cwd = process.cwd()) => {
     })
     configLoad = promisify(config.load.bind(config))
     configLoadCache.set(cwd, configLoad)
+  }
+
+  if (!Ignore) {
+    ;({ Ignore } = (await import(
+      pathToFileURL(
+        path.resolve(cjsRequire.resolve('unified-engine'), '../lib/ignore.js'),
+      ).href
+    )) as { Ignore: IgnoreClass })
   }
 
   let ignoreCheck = ignoreCheckCache.get(cwd)
