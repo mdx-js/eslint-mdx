@@ -16,10 +16,8 @@ export interface RangeMap {
   md: number
 }
 
-export interface BlockBase {
+export interface CodeBlock extends Code {
   baseIndentText: string
   comments: string[]
   rangeMap: RangeMap[]
 }
-
-export interface Block extends Code, BlockBase {}

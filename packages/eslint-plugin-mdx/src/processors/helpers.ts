@@ -1,4 +1,4 @@
-export const DEFAULT_LANGUAGE_MAPPER: Record<string, string> = {
+export const DEFAULT_LANGUAGE_MAPPER = {
   ecmascript: 'js',
   javascript: 'js',
   javascriptreact: 'jsx',
@@ -9,7 +9,7 @@ export const DEFAULT_LANGUAGE_MAPPER: Record<string, string> = {
   markdownreact: 'mdx',
   mdown: 'md',
   mkdn: 'md',
-}
+} as const
 
 export function getShortLang(
   filename: string,
@@ -19,7 +19,13 @@ export function getShortLang(
   if (languageMapper === false) {
     return language
   }
-  languageMapper = { ...DEFAULT_LANGUAGE_MAPPER, ...languageMapper }
+  languageMapper = languageMapper
+    ? { ...DEFAULT_LANGUAGE_MAPPER, ...languageMapper }
+    : DEFAULT_LANGUAGE_MAPPER
+  const mapped = languageMapper[language]
+  if (mapped) {
+    return mapped
+  }
   const lang = language.toLowerCase()
-  return languageMapper[language] || languageMapper[lang] || lang
+  return languageMapper[lang] || lang
 }
