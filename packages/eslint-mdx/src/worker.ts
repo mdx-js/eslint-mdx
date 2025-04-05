@@ -53,6 +53,7 @@ import {
 import { restoreTokens } from './tokens.ts'
 import type {
   Arrayable,
+  IgnoreClass,
   MDXCode,
   MDXHeading,
   NormalPosition,
@@ -73,18 +74,51 @@ export const processorCache = new Map<
   Processor<Root, undefined, undefined, Root, string>
 >()
 
-let configLoad: (filePath: string) => Promise<ConfigResult>
+const configLoadCache = new Map<
+  string,
+  (filePath: string) => Promise<ConfigResult>
+>()
 
-const getRemarkConfig = async (filePath: string) => {
+let Ignore: IgnoreClass
+
+const ignoreCheckCache = new Map<
+  string,
+  (filePath: string) => Promise<boolean>
+>()
+
+const getRemarkConfig = async (filePath: string, cwd = process.cwd()) => {
+  let configLoad = configLoadCache.get(cwd)
+
   if (!configLoad) {
     const config = new Configuration({
-      cwd: process.cwd(),
+      cwd,
       packageField: 'remarkConfig',
       pluginPrefix: 'remark',
       rcName: '.remarkrc',
       detectConfig: true,
     })
     configLoad = promisify(config.load.bind(config))
+    configLoadCache.set(cwd, configLoad)
+  }
+
+  if (!Ignore) {
+    ;({ Ignore } = (await import(
+      pathToFileURL(
+        path.resolve(cjsRequire.resolve('unified-engine'), '../lib/ignore.js'),
+      ).href
+    )) as { Ignore: IgnoreClass })
+  }
+
+  let ignoreCheck = ignoreCheckCache.get(cwd)
+
+  if (!ignoreCheck) {
+    const ignore = new Ignore({
+      cwd,
+      ignoreName: '.remarkignore',
+      detectIgnore: true,
+    })
+    ignoreCheck = promisify(ignore.check.bind(ignore))
+    ignoreCheckCache.set(cwd, ignoreCheck)
   }
 
   return configLoad(filePath)
@@ -216,6 +250,12 @@ runAsWorker(
     }
 
     if (process) {
+      if (await ignoreCheckCache.get(cwd)(filePath)) {
+        return {
+          messages: [],
+        }
+      }
+
       const file = new VFile(fileOptions)
       try {
         await processor.process(file)

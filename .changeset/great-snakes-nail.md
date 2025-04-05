@@ -1,5 +1,4 @@
 ---
-"eslint-mdx": minor
 "eslint-plugin-mdx": minor
 ---
 

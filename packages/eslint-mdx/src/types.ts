@@ -72,3 +72,35 @@ export interface PackageJson {
   name: string
   version: string
 }
+
+/**
+ * temporary workaround for missing `Ignore` from `unified-engine`
+ *
+ * See also {@link https://github.com/unifiedjs/unified-engine/pull/79}
+ *
+ * {@link https://app.unpkg.com/unified-engine@11.2.2/files/lib/ignore.d.ts}
+ */
+
+export declare class Ignore {
+  constructor(options: Options)
+  check(filePath: string, callback: Callback): void
+}
+
+export type IgnoreClass = typeof Ignore
+
+export type Callback = (error?: Error, result?: boolean) => void
+
+export interface Options {
+  /**
+   *   Base.
+   */
+  cwd: string
+  /**
+   *   Whether to detect ignore files.
+   */
+  detectIgnore: boolean | undefined
+  /**
+   *   Basename of ignore files.
+   */
+  ignoreName?: string
+}
