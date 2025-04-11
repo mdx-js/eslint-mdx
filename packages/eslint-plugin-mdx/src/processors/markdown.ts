@@ -152,7 +152,7 @@ function getIndentText(text: string, node: Node) {
  *     returns the corresponding location in the original Markdown source.
  */
 function getBlockRangeMap(text: string, node: Node, comments: string[]) {
-  /*
+  /**
    * The parser sets the fenced code block's start offset to wherever content
    * should normally begin (typically the first column of the line, but more
    * inside a list item, for example). The code block's opening fence may be
@@ -162,14 +162,14 @@ function getBlockRangeMap(text: string, node: Node, comments: string[]) {
    */
   const startOffset = getBeginningOfLineOffset(node)
 
-  /*
+  /**
    * Extract the Markdown source to determine the leading whitespace for each
    * line.
    */
   const code = text.slice(startOffset, node.position.end.offset)
   const lines = code.split('\n')
 
-  /*
+  /**
    * The parser trims leading whitespace from each line of code within the
    * fenced code block up to the opening fence's first backtick. The first
    * backtick's column is the AST node's starting column plus any additional
@@ -177,7 +177,7 @@ function getBlockRangeMap(text: string, node: Node, comments: string[]) {
    */
   const baseIndent = getIndentText(text, node).length
 
-  /*
+  /**
    * Track the length of any inserted configuration comments at the beginning
    * of the linted JS and start the JS offset lookup keys at this index.
    */
@@ -186,7 +186,7 @@ function getBlockRangeMap(text: string, node: Node, comments: string[]) {
     0,
   )
 
-  /*
+  /**
    * In case there are configuration comments, initialize the map so that the
    * first lookup index is always 0. If there are no configuration comments,
    * the lookup index will also be 0, and the lookup should always go to the
@@ -203,14 +203,14 @@ function getBlockRangeMap(text: string, node: Node, comments: string[]) {
   // Start the JS offset after any configuration comments.
   let jsOffset = commentLength
 
-  /*
+  /**
    * Start the Markdown offset at the beginning of the block's first line of
    * actual code. The first line of the block is always the opening fence, so
    * the code begins on the second line.
    */
   let mdOffset = startOffset + lines[0].length + 1
 
-  /*
+  /**
    * For each line, determine how much leading whitespace was trimmed due to
    * indentation. Increase the JS lookup offset by the length of the line
    * post-trimming and the Markdown offset by the total line length.
@@ -242,8 +242,8 @@ function getBlockRangeMap(text: string, node: Node, comments: string[]) {
   return rangeMap
 }
 
-// eslint-disable-next-line sonarjs/unused-named-groups -- https://community.sonarsource.com/t/names-of-regular-expressions-named-groups-should-be-used-for-self-reference/138306
-const codeBlockFileNameRegex = /filename=(?<quote>["'])(?<filename>.*?)\1/u
+const codeBlockFileNameRegex =
+  /filename=(?<quote>["'])(?<filename>.*?)\k<quote>/u
 
 /**
  * Parses the file name from a block meta, if available.
