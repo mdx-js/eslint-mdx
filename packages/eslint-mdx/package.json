@@ -15,7 +15,7 @@
     "node": ">=18.0.0"
   },
   "main": "lib/index.cjs",
-  "types": "lib/index.d.ts",
+  "types": "index.d.cts",
   "module": "lib/index.js",
   "exports": {
     ".": {
