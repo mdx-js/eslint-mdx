@@ -2,5 +2,4 @@
 "eslint-mdx": patch
 ---
 
-fix: Add cwd as parameter for `getRemarkProcessor` method
-fix: Send cwd to `getRemarkProcessor` and `getRemarkConfig` methods
+fix: pass `cwd` into `getRemarkConfig` from `getRemarkProcessor`
