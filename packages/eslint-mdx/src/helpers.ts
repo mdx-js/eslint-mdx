@@ -17,9 +17,9 @@ export const arrayify = <T, R = T extends Array<infer S> ? S : T>(
   }, [])
 
 /**
- * Given a filepath, get the nearest path that is a regular file.
- * The filepath provided by eslint may be a virtual filepath rather than a file
- * on disk. This attempts to transform a virtual path into an on-disk path
+ * Given a filepath, get the nearest path that is a regular file. The filepath
+ * provided by eslint may be a virtual filepath rather than a file on disk. This
+ * attempts to transform a virtual path into an on-disk path
  */
 export const getPhysicalFilename = (
   filename: string,
@@ -122,5 +122,6 @@ export const nextCharOffsetFactory = (text: string) => {
 }
 
 /* istanbul ignore next */
-export const cjsRequire: CjsRequire =
-  typeof require === 'undefined' ? createRequire(import.meta.url) : require
+export const cjsRequire: CjsRequire = import.meta.url
+  ? createRequire(import.meta.url)
+  : require

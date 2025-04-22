@@ -4,42 +4,26 @@ declare module 'espree/lib/token-translator' {
   export default TokenTranslator
 
   export interface Location {
-    /**
-     * The start position.
-     */
+    /** The start position. */
     start: acorn.Position
-    /**
-     * The end position.
-     */
+    /** The end position. */
     end: acorn.Position
   }
 
   export type Range = [number, number]
 
   export interface EsprimaToken {
-    /**
-     * The type of this token.
-     */
+    /** The type of this token. */
     type: string
-    /**
-     * The string content of the token.
-     */
+    /** The string content of the token. */
     value: string
-    /**
-     * Location in source text.
-     */
+    /** Location in source text. */
     loc: Location | undefined
-    /**
-     * start column.
-     */
+    /** Start column. */
     start: number | undefined
-    /**
-     * end column.
-     */
+    /** End column. */
     end: number | undefined
-    /**
-     * [start, end] range
-     */
+    /** [start, end] range */
     range: Range | undefined
   }
 

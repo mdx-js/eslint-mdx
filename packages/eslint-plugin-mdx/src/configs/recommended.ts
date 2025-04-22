@@ -29,9 +29,7 @@ const addPrettierRules = () => {
     /* istanbul ignore next */
     const version = meta?.version || ''
 
-    /**
-     * @see https://github.com/prettier/eslint-plugin-prettier/releases/tag/v5.1.2
-     */
+    /** @see https://github.com/prettier/eslint-plugin-prettier/releases/tag/v5.1.2 */
     const [major, minor, patch] = version.split('.')
 
     /* istanbul ignore if -- We can't cover all versions in one test */

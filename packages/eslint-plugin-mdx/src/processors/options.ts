@@ -1,5 +1,6 @@
 /**
- * based on @link https://github.com/sveltejs/eslint-plugin-svelte3/blob/master/src/processor_options.js
+ * Based on @link
+ * https://github.com/sveltejs/eslint-plugin-svelte3/blob/master/src/processor_options.js
  */
 
 import type * as ESLint from 'eslint'

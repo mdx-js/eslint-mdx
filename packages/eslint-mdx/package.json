@@ -15,6 +15,7 @@
     "node": ">=18.0.0"
   },
   "main": "lib/index.cjs",
+  "types": "index.d.cts",
   "module": "lib/index.js",
   "exports": {
     ".": {
@@ -33,7 +34,6 @@
     },
     "./package.json": "./package.json"
   },
-  "types": "lib/index.d.ts",
   "files": [
     "index.d.cts",
     "lib"
@@ -62,7 +62,7 @@
     "remark-mdx": "^3.1.0",
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0",
-    "synckit": "^0.11.2",
+    "synckit": "^0.11.4",
     "tslib": "^2.8.1",
     "unified": "^11.0.5",
     "unified-engine": "^11.2.2",

@@ -132,7 +132,8 @@ export const restoreTokens = (
       }
 
       /**
-       * not available yet
+       * Not available yet
+       *
        * @see https://github.com/mdx-js/mdx/issues/2034
        */
 
