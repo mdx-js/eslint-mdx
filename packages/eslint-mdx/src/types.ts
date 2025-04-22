@@ -74,7 +74,7 @@ export interface PackageJson {
 }
 
 /**
- * temporary workaround for missing `Ignore` from `unified-engine`
+ * Temporary workaround for missing `Ignore` from `unified-engine`
  *
  * See also {@link https://github.com/unifiedjs/unified-engine/pull/79}
  *
@@ -91,16 +91,10 @@ export type IgnoreClass = typeof Ignore
 export type Callback = (error?: Error, result?: boolean) => void
 
 export interface Options {
-  /**
-   *   Base.
-   */
+  /** Base. */
   cwd: string
-  /**
-   *   Whether to detect ignore files.
-   */
+  /** Whether to detect ignore files. */
   detectIgnore: boolean | undefined
-  /**
-   *   Basename of ignore files.
-   */
+  /** Basename of ignore files. */
   ignoreName?: string
 }

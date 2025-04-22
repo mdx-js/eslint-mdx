@@ -231,9 +231,9 @@ runAsWorker(
     sharedTokens.length = 0
 
     /**
-     * unified plugins are using ESM version of acorn,
-     * so we have to use the same version as well,
-     * otherwise the TokenType will be different class
+     * Unified plugins are using ESM version of acorn, so we have to use the
+     * same version as well, otherwise the TokenType will be different class
+     *
      * @see also https://github.com/acornjs/acorn-jsx/issues/133
      */
     if (!acornParser) {
@@ -754,7 +754,8 @@ runAsWorker(
         }
 
         /**
-         * Copied from @see https://github.com/eslint/espree/blob/1584ddb00f0b4e3ada764ac86ae20e1480003de3/lib/espree.js#L227-L241
+         * Copied from @see
+         * https://github.com/eslint/espree/blob/1584ddb00f0b4e3ada764ac86ae20e1480003de3/lib/espree.js#L227-L241
          */
         const templateElement = node
 

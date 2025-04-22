@@ -23,5 +23,6 @@ export const getGlobals = <
   )
 
 /* istanbul ignore next */
-export const cjsRequire: CjsRequire =
-  typeof require === 'undefined' ? createRequire(import.meta.url) : require
+export const cjsRequire: CjsRequire = import.meta.url
+  ? createRequire(import.meta.url)
+  : require
