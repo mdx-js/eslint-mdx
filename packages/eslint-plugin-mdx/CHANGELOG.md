@@ -1,5 +1,14 @@
 # Change Log
 
+## 3.4.1
+
+### Patch Changes
+
+- [#569](https://github.com/mdx-js/eslint-mdx/pull/569) [`c101877`](https://github.com/mdx-js/eslint-mdx/commit/c101877715455bd7663510459a4623086091df20) Thanks [@JounQin](https://github.com/JounQin)! - fix: `types` field should point to `.d.cts`
+
+- Updated dependencies [[`c101877`](https://github.com/mdx-js/eslint-mdx/commit/c101877715455bd7663510459a4623086091df20), [`5b965b3`](https://github.com/mdx-js/eslint-mdx/commit/5b965b3b603af656c782f95c63126c1c5c4dfcc0)]:
+  - eslint-mdx@3.4.1
+
 ## 3.4.0
 
 ### Minor Changes
