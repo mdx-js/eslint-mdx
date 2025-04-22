@@ -141,6 +141,7 @@ export const getRemarkProcessor = async (
   filePath: string,
   isMdx: boolean,
   ignoreRemarkConfig?: boolean,
+  cwd?: string,
 ) => {
   const initCacheKey = `${String(isMdx)}-${filePath}`
 
@@ -150,7 +151,9 @@ export const getRemarkProcessor = async (
     return cachedProcessor
   }
 
-  const result = ignoreRemarkConfig ? null : await getRemarkConfig(filePath)
+  const result = ignoreRemarkConfig
+    ? null
+    : await getRemarkConfig(filePath, cwd)
 
   const cacheKey = result?.filePath
     ? `${String(isMdx)}-${result.filePath}`
@@ -241,6 +244,7 @@ runAsWorker(
       filePath,
       isMdx,
       ignoreRemarkConfig,
+      cwd,
     )
 
     const fileOptions: VFileOptions = {
