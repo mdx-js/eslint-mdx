@@ -151,7 +151,9 @@ export const getRemarkProcessor = async (
     return cachedProcessor
   }
 
-  const result = ignoreRemarkConfig ? null : await getRemarkConfig(filePath, cwd)
+  const result = ignoreRemarkConfig
+    ? null
+    : await getRemarkConfig(filePath, cwd)
 
   const cacheKey = result?.filePath
     ? `${String(isMdx)}-${result.filePath}`
