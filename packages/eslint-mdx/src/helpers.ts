@@ -121,7 +121,9 @@ export const nextCharOffsetFactory = (text: string) => {
   }
 }
 
+const importMetaUrl = import.meta.url
+
 /* istanbul ignore next */
-export const cjsRequire: CjsRequire = import.meta.url
-  ? createRequire(import.meta.url)
+export const cjsRequire: CjsRequire = importMetaUrl
+  ? createRequire(importMetaUrl)
   : require

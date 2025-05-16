@@ -86,7 +86,7 @@ const ignoreCheckCache = new Map<
   (filePath: string) => Promise<boolean>
 >()
 
-const getRemarkConfig = async (filePath: string, cwd = process.cwd()) => {
+const getRemarkConfig = async (filePath: string, cwd: string) => {
   let configLoad = configLoadCache.get(cwd)
 
   if (!configLoad) {
@@ -141,9 +141,9 @@ export const getRemarkProcessor = async (
   filePath: string,
   isMdx: boolean,
   ignoreRemarkConfig?: boolean,
-  cwd?: string,
+  cwd = process.cwd(),
 ) => {
-  const initCacheKey = `${String(isMdx)}-${filePath}`
+  const initCacheKey = `${String(isMdx)}-${cwd}\0${filePath}`
 
   let cachedProcessor = processorCache.get(initCacheKey)
 
