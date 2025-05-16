@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.4.2
+
+### Patch Changes
+
+- [#577](https://github.com/mdx-js/eslint-mdx/pull/577) [`b670ae4`](https://github.com/mdx-js/eslint-mdx/commit/b670ae4b6b8e509d278ab3a90834231666b98609) Thanks [@JounQin](https://github.com/JounQin)! - fix: take `cwd` into cache key account
+
+- [#577](https://github.com/mdx-js/eslint-mdx/pull/577) [`b670ae4`](https://github.com/mdx-js/eslint-mdx/commit/b670ae4b6b8e509d278ab3a90834231666b98609) Thanks [@JounQin](https://github.com/JounQin)! - fix: remove buggy `module-sync` entry
+
 ## 3.4.1
 
 ### Patch Changes
