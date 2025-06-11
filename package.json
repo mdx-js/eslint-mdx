@@ -10,7 +10,7 @@
   "workspaces": [
     "packages/*"
   ],
-  "packageManager": "yarn@4.9.1",
+  "packageManager": "yarn@4.9.2",
   "scripts": {
     "build": "concurrently -r 'yarn:build:*'",
     "build:r": "r -f cjs",
@@ -28,12 +28,12 @@
     "version": "changeset version && yarn --no-immutable"
   },
   "devDependencies": {
-    "@1stg/common-config": "^13.0.1",
+    "@1stg/common-config": "^14.0.0",
     "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.29.2",
     "@commitlint/cli": "^19.8.0",
-    "@oxc-node/core": "^0.0.24",
-    "@pkgr/rollup": "^6.0.3",
+    "@oxc-node/core": "^0.0.28",
+    "@pkgr/rollup": "^7.0.0",
     "@swc/core": "^1.11.21",
     "@swc/jest": "^0.2.37",
     "@types/jest": "^29.5.14",
@@ -48,7 +48,7 @@
     "globals": "^16.0.0",
     "jest": "^30.0.0-alpha.7",
     "nano-staged": "^0.8.0",
-    "path-serializer": "^0.4.0",
+    "path-serializer": "^0.5.0",
     "prettier": "^3.5.3",
     "react": "^19.1.0",
     "rimraf": "^6.0.1",
