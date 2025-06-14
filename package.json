@@ -51,6 +51,7 @@
     "path-serializer": "^0.5.0",
     "prettier": "^3.5.3",
     "react": "^19.1.0",
+    "remark-math": "^6.0.0",
     "rimraf": "^6.0.1",
     "simple-git-hooks": "^2.13.0",
     "ts-node": "^10.9.2",
@@ -102,7 +103,8 @@
   "prettier": "@1stg/prettier-config",
   "remarkConfig": {
     "plugins": [
-      "@1stg/preset"
+      "@1stg/preset",
+      "remark-math"
     ]
   },
   "typeCoverage": {
