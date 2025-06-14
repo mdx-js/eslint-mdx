@@ -1,0 +1,80 @@
+diff --git a/node_modules/@1stg/eslint-config/base.js b/node_modules/@1stg/eslint-config/base.js
+index 8e0b6f5..68a5e50 100644
+--- a/node_modules/@1stg/eslint-config/base.js
++++ b/node_modules/@1stg/eslint-config/base.js
+@@ -34,7 +34,7 @@ export const base = tseslint.config([
+   promise.configs['flat/recommended'],
+   regexp.configs['flat/recommended'],
+   sonarjs.configs.recommended,
+-  unicornX.configs.recommended,
++  unicornX.configs['flat/recommended'],
+   prettierExtends,
+   isEslintNodeDepsEnabled && isPkgAvailable('eslint-plugin-node-dependencies')
+     ? [
+@@ -131,7 +131,7 @@ export const base = tseslint.config([
+         },
+       ],
+       'no-negated-condition': 2,
+-      'no-process-exit': 0, // suspended by unicorn-x/no-process-exit
++      'no-process-exit': 0, // suspended by unicorn/no-process-exit
+ 
+       // The following rules are duplicate with `eslint-plugin-import-x`
+       'n/no-extraneous-import': 0,
+@@ -146,15 +146,15 @@ export const base = tseslint.config([
+       'prefer-const': [2, { destructuring: 'all' }],
+       'prefer-object-spread': 2,
+       'simple-import-sort/exports': 2,
+-      'unicorn-x/catch-error-name': [
++      'unicorn/catch-error-name': [
+         2,
+         {
+           name: 'error',
+           ignore: ['^e(rr)?$'],
+         },
+       ],
+-      'unicorn-x/consistent-function-scoping': 0,
+-      'unicorn-x/filename-case': [
++      'unicorn/consistent-function-scoping': 0,
++      'unicorn/filename-case': [
+         2,
+         {
+           cases: {
+@@ -165,13 +165,13 @@ export const base = tseslint.config([
+           ignore: [/^[A-Z](([\dA-Z]+_)*[\dA-Z]+)?\.(mdx?|ya?ml)$/],
+         },
+       ],
+-      'unicorn-x/no-array-reduce': 0,
+-      'unicorn-x/no-null': 0,
+-      'unicorn-x/no-unreadable-array-destructuring': 0, // conflict with `no-unused-vars`
+-      'unicorn-x/prefer-module': 0,
+-      'unicorn-x/prefer-object-from-entries': 0,
+-      'unicorn-x/prevent-abbreviations': 0,
+-      'unicorn-x/prefer-export-from': [2, { ignoreUsedVariables: true }],
++      'unicorn/no-array-reduce': 0,
++      'unicorn/no-null': 0,
++      'unicorn/no-unreadable-array-destructuring': 0, // conflict with `no-unused-vars`
++      'unicorn/prefer-module': 0,
++      'unicorn/prefer-object-from-entries': 0,
++      'unicorn/prevent-abbreviations': 0,
++      'unicorn/prefer-export-from': [2, { ignoreUsedVariables: true }],
+     },
+   },
+   {
+diff --git a/node_modules/@1stg/eslint-config/ts-base.js b/node_modules/@1stg/eslint-config/ts-base.js
+index 18bb9f2..214471d 100644
+--- a/node_modules/@1stg/eslint-config/ts-base.js
++++ b/node_modules/@1stg/eslint-config/ts-base.js
+@@ -129,10 +129,10 @@ export const tsBase = tseslint.config({
+     'promise/always-return': 0,
+     'promise/catch-or-return': 0,
+     // ts itself has guaranteed it
+-    'unicorn-x/no-array-callback-reference': 0,
++    'unicorn/no-array-callback-reference': 0,
+     // covered by @typescript-eslint/no-extraneous-class
+-    'unicorn-x/no-static-only-class': 0,
++    'unicorn/no-static-only-class': 0,
+     // covered by @typescript-eslint/no-this-alias
+-    'unicorn-x/no-this-assignment': 0,
++    'unicorn/no-this-assignment': 0,
+   },
+ })

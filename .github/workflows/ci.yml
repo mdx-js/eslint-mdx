@@ -44,7 +44,7 @@ jobs:
         if: ${{ matrix.eslint < 9 }}
         run: |
           yarn add -D eslint@${{ matrix.eslint }} @types/eslint@9
-          yarn set resolution eslint-plugin-unicorn@npm:^58.0.0 npm:^56
+          yarn set resolution eslint-plugin-unicorn-x@npm:eslint-plugin-unicorn@^59.0.1 npm:eslint-plugin-unicorn@^56
 
       - name: Build, Lint and Test
         run: |

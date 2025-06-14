@@ -41,7 +41,7 @@ ESLinter.prototype.verify = function (
   /* istanbul ignore next */
   const settings = ((
     config.extractConfig?.(
-      // eslint-disable-next-line unicorn-x/no-typeof-undefined
+      // eslint-disable-next-line unicorn/no-typeof-undefined
       typeof options === 'undefined' || typeof options === 'string'
         ? options
         : options.filename,

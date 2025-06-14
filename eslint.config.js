@@ -16,13 +16,12 @@ export default config([
       '@typescript-eslint/no-unnecessary-condition': 'off',
       'sonarjs/fixme-tag': 'off',
       'sonarjs/todo-tag': 'off',
-      'unicorn-x/prefer-export-from': [
+      'unicorn/prefer-export-from': [
         'error',
         {
           ignoreUsedVariables: true,
         },
       ],
-      'unicorn-x/template-indent': 'off',
     },
   },
   {

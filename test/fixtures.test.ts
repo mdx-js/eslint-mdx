@@ -17,15 +17,11 @@ const getCli = (lintCodeBlocks = false, fix?: boolean) =>
     overrideConfig: config(
       eslintJs.configs.recommended,
       ...configs.recommended,
-      unicornX.configs.recommended,
+      // eslint-disable-next-line sonarjs/deprecation -- for ESLint v8 compatibility
+      unicornX.configs['flat/recommended'],
       mdx.configs.flat,
       mdx.configs.flatCodeBlocks,
       prettierRecommended,
-      {
-        rules: {
-          'unicorn-x/template-indent': 'off',
-        },
-      },
       {
         files: ['**/*.{js,jsx,md,mdx,ts,tsx}'],
         extends: [react.configs.flat.recommended],
