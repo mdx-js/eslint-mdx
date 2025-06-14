@@ -1,10 +1,13 @@
 /** {@link https://github.com/eslint/markdown/blob/f17311eb250fe3f41a24fd52be9c6713d12b7d67/src/processor.js} */
 
+import fs from 'node:fs'
+import path from 'node:path'
+
 import type { AST, Linter, Rule } from 'eslint'
+import { performSyncWork } from 'eslint-mdx'
 import type { Node, Parent, Nodes, Root, RootContentMap } from 'mdast'
 import type { MdxFlowExpression, MdxTextExpression } from 'mdast-util-mdx'
 
-import { fromMarkdown } from '../from-markdown.js'
 import { meta } from '../meta.js'
 
 import type { CodeBlock, RangeMap } from './types.js'
@@ -263,21 +266,42 @@ function fileNameFromMeta(block: CodeBlock) {
 }
 
 /**
+ * Given a filepath, get the nearest path that is a regular file. The filepath
+ * provided by eslint may be a virtual filepath rather than a file on disk. This
+ * attempts to transform a virtual path into an on-disk path
+ */
+function getOnDiskFilepath(filepath: string): string {
+  let fallback: boolean | undefined
+  try {
+    /* istanbul ignore next -- `throwIfNoEntry` compatibility */
+    if (!fs.statSync(filepath, { throwIfNoEntry: false })) {
+      fallback = true
+    }
+  } catch (err) {
+    /* istanbul ignore next -- https://github.com/eslint/eslint/issues/11989 */
+    if ((err as NodeJS.ErrnoException).code === 'ENOTDIR') {
+      fallback = true
+    }
+  }
+  return fallback ? getOnDiskFilepath(path.dirname(filepath)) : filepath
+}
+
+/**
  * Extracts lintable code blocks from Markdown text.
  *
  * @param sourceText The text of the file.
  * @param filename The filename of the file
  * @returns Source code blocks to lint.
  */
-
 function preprocess(sourceText: string, filename: string) {
   // istanbul ignore next
   const text = sourceText.startsWith(BOM) ? sourceText.slice(1) : sourceText
-  const ast = fromMarkdown(
-    text,
+  const { root } = performSyncWork({
+    filePath: getOnDiskFilepath(filename),
+    code: text,
     // FIXME: how to read `extensions` and `markdownExtensions` parser options?
-    filename.endsWith('.mdx'),
-  )
+    isMdx: filename.endsWith('.mdx'),
+  })
   const blocks: CodeBlock[] = []
 
   blocksCache.set(filename, blocks)
@@ -300,7 +324,7 @@ function preprocess(sourceText: string, filename: string) {
     }
   }
 
-  traverse(ast, {
+  traverse(root, {
     '*'() {
       allComments = []
     },
