@@ -3,6 +3,8 @@
   "extends": "@1stg/tsconfig/node16",
   "compilerOptions": {
     "strictFunctionTypes": false,
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    // https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping#node-18
+    "target": "ES2022"
   }
 }

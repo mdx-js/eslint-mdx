@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`fixtures lint code blocks should work as expected: code-blocks/278.md 1`] = `
 [
@@ -48,7 +48,25 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/278.md 1
     "message": "Prefer \`Array#flat()\` over \`[].concat()\` to flatten an array.",
     "messageId": "prefer-array-flat",
     "nodeType": "CallExpression",
-    "ruleId": "unicorn/prefer-array-flat",
+    "ruleId": "unicorn-x/prefer-array-flat",
+    "severity": 2,
+  },
+  {
+    "column": 21,
+    "endColumn": 27,
+    "endLine": 12,
+    "fix": {
+      "range": [
+        141,
+        152,
+      ],
+      "text": "a]",
+    },
+    "line": 12,
+    "message": "Prefer the spread operator over \`Array#concat(…)\`.",
+    "messageId": "array-concat",
+    "nodeType": "Identifier",
+    "ruleId": "unicorn-x/prefer-spread",
     "severity": 2,
   },
   {
@@ -221,7 +239,7 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/455.mdx 
     "message": "Prefer \`.at(…)\` over \`[….length - index]\`.",
     "messageId": "negative-index",
     "nodeType": "BinaryExpression",
-    "ruleId": "unicorn/prefer-at",
+    "ruleId": "unicorn-x/prefer-at",
     "severity": 2,
   },
 ]
@@ -454,7 +472,7 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "message": "The variable \`num\` should be named \`number_\`. A more descriptive name will do too.",
     "messageId": "replace",
     "nodeType": "Identifier",
-    "ruleId": "unicorn/prevent-abbreviations",
+    "ruleId": "unicorn-x/prevent-abbreviations",
     "severity": 2,
   },
   {
@@ -465,11 +483,10 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "message": "Prefer the spread operator over \`Array#concat(…)\`.",
     "messageId": "array-concat",
     "nodeType": "Identifier",
-    "ruleId": "unicorn/prefer-spread",
+    "ruleId": "unicorn-x/prefer-spread",
     "severity": 2,
     "suggestions": [
       {
-        "data": {},
         "desc": "First argument is an \`array\`.",
         "fix": {
           "range": [
@@ -483,7 +500,6 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
         "messageId": "argument-is-spreadable",
       },
       {
-        "data": {},
         "desc": "First argument is not an \`array\`.",
         "fix": {
           "range": [
@@ -513,7 +529,7 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "message": "The variable \`i\` should be named \`index\`. A more descriptive name will do too.",
     "messageId": "replace",
     "nodeType": "Identifier",
-    "ruleId": "unicorn/prevent-abbreviations",
+    "ruleId": "unicorn-x/prevent-abbreviations",
     "severity": 2,
   },
   {
@@ -531,7 +547,7 @@ exports[`fixtures should match all snapshots: 380.mdx 1`] = `
     "message": "Prefer \`.at(…)\` over \`[….length - index]\`.",
     "messageId": "negative-index",
     "nodeType": "BinaryExpression",
-    "ruleId": "unicorn/prefer-at",
+    "ruleId": "unicorn-x/prefer-at",
     "severity": 2,
   },
 ]

@@ -16,12 +16,13 @@ export default config([
       '@typescript-eslint/no-unnecessary-condition': 'off',
       'sonarjs/fixme-tag': 'off',
       'sonarjs/todo-tag': 'off',
-      'unicorn/prefer-export-from': [
+      'unicorn-x/prefer-export-from': [
         'error',
         {
           ignoreUsedVariables: true,
         },
       ],
+      'unicorn-x/template-indent': 'off',
     },
   },
   {
@@ -51,6 +52,11 @@ export default config([
   },
   {
     ...mdx.flatCodeBlocks,
+    languageOptions: {
+      parserOptions: {
+        projectService: false,
+      },
+    },
     rules: {
       ...mdx.flatCodeBlocks.rules,
       'no-magic-numbers': 'off',

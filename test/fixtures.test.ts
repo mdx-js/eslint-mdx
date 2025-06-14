@@ -3,8 +3,8 @@ import path from 'node:path'
 import eslintJs from '@eslint/js'
 import { TSESLint } from '@typescript-eslint/utils'
 import prettierRecommended from 'eslint-plugin-prettier/recommended'
-import eslintReact from 'eslint-plugin-react'
-import eslintUnicorn from 'eslint-plugin-unicorn'
+import react from 'eslint-plugin-react'
+import unicornX from 'eslint-plugin-unicorn-x'
 import globals from 'globals'
 import { config, configs } from 'typescript-eslint'
 
@@ -14,12 +14,21 @@ const getCli = (lintCodeBlocks = false, fix?: boolean) =>
   new TSESLint.ESLint({
     fix,
     overrideConfigFile: true,
-    baseConfig: config(
+    overrideConfig: config(
       eslintJs.configs.recommended,
       ...configs.recommended,
+      unicornX.configs.recommended,
+      mdx.configs.flat,
+      mdx.configs.flatCodeBlocks,
+      prettierRecommended,
+      {
+        rules: {
+          'unicorn-x/template-indent': 'off',
+        },
+      },
       {
         files: ['**/*.{js,jsx,md,mdx,ts,tsx}'],
-        extends: [eslintReact.configs.flat.recommended],
+        extends: [react.configs.flat.recommended],
         processor: mdx.createRemarkProcessor({
           lintCodeBlocks,
         }),
@@ -46,11 +55,6 @@ const getCli = (lintCodeBlocks = false, fix?: boolean) =>
           'react/self-closing-comp': 'error',
         },
       },
-      // eslint-disable-next-line sonarjs/deprecation -- for ESLint v8 compatibility
-      eslintUnicorn.configs['flat/recommended'],
-      mdx.configs.flat,
-      mdx.configs.flatCodeBlocks,
-      prettierRecommended,
     ),
   })
 
