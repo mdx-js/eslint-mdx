@@ -1,5 +1,18 @@
 # Change Log
 
+## 3.5.0
+
+### Minor Changes
+
+- [#580](https://github.com/mdx-js/eslint-mdx/pull/580) [`27da917`](https://github.com/mdx-js/eslint-mdx/commit/27da91768c55979f6d65bd6d0226403f05ef5470) Thanks [@renovate](https://github.com/apps/renovate)! - refactor: target `ES2022` and drop unnecessary `tslib` dependency
+
+### Patch Changes
+
+- [#583](https://github.com/mdx-js/eslint-mdx/pull/583) [`8c9ef4b`](https://github.com/mdx-js/eslint-mdx/commit/8c9ef4beecd864a5083700021284af3a975681a1) Thanks [@JounQin](https://github.com/JounQin)! - fix: use unified `performSyncWork` for parsing with remark config
+
+- Updated dependencies [[`27da917`](https://github.com/mdx-js/eslint-mdx/commit/27da91768c55979f6d65bd6d0226403f05ef5470)]:
+  - eslint-mdx@3.5.0
+
 ## 3.4.2
 
 ### Patch Changes
