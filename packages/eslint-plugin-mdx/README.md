@@ -273,7 +273,7 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 
 [MIT][] © [JounQin][]@[1stG.me][]
 
-[1stg.me]: https://www.1stg.me
+[1stg.me]: https://www.1stG.me
 [changesets]: https://github.com/changesets/changesets
 [eslint]: https://eslint.org
 [jounqin]: https://github.com/JounQin

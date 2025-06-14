@@ -51,6 +51,11 @@ export default config([
   },
   {
     ...mdx.flatCodeBlocks,
+    languageOptions: {
+      parserOptions: {
+        projectService: false,
+      },
+    },
     rules: {
       ...mdx.flatCodeBlocks.rules,
       'no-magic-numbers': 'off',
