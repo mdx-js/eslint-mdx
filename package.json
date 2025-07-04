@@ -21,7 +21,8 @@
     "lint:es": "eslint . --cache",
     "lint:tsc": "tsc --noEmit",
     "prepare": "patch-package && simple-git-hooks && yarn-berry-deduplicate || exit 0",
-    "release": "yarn build && changeset publish",
+    "release": "run-s build release:only",
+    "release:only": "changeset publish",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "typecov": "type-coverage",
     "version": "changeset version && yarn --no-immutable"
