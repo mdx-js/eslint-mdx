@@ -100,6 +100,10 @@ npm i -D eslint-plugin-mdx
     // optional, if you want to disable language mapper, set it to `false`
     // if you want to override the default language mapper inside, you can provide your own
     "mdx/language-mapper": {},
+    // optional, same as the `parserOptions.ignoreRemarkConfig`, you have to specify it twice unfortunately
+    "mdx/ignore-remark-config": true,
+    // optional, same as the `parserOptions.remarkConfigPath`, you have to specify it twice unfortunately
+    "mdx/remark-config-path": "path/to/your/remarkrc",
   },
 }
 ```
@@ -120,6 +124,10 @@ export default [
       // optional, if you want to disable language mapper, set it to `false`
       // if you want to override the default language mapper inside, you can provide your own
       languageMapper: {},
+      // optional, same as the `parserOptions.ignoreRemarkConfig`, you have to specify it twice unfortunately
+      ignoreRemarkConfig: true,
+      // optional, same as the `parserOptions.remarkConfigPath`, you have to specify it twice unfortunately
+      remarkConfigPath: 'path/to/your/remarkrc',
     }),
   },
   {
@@ -147,6 +155,8 @@ eslint . --ext js,md,mdx
 2. `markdownExtensions` (`string | string[]`): `eslint-mdx` will only treat `.md` files as plain markdown by default, and will lint them via remark plugins. If you want to resolve other extensions as like `.md`, you can use this option.
 
 3. `ignoreRemarkConfig` (`boolean`): Ignore the `remark` configuration defined in the project.
+
+4. `remarkConfigPath` (`string`): Specify the path to the `remark` configuration file, could be relative to `CWD` or absolute path.
 
 ## Parser API
 

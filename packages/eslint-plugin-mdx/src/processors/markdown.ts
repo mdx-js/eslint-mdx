@@ -4,7 +4,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import type { AST, Linter, Rule } from 'eslint'
-import { performSyncWork } from 'eslint-mdx'
+import { type SyncOptions, performSyncWork } from 'eslint-mdx'
 import type { Node, Parent, Nodes, Root, RootContentMap } from 'mdast'
 import type { MdxFlowExpression, MdxTextExpression } from 'mdast-util-mdx'
 
@@ -293,7 +293,11 @@ function getOnDiskFilepath(filepath: string): string {
  * @param filename The filename of the file
  * @returns Source code blocks to lint.
  */
-function preprocess(sourceText: string, filename: string) {
+function preprocess(
+  sourceText: string,
+  filename: string,
+  syncOptions: SyncOptions,
+) {
   // istanbul ignore next
   const text = sourceText.startsWith(BOM) ? sourceText.slice(1) : sourceText
   const { root } = performSyncWork({
@@ -301,6 +305,7 @@ function preprocess(sourceText: string, filename: string) {
     code: text,
     // FIXME: how to read `extensions` and `markdownExtensions` parser options?
     isMdx: filename.endsWith('.mdx'),
+    ...syncOptions,
   })
   const blocks: CodeBlock[] = []
 

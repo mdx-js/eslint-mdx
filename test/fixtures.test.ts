@@ -10,8 +10,14 @@ import { config, configs } from 'typescript-eslint'
 
 import * as mdx from 'eslint-plugin-mdx'
 
-const getCli = (lintCodeBlocks = false, fix?: boolean) =>
-  new TSESLint.ESLint({
+const fixturesDir = path.resolve('test/fixtures')
+
+const getCli = (lintCodeBlocks = false, fix?: boolean) => {
+  const remarkConfigPath = path.resolve(
+    fixturesDir,
+    'custom-remarkrc/my-remarkrc.mjs',
+  )
+  return new TSESLint.ESLint({
     fix,
     overrideConfigFile: true,
     overrideConfig: config(
@@ -30,8 +36,6 @@ const getCli = (lintCodeBlocks = false, fix?: boolean) =>
         }),
         languageOptions: {
           parserOptions: {
-            ecmaVersion: 'latest',
-            sourceType: 'module',
             ecmaFeatures: {
               jsx: true,
             },
@@ -51,12 +55,23 @@ const getCli = (lintCodeBlocks = false, fix?: boolean) =>
           'react/self-closing-comp': 'error',
         },
       },
+      {
+        files: ['**/custom-remarkrc/test.md'],
+        processor: mdx.createRemarkProcessor({
+          lintCodeBlocks,
+          remarkConfigPath,
+        }),
+        languageOptions: {
+          parserOptions: {
+            remarkConfigPath,
+          },
+        },
+      },
     ),
   })
+}
 
 const ONE_MINUTE = 60_000
-
-const fixturesDir = path.resolve('test/fixtures')
 
 const relative = (filePath: string) =>
   path.relative(fixturesDir, filePath).replaceAll('\\', '/')

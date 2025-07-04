@@ -86,8 +86,14 @@ const ignoreCheckCache = new Map<
   (filePath: string) => Promise<boolean>
 >()
 
-const getRemarkConfig = async (filePath: string, cwd: string) => {
-  let configLoad = configLoadCache.get(cwd)
+const getRemarkConfig = async (
+  filePath: string,
+  cwd: string,
+  remarkConfigPath?: string,
+) => {
+  const cacheKey = remarkConfigPath ? `${cwd}\0${remarkConfigPath}` : cwd
+
+  let configLoad = configLoadCache.get(cacheKey)
 
   if (!configLoad) {
     const config = new Configuration({
@@ -95,10 +101,11 @@ const getRemarkConfig = async (filePath: string, cwd: string) => {
       packageField: 'remarkConfig',
       pluginPrefix: 'remark',
       rcName: '.remarkrc',
+      rcPath: remarkConfigPath,
       detectConfig: true,
     })
     configLoad = promisify(config.load.bind(config))
-    configLoadCache.set(cwd, configLoad)
+    configLoadCache.set(cacheKey, configLoad)
   }
 
   if (!Ignore) {
@@ -109,7 +116,7 @@ const getRemarkConfig = async (filePath: string, cwd: string) => {
     )) as { Ignore: IgnoreClass })
   }
 
-  let ignoreCheck = ignoreCheckCache.get(cwd)
+  let ignoreCheck = ignoreCheckCache.get(cacheKey)
 
   if (!ignoreCheck) {
     const ignore = new Ignore({
@@ -118,7 +125,7 @@ const getRemarkConfig = async (filePath: string, cwd: string) => {
       detectIgnore: true,
     })
     ignoreCheck = promisify(ignore.check.bind(ignore))
-    ignoreCheckCache.set(cwd, ignoreCheck)
+    ignoreCheckCache.set(cacheKey, ignoreCheck)
   }
 
   return configLoad(filePath)
@@ -142,6 +149,7 @@ export const getRemarkProcessor = async (
   isMdx: boolean,
   ignoreRemarkConfig?: boolean,
   cwd = process.cwd(),
+  remarkConfigPath?: string,
 ) => {
   const initCacheKey = `${String(isMdx)}-${cwd}\0${filePath}`
 
@@ -153,7 +161,7 @@ export const getRemarkProcessor = async (
 
   const result = ignoreRemarkConfig
     ? null
-    : await getRemarkConfig(filePath, cwd)
+    : await getRemarkConfig(filePath, cwd, remarkConfigPath)
 
   const cacheKey = result?.filePath
     ? `${String(isMdx)}-${result.filePath}`
@@ -227,6 +235,8 @@ runAsWorker(
     isMdx,
     process,
     ignoreRemarkConfig,
+    remarkConfigPath,
+    // eslint-disable-next-line sonarjs/cognitive-complexity
   }: WorkerOptions): Promise<WorkerResult> => {
     sharedTokens.length = 0
 
@@ -245,6 +255,7 @@ runAsWorker(
       isMdx,
       ignoreRemarkConfig,
       cwd,
+      remarkConfigPath,
     )
 
     const fileOptions: VFileOptions = {
@@ -254,7 +265,9 @@ runAsWorker(
     }
 
     if (process) {
-      if (await ignoreCheckCache.get(cwd)(filePath)) {
+      const cacheKey = remarkConfigPath ? `${cwd}\0${remarkConfigPath}` : cwd
+
+      if (await ignoreCheckCache.get(cacheKey)(filePath)) {
         return {
           messages: [],
         }

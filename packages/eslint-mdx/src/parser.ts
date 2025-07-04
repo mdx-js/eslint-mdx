@@ -26,6 +26,7 @@ export class Parser {
       filePath,
       sourceType,
       ignoreRemarkConfig,
+      remarkConfigPath,
       extensions,
       markdownExtensions,
     }: ParserOptions,
@@ -55,6 +56,7 @@ export class Parser {
         code,
         isMdx,
         ignoreRemarkConfig,
+        remarkConfigPath,
       })
     } catch (err: unknown) {
       /* istanbul ignore if */

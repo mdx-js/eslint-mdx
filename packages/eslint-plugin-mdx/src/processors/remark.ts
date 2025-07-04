@@ -7,29 +7,31 @@ import { getShortLang } from './helpers.js'
 import { markdownProcessor } from './markdown.js'
 import { processorOptions as defaultProcessorOptions } from './options.js'
 
-export const createRemarkProcessor = (
-  processorOptions = defaultProcessorOptions,
-): Linter.Processor => ({
+export const createRemarkProcessor = ({
+  languageMapper,
+  lintCodeBlocks,
+  ...syncOptions
+} = defaultProcessorOptions): Linter.Processor => ({
   meta: {
     name: 'mdx/remark',
     version: meta.version,
   },
   supportsAutofix: true,
   preprocess(text, filename) {
-    if (!processorOptions.lintCodeBlocks) {
+    if (!lintCodeBlocks) {
       return [text]
     }
 
     return [
       text,
       ...markdownProcessor
-        .preprocess(text, filename)
+        .preprocess(text, filename, syncOptions)
         .map(({ text, filename }) => ({
           text,
           filename:
             filename.slice(0, filename.lastIndexOf('.')) +
             '.' +
-            getShortLang(filename, processorOptions.languageMapper),
+            getShortLang(filename, languageMapper),
         })),
     ]
   },

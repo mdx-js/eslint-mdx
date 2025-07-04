@@ -48,8 +48,10 @@ ESLinter.prototype.verify = function (
     ) ?? config
   ).settings ?? {}) as ESLintMdxSettings
 
-  processorOptions.lintCodeBlocks = settings['mdx/code-blocks'] === true
+  processorOptions.lintCodeBlocks = settings['mdx/code-blocks']
   processorOptions.languageMapper = settings['mdx/language-mapper']
+  processorOptions.ignoreRemarkConfig = settings['mdx/ignore-remark-config']
+  processorOptions.remarkConfigPath = settings['mdx/remark-config-path']
 
   // call original Linter#verify
   return verify.call(this, code, config, options as ESLint.Linter.LintOptions)
