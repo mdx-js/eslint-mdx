@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.6.0
+
+### Minor Changes
+
+- [#589](https://github.com/mdx-js/eslint-mdx/pull/589) [`7b5e748`](https://github.com/mdx-js/eslint-mdx/commit/7b5e7489f59659df7cc8d03b5ed5354e0f8a452e) Thanks [@JounQin](https://github.com/JounQin)! - feat: support specifying `remarkConfigPath` manually
+
 ## 3.5.0
 
 ### Minor Changes
