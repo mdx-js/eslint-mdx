@@ -10,6 +10,7 @@ export interface ParserOptions extends Linter.ParserOptions {
   markdownExtensions?: string[] | string
   filePath?: string
   ignoreRemarkConfig?: boolean
+  remarkConfigPath?: string
 }
 
 export interface NormalPosition {
@@ -22,13 +23,17 @@ export interface NormalPosition {
   range: [number, number]
 }
 
-export interface WorkerOptions {
+export interface SyncOptions {
+  cwd?: string
+  ignoreRemarkConfig?: boolean
+  remarkConfigPath?: string
+}
+
+export interface WorkerOptions extends SyncOptions {
   filePath: string
   code: string
-  cwd?: string
   isMdx: boolean
   process?: boolean
-  ignoreRemarkConfig?: boolean
 }
 
 export interface WorkerParseResult {

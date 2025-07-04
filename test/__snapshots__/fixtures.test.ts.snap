@@ -1677,6 +1677,8 @@ exports[`fixtures should match all snapshots: comments.mdx 1`] = `
 ]
 `;
 
+exports[`fixtures should match all snapshots: custom-remarkrc/test.md 1`] = `[]`;
+
 exports[`fixtures should match all snapshots: details.mdx 1`] = `
 [
   {
