@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
-- [#580](https://github.com/mdx-js/eslint-mdx/pull/580) [`27da917`](https://github.com/mdx-js/eslint-mdx/commit/27da91768c55979f6d65bd6d0226403f05ef5470) Thanks [@renovate](https://github.com/apps/renovate)! - refactor: target `ES2022` and drop unnecessary `tslib` dependency
+- [#580](https://github.com/mdx-js/eslint-mdx/pull/580) [`27da917`](https://github.com/mdx-js/eslint-mdx/commit/27da91768c55979f6d65bd6d0226403f05ef5470) Thanks [@renovate](https://github.com/apps/renovate) and [@JounQin](https://github.com/JounQin)! - refactor: target `ES2022` and drop unnecessary `tslib` dependency
 
 ### Patch Changes
 
