@@ -1,13 +1,7 @@
 <p align="center">
-  <a href="https://eslint.org">
-    <img src="https://eslint.org/icon.svg" height="50">
-  </a>
-  <a href="#readme">
-    <img src="https://rx-ts.github.io/assets/heart.svg" height="50">
-  </a>
-  <a href="https://github.com/mdx-js/mdx">
-    <img src="https://avatars.githubusercontent.com/u/37453691"  height="50">
-  </a>
+  <a href="https://eslint.org"><img src="https://eslint.org/icon.svg" height="50"></a>
+  <a href="#readme"><img src="https://rx-ts.github.io/assets/heart.svg" height="50"></a>
+  <a href="https://github.com/mdx-js/mdx"><img src="https://avatars.githubusercontent.com/u/37453691"  height="50"></a>
 </p>
 
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mdx-js/eslint-mdx/ci.yml?branch=master)](https://github.com/mdx-js/eslint-mdx/actions/workflows/ci.yml?query=branch%3Amaster)
