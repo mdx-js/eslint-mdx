@@ -1226,6 +1226,55 @@ exports[`fixtures should match all snapshots: 488.mdx 1`] = `
 
 exports[`fixtures should match all snapshots: 576.mdx 1`] = `[]`;
 
+exports[`fixtures should match all snapshots: 581.mdx 1`] = `
+[
+  {
+    "column": 30,
+    "endColumn": 53,
+    "endLine": 12,
+    "line": 12,
+    "message": "Expected an assignment or function call and instead saw an expression.",
+    "messageId": "unusedExpression",
+    "nodeType": "ExpressionStatement",
+    "ruleId": "no-unused-expressions",
+    "severity": 2,
+  },
+  {
+    "column": 30,
+    "endColumn": 53,
+    "endLine": 12,
+    "line": 12,
+    "message": "Expected an assignment or function call and instead saw an expression.",
+    "messageId": "unusedExpression",
+    "nodeType": "ExpressionStatement",
+    "ruleId": "@typescript-eslint/no-unused-expressions",
+    "severity": 2,
+  },
+  {
+    "column": 69,
+    "endColumn": 92,
+    "endLine": 12,
+    "line": 12,
+    "message": "Expected an assignment or function call and instead saw an expression.",
+    "messageId": "unusedExpression",
+    "nodeType": "ExpressionStatement",
+    "ruleId": "no-unused-expressions",
+    "severity": 2,
+  },
+  {
+    "column": 69,
+    "endColumn": 92,
+    "endLine": 12,
+    "line": 12,
+    "message": "Expected an assignment or function call and instead saw an expression.",
+    "messageId": "unusedExpression",
+    "nodeType": "ExpressionStatement",
+    "ruleId": "@typescript-eslint/no-unused-expressions",
+    "severity": 2,
+  },
+]
+`;
+
 exports[`fixtures should match all snapshots: acorn.mdx 1`] = `
 [
   {
