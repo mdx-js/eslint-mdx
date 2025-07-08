@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.6.1
+
+### Patch Changes
+
+- [#591](https://github.com/mdx-js/eslint-mdx/pull/591) [`a45ee72`](https://github.com/mdx-js/eslint-mdx/commit/a45ee72a71634fbc843596ba36dbc0cc569f0bba) Thanks [@JounQin](https://github.com/JounQin)! - fix: pass through `remarkConfigPath` of `parserOptions`
+
 ## 3.6.0
 
 ### Minor Changes
