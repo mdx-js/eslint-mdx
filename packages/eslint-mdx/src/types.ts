@@ -5,12 +5,15 @@ import type { JSXElement } from 'estree-jsx'
 import type { Root } from 'mdast'
 import type { VFileMessage } from 'vfile-message'
 
-export interface ParserOptions extends Linter.ParserOptions {
+export interface CommonOptions {
+  ignoreRemarkConfig?: boolean
+  remarkConfigPath?: string
+}
+
+export interface ParserOptions extends Linter.ParserOptions, CommonOptions {
   extensions?: string[] | string
   markdownExtensions?: string[] | string
   filePath?: string
-  ignoreRemarkConfig?: boolean
-  remarkConfigPath?: string
 }
 
 export interface NormalPosition {
@@ -23,10 +26,8 @@ export interface NormalPosition {
   range: [number, number]
 }
 
-export interface SyncOptions {
+export interface SyncOptions extends CommonOptions {
   cwd?: string
-  ignoreRemarkConfig?: boolean
-  remarkConfigPath?: string
 }
 
 export interface WorkerOptions extends SyncOptions {

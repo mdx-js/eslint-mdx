@@ -27,24 +27,30 @@ export const remark: Rule.RuleModule = {
     const extname = path.extname(filename)
     // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
     const sourceCode = context.getSourceCode()
-    // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
-    const options = context.parserOptions as ParserOptions
-    const isMdx = [
-      ...DEFAULT_EXTENSIONS,
-      ...(options.extensions || []),
-    ].includes(extname)
+
+    const {
+      extensions,
+      markdownExtensions,
+      ignoreRemarkConfig,
+      remarkConfigPath,
+    } =
+      // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
+      context.parserOptions as ParserOptions
+
+    const isMdx = [...DEFAULT_EXTENSIONS, ...(extensions || [])].includes(
+      extname,
+    )
     const isMarkdown = [
       ...MARKDOWN_EXTENSIONS,
-      ...(options.markdownExtensions || []),
+      ...(markdownExtensions || []),
     ].includes(extname)
+
     return {
       Program(node) {
         /* istanbul ignore if */
         if (!isMdx && !isMarkdown) {
           return
         }
-
-        const ignoreRemarkConfig = Boolean(options.ignoreRemarkConfig)
 
         const sourceText = sourceCode.getText(node)
 
@@ -56,6 +62,7 @@ export const remark: Rule.RuleModule = {
           isMdx,
           process: true,
           ignoreRemarkConfig,
+          remarkConfigPath,
         })
 
         let fixed = 0
