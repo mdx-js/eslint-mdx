@@ -28,14 +28,17 @@ export const remark: Rule.RuleModule = {
     // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
     const sourceCode = context.getSourceCode()
 
+    /* istanbul ignore next */
     const {
       extensions,
       markdownExtensions,
       ignoreRemarkConfig,
       remarkConfigPath,
-    } =
+    } = {
       // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
-      context.parserOptions as ParserOptions
+      ...context.parserOptions,
+      ...context.languageOptions?.parserOptions,
+    } as ParserOptions
 
     const isMdx = [...DEFAULT_EXTENSIONS, ...(extensions || [])].includes(
       extname,

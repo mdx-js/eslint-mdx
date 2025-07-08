@@ -2,6 +2,7 @@ import type { Linter } from 'eslint'
 import * as eslintMdx from 'eslint-mdx'
 
 import * as mdx from '../index.js'
+import { remark } from '../processors/remark.js'
 
 import { codeBlocks } from './code-blocks.js'
 
@@ -9,8 +10,6 @@ import { codeBlocks } from './code-blocks.js'
 export const flat: Linter.FlatConfig = {
   files: ['**/*.{md,mdx}'],
   languageOptions: {
-    sourceType: 'module',
-    ecmaVersion: 'latest',
     parser: eslintMdx,
     globals: {
       React: false,
@@ -19,6 +18,7 @@ export const flat: Linter.FlatConfig = {
   plugins: {
     mdx,
   },
+  processor: remark,
   rules: {
     'mdx/remark': 'warn',
     'no-unused-expressions': 'error',
