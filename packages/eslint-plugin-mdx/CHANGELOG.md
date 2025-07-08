@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.6.2
+
+### Patch Changes
+
+- [#593](https://github.com/mdx-js/eslint-mdx/pull/593) [`3e862c7`](https://github.com/mdx-js/eslint-mdx/commit/3e862c7b260b0c2a23fca37ae4654d3a7664ed21) Thanks [@JounQin](https://github.com/JounQin)! - fix: set `processor` for flat config
+
+- [#593](https://github.com/mdx-js/eslint-mdx/pull/593) [`3e862c7`](https://github.com/mdx-js/eslint-mdx/commit/3e862c7b260b0c2a23fca37ae4654d3a7664ed21) Thanks [@JounQin](https://github.com/JounQin)! - fix: prefer `context.languageOptions.parserOptions` over `context.parserOptions`
+
+- Updated dependencies []:
+  - eslint-mdx@3.6.2
+
 ## 3.6.1
 
 ### Patch Changes
