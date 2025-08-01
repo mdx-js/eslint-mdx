@@ -32,7 +32,7 @@
     "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.29.5",
     "@commitlint/cli": "^19.8.1",
-    "@oxc-node/core": "^0.0.29",
+    "@oxc-node/core": "^0.0.30",
     "@pkgr/rollup": "^7.0.0",
     "@swc/core": "^1.12.9",
     "@swc/jest": "^0.2.38",
@@ -62,7 +62,7 @@
   "resolutions": {
     "eslint-mdx": "link:packages/eslint-mdx",
     "eslint-plugin-mdx": "link:packages/eslint-plugin-mdx",
-    "eslint-plugin-unicorn-x": "npm:eslint-plugin-unicorn@^59.0.1",
+    "eslint-plugin-unicorn-x": "npm:eslint-plugin-unicorn@^60.0.0",
     "prettier": "^3.6.2"
   },
   "commitlint": {
