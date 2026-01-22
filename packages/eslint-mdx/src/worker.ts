@@ -1,6 +1,6 @@
 /* eslint-disable unicorn/no-await-expression-member */
 
-import { ok as assert } from 'node:assert'
+import { ok as assert } from 'node:assert/strict'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { promisify } from 'node:util'

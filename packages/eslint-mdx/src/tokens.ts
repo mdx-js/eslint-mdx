@@ -1,6 +1,6 @@
 /// <reference types="remark-mdx" />
 
-import { ok as assert } from 'node:assert'
+import { ok as assert } from 'node:assert/strict'
 
 import type { Token, TokenType, tokTypes } from 'acorn'
 import type { Root } from 'mdast'
