@@ -25,6 +25,7 @@ jobs:
         eslint:
           - 8
           - 9
+          - 10
       fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
