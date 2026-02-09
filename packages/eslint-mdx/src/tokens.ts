@@ -1,9 +1,10 @@
 /// <reference types="remark-mdx" />
 
+import { ok as assert } from 'node:assert/strict'
+
 import type { Token, TokenType, tokTypes } from 'acorn'
 import type { Root } from 'mdast'
 import type { visit as visitor } from 'unist-util-visit'
-import { ok as assert } from 'uvu/assert'
 
 import {
   getPositionAtFactory,

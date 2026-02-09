@@ -1,5 +1,6 @@
 /* eslint-disable unicorn/no-await-expression-member */
 
+import { ok as assert } from 'node:assert/strict'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { promisify } from 'node:util'
@@ -40,7 +41,6 @@ import type { ConfigResult } from 'unified-engine'
 import { Configuration } from 'unified-engine'
 import type { Node } from 'unist'
 import { visit } from 'unist-util-visit'
-import { ok as assert } from 'uvu/assert'
 import { VFile, type VFileOptions } from 'vfile'
 import type { VFileMessage } from 'vfile-message'
 
