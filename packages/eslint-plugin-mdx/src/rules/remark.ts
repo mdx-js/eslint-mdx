@@ -22,11 +22,13 @@ export const remark: Rule.RuleModule = {
     fixable: 'code',
   },
   create(context) {
-    // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
-    const filename = context.getFilename()
+    const filename =
+      // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
+      context.filename ?? /* istanbul ignore next */ context.getFilename()
     const extname = path.extname(filename)
-    // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
-    const sourceCode = context.getSourceCode()
+    const sourceCode =
+      // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
+      context.sourceCode ?? /* istanbul ignore next */ context.getSourceCode()
 
     /* istanbul ignore next */
     const {
@@ -61,7 +63,7 @@ export const remark: Rule.RuleModule = {
           filePath: getPhysicalFilename(filename),
           code: sourceText,
           // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
-          cwd: context.getCwd(),
+          cwd: context.cwd ?? /* istanbul ignore next */ context.getCwd(),
           isMdx,
           process: true,
           ignoreRemarkConfig,
