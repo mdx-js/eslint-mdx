@@ -1,5 +1,18 @@
 # Change Log
 
+## 3.7.0
+
+### Minor Changes
+
+- [#602](https://github.com/mdx-js/eslint-mdx/pull/602) [`e189e74`](https://github.com/mdx-js/eslint-mdx/commit/e189e74c4a9f77cea0c398800652dd897d5fa071) Thanks [@astrochemx](https://github.com/astrochemx)! - feat: `eslint` 10 support
+
+### Patch Changes
+
+- [#606](https://github.com/mdx-js/eslint-mdx/pull/606) [`a381990`](https://github.com/mdx-js/eslint-mdx/commit/a38199079b79ba787fd4c7e50a34b15615ac727b) Thanks [@remcohaszing](https://github.com/remcohaszing)! - chore: use OIDC for publishing
+
+- Updated dependencies [[`a381990`](https://github.com/mdx-js/eslint-mdx/commit/a38199079b79ba787fd4c7e50a34b15615ac727b), [`00a8369`](https://github.com/mdx-js/eslint-mdx/commit/00a836938fed26c4bd95358d25a0f045fcee6245)]:
+  - eslint-mdx@3.7.0
+
 ## 3.6.2
 
 ### Patch Changes
