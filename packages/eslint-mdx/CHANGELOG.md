@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.7.0
+
+### Patch Changes
+
+- [#606](https://github.com/mdx-js/eslint-mdx/pull/606) [`a381990`](https://github.com/mdx-js/eslint-mdx/commit/a38199079b79ba787fd4c7e50a34b15615ac727b) Thanks [@remcohaszing](https://github.com/remcohaszing)! - chore: use OIDC for publishing
+
+- [#600](https://github.com/mdx-js/eslint-mdx/pull/600) [`00a8369`](https://github.com/mdx-js/eslint-mdx/commit/00a836938fed26c4bd95358d25a0f045fcee6245) Thanks [@Jason3S](https://github.com/Jason3S)! - fix: remove unneeded dependency upon uvu
+
 ## 3.6.2
 
 ## 3.6.1
