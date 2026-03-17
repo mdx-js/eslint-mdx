@@ -34,11 +34,6 @@ const getCli = (lintCodeBlocks = false, fix?: boolean) => {
           lintCodeBlocks,
         }),
         languageOptions: {
-          parserOptions: {
-            ecmaFeatures: {
-              jsx: true,
-            },
-          },
           globals: globals.node,
         },
         settings: {
@@ -57,6 +52,7 @@ const getCli = (lintCodeBlocks = false, fix?: boolean) => {
           'prefer-const': 'error',
           'react/jsx-curly-brace-presence': 'error',
           'react/self-closing-comp': 'error',
+          'no-unused-vars': 'error',
         },
       },
       {
@@ -112,6 +108,25 @@ describe('fixtures', () => {
           expect(output).toMatchSnapshot(relative(filePath))
         }
       }
+    },
+    ONE_MINUTE,
+  )
+
+  it(
+    'should not report no-unused-vars for JSX component imports in MDX',
+    async () => {
+      const cli = getCli()
+
+      const results = await cli.lintFiles(
+        path.join(fixturesDir, 'jsx-imports.mdx'),
+      )
+
+      const messages = results.flatMap(r => r.messages)
+      const unusedVarsMessages = messages.filter(
+        m => m.ruleId === 'no-unused-vars',
+      )
+
+      expect(unusedVarsMessages).toEqual([])
     },
     ONE_MINUTE,
   )
