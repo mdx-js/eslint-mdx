@@ -2,6 +2,7 @@ import path from 'node:path'
 
 import eslintJs from '@eslint/js'
 import { TSESLint } from '@typescript-eslint/utils'
+import { Linter } from 'eslint'
 import prettierRecommended from 'eslint-plugin-prettier/recommended'
 import react from 'eslint-plugin-react'
 import globals from 'globals'
@@ -11,6 +12,7 @@ import { config, configs } from 'typescript-eslint'
 import * as mdx from 'eslint-plugin-mdx'
 
 const fixturesDir = path.resolve('test/fixtures')
+const eslintMajor = Number(new Linter().version.split('.')[0])
 
 const getCli = (lintCodeBlocks = false, fix?: boolean) => {
   const remarkConfigPath = path.resolve(
@@ -34,6 +36,11 @@ const getCli = (lintCodeBlocks = false, fix?: boolean) => {
           lintCodeBlocks,
         }),
         languageOptions: {
+          parserOptions: {
+            ecmaFeatures: {
+              jsx: true,
+            },
+          },
           globals: globals.node,
         },
         settings: {
@@ -52,7 +59,6 @@ const getCli = (lintCodeBlocks = false, fix?: boolean) => {
           'prefer-const': 'error',
           'react/jsx-curly-brace-presence': 'error',
           'react/self-closing-comp': 'error',
-          'no-unused-vars': 'error',
         },
       },
       {
@@ -112,10 +118,25 @@ describe('fixtures', () => {
     ONE_MINUTE,
   )
 
-  it(
+  /* eslint-disable jest/no-standalone-expect */
+  const itOnESLint10 = eslintMajor >= 10 ? it : it.skip
+  itOnESLint10(
     'should not report no-unused-vars for JSX component imports in MDX',
     async () => {
-      const cli = getCli()
+      // Uses only the plugin's built-in flat config without any user-land
+      // ecmaFeatures.jsx override, to verify the plugin sets it by default
+      const cli = new TSESLint.ESLint({
+        overrideConfigFile: true,
+        overrideConfig: [
+          eslintJs.configs.recommended,
+          mdx.configs.flat,
+          mdx.configs.flatCodeBlocks,
+          {
+            files: ['**/*.{md,mdx}'],
+            rules: { 'no-unused-vars': 'error' },
+          },
+        ],
+      })
 
       const results = await cli.lintFiles(
         path.join(fixturesDir, 'jsx-imports.mdx'),
@@ -130,6 +151,7 @@ describe('fixtures', () => {
     },
     ONE_MINUTE,
   )
+  /* eslint-enable */
 
   describe('lint code blocks', () => {
     it(
