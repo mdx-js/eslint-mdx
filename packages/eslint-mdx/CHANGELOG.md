@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.7.1
+
+### Patch Changes
+
+- [#610](https://github.com/mdx-js/eslint-mdx/pull/610) [`a581355`](https://github.com/mdx-js/eslint-mdx/commit/a581355bb56f4c8def8adf5808fdc5b31f9418c6) Thanks [@JounQin](https://github.com/JounQin)! - chore: restore better node compatibility
+
 ## 3.7.0
 
 ### Patch Changes
