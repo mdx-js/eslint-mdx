@@ -1,6 +1,6 @@
 /* eslint-disable unicorn/no-await-expression-member */
 
-import { ok as assert } from 'node:assert/strict'
+import { strict as assert } from 'node:assert'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { promisify } from 'node:util'
@@ -224,7 +224,7 @@ export const getRemarkProcessor = async (
 function isExpressionStatement(
   statement: Program['body'][number],
 ): asserts statement is ExpressionStatement | undefined {
-  assert(!statement || statement.type === 'ExpressionStatement')
+  assert.ok(!statement || statement.type === 'ExpressionStatement')
 }
 
 runAsWorker(
@@ -420,7 +420,7 @@ runAsWorker(
                 if (child.data && 'estree' in child.data && child.data.estree) {
                   const { estree } = child.data
 
-                  assert(estree.body.length <= 1)
+                  assert.ok(estree.body.length <= 1)
 
                   const statement = estree.body[0]
 
@@ -538,12 +538,12 @@ runAsWorker(
             if (!selfClosing) {
               const prevOffset = prevCharOffset(lastCharOffset)
               const slashOffset = prevCharOffset(prevOffset - nodeNameLength)
-              assert(
+              assert.ok(
                 code[slashOffset] === '/',
                 `expect \`${code[slashOffset]}\` to be \`/\`, the node is ${node.name}`,
               )
               const tagStartOffset = prevCharOffset(slashOffset - 1)
-              assert(code[tagStartOffset] === '<')
+              assert.ok(code[tagStartOffset] === '<')
               closingElement = {
                 ...normalizeNode(tagStartOffset, nodeEnd),
                 type: 'JSXClosingElement',
@@ -559,17 +559,17 @@ runAsWorker(
                 name: handleJsxName(node.name, nodeNameStart),
                 attributes: node.attributes.map(attr => {
                   if (attr.type === 'mdxJsxExpressionAttribute') {
-                    assert(attr.data)
-                    assert(attr.data.estree)
-                    assert(attr.data.estree.range)
+                    assert.ok(attr.data)
+                    assert.ok(attr.data.estree)
+                    assert.ok(attr.data.estree.range)
 
                     let [attrValStart, attrValEnd] = attr.data.estree.range
 
                     attrValStart = prevCharOffset(attrValStart - 1)
                     attrValEnd = nextCharOffset(attrValEnd)
 
-                    assert(code[attrValStart] === '{')
-                    assert(code[attrValEnd] === '}')
+                    assert.ok(code[attrValStart] === '{')
+                    assert.ok(code[attrValEnd] === '}')
 
                     lastAttrOffset = attrValEnd
 
@@ -589,7 +589,7 @@ runAsWorker(
 
                   const attrStart = nextCharOffset(lastAttrOffset + 1)
 
-                  assert(attrStart != null)
+                  assert.ok(attrStart != null)
 
                   const attrName = attr.name
                   const attrNameLength = attrName.length
@@ -617,7 +617,7 @@ runAsWorker(
                     attrStart + attrNameLength,
                   )
 
-                  assert(code[attrEqualOffset] === '=')
+                  assert.ok(code[attrEqualOffset] === '=')
 
                   let attrValuePos: NormalPosition
 
@@ -626,13 +626,13 @@ runAsWorker(
 
                     const attrQuote = code[attrQuoteOffset]
 
-                    assert(attrQuote === '"' || attrQuote === "'")
+                    assert.ok(attrQuote === '"' || attrQuote === "'")
 
                     lastAttrOffset = nextCharOffset(
                       attrQuoteOffset + attrValue.length + 1,
                     )
 
-                    assert(code[lastAttrOffset] === attrQuote)
+                    assert.ok(code[lastAttrOffset] === attrQuote)
 
                     attrValuePos = normalizeNode(
                       attrQuoteOffset,
@@ -646,8 +646,8 @@ runAsWorker(
                     attrValStart = prevCharOffset(attrValStart - 1)
                     attrValEnd = nextCharOffset(attrValEnd)
 
-                    assert(code[attrValStart] === '{')
-                    assert(code[attrValEnd] === '}')
+                    assert.ok(code[attrValStart] === '{')
+                    assert.ok(code[attrValEnd] === '}')
 
                     lastAttrOffset = attrValEnd
 
@@ -695,7 +695,7 @@ runAsWorker(
               nextChar = code[nextOffset]
             }
 
-            assert(
+            assert.ok(
               nextChar === expectedNextChar,
               `\`nextChar\` must be '${expectedNextChar}' but actually is '${nextChar}'`,
             )
