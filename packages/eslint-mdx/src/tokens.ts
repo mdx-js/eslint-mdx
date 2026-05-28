@@ -1,6 +1,6 @@
 /// <reference types="remark-mdx" />
 
-import { ok as assert } from 'node:assert/strict'
+import { strict as assert } from 'node:assert'
 
 import type { Token, TokenType, tokTypes } from 'acorn'
 import type { Root } from 'mdast'
@@ -56,15 +56,15 @@ export const restoreTokens = (
 
     const nodePos = node.position
 
-    assert(nodePos)
+    assert.ok(nodePos)
 
     const nodeStart = nodePos.start.offset
     const nodeEnd = nodePos.end.offset
 
     const lastCharOffset = prevCharOffset(nodeEnd - 2)
 
-    assert(nodeStart != null)
-    assert(nodeEnd != null)
+    assert.ok(nodeStart != null)
+    assert.ok(nodeEnd != null)
 
     if (node.type === 'mdxFlowExpression') {
       tokens.push(
@@ -92,7 +92,7 @@ export const restoreTokens = (
     if (nodeName) {
       nodeNameStart = nextCharOffset(nodeStart + 1)
 
-      assert(nodeNameStart)
+      assert.ok(nodeNameStart)
 
       tokens.push(
         newToken(
@@ -110,17 +110,17 @@ export const restoreTokens = (
     for (const attr of node.attributes) {
       // already handled by acorn
       if (attr.type === 'mdxJsxExpressionAttribute') {
-        assert(attr.data)
-        assert(attr.data.estree)
-        assert(attr.data.estree.range)
+        assert.ok(attr.data)
+        assert.ok(attr.data.estree)
+        assert.ok(attr.data.estree.range)
 
         let [attrValStart, attrValEnd] = attr.data.estree.range
 
         attrValStart = prevCharOffset(attrValStart - 1)
         attrValEnd = nextCharOffset(attrValEnd)
 
-        assert(text[attrValStart] === '{')
-        assert(text[attrValEnd] === '}')
+        assert.ok(text[attrValStart] === '{')
+        assert.ok(text[attrValEnd] === '}')
 
         lastAttrOffset = attrValEnd
 
@@ -145,7 +145,7 @@ export const restoreTokens = (
 
       const attrStart = nextCharOffset(lastAttrOffset + 1)
 
-      assert(attrStart != null)
+      assert.ok(attrStart != null)
 
       const attrName = attr.name
       const attrNameLength = attrName.length
@@ -165,7 +165,7 @@ export const restoreTokens = (
 
       const attrEqualOffset = nextCharOffset(attrStart + attrNameLength)
 
-      assert(text[attrEqualOffset] === '=')
+      assert.ok(text[attrEqualOffset] === '=')
 
       tokens.push(newToken(tt.eq, attrEqualOffset, attrEqualOffset + 1, '='))
 
@@ -178,8 +178,8 @@ export const restoreTokens = (
         attrValStart = prevCharOffset(attrValStart - 1)
         attrValEnd = nextCharOffset(attrValEnd)
 
-        assert(text[attrValStart] === '{')
-        assert(text[attrValEnd] === '}')
+        assert.ok(text[attrValStart] === '{')
+        assert.ok(text[attrValEnd] === '}')
 
         lastAttrOffset = attrValEnd
 
@@ -195,7 +195,7 @@ export const restoreTokens = (
 
       const attrQuote = text[attrQuoteOffset]
 
-      assert(attrQuote === '"' || attrQuote === "'")
+      assert.ok(attrQuote === '"' || attrQuote === "'")
 
       tokens.push(
         newToken(
@@ -208,7 +208,7 @@ export const restoreTokens = (
 
       lastAttrOffset = nextCharOffset(attrQuoteOffset + attrValue.length + 1)
 
-      assert(text[lastAttrOffset] === attrQuote)
+      assert.ok(text[lastAttrOffset] === attrQuote)
     }
 
     let nextOffset = nextCharOffset(lastAttrOffset + 1)
@@ -224,7 +224,7 @@ export const restoreTokens = (
     if (selfClosing) {
       tokens.push(newToken(tt.slash, nextOffset, nextOffset + 1, '/'))
     } else {
-      assert(
+      assert.ok(
         nextChar === '>',
         `\`nextChar\` must be '>' but actually is '${nextChar}'`,
       )
@@ -244,13 +244,13 @@ export const restoreTokens = (
 
       const slashOffset = prevCharOffset(prevOffset - nodeNameLength)
 
-      assert(text[slashOffset] === '/')
+      assert.ok(text[slashOffset] === '/')
 
       tokens.push(newToken(tt.slash, slashOffset, slashOffset + 1, '/'))
 
       const tagStartOffset = prevCharOffset(slashOffset - 1)
 
-      assert(text[tagStartOffset] === '<')
+      assert.ok(text[tagStartOffset] === '<')
 
       tokens.push(newToken(tt.jsxTagStart, tagStartOffset, tagStartOffset + 1))
     }
