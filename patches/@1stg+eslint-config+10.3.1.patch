@@ -1,17 +1,8 @@
 diff --git a/node_modules/@1stg/eslint-config/base.js b/node_modules/@1stg/eslint-config/base.js
-index 8e0b6f5..68a5e50 100644
+index f581732..8c5f519 100644
 --- a/node_modules/@1stg/eslint-config/base.js
 +++ b/node_modules/@1stg/eslint-config/base.js
-@@ -34,7 +34,7 @@ export const base = tseslint.config([
-   promise.configs['flat/recommended'],
-   regexp.configs['flat/recommended'],
-   sonarjs.configs.recommended,
--  unicornX.configs.recommended,
-+  unicornX.configs['flat/recommended'],
-   prettierExtends,
-   isEslintNodeDepsEnabled && isPkgAvailable('eslint-plugin-node-dependencies')
-     ? [
-@@ -131,7 +131,7 @@ export const base = tseslint.config([
+@@ -134,7 +134,7 @@ export const base = tseslint.config([
          },
        ],
        'no-negated-condition': 2,
@@ -20,7 +11,7 @@ index 8e0b6f5..68a5e50 100644
  
        // The following rules are duplicate with `eslint-plugin-import-x`
        'n/no-extraneous-import': 0,
-@@ -146,15 +146,15 @@ export const base = tseslint.config([
+@@ -149,15 +149,15 @@ export const base = tseslint.config([
        'prefer-const': [2, { destructuring: 'all' }],
        'prefer-object-spread': 2,
        'simple-import-sort/exports': 2,
@@ -39,7 +30,7 @@ index 8e0b6f5..68a5e50 100644
          2,
          {
            cases: {
-@@ -165,13 +165,13 @@ export const base = tseslint.config([
+@@ -168,13 +168,13 @@ export const base = tseslint.config([
            ignore: [/^[A-Z](([\dA-Z]+_)*[\dA-Z]+)?\.(mdx?|ya?ml)$/],
          },
        ],
@@ -60,21 +51,3 @@ index 8e0b6f5..68a5e50 100644
      },
    },
    {
-diff --git a/node_modules/@1stg/eslint-config/ts-base.js b/node_modules/@1stg/eslint-config/ts-base.js
-index 18bb9f2..214471d 100644
---- a/node_modules/@1stg/eslint-config/ts-base.js
-+++ b/node_modules/@1stg/eslint-config/ts-base.js
-@@ -129,10 +129,10 @@ export const tsBase = tseslint.config({
-     'promise/always-return': 0,
-     'promise/catch-or-return': 0,
-     // ts itself has guaranteed it
--    'unicorn-x/no-array-callback-reference': 0,
-+    'unicorn/no-array-callback-reference': 0,
-     // covered by @typescript-eslint/no-extraneous-class
--    'unicorn-x/no-static-only-class': 0,
-+    'unicorn/no-static-only-class': 0,
-     // covered by @typescript-eslint/no-this-alias
--    'unicorn-x/no-this-assignment': 0,
-+    'unicorn/no-this-assignment': 0,
-   },
- })

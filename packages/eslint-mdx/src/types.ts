@@ -14,6 +14,7 @@ export interface ParserOptions extends Linter.ParserOptions, CommonOptions {
   extensions?: string[] | string
   markdownExtensions?: string[] | string
   filePath?: string
+  sourceType?: Linter.SourceType
 }
 
 export interface NormalPosition {

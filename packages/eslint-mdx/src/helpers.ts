@@ -85,11 +85,11 @@ export const normalizePosition = ({
     loc: {
       start:
         /* istanbul ignore next -- used in worker */ 'line' in start
-          ? (start as Position)
+          ? start
           : getPositionAt(startOffset),
       end:
         /* istanbul ignore next -- used in worker */ 'line' in end
-          ? (end as Position)
+          ? end
           : getPositionAt(endOffset),
     },
     range,

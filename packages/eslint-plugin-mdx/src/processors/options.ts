@@ -21,8 +21,8 @@ if (!linterPath) {
   throw new Error('Could not find ESLint Linter in require cache')
 }
 
-export interface LinterConfig extends ESLint.Linter.LegacyConfig {
-  extractConfig?(filename?: string): ESLint.Linter.LegacyConfig
+export interface LinterConfig extends ESLint.Linter.Config {
+  extractConfig?(filename?: string): ESLint.Linter.Config
 }
 
 const ESLinter = cjsRequire<typeof ESLint>(linterPath).Linter

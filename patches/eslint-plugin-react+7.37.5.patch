@@ -1,0 +1,26 @@
+diff --git a/node_modules/eslint-plugin-react/lib/rules/jsx-filename-extension.js b/node_modules/eslint-plugin-react/lib/rules/jsx-filename-extension.js
+index 4a2cfee..3b165f5 100644
+--- a/node_modules/eslint-plugin-react/lib/rules/jsx-filename-extension.js
++++ b/node_modules/eslint-plugin-react/lib/rules/jsx-filename-extension.js
+@@ -61,7 +61,7 @@ module.exports = {
+   },
+ 
+   create(context) {
+-    const filename = context.getFilename();
++    const filename = context.filename || context.getFilename();
+ 
+     let jsxNode;
+ 
+diff --git a/node_modules/eslint-plugin-react/lib/util/version.js b/node_modules/eslint-plugin-react/lib/util/version.js
+index c9dc683..0a59c5e 100644
+--- a/node_modules/eslint-plugin-react/lib/util/version.js
++++ b/node_modules/eslint-plugin-react/lib/util/version.js
+@@ -28,7 +28,7 @@ function resetDetectedVersion() {
+ 
+ function resolveBasedir(contextOrFilename) {
+   if (contextOrFilename) {
+-    const filename = typeof contextOrFilename === 'string' ? contextOrFilename : contextOrFilename.getFilename();
++    const filename = typeof contextOrFilename === 'string' ? contextOrFilename : contextOrFilename.filename || contextOrFilename.getFilename();
+     const dirname = path.dirname(filename);
+     try {
+       if (fs.statSync(filename).isFile()) {
