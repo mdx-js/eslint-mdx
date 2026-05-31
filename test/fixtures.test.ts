@@ -12,7 +12,7 @@ import { config, configs } from 'typescript-eslint'
 import * as mdx from 'eslint-plugin-mdx'
 
 const fixturesDir = path.resolve('test/fixtures')
-const eslintMajor = Number(new Linter().version.split('.')[0])
+const isEslint10 = Number.parseInt(Linter.version, 10) >= 10
 
 const getCli = (lintCodeBlocks = false, fix?: boolean) => {
   const remarkConfigPath = path.resolve(
@@ -118,40 +118,32 @@ describe('fixtures', () => {
     ONE_MINUTE,
   )
 
-  /* eslint-disable jest/no-standalone-expect */
-  const itOnESLint10 = eslintMajor >= 10 ? it : it.skip
-  itOnESLint10(
-    'should not report no-unused-vars for JSX component imports in MDX',
-    async () => {
-      // Uses only the plugin's built-in flat config without any user-land
-      // ecmaFeatures.jsx override, to verify the plugin sets it by default
-      const cli = new TSESLint.ESLint({
-        overrideConfigFile: true,
-        overrideConfig: [
-          eslintJs.configs.recommended,
-          mdx.configs.flat,
-          mdx.configs.flatCodeBlocks,
-          {
-            files: ['**/*.{md,mdx}'],
-            rules: { 'no-unused-vars': 'error' },
-          },
-        ],
-      })
+  const test = isEslint10 ? it : it.skip
 
-      const results = await cli.lintFiles(
-        path.join(fixturesDir, 'jsx-imports.mdx'),
-      )
+  test('should not report no-unused-vars for JSX component imports in MDX', async () => {
+    // Uses only the plugin's built-in flat config without any user-land
+    // ecmaFeatures.jsx override, to verify the plugin sets it by default
+    const cli = new TSESLint.ESLint({
+      overrideConfigFile: true,
+      overrideConfig: [
+        mdx.configs.flat,
+        mdx.configs.flatCodeBlocks,
+        {
+          files: ['**/*.{md,mdx}'],
+          rules: { 'no-unused-vars': 'error' },
+        },
+      ],
+    })
 
-      const messages = results.flatMap(r => r.messages)
-      const unusedVarsMessages = messages.filter(
-        m => m.ruleId === 'no-unused-vars',
-      )
+    const results = await cli.lintFiles(
+      path.join(fixturesDir, 'jsx-imports.mdx'),
+    )
 
-      expect(unusedVarsMessages).toEqual([])
-    },
-    ONE_MINUTE,
-  )
-  /* eslint-enable */
+    const messages = results.flatMap(r => r.messages)
+
+    // eslint-disable-next-line jest/no-standalone-expect
+    expect(messages).toEqual([])
+  })
 
   describe('lint code blocks', () => {
     it(
