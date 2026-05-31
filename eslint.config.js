@@ -16,7 +16,9 @@ export default config([
       '@typescript-eslint/no-unnecessary-condition': 'off',
       'sonarjs/fixme-tag': 'off',
       'sonarjs/todo-tag': 'off',
-      'unicorn/prefer-export-from': [
+      // conflicts with `prettier`
+      'unicorn-x/no-nested-ternary': 'off',
+      'unicorn-x/prefer-export-from': [
         'error',
         {
           ignoreUsedVariables: true,

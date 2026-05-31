@@ -1,4 +1,4 @@
-/* eslint-disable unicorn/no-await-expression-member */
+/* eslint-disable unicorn-x/no-await-expression-member */
 
 import { strict as assert } from 'node:assert'
 import path from 'node:path'

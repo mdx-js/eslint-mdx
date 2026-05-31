@@ -8,8 +8,7 @@ export interface WithParent {
 export type NodeWithParent = Node & WithParent
 
 export interface ExpressionStatementWithParent
-  extends ExpressionStatement,
-    WithParent {}
+  extends ExpressionStatement, WithParent {}
 
 export interface RemarkLintMessage {
   reason: string

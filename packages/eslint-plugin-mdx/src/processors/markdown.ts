@@ -513,7 +513,6 @@ function postprocess(
 
   return messages.flatMap((group, i) => {
     const adjust = adjustBlock(blocks[i])
-    // eslint-disable-next-line unicorn/no-array-callback-reference
     return group.map(adjust).filter(excludeUnsatisfiableRules)
   })
 }
