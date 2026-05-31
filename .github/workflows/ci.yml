@@ -45,7 +45,7 @@ jobs:
       - name: Install ESLint ${{ matrix.eslint }}
         if: ${{ matrix.eslint < 10 }}
         run: |
-          yarn add -D eslint@${{ matrix.eslint }} @types/eslint@9
+          yarn add -D eslint@${{ matrix.eslint }} @types/eslint@${{ matrix.eslint }}
 
       - name: Build and Lint
         if: ${{ matrix.node > 18 && matrix.eslint == 10 }}

@@ -1,5 +1,5 @@
 ---
-"eslint-plugin-mdx": patch
+"eslint-plugin-mdx": minor
 ---
 
-Adds ecmaFeatures: { jsx: true } to premade configs
+Adds `ecmaFeatures: { jsx: true }` to premade configs
