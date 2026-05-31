@@ -74,9 +74,6 @@
       ".ts",
       ".tsx"
     ],
-    "setupFiles": [
-      "<rootDir>/node_modules/eslint/lib/linter/linter.js"
-    ],
     "snapshotSerializers": [
       "<rootDir>/test/jest.serializer.cjs"
     ],

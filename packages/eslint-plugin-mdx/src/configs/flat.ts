@@ -8,6 +8,7 @@ import { codeBlocks } from './code-blocks.js'
 
 // eslint-disable-next-line sonarjs/deprecation
 export const flat: Linter.FlatConfig = {
+  name: 'mdx/flat',
   files: ['**/*.{md,mdx}'],
   languageOptions: {
     parser: eslintMdx,
@@ -35,6 +36,7 @@ const { parserOptions, ...restConfig } = codeBlocks
 
 // eslint-disable-next-line sonarjs/deprecation
 export const flatCodeBlocks: Linter.FlatConfig = {
+  name: 'mdx/flat-code-blocks',
   files: ['**/*.{md,mdx}/**'],
   languageOptions: {
     parserOptions,

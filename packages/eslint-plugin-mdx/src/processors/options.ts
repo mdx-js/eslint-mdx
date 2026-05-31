@@ -16,16 +16,11 @@ const linterPath = Object.keys(cjsRequire.cache).find(path =>
   /([/\\])eslint\1lib(?:\1linter){2}\.js$/.test(path),
 )
 
-/* istanbul ignore if */
-if (!linterPath) {
-  throw new Error('Could not find ESLint Linter in require cache')
-}
-
 export interface LinterConfig extends ESLint.Linter.Config {
   extractConfig?(filename?: string): ESLint.Linter.Config
 }
 
-const ESLinter = cjsRequire<typeof ESLint>(linterPath).Linter
+const ESLinter = cjsRequire<typeof ESLint>(linterPath || 'eslint').Linter
 
 // patch Linter#verify
 
