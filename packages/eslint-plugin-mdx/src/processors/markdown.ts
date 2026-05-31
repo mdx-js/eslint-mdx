@@ -503,13 +503,17 @@ function excludeUnsatisfiableRules(message: Linter.LintMessage) {
  * @param filename The filename of the file
  * @returns A flattened array of messages with mapped locations.
  */
-function postprocess(messages: Linter.LintMessage[][], filename: string) {
+function postprocess(
+  messages: Linter.LintMessage[][],
+  filename: string,
+): Linter.LintMessage[] {
   const blocks = blocksCache.get(filename)
 
   blocksCache.delete(filename)
 
   return messages.flatMap((group, i) => {
     const adjust = adjustBlock(blocks[i])
+    // eslint-disable-next-line unicorn/no-array-callback-reference
     return group.map(adjust).filter(excludeUnsatisfiableRules)
   })
 }

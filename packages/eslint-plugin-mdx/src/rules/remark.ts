@@ -1,6 +1,6 @@
 import path from 'node:path'
 
-import type { Rule } from 'eslint'
+import type { Rule, SourceCode } from 'eslint'
 import type { ParserOptions } from 'eslint-mdx'
 import {
   DEFAULT_EXTENSIONS,
@@ -16,6 +16,8 @@ export const remark: Rule.RuleModule = {
     type: 'layout',
     docs: {
       description: 'Linter integration with remark plugins',
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
+      // @ts-ignore -- ESLint v10 removed
       category: 'Stylistic Issues',
       recommended: true,
     },
@@ -23,12 +25,18 @@ export const remark: Rule.RuleModule = {
   },
   create(context) {
     const filename =
-      // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
-      context.filename ?? /* istanbul ignore next */ context.getFilename()
+      context.filename ??
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
+      // @ts-ignore -- ESLint v10 removed
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      /* istanbul ignore next */ (context.getFilename() as string)
     const extname = path.extname(filename)
     const sourceCode =
-      // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
-      context.sourceCode ?? /* istanbul ignore next */ context.getSourceCode()
+      context.sourceCode ??
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
+      // @ts-ignore -- ESLint v10 removed
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      /* istanbul ignore next */ (context.getSourceCode() as SourceCode)
 
     /* istanbul ignore next */
     const {
@@ -37,7 +45,8 @@ export const remark: Rule.RuleModule = {
       ignoreRemarkConfig,
       remarkConfigPath,
     } = {
-      // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
+      // @ts-ignore -- ESLint v10 removed
       ...context.parserOptions,
       ...context.languageOptions?.parserOptions,
     } as ParserOptions
@@ -62,8 +71,12 @@ export const remark: Rule.RuleModule = {
         const { messages, content: fixedText } = performSyncWork({
           filePath: getPhysicalFilename(filename),
           code: sourceText,
-          // eslint-disable-next-line sonarjs/deprecation -- FIXME: ESLint 8.40+ required
-          cwd: context.cwd ?? /* istanbul ignore next */ context.getCwd(),
+          cwd:
+            context.cwd ??
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
+            // @ts-ignore -- ESLint v10 removed
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-call -- ESLint v10 removed
+            /* istanbul ignore next */ (context.getCwd() as string),
           isMdx,
           process: true,
           ignoreRemarkConfig,
