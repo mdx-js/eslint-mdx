@@ -4,7 +4,6 @@ import eslintJs from '@eslint/js'
 import { TSESLint } from '@typescript-eslint/utils'
 import prettierRecommended from 'eslint-plugin-prettier/recommended'
 import react from 'eslint-plugin-react'
-import unicornX from 'eslint-plugin-unicorn-x'
 import globals from 'globals'
 // eslint-disable-next-line sonarjs/deprecation
 import { config, configs } from 'typescript-eslint'
@@ -25,8 +24,6 @@ const getCli = (lintCodeBlocks = false, fix?: boolean) => {
     overrideConfig: config(
       eslintJs.configs.recommended,
       ...configs.recommended,
-      // eslint-disable-next-line sonarjs/deprecation -- for ESLint v8 compatibility
-      unicornX.configs['flat/recommended'],
       mdx.configs.flat,
       mdx.configs.flatCodeBlocks,
       prettierRecommended,
