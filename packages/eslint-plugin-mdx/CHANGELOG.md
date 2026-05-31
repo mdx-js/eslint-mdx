@@ -1,5 +1,14 @@
 # Change Log
 
+## 3.8.1
+
+### Patch Changes
+
+- [#615](https://github.com/mdx-js/eslint-mdx/pull/615) [`e36f2db`](https://github.com/mdx-js/eslint-mdx/commit/e36f2dbdaf5a8d350a492cc5655c42d8e5569edb) Thanks [@JounQin](https://github.com/JounQin)! - fix: support ESLint config inspector
+
+- Updated dependencies []:
+  - eslint-mdx@3.8.1
+
 ## 3.8.0
 
 ### Minor Changes
