@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.8.0
+
+### Minor Changes
+
+- [#608](https://github.com/mdx-js/eslint-mdx/pull/608) [`d7a37f5`](https://github.com/mdx-js/eslint-mdx/commit/d7a37f59b76a2d1e8782aee60a9f49764d4979c8) Thanks [@controversial](https://github.com/controversial)! - Adds `ecmaFeatures: { jsx: true }` to premade configs
+
+### Patch Changes
+
+- Updated dependencies []:
+  - eslint-mdx@3.8.0
+
 ## 3.7.1
 
 ### Patch Changes
