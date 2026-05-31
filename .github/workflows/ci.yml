@@ -47,16 +47,16 @@ jobs:
         run: |
           yarn add -D eslint@${{ matrix.eslint }} @types/eslint@9
 
-      - name: Build and Test
+      - name: Build and Lint
+        if: ${{ matrix.node > 18 && matrix.eslint == 10 }}
         run: |
           yarn build
-          yarn test
-
-      - name: Lint
-        if: ${{ matrix.node > 18 && matrix.eslint == 10 }}
-        run: yarn lint
+          yarn lint
         env:
           PARSER_NO_WATCH: true
+
+      - name: Test
+        run: yarn test
 
       - name: Codecov
         uses: codecov/codecov-action@e79a6962e0d4c0c17b229090214935d2e33f8354 # v6.0.1
