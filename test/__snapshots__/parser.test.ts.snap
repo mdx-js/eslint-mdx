@@ -41599,6 +41599,1060 @@ exports[`parser should match all AST snapshots: comments.mdx 1`] = `"Unexpected 
 
 exports[`parser should match all AST snapshots: details.mdx 1`] = `"Expected a closing tag for \`<details>\` (1:1-1:10) before the end of \`paragraph\`"`;
 
+exports[`parser should match all AST snapshots: jsx-imports.mdx 1`] = `
+{
+  "body": [
+    {
+      "attributes": [],
+      "end": 29,
+      "loc": {
+        "end": {
+          "column": 29,
+          "line": 1,
+          "offset": 29,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "range": [
+        0,
+        29,
+      ],
+      "source": {
+        "end": 29,
+        "loc": {
+          "end": {
+            "column": 29,
+            "line": 1,
+            "offset": 29,
+          },
+          "start": {
+            "column": 21,
+            "line": 1,
+            "offset": 21,
+          },
+        },
+        "range": [
+          21,
+          29,
+        ],
+        "raw": "'./card'",
+        "start": 21,
+        "type": "Literal",
+        "value": "./card",
+      },
+      "specifiers": [
+        {
+          "end": 13,
+          "imported": {
+            "end": 13,
+            "loc": {
+              "end": {
+                "column": 13,
+                "line": 1,
+                "offset": 13,
+              },
+              "start": {
+                "column": 9,
+                "line": 1,
+                "offset": 9,
+              },
+            },
+            "name": "Card",
+            "range": [
+              9,
+              13,
+            ],
+            "start": 9,
+            "type": "Identifier",
+          },
+          "loc": {
+            "end": {
+              "column": 13,
+              "line": 1,
+              "offset": 13,
+            },
+            "start": {
+              "column": 9,
+              "line": 1,
+              "offset": 9,
+            },
+          },
+          "local": {
+            "end": 13,
+            "loc": {
+              "end": {
+                "column": 13,
+                "line": 1,
+                "offset": 13,
+              },
+              "start": {
+                "column": 9,
+                "line": 1,
+                "offset": 9,
+              },
+            },
+            "name": "Card",
+            "range": [
+              9,
+              13,
+            ],
+            "start": 9,
+            "type": "Identifier",
+          },
+          "range": [
+            9,
+            13,
+          ],
+          "start": 9,
+          "type": "ImportSpecifier",
+        },
+      ],
+      "start": 0,
+      "type": "ImportDeclaration",
+    },
+    {
+      "attributes": [],
+      "end": 63,
+      "loc": {
+        "end": {
+          "column": 33,
+          "line": 2,
+          "offset": 63,
+        },
+        "start": {
+          "column": 0,
+          "line": 2,
+          "offset": 30,
+        },
+      },
+      "range": [
+        30,
+        63,
+      ],
+      "source": {
+        "end": 63,
+        "loc": {
+          "end": {
+            "column": 33,
+            "line": 2,
+            "offset": 63,
+          },
+          "start": {
+            "column": 23,
+            "line": 2,
+            "offset": 53,
+          },
+        },
+        "range": [
+          53,
+          63,
+        ],
+        "raw": "'./button'",
+        "start": 53,
+        "type": "Literal",
+        "value": "./button",
+      },
+      "specifiers": [
+        {
+          "end": 45,
+          "imported": {
+            "end": 45,
+            "loc": {
+              "end": {
+                "column": 15,
+                "line": 2,
+                "offset": 45,
+              },
+              "start": {
+                "column": 9,
+                "line": 2,
+                "offset": 39,
+              },
+            },
+            "name": "Button",
+            "range": [
+              39,
+              45,
+            ],
+            "start": 39,
+            "type": "Identifier",
+          },
+          "loc": {
+            "end": {
+              "column": 15,
+              "line": 2,
+              "offset": 45,
+            },
+            "start": {
+              "column": 9,
+              "line": 2,
+              "offset": 39,
+            },
+          },
+          "local": {
+            "end": 45,
+            "loc": {
+              "end": {
+                "column": 15,
+                "line": 2,
+                "offset": 45,
+              },
+              "start": {
+                "column": 9,
+                "line": 2,
+                "offset": 39,
+              },
+            },
+            "name": "Button",
+            "range": [
+              39,
+              45,
+            ],
+            "start": 39,
+            "type": "Identifier",
+          },
+          "range": [
+            39,
+            45,
+          ],
+          "start": 39,
+          "type": "ImportSpecifier",
+        },
+      ],
+      "start": 30,
+      "type": "ImportDeclaration",
+    },
+    {
+      "end": 116,
+      "expression": {
+        "children": [
+          {
+            "children": [
+              {
+                "end": 99,
+                "loc": {
+                  "end": {
+                    "column": 18,
+                    "line": 7,
+                  },
+                  "start": {
+                    "column": 10,
+                    "line": 7,
+                  },
+                },
+                "range": [
+                  91,
+                  99,
+                ],
+                "raw": "Click me",
+                "start": 91,
+                "type": "JSXText",
+                "value": "Click me",
+              },
+            ],
+            "closingElement": {
+              "end": 108,
+              "loc": {
+                "end": {
+                  "column": 27,
+                  "line": 7,
+                },
+                "start": {
+                  "column": 18,
+                  "line": 7,
+                },
+              },
+              "name": {
+                "end": 107,
+                "loc": {
+                  "end": {
+                    "column": 26,
+                    "line": 7,
+                  },
+                  "start": {
+                    "column": 20,
+                    "line": 7,
+                  },
+                },
+                "name": "Button",
+                "range": [
+                  101,
+                  107,
+                ],
+                "raw": "Button",
+                "start": 101,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                99,
+                108,
+              ],
+              "raw": "</Button>",
+              "start": 99,
+              "type": "JSXClosingElement",
+            },
+            "end": 108,
+            "loc": {
+              "end": {
+                "column": 27,
+                "line": 7,
+              },
+              "start": {
+                "column": 2,
+                "line": 7,
+              },
+            },
+            "openingElement": {
+              "attributes": [],
+              "end": 91,
+              "loc": {
+                "end": {
+                  "column": 10,
+                  "line": 7,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 7,
+                },
+              },
+              "name": {
+                "end": 90,
+                "loc": {
+                  "end": {
+                    "column": 9,
+                    "line": 7,
+                  },
+                  "start": {
+                    "column": 3,
+                    "line": 7,
+                  },
+                },
+                "name": "Button",
+                "range": [
+                  84,
+                  90,
+                ],
+                "raw": "Button",
+                "start": 84,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                83,
+                91,
+              ],
+              "raw": "<Button>",
+              "selfClosing": false,
+              "start": 83,
+              "type": "JSXOpeningElement",
+            },
+            "range": [
+              83,
+              108,
+            ],
+            "raw": "<Button>Click me</Button>",
+            "start": 83,
+            "type": "JSXElement",
+          },
+        ],
+        "closingElement": {
+          "end": 116,
+          "loc": {
+            "end": {
+              "column": 7,
+              "line": 8,
+            },
+            "start": {
+              "column": 0,
+              "line": 8,
+            },
+          },
+          "name": {
+            "end": 115,
+            "loc": {
+              "end": {
+                "column": 6,
+                "line": 8,
+              },
+              "start": {
+                "column": 2,
+                "line": 8,
+              },
+            },
+            "name": "Card",
+            "range": [
+              111,
+              115,
+            ],
+            "raw": "Card",
+            "start": 111,
+            "type": "JSXIdentifier",
+          },
+          "range": [
+            109,
+            116,
+          ],
+          "raw": "</Card>",
+          "start": 109,
+          "type": "JSXClosingElement",
+        },
+        "end": 116,
+        "loc": {
+          "end": {
+            "column": 7,
+            "line": 8,
+          },
+          "start": {
+            "column": 0,
+            "line": 6,
+          },
+        },
+        "openingElement": {
+          "attributes": [],
+          "end": 80,
+          "loc": {
+            "end": {
+              "column": 6,
+              "line": 6,
+            },
+            "start": {
+              "column": 0,
+              "line": 6,
+            },
+          },
+          "name": {
+            "end": 79,
+            "loc": {
+              "end": {
+                "column": 5,
+                "line": 6,
+              },
+              "start": {
+                "column": 1,
+                "line": 6,
+              },
+            },
+            "name": "Card",
+            "range": [
+              75,
+              79,
+            ],
+            "raw": "Card",
+            "start": 75,
+            "type": "JSXIdentifier",
+          },
+          "range": [
+            74,
+            80,
+          ],
+          "raw": "<Card>",
+          "selfClosing": false,
+          "start": 74,
+          "type": "JSXOpeningElement",
+        },
+        "range": [
+          74,
+          116,
+        ],
+        "raw": "<Card>
+  <Button>Click me</Button>
+</Card>",
+        "start": 74,
+        "type": "JSXElement",
+      },
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 8,
+          "offset": 116,
+        },
+        "start": {
+          "column": 1,
+          "line": 6,
+          "offset": 74,
+        },
+      },
+      "range": [
+        74,
+        116,
+      ],
+      "start": 74,
+      "type": "ExpressionStatement",
+    },
+  ],
+  "comments": [],
+  "end": 117,
+  "loc": {
+    "end": {
+      "column": 1,
+      "line": 9,
+      "offset": 117,
+    },
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "range": [
+    0,
+    117,
+  ],
+  "sourceType": undefined,
+  "start": 0,
+  "tokens": [
+    {
+      "end": 6,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 1,
+          "offset": 6,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "range": [
+        0,
+        6,
+      ],
+      "start": 0,
+      "type": "Keyword",
+      "value": "import",
+    },
+    {
+      "end": 8,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 1,
+          "offset": 8,
+        },
+        "start": {
+          "column": 7,
+          "line": 1,
+          "offset": 7,
+        },
+      },
+      "range": [
+        7,
+        8,
+      ],
+      "start": 7,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 13,
+      "loc": {
+        "end": {
+          "column": 13,
+          "line": 1,
+          "offset": 13,
+        },
+        "start": {
+          "column": 9,
+          "line": 1,
+          "offset": 9,
+        },
+      },
+      "range": [
+        9,
+        13,
+      ],
+      "start": 9,
+      "type": "Identifier",
+      "value": "Card",
+    },
+    {
+      "end": 15,
+      "loc": {
+        "end": {
+          "column": 15,
+          "line": 1,
+          "offset": 15,
+        },
+        "start": {
+          "column": 14,
+          "line": 1,
+          "offset": 14,
+        },
+      },
+      "range": [
+        14,
+        15,
+      ],
+      "start": 14,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 20,
+      "loc": {
+        "end": {
+          "column": 20,
+          "line": 1,
+          "offset": 20,
+        },
+        "start": {
+          "column": 16,
+          "line": 1,
+          "offset": 16,
+        },
+      },
+      "range": [
+        16,
+        20,
+      ],
+      "start": 16,
+      "type": "Identifier",
+      "value": "from",
+    },
+    {
+      "end": 29,
+      "loc": {
+        "end": {
+          "column": 29,
+          "line": 1,
+          "offset": 29,
+        },
+        "start": {
+          "column": 21,
+          "line": 1,
+          "offset": 21,
+        },
+      },
+      "range": [
+        21,
+        29,
+      ],
+      "start": 21,
+      "type": "String",
+      "value": "'./card'",
+    },
+    {
+      "end": 36,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 2,
+          "offset": 36,
+        },
+        "start": {
+          "column": 0,
+          "line": 2,
+          "offset": 30,
+        },
+      },
+      "range": [
+        30,
+        36,
+      ],
+      "start": 30,
+      "type": "Keyword",
+      "value": "import",
+    },
+    {
+      "end": 38,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 2,
+          "offset": 38,
+        },
+        "start": {
+          "column": 7,
+          "line": 2,
+          "offset": 37,
+        },
+      },
+      "range": [
+        37,
+        38,
+      ],
+      "start": 37,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 45,
+      "loc": {
+        "end": {
+          "column": 15,
+          "line": 2,
+          "offset": 45,
+        },
+        "start": {
+          "column": 9,
+          "line": 2,
+          "offset": 39,
+        },
+      },
+      "range": [
+        39,
+        45,
+      ],
+      "start": 39,
+      "type": "Identifier",
+      "value": "Button",
+    },
+    {
+      "end": 47,
+      "loc": {
+        "end": {
+          "column": 17,
+          "line": 2,
+          "offset": 47,
+        },
+        "start": {
+          "column": 16,
+          "line": 2,
+          "offset": 46,
+        },
+      },
+      "range": [
+        46,
+        47,
+      ],
+      "start": 46,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 52,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 2,
+          "offset": 52,
+        },
+        "start": {
+          "column": 18,
+          "line": 2,
+          "offset": 48,
+        },
+      },
+      "range": [
+        48,
+        52,
+      ],
+      "start": 48,
+      "type": "Identifier",
+      "value": "from",
+    },
+    {
+      "end": 63,
+      "loc": {
+        "end": {
+          "column": 33,
+          "line": 2,
+          "offset": 63,
+        },
+        "start": {
+          "column": 23,
+          "line": 2,
+          "offset": 53,
+        },
+      },
+      "range": [
+        53,
+        63,
+      ],
+      "start": 53,
+      "type": "String",
+      "value": "'./button'",
+    },
+    {
+      "end": 72,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 4,
+        },
+        "start": {
+          "column": 2,
+          "line": 4,
+        },
+      },
+      "range": [
+        67,
+        72,
+      ],
+      "start": 67,
+      "type": "JSXText",
+      "value": "Hello",
+    },
+    {
+      "end": 75,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 6,
+        },
+        "start": {
+          "column": 0,
+          "line": 6,
+        },
+      },
+      "range": [
+        74,
+        75,
+      ],
+      "start": 74,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 79,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 6,
+        },
+        "start": {
+          "column": 1,
+          "line": 6,
+        },
+      },
+      "range": [
+        75,
+        79,
+      ],
+      "start": 75,
+      "type": "JSXIdentifier",
+      "value": "Card",
+    },
+    {
+      "end": 84,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 7,
+        },
+        "start": {
+          "column": 2,
+          "line": 7,
+        },
+      },
+      "range": [
+        83,
+        84,
+      ],
+      "start": 83,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 90,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 7,
+        },
+        "start": {
+          "column": 3,
+          "line": 7,
+        },
+      },
+      "range": [
+        84,
+        90,
+      ],
+      "start": 84,
+      "type": "JSXIdentifier",
+      "value": "Button",
+    },
+    {
+      "end": 99,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 7,
+        },
+        "start": {
+          "column": 10,
+          "line": 7,
+        },
+      },
+      "range": [
+        91,
+        99,
+      ],
+      "start": 91,
+      "type": "JSXText",
+      "value": "Click me",
+    },
+    {
+      "end": 100,
+      "loc": {
+        "end": {
+          "column": 19,
+          "line": 7,
+        },
+        "start": {
+          "column": 18,
+          "line": 7,
+        },
+      },
+      "range": [
+        99,
+        100,
+      ],
+      "start": 99,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 101,
+      "loc": {
+        "end": {
+          "column": 20,
+          "line": 7,
+        },
+        "start": {
+          "column": 19,
+          "line": 7,
+        },
+      },
+      "range": [
+        100,
+        101,
+      ],
+      "start": 100,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    {
+      "end": 107,
+      "loc": {
+        "end": {
+          "column": 26,
+          "line": 7,
+        },
+        "start": {
+          "column": 20,
+          "line": 7,
+        },
+      },
+      "range": [
+        101,
+        107,
+      ],
+      "start": 101,
+      "type": "JSXIdentifier",
+      "value": "Button",
+    },
+    {
+      "end": 108,
+      "loc": {
+        "end": {
+          "column": 27,
+          "line": 7,
+        },
+        "start": {
+          "column": 26,
+          "line": 7,
+        },
+      },
+      "range": [
+        107,
+        108,
+      ],
+      "start": 107,
+      "type": "Punctuator",
+      "value": ">",
+    },
+    {
+      "end": 110,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 8,
+        },
+        "start": {
+          "column": 0,
+          "line": 8,
+        },
+      },
+      "range": [
+        109,
+        110,
+      ],
+      "start": 109,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 111,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 8,
+        },
+        "start": {
+          "column": 1,
+          "line": 8,
+        },
+      },
+      "range": [
+        110,
+        111,
+      ],
+      "start": 110,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    {
+      "end": 115,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 8,
+        },
+        "start": {
+          "column": 2,
+          "line": 8,
+        },
+      },
+      "range": [
+        111,
+        115,
+      ],
+      "start": 111,
+      "type": "JSXIdentifier",
+      "value": "Card",
+    },
+    {
+      "end": 116,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 8,
+        },
+        "start": {
+          "column": 6,
+          "line": 8,
+        },
+      },
+      "range": [
+        115,
+        116,
+      ],
+      "start": 115,
+      "type": "Punctuator",
+      "value": ">",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
 exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
 {
   "body": [

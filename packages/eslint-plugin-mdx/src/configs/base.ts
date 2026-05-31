@@ -5,6 +5,9 @@ export const base: Linter.LegacyConfig = {
   parserOptions: {
     sourceType: 'module',
     ecmaVersion: 'latest',
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   plugins: ['mdx'],
   processor: 'mdx/remark',

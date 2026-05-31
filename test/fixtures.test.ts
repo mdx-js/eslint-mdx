@@ -2,6 +2,7 @@ import path from 'node:path'
 
 import eslintJs from '@eslint/js'
 import { TSESLint } from '@typescript-eslint/utils'
+import { Linter } from 'eslint'
 import prettierRecommended from 'eslint-plugin-prettier/recommended'
 import react from 'eslint-plugin-react'
 import globals from 'globals'
@@ -11,6 +12,7 @@ import { config, configs } from 'typescript-eslint'
 import * as mdx from 'eslint-plugin-mdx'
 
 const fixturesDir = path.resolve('test/fixtures')
+const isEslint10 = Number.parseInt(Linter.version, 10) >= 10
 
 const getCli = (lintCodeBlocks = false, fix?: boolean) => {
   const remarkConfigPath = path.resolve(
@@ -115,6 +117,33 @@ describe('fixtures', () => {
     },
     ONE_MINUTE,
   )
+
+  const test = isEslint10 ? it : it.skip
+
+  test('should not report no-unused-vars for JSX component imports in MDX', async () => {
+    // Uses only the plugin's built-in flat config without any user-land
+    // ecmaFeatures.jsx override, to verify the plugin sets it by default
+    const cli = new TSESLint.ESLint({
+      overrideConfigFile: true,
+      overrideConfig: [
+        mdx.configs.flat,
+        mdx.configs.flatCodeBlocks,
+        {
+          files: ['**/*.{md,mdx}'],
+          rules: { 'no-unused-vars': 'error' },
+        },
+      ],
+    })
+
+    const results = await cli.lintFiles(
+      path.join(fixturesDir, 'jsx-imports.mdx'),
+    )
+
+    const messages = results.flatMap(r => r.messages)
+
+    // eslint-disable-next-line jest/no-standalone-expect
+    expect(messages).toEqual([])
+  })
 
   describe('lint code blocks', () => {
     it(

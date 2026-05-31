@@ -11,6 +11,11 @@ export const flat: Linter.FlatConfig = {
   files: ['**/*.{md,mdx}'],
   languageOptions: {
     parser: eslintMdx,
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+    },
     globals: {
       React: false,
     },

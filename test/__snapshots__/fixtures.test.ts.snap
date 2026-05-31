@@ -1051,6 +1051,8 @@ exports[`fixtures should match all snapshots: esm/test.md 1`] = `
 ]
 `;
 
+exports[`fixtures should match all snapshots: jsx-imports.mdx 1`] = `[]`;
+
 exports[`fixtures should match all snapshots: jsx-in-list.mdx 1`] = `
 [
   {
