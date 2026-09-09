@@ -10,7 +10,7 @@
   "workspaces": [
     "packages/*"
   ],
-  "packageManager": "yarn@4.15.0",
+  "packageManager": "yarn@4.18.0",
   "scripts": {
     "build": "concurrently -r 'yarn:build:*'",
     "build:r": "r -f cjs --esbuild '{target:es2022}'",
@@ -29,8 +29,8 @@
   },
   "devDependencies": {
     "@1stg/common-config": "^15.0.0",
-    "@changesets/changelog-github": "^0.7.0",
-    "@changesets/cli": "^2.29.5",
+    "@changesets/changelog-github": "^1.0.0",
+    "@changesets/cli": "^3.0.0",
     "@commitlint/cli": "^21.0.0",
     "@oxc-node/core": "^0.1.0",
     "@pkgr/rollup": "^7.0.1",
@@ -48,7 +48,7 @@
     "globals": "^17.0.0",
     "jest": "^30.0.4",
     "nano-staged": "^1.0.0",
-    "path-serializer": "^0.6.0",
+    "path-serializer": "^0.7.0",
     "prettier": "^3.8.3",
     "react": "^19.1.0",
     "remark-math": "^6.0.0",
@@ -56,7 +56,7 @@
     "simple-git-hooks": "^2.13.0",
     "ts-node": "^10.9.2",
     "type-coverage": "^2.29.7",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.0",
     "yarn-berry-deduplicate": "^6.1.3"
   },
   "resolutions": {
