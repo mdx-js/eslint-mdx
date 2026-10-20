@@ -46,13 +46,13 @@
   },
   "dependencies": {
     "eslint-mdx": "^3.8.1",
-    "mdast-util-from-markdown": "^2.0.2",
+    "mdast-util-from-markdown": "^2.1.0",
     "mdast-util-mdx": "^3.0.0",
     "micromark-extension-mdxjs": "^3.0.0",
-    "remark-mdx": "^3.1.0",
+    "remark-mdx": "^3.1.1",
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0",
-    "synckit": "^0.12.0",
+    "synckit": "^0.12.3",
     "unified": "^11.0.5",
     "vfile": "^6.0.3"
   },
