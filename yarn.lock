@@ -10289,16 +10289,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsdoc-type-pratt-parser@npm:^9.0.0":
-  version: 9.3.0
-  resolution: "jsdoc-type-pratt-parser@npm:9.3.0"
-  dependencies:
-    "@types/estree": "npm:^1.0.9"
-  checksum: 10c0/35dfafe2b9dc38714a20416e301a3b67f0f39c465daaa7eb0c857a18338577c6f702fea3e2dbbf00ca9c425fce2575c1f9ce2c66cecc9573882bca8e171a01e2
-  languageName: node
-  linkType: hard
-
-"jsdoc-type-pratt-parser@npm:~9.2.2":
+"jsdoc-type-pratt-parser@npm:^9.0.0, jsdoc-type-pratt-parser@npm:~9.2.2":
   version: 9.2.3
   resolution: "jsdoc-type-pratt-parser@npm:9.2.3"
   dependencies:
