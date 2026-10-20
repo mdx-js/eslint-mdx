@@ -54,12 +54,12 @@ function traverse(
 const COMMENTS = [
   [
     /^<!-{2,}/,
-    // eslint-disable-next-line sonarjs/slow-regex
+    // eslint-disable-next-line sonarjs/super-linear-regex
     /-{2,}>$/,
   ],
   [
     /^\/\*+/,
-    // eslint-disable-next-line sonarjs/slow-regex
+    // eslint-disable-next-line sonarjs/super-linear-regex
     /\*+\/$/,
   ],
 ] as const

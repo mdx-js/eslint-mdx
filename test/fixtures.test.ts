@@ -93,6 +93,10 @@ const cleanupMessages = (messages: TSESLint.ESLint.LintMessage[]) => {
     if ('nodeType' in msg) {
       delete msg.nodeType
     }
+    // the fix range for `no-var` changed in ESLint v10, the applied output is the same
+    if (msg.ruleId === 'no-var') {
+      delete msg.fix
+    }
     msgs.push(msg)
   }
   return msgs

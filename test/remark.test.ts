@@ -111,5 +111,6 @@ ruleTester.run('remark', remark, {
 })
 
 test('hack', () => {
+  // eslint-disable-next-line sonarjs/no-trivial-assertions -- placeholder to keep the suite non-empty
   expect(true).toBe(true)
 })
