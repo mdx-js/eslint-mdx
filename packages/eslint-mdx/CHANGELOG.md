@@ -1,5 +1,17 @@
 # Change Log
 
+## 3.8.2
+
+### Patch Changes
+
+- [#618](https://github.com/mdx-js/eslint-mdx/pull/618) [`f07115b`](https://github.com/mdx-js/eslint-mdx/commit/f07115b9b14e6b4d0eb4635b92632af091863c56) Thanks [@renovate](https://github.com/apps/renovate)! - fix: surface worker failures instead of hanging forever
+
+  Upgrade `synckit` to `^0.12.3` so a worker failure is reported to the caller
+  instead of leaving ESLint blocked in `Atomics.wait()`, which made lint runs over
+  large projects appear to hang with no diagnostics.
+
+  Closes [#605](https://github.com/mdx-js/eslint-mdx/issues/605).
+
 ## 3.8.1
 
 ## 3.8.0
