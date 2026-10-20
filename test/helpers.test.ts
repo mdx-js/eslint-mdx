@@ -1,5 +1,5 @@
 import { arrayify } from 'eslint-mdx'
-import { getGlobals, getShortLang } from 'eslint-plugin-mdx'
+import { getESLinter, getGlobals, getShortLang } from 'eslint-plugin-mdx'
 
 describe('Helpers', () => {
   it('should arrayify items correctly', () => {
@@ -14,6 +14,10 @@ describe('Helpers', () => {
     expect(getShortLang('2.Markdown', false)).toBe('Markdown')
     expect(getShortLang('3.Markdown', { Markdown: 'mkdn' })).toBe('mkdn')
     expect(getShortLang('4.Markdown', { markdown: 'mkdn' })).toBe('mkdn')
+  })
+
+  it('should fall back to the eslint linter', () => {
+    expect(getESLinter()).toBeDefined()
   })
 
   it('should resolve globals correctly', () => {

@@ -34,6 +34,7 @@
   - [`MDXHeading`](#mdxheading)
   - [Typings](#typings)
 - [Rules](#rules)
+  - [mdx/no-unused-expressions](#mdxno-unused-expressions)
   - [mdx/remark](#mdxremark)
 - [Prettier Integration](#prettier-integration)
 - [Sponsors and Backers](#sponsors-and-backers)
@@ -213,6 +214,12 @@ export interface MDXHeading extends BaseNode {
 ```
 
 ## Rules
+
+### mdx/no-unused-expressions
+
+Replacement for the core `no-unused-expressions` rule which ignores expressions written in MDX content, such as `{foo.bar}` in a paragraph, while still reporting unused expressions in JavaScript inside MDX, for example inside an exported function.
+
+The bundled configs enable this rule and turn off both `no-unused-expressions` and `@typescript-eslint/no-unused-expressions`.
 
 ### mdx/remark
 
