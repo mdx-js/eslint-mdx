@@ -52,7 +52,7 @@
     "remark-mdx": "^3.1.0",
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0",
-    "synckit": "^0.11.8",
+    "synckit": "^0.12.0",
     "unified": "^11.0.5",
     "vfile": "^6.0.3"
   }
