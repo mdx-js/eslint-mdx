@@ -1,6 +1,8 @@
 import path from 'node:path'
 
 import type { Linter } from 'eslint'
+import { KEYS } from 'eslint-visitor-keys'
+import type { Program } from 'estree'
 import type { VFileMessage } from 'vfile-message'
 
 import { arrayify, normalizePosition, getPhysicalFilename } from './helpers.js'
@@ -85,9 +87,16 @@ export class Parser {
         type: 'Program',
         // @ts-expect-error -- should we change?
         sourceType,
-        body,
+        body: body as unknown as Program['body'],
         comments,
         tokens,
+      },
+      visitorKeys: {
+        ...KEYS,
+        MDXCode: [],
+        MDXFlowExpression: ['expression'],
+        MDXHeading: ['children'],
+        MDXTextExpression: ['expression'],
       },
     }
   }

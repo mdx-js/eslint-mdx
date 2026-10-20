@@ -57,9 +57,34 @@ import type {
   MDXCode,
   MDXHeading,
   NormalPosition,
+  ProgramBody,
   WorkerOptions,
   WorkerResult,
 } from './types.ts'
+
+const appendEstreeBody = (body: ProgramBody, node: Nodes, estree: Program) => {
+  if (node.type !== 'mdxFlowExpression' && node.type !== 'mdxTextExpression') {
+    body.push(...estree.body)
+    return
+  }
+
+  const type =
+    node.type === 'mdxFlowExpression'
+      ? ('MDXFlowExpression' as const)
+      : ('MDXTextExpression' as const)
+
+  for (const statement of estree.body) {
+    if (statement.type === 'ExpressionStatement') {
+      body.push({
+        ...normalizePosition(node.position),
+        type,
+        expression: statement.expression,
+      })
+    } else {
+      body.push(statement)
+    }
+  }
+}
 
 let acornParser: typeof Parser
 
@@ -328,7 +353,7 @@ runAsWorker(
 
     const root = processor.parse(fileOptions)
 
-    const body: Program['body'] = []
+    const body: ProgramBody = []
     const comments: Comment[] = []
     const tokens: AST.Token[] = []
 
@@ -751,7 +776,7 @@ runAsWorker(
           comments: [],
         }) as Program
 
-        body.push(...estree.body)
+        appendEstreeBody(body, node, estree)
         comments.push(...estree.comments)
       })
     }
@@ -760,7 +785,7 @@ runAsWorker(
       {
         type: 'Program',
         sourceType: 'module',
-        body,
+        body: body as unknown as Program['body'],
       },
       node => {
         if (node.type !== 'TemplateElement') {
