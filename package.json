@@ -20,7 +20,7 @@
     "lint": "concurrently -r 'yarn:lint:*'",
     "lint:es": "eslint . --cache",
     "lint:tsc": "tsc --noEmit",
-    "prepare": "patch-package && simple-git-hooks && yarn-berry-deduplicate || exit 0",
+    "prepare": "patch-package && simple-git-hooks && yarn-berry-deduplicate --no-clusters || exit 0",
     "release": "run-s build release:only",
     "release:only": "changeset publish",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
@@ -40,6 +40,7 @@
     "@types/node": "^24.0.0",
     "@types/react": "^19.1.8",
     "@types/unist": "^3.0.3",
+    "@typescript/native": "npm:typescript@^7.0.2",
     "@unts/patch-package": "^8.1.1",
     "concurrently": "^10.0.0",
     "eslint": "^10.4.0",
@@ -56,7 +57,7 @@
     "simple-git-hooks": "^2.13.0",
     "ts-node": "^10.9.2",
     "type-coverage": "^2.29.7",
-    "typescript": "^7.0.0",
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
     "yarn-berry-deduplicate": "^7.0.0"
   },
   "resolutions": {

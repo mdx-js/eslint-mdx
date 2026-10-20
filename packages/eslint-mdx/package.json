@@ -63,5 +63,8 @@
     "unified-engine": "^11.2.2",
     "unist-util-visit": "^5.0.0",
     "vfile": "^6.0.3"
+  },
+  "publishConfig": {
+    "provenance": true
   }
 }

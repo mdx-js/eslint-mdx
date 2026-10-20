@@ -284,7 +284,9 @@ runAsWorker(
       }
 
       return {
-        messages: file.messages.map(message => extractProperties(message)),
+        messages: file.messages.map(
+          message => extractProperties(message) as VFileMessage,
+        ),
         content: file.toString(),
       }
     }
@@ -389,8 +391,7 @@ runAsWorker(
           ...normalizeNode(start + nameIndex, start + nameIndex + name.length),
           type: 'JSXMemberExpression',
           object: handleJsxName(objectName, start) as
-            | JSXIdentifier
-            | JSXMemberExpression,
+            JSXIdentifier | JSXMemberExpression,
           property: handleJsxName(
             propertyName,
             start + lastPointIndex + 1,

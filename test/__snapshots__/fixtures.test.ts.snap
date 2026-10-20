@@ -92,13 +92,6 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/455.mdx 
     "column": 1,
     "endColumn": 6,
     "endLine": 2,
-    "fix": {
-      "range": [
-        25,
-        28,
-      ],
-      "text": "let",
-    },
     "line": 2,
     "message": "Unexpected var, use let or const instead.",
     "messageId": "unexpectedVar",
