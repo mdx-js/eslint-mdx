@@ -178,6 +178,7 @@ export type MDXContentNode =
   | MDXText
   | MDXTextExpression
   | MDXThematicBreak
+
 export interface CjsRequire extends NodeJS.Require {
   <T>(id: string): T
 }
