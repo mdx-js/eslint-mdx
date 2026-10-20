@@ -1,8 +1,12 @@
 /* istanbul ignore file */
+import { noUnusedExpressions } from './no-unused-expressions.js'
 import { remark } from './remark.js'
 
 export type * from './types.js'
 
-export { remark }
+export { noUnusedExpressions, remark }
 
-export const rules = { remark }
+export const rules = {
+  'no-unused-expressions': noUnusedExpressions,
+  remark,
+}

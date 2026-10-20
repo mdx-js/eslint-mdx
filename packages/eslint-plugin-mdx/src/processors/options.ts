@@ -5,7 +5,7 @@
 
 import type * as ESLint from 'eslint'
 
-import { cjsRequire } from '../helpers.js'
+import { cjsRequire, getESLinter } from '../helpers.js'
 
 import type { ESLintMdxSettings, ProcessorOptions } from './types.js'
 
@@ -20,7 +20,7 @@ export interface LinterConfig extends ESLint.Linter.Config {
   extractConfig?(filename?: string): ESLint.Linter.Config
 }
 
-const ESLinter = cjsRequire<typeof ESLint>(linterPath || 'eslint').Linter
+const ESLinter = getESLinter(linterPath)
 
 // patch Linter#verify
 

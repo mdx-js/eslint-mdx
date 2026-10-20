@@ -1,5 +1,6 @@
 import { createRequire } from 'node:module'
 
+import type * as ESLint from 'eslint'
 import type { CjsRequire } from 'eslint-mdx'
 
 export const getGlobals = <
@@ -28,3 +29,6 @@ const importMetaUrl = import.meta.url
 export const cjsRequire: CjsRequire = importMetaUrl
   ? createRequire(importMetaUrl)
   : require
+
+export const getESLinter = (linterPath?: string) =>
+  cjsRequire<typeof ESLint>(linterPath || 'eslint').Linter

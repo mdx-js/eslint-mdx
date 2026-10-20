@@ -144,16 +144,6 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/470.mdx 
     "severity": 2,
   },
   {
-    "column": 3,
-    "endColumn": 23,
-    "endLine": 3,
-    "line": 3,
-    "message": "Expected an assignment or function call and instead saw an expression.",
-    "messageId": "unusedExpression",
-    "ruleId": "@typescript-eslint/no-unused-expressions",
-    "severity": 2,
-  },
-  {
     "column": 1,
     "endColumn": 23,
     "endLine": 8,
@@ -161,16 +151,6 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/470.mdx 
     "message": "Identifier 'im_not_camel_case_oops' is not in camel case.",
     "messageId": "notCamelCase",
     "ruleId": "camelcase",
-    "severity": 2,
-  },
-  {
-    "column": 1,
-    "endColumn": 23,
-    "endLine": 8,
-    "line": 8,
-    "message": "Expected an assignment or function call and instead saw an expression.",
-    "messageId": "unusedExpression",
-    "ruleId": "@typescript-eslint/no-unused-expressions",
     "severity": 2,
   },
 ]
@@ -584,6 +564,8 @@ exports[`fixtures should match all snapshots: 488.mdx 1`] = `
 `;
 
 exports[`fixtures should match all snapshots: 576.mdx 1`] = `[]`;
+
+exports[`fixtures should match all snapshots: 581.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: acorn.mdx 1`] = `
 [
@@ -1178,6 +1160,21 @@ exports[`fixtures should match all snapshots: no-unused-expressions.mdx 1`] = `
     "message": "'Story' is not defined.",
     "messageId": "undefined",
     "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+]
+`;
+
+exports[`fixtures should match all snapshots: no-unused-expressions-esm.mdx 1`] = `
+[
+  {
+    "column": 3,
+    "endColumn": 5,
+    "endLine": 3,
+    "line": 3,
+    "message": "Expected an assignment or function call and instead saw an expression.",
+    "messageId": "unusedExpression",
+    "ruleId": "mdx/no-unused-expressions",
     "severity": 2,
   },
 ]

@@ -27,7 +27,9 @@ export const flat: Linter.FlatConfig = {
   processor: remark,
   rules: {
     'mdx/remark': 'warn',
-    'no-unused-expressions': 'error',
+    'mdx/no-unused-expressions': 'error',
+    'no-unused-expressions': 'off',
+    '@typescript-eslint/no-unused-expressions': 'off',
     'react/react-in-jsx-scope': 'off',
   },
 }

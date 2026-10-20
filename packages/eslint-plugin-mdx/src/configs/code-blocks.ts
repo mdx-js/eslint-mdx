@@ -20,6 +20,7 @@ export const codeBlocks = {
     'no-undef': 'off',
     'no-unused-expressions': 'off',
     'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-expressions': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     'padded-blocks': 'off',
 
