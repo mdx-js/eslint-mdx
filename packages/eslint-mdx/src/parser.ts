@@ -92,10 +92,22 @@ export class Parser {
       },
       visitorKeys: {
         ...KEYS,
+        MDXBlockquote: ['children'],
+        MDXBreak: [],
         MDXCode: [],
+        MDXEmphasis: ['children'],
         MDXFlowExpression: ['expression'],
         MDXHeading: ['children'],
+        MDXImage: [],
+        MDXInlineCode: [],
+        MDXLink: ['children'],
+        MDXList: ['children'],
+        MDXListItem: ['children'],
+        MDXParagraph: ['children'],
+        MDXStrong: ['children'],
+        MDXText: [],
         MDXTextExpression: ['expression'],
+        MDXThematicBreak: [],
       },
     }
   }

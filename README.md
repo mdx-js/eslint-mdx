@@ -210,6 +210,10 @@ The value is {value}.
 
 See also <https://github.com/syntax-tree/mdast#mdxtextexpression>
 
+### MDX content nodes
+
+Markdown content is also represented with ESTree-compatible nodes: `MDXParagraph`, `MDXText`, `MDXList`, `MDXListItem`, `MDXBlockquote`, `MDXEmphasis`, `MDXStrong`, `MDXInlineCode`, `MDXLink`, `MDXImage`, `MDXBreak` and `MDXThematicBreak`. They expose their mdast children or values and are traversed through the parser visitor keys.
+
 ### Typings
 
 ```ts
@@ -228,7 +232,7 @@ export type HeadingDepth = 1 | 2 | 3 | 4 | 5 | 6
 export interface MDXHeading extends BaseNode {
   type: 'MDXHeading'
   depth: HeadingDepth
-  children: JSXElement['children']
+  children: MDXContentNode[]
 }
 
 export interface MDXFlowExpression extends BaseNode {
@@ -240,6 +244,92 @@ export interface MDXTextExpression extends BaseNode {
   type: 'MDXTextExpression'
   expression: Expression
 }
+
+export interface MDXText extends BaseNode {
+  type: 'MDXText'
+  value: string
+}
+
+export interface MDXParagraph extends BaseNode {
+  type: 'MDXParagraph'
+  children: MDXContentNode[]
+}
+
+export interface MDXBlockquote extends BaseNode {
+  type: 'MDXBlockquote'
+  children: MDXContentNode[]
+}
+
+export interface MDXList extends BaseNode {
+  type: 'MDXList'
+  ordered?: boolean | null
+  start?: number | null
+  spread?: boolean | null
+  children: MDXListItem[]
+}
+
+export interface MDXListItem extends BaseNode {
+  type: 'MDXListItem'
+  checked?: boolean | null
+  spread?: boolean | null
+  children: MDXContentNode[]
+}
+
+export interface MDXEmphasis extends BaseNode {
+  type: 'MDXEmphasis'
+  children: MDXContentNode[]
+}
+
+export interface MDXStrong extends BaseNode {
+  type: 'MDXStrong'
+  children: MDXContentNode[]
+}
+
+export interface MDXInlineCode extends BaseNode {
+  type: 'MDXInlineCode'
+  value: string
+}
+
+export interface MDXLink extends BaseNode {
+  type: 'MDXLink'
+  url: string
+  title?: string | null
+  children: MDXContentNode[]
+}
+
+export interface MDXImage extends BaseNode {
+  type: 'MDXImage'
+  url: string
+  title?: string | null
+  alt?: string | null
+}
+
+export interface MDXBreak extends BaseNode {
+  type: 'MDXBreak'
+}
+
+export interface MDXThematicBreak extends BaseNode {
+  type: 'MDXThematicBreak'
+}
+
+export type MDXContentNode =
+  | JSXElement
+  | MDXBlockquote
+  | MDXBreak
+  | MDXCode
+  | MDXEmphasis
+  | MDXFlowExpression
+  | MDXHeading
+  | MDXImage
+  | MDXInlineCode
+  | MDXLink
+  | MDXList
+  | MDXListItem
+  | MDXParagraph
+  | MDXStrong
+  | MDXText
+  | MDXTextExpression
+  | MDXThematicBreak
 ```
 
 ## Rules

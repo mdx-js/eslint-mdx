@@ -55,7 +55,9 @@ import type {
   Arrayable,
   IgnoreClass,
   MDXCode,
+  MDXContentNode,
   MDXHeading,
+  MDXListItem,
   NormalPosition,
   WorkerOptions,
   WorkerResult,
@@ -428,15 +430,8 @@ runAsWorker(
         }
       }
 
-      visit(root, node => {
-        if (
-          processed.has(node) ||
-          (node.type !== 'mdxFlowExpression' &&
-            node.type !== 'mdxJsxFlowElement' &&
-            node.type !== 'mdxJsxTextElement' &&
-            node.type !== 'mdxTextExpression' &&
-            node.type !== 'mdxjsEsm')
-        ) {
+      visit(root, (node, _index, parent) => {
+        if (processed.has(node) || parent !== root) {
           return
         }
 
@@ -763,25 +758,195 @@ runAsWorker(
           return expression
         }
 
-        const expression = handleNode(node)
-
-        if (expression) {
-          body.push({
-            ...normalizePosition(node.position),
-            type: 'ExpressionStatement',
-            expression: expression as Expression,
-          })
+        function convertChildren(node: Nodes): MDXContentNode[] {
+          const children: MDXContentNode[] = []
+          if ('children' in node) {
+            for (const child of node.children) {
+              const converted = convertContent(child)
+              if (converted) {
+                children.push(converted)
+              }
+            }
+          }
+          return children
         }
 
-        const estree = ((node.data &&
-          'estree' in node.data &&
-          node.data.estree) || {
-          body: [],
-          comments: [],
-        }) as Program
+        function convertContent(node: Nodes): MDXContentNode | undefined {
+          const {
+            start: { offset: start },
+            end: { offset: end },
+          } = node.position
+          const position = normalizeNode(start, end)
 
-        appendEstreeBody(body, node, estree)
-        comments.push(...estree.comments)
+          switch (node.type) {
+            case 'text': {
+              return { ...position, type: 'MDXText', value: node.value }
+            }
+            case 'paragraph': {
+              return {
+                ...position,
+                type: 'MDXParagraph',
+                children: convertChildren(node),
+              }
+            }
+            case 'heading': {
+              return {
+                ...position,
+                type: 'MDXHeading',
+                depth: node.depth,
+                children: convertChildren(node),
+              }
+            }
+            case 'list': {
+              return {
+                ...position,
+                type: 'MDXList',
+                ordered: node.ordered,
+                start: node.start,
+                spread: node.spread,
+                children: convertChildren(node) as MDXListItem[],
+              }
+            }
+            case 'listItem': {
+              return {
+                ...position,
+                type: 'MDXListItem',
+                checked: node.checked,
+                spread: node.spread,
+                children: convertChildren(node),
+              }
+            }
+            case 'blockquote': {
+              return {
+                ...position,
+                type: 'MDXBlockquote',
+                children: convertChildren(node),
+              }
+            }
+            case 'code': {
+              return {
+                ...position,
+                type: 'MDXCode',
+                lang: node.lang,
+                meta: node.meta,
+                value: node.value,
+              }
+            }
+            case 'inlineCode': {
+              return { ...position, type: 'MDXInlineCode', value: node.value }
+            }
+            case 'emphasis': {
+              return {
+                ...position,
+                type: 'MDXEmphasis',
+                children: convertChildren(node),
+              }
+            }
+            case 'strong': {
+              return {
+                ...position,
+                type: 'MDXStrong',
+                children: convertChildren(node),
+              }
+            }
+            case 'link': {
+              return {
+                ...position,
+                type: 'MDXLink',
+                url: node.url,
+                title: node.title,
+                children: convertChildren(node),
+              }
+            }
+            case 'image': {
+              return {
+                ...position,
+                type: 'MDXImage',
+                url: node.url,
+                title: node.title,
+                alt: node.alt,
+              }
+            }
+            case 'break': {
+              return { ...position, type: 'MDXBreak' }
+            }
+            case 'thematicBreak': {
+              return { ...position, type: 'MDXThematicBreak' }
+            }
+            case 'mdxTextExpression': {
+              const estree = node.data?.estree
+              if (estree) {
+                comments.push(...estree.comments)
+              }
+              const statement = estree?.body[0]
+              isExpressionStatement(statement)
+              if (!statement?.expression) {
+                return
+              }
+              return {
+                ...position,
+                type: 'MDXTextExpression',
+                expression: statement.expression,
+              }
+            }
+            case 'mdxJsxFlowElement':
+            case 'mdxJsxTextElement': {
+              return handleNode(node) as MDXContentNode
+            }
+            default: {
+              return
+            }
+          }
+        }
+
+        if (node.type === 'mdxjsEsm') {
+          const estree = ((node.data &&
+            'estree' in node.data &&
+            node.data.estree) || {
+            body: [],
+            comments: [],
+          }) as Program
+          appendEstreeBody(body, node, estree)
+          comments.push(...estree.comments)
+          return
+        }
+
+        if (
+          node.type === 'mdxFlowExpression' ||
+          node.type === 'mdxTextExpression'
+        ) {
+          const estree = ((node.data &&
+            'estree' in node.data &&
+            node.data.estree) || {
+            body: [],
+            comments: [],
+          }) as Program
+          appendEstreeBody(body, node, estree)
+          comments.push(...estree.comments)
+          return
+        }
+
+        if (
+          node.type === 'mdxJsxFlowElement' ||
+          node.type === 'mdxJsxTextElement'
+        ) {
+          const expression = handleNode(node)
+
+          if (expression) {
+            body.push({
+              ...normalizePosition(node.position),
+              type: 'ExpressionStatement',
+              expression: expression as Expression,
+            })
+          }
+          return
+        }
+
+        const content = convertContent(node)
+
+        if (content) {
+          body.push(content as Program['body'][number])
+        }
       })
     }
 
