@@ -50965,6 +50965,415 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
 }
 `;
 
+exports[`parser should match all AST snapshots: no-unused-expressions-esm.mdx 1`] = `
+{
+  "body": [
+    {
+      "attributes": [],
+      "declaration": {
+        "async": false,
+        "body": {
+          "body": [
+            {
+              "end": 73,
+              "expression": {
+                "end": 72,
+                "loc": {
+                  "end": {
+                    "column": 3,
+                    "line": 5,
+                    "offset": 72,
+                  },
+                  "start": {
+                    "column": 2,
+                    "line": 5,
+                    "offset": 71,
+                  },
+                },
+                "range": [
+                  71,
+                  72,
+                ],
+                "raw": "1",
+                "start": 71,
+                "type": "Literal",
+                "value": 1,
+              },
+              "loc": {
+                "end": {
+                  "column": 4,
+                  "line": 5,
+                  "offset": 73,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 5,
+                  "offset": 71,
+                },
+              },
+              "range": [
+                71,
+                73,
+              ],
+              "start": 71,
+              "type": "ExpressionStatement",
+            },
+          ],
+          "end": 75,
+          "loc": {
+            "end": {
+              "column": 1,
+              "line": 6,
+              "offset": 75,
+            },
+            "start": {
+              "column": 27,
+              "line": 3,
+              "offset": 36,
+            },
+          },
+          "range": [
+            36,
+            75,
+          ],
+          "start": 36,
+          "type": "BlockStatement",
+        },
+        "end": 75,
+        "expression": false,
+        "generator": false,
+        "id": {
+          "end": 33,
+          "loc": {
+            "end": {
+              "column": 24,
+              "line": 3,
+              "offset": 33,
+            },
+            "start": {
+              "column": 16,
+              "line": 3,
+              "offset": 25,
+            },
+          },
+          "name": "whatever",
+          "range": [
+            25,
+            33,
+          ],
+          "start": 25,
+          "type": "Identifier",
+        },
+        "loc": {
+          "end": {
+            "column": 1,
+            "line": 6,
+            "offset": 75,
+          },
+          "start": {
+            "column": 7,
+            "line": 3,
+            "offset": 16,
+          },
+        },
+        "params": [],
+        "range": [
+          16,
+          75,
+        ],
+        "start": 16,
+        "type": "FunctionDeclaration",
+      },
+      "end": 75,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 6,
+          "offset": 75,
+        },
+        "start": {
+          "column": 0,
+          "line": 3,
+          "offset": 9,
+        },
+      },
+      "range": [
+        9,
+        75,
+      ],
+      "source": null,
+      "specifiers": [],
+      "start": 9,
+      "type": "ExportNamedDeclaration",
+    },
+  ],
+  "comments": [
+    {
+      "end": 68,
+      "loc": {
+        "end": {
+          "column": 30,
+          "line": 4,
+          "offset": 68,
+        },
+        "start": {
+          "column": 2,
+          "line": 4,
+          "offset": 40,
+        },
+      },
+      "range": [
+        40,
+        68,
+      ],
+      "start": 40,
+      "type": "Line",
+      "value": " This expression is unused",
+    },
+  ],
+  "end": 76,
+  "loc": {
+    "end": {
+      "column": 1,
+      "line": 7,
+      "offset": 76,
+    },
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "range": [
+    0,
+    76,
+  ],
+  "sourceType": undefined,
+  "start": 0,
+  "tokens": [
+    {
+      "end": 7,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 1,
+        },
+        "start": {
+          "column": 2,
+          "line": 1,
+        },
+      },
+      "range": [
+        2,
+        7,
+      ],
+      "start": 2,
+      "type": "JSXText",
+      "value": "Hello",
+    },
+    {
+      "end": 15,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 3,
+          "offset": 15,
+        },
+        "start": {
+          "column": 0,
+          "line": 3,
+          "offset": 9,
+        },
+      },
+      "range": [
+        9,
+        15,
+      ],
+      "start": 9,
+      "type": "Keyword",
+      "value": "export",
+    },
+    {
+      "end": 24,
+      "loc": {
+        "end": {
+          "column": 15,
+          "line": 3,
+          "offset": 24,
+        },
+        "start": {
+          "column": 7,
+          "line": 3,
+          "offset": 16,
+        },
+      },
+      "range": [
+        16,
+        24,
+      ],
+      "start": 16,
+      "type": "Keyword",
+      "value": "function",
+    },
+    {
+      "end": 33,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 3,
+          "offset": 33,
+        },
+        "start": {
+          "column": 16,
+          "line": 3,
+          "offset": 25,
+        },
+      },
+      "range": [
+        25,
+        33,
+      ],
+      "start": 25,
+      "type": "Identifier",
+      "value": "whatever",
+    },
+    {
+      "end": 34,
+      "loc": {
+        "end": {
+          "column": 25,
+          "line": 3,
+          "offset": 34,
+        },
+        "start": {
+          "column": 24,
+          "line": 3,
+          "offset": 33,
+        },
+      },
+      "range": [
+        33,
+        34,
+      ],
+      "start": 33,
+      "type": "Punctuator",
+      "value": "(",
+    },
+    {
+      "end": 35,
+      "loc": {
+        "end": {
+          "column": 26,
+          "line": 3,
+          "offset": 35,
+        },
+        "start": {
+          "column": 25,
+          "line": 3,
+          "offset": 34,
+        },
+      },
+      "range": [
+        34,
+        35,
+      ],
+      "start": 34,
+      "type": "Punctuator",
+      "value": ")",
+    },
+    {
+      "end": 37,
+      "loc": {
+        "end": {
+          "column": 28,
+          "line": 3,
+          "offset": 37,
+        },
+        "start": {
+          "column": 27,
+          "line": 3,
+          "offset": 36,
+        },
+      },
+      "range": [
+        36,
+        37,
+      ],
+      "start": 36,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 72,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 5,
+          "offset": 72,
+        },
+        "start": {
+          "column": 2,
+          "line": 5,
+          "offset": 71,
+        },
+      },
+      "range": [
+        71,
+        72,
+      ],
+      "start": 71,
+      "type": "Numeric",
+      "value": "1",
+    },
+    {
+      "end": 73,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 5,
+          "offset": 73,
+        },
+        "start": {
+          "column": 3,
+          "line": 5,
+          "offset": 72,
+        },
+      },
+      "range": [
+        72,
+        73,
+      ],
+      "start": 72,
+      "type": "Punctuator",
+      "value": ";",
+    },
+    {
+      "end": 75,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 6,
+          "offset": 75,
+        },
+        "start": {
+          "column": 0,
+          "line": 6,
+          "offset": 74,
+        },
+      },
+      "range": [
+        74,
+        75,
+      ],
+      "start": 74,
+      "type": "Punctuator",
+      "value": "}",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
 exports[`parser should match all AST snapshots: processor.mdx 1`] = `
 {
   "body": [],
