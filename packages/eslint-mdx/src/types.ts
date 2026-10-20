@@ -1,7 +1,13 @@
 import type { Position } from 'acorn'
 import type { AST, Linter } from 'eslint'
 import type { BaseNode, Expression, Program } from 'estree'
-import type { JSXElement } from 'estree-jsx'
+import type {
+  JSXElement,
+  JSXExpressionContainer,
+  JSXFragment,
+  JSXSpreadChild,
+  JSXText,
+} from 'estree-jsx'
 import type { Root } from 'mdast'
 import type { VFileMessage } from 'vfile-message'
 
@@ -38,9 +44,7 @@ export interface WorkerOptions extends SyncOptions {
   process?: boolean
 }
 
-export type ProgramBody = Array<
-  MDXFlowExpression | MDXTextExpression | Program['body'][number]
->
+export type ProgramBody = Array<MDXContentNode | Program['body'][number]>
 
 export interface WorkerParseResult {
   root: Root
@@ -72,7 +76,7 @@ export type HeadingDepth = 1 | 2 | 3 | 4 | 5 | 6
 export interface MDXHeading extends BaseNode {
   type: 'MDXHeading'
   depth: HeadingDepth
-  children: JSXElement['children']
+  children: MDXContentNode[]
 }
 
 export interface MDXFlowExpression extends BaseNode {
@@ -85,6 +89,95 @@ export interface MDXTextExpression extends BaseNode {
   expression: Expression
 }
 
+export interface MDXText extends BaseNode {
+  type: 'MDXText'
+  value: string
+}
+
+export interface MDXParagraph extends BaseNode {
+  type: 'MDXParagraph'
+  children: MDXContentNode[]
+}
+
+export interface MDXBlockquote extends BaseNode {
+  type: 'MDXBlockquote'
+  children: MDXContentNode[]
+}
+
+export interface MDXList extends BaseNode {
+  type: 'MDXList'
+  ordered?: boolean | null
+  start?: number | null
+  spread?: boolean | null
+  children: MDXListItem[]
+}
+
+export interface MDXListItem extends BaseNode {
+  type: 'MDXListItem'
+  checked?: boolean | null
+  spread?: boolean | null
+  children: MDXContentNode[]
+}
+
+export interface MDXEmphasis extends BaseNode {
+  type: 'MDXEmphasis'
+  children: MDXContentNode[]
+}
+
+export interface MDXStrong extends BaseNode {
+  type: 'MDXStrong'
+  children: MDXContentNode[]
+}
+
+export interface MDXInlineCode extends BaseNode {
+  type: 'MDXInlineCode'
+  value: string
+}
+
+export interface MDXLink extends BaseNode {
+  type: 'MDXLink'
+  url: string
+  title?: string | null
+  children: MDXContentNode[]
+}
+
+export interface MDXImage extends BaseNode {
+  type: 'MDXImage'
+  url: string
+  title?: string | null
+  alt?: string | null
+}
+
+export interface MDXBreak extends BaseNode {
+  type: 'MDXBreak'
+}
+
+export interface MDXThematicBreak extends BaseNode {
+  type: 'MDXThematicBreak'
+}
+
+export type MDXContentNode =
+  | JSXElement
+  | JSXExpressionContainer
+  | JSXFragment
+  | JSXSpreadChild
+  | JSXText
+  | MDXBlockquote
+  | MDXBreak
+  | MDXCode
+  | MDXEmphasis
+  | MDXFlowExpression
+  | MDXHeading
+  | MDXImage
+  | MDXInlineCode
+  | MDXLink
+  | MDXList
+  | MDXListItem
+  | MDXParagraph
+  | MDXStrong
+  | MDXText
+  | MDXTextExpression
+  | MDXThematicBreak
 export interface CjsRequire extends NodeJS.Require {
   <T>(id: string): T
 }
