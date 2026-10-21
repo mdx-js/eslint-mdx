@@ -2726,7 +2726,37 @@ module.exports = {
 
 exports[`parser should match all AST snapshots: 336.mdx 1`] = `
 {
-  "body": [],
+  "body": [
+    {
+      "end": 177,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 6,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        177,
+      ],
+      "raw": "---
+title: Code Splitting
+related:
+  - title: <link rel="prefetch/preload" > in webpack
+    url: https://medium.com/webpack/link-rel-prefetch-preload-in-webpack-51a52358f84c
+---",
+      "start": 0,
+      "type": "MDXYaml",
+      "value": "title: Code Splitting
+related:
+  - title: <link rel="prefetch/preload" > in webpack
+    url: https://medium.com/webpack/link-rel-prefetch-preload-in-webpack-51a52358f84c",
+    },
+  ],
   "comments": [],
   "end": 178,
   "loc": {
@@ -15459,6 +15489,1204 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       "type": "MDXHeading",
     },
     {
+      "align": [
+        null,
+        null,
+        null,
+        null,
+      ],
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 8802,
+                  "loc": {
+                    "end": {
+                      "column": 4,
+                      "line": 366,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 366,
+                    },
+                  },
+                  "range": [
+                    8800,
+                    8802,
+                  ],
+                  "raw": "名称",
+                  "start": 8800,
+                  "type": "MDXText",
+                  "value": "名称",
+                },
+              ],
+              "end": 8812,
+              "loc": {
+                "end": {
+                  "column": 14,
+                  "line": 366,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 366,
+                },
+              },
+              "range": [
+                8798,
+                8812,
+              ],
+              "raw": "| 名称          ",
+              "start": 8798,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 8816,
+                  "loc": {
+                    "end": {
+                      "column": 18,
+                      "line": 366,
+                    },
+                    "start": {
+                      "column": 16,
+                      "line": 366,
+                    },
+                  },
+                  "range": [
+                    8814,
+                    8816,
+                  ],
+                  "raw": "类型",
+                  "start": 8814,
+                  "type": "MDXText",
+                  "value": "类型",
+                },
+              ],
+              "end": 8820,
+              "loc": {
+                "end": {
+                  "column": 22,
+                  "line": 366,
+                },
+                "start": {
+                  "column": 14,
+                  "line": 366,
+                },
+              },
+              "range": [
+                8812,
+                8820,
+              ],
+              "raw": "| 类型    ",
+              "start": 8812,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 8825,
+                  "loc": {
+                    "end": {
+                      "column": 27,
+                      "line": 366,
+                    },
+                    "start": {
+                      "column": 24,
+                      "line": 366,
+                    },
+                  },
+                  "range": [
+                    8822,
+                    8825,
+                  ],
+                  "raw": "默认值",
+                  "start": 8822,
+                  "type": "MDXText",
+                  "value": "默认值",
+                },
+              ],
+              "end": 8834,
+              "loc": {
+                "end": {
+                  "column": 36,
+                  "line": 366,
+                },
+                "start": {
+                  "column": 22,
+                  "line": 366,
+                },
+              },
+              "range": [
+                8820,
+                8834,
+              ],
+              "raw": "| 默认值         ",
+              "start": 8820,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 8838,
+                  "loc": {
+                    "end": {
+                      "column": 40,
+                      "line": 366,
+                    },
+                    "start": {
+                      "column": 38,
+                      "line": 366,
+                    },
+                  },
+                  "range": [
+                    8836,
+                    8838,
+                  ],
+                  "raw": "描述",
+                  "start": 8836,
+                  "type": "MDXText",
+                  "value": "描述",
+                },
+              ],
+              "end": 8851,
+              "loc": {
+                "end": {
+                  "column": 53,
+                  "line": 366,
+                },
+                "start": {
+                  "column": 36,
+                  "line": 366,
+                },
+              },
+              "range": [
+                8834,
+                8851,
+              ],
+              "raw": "| 描述            |",
+              "start": 8834,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 8851,
+          "loc": {
+            "end": {
+              "column": 53,
+              "line": 366,
+            },
+            "start": {
+              "column": 0,
+              "line": 366,
+            },
+          },
+          "range": [
+            8798,
+            8851,
+          ],
+          "raw": "| 名称          | 类型    | 默认值         | 描述            |",
+          "start": 8798,
+          "type": "MDXTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 8921,
+                  "loc": {
+                    "end": {
+                      "column": 6,
+                      "line": 368,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 368,
+                    },
+                  },
+                  "range": [
+                    8917,
+                    8921,
+                  ],
+                  "raw": "type",
+                  "start": 8917,
+                  "type": "MDXText",
+                  "value": "type",
+                },
+              ],
+              "end": 8931,
+              "loc": {
+                "end": {
+                  "column": 16,
+                  "line": 368,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 368,
+                },
+              },
+              "range": [
+                8915,
+                8931,
+              ],
+              "raw": "| type          ",
+              "start": 8915,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 8940,
+                  "loc": {
+                    "end": {
+                      "column": 25,
+                      "line": 368,
+                    },
+                    "start": {
+                      "column": 18,
+                      "line": 368,
+                    },
+                  },
+                  "range": [
+                    8933,
+                    8940,
+                  ],
+                  "raw": "TabType",
+                  "start": 8933,
+                  "type": "MDXText",
+                  "value": "TabType",
+                },
+              ],
+              "end": 8941,
+              "loc": {
+                "end": {
+                  "column": 26,
+                  "line": 368,
+                },
+                "start": {
+                  "column": 16,
+                  "line": 368,
+                },
+              },
+              "range": [
+                8931,
+                8941,
+              ],
+              "raw": "| TabType ",
+              "start": 8931,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 8955,
+                  "loc": {
+                    "end": {
+                      "column": 40,
+                      "line": 368,
+                    },
+                    "start": {
+                      "column": 28,
+                      "line": 368,
+                    },
+                  },
+                  "range": [
+                    8943,
+                    8955,
+                  ],
+                  "raw": "TabType.Line",
+                  "start": 8943,
+                  "type": "MDXText",
+                  "value": "TabType.Line",
+                },
+              ],
+              "end": 8958,
+              "loc": {
+                "end": {
+                  "column": 43,
+                  "line": 368,
+                },
+                "start": {
+                  "column": 26,
+                  "line": 368,
+                },
+              },
+              "range": [
+                8941,
+                8958,
+              ],
+              "raw": "| TabType.Line   ",
+              "start": 8941,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 8964,
+                  "loc": {
+                    "end": {
+                      "column": 49,
+                      "line": 368,
+                    },
+                    "start": {
+                      "column": 45,
+                      "line": 368,
+                    },
+                  },
+                  "range": [
+                    8960,
+                    8964,
+                  ],
+                  "raw": "样式主题",
+                  "start": 8960,
+                  "type": "MDXText",
+                  "value": "样式主题",
+                },
+              ],
+              "end": 8973,
+              "loc": {
+                "end": {
+                  "column": 58,
+                  "line": 368,
+                },
+                "start": {
+                  "column": 43,
+                  "line": 368,
+                },
+              },
+              "range": [
+                8958,
+                8973,
+              ],
+              "raw": "| 样式主题        |",
+              "start": 8958,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 8973,
+          "loc": {
+            "end": {
+              "column": 58,
+              "line": 368,
+            },
+            "start": {
+              "column": 0,
+              "line": 368,
+            },
+          },
+          "range": [
+            8915,
+            8973,
+          ],
+          "raw": "| type          | TabType | TabType.Line   | 样式主题        |",
+          "start": 8915,
+          "type": "MDXTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 8980,
+                  "loc": {
+                    "end": {
+                      "column": 6,
+                      "line": 369,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 369,
+                    },
+                  },
+                  "range": [
+                    8976,
+                    8980,
+                  ],
+                  "raw": "size",
+                  "start": 8976,
+                  "type": "MDXText",
+                  "value": "size",
+                },
+              ],
+              "end": 8990,
+              "loc": {
+                "end": {
+                  "column": 16,
+                  "line": 369,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 369,
+                },
+              },
+              "range": [
+                8974,
+                8990,
+              ],
+              "raw": "| size          ",
+              "start": 8974,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 8999,
+                  "loc": {
+                    "end": {
+                      "column": 25,
+                      "line": 369,
+                    },
+                    "start": {
+                      "column": 18,
+                      "line": 369,
+                    },
+                  },
+                  "range": [
+                    8992,
+                    8999,
+                  ],
+                  "raw": "TabSize",
+                  "start": 8992,
+                  "type": "MDXText",
+                  "value": "TabSize",
+                },
+              ],
+              "end": 9000,
+              "loc": {
+                "end": {
+                  "column": 26,
+                  "line": 369,
+                },
+                "start": {
+                  "column": 16,
+                  "line": 369,
+                },
+              },
+              "range": [
+                8990,
+                9000,
+              ],
+              "raw": "| TabSize ",
+              "start": 8990,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9016,
+                  "loc": {
+                    "end": {
+                      "column": 42,
+                      "line": 369,
+                    },
+                    "start": {
+                      "column": 28,
+                      "line": 369,
+                    },
+                  },
+                  "range": [
+                    9002,
+                    9016,
+                  ],
+                  "raw": "TabSize.Medium",
+                  "start": 9002,
+                  "type": "MDXText",
+                  "value": "TabSize.Medium",
+                },
+              ],
+              "end": 9017,
+              "loc": {
+                "end": {
+                  "column": 43,
+                  "line": 369,
+                },
+                "start": {
+                  "column": 26,
+                  "line": 369,
+                },
+              },
+              "range": [
+                9000,
+                9017,
+              ],
+              "raw": "| TabSize.Medium ",
+              "start": 9000,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9021,
+                  "loc": {
+                    "end": {
+                      "column": 47,
+                      "line": 369,
+                    },
+                    "start": {
+                      "column": 45,
+                      "line": 369,
+                    },
+                  },
+                  "range": [
+                    9019,
+                    9021,
+                  ],
+                  "raw": "尺寸",
+                  "start": 9019,
+                  "type": "MDXText",
+                  "value": "尺寸",
+                },
+              ],
+              "end": 9034,
+              "loc": {
+                "end": {
+                  "column": 60,
+                  "line": 369,
+                },
+                "start": {
+                  "column": 43,
+                  "line": 369,
+                },
+              },
+              "range": [
+                9017,
+                9034,
+              ],
+              "raw": "| 尺寸            |",
+              "start": 9017,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 9034,
+          "loc": {
+            "end": {
+              "column": 60,
+              "line": 369,
+            },
+            "start": {
+              "column": 0,
+              "line": 369,
+            },
+          },
+          "range": [
+            8974,
+            9034,
+          ],
+          "raw": "| size          | TabSize | TabSize.Medium | 尺寸            |",
+          "start": 8974,
+          "type": "MDXTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 9040,
+                  "loc": {
+                    "end": {
+                      "column": 5,
+                      "line": 370,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 370,
+                    },
+                  },
+                  "range": [
+                    9037,
+                    9040,
+                  ],
+                  "raw": "tab",
+                  "start": 9037,
+                  "type": "MDXText",
+                  "value": "tab",
+                },
+              ],
+              "end": 9051,
+              "loc": {
+                "end": {
+                  "column": 16,
+                  "line": 370,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 370,
+                },
+              },
+              "range": [
+                9035,
+                9051,
+              ],
+              "raw": "| tab           ",
+              "start": 9035,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9059,
+                  "loc": {
+                    "end": {
+                      "column": 24,
+                      "line": 370,
+                    },
+                    "start": {
+                      "column": 18,
+                      "line": 370,
+                    },
+                  },
+                  "range": [
+                    9053,
+                    9059,
+                  ],
+                  "raw": "string",
+                  "start": 9053,
+                  "type": "MDXText",
+                  "value": "string",
+                },
+              ],
+              "end": 9061,
+              "loc": {
+                "end": {
+                  "column": 26,
+                  "line": 370,
+                },
+                "start": {
+                  "column": 16,
+                  "line": 370,
+                },
+              },
+              "range": [
+                9051,
+                9061,
+              ],
+              "raw": "| string  ",
+              "start": 9051,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9064,
+                  "loc": {
+                    "end": {
+                      "column": 29,
+                      "line": 370,
+                    },
+                    "start": {
+                      "column": 28,
+                      "line": 370,
+                    },
+                  },
+                  "range": [
+                    9063,
+                    9064,
+                  ],
+                  "raw": "-",
+                  "start": 9063,
+                  "type": "MDXText",
+                  "value": "-",
+                },
+              ],
+              "end": 9078,
+              "loc": {
+                "end": {
+                  "column": 43,
+                  "line": 370,
+                },
+                "start": {
+                  "column": 26,
+                  "line": 370,
+                },
+              },
+              "range": [
+                9061,
+                9078,
+              ],
+              "raw": "| -              ",
+              "start": 9061,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9090,
+                  "loc": {
+                    "end": {
+                      "column": 55,
+                      "line": 370,
+                    },
+                    "start": {
+                      "column": 45,
+                      "line": 370,
+                    },
+                  },
+                  "range": [
+                    9080,
+                    9090,
+                  ],
+                  "raw": "选中 Tab 的名称",
+                  "start": 9080,
+                  "type": "MDXText",
+                  "value": "选中 Tab 的名称",
+                },
+              ],
+              "end": 9092,
+              "loc": {
+                "end": {
+                  "column": 57,
+                  "line": 370,
+                },
+                "start": {
+                  "column": 43,
+                  "line": 370,
+                },
+              },
+              "range": [
+                9078,
+                9092,
+              ],
+              "raw": "| 选中 Tab 的名称 |",
+              "start": 9078,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 9092,
+          "loc": {
+            "end": {
+              "column": 57,
+              "line": 370,
+            },
+            "start": {
+              "column": 0,
+              "line": 370,
+            },
+          },
+          "range": [
+            9035,
+            9092,
+          ],
+          "raw": "| tab           | string  | -              | 选中 Tab 的名称 |",
+          "start": 9035,
+          "type": "MDXTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 9108,
+                  "loc": {
+                    "end": {
+                      "column": 15,
+                      "line": 371,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 371,
+                    },
+                  },
+                  "range": [
+                    9095,
+                    9108,
+                  ],
+                  "raw": "selectedIndex",
+                  "start": 9095,
+                  "type": "MDXText",
+                  "value": "selectedIndex",
+                },
+              ],
+              "end": 9109,
+              "loc": {
+                "end": {
+                  "column": 16,
+                  "line": 371,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 371,
+                },
+              },
+              "range": [
+                9093,
+                9109,
+              ],
+              "raw": "| selectedIndex ",
+              "start": 9093,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9117,
+                  "loc": {
+                    "end": {
+                      "column": 24,
+                      "line": 371,
+                    },
+                    "start": {
+                      "column": 18,
+                      "line": 371,
+                    },
+                  },
+                  "range": [
+                    9111,
+                    9117,
+                  ],
+                  "raw": "number",
+                  "start": 9111,
+                  "type": "MDXText",
+                  "value": "number",
+                },
+              ],
+              "end": 9119,
+              "loc": {
+                "end": {
+                  "column": 26,
+                  "line": 371,
+                },
+                "start": {
+                  "column": 16,
+                  "line": 371,
+                },
+              },
+              "range": [
+                9109,
+                9119,
+              ],
+              "raw": "| number  ",
+              "start": 9109,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9122,
+                  "loc": {
+                    "end": {
+                      "column": 29,
+                      "line": 371,
+                    },
+                    "start": {
+                      "column": 28,
+                      "line": 371,
+                    },
+                  },
+                  "range": [
+                    9121,
+                    9122,
+                  ],
+                  "raw": "-",
+                  "start": 9121,
+                  "type": "MDXText",
+                  "value": "-",
+                },
+              ],
+              "end": 9136,
+              "loc": {
+                "end": {
+                  "column": 43,
+                  "line": 371,
+                },
+                "start": {
+                  "column": 26,
+                  "line": 371,
+                },
+              },
+              "range": [
+                9119,
+                9136,
+              ],
+              "raw": "| -              ",
+              "start": 9119,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9148,
+                  "loc": {
+                    "end": {
+                      "column": 55,
+                      "line": 371,
+                    },
+                    "start": {
+                      "column": 45,
+                      "line": 371,
+                    },
+                  },
+                  "range": [
+                    9138,
+                    9148,
+                  ],
+                  "raw": "选中 Tab 的索引",
+                  "start": 9138,
+                  "type": "MDXText",
+                  "value": "选中 Tab 的索引",
+                },
+              ],
+              "end": 9150,
+              "loc": {
+                "end": {
+                  "column": 57,
+                  "line": 371,
+                },
+                "start": {
+                  "column": 43,
+                  "line": 371,
+                },
+              },
+              "range": [
+                9136,
+                9150,
+              ],
+              "raw": "| 选中 Tab 的索引 |",
+              "start": 9136,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 9150,
+          "loc": {
+            "end": {
+              "column": 57,
+              "line": 371,
+            },
+            "start": {
+              "column": 0,
+              "line": 371,
+            },
+          },
+          "range": [
+            9093,
+            9150,
+          ],
+          "raw": "| selectedIndex | number  | -              | 选中 Tab 的索引 |",
+          "start": 9093,
+          "type": "MDXTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 9157,
+                  "loc": {
+                    "end": {
+                      "column": 6,
+                      "line": 372,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 372,
+                    },
+                  },
+                  "range": [
+                    9153,
+                    9157,
+                  ],
+                  "raw": "lazy",
+                  "start": 9153,
+                  "type": "MDXText",
+                  "value": "lazy",
+                },
+              ],
+              "end": 9167,
+              "loc": {
+                "end": {
+                  "column": 16,
+                  "line": 372,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 372,
+                },
+              },
+              "range": [
+                9151,
+                9167,
+              ],
+              "raw": "| lazy          ",
+              "start": 9151,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9176,
+                  "loc": {
+                    "end": {
+                      "column": 25,
+                      "line": 372,
+                    },
+                    "start": {
+                      "column": 18,
+                      "line": 372,
+                    },
+                  },
+                  "range": [
+                    9169,
+                    9176,
+                  ],
+                  "raw": "boolean",
+                  "start": 9169,
+                  "type": "MDXText",
+                  "value": "boolean",
+                },
+              ],
+              "end": 9177,
+              "loc": {
+                "end": {
+                  "column": 26,
+                  "line": 372,
+                },
+                "start": {
+                  "column": 16,
+                  "line": 372,
+                },
+              },
+              "range": [
+                9167,
+                9177,
+              ],
+              "raw": "| boolean ",
+              "start": 9167,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9184,
+                  "loc": {
+                    "end": {
+                      "column": 33,
+                      "line": 372,
+                    },
+                    "start": {
+                      "column": 28,
+                      "line": 372,
+                    },
+                  },
+                  "range": [
+                    9179,
+                    9184,
+                  ],
+                  "raw": "false",
+                  "start": 9179,
+                  "type": "MDXText",
+                  "value": "false",
+                },
+              ],
+              "end": 9194,
+              "loc": {
+                "end": {
+                  "column": 43,
+                  "line": 372,
+                },
+                "start": {
+                  "column": 26,
+                  "line": 372,
+                },
+              },
+              "range": [
+                9177,
+                9194,
+              ],
+              "raw": "| false          ",
+              "start": 9177,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9201,
+                  "loc": {
+                    "end": {
+                      "column": 50,
+                      "line": 372,
+                    },
+                    "start": {
+                      "column": 45,
+                      "line": 372,
+                    },
+                  },
+                  "range": [
+                    9196,
+                    9201,
+                  ],
+                  "raw": "懒加载模式",
+                  "start": 9196,
+                  "type": "MDXText",
+                  "value": "懒加载模式",
+                },
+              ],
+              "end": 9208,
+              "loc": {
+                "end": {
+                  "column": 57,
+                  "line": 372,
+                },
+                "start": {
+                  "column": 43,
+                  "line": 372,
+                },
+              },
+              "range": [
+                9194,
+                9208,
+              ],
+              "raw": "| 懒加载模式      |",
+              "start": 9194,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 9208,
+          "loc": {
+            "end": {
+              "column": 57,
+              "line": 372,
+            },
+            "start": {
+              "column": 0,
+              "line": 372,
+            },
+          },
+          "range": [
+            9151,
+            9208,
+          ],
+          "raw": "| lazy          | boolean | false          | 懒加载模式      |",
+          "start": 9151,
+          "type": "MDXTableRow",
+        },
+      ],
+      "end": 9208,
+      "loc": {
+        "end": {
+          "column": 57,
+          "line": 372,
+        },
+        "start": {
+          "column": 0,
+          "line": 366,
+        },
+      },
+      "range": [
+        8798,
+        9208,
+      ],
+      "raw": "| 名称          | 类型    | 默认值         | 描述            |
+| ------------- | ------- | -------------- | --------------- |
+| type          | TabType | TabType.Line   | 样式主题        |
+| size          | TabSize | TabSize.Medium | 尺寸            |
+| tab           | string  | -              | 选中 Tab 的名称 |
+| selectedIndex | number  | -              | 选中 Tab 的索引 |
+| lazy          | boolean | false          | 懒加载模式      |",
+      "start": 8798,
+      "type": "MDXTable",
+    },
+    {
       "children": [
         {
           "end": 9238,
@@ -15534,6 +16762,835 @@ interface TabChangeEvent {
 }",
     },
     {
+      "align": [
+        null,
+        null,
+        null,
+      ],
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 9320,
+                  "loc": {
+                    "end": {
+                      "column": 4,
+                      "line": 383,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 383,
+                    },
+                  },
+                  "range": [
+                    9318,
+                    9320,
+                  ],
+                  "raw": "名称",
+                  "start": 9318,
+                  "type": "MDXText",
+                  "value": "名称",
+                },
+              ],
+              "end": 9336,
+              "loc": {
+                "end": {
+                  "column": 20,
+                  "line": 383,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 383,
+                },
+              },
+              "range": [
+                9316,
+                9336,
+              ],
+              "raw": "| 名称                ",
+              "start": 9316,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9340,
+                  "loc": {
+                    "end": {
+                      "column": 24,
+                      "line": 383,
+                    },
+                    "start": {
+                      "column": 22,
+                      "line": 383,
+                    },
+                  },
+                  "range": [
+                    9338,
+                    9340,
+                  ],
+                  "raw": "类型",
+                  "start": 9338,
+                  "type": "MDXText",
+                  "value": "类型",
+                },
+              ],
+              "end": 9351,
+              "loc": {
+                "end": {
+                  "column": 35,
+                  "line": 383,
+                },
+                "start": {
+                  "column": 20,
+                  "line": 383,
+                },
+              },
+              "range": [
+                9336,
+                9351,
+              ],
+              "raw": "| 类型           ",
+              "start": 9336,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9355,
+                  "loc": {
+                    "end": {
+                      "column": 39,
+                      "line": 383,
+                    },
+                    "start": {
+                      "column": 37,
+                      "line": 383,
+                    },
+                  },
+                  "range": [
+                    9353,
+                    9355,
+                  ],
+                  "raw": "描述",
+                  "start": 9353,
+                  "type": "MDXText",
+                  "value": "描述",
+                },
+              ],
+              "end": 9382,
+              "loc": {
+                "end": {
+                  "column": 66,
+                  "line": 383,
+                },
+                "start": {
+                  "column": 35,
+                  "line": 383,
+                },
+              },
+              "range": [
+                9351,
+                9382,
+              ],
+              "raw": "| 描述                          |",
+              "start": 9351,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 9382,
+          "loc": {
+            "end": {
+              "column": 66,
+              "line": 383,
+            },
+            "start": {
+              "column": 0,
+              "line": 383,
+            },
+          },
+          "range": [
+            9316,
+            9382,
+          ],
+          "raw": "| 名称                | 类型           | 描述                          |",
+          "start": 9316,
+          "type": "MDXTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 9467,
+                  "loc": {
+                    "end": {
+                      "column": 11,
+                      "line": 385,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 385,
+                    },
+                  },
+                  "range": [
+                    9458,
+                    9467,
+                  ],
+                  "raw": "tabChange",
+                  "start": 9458,
+                  "type": "MDXText",
+                  "value": "tabChange",
+                },
+              ],
+              "end": 9478,
+              "loc": {
+                "end": {
+                  "column": 22,
+                  "line": 385,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 385,
+                },
+              },
+              "range": [
+                9456,
+                9478,
+              ],
+              "raw": "| tabChange           ",
+              "start": 9456,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9486,
+                  "loc": {
+                    "end": {
+                      "column": 30,
+                      "line": 385,
+                    },
+                    "start": {
+                      "column": 24,
+                      "line": 385,
+                    },
+                  },
+                  "range": [
+                    9480,
+                    9486,
+                  ],
+                  "raw": "string",
+                  "start": 9480,
+                  "type": "MDXText",
+                  "value": "string",
+                },
+              ],
+              "end": 9495,
+              "loc": {
+                "end": {
+                  "column": 39,
+                  "line": 385,
+                },
+                "start": {
+                  "column": 22,
+                  "line": 385,
+                },
+              },
+              "range": [
+                9478,
+                9495,
+              ],
+              "raw": "| string         ",
+              "start": 9478,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9514,
+                  "loc": {
+                    "end": {
+                      "column": 58,
+                      "line": 385,
+                    },
+                    "start": {
+                      "column": 41,
+                      "line": 385,
+                    },
+                  },
+                  "range": [
+                    9497,
+                    9514,
+                  ],
+                  "raw": "Tab 切换时发射 Tab 的名称",
+                  "start": 9497,
+                  "type": "MDXText",
+                  "value": "Tab 切换时发射 Tab 的名称",
+                },
+              ],
+              "end": 9520,
+              "loc": {
+                "end": {
+                  "column": 64,
+                  "line": 385,
+                },
+                "start": {
+                  "column": 39,
+                  "line": 385,
+                },
+              },
+              "range": [
+                9495,
+                9520,
+              ],
+              "raw": "| Tab 切换时发射 Tab 的名称     |",
+              "start": 9495,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 9520,
+          "loc": {
+            "end": {
+              "column": 64,
+              "line": 385,
+            },
+            "start": {
+              "column": 0,
+              "line": 385,
+            },
+          },
+          "range": [
+            9456,
+            9520,
+          ],
+          "raw": "| tabChange           | string         | Tab 切换时发射 Tab 的名称     |",
+          "start": 9456,
+          "type": "MDXTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 9542,
+                  "loc": {
+                    "end": {
+                      "column": 21,
+                      "line": 386,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 386,
+                    },
+                  },
+                  "range": [
+                    9523,
+                    9542,
+                  ],
+                  "raw": "selectedIndexChange",
+                  "start": 9523,
+                  "type": "MDXText",
+                  "value": "selectedIndexChange",
+                },
+              ],
+              "end": 9543,
+              "loc": {
+                "end": {
+                  "column": 22,
+                  "line": 386,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 386,
+                },
+              },
+              "range": [
+                9521,
+                9543,
+              ],
+              "raw": "| selectedIndexChange ",
+              "start": 9521,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9551,
+                  "loc": {
+                    "end": {
+                      "column": 30,
+                      "line": 386,
+                    },
+                    "start": {
+                      "column": 24,
+                      "line": 386,
+                    },
+                  },
+                  "range": [
+                    9545,
+                    9551,
+                  ],
+                  "raw": "number",
+                  "start": 9545,
+                  "type": "MDXText",
+                  "value": "number",
+                },
+              ],
+              "end": 9560,
+              "loc": {
+                "end": {
+                  "column": 39,
+                  "line": 386,
+                },
+                "start": {
+                  "column": 22,
+                  "line": 386,
+                },
+              },
+              "range": [
+                9543,
+                9560,
+              ],
+              "raw": "| number         ",
+              "start": 9543,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9579,
+                  "loc": {
+                    "end": {
+                      "column": 58,
+                      "line": 386,
+                    },
+                    "start": {
+                      "column": 41,
+                      "line": 386,
+                    },
+                  },
+                  "range": [
+                    9562,
+                    9579,
+                  ],
+                  "raw": "Tab 切换时发射 Tab 的索引",
+                  "start": 9562,
+                  "type": "MDXText",
+                  "value": "Tab 切换时发射 Tab 的索引",
+                },
+              ],
+              "end": 9585,
+              "loc": {
+                "end": {
+                  "column": 64,
+                  "line": 386,
+                },
+                "start": {
+                  "column": 39,
+                  "line": 386,
+                },
+              },
+              "range": [
+                9560,
+                9585,
+              ],
+              "raw": "| Tab 切换时发射 Tab 的索引     |",
+              "start": 9560,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 9585,
+          "loc": {
+            "end": {
+              "column": 64,
+              "line": 386,
+            },
+            "start": {
+              "column": 0,
+              "line": 386,
+            },
+          },
+          "range": [
+            9521,
+            9585,
+          ],
+          "raw": "| selectedIndexChange | number         | Tab 切换时发射 Tab 的索引     |",
+          "start": 9521,
+          "type": "MDXTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 9605,
+                  "loc": {
+                    "end": {
+                      "column": 19,
+                      "line": 387,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 387,
+                    },
+                  },
+                  "range": [
+                    9588,
+                    9605,
+                  ],
+                  "raw": "selectedTabChange",
+                  "start": 9588,
+                  "type": "MDXText",
+                  "value": "selectedTabChange",
+                },
+              ],
+              "end": 9608,
+              "loc": {
+                "end": {
+                  "column": 22,
+                  "line": 387,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 387,
+                },
+              },
+              "range": [
+                9586,
+                9608,
+              ],
+              "raw": "| selectedTabChange   ",
+              "start": 9586,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9624,
+                  "loc": {
+                    "end": {
+                      "column": 38,
+                      "line": 387,
+                    },
+                    "start": {
+                      "column": 24,
+                      "line": 387,
+                    },
+                  },
+                  "range": [
+                    9610,
+                    9624,
+                  ],
+                  "raw": "TabChangeEvent",
+                  "start": 9610,
+                  "type": "MDXText",
+                  "value": "TabChangeEvent",
+                },
+              ],
+              "end": 9625,
+              "loc": {
+                "end": {
+                  "column": 39,
+                  "line": 387,
+                },
+                "start": {
+                  "column": 22,
+                  "line": 387,
+                },
+              },
+              "range": [
+                9608,
+                9625,
+              ],
+              "raw": "| TabChangeEvent ",
+              "start": 9608,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9651,
+                  "loc": {
+                    "end": {
+                      "column": 65,
+                      "line": 387,
+                    },
+                    "start": {
+                      "column": 41,
+                      "line": 387,
+                    },
+                  },
+                  "range": [
+                    9627,
+                    9651,
+                  ],
+                  "raw": "Tab 切换时发射 TabChangeEvent",
+                  "start": 9627,
+                  "type": "MDXText",
+                  "value": "Tab 切换时发射 TabChangeEvent",
+                },
+              ],
+              "end": 9653,
+              "loc": {
+                "end": {
+                  "column": 67,
+                  "line": 387,
+                },
+                "start": {
+                  "column": 39,
+                  "line": 387,
+                },
+              },
+              "range": [
+                9625,
+                9653,
+              ],
+              "raw": "| Tab 切换时发射 TabChangeEvent |",
+              "start": 9625,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 9653,
+          "loc": {
+            "end": {
+              "column": 67,
+              "line": 387,
+            },
+            "start": {
+              "column": 0,
+              "line": 387,
+            },
+          },
+          "range": [
+            9586,
+            9653,
+          ],
+          "raw": "| selectedTabChange   | TabChangeEvent | Tab 切换时发射 TabChangeEvent |",
+          "start": 9586,
+          "type": "MDXTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 9667,
+                  "loc": {
+                    "end": {
+                      "column": 13,
+                      "line": 388,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 388,
+                    },
+                  },
+                  "range": [
+                    9656,
+                    9667,
+                  ],
+                  "raw": "focusChange",
+                  "start": 9656,
+                  "type": "MDXText",
+                  "value": "focusChange",
+                },
+              ],
+              "end": 9676,
+              "loc": {
+                "end": {
+                  "column": 22,
+                  "line": 388,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 388,
+                },
+              },
+              "range": [
+                9654,
+                9676,
+              ],
+              "raw": "| focusChange         ",
+              "start": 9654,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9692,
+                  "loc": {
+                    "end": {
+                      "column": 38,
+                      "line": 388,
+                    },
+                    "start": {
+                      "column": 24,
+                      "line": 388,
+                    },
+                  },
+                  "range": [
+                    9678,
+                    9692,
+                  ],
+                  "raw": "TabChangeEvent",
+                  "start": 9678,
+                  "type": "MDXText",
+                  "value": "TabChangeEvent",
+                },
+              ],
+              "end": 9693,
+              "loc": {
+                "end": {
+                  "column": 39,
+                  "line": 388,
+                },
+                "start": {
+                  "column": 22,
+                  "line": 388,
+                },
+              },
+              "range": [
+                9676,
+                9693,
+              ],
+              "raw": "| TabChangeEvent ",
+              "start": 9676,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9699,
+                  "loc": {
+                    "end": {
+                      "column": 45,
+                      "line": 388,
+                    },
+                    "start": {
+                      "column": 41,
+                      "line": 388,
+                    },
+                  },
+                  "range": [
+                    9695,
+                    9699,
+                  ],
+                  "raw": "Tab ",
+                  "start": 9695,
+                  "type": "MDXText",
+                  "value": "Tab ",
+                },
+                {
+                  "end": 9706,
+                  "loc": {
+                    "end": {
+                      "column": 52,
+                      "line": 388,
+                    },
+                    "start": {
+                      "column": 45,
+                      "line": 388,
+                    },
+                  },
+                  "range": [
+                    9699,
+                    9706,
+                  ],
+                  "raw": "\`focus\`",
+                  "start": 9699,
+                  "type": "MDXInlineCode",
+                  "value": "focus",
+                },
+                {
+                  "end": 9712,
+                  "loc": {
+                    "end": {
+                      "column": 58,
+                      "line": 388,
+                    },
+                    "start": {
+                      "column": 52,
+                      "line": 388,
+                    },
+                  },
+                  "range": [
+                    9706,
+                    9712,
+                  ],
+                  "raw": " 切换时发射",
+                  "start": 9706,
+                  "type": "MDXText",
+                  "value": " 切换时发射",
+                },
+              ],
+              "end": 9721,
+              "loc": {
+                "end": {
+                  "column": 67,
+                  "line": 388,
+                },
+                "start": {
+                  "column": 39,
+                  "line": 388,
+                },
+              },
+              "range": [
+                9693,
+                9721,
+              ],
+              "raw": "| Tab \`focus\` 切换时发射        |",
+              "start": 9693,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 9721,
+          "loc": {
+            "end": {
+              "column": 67,
+              "line": 388,
+            },
+            "start": {
+              "column": 0,
+              "line": 388,
+            },
+          },
+          "range": [
+            9654,
+            9721,
+          ],
+          "raw": "| focusChange         | TabChangeEvent | Tab \`focus\` 切换时发射        |",
+          "start": 9654,
+          "type": "MDXTableRow",
+        },
+      ],
+      "end": 9721,
+      "loc": {
+        "end": {
+          "column": 67,
+          "line": 388,
+        },
+        "start": {
+          "column": 0,
+          "line": 383,
+        },
+      },
+      "range": [
+        9316,
+        9721,
+      ],
+      "raw": "| 名称                | 类型           | 描述                          |
+| ------------------- | -------------- | ----------------------------- |
+| tabChange           | string         | Tab 切换时发射 Tab 的名称     |
+| selectedIndexChange | number         | Tab 切换时发射 Tab 的索引     |
+| selectedTabChange   | TabChangeEvent | Tab 切换时发射 TabChangeEvent |
+| focusChange         | TabChangeEvent | Tab \`focus\` 切换时发射        |",
+      "start": 9316,
+      "type": "MDXTable",
+    },
+    {
       "children": [
         {
           "end": 9745,
@@ -15576,6 +17633,1009 @@ interface TabChangeEvent {
       "raw": "## TabComponent Inputs",
       "start": 9723,
       "type": "MDXHeading",
+    },
+    {
+      "align": [
+        null,
+        null,
+        null,
+        null,
+      ],
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 9751,
+                  "loc": {
+                    "end": {
+                      "column": 4,
+                      "line": 392,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 392,
+                    },
+                  },
+                  "range": [
+                    9749,
+                    9751,
+                  ],
+                  "raw": "名称",
+                  "start": 9749,
+                  "type": "MDXText",
+                  "value": "名称",
+                },
+              ],
+              "end": 9757,
+              "loc": {
+                "end": {
+                  "column": 10,
+                  "line": 392,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 392,
+                },
+              },
+              "range": [
+                9747,
+                9757,
+              ],
+              "raw": "| 名称      ",
+              "start": 9747,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9761,
+                  "loc": {
+                    "end": {
+                      "column": 14,
+                      "line": 392,
+                    },
+                    "start": {
+                      "column": 12,
+                      "line": 392,
+                    },
+                  },
+                  "range": [
+                    9759,
+                    9761,
+                  ],
+                  "raw": "类型",
+                  "start": 9759,
+                  "type": "MDXText",
+                  "value": "类型",
+                },
+              ],
+              "end": 9765,
+              "loc": {
+                "end": {
+                  "column": 18,
+                  "line": 392,
+                },
+                "start": {
+                  "column": 10,
+                  "line": 392,
+                },
+              },
+              "range": [
+                9757,
+                9765,
+              ],
+              "raw": "| 类型    ",
+              "start": 9757,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9770,
+                  "loc": {
+                    "end": {
+                      "column": 23,
+                      "line": 392,
+                    },
+                    "start": {
+                      "column": 20,
+                      "line": 392,
+                    },
+                  },
+                  "range": [
+                    9767,
+                    9770,
+                  ],
+                  "raw": "默认值",
+                  "start": 9767,
+                  "type": "MDXText",
+                  "value": "默认值",
+                },
+              ],
+              "end": 9771,
+              "loc": {
+                "end": {
+                  "column": 24,
+                  "line": 392,
+                },
+                "start": {
+                  "column": 18,
+                  "line": 392,
+                },
+              },
+              "range": [
+                9765,
+                9771,
+              ],
+              "raw": "| 默认值 ",
+              "start": 9765,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9775,
+                  "loc": {
+                    "end": {
+                      "column": 28,
+                      "line": 392,
+                    },
+                    "start": {
+                      "column": 26,
+                      "line": 392,
+                    },
+                  },
+                  "range": [
+                    9773,
+                    9775,
+                  ],
+                  "raw": "说明",
+                  "start": 9773,
+                  "type": "MDXText",
+                  "value": "说明",
+                },
+              ],
+              "end": 9789,
+              "loc": {
+                "end": {
+                  "column": 42,
+                  "line": 392,
+                },
+                "start": {
+                  "column": 24,
+                  "line": 392,
+                },
+              },
+              "range": [
+                9771,
+                9789,
+              ],
+              "raw": "| 说明             |",
+              "start": 9771,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 9789,
+          "loc": {
+            "end": {
+              "column": 42,
+              "line": 392,
+            },
+            "start": {
+              "column": 0,
+              "line": 392,
+            },
+          },
+          "range": [
+            9747,
+            9789,
+          ],
+          "raw": "| 名称      | 类型    | 默认值 | 说明             |",
+          "start": 9747,
+          "type": "MDXTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 9848,
+                  "loc": {
+                    "end": {
+                      "column": 6,
+                      "line": 394,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 394,
+                    },
+                  },
+                  "range": [
+                    9844,
+                    9848,
+                  ],
+                  "raw": "name",
+                  "start": 9844,
+                  "type": "MDXText",
+                  "value": "name",
+                },
+              ],
+              "end": 9854,
+              "loc": {
+                "end": {
+                  "column": 12,
+                  "line": 394,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 394,
+                },
+              },
+              "range": [
+                9842,
+                9854,
+              ],
+              "raw": "| name      ",
+              "start": 9842,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9862,
+                  "loc": {
+                    "end": {
+                      "column": 20,
+                      "line": 394,
+                    },
+                    "start": {
+                      "column": 14,
+                      "line": 394,
+                    },
+                  },
+                  "range": [
+                    9856,
+                    9862,
+                  ],
+                  "raw": "string",
+                  "start": 9856,
+                  "type": "MDXText",
+                  "value": "string",
+                },
+              ],
+              "end": 9864,
+              "loc": {
+                "end": {
+                  "column": 22,
+                  "line": 394,
+                },
+                "start": {
+                  "column": 12,
+                  "line": 394,
+                },
+              },
+              "range": [
+                9854,
+                9864,
+              ],
+              "raw": "| string  ",
+              "start": 9854,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9867,
+                  "loc": {
+                    "end": {
+                      "column": 25,
+                      "line": 394,
+                    },
+                    "start": {
+                      "column": 24,
+                      "line": 394,
+                    },
+                  },
+                  "range": [
+                    9866,
+                    9867,
+                  ],
+                  "raw": "-",
+                  "start": 9866,
+                  "type": "MDXText",
+                  "value": "-",
+                },
+              ],
+              "end": 9873,
+              "loc": {
+                "end": {
+                  "column": 31,
+                  "line": 394,
+                },
+                "start": {
+                  "column": 22,
+                  "line": 394,
+                },
+              },
+              "range": [
+                9864,
+                9873,
+              ],
+              "raw": "| -      ",
+              "start": 9864,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9882,
+                  "loc": {
+                    "end": {
+                      "column": 40,
+                      "line": 394,
+                    },
+                    "start": {
+                      "column": 33,
+                      "line": 394,
+                    },
+                  },
+                  "range": [
+                    9875,
+                    9882,
+                  ],
+                  "raw": "tab 的名称",
+                  "start": 9875,
+                  "type": "MDXText",
+                  "value": "tab 的名称",
+                },
+              ],
+              "end": 9890,
+              "loc": {
+                "end": {
+                  "column": 48,
+                  "line": 394,
+                },
+                "start": {
+                  "column": 31,
+                  "line": 394,
+                },
+              },
+              "range": [
+                9873,
+                9890,
+              ],
+              "raw": "| tab 的名称       |",
+              "start": 9873,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 9890,
+          "loc": {
+            "end": {
+              "column": 48,
+              "line": 394,
+            },
+            "start": {
+              "column": 0,
+              "line": 394,
+            },
+          },
+          "range": [
+            9842,
+            9890,
+          ],
+          "raw": "| name      | string  | -      | tab 的名称       |",
+          "start": 9842,
+          "type": "MDXTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 9898,
+                  "loc": {
+                    "end": {
+                      "column": 7,
+                      "line": 395,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 395,
+                    },
+                  },
+                  "range": [
+                    9893,
+                    9898,
+                  ],
+                  "raw": "label",
+                  "start": 9893,
+                  "type": "MDXText",
+                  "value": "label",
+                },
+              ],
+              "end": 9903,
+              "loc": {
+                "end": {
+                  "column": 12,
+                  "line": 395,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 395,
+                },
+              },
+              "range": [
+                9891,
+                9903,
+              ],
+              "raw": "| label     ",
+              "start": 9891,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9911,
+                  "loc": {
+                    "end": {
+                      "column": 20,
+                      "line": 395,
+                    },
+                    "start": {
+                      "column": 14,
+                      "line": 395,
+                    },
+                  },
+                  "range": [
+                    9905,
+                    9911,
+                  ],
+                  "raw": "string",
+                  "start": 9905,
+                  "type": "MDXText",
+                  "value": "string",
+                },
+              ],
+              "end": 9913,
+              "loc": {
+                "end": {
+                  "column": 22,
+                  "line": 395,
+                },
+                "start": {
+                  "column": 12,
+                  "line": 395,
+                },
+              },
+              "range": [
+                9903,
+                9913,
+              ],
+              "raw": "| string  ",
+              "start": 9903,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9916,
+                  "loc": {
+                    "end": {
+                      "column": 25,
+                      "line": 395,
+                    },
+                    "start": {
+                      "column": 24,
+                      "line": 395,
+                    },
+                  },
+                  "range": [
+                    9915,
+                    9916,
+                  ],
+                  "raw": "-",
+                  "start": 9915,
+                  "type": "MDXText",
+                  "value": "-",
+                },
+              ],
+              "end": 9922,
+              "loc": {
+                "end": {
+                  "column": 31,
+                  "line": 395,
+                },
+                "start": {
+                  "column": 22,
+                  "line": 395,
+                },
+              },
+              "range": [
+                9913,
+                9922,
+              ],
+              "raw": "| -      ",
+              "start": 9913,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9932,
+                  "loc": {
+                    "end": {
+                      "column": 41,
+                      "line": 395,
+                    },
+                    "start": {
+                      "column": 33,
+                      "line": 395,
+                    },
+                  },
+                  "range": [
+                    9924,
+                    9932,
+                  ],
+                  "raw": "文字 label",
+                  "start": 9924,
+                  "type": "MDXText",
+                  "value": "文字 label",
+                },
+              ],
+              "end": 9940,
+              "loc": {
+                "end": {
+                  "column": 49,
+                  "line": 395,
+                },
+                "start": {
+                  "column": 31,
+                  "line": 395,
+                },
+              },
+              "range": [
+                9922,
+                9940,
+              ],
+              "raw": "| 文字 label       |",
+              "start": 9922,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 9940,
+          "loc": {
+            "end": {
+              "column": 49,
+              "line": 395,
+            },
+            "start": {
+              "column": 0,
+              "line": 395,
+            },
+          },
+          "range": [
+            9891,
+            9940,
+          ],
+          "raw": "| label     | string  | -      | 文字 label       |",
+          "start": 9891,
+          "type": "MDXTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 9952,
+                  "loc": {
+                    "end": {
+                      "column": 11,
+                      "line": 396,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 396,
+                    },
+                  },
+                  "range": [
+                    9943,
+                    9952,
+                  ],
+                  "raw": "closeable",
+                  "start": 9943,
+                  "type": "MDXText",
+                  "value": "closeable",
+                },
+              ],
+              "end": 9953,
+              "loc": {
+                "end": {
+                  "column": 12,
+                  "line": 396,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 396,
+                },
+              },
+              "range": [
+                9941,
+                9953,
+              ],
+              "raw": "| closeable ",
+              "start": 9941,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9962,
+                  "loc": {
+                    "end": {
+                      "column": 21,
+                      "line": 396,
+                    },
+                    "start": {
+                      "column": 14,
+                      "line": 396,
+                    },
+                  },
+                  "range": [
+                    9955,
+                    9962,
+                  ],
+                  "raw": "boolean",
+                  "start": 9955,
+                  "type": "MDXText",
+                  "value": "boolean",
+                },
+              ],
+              "end": 9963,
+              "loc": {
+                "end": {
+                  "column": 22,
+                  "line": 396,
+                },
+                "start": {
+                  "column": 12,
+                  "line": 396,
+                },
+              },
+              "range": [
+                9953,
+                9963,
+              ],
+              "raw": "| boolean ",
+              "start": 9953,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9970,
+                  "loc": {
+                    "end": {
+                      "column": 29,
+                      "line": 396,
+                    },
+                    "start": {
+                      "column": 24,
+                      "line": 396,
+                    },
+                  },
+                  "range": [
+                    9965,
+                    9970,
+                  ],
+                  "raw": "false",
+                  "start": 9965,
+                  "type": "MDXText",
+                  "value": "false",
+                },
+              ],
+              "end": 9972,
+              "loc": {
+                "end": {
+                  "column": 31,
+                  "line": 396,
+                },
+                "start": {
+                  "column": 22,
+                  "line": 396,
+                },
+              },
+              "range": [
+                9963,
+                9972,
+              ],
+              "raw": "| false  ",
+              "start": 9963,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 9982,
+                  "loc": {
+                    "end": {
+                      "column": 41,
+                      "line": 396,
+                    },
+                    "start": {
+                      "column": 33,
+                      "line": 396,
+                    },
+                  },
+                  "range": [
+                    9974,
+                    9982,
+                  ],
+                  "raw": "是否显示关闭按键",
+                  "start": 9974,
+                  "type": "MDXText",
+                  "value": "是否显示关闭按键",
+                },
+              ],
+              "end": 9984,
+              "loc": {
+                "end": {
+                  "column": 43,
+                  "line": 396,
+                },
+                "start": {
+                  "column": 31,
+                  "line": 396,
+                },
+              },
+              "range": [
+                9972,
+                9984,
+              ],
+              "raw": "| 是否显示关闭按键 |",
+              "start": 9972,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 9984,
+          "loc": {
+            "end": {
+              "column": 43,
+              "line": 396,
+            },
+            "start": {
+              "column": 0,
+              "line": 396,
+            },
+          },
+          "range": [
+            9941,
+            9984,
+          ],
+          "raw": "| closeable | boolean | false  | 是否显示关闭按键 |",
+          "start": 9941,
+          "type": "MDXTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 9995,
+                  "loc": {
+                    "end": {
+                      "column": 10,
+                      "line": 397,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 397,
+                    },
+                  },
+                  "range": [
+                    9987,
+                    9995,
+                  ],
+                  "raw": "disabled",
+                  "start": 9987,
+                  "type": "MDXText",
+                  "value": "disabled",
+                },
+              ],
+              "end": 9997,
+              "loc": {
+                "end": {
+                  "column": 12,
+                  "line": 397,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 397,
+                },
+              },
+              "range": [
+                9985,
+                9997,
+              ],
+              "raw": "| disabled  ",
+              "start": 9985,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 10006,
+                  "loc": {
+                    "end": {
+                      "column": 21,
+                      "line": 397,
+                    },
+                    "start": {
+                      "column": 14,
+                      "line": 397,
+                    },
+                  },
+                  "range": [
+                    9999,
+                    10006,
+                  ],
+                  "raw": "boolean",
+                  "start": 9999,
+                  "type": "MDXText",
+                  "value": "boolean",
+                },
+              ],
+              "end": 10007,
+              "loc": {
+                "end": {
+                  "column": 22,
+                  "line": 397,
+                },
+                "start": {
+                  "column": 12,
+                  "line": 397,
+                },
+              },
+              "range": [
+                9997,
+                10007,
+              ],
+              "raw": "| boolean ",
+              "start": 9997,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 10014,
+                  "loc": {
+                    "end": {
+                      "column": 29,
+                      "line": 397,
+                    },
+                    "start": {
+                      "column": 24,
+                      "line": 397,
+                    },
+                  },
+                  "range": [
+                    10009,
+                    10014,
+                  ],
+                  "raw": "false",
+                  "start": 10009,
+                  "type": "MDXText",
+                  "value": "false",
+                },
+              ],
+              "end": 10016,
+              "loc": {
+                "end": {
+                  "column": 31,
+                  "line": 397,
+                },
+                "start": {
+                  "column": 22,
+                  "line": 397,
+                },
+              },
+              "range": [
+                10007,
+                10016,
+              ],
+              "raw": "| false  ",
+              "start": 10007,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 10027,
+                  "loc": {
+                    "end": {
+                      "column": 42,
+                      "line": 397,
+                    },
+                    "start": {
+                      "column": 33,
+                      "line": 397,
+                    },
+                  },
+                  "range": [
+                    10018,
+                    10027,
+                  ],
+                  "raw": "是否禁用此 tab",
+                  "start": 10018,
+                  "type": "MDXText",
+                  "value": "是否禁用此 tab",
+                },
+              ],
+              "end": 10031,
+              "loc": {
+                "end": {
+                  "column": 46,
+                  "line": 397,
+                },
+                "start": {
+                  "column": 31,
+                  "line": 397,
+                },
+              },
+              "range": [
+                10016,
+                10031,
+              ],
+              "raw": "| 是否禁用此 tab   |",
+              "start": 10016,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 10031,
+          "loc": {
+            "end": {
+              "column": 46,
+              "line": 397,
+            },
+            "start": {
+              "column": 0,
+              "line": 397,
+            },
+          },
+          "range": [
+            9985,
+            10031,
+          ],
+          "raw": "| disabled  | boolean | false  | 是否禁用此 tab   |",
+          "start": 9985,
+          "type": "MDXTableRow",
+        },
+      ],
+      "end": 10031,
+      "loc": {
+        "end": {
+          "column": 46,
+          "line": 397,
+        },
+        "start": {
+          "column": 0,
+          "line": 392,
+        },
+      },
+      "range": [
+        9747,
+        10031,
+      ],
+      "raw": "| 名称      | 类型    | 默认值 | 说明             |
+| --------- | ------- | ------ | ---------------- |
+| name      | string  | -      | tab 的名称       |
+| label     | string  | -      | 文字 label       |
+| closeable | boolean | false  | 是否显示关闭按键 |
+| disabled  | boolean | false  | 是否禁用此 tab   |",
+      "start": 9747,
+      "type": "MDXTable",
     },
     {
       "children": [
@@ -15622,6 +18682,337 @@ interface TabChangeEvent {
       "type": "MDXHeading",
     },
     {
+      "align": [
+        null,
+        null,
+        null,
+      ],
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 10062,
+                  "loc": {
+                    "end": {
+                      "column": 4,
+                      "line": 401,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 401,
+                    },
+                  },
+                  "range": [
+                    10060,
+                    10062,
+                  ],
+                  "raw": "名称",
+                  "start": 10060,
+                  "type": "MDXText",
+                  "value": "名称",
+                },
+              ],
+              "end": 10064,
+              "loc": {
+                "end": {
+                  "column": 6,
+                  "line": 401,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 401,
+                },
+              },
+              "range": [
+                10058,
+                10064,
+              ],
+              "raw": "| 名称  ",
+              "start": 10058,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 10068,
+                  "loc": {
+                    "end": {
+                      "column": 10,
+                      "line": 401,
+                    },
+                    "start": {
+                      "column": 8,
+                      "line": 401,
+                    },
+                  },
+                  "range": [
+                    10066,
+                    10068,
+                  ],
+                  "raw": "类型",
+                  "start": 10066,
+                  "type": "MDXText",
+                  "value": "类型",
+                },
+              ],
+              "end": 10069,
+              "loc": {
+                "end": {
+                  "column": 11,
+                  "line": 401,
+                },
+                "start": {
+                  "column": 6,
+                  "line": 401,
+                },
+              },
+              "range": [
+                10064,
+                10069,
+              ],
+              "raw": "| 类型 ",
+              "start": 10064,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 10073,
+                  "loc": {
+                    "end": {
+                      "column": 15,
+                      "line": 401,
+                    },
+                    "start": {
+                      "column": 13,
+                      "line": 401,
+                    },
+                  },
+                  "range": [
+                    10071,
+                    10073,
+                  ],
+                  "raw": "描述",
+                  "start": 10071,
+                  "type": "MDXText",
+                  "value": "描述",
+                },
+              ],
+              "end": 10091,
+              "loc": {
+                "end": {
+                  "column": 33,
+                  "line": 401,
+                },
+                "start": {
+                  "column": 11,
+                  "line": 401,
+                },
+              },
+              "range": [
+                10069,
+                10091,
+              ],
+              "raw": "| 描述                 |",
+              "start": 10069,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 10091,
+          "loc": {
+            "end": {
+              "column": 33,
+              "line": 401,
+            },
+            "start": {
+              "column": 0,
+              "line": 401,
+            },
+          },
+          "range": [
+            10058,
+            10091,
+          ],
+          "raw": "| 名称  | 类型 | 描述                 |",
+          "start": 10058,
+          "type": "MDXTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 10139,
+                  "loc": {
+                    "end": {
+                      "column": 7,
+                      "line": 403,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 403,
+                    },
+                  },
+                  "range": [
+                    10134,
+                    10139,
+                  ],
+                  "raw": "close",
+                  "start": 10134,
+                  "type": "MDXText",
+                  "value": "close",
+                },
+              ],
+              "end": 10140,
+              "loc": {
+                "end": {
+                  "column": 8,
+                  "line": 403,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 403,
+                },
+              },
+              "range": [
+                10132,
+                10140,
+              ],
+              "raw": "| close ",
+              "start": 10132,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 10146,
+                  "loc": {
+                    "end": {
+                      "column": 14,
+                      "line": 403,
+                    },
+                    "start": {
+                      "column": 10,
+                      "line": 403,
+                    },
+                  },
+                  "range": [
+                    10142,
+                    10146,
+                  ],
+                  "raw": "void",
+                  "start": 10142,
+                  "type": "MDXText",
+                  "value": "void",
+                },
+              ],
+              "end": 10147,
+              "loc": {
+                "end": {
+                  "column": 15,
+                  "line": 403,
+                },
+                "start": {
+                  "column": 8,
+                  "line": 403,
+                },
+              },
+              "range": [
+                10140,
+                10147,
+              ],
+              "raw": "| void ",
+              "start": 10140,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 10159,
+                  "loc": {
+                    "end": {
+                      "column": 27,
+                      "line": 403,
+                    },
+                    "start": {
+                      "column": 17,
+                      "line": 403,
+                    },
+                  },
+                  "range": [
+                    10149,
+                    10159,
+                  ],
+                  "raw": "关闭按键被点击时发射",
+                  "start": 10149,
+                  "type": "MDXText",
+                  "value": "关闭按键被点击时发射",
+                },
+              ],
+              "end": 10161,
+              "loc": {
+                "end": {
+                  "column": 29,
+                  "line": 403,
+                },
+                "start": {
+                  "column": 15,
+                  "line": 403,
+                },
+              },
+              "range": [
+                10147,
+                10161,
+              ],
+              "raw": "| 关闭按键被点击时发射 |",
+              "start": 10147,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 10161,
+          "loc": {
+            "end": {
+              "column": 29,
+              "line": 403,
+            },
+            "start": {
+              "column": 0,
+              "line": 403,
+            },
+          },
+          "range": [
+            10132,
+            10161,
+          ],
+          "raw": "| close | void | 关闭按键被点击时发射 |",
+          "start": 10132,
+          "type": "MDXTableRow",
+        },
+      ],
+      "end": 10161,
+      "loc": {
+        "end": {
+          "column": 29,
+          "line": 403,
+        },
+        "start": {
+          "column": 0,
+          "line": 401,
+        },
+      },
+      "range": [
+        10058,
+        10161,
+      ],
+      "raw": "| 名称  | 类型 | 描述                 |
+| ----- | ---- | -------------------- |
+| close | void | 关闭按键被点击时发射 |",
+      "start": 10058,
+      "type": "MDXTable",
+    },
+    {
       "children": [
         {
           "end": 10176,
@@ -15664,6 +19055,641 @@ interface TabChangeEvent {
       "raw": "## Directives",
       "start": 10163,
       "type": "MDXHeading",
+    },
+    {
+      "align": [
+        null,
+        null,
+        null,
+      ],
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 10182,
+                  "loc": {
+                    "end": {
+                      "column": 4,
+                      "line": 407,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 407,
+                    },
+                  },
+                  "range": [
+                    10180,
+                    10182,
+                  ],
+                  "raw": "名称",
+                  "start": 10180,
+                  "type": "MDXText",
+                  "value": "名称",
+                },
+              ],
+              "end": 10196,
+              "loc": {
+                "end": {
+                  "column": 18,
+                  "line": 407,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 407,
+                },
+              },
+              "range": [
+                10178,
+                10196,
+              ],
+              "raw": "| 名称              ",
+              "start": 10178,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 10202,
+                  "loc": {
+                    "end": {
+                      "column": 24,
+                      "line": 407,
+                    },
+                    "start": {
+                      "column": 20,
+                      "line": 407,
+                    },
+                  },
+                  "range": [
+                    10198,
+                    10202,
+                  ],
+                  "raw": "作用范围",
+                  "start": 10198,
+                  "type": "MDXText",
+                  "value": "作用范围",
+                },
+              ],
+              "end": 10212,
+              "loc": {
+                "end": {
+                  "column": 34,
+                  "line": 407,
+                },
+                "start": {
+                  "column": 18,
+                  "line": 407,
+                },
+              },
+              "range": [
+                10196,
+                10212,
+              ],
+              "raw": "| 作用范围          ",
+              "start": 10196,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 10216,
+                  "loc": {
+                    "end": {
+                      "column": 38,
+                      "line": 407,
+                    },
+                    "start": {
+                      "column": 36,
+                      "line": 407,
+                    },
+                  },
+                  "range": [
+                    10214,
+                    10216,
+                  ],
+                  "raw": "描述",
+                  "start": 10214,
+                  "type": "MDXText",
+                  "value": "描述",
+                },
+              ],
+              "end": 10241,
+              "loc": {
+                "end": {
+                  "column": 63,
+                  "line": 407,
+                },
+                "start": {
+                  "column": 34,
+                  "line": 407,
+                },
+              },
+              "range": [
+                10212,
+                10241,
+              ],
+              "raw": "| 描述                        |",
+              "start": 10212,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 10241,
+          "loc": {
+            "end": {
+              "column": 63,
+              "line": 407,
+            },
+            "start": {
+              "column": 0,
+              "line": 407,
+            },
+          },
+          "range": [
+            10178,
+            10241,
+          ],
+          "raw": "| 名称              | 作用范围          | 描述                        |",
+          "start": 10178,
+          "type": "MDXTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 10333,
+                  "loc": {
+                    "end": {
+                      "column": 19,
+                      "line": 409,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 409,
+                    },
+                  },
+                  "range": [
+                    10316,
+                    10333,
+                  ],
+                  "raw": "auiTabHeaderAddon",
+                  "start": 10316,
+                  "type": "MDXText",
+                  "value": "auiTabHeaderAddon",
+                },
+              ],
+              "end": 10334,
+              "loc": {
+                "end": {
+                  "column": 20,
+                  "line": 409,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 409,
+                },
+              },
+              "range": [
+                10314,
+                10334,
+              ],
+              "raw": "| auiTabHeaderAddon ",
+              "start": 10314,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 10353,
+                  "loc": {
+                    "end": {
+                      "column": 39,
+                      "line": 409,
+                    },
+                    "start": {
+                      "column": 22,
+                      "line": 409,
+                    },
+                  },
+                  "range": [
+                    10336,
+                    10353,
+                  ],
+                  "raw": "TabGroupComponent",
+                  "start": 10336,
+                  "type": "MDXText",
+                  "value": "TabGroupComponent",
+                },
+              ],
+              "end": 10354,
+              "loc": {
+                "end": {
+                  "column": 40,
+                  "line": 409,
+                },
+                "start": {
+                  "column": 20,
+                  "line": 409,
+                },
+              },
+              "range": [
+                10334,
+                10354,
+              ],
+              "raw": "| TabGroupComponent ",
+              "start": 10334,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 10372,
+                  "loc": {
+                    "end": {
+                      "column": 58,
+                      "line": 409,
+                    },
+                    "start": {
+                      "column": 42,
+                      "line": 409,
+                    },
+                  },
+                  "range": [
+                    10356,
+                    10372,
+                  ],
+                  "raw": "自定义 Group Header",
+                  "start": 10356,
+                  "type": "MDXText",
+                  "value": "自定义 Group Header",
+                },
+              ],
+              "end": 10382,
+              "loc": {
+                "end": {
+                  "column": 68,
+                  "line": 409,
+                },
+                "start": {
+                  "column": 40,
+                  "line": 409,
+                },
+              },
+              "range": [
+                10354,
+                10382,
+              ],
+              "raw": "| 自定义 Group Header         |",
+              "start": 10354,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 10382,
+          "loc": {
+            "end": {
+              "column": 68,
+              "line": 409,
+            },
+            "start": {
+              "column": 0,
+              "line": 409,
+            },
+          },
+          "range": [
+            10314,
+            10382,
+          ],
+          "raw": "| auiTabHeaderAddon | TabGroupComponent | 自定义 Group Header         |",
+          "start": 10314,
+          "type": "MDXTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 10396,
+                  "loc": {
+                    "end": {
+                      "column": 13,
+                      "line": 410,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 410,
+                    },
+                  },
+                  "range": [
+                    10385,
+                    10396,
+                  ],
+                  "raw": "auiTabLabel",
+                  "start": 10385,
+                  "type": "MDXText",
+                  "value": "auiTabLabel",
+                },
+              ],
+              "end": 10403,
+              "loc": {
+                "end": {
+                  "column": 20,
+                  "line": 410,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 410,
+                },
+              },
+              "range": [
+                10383,
+                10403,
+              ],
+              "raw": "| auiTabLabel       ",
+              "start": 10383,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 10417,
+                  "loc": {
+                    "end": {
+                      "column": 34,
+                      "line": 410,
+                    },
+                    "start": {
+                      "column": 22,
+                      "line": 410,
+                    },
+                  },
+                  "range": [
+                    10405,
+                    10417,
+                  ],
+                  "raw": "TabComponent",
+                  "start": 10405,
+                  "type": "MDXText",
+                  "value": "TabComponent",
+                },
+              ],
+              "end": 10423,
+              "loc": {
+                "end": {
+                  "column": 40,
+                  "line": 410,
+                },
+                "start": {
+                  "column": 20,
+                  "line": 410,
+                },
+              },
+              "range": [
+                10403,
+                10423,
+              ],
+              "raw": "| TabComponent      ",
+              "start": 10403,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 10438,
+                  "loc": {
+                    "end": {
+                      "column": 55,
+                      "line": 410,
+                    },
+                    "start": {
+                      "column": 42,
+                      "line": 410,
+                    },
+                  },
+                  "range": [
+                    10425,
+                    10438,
+                  ],
+                  "raw": "自定义 Tab Label",
+                  "start": 10425,
+                  "type": "MDXText",
+                  "value": "自定义 Tab Label",
+                },
+              ],
+              "end": 10451,
+              "loc": {
+                "end": {
+                  "column": 68,
+                  "line": 410,
+                },
+                "start": {
+                  "column": 40,
+                  "line": 410,
+                },
+              },
+              "range": [
+                10423,
+                10451,
+              ],
+              "raw": "| 自定义 Tab Label            |",
+              "start": 10423,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 10451,
+          "loc": {
+            "end": {
+              "column": 68,
+              "line": 410,
+            },
+            "start": {
+              "column": 0,
+              "line": 410,
+            },
+          },
+          "range": [
+            10383,
+            10451,
+          ],
+          "raw": "| auiTabLabel       | TabComponent      | 自定义 Tab Label            |",
+          "start": 10383,
+          "type": "MDXTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 10467,
+                  "loc": {
+                    "end": {
+                      "column": 15,
+                      "line": 411,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 411,
+                    },
+                  },
+                  "range": [
+                    10454,
+                    10467,
+                  ],
+                  "raw": "auiTabContent",
+                  "start": 10454,
+                  "type": "MDXText",
+                  "value": "auiTabContent",
+                },
+              ],
+              "end": 10472,
+              "loc": {
+                "end": {
+                  "column": 20,
+                  "line": 411,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 411,
+                },
+              },
+              "range": [
+                10452,
+                10472,
+              ],
+              "raw": "| auiTabContent     ",
+              "start": 10452,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 10486,
+                  "loc": {
+                    "end": {
+                      "column": 34,
+                      "line": 411,
+                    },
+                    "start": {
+                      "column": 22,
+                      "line": 411,
+                    },
+                  },
+                  "range": [
+                    10474,
+                    10486,
+                  ],
+                  "raw": "TabComponent",
+                  "start": 10474,
+                  "type": "MDXText",
+                  "value": "TabComponent",
+                },
+              ],
+              "end": 10492,
+              "loc": {
+                "end": {
+                  "column": 40,
+                  "line": 411,
+                },
+                "start": {
+                  "column": 20,
+                  "line": 411,
+                },
+              },
+              "range": [
+                10472,
+                10492,
+              ],
+              "raw": "| TabComponent      ",
+              "start": 10472,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 10512,
+                  "loc": {
+                    "end": {
+                      "column": 60,
+                      "line": 411,
+                    },
+                    "start": {
+                      "column": 42,
+                      "line": 411,
+                    },
+                  },
+                  "range": [
+                    10494,
+                    10512,
+                  ],
+                  "raw": "Tab 内容区域，lazy 模式必用",
+                  "start": 10494,
+                  "type": "MDXText",
+                  "value": "Tab 内容区域，lazy 模式必用",
+                },
+              ],
+              "end": 10514,
+              "loc": {
+                "end": {
+                  "column": 62,
+                  "line": 411,
+                },
+                "start": {
+                  "column": 40,
+                  "line": 411,
+                },
+              },
+              "range": [
+                10492,
+                10514,
+              ],
+              "raw": "| Tab 内容区域，lazy 模式必用 |",
+              "start": 10492,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 10514,
+          "loc": {
+            "end": {
+              "column": 62,
+              "line": 411,
+            },
+            "start": {
+              "column": 0,
+              "line": 411,
+            },
+          },
+          "range": [
+            10452,
+            10514,
+          ],
+          "raw": "| auiTabContent     | TabComponent      | Tab 内容区域，lazy 模式必用 |",
+          "start": 10452,
+          "type": "MDXTableRow",
+        },
+      ],
+      "end": 10514,
+      "loc": {
+        "end": {
+          "column": 62,
+          "line": 411,
+        },
+        "start": {
+          "column": 0,
+          "line": 407,
+        },
+      },
+      "range": [
+        10178,
+        10514,
+      ],
+      "raw": "| 名称              | 作用范围          | 描述                        |
+| ----------------- | ----------------- | --------------------------- |
+| auiTabHeaderAddon | TabGroupComponent | 自定义 Group Header         |
+| auiTabLabel       | TabComponent      | 自定义 Tab Label            |
+| auiTabContent     | TabComponent      | Tab 内容区域，lazy 模式必用 |",
+      "start": 10178,
+      "type": "MDXTable",
     },
   ],
   "comments": [
@@ -39332,6 +43358,30 @@ exports[`parser should match all AST snapshots: 576.mdx 1`] = `
 {
   "body": [
     {
+      "end": 111,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 3,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "meta": null,
+      "range": [
+        0,
+        111,
+      ],
+      "raw": "$$
+\\forall \\epsilon > 0, \\exists \\delta > 0 \\text{ s.t. } |x - a| < \\delta \\Rightarrow |f(x) - b| < \\epsilon
+$$",
+      "start": 0,
+      "type": "MDXMath",
+      "value": "\\forall \\epsilon > 0, \\exists \\delta > 0 \\text{ s.t. } |x - a| < \\delta \\Rightarrow |f(x) - b| < \\epsilon",
+    },
+    {
       "children": [
         {
           "end": 143,
@@ -39353,6 +43403,27 @@ exports[`parser should match all AST snapshots: 576.mdx 1`] = `
           "start": 113,
           "type": "MDXText",
           "value": "the aggregate amount would be ",
+        },
+        {
+          "end": 158,
+          "loc": {
+            "end": {
+              "column": 45,
+              "line": 5,
+            },
+            "start": {
+              "column": 30,
+              "line": 5,
+            },
+          },
+          "range": [
+            143,
+            158,
+          ],
+          "raw": "$100Mm*10^{18}$",
+          "start": 143,
+          "type": "MDXInlineMath",
+          "value": "100Mm*10^{18}",
         },
       ],
       "end": 158,
@@ -39424,6 +43495,33 @@ exports[`parser should match all AST snapshots: 576.mdx 1`] = `
 exports[`parser should match all AST snapshots: 581.mdx 1`] = `
 {
   "body": [
+    {
+      "end": 62,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 5,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        62,
+      ],
+      "raw": "---
+id: chains
+title: Supported Chains
+sidebar_position: 7
+---",
+      "start": 0,
+      "type": "MDXYaml",
+      "value": "id: chains
+title: Supported Chains
+sidebar_position: 7",
+    },
     {
       "attributes": [],
       "end": 86,
@@ -58938,6 +63036,1133 @@ exports[`parser should match all AST snapshots: unicorn.mdx 1`] = `
       "start": 116,
       "type": "Punctuator",
       "value": ">",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`parser should parse extended mdast nodes 1`] = `
+{
+  "body": [
+    {
+      "end": 31,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 3,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        31,
+      ],
+      "raw": "---
+title: YAML frontmatter
+---",
+      "start": 0,
+      "type": "MDXYaml",
+      "value": "title: YAML frontmatter",
+    },
+    {
+      "children": [
+        {
+          "end": 42,
+          "loc": {
+            "end": {
+              "column": 9,
+              "line": 5,
+            },
+            "start": {
+              "column": 2,
+              "line": 5,
+            },
+          },
+          "range": [
+            35,
+            42,
+          ],
+          "raw": "Heading",
+          "start": 35,
+          "type": "MDXText",
+          "value": "Heading",
+        },
+      ],
+      "depth": 1,
+      "end": 42,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 5,
+        },
+        "start": {
+          "column": 0,
+          "line": 5,
+        },
+      },
+      "range": [
+        33,
+        42,
+      ],
+      "raw": "# Heading",
+      "start": 33,
+      "type": "MDXHeading",
+    },
+    {
+      "children": [
+        {
+          "end": 46,
+          "loc": {
+            "end": {
+              "column": 2,
+              "line": 7,
+            },
+            "start": {
+              "column": 0,
+              "line": 7,
+            },
+          },
+          "range": [
+            44,
+            46,
+          ],
+          "raw": "A ",
+          "start": 44,
+          "type": "MDXText",
+          "value": "A ",
+        },
+        {
+          "children": [
+            {
+              "end": 56,
+              "loc": {
+                "end": {
+                  "column": 12,
+                  "line": 7,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 7,
+                },
+              },
+              "range": [
+                47,
+                56,
+              ],
+              "raw": "reference",
+              "start": 47,
+              "type": "MDXText",
+              "value": "reference",
+            },
+          ],
+          "end": 62,
+          "identifier": "ref",
+          "label": "ref",
+          "loc": {
+            "end": {
+              "column": 18,
+              "line": 7,
+            },
+            "start": {
+              "column": 2,
+              "line": 7,
+            },
+          },
+          "range": [
+            46,
+            62,
+          ],
+          "raw": "[reference][ref]",
+          "referenceType": "full",
+          "start": 46,
+          "type": "MDXLinkReference",
+        },
+        {
+          "end": 67,
+          "loc": {
+            "end": {
+              "column": 23,
+              "line": 7,
+            },
+            "start": {
+              "column": 18,
+              "line": 7,
+            },
+          },
+          "range": [
+            62,
+            67,
+          ],
+          "raw": " and ",
+          "start": 62,
+          "type": "MDXText",
+          "value": " and ",
+        },
+        {
+          "alt": "alt",
+          "end": 78,
+          "identifier": "img",
+          "label": "img",
+          "loc": {
+            "end": {
+              "column": 34,
+              "line": 7,
+            },
+            "start": {
+              "column": 23,
+              "line": 7,
+            },
+          },
+          "range": [
+            67,
+            78,
+          ],
+          "raw": "![alt][img]",
+          "referenceType": "full",
+          "start": 67,
+          "type": "MDXImageReference",
+        },
+        {
+          "end": 80,
+          "loc": {
+            "end": {
+              "column": 36,
+              "line": 7,
+            },
+            "start": {
+              "column": 34,
+              "line": 7,
+            },
+          },
+          "range": [
+            78,
+            80,
+          ],
+          "raw": ", ",
+          "start": 78,
+          "type": "MDXText",
+          "value": ", ",
+        },
+        {
+          "children": [
+            {
+              "end": 89,
+              "loc": {
+                "end": {
+                  "column": 45,
+                  "line": 7,
+                },
+                "start": {
+                  "column": 38,
+                  "line": 7,
+                },
+              },
+              "range": [
+                82,
+                89,
+              ],
+              "raw": "deleted",
+              "start": 82,
+              "type": "MDXText",
+              "value": "deleted",
+            },
+          ],
+          "end": 91,
+          "loc": {
+            "end": {
+              "column": 47,
+              "line": 7,
+            },
+            "start": {
+              "column": 36,
+              "line": 7,
+            },
+          },
+          "range": [
+            80,
+            91,
+          ],
+          "raw": "~~deleted~~",
+          "start": 80,
+          "type": "MDXDelete",
+        },
+        {
+          "end": 97,
+          "loc": {
+            "end": {
+              "column": 53,
+              "line": 7,
+            },
+            "start": {
+              "column": 47,
+              "line": 7,
+            },
+          },
+          "range": [
+            91,
+            97,
+          ],
+          "raw": ", and ",
+          "start": 91,
+          "type": "MDXText",
+          "value": ", and ",
+        },
+        {
+          "end": 105,
+          "loc": {
+            "end": {
+              "column": 61,
+              "line": 7,
+            },
+            "start": {
+              "column": 53,
+              "line": 7,
+            },
+          },
+          "range": [
+            97,
+            105,
+          ],
+          "raw": "$E=mc^2$",
+          "start": 97,
+          "type": "MDXInlineMath",
+          "value": "E=mc^2",
+        },
+        {
+          "end": 106,
+          "loc": {
+            "end": {
+              "column": 62,
+              "line": 7,
+            },
+            "start": {
+              "column": 61,
+              "line": 7,
+            },
+          },
+          "range": [
+            105,
+            106,
+          ],
+          "raw": ".",
+          "start": 105,
+          "type": "MDXText",
+          "value": ".",
+        },
+      ],
+      "end": 106,
+      "loc": {
+        "end": {
+          "column": 62,
+          "line": 7,
+        },
+        "start": {
+          "column": 0,
+          "line": 7,
+        },
+      },
+      "range": [
+        44,
+        106,
+      ],
+      "raw": "A [reference][ref] and ![alt][img], ~~deleted~~, and $E=mc^2$.",
+      "start": 44,
+      "type": "MDXParagraph",
+    },
+    {
+      "end": 124,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 11,
+        },
+        "start": {
+          "column": 0,
+          "line": 9,
+        },
+      },
+      "meta": null,
+      "range": [
+        108,
+        124,
+      ],
+      "raw": "$$
+block math
+$$",
+      "start": 108,
+      "type": "MDXMath",
+      "value": "block math",
+    },
+    {
+      "align": [
+        null,
+        null,
+      ],
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 129,
+                  "loc": {
+                    "end": {
+                      "column": 3,
+                      "line": 13,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 13,
+                    },
+                  },
+                  "range": [
+                    128,
+                    129,
+                  ],
+                  "raw": "a",
+                  "start": 128,
+                  "type": "MDXText",
+                  "value": "a",
+                },
+              ],
+              "end": 130,
+              "loc": {
+                "end": {
+                  "column": 4,
+                  "line": 13,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 13,
+                },
+              },
+              "range": [
+                126,
+                130,
+              ],
+              "raw": "| a ",
+              "start": 126,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 133,
+                  "loc": {
+                    "end": {
+                      "column": 7,
+                      "line": 13,
+                    },
+                    "start": {
+                      "column": 6,
+                      "line": 13,
+                    },
+                  },
+                  "range": [
+                    132,
+                    133,
+                  ],
+                  "raw": "b",
+                  "start": 132,
+                  "type": "MDXText",
+                  "value": "b",
+                },
+              ],
+              "end": 135,
+              "loc": {
+                "end": {
+                  "column": 9,
+                  "line": 13,
+                },
+                "start": {
+                  "column": 4,
+                  "line": 13,
+                },
+              },
+              "range": [
+                130,
+                135,
+              ],
+              "raw": "| b |",
+              "start": 130,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 135,
+          "loc": {
+            "end": {
+              "column": 9,
+              "line": 13,
+            },
+            "start": {
+              "column": 0,
+              "line": 13,
+            },
+          },
+          "range": [
+            126,
+            135,
+          ],
+          "raw": "| a | b |",
+          "start": 126,
+          "type": "MDXTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 149,
+                  "loc": {
+                    "end": {
+                      "column": 3,
+                      "line": 15,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 15,
+                    },
+                  },
+                  "range": [
+                    148,
+                    149,
+                  ],
+                  "raw": "1",
+                  "start": 148,
+                  "type": "MDXText",
+                  "value": "1",
+                },
+              ],
+              "end": 150,
+              "loc": {
+                "end": {
+                  "column": 4,
+                  "line": 15,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 15,
+                },
+              },
+              "range": [
+                146,
+                150,
+              ],
+              "raw": "| 1 ",
+              "start": 146,
+              "type": "MDXTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 153,
+                  "loc": {
+                    "end": {
+                      "column": 7,
+                      "line": 15,
+                    },
+                    "start": {
+                      "column": 6,
+                      "line": 15,
+                    },
+                  },
+                  "range": [
+                    152,
+                    153,
+                  ],
+                  "raw": "2",
+                  "start": 152,
+                  "type": "MDXText",
+                  "value": "2",
+                },
+              ],
+              "end": 155,
+              "loc": {
+                "end": {
+                  "column": 9,
+                  "line": 15,
+                },
+                "start": {
+                  "column": 4,
+                  "line": 15,
+                },
+              },
+              "range": [
+                150,
+                155,
+              ],
+              "raw": "| 2 |",
+              "start": 150,
+              "type": "MDXTableCell",
+            },
+          ],
+          "end": 155,
+          "loc": {
+            "end": {
+              "column": 9,
+              "line": 15,
+            },
+            "start": {
+              "column": 0,
+              "line": 15,
+            },
+          },
+          "range": [
+            146,
+            155,
+          ],
+          "raw": "| 1 | 2 |",
+          "start": 146,
+          "type": "MDXTableRow",
+        },
+      ],
+      "end": 155,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 15,
+        },
+        "start": {
+          "column": 0,
+          "line": 13,
+        },
+      },
+      "range": [
+        126,
+        155,
+      ],
+      "raw": "| a | b |
+| - | - |
+| 1 | 2 |",
+      "start": 126,
+      "type": "MDXTable",
+    },
+    {
+      "children": [
+        {
+          "end": 165,
+          "loc": {
+            "end": {
+              "column": 8,
+              "line": 17,
+            },
+            "start": {
+              "column": 0,
+              "line": 17,
+            },
+          },
+          "range": [
+            157,
+            165,
+          ],
+          "raw": "Footnote",
+          "start": 157,
+          "type": "MDXText",
+          "value": "Footnote",
+        },
+        {
+          "end": 169,
+          "identifier": "1",
+          "label": "1",
+          "loc": {
+            "end": {
+              "column": 12,
+              "line": 17,
+            },
+            "start": {
+              "column": 8,
+              "line": 17,
+            },
+          },
+          "range": [
+            165,
+            169,
+          ],
+          "raw": "[^1]",
+          "start": 165,
+          "type": "MDXFootnoteReference",
+        },
+        {
+          "end": 170,
+          "loc": {
+            "end": {
+              "column": 13,
+              "line": 17,
+            },
+            "start": {
+              "column": 12,
+              "line": 17,
+            },
+          },
+          "range": [
+            169,
+            170,
+          ],
+          "raw": ".",
+          "start": 169,
+          "type": "MDXText",
+          "value": ".",
+        },
+      ],
+      "end": 170,
+      "loc": {
+        "end": {
+          "column": 13,
+          "line": 17,
+        },
+        "start": {
+          "column": 0,
+          "line": 17,
+        },
+      },
+      "range": [
+        157,
+        170,
+      ],
+      "raw": "Footnote[^1].",
+      "start": 157,
+      "type": "MDXParagraph",
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "end": 195,
+              "loc": {
+                "end": {
+                  "column": 23,
+                  "line": 19,
+                },
+                "start": {
+                  "column": 6,
+                  "line": 19,
+                },
+              },
+              "range": [
+                178,
+                195,
+              ],
+              "raw": "Footnote content.",
+              "start": 178,
+              "type": "MDXText",
+              "value": "Footnote content.",
+            },
+          ],
+          "end": 195,
+          "loc": {
+            "end": {
+              "column": 23,
+              "line": 19,
+            },
+            "start": {
+              "column": 6,
+              "line": 19,
+            },
+          },
+          "range": [
+            178,
+            195,
+          ],
+          "raw": "Footnote content.",
+          "start": 178,
+          "type": "MDXParagraph",
+        },
+      ],
+      "end": 195,
+      "identifier": "1",
+      "label": "1",
+      "loc": {
+        "end": {
+          "column": 23,
+          "line": 19,
+        },
+        "start": {
+          "column": 0,
+          "line": 19,
+        },
+      },
+      "range": [
+        172,
+        195,
+      ],
+      "raw": "[^1]: Footnote content.",
+      "start": 172,
+      "type": "MDXFootnoteDefinition",
+    },
+    {
+      "end": 227,
+      "identifier": "ref",
+      "label": "ref",
+      "loc": {
+        "end": {
+          "column": 30,
+          "line": 21,
+        },
+        "start": {
+          "column": 0,
+          "line": 21,
+        },
+      },
+      "range": [
+        197,
+        227,
+      ],
+      "raw": "[ref]: https://example.com/ref",
+      "start": 197,
+      "title": null,
+      "type": "MDXDefinition",
+      "url": "https://example.com/ref",
+    },
+    {
+      "end": 262,
+      "identifier": "img",
+      "label": "img",
+      "loc": {
+        "end": {
+          "column": 34,
+          "line": 22,
+        },
+        "start": {
+          "column": 0,
+          "line": 22,
+        },
+      },
+      "range": [
+        228,
+        262,
+      ],
+      "raw": "[img]: https://example.com/img.png",
+      "start": 228,
+      "title": null,
+      "type": "MDXDefinition",
+      "url": "https://example.com/img.png",
+    },
+  ],
+  "comments": [],
+  "end": 263,
+  "loc": {
+    "end": {
+      "column": 1,
+      "line": 23,
+      "offset": 263,
+    },
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "range": [
+    0,
+    263,
+  ],
+  "sourceType": "module",
+  "start": 0,
+  "tokens": [
+    {
+      "end": 42,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 5,
+        },
+        "start": {
+          "column": 2,
+          "line": 5,
+        },
+      },
+      "range": [
+        35,
+        42,
+      ],
+      "start": 35,
+      "type": "JSXText",
+      "value": "Heading",
+    },
+    {
+      "end": 46,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 7,
+        },
+        "start": {
+          "column": 0,
+          "line": 7,
+        },
+      },
+      "range": [
+        44,
+        46,
+      ],
+      "start": 44,
+      "type": "JSXText",
+      "value": "A ",
+    },
+    {
+      "end": 56,
+      "loc": {
+        "end": {
+          "column": 12,
+          "line": 7,
+        },
+        "start": {
+          "column": 3,
+          "line": 7,
+        },
+      },
+      "range": [
+        47,
+        56,
+      ],
+      "start": 47,
+      "type": "JSXText",
+      "value": "reference",
+    },
+    {
+      "end": 67,
+      "loc": {
+        "end": {
+          "column": 23,
+          "line": 7,
+        },
+        "start": {
+          "column": 18,
+          "line": 7,
+        },
+      },
+      "range": [
+        62,
+        67,
+      ],
+      "start": 62,
+      "type": "JSXText",
+      "value": " and ",
+    },
+    {
+      "end": 80,
+      "loc": {
+        "end": {
+          "column": 36,
+          "line": 7,
+        },
+        "start": {
+          "column": 34,
+          "line": 7,
+        },
+      },
+      "range": [
+        78,
+        80,
+      ],
+      "start": 78,
+      "type": "JSXText",
+      "value": ", ",
+    },
+    {
+      "end": 89,
+      "loc": {
+        "end": {
+          "column": 45,
+          "line": 7,
+        },
+        "start": {
+          "column": 38,
+          "line": 7,
+        },
+      },
+      "range": [
+        82,
+        89,
+      ],
+      "start": 82,
+      "type": "JSXText",
+      "value": "deleted",
+    },
+    {
+      "end": 97,
+      "loc": {
+        "end": {
+          "column": 53,
+          "line": 7,
+        },
+        "start": {
+          "column": 47,
+          "line": 7,
+        },
+      },
+      "range": [
+        91,
+        97,
+      ],
+      "start": 91,
+      "type": "JSXText",
+      "value": ", and ",
+    },
+    {
+      "end": 106,
+      "loc": {
+        "end": {
+          "column": 62,
+          "line": 7,
+        },
+        "start": {
+          "column": 61,
+          "line": 7,
+        },
+      },
+      "range": [
+        105,
+        106,
+      ],
+      "start": 105,
+      "type": "JSXText",
+      "value": ".",
+    },
+    {
+      "end": 129,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 13,
+        },
+        "start": {
+          "column": 2,
+          "line": 13,
+        },
+      },
+      "range": [
+        128,
+        129,
+      ],
+      "start": 128,
+      "type": "JSXText",
+      "value": "a",
+    },
+    {
+      "end": 133,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 13,
+        },
+        "start": {
+          "column": 6,
+          "line": 13,
+        },
+      },
+      "range": [
+        132,
+        133,
+      ],
+      "start": 132,
+      "type": "JSXText",
+      "value": "b",
+    },
+    {
+      "end": 149,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 15,
+        },
+        "start": {
+          "column": 2,
+          "line": 15,
+        },
+      },
+      "range": [
+        148,
+        149,
+      ],
+      "start": 148,
+      "type": "JSXText",
+      "value": "1",
+    },
+    {
+      "end": 153,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 15,
+        },
+        "start": {
+          "column": 6,
+          "line": 15,
+        },
+      },
+      "range": [
+        152,
+        153,
+      ],
+      "start": 152,
+      "type": "JSXText",
+      "value": "2",
+    },
+    {
+      "end": 165,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 17,
+        },
+        "start": {
+          "column": 0,
+          "line": 17,
+        },
+      },
+      "range": [
+        157,
+        165,
+      ],
+      "start": 157,
+      "type": "JSXText",
+      "value": "Footnote",
+    },
+    {
+      "end": 170,
+      "loc": {
+        "end": {
+          "column": 13,
+          "line": 17,
+        },
+        "start": {
+          "column": 12,
+          "line": 17,
+        },
+      },
+      "range": [
+        169,
+        170,
+      ],
+      "start": 169,
+      "type": "JSXText",
+      "value": ".",
+    },
+    {
+      "end": 195,
+      "loc": {
+        "end": {
+          "column": 23,
+          "line": 19,
+        },
+        "start": {
+          "column": 6,
+          "line": 19,
+        },
+      },
+      "range": [
+        178,
+        195,
+      ],
+      "start": 178,
+      "type": "JSXText",
+      "value": "Footnote content.",
     },
   ],
   "type": "Program",
