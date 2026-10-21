@@ -190,10 +190,32 @@ A new `MDXHeading` estree node type is exported from `eslint-mdx` which represen
 
 See also <https://github.com/syntax-tree/mdast#heading>
 
+### `MDXFlowExpression`
+
+A new `MDXFlowExpression` estree node type is exported from `eslint-mdx` which represents flow expressions in `mdx` like the following:
+
+```mdx
+{
+value
+}
+```
+
+See also <https://github.com/syntax-tree/mdast#mdxflowexpression>
+
+### `MDXTextExpression`
+
+A new `MDXTextExpression` estree node type is exported from `eslint-mdx` which represents text expressions in `mdx` like the following:
+
+```mdx
+The value is {value}.
+```
+
+See also <https://github.com/syntax-tree/mdast#mdxtextexpression>
+
 ### Typings
 
 ```ts
-import type { BaseNode } from 'estree'
+import type { BaseNode, Expression } from 'estree'
 import type { JSXElement } from 'estree-jsx'
 
 export interface MDXCode extends BaseNode {
@@ -209,6 +231,16 @@ export interface MDXHeading extends BaseNode {
   type: 'MDXHeading'
   depth: HeadingDepth
   children: JSXElement['children']
+}
+
+export interface MDXFlowExpression extends BaseNode {
+  type: 'MDXFlowExpression'
+  expression: Expression
+}
+
+export interface MDXTextExpression extends BaseNode {
+  type: 'MDXTextExpression'
+  expression: Expression
 }
 ```
 
