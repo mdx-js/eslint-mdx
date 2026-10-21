@@ -155,6 +155,6 @@ describe('parser', () => {
       filePath: 'test.mdx',
       remarkConfigPath: extendedRemarkConfigPath,
     })
-    expect(result.body.map(node => node.type)).toContain('MDXToml')
+    expect(result.body.map(node => node.type)).toContain('MDToml')
   })
 })

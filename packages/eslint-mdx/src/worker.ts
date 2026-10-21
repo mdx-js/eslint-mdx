@@ -54,12 +54,12 @@ import { restoreTokens } from './tokens.ts'
 import type {
   Arrayable,
   IgnoreClass,
-  MDXCode,
-  MDXContentNode,
-  MDXHeading,
-  MDXListItem,
-  MDXTableCell,
-  MDXTableRow,
+  MDCode,
+  MDContentNode,
+  MDHeading,
+  MDListItem,
+  MDTableCell,
+  MDTableRow,
   NormalPosition,
   ProgramBody,
   WorkerOptions,
@@ -500,9 +500,9 @@ runAsWorker(
 
           if (node.type === 'code') {
             const { lang, meta, value } = node
-            const mdxJsxCode: MDXCode = {
+            const mdxJsxCode: MDCode = {
               ...normalizeNode(start, end),
-              type: 'MDXCode',
+              type: 'MDCode',
               lang,
               meta,
               value,
@@ -512,9 +512,9 @@ runAsWorker(
 
           if (node.type === 'heading') {
             const { depth } = node
-            const mdxJsxHeading: MDXHeading = {
+            const mdxJsxHeading: MDHeading = {
               ...normalizeNode(start, end),
-              type: 'MDXHeading',
+              type: 'MDHeading',
               depth,
               children: handleChildren(node),
             }
@@ -756,8 +756,8 @@ runAsWorker(
           return expression
         }
 
-        function convertChildren(node: Nodes): MDXContentNode[] {
-          const children: MDXContentNode[] = []
+        function convertChildren(node: Nodes): MDContentNode[] {
+          const children: MDContentNode[] = []
           if ('children' in node) {
             for (const child of node.children) {
               const converted = convertContent(child)
@@ -769,7 +769,7 @@ runAsWorker(
           return children
         }
 
-        function convertContent(node: Nodes): MDXContentNode | undefined {
+        function convertContent(node: Nodes): MDContentNode | undefined {
           const {
             start: { offset: start },
             end: { offset: end },
@@ -789,7 +789,7 @@ runAsWorker(
             if (nodeType === 'math') {
               return {
                 ...position,
-                type: 'MDXMath',
+                type: 'MDMath',
                 value: extended.value,
                 meta: extended.meta,
               }
@@ -797,28 +797,28 @@ runAsWorker(
             if (nodeType === 'inlineMath') {
               return {
                 ...position,
-                type: 'MDXInlineMath',
+                type: 'MDInlineMath',
                 value: extended.value,
               }
             }
-            return { ...position, type: 'MDXToml', value: extended.value }
+            return { ...position, type: 'MDToml', value: extended.value }
           }
 
           switch (node.type) {
             case 'text': {
-              return { ...position, type: 'MDXText', value: node.value }
+              return { ...position, type: 'MDText', value: node.value }
             }
             case 'paragraph': {
               return {
                 ...position,
-                type: 'MDXParagraph',
+                type: 'MDParagraph',
                 children: convertChildren(node),
               }
             }
             case 'heading': {
               return {
                 ...position,
-                type: 'MDXHeading',
+                type: 'MDHeading',
                 depth: node.depth,
                 children: convertChildren(node),
               }
@@ -826,17 +826,17 @@ runAsWorker(
             case 'list': {
               return {
                 ...position,
-                type: 'MDXList',
+                type: 'MDList',
                 ordered: node.ordered,
                 start: node.start,
                 spread: node.spread,
-                children: convertChildren(node) as MDXListItem[],
+                children: convertChildren(node) as MDListItem[],
               }
             }
             case 'listItem': {
               return {
                 ...position,
-                type: 'MDXListItem',
+                type: 'MDListItem',
                 checked: node.checked,
                 spread: node.spread,
                 children: convertChildren(node),
@@ -845,40 +845,40 @@ runAsWorker(
             case 'blockquote': {
               return {
                 ...position,
-                type: 'MDXBlockquote',
+                type: 'MDBlockquote',
                 children: convertChildren(node),
               }
             }
             case 'code': {
               return {
                 ...position,
-                type: 'MDXCode',
+                type: 'MDCode',
                 lang: node.lang,
                 meta: node.meta,
                 value: node.value,
               }
             }
             case 'inlineCode': {
-              return { ...position, type: 'MDXInlineCode', value: node.value }
+              return { ...position, type: 'MDInlineCode', value: node.value }
             }
             case 'emphasis': {
               return {
                 ...position,
-                type: 'MDXEmphasis',
+                type: 'MDEmphasis',
                 children: convertChildren(node),
               }
             }
             case 'strong': {
               return {
                 ...position,
-                type: 'MDXStrong',
+                type: 'MDStrong',
                 children: convertChildren(node),
               }
             }
             case 'link': {
               return {
                 ...position,
-                type: 'MDXLink',
+                type: 'MDLink',
                 url: node.url,
                 title: node.title,
                 children: convertChildren(node),
@@ -887,22 +887,22 @@ runAsWorker(
             case 'image': {
               return {
                 ...position,
-                type: 'MDXImage',
+                type: 'MDImage',
                 url: node.url,
                 title: node.title,
                 alt: node.alt,
               }
             }
             case 'break': {
-              return { ...position, type: 'MDXBreak' }
+              return { ...position, type: 'MDBreak' }
             }
             case 'thematicBreak': {
-              return { ...position, type: 'MDXThematicBreak' }
+              return { ...position, type: 'MDThematicBreak' }
             }
             case 'definition': {
               return {
                 ...position,
-                type: 'MDXDefinition',
+                type: 'MDDefinition',
                 identifier: node.identifier,
                 label: node.label,
                 url: node.url,
@@ -912,7 +912,7 @@ runAsWorker(
             case 'linkReference': {
               return {
                 ...position,
-                type: 'MDXLinkReference',
+                type: 'MDLinkReference',
                 identifier: node.identifier,
                 label: node.label,
                 referenceType: node.referenceType,
@@ -922,7 +922,7 @@ runAsWorker(
             case 'imageReference': {
               return {
                 ...position,
-                type: 'MDXImageReference',
+                type: 'MDImageReference',
                 identifier: node.identifier,
                 label: node.label,
                 referenceType: node.referenceType,
@@ -932,14 +932,14 @@ runAsWorker(
             case 'delete': {
               return {
                 ...position,
-                type: 'MDXDelete',
+                type: 'MDDelete',
                 children: convertChildren(node),
               }
             }
             case 'footnoteDefinition': {
               return {
                 ...position,
-                type: 'MDXFootnoteDefinition',
+                type: 'MDFootnoteDefinition',
                 identifier: node.identifier,
                 label: node.label,
                 children: convertChildren(node),
@@ -948,7 +948,7 @@ runAsWorker(
             case 'footnoteReference': {
               return {
                 ...position,
-                type: 'MDXFootnoteReference',
+                type: 'MDFootnoteReference',
                 identifier: node.identifier,
                 label: node.label,
               }
@@ -956,27 +956,27 @@ runAsWorker(
             case 'table': {
               return {
                 ...position,
-                type: 'MDXTable',
+                type: 'MDTable',
                 align: node.align,
-                children: convertChildren(node) as MDXTableRow[],
+                children: convertChildren(node) as MDTableRow[],
               }
             }
             case 'tableRow': {
               return {
                 ...position,
-                type: 'MDXTableRow',
-                children: convertChildren(node) as MDXTableCell[],
+                type: 'MDTableRow',
+                children: convertChildren(node) as MDTableCell[],
               }
             }
             case 'tableCell': {
               return {
                 ...position,
-                type: 'MDXTableCell',
+                type: 'MDTableCell',
                 children: convertChildren(node),
               }
             }
             case 'yaml': {
-              return { ...position, type: 'MDXYaml', value: node.value }
+              return { ...position, type: 'MDYaml', value: node.value }
             }
             case 'mdxTextExpression': {
               const estree = node.data?.estree
@@ -996,7 +996,7 @@ runAsWorker(
             }
             case 'mdxJsxFlowElement':
             case 'mdxJsxTextElement': {
-              return handleNode(node) as MDXContentNode
+              return handleNode(node) as MDContentNode
             }
             default: {
               return

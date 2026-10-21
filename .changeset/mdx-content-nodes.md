@@ -2,13 +2,13 @@
 "eslint-mdx": minor
 ---
 
-feat: add ESTree nodes for MDX content
+feat: add ESTree nodes for Markdown content
 
-Add `MDXParagraph`, `MDXText`, `MDXList`, `MDXListItem`, `MDXBlockquote`,
-`MDXEmphasis`, `MDXStrong`, `MDXInlineCode`, `MDXLink`, `MDXImage`, `MDXBreak`,
-`MDXThematicBreak`, `MDXDefinition`, `MDXDelete`, `MDXFootnoteDefinition`,
-`MDXFootnoteReference`, `MDXImageReference`, `MDXInlineMath`, `MDXLinkReference`,
-`MDXMath`, `MDXTable`, `MDXTableCell`, `MDXTableRow`, `MDXToml` and `MDXYaml`
+Add `MDParagraph`, `MDText`, `MDList`, `MDListItem`, `MDBlockquote`,
+`MDEmphasis`, `MDStrong`, `MDInlineCode`, `MDLink`, `MDImage`, `MDBreak`,
+`MDThematicBreak`, `MDDefinition`, `MDDelete`, `MDFootnoteDefinition`,
+`MDFootnoteReference`, `MDImageReference`, `MDInlineMath`, `MDLinkReference`,
+`MDMath`, `MDTable`, `MDTableCell`, `MDTableRow`, `MDToml` and `MDYaml`
 nodes with visitor keys. Restore whitespace `JSXText` tokens inside JSX
 elements so the AST body and tokens stay aligned.
 
