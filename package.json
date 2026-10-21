@@ -34,6 +34,7 @@
     "@commitlint/cli": "^21.2.4",
     "@oxc-node/core": "^0.1.7",
     "@pkgr/rollup": "^7.1.0",
+    "@stylistic/eslint-plugin": "^5.10.0",
     "@swc/core": "^1.16.18",
     "@swc/jest": "^0.2.39",
     "@types/jest": "^30.0.0",
