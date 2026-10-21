@@ -58,6 +58,8 @@ import type {
   MDXContentNode,
   MDXHeading,
   MDXListItem,
+  MDXTableCell,
+  MDXTableRow,
   NormalPosition,
   WorkerOptions,
   WorkerResult,
@@ -778,6 +780,34 @@ runAsWorker(
           } = node.position
           const position = normalizeNode(start, end)
 
+          const nodeType = node.type as string
+          if (
+            nodeType === 'inlineMath' ||
+            nodeType === 'math' ||
+            nodeType === 'toml'
+          ) {
+            const extended = node as Nodes & {
+              value: string
+              meta?: string | null
+            }
+            if (nodeType === 'math') {
+              return {
+                ...position,
+                type: 'MDXMath',
+                value: extended.value,
+                meta: extended.meta,
+              }
+            }
+            if (nodeType === 'inlineMath') {
+              return {
+                ...position,
+                type: 'MDXInlineMath',
+                value: extended.value,
+              }
+            }
+            return { ...position, type: 'MDXToml', value: extended.value }
+          }
+
           switch (node.type) {
             case 'text': {
               return { ...position, type: 'MDXText', value: node.value }
@@ -872,6 +902,85 @@ runAsWorker(
             }
             case 'thematicBreak': {
               return { ...position, type: 'MDXThematicBreak' }
+            }
+            case 'definition': {
+              return {
+                ...position,
+                type: 'MDXDefinition',
+                identifier: node.identifier,
+                label: node.label,
+                url: node.url,
+                title: node.title,
+              }
+            }
+            case 'linkReference': {
+              return {
+                ...position,
+                type: 'MDXLinkReference',
+                identifier: node.identifier,
+                label: node.label,
+                referenceType: node.referenceType,
+                children: convertChildren(node),
+              }
+            }
+            case 'imageReference': {
+              return {
+                ...position,
+                type: 'MDXImageReference',
+                identifier: node.identifier,
+                label: node.label,
+                referenceType: node.referenceType,
+                alt: node.alt,
+              }
+            }
+            case 'delete': {
+              return {
+                ...position,
+                type: 'MDXDelete',
+                children: convertChildren(node),
+              }
+            }
+            case 'footnoteDefinition': {
+              return {
+                ...position,
+                type: 'MDXFootnoteDefinition',
+                identifier: node.identifier,
+                label: node.label,
+                children: convertChildren(node),
+              }
+            }
+            case 'footnoteReference': {
+              return {
+                ...position,
+                type: 'MDXFootnoteReference',
+                identifier: node.identifier,
+                label: node.label,
+              }
+            }
+            case 'table': {
+              return {
+                ...position,
+                type: 'MDXTable',
+                align: node.align,
+                children: convertChildren(node) as MDXTableRow[],
+              }
+            }
+            case 'tableRow': {
+              return {
+                ...position,
+                type: 'MDXTableRow',
+                children: convertChildren(node) as MDXTableCell[],
+              }
+            }
+            case 'tableCell': {
+              return {
+                ...position,
+                type: 'MDXTableCell',
+                children: convertChildren(node),
+              }
+            }
+            case 'yaml': {
+              return { ...position, type: 'MDXYaml', value: node.value }
             }
             case 'mdxTextExpression': {
               const estree = node.data?.estree

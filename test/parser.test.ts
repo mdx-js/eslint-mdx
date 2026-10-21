@@ -6,6 +6,10 @@ import { DEFAULT_PARSER_OPTIONS } from './helpers.js'
 import { parser } from 'eslint-mdx'
 
 const _dirname = import.meta.dirname
+const extendedRemarkConfigPath = path.resolve(
+  _dirname,
+  'fixtures/custom-remarkrc/extended-remarkrc.mjs',
+)
 const PARSER_TEST_TIMEOUT = 15_000
 
 describe('parser', () => {
@@ -131,4 +135,26 @@ describe('parser', () => {
     },
     PARSER_TEST_TIMEOUT,
   )
+
+  it('should parse extended mdast nodes', async () => {
+    const filePath = path.resolve(
+      _dirname,
+      'fixtures/extended/extended-nodes.mdx',
+    )
+    const result = parser.parse(await fs.readFile(filePath, 'utf8'), {
+      ...DEFAULT_PARSER_OPTIONS,
+      filePath,
+      remarkConfigPath: extendedRemarkConfigPath,
+    })
+    expect(result).toMatchSnapshot()
+  })
+
+  it('should parse toml frontmatter', () => {
+    const result = parser.parse('+++\ntitle = "TOML"\n+++\n', {
+      ...DEFAULT_PARSER_OPTIONS,
+      filePath: 'test.mdx',
+      remarkConfigPath: extendedRemarkConfigPath,
+    })
+    expect(result.body.map(node => node.type)).toContain('MDXToml')
+  })
 })
