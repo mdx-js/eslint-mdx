@@ -11,10 +11,14 @@ const fixturesDir = path.resolve('test/fixtures')
 
 const getCli = async () => {
   const { default: stylistic } = await import('@stylistic/eslint-plugin')
+  const recommended = Array.isArray(stylistic.configs.recommended)
+    ? stylistic.configs.recommended
+    : [stylistic.configs.recommended]
 
   return new ESLint({
     overrideConfigFile: true,
     overrideConfig: [
+      ...recommended,
       {
         files: ['**/*.mdx'],
         languageOptions: {
@@ -25,19 +29,13 @@ const getCli = async () => {
             sourceType: 'module',
           },
         },
-        plugins: {
-          '@stylistic': stylistic,
-        },
-        rules: {
-          '@stylistic/indent': ['error', 2],
-        },
       },
     ],
   })
 }
 
 it.each(['581.mdx', 'mdx-content-nodes.mdx'])(
-  'should indent %s correctly',
+  'should pass @stylistic recommended for %s',
   async fixture => {
     if (!isStylisticSupported) {
       return
