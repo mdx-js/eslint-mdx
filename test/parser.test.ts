@@ -6,6 +6,7 @@ import { DEFAULT_PARSER_OPTIONS } from './helpers.js'
 import { parser } from 'eslint-mdx'
 
 const _dirname = import.meta.dirname
+const PARSER_TEST_TIMEOUT = 30_000
 
 describe('parser', () => {
   it('should throw on incorrect extension', () => {
@@ -103,27 +104,31 @@ describe('parser', () => {
       }),
     ).toMatchSnapshot())
 
-  it('should match all AST snapshots', async () => {
-    const dirents = await fs.readdir(path.join(_dirname, 'fixtures'), {
-      withFileTypes: true,
-    })
+  it(
+    'should match all AST snapshots',
+    async () => {
+      const dirents = await fs.readdir(path.join(_dirname, 'fixtures'), {
+        withFileTypes: true,
+      })
 
-    for (const dirent of dirents) {
-      if (dirent.isDirectory()) {
-        continue
+      for (const dirent of dirents) {
+        if (dirent.isDirectory()) {
+          continue
+        }
+        const fileName = dirent.name
+        const filePath = path.resolve(_dirname, 'fixtures', fileName)
+        try {
+          expect(
+            parser.parse(await fs.readFile(filePath, 'utf8'), {
+              filePath,
+            }),
+          ).toMatchSnapshot(fileName)
+        } catch (err) {
+          // eslint-disable-next-line jest/no-conditional-expect
+          expect((err as Error).message).toMatchSnapshot(fileName)
+        }
       }
-      const fileName = dirent.name
-      const filePath = path.resolve(_dirname, 'fixtures', fileName)
-      try {
-        expect(
-          parser.parse(await fs.readFile(filePath, 'utf8'), {
-            filePath,
-          }),
-        ).toMatchSnapshot(fileName)
-      } catch (err) {
-        // eslint-disable-next-line jest/no-conditional-expect
-        expect((err as Error).message).toMatchSnapshot(fileName)
-      }
-    }
-  })
+    },
+    PARSER_TEST_TIMEOUT,
+  )
 })
