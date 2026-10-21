@@ -6,7 +6,7 @@ import { DEFAULT_PARSER_OPTIONS } from './helpers.js'
 import { parser } from 'eslint-mdx'
 
 const _dirname = import.meta.dirname
-const PARSER_TEST_TIMEOUT = 30_000
+const PARSER_TEST_TIMEOUT = 15_000
 
 describe('parser', () => {
   it('should throw on incorrect extension', () => {
