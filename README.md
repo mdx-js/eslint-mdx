@@ -214,7 +214,7 @@ See also <https://github.com/syntax-tree/mdast#mdxtextexpression>
 
 ### MDX content nodes
 
-Markdown content is also represented with ESTree-compatible nodes, including `MDXParagraph`, `MDXText`, `MDXList`, `MDXListItem`, `MDXBlockquote`, `MDXEmphasis`, `MDXStrong`, `MDXInlineCode`, `MDXLink`, `MDXImage`, `MDXBreak`, `MDXThematicBreak`, `MDXDefinition`, `MDXDelete`, `MDXFootnoteDefinition`, `MDXFootnoteReference`, `MDXImageReference`, `MDXInlineMath`, `MDXLinkReference`, `MDXMath`, `MDXTable`, `MDXTableCell`, `MDXTableRow`, `MDXToml` and `MDXYaml`. They expose their mdast children or values and are traversed through the parser visitor keys.
+Markdown content is also represented with ESTree-compatible nodes, including `MDXParagraph`, `MDXText`, `MDXList`, `MDXListItem`, `MDXBlockquote`, `MDXEmphasis`, `MDXStrong`, `MDXInlineCode`, `MDXLink`, `MDXImage`, `MDXBreak`, `MDXThematicBreak`, `MDXDefinition`, `MDXDelete`, `MDXFootnoteDefinition`, `MDXFootnoteReference`, `MDXImageReference`, `MDXInlineMath`, `MDXLinkReference`, `MDXMath`, `MDXTable`, `MDXTableCell`, `MDXTableRow`, `MDXToml` and `MDXYaml`. They expose their mdast children or values and are traversed through the parser visitor keys. The `MDX` prefix avoids collisions with ESTree/JSX nodes; these nodes represent mdast content and are not specific to MDX syntax, as the parser also handles `.md` files.
 
 ### Typings
 
