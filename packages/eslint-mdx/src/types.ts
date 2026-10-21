@@ -44,6 +44,10 @@ export interface WorkerOptions extends SyncOptions {
   process?: boolean
 }
 
+=======
+export type ProgramBody = Array<MDContentNode | Program['body'][number]>
+
+>>>>>>> 91358c8 (refactor: use MD prefix for Markdown content nodes)
 export interface WorkerParseResult {
   root: Root
   body: Program['body']
@@ -62,8 +66,8 @@ type _Arrayable<T, R = T extends Array<infer U> ? U : T> = R | R[]
 
 export type Arrayable<T> = _Arrayable<T>
 
-export interface MDXCode extends BaseNode {
-  type: 'MDXCode'
+export interface MDCode extends BaseNode {
+  type: 'MDCode'
   value: string
   lang?: string | null
   meta?: string | null
@@ -71,10 +75,10 @@ export interface MDXCode extends BaseNode {
 
 export type HeadingDepth = 1 | 2 | 3 | 4 | 5 | 6
 
-export interface MDXHeading extends BaseNode {
-  type: 'MDXHeading'
+export interface MDHeading extends BaseNode {
+  type: 'MDHeading'
   depth: HeadingDepth
-  children: MDXContentNode[]
+  children: MDContentNode[]
 }
 
 export interface MDXFlowExpression extends BaseNode {
@@ -87,187 +91,187 @@ export interface MDXTextExpression extends BaseNode {
   expression: Expression
 }
 
-export interface MDXText extends BaseNode {
-  type: 'MDXText'
+export interface MDText extends BaseNode {
+  type: 'MDText'
   value: string
 }
 
-export interface MDXParagraph extends BaseNode {
-  type: 'MDXParagraph'
-  children: MDXContentNode[]
+export interface MDParagraph extends BaseNode {
+  type: 'MDParagraph'
+  children: MDContentNode[]
 }
 
-export interface MDXBlockquote extends BaseNode {
-  type: 'MDXBlockquote'
-  children: MDXContentNode[]
+export interface MDBlockquote extends BaseNode {
+  type: 'MDBlockquote'
+  children: MDContentNode[]
 }
 
-export interface MDXList extends BaseNode {
-  type: 'MDXList'
+export interface MDList extends BaseNode {
+  type: 'MDList'
   ordered?: boolean | null
   start?: number | null
   spread?: boolean | null
-  children: MDXListItem[]
+  children: MDListItem[]
 }
 
-export interface MDXListItem extends BaseNode {
-  type: 'MDXListItem'
+export interface MDListItem extends BaseNode {
+  type: 'MDListItem'
   checked?: boolean | null
   spread?: boolean | null
-  children: MDXContentNode[]
+  children: MDContentNode[]
 }
 
-export interface MDXEmphasis extends BaseNode {
-  type: 'MDXEmphasis'
-  children: MDXContentNode[]
+export interface MDEmphasis extends BaseNode {
+  type: 'MDEmphasis'
+  children: MDContentNode[]
 }
 
-export interface MDXStrong extends BaseNode {
-  type: 'MDXStrong'
-  children: MDXContentNode[]
+export interface MDStrong extends BaseNode {
+  type: 'MDStrong'
+  children: MDContentNode[]
 }
 
-export interface MDXInlineCode extends BaseNode {
-  type: 'MDXInlineCode'
+export interface MDInlineCode extends BaseNode {
+  type: 'MDInlineCode'
   value: string
 }
 
-export interface MDXLink extends BaseNode {
-  type: 'MDXLink'
+export interface MDLink extends BaseNode {
+  type: 'MDLink'
   url: string
   title?: string | null
-  children: MDXContentNode[]
+  children: MDContentNode[]
 }
 
-export interface MDXImage extends BaseNode {
-  type: 'MDXImage'
+export interface MDImage extends BaseNode {
+  type: 'MDImage'
   url: string
   title?: string | null
   alt?: string | null
 }
 
-export interface MDXBreak extends BaseNode {
-  type: 'MDXBreak'
+export interface MDBreak extends BaseNode {
+  type: 'MDBreak'
 }
 
-export interface MDXThematicBreak extends BaseNode {
-  type: 'MDXThematicBreak'
+export interface MDThematicBreak extends BaseNode {
+  type: 'MDThematicBreak'
 }
 
-export interface MDXDefinition extends BaseNode {
-  type: 'MDXDefinition'
+export interface MDDefinition extends BaseNode {
+  type: 'MDDefinition'
   identifier: string
   label?: string | null
   url: string
   title?: string | null
 }
 
-export interface MDXDelete extends BaseNode {
-  type: 'MDXDelete'
-  children: MDXContentNode[]
+export interface MDDelete extends BaseNode {
+  type: 'MDDelete'
+  children: MDContentNode[]
 }
 
-export interface MDXFootnoteDefinition extends BaseNode {
-  type: 'MDXFootnoteDefinition'
+export interface MDFootnoteDefinition extends BaseNode {
+  type: 'MDFootnoteDefinition'
   identifier: string
   label?: string | null
-  children: MDXContentNode[]
+  children: MDContentNode[]
 }
 
-export interface MDXFootnoteReference extends BaseNode {
-  type: 'MDXFootnoteReference'
+export interface MDFootnoteReference extends BaseNode {
+  type: 'MDFootnoteReference'
   identifier: string
   label?: string | null
 }
 
-export interface MDXImageReference extends BaseNode {
-  type: 'MDXImageReference'
+export interface MDImageReference extends BaseNode {
+  type: 'MDImageReference'
   identifier: string
   label?: string | null
   referenceType: 'collapsed' | 'full' | 'shortcut'
   alt?: string | null
 }
 
-export interface MDXInlineMath extends BaseNode {
-  type: 'MDXInlineMath'
+export interface MDInlineMath extends BaseNode {
+  type: 'MDInlineMath'
   value: string
 }
 
-export interface MDXLinkReference extends BaseNode {
-  type: 'MDXLinkReference'
+export interface MDLinkReference extends BaseNode {
+  type: 'MDLinkReference'
   identifier: string
   label?: string | null
   referenceType: 'collapsed' | 'full' | 'shortcut'
-  children: MDXContentNode[]
+  children: MDContentNode[]
 }
 
-export interface MDXMath extends BaseNode {
-  type: 'MDXMath'
+export interface MDMath extends BaseNode {
+  type: 'MDMath'
   value: string
   meta?: string | null
 }
 
-export interface MDXTable extends BaseNode {
-  type: 'MDXTable'
+export interface MDTable extends BaseNode {
+  type: 'MDTable'
   align?: Array<'center' | 'left' | 'right' | null> | null
-  children: MDXTableRow[]
+  children: MDTableRow[]
 }
 
-export interface MDXTableCell extends BaseNode {
-  type: 'MDXTableCell'
-  children: MDXContentNode[]
+export interface MDTableCell extends BaseNode {
+  type: 'MDTableCell'
+  children: MDContentNode[]
 }
 
-export interface MDXTableRow extends BaseNode {
-  type: 'MDXTableRow'
-  children: MDXTableCell[]
+export interface MDTableRow extends BaseNode {
+  type: 'MDTableRow'
+  children: MDTableCell[]
 }
 
-export interface MDXToml extends BaseNode {
-  type: 'MDXToml'
+export interface MDToml extends BaseNode {
+  type: 'MDToml'
   value: string
 }
 
-export interface MDXYaml extends BaseNode {
-  type: 'MDXYaml'
+export interface MDYaml extends BaseNode {
+  type: 'MDYaml'
   value: string
 }
 
-export type MDXContentNode =
+export type MDContentNode =
   | JSXElement
   | JSXExpressionContainer
   | JSXFragment
   | JSXSpreadChild
   | JSXText
-  | MDXBlockquote
-  | MDXBreak
-  | MDXCode
-  | MDXDefinition
-  | MDXDelete
-  | MDXEmphasis
+  | MDBlockquote
+  | MDBreak
+  | MDCode
+  | MDDefinition
+  | MDDelete
+  | MDEmphasis
+  | MDFootnoteDefinition
+  | MDFootnoteReference
+  | MDHeading
+  | MDImage
+  | MDImageReference
+  | MDInlineCode
+  | MDInlineMath
+  | MDLink
+  | MDLinkReference
+  | MDList
+  | MDListItem
+  | MDMath
+  | MDParagraph
+  | MDStrong
+  | MDTable
+  | MDTableCell
+  | MDTableRow
+  | MDText
+  | MDThematicBreak
+  | MDToml
   | MDXFlowExpression
-  | MDXFootnoteDefinition
-  | MDXFootnoteReference
-  | MDXHeading
-  | MDXImage
-  | MDXImageReference
-  | MDXInlineCode
-  | MDXInlineMath
-  | MDXLink
-  | MDXLinkReference
-  | MDXList
-  | MDXListItem
-  | MDXMath
-  | MDXParagraph
-  | MDXStrong
-  | MDXTable
-  | MDXTableCell
-  | MDXTableRow
-  | MDXText
   | MDXTextExpression
-  | MDXThematicBreak
-  | MDXToml
-  | MDXYaml
+  | MDYaml
 
 declare module 'estree' {
   interface ProgramBodyMap {
