@@ -30,8 +30,8 @@
   - [Flat Config](#flat-config)
 - [Parser Options](#parser-options)
 - [Parser API](#parser-api)
-  - [`MDXCode`](#mdxcode)
-  - [`MDXHeading`](#mdxheading)
+  - [`MDCode`](#mdcode)
+  - [`MDHeading`](#mdheading)
   - [Typings](#typings)
 - [Rules](#rules)
   - [mdx/remark](#mdxremark)
@@ -160,9 +160,9 @@ eslint . --ext js,md,mdx
 
 ## Parser API
 
-### `MDXCode`
+### `MDCode`
 
-A new `MDXCode` estree node type is exported from `eslint-mdx` which represents code blocks in `mdx` like the following:
+A new `MDCode` estree node type is exported from `eslint-mdx` which represents code blocks in `mdx` like the following:
 
 ````mdx
 <div>
@@ -176,9 +176,9 @@ A new `MDXCode` estree node type is exported from `eslint-mdx` which represents 
 
 See also <https://github.com/syntax-tree/mdast#code>
 
-### `MDXHeading`
+### `MDHeading`
 
-A new `MDXHeading` estree node type is exported from `eslint-mdx` which represents markdown heading in `mdx` like the following:
+A new `MDHeading` estree node type is exported from `eslint-mdx` which represents markdown heading in `mdx` like the following:
 
 <!-- mdx v2+ incompatible -->
 <!-- prettier-ignore -->
@@ -196,8 +196,8 @@ See also <https://github.com/syntax-tree/mdast#heading>
 import type { BaseNode } from 'estree'
 import type { JSXElement } from 'estree-jsx'
 
-export interface MDXCode extends BaseNode {
-  type: 'MDXCode'
+export interface MDCode extends BaseNode {
+  type: 'MDCode'
   value: string
   lang?: string | null
   meta?: string | null
@@ -205,8 +205,8 @@ export interface MDXCode extends BaseNode {
 
 export type HeadingDepth = 1 | 2 | 3 | 4 | 5 | 6
 
-export interface MDXHeading extends BaseNode {
-  type: 'MDXHeading'
+export interface MDHeading extends BaseNode {
+  type: 'MDHeading'
   depth: HeadingDepth
   children: JSXElement['children']
 }

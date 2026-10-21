@@ -6,6 +6,11 @@ import { DEFAULT_PARSER_OPTIONS } from './helpers.js'
 import { parser } from 'eslint-mdx'
 
 const _dirname = import.meta.dirname
+const extendedRemarkConfigPath = path.resolve(
+  _dirname,
+  'fixtures/custom-remarkrc/extended-remarkrc.mjs',
+)
+const PARSER_TEST_TIMEOUT = 15_000
 
 describe('parser', () => {
   it('should throw on incorrect extension', () => {
@@ -103,27 +108,53 @@ describe('parser', () => {
       }),
     ).toMatchSnapshot())
 
-  it('should match all AST snapshots', async () => {
-    const dirents = await fs.readdir(path.join(_dirname, 'fixtures'), {
-      withFileTypes: true,
-    })
+  it(
+    'should match all AST snapshots',
+    async () => {
+      const dirents = await fs.readdir(path.join(_dirname, 'fixtures'), {
+        withFileTypes: true,
+      })
 
-    for (const dirent of dirents) {
-      if (dirent.isDirectory()) {
-        continue
+      for (const dirent of dirents) {
+        if (dirent.isDirectory()) {
+          continue
+        }
+        const fileName = dirent.name
+        const filePath = path.resolve(_dirname, 'fixtures', fileName)
+        try {
+          expect(
+            parser.parse(await fs.readFile(filePath, 'utf8'), {
+              filePath,
+            }),
+          ).toMatchSnapshot(fileName)
+        } catch (err) {
+          // eslint-disable-next-line jest/no-conditional-expect
+          expect((err as Error).message).toMatchSnapshot(fileName)
+        }
       }
-      const fileName = dirent.name
-      const filePath = path.resolve(_dirname, 'fixtures', fileName)
-      try {
-        expect(
-          parser.parse(await fs.readFile(filePath, 'utf8'), {
-            filePath,
-          }),
-        ).toMatchSnapshot(fileName)
-      } catch (err) {
-        // eslint-disable-next-line jest/no-conditional-expect
-        expect((err as Error).message).toMatchSnapshot(fileName)
-      }
-    }
+    },
+    PARSER_TEST_TIMEOUT,
+  )
+
+  it('should parse extended mdast nodes', async () => {
+    const filePath = path.resolve(
+      _dirname,
+      'fixtures/extended/extended-nodes.mdx',
+    )
+    const result = parser.parse(await fs.readFile(filePath, 'utf8'), {
+      ...DEFAULT_PARSER_OPTIONS,
+      filePath,
+      remarkConfigPath: extendedRemarkConfigPath,
+    })
+    expect(result).toMatchSnapshot()
+  })
+
+  it('should parse toml frontmatter', () => {
+    const result = parser.parse('+++\ntitle = "TOML"\n+++\n', {
+      ...DEFAULT_PARSER_OPTIONS,
+      filePath: 'test.mdx',
+      remarkConfigPath: extendedRemarkConfigPath,
+    })
+    expect(result.body.map(node => node.type)).toContain('MDToml')
   })
 })
