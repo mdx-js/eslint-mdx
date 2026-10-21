@@ -44,10 +44,6 @@ export interface WorkerOptions extends SyncOptions {
   process?: boolean
 }
 
-=======
-export type ProgramBody = Array<MDContentNode | Program['body'][number]>
-
->>>>>>> 91358c8 (refactor: use MD prefix for Markdown content nodes)
 export interface WorkerParseResult {
   root: Root
   body: Program['body']
