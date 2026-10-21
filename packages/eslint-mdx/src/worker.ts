@@ -70,8 +70,8 @@ const appendEstreeBody = (body: ProgramBody, node: Nodes, estree: Program) => {
 
   const type =
     node.type === 'mdxFlowExpression'
-      ? ('MDXFlowExpression' as const)
-      : ('MDXTextExpression' as const)
+      ? 'MDXFlowExpression'
+      : 'MDXTextExpression'
 
   for (const statement of estree.body) {
     if (statement.type === 'ExpressionStatement') {
