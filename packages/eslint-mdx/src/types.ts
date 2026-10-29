@@ -38,9 +38,7 @@ export interface WorkerOptions extends SyncOptions {
   process?: boolean
 }
 
-export type ProgramBody = Array<
-  MDXFlowExpression | MDXTextExpression | Program['body'][number]
->
+export type ProgramBody = Program['body']
 
 export interface WorkerParseResult {
   root: Root
@@ -83,6 +81,13 @@ export interface MDXFlowExpression extends BaseNode {
 export interface MDXTextExpression extends BaseNode {
   type: 'MDXTextExpression'
   expression: Expression
+}
+
+declare module 'estree' {
+  interface ProgramBodyMap {
+    MDXFlowExpression: MDXFlowExpression
+    MDXTextExpression: MDXTextExpression
+  }
 }
 
 export interface CjsRequire extends NodeJS.Require {

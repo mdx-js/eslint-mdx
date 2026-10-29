@@ -781,42 +781,41 @@ runAsWorker(
       })
     }
 
-    visitEstree(
-      {
-        type: 'Program',
-        sourceType: 'module',
-        body: body as unknown as Program['body'],
-      },
-      node => {
-        if (node.type !== 'TemplateElement') {
-          return
-        }
+    const program: Program = {
+      type: 'Program',
+      sourceType: 'module',
+      body,
+    }
 
-        /**
-         * Copied from @see
-         * https://github.com/eslint/espree/blob/1584ddb00f0b4e3ada764ac86ae20e1480003de3/lib/espree.js#L227-L241
-         */
-        const templateElement = node
+    visitEstree(program, node => {
+      if (node.type !== 'TemplateElement') {
+        return
+      }
 
-        const startOffset = -1
-        const endOffset = templateElement.tail ? 1 : 2
+      /**
+       * Copied from @see
+       * https://github.com/eslint/espree/blob/1584ddb00f0b4e3ada764ac86ae20e1480003de3/lib/espree.js#L227-L241
+       */
+      const templateElement = node
 
-        // @ts-expect-error - unavailable for typing from estree
-        templateElement.start += startOffset
-        // @ts-expect-error - unavailable for typing from estree
-        templateElement.end += endOffset
+      const startOffset = -1
+      const endOffset = templateElement.tail ? 1 : 2
 
-        if (templateElement.range) {
-          templateElement.range[0] += startOffset
-          templateElement.range[1] += endOffset
-        }
+      // @ts-expect-error - unavailable for typing from estree
+      templateElement.start += startOffset
+      // @ts-expect-error - unavailable for typing from estree
+      templateElement.end += endOffset
 
-        if (templateElement.loc) {
-          templateElement.loc.start.column += startOffset
-          templateElement.loc.end.column += endOffset
-        }
-      },
-    )
+      if (templateElement.range) {
+        templateElement.range[0] += startOffset
+        templateElement.range[1] += endOffset
+      }
+
+      if (templateElement.loc) {
+        templateElement.loc.start.column += startOffset
+        templateElement.loc.end.column += endOffset
+      }
+    })
 
     for (const token of restoreTokens(code, root, sharedTokens, tt, visit)) {
       tokenTranslator.onToken(token, {
