@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.8.3
+
+### Patch Changes
+
+- [#625](https://github.com/mdx-js/eslint-mdx/pull/625) [`08ae03b`](https://github.com/mdx-js/eslint-mdx/commit/08ae03b0391c66c0ae2cafe38f7bec07179389cb) Thanks [@JounQin](https://github.com/JounQin)! - fix: avoid the `tslib` runtime dependency
+
+  Build with `rewriteRelativeImportExtensions: false` and use `.js`
+  extensions in source imports, so the compiled worker no longer imports
+  `__rewriteRelativeImportExtension` from `tslib`.
+
 ## 3.8.2
 
 ### Patch Changes
