@@ -88,6 +88,11 @@ declare module 'estree' {
     MDXFlowExpression: MDXFlowExpression
     MDXTextExpression: MDXTextExpression
   }
+
+  interface TemplateElement {
+    start: number
+    end: number
+  }
 }
 
 export interface CjsRequire extends NodeJS.Require {

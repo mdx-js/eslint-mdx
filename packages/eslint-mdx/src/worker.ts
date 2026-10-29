@@ -801,9 +801,7 @@ runAsWorker(
       const startOffset = -1
       const endOffset = templateElement.tail ? 1 : 2
 
-      // @ts-expect-error - unavailable for typing from estree
       templateElement.start += startOffset
-      // @ts-expect-error - unavailable for typing from estree
       templateElement.end += endOffset
 
       if (templateElement.range) {
