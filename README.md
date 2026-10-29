@@ -195,9 +195,7 @@ See also <https://github.com/syntax-tree/mdast#heading>
 A new `MDXFlowExpression` estree node type is exported from `eslint-mdx` which represents flow expressions in `mdx` like the following:
 
 ```mdx
-{
-value
-}
+{value}
 ```
 
 See also <https://github.com/syntax-tree/mdast#mdxflowexpression>

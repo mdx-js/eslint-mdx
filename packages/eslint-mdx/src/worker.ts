@@ -75,11 +75,12 @@ const appendEstreeBody = (
     node.type === 'mdxFlowExpression'
       ? 'MDXFlowExpression'
       : 'MDXTextExpression'
+  const position = normalizePosition(node.position)
 
   for (const statement of estree.body) {
     if (statement.type === 'ExpressionStatement') {
       body.push({
-        ...normalizePosition(node.position),
+        ...position,
         type,
         expression: statement.expression,
       })
