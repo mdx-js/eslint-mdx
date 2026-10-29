@@ -781,39 +781,40 @@ runAsWorker(
       })
     }
 
-    const program: Program = {
-      type: 'Program',
-      sourceType: 'module',
-      body,
-    }
+    visitEstree(
+      {
+        type: 'Program',
+        sourceType: 'module',
+        body,
+      },
+      node => {
+        if (node.type !== 'TemplateElement') {
+          return
+        }
 
-    visitEstree(program, node => {
-      if (node.type !== 'TemplateElement') {
-        return
-      }
+        /**
+         * Copied from @see
+         * https://github.com/eslint/espree/blob/1584ddb00f0b4e3ada764ac86ae20e1480003de3/lib/espree.js#L227-L241
+         */
+        const templateElement = node
 
-      /**
-       * Copied from @see
-       * https://github.com/eslint/espree/blob/1584ddb00f0b4e3ada764ac86ae20e1480003de3/lib/espree.js#L227-L241
-       */
-      const templateElement = node
+        const startOffset = -1
+        const endOffset = templateElement.tail ? 1 : 2
 
-      const startOffset = -1
-      const endOffset = templateElement.tail ? 1 : 2
+        templateElement.start += startOffset
+        templateElement.end += endOffset
 
-      templateElement.start += startOffset
-      templateElement.end += endOffset
+        if (templateElement.range) {
+          templateElement.range[0] += startOffset
+          templateElement.range[1] += endOffset
+        }
 
-      if (templateElement.range) {
-        templateElement.range[0] += startOffset
-        templateElement.range[1] += endOffset
-      }
-
-      if (templateElement.loc) {
-        templateElement.loc.start.column += startOffset
-        templateElement.loc.end.column += endOffset
-      }
-    })
+        if (templateElement.loc) {
+          templateElement.loc.start.column += startOffset
+          templateElement.loc.end.column += endOffset
+        }
+      },
+    )
 
     for (const token of restoreTokens(code, root, sharedTokens, tt, visit)) {
       tokenTranslator.onToken(token, {
