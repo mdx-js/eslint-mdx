@@ -1,6 +1,6 @@
 import { createSyncFn } from 'synckit'
 
-import { cjsRequire } from './helpers.ts'
+import { cjsRequire } from './helpers.js'
 import type {
   WorkerOptions,
   WorkerParseResult,

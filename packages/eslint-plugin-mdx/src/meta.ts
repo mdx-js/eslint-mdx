@@ -1,6 +1,6 @@
 import type { PackageJson } from 'eslint-mdx'
 
-import { cjsRequire } from './helpers.ts'
+import { cjsRequire } from './helpers.js'
 
 const pkg = cjsRequire<PackageJson>('../package.json')
 

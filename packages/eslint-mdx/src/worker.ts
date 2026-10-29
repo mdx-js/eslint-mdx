@@ -49,8 +49,8 @@ import {
   nextCharOffsetFactory,
   normalizePosition,
   prevCharOffsetFactory,
-} from './helpers.ts'
-import { restoreTokens } from './tokens.ts'
+} from './helpers.js'
+import { restoreTokens } from './tokens.js'
 import type {
   Arrayable,
   IgnoreClass,
@@ -59,7 +59,7 @@ import type {
   NormalPosition,
   WorkerOptions,
   WorkerResult,
-} from './types.ts'
+} from './types.js'
 
 let acornParser: typeof Parser
 

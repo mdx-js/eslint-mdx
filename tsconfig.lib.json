@@ -6,6 +6,7 @@
     "strictNullChecks": false,
     // https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping#node-18
     "target": "ES2022",
+    "rewriteRelativeImportExtensions": false,
     "types": ["node", "jest"]
   }
 }
