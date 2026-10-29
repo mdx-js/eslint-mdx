@@ -38,11 +38,9 @@ export interface WorkerOptions extends SyncOptions {
   process?: boolean
 }
 
-export type ProgramBody = Program['body']
-
 export interface WorkerParseResult {
   root: Root
-  body: ProgramBody
+  body: Program['body']
   comments: Program['comments']
   tokens: AST.Token[]
 }

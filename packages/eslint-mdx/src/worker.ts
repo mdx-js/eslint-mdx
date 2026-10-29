@@ -57,12 +57,15 @@ import type {
   MDXCode,
   MDXHeading,
   NormalPosition,
-  ProgramBody,
   WorkerOptions,
   WorkerResult,
 } from './types.ts'
 
-const appendEstreeBody = (body: ProgramBody, node: Nodes, estree: Program) => {
+const appendEstreeBody = (
+  body: Program['body'],
+  node: Nodes,
+  estree: Program,
+) => {
   if (node.type !== 'mdxFlowExpression' && node.type !== 'mdxTextExpression') {
     body.push(...estree.body)
     return
@@ -353,7 +356,7 @@ runAsWorker(
 
     const root = processor.parse(fileOptions)
 
-    const body: ProgramBody = []
+    const body: Program['body'] = []
     const comments: Comment[] = []
     const tokens: AST.Token[] = []
 
