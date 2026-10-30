@@ -64,6 +64,20 @@ import type {
   WorkerResult,
 } from './types.js'
 
+// JSXEmptyExpression is a standard ESTree node, so it has no `raw` extension.
+const normalizeEmptyExpression = (
+  start: number,
+  end: number,
+  code: string,
+) => ({
+  ...normalizePosition({
+    start: { offset: start + 1 },
+    end: { offset: end - 1 },
+    code,
+  }),
+  type: 'JSXEmptyExpression' as const,
+})
+
 const appendEstreeBody = (
   body: Program['body'],
   node: Nodes,
@@ -89,14 +103,7 @@ const appendEstreeBody = (
     body.push({
       ...position,
       type,
-      expression: {
-        ...normalizePosition({
-          start: { offset: start + 1 },
-          end: { offset: end - 1 },
-          code,
-        }),
-        type: 'JSXEmptyExpression',
-      },
+      expression: normalizeEmptyExpression(start, end, code),
     })
     return
   }
@@ -481,14 +488,9 @@ runAsWorker(
                     const expressionContainer: JSXExpressionContainer = {
                       ...normalizeNode(start, end),
                       type: 'JSXExpressionContainer',
-                      expression: expression || {
-                        ...normalizePosition({
-                          start: { offset: start + 1 },
-                          end: { offset: end - 1 },
-                          code,
-                        }),
-                        type: 'JSXEmptyExpression',
-                      },
+                      expression:
+                        expression ||
+                        normalizeEmptyExpression(start, end, code),
                     }
                     acc.push(expressionContainer)
                   } else if (expression) {
@@ -1022,14 +1024,7 @@ runAsWorker(
                     node.type === 'mdxFlowExpression'
                       ? 'MDXFlowExpression'
                       : 'MDXTextExpression',
-                  expression: {
-                    ...normalizePosition({
-                      start: { offset: start + 1 },
-                      end: { offset: end - 1 },
-                      code,
-                    }),
-                    type: 'JSXEmptyExpression',
-                  },
+                  expression: normalizeEmptyExpression(start, end, code),
                 }
               }
               return {
