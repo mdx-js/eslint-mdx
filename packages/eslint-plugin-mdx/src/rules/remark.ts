@@ -176,7 +176,7 @@ export const remark: Rule.RuleModule = {
                   }
                 : point,
             node,
-            fix: fixes ? () => fixes : null,
+            fix: () => fixes,
           })
         }
       },
