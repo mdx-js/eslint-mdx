@@ -481,6 +481,8 @@ exports[`fixtures should match all snapshots: 491.mdx 1`] = `
 ]
 `;
 
+exports[`fixtures should match all snapshots: 547.mdx 1`] = `[]`;
+
 exports[`fixtures should match all snapshots: 576.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: 581.mdx 1`] = `[]`;
