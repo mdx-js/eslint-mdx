@@ -963,6 +963,8 @@ exports[`fixtures should match all snapshots: mdx-content-nodes.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: mdx-flow-expression.mdx 1`] = `[]`;
 
+exports[`fixtures should match all snapshots: nested-empty-expression.mdx 1`] = `[]`;
+
 exports[`fixtures should match all snapshots: nested-flow-expression.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `

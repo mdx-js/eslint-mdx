@@ -86,17 +86,19 @@ const appendEstreeBody = (
       start: { offset: start },
       end: { offset: end },
     } = node.position
+    const emptyExpression = {
+      ...normalizePosition({
+        start: { offset: start + 1 },
+        end: { offset: end - 1 },
+        code,
+      }),
+      raw: code.slice(start + 1, end - 1),
+      type: 'JSXEmptyExpression' as const,
+    }
     body.push({
       ...position,
       type,
-      expression: {
-        ...normalizePosition({
-          start: { offset: start + 1 },
-          end: { offset: end - 1 },
-          code,
-        }),
-        type: 'JSXEmptyExpression',
-      },
+      expression: emptyExpression,
     })
     return
   }
@@ -1008,7 +1010,21 @@ runAsWorker(
               const statement = estree?.body[0]
               isExpressionStatement(statement)
               if (!statement?.expression) {
-                return
+                const {
+                  start: { offset: start },
+                  end: { offset: end },
+                } = node.position
+                return {
+                  ...position,
+                  type:
+                    node.type === 'mdxFlowExpression'
+                      ? 'MDXFlowExpression'
+                      : 'MDXTextExpression',
+                  expression: {
+                    ...normalizeNode(start + 1, end - 1),
+                    type: 'JSXEmptyExpression',
+                  },
+                }
               }
               return {
                 ...position,
