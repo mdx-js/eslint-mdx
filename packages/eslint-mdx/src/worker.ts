@@ -22,6 +22,7 @@ import type {
 import type {
   JSXClosingElement,
   JSXElement,
+  JSXEmptyExpression,
   JSXExpressionContainer,
   JSXFragment,
   JSXIdentifier,
@@ -69,13 +70,13 @@ const normalizeEmptyExpression = (
   start: number,
   end: number,
   code: string,
-) => ({
+): JSXEmptyExpression => ({
   ...normalizePosition({
     start: { offset: start + 1 },
     end: { offset: end - 1 },
     code,
   }),
-  type: 'JSXEmptyExpression' as const,
+  type: 'JSXEmptyExpression',
 })
 
 const appendEstreeBody = (
