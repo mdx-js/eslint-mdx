@@ -22,7 +22,6 @@ import type {
 import type {
   JSXClosingElement,
   JSXElement,
-  JSXEmptyExpression,
   JSXExpressionContainer,
   JSXFragment,
   JSXIdentifier,
@@ -96,9 +95,8 @@ const appendEstreeBody = (
           end: { offset: end - 1 },
           code,
         }),
-        raw: code.slice(start + 1, end - 1),
         type: 'JSXEmptyExpression',
-      } as JSXEmptyExpression,
+      },
     })
     return
   }
@@ -484,7 +482,11 @@ runAsWorker(
                       ...normalizeNode(start, end),
                       type: 'JSXExpressionContainer',
                       expression: expression || {
-                        ...normalizeNode(start + 1, end - 1),
+                        ...normalizePosition({
+                          start: { offset: start + 1 },
+                          end: { offset: end - 1 },
+                          code,
+                        }),
                         type: 'JSXEmptyExpression',
                       },
                     }
@@ -1021,7 +1023,11 @@ runAsWorker(
                       ? 'MDXFlowExpression'
                       : 'MDXTextExpression',
                   expression: {
-                    ...normalizeNode(start + 1, end - 1),
+                    ...normalizePosition({
+                      start: { offset: start + 1 },
+                      end: { offset: end - 1 },
+                      code,
+                    }),
                     type: 'JSXEmptyExpression',
                   },
                 }
