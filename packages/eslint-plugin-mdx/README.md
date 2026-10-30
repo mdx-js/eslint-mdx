@@ -223,6 +223,8 @@ MDX expressions use the `MDX` prefix and expose their ESTree `expression`:
 | `MDXFlowExpression` | `mdxFlowExpression` |
 | `MDXTextExpression` | `mdxTextExpression` |
 
+When these expressions are used as JSX children, they are wrapped in `JSXExpressionContainer`. Empty or comment-only expressions use `JSXEmptyExpression`.
+
 For example:
 
 ```mdx

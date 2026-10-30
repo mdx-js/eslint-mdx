@@ -382,142 +382,27 @@ exports[`fixtures should match all snapshots: 437.mdx 1`] = `
     "severity": 2,
   },
   {
-    "column": 20,
+    "column": 19,
+    "endColumn": 26,
+    "endLine": 1,
+    "fix": {
+      "range": [
+        18,
+        25,
+      ],
+      "text": "bar",
+    },
     "line": 1,
-    "message": "\`'\` can be escaped with \`&apos;\`, \`&lsquo;\`, \`&#39;\`, \`&rsquo;\`.",
-    "messageId": "unescapedEntityAlts",
-    "ruleId": "react/no-unescaped-entities",
+    "message": "Curly braces are unnecessary here.",
+    "messageId": "unnecessaryCurly",
+    "ruleId": "react/jsx-curly-brace-presence",
     "severity": 2,
-    "suggestions": [
-      {
-        "data": {
-          "alt": "&apos;",
-        },
-        "desc": "Replace with \`&apos;\`.",
-        "fix": {
-          "range": [
-            19,
-            24,
-          ],
-          "text": "&apos;bar'",
-        },
-        "messageId": "replaceWithAlt",
-      },
-      {
-        "data": {
-          "alt": "&lsquo;",
-        },
-        "desc": "Replace with \`&lsquo;\`.",
-        "fix": {
-          "range": [
-            19,
-            24,
-          ],
-          "text": "&lsquo;bar'",
-        },
-        "messageId": "replaceWithAlt",
-      },
-      {
-        "data": {
-          "alt": "&#39;",
-        },
-        "desc": "Replace with \`&#39;\`.",
-        "fix": {
-          "range": [
-            19,
-            24,
-          ],
-          "text": "&#39;bar'",
-        },
-        "messageId": "replaceWithAlt",
-      },
-      {
-        "data": {
-          "alt": "&rsquo;",
-        },
-        "desc": "Replace with \`&rsquo;\`.",
-        "fix": {
-          "range": [
-            19,
-            24,
-          ],
-          "text": "&rsquo;bar'",
-        },
-        "messageId": "replaceWithAlt",
-      },
-    ],
-  },
-  {
-    "column": 24,
-    "line": 1,
-    "message": "\`'\` can be escaped with \`&apos;\`, \`&lsquo;\`, \`&#39;\`, \`&rsquo;\`.",
-    "messageId": "unescapedEntityAlts",
-    "ruleId": "react/no-unescaped-entities",
-    "severity": 2,
-    "suggestions": [
-      {
-        "data": {
-          "alt": "&apos;",
-        },
-        "desc": "Replace with \`&apos;\`.",
-        "fix": {
-          "range": [
-            19,
-            24,
-          ],
-          "text": "'bar&apos;",
-        },
-        "messageId": "replaceWithAlt",
-      },
-      {
-        "data": {
-          "alt": "&lsquo;",
-        },
-        "desc": "Replace with \`&lsquo;\`.",
-        "fix": {
-          "range": [
-            19,
-            24,
-          ],
-          "text": "'bar&lsquo;",
-        },
-        "messageId": "replaceWithAlt",
-      },
-      {
-        "data": {
-          "alt": "&#39;",
-        },
-        "desc": "Replace with \`&#39;\`.",
-        "fix": {
-          "range": [
-            19,
-            24,
-          ],
-          "text": "'bar&#39;",
-        },
-        "messageId": "replaceWithAlt",
-      },
-      {
-        "data": {
-          "alt": "&rsquo;",
-        },
-        "desc": "Replace with \`&rsquo;\`.",
-        "fix": {
-          "range": [
-            19,
-            24,
-          ],
-          "text": "'bar&rsquo;",
-        },
-        "messageId": "replaceWithAlt",
-      },
-    ],
   },
 ]
 `;
 
 exports[`fixtures should match all snapshots: 437.mdx 2`] = `
-"<App prop="foo">{'bar'}</App>
+"<App prop="foo">bar</App>
 "
 `;
 
@@ -616,54 +501,7 @@ exports[`fixtures should match all snapshots: async/test.md 1`] = `
 ]
 `;
 
-exports[`fixtures should match all snapshots: basic.mdx 1`] = `
-[
-  {
-    "column": 1,
-    "endColumn": 8,
-    "endLine": 19,
-    "fix": {
-      "range": [
-        275,
-        309,
-      ],
-      "text": " />",
-    },
-    "line": 19,
-    "message": "Empty components are self-closing",
-    "messageId": "notSelfClosing",
-    "ruleId": "react/self-closing-comp",
-    "severity": 2,
-  },
-]
-`;
-
-exports[`fixtures should match all snapshots: basic.mdx 2`] = `
-"import Basic from './basic'
-
-export const meta={
-  title: 'Blog Post',
-}
-
-# Blog Post
-
-Lorem ipsum dolor sit amet, consectetur adipiscing **elit**. Ut ac lobortis <b>velit</b>.
-
-{/* This is a comment */}
-
-\`\`\`css
-@media (min-width: 400px) {
-  border-color: #000;
-}
-\`\`\`
-
-<Basic />
-
-## Subtitle
-
-Lorem ipsum dolor sit _amet_, consectetur adipiscing elit. Ut ac lobortis velit.
-"
-`;
+exports[`fixtures should match all snapshots: basic.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: basic.tsx 1`] = `[]`;
 
@@ -1047,6 +885,8 @@ exports[`fixtures should match all snapshots: esm/test.md 1`] = `
 `;
 
 exports[`fixtures should match all snapshots: extended/extended-nodes.mdx 1`] = `[]`;
+
+exports[`fixtures should match all snapshots: jsx-expression-container.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: jsx-imports.mdx 1`] = `[]`;
 

@@ -448,11 +448,14 @@ runAsWorker(
 
                   const expression = statement?.expression
 
-                  if (child.type === 'mdxTextExpression') {
+                  if (
+                    child.type === 'mdxFlowExpression' ||
+                    child.type === 'mdxTextExpression'
+                  ) {
                     const {
                       start: { offset: start },
                       end: { offset: end },
-                    } = node.position
+                    } = child.position
 
                     const expressionContainer: JSXExpressionContainer = {
                       ...normalizeNode(start, end),
