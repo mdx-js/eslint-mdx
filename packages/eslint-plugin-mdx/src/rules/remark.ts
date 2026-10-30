@@ -1,3 +1,4 @@
+import { strict as assert } from 'node:assert'
 import path from 'node:path'
 
 import type { Rule, SourceCode } from 'eslint'
@@ -31,16 +32,14 @@ const getFixesForPlace = (
   differences: Difference[],
   place: VFileMessage['place'],
 ): Rule.Fix[] | null => {
-  /* istanbul ignore if -- remark messages always include a position */
-  if (!place || !('start' in place)) {
-    return null
-  }
+  assert.ok(place)
 
-  const { start, end } = place
-  /* istanbul ignore if -- remark messages always include offsets */
-  if (start.offset == null || end.offset == null) {
-    return null
-  }
+  /* istanbul ignore next -- remark messages use a position */
+  const start = 'start' in place ? place.start : place
+  /* istanbul ignore next -- remark messages use a position */
+  const end = 'start' in place ? place.end : place
+  assert.ok(start.offset != null)
+  assert.ok(end.offset != null)
   const fixes = differences
     .filter(difference => {
       const { deleteText, offset } = normalizeDifference(difference)
