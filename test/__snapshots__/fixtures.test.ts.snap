@@ -199,46 +199,6 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/534.mdx 
     "column": 1,
     "endColumn": 10,
     "endLine": 20,
-    "fix": {
-      "range": [
-        0,
-        735,
-      ],
-      "text": "\`\`\`ts
-import { CommandRegister } from "@foo";
-export function registerCommands(commandRegister: CommandRegister) {
-  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
-  commandRegister.addCommand(deployProjectCommand);
-}
-\`\`\`
-
-{/* eslint-skip */}
-
-\`\`\`ts
-import { CommandRegister } from "@foo";
-export function registerCommands(commandRegister: CommandRegister) {
-  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
-  commandRegister.addCommand(deployProjectCommand);
-}
-\`\`\`
-
-# Heading
-
-# Heading
-
-{/* nothing special */}
-
-{/* eslint-disable mdx/remark */}
-
-# Heading
-
-{/* eslint-enable mdx/remark */}
-
-Content {/* nothing special */}
-
-# Heading {/* eslint-disable-line mdx/remark */}
-",
-    },
     "line": 20,
     "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
@@ -266,7 +226,6 @@ export function registerCommands(commandRegister: CommandRegister) {
 \`\`\`
 
 {/* eslint-skip */}
-
 \`\`\`ts
 import { CommandRegister } from "@foo";
 export function registerCommands(commandRegister: CommandRegister) {
@@ -463,6 +422,60 @@ exports[`fixtures should match all snapshots: 488.mdx 1`] = `
     "message": "'Image' is not defined.",
     "messageId": "undefined",
     "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+]
+`;
+
+exports[`fixtures should match all snapshots: 491.mdx 1`] = `
+[
+  {
+    "column": 2,
+    "endColumn": 5,
+    "endLine": 19,
+    "line": 19,
+    "message": "'Foo' is not defined.",
+    "messageId": "undefined",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+  {
+    "column": 6,
+    "endColumn": 9,
+    "endLine": 20,
+    "line": 20,
+    "message": "'Bar' is not defined.",
+    "messageId": "undefined",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 4,
+    "endLine": 29,
+    "line": 27,
+    "message": "Unexpected missing fenced code language flag in info string, expected keyword",
+    "ruleId": "remark-lint-fenced-code-flag",
+    "severity": 1,
+  },
+  {
+    "column": 22,
+    "endColumn": 67,
+    "endLine": 43,
+    "line": 43,
+    "message": "Component definition is missing display name",
+    "messageId": "noDisplayName",
+    "ruleId": "react/display-name",
+    "severity": 2,
+  },
+  {
+    "column": 24,
+    "endColumn": 32,
+    "endLine": 43,
+    "line": 43,
+    "message": "'children' is missing in props validation",
+    "messageId": "missingPropType",
+    "ruleId": "react/prop-types",
     "severity": 2,
   },
 ]
@@ -677,8 +690,8 @@ the installation guides.
   p={3}
   bg="lightgray"
   style={{
-textAlign: 'center',
-fontWeight: 'bold',
+  textAlign: 'center',
+  fontWeight: 'bold',
 }}
 >
   [Next.js](/getting-started/next) |
@@ -748,46 +761,6 @@ exports[`fixtures should match all snapshots: code-blocks/534.mdx 1`] = `
     "column": 1,
     "endColumn": 10,
     "endLine": 20,
-    "fix": {
-      "range": [
-        0,
-        735,
-      ],
-      "text": "\`\`\`ts
-import { CommandRegister } from "@foo";
-export function registerCommands(commandRegister: CommandRegister) {
-  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
-  commandRegister.addCommand(deployProjectCommand);
-}
-\`\`\`
-
-{/* eslint-skip */}
-
-\`\`\`ts
-import { CommandRegister } from "@foo";
-export function registerCommands(commandRegister: CommandRegister) {
-  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
-  commandRegister.addCommand(deployProjectCommand);
-}
-\`\`\`
-
-# Heading
-
-# Heading
-
-{/* nothing special */}
-
-{/* eslint-disable mdx/remark */}
-
-# Heading
-
-{/* eslint-enable mdx/remark */}
-
-Content {/* nothing special */}
-
-# Heading {/* eslint-disable-line mdx/remark */}
-",
-    },
     "line": 20,
     "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
@@ -803,43 +776,6 @@ Content {/* nothing special */}
     "severity": 1,
   },
 ]
-`;
-
-exports[`fixtures should match all snapshots: code-blocks/534.mdx 2`] = `
-"\`\`\`ts
-import { CommandRegister } from "@foo";
-export function registerCommands(commandRegister: CommandRegister) {
-  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
-  commandRegister.addCommand(deployProjectCommand);
-}
-\`\`\`
-
-{/* eslint-skip */}
-
-\`\`\`ts
-import { CommandRegister } from "@foo";
-export function registerCommands(commandRegister: CommandRegister) {
-  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
-  commandRegister.addCommand(deployProjectCommand);
-}
-\`\`\`
-
-# Heading
-
-# Heading
-
-{/* nothing special */}
-
-{/* eslint-disable mdx/remark */}
-
-# Heading
-
-{/* eslint-enable mdx/remark */}
-
-Content {/* nothing special */}
-
-# Heading {/* eslint-disable-line mdx/remark */}
-"
 `;
 
 exports[`fixtures should match all snapshots: comments.mdx 1`] = `

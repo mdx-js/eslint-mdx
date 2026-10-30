@@ -1,3 +1,4 @@
+import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 
 import eslintJs from '@eslint/js'
@@ -6,6 +7,7 @@ import { Linter } from 'eslint'
 import prettierRecommended from 'eslint-plugin-prettier/recommended'
 import react from 'eslint-plugin-react'
 import globals from 'globals'
+import * as prettier from 'prettier'
 // eslint-disable-next-line sonarjs/deprecation
 import { config, configs } from 'typescript-eslint'
 
@@ -118,6 +120,23 @@ describe('fixtures', () => {
           expect(output).toMatchSnapshot(relative(filePath))
         }
       }
+    },
+    ONE_MINUTE,
+  )
+
+  it(
+    'should apply prettier fixes without conflicting with remark',
+    async () => {
+      const filePath = path.resolve('test/491.mdx')
+      const code = await readFile(path.join(fixturesDir, '491.mdx'), 'utf8')
+      const cli = getCli(false, true)
+      const [result] = await cli.lintText(code, { filePath })
+      const prettierOptions = await prettier.resolveConfig(filePath)
+      const expected = await prettier.format(code, {
+        ...prettierOptions,
+        filepath: filePath,
+      })
+      expect(result.output).toBe(expected)
     },
     ONE_MINUTE,
   )

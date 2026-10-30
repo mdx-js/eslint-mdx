@@ -11,6 +11,64 @@ import {
 
 import type { RemarkLintMessage } from './types.js'
 
+const getCommonPrefixLength = (before: string, after: string) => {
+  let index = 0
+  while (
+    index < before.length &&
+    index < after.length &&
+    before[index] === after[index]
+  ) {
+    index++
+  }
+  return index
+}
+
+const getCommonSuffixLength = (
+  before: string,
+  after: string,
+  prefixLength: number,
+) => {
+  let index = 0
+  while (
+    index < before.length - prefixLength &&
+    index < after.length - prefixLength &&
+    before[before.length - 1 - index] === after[after.length - 1 - index]
+  ) {
+    index++
+  }
+  return index
+}
+
+const getChangedRange = (before: string, after: string): [number, number] => {
+  const start = getCommonPrefixLength(before, after)
+  const suffix = getCommonSuffixLength(before, after, start)
+
+  return [start, before.length - suffix]
+}
+
+const isFixWithinMessage = (
+  sourceText: string,
+  fixedText: string | null | undefined,
+  place: unknown,
+) => {
+  if (
+    fixedText == null ||
+    fixedText === sourceText ||
+    place == null ||
+    typeof place !== 'object' ||
+    !('start' in place)
+  ) {
+    return false
+  }
+
+  const { start, end } = place as {
+    start: { offset: number }
+    end: { offset: number }
+  }
+  const changedRange = getChangedRange(sourceText, fixedText)
+  return changedRange[0] <= end.offset && changedRange[1] >= start.offset
+}
+
 export const remark: Rule.RuleModule = {
   meta: {
     type: 'layout',
@@ -117,6 +175,8 @@ export const remark: Rule.RuleModule = {
             column: column - 1,
           }
 
+          const shouldFix = isFixWithinMessage(sourceText, fixedText, place)
+
           context.report({
             // related to https://github.com/eslint/eslint/issues/14198
             message: JSON.stringify(message),
@@ -129,16 +189,15 @@ export const remark: Rule.RuleModule = {
                   }
                 : point,
             node,
-            fix:
-              fixedText == null || fixedText === sourceText
-                ? null
-                : () =>
-                    fixed++
-                      ? null
-                      : {
-                          range: [0, sourceText.length],
-                          text: fixedText,
-                        },
+            fix: shouldFix
+              ? () =>
+                  fixed++
+                    ? null
+                    : {
+                        range: [0, sourceText.length],
+                        text: fixedText,
+                      }
+              : null,
           })
         }
       },
