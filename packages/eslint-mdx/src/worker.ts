@@ -68,6 +68,7 @@ const appendEstreeBody = (
   body: Program['body'],
   node: Nodes,
   estree: Program,
+  code: string,
 ) => {
   if (node.type !== 'mdxFlowExpression' && node.type !== 'mdxTextExpression') {
     body.push(...estree.body)
@@ -79,6 +80,26 @@ const appendEstreeBody = (
       ? 'MDXFlowExpression'
       : 'MDXTextExpression'
   const position = normalizePosition(node.position)
+
+  if (estree.body.length === 0) {
+    const {
+      start: { offset: start },
+      end: { offset: end },
+    } = node.position
+    body.push({
+      ...position,
+      type,
+      expression: {
+        ...normalizePosition({
+          start: { offset: start + 1 },
+          end: { offset: end - 1 },
+          code,
+        }),
+        type: 'JSXEmptyExpression',
+      },
+    })
+    return
+  }
 
   for (const statement of estree.body) {
     if (statement.type === 'ExpressionStatement') {
@@ -1019,7 +1040,7 @@ runAsWorker(
             body: [],
             comments: [],
           }) as Program
-          appendEstreeBody(body, node, estree)
+          appendEstreeBody(body, node, estree, code)
           comments.push(...estree.comments)
           return
         }

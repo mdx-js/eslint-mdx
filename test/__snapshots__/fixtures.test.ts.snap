@@ -1087,6 +1087,8 @@ exports[`fixtures should match all snapshots: remark.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: style/nested.md 1`] = `[]`;
 
+exports[`fixtures should match all snapshots: top-level-comment-expression.mdx 1`] = `[]`;
+
 exports[`fixtures should match all snapshots: unicorn.jsx 1`] = `
 [
   {

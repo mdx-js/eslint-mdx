@@ -46719,6 +46719,46 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
       "type": "MDParagraph",
     },
     {
+      "end": 203,
+      "expression": {
+        "end": 202,
+        "loc": {
+          "end": {
+            "column": 24,
+            "line": 11,
+          },
+          "start": {
+            "column": 1,
+            "line": 11,
+          },
+        },
+        "range": [
+          179,
+          202,
+        ],
+        "start": 179,
+        "type": "JSXEmptyExpression",
+      },
+      "loc": {
+        "end": {
+          "column": 26,
+          "line": 11,
+          "offset": 203,
+        },
+        "start": {
+          "column": 1,
+          "line": 11,
+          "offset": 178,
+        },
+      },
+      "range": [
+        178,
+        203,
+      ],
+      "start": 178,
+      "type": "MDXFlowExpression",
+    },
+    {
       "end": 267,
       "lang": "css",
       "loc": {
@@ -63840,6 +63880,46 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
       "type": "MDHeading",
     },
     {
+      "end": 74,
+      "expression": {
+        "end": 73,
+        "loc": {
+          "end": {
+            "column": 32,
+            "line": 5,
+          },
+          "start": {
+            "column": 1,
+            "line": 5,
+          },
+        },
+        "range": [
+          42,
+          73,
+        ],
+        "start": 42,
+        "type": "JSXEmptyExpression",
+      },
+      "loc": {
+        "end": {
+          "column": 34,
+          "line": 5,
+          "offset": 74,
+        },
+        "start": {
+          "column": 1,
+          "line": 5,
+          "offset": 41,
+        },
+      },
+      "range": [
+        41,
+        74,
+      ],
+      "start": 41,
+      "type": "MDXFlowExpression",
+    },
+    {
       "children": [
         {
           "end": 105,
@@ -64151,6 +64231,219 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
       "start": 105,
       "type": "JSXText",
       "value": "https://facebook.github.io/create-react-app/docs/code-splitting",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`parser should match all AST snapshots: top-level-comment-expression.mdx 1`] = `
+{
+  "body": [
+    {
+      "end": 25,
+      "expression": {
+        "end": 24,
+        "loc": {
+          "end": {
+            "column": 24,
+            "line": 1,
+          },
+          "start": {
+            "column": 1,
+            "line": 1,
+          },
+        },
+        "range": [
+          1,
+          24,
+        ],
+        "start": 1,
+        "type": "JSXEmptyExpression",
+      },
+      "loc": {
+        "end": {
+          "column": 26,
+          "line": 1,
+          "offset": 25,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "range": [
+        0,
+        25,
+      ],
+      "start": 0,
+      "type": "MDXFlowExpression",
+    },
+    {
+      "end": 29,
+      "expression": {
+        "end": 28,
+        "loc": {
+          "end": {
+            "column": 1,
+            "line": 3,
+          },
+          "start": {
+            "column": 1,
+            "line": 3,
+          },
+        },
+        "range": [
+          28,
+          28,
+        ],
+        "start": 28,
+        "type": "JSXEmptyExpression",
+      },
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 3,
+          "offset": 29,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+          "offset": 27,
+        },
+      },
+      "range": [
+        27,
+        29,
+      ],
+      "start": 27,
+      "type": "MDXFlowExpression",
+    },
+  ],
+  "comments": [
+    {
+      "end": 24,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 1,
+          "offset": 24,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 1,
+        },
+      },
+      "range": [
+        1,
+        24,
+      ],
+      "start": 1,
+      "type": "Block",
+      "value": " top-level comment ",
+    },
+  ],
+  "end": 30,
+  "loc": {
+    "end": {
+      "column": 1,
+      "line": 4,
+      "offset": 30,
+    },
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "range": [
+    0,
+    30,
+  ],
+  "sourceType": undefined,
+  "start": 0,
+  "tokens": [
+    {
+      "end": 1,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 1,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 25,
+      "loc": {
+        "end": {
+          "column": 25,
+          "line": 1,
+        },
+        "start": {
+          "column": 24,
+          "line": 1,
+        },
+      },
+      "range": [
+        24,
+        25,
+      ],
+      "start": 24,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 28,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 3,
+        },
+        "start": {
+          "column": 0,
+          "line": 3,
+        },
+      },
+      "range": [
+        27,
+        28,
+      ],
+      "start": 27,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 29,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 3,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+        },
+      },
+      "range": [
+        28,
+        29,
+      ],
+      "start": 28,
+      "type": "Punctuator",
+      "value": "}",
     },
   ],
   "type": "Program",
