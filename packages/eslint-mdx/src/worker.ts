@@ -500,9 +500,8 @@ runAsWorker(
 
                   comments.push(...estree.comments)
                 } else {
-                  const expression = handleNode(child) as Arrayable<
-                    JSXElement['children']
-                  >
+                  const expression = (handleNode(child) ??
+                    convertContent(child)) as Arrayable<JSXElement['children']>
                   if (Array.isArray(expression)) {
                     acc.push(...expression)
                   } else if (expression) {

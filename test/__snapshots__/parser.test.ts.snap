@@ -47497,6 +47497,1649 @@ npm i -g foo
 }
 `;
 
+exports[`parser should match all AST snapshots: 547.mdx 1`] = `
+{
+  "body": [
+    {
+      "end": 300,
+      "expression": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "end": 43,
+                    "loc": {
+                      "end": {
+                        "column": 31,
+                        "line": 3,
+                      },
+                      "start": {
+                        "column": 5,
+                        "line": 3,
+                      },
+                    },
+                    "range": [
+                      17,
+                      43,
+                    ],
+                    "raw": "Cookie settings in Firefox",
+                    "start": 17,
+                    "type": "MDText",
+                    "value": "Cookie settings in Firefox",
+                  },
+                ],
+                "end": 119,
+                "loc": {
+                  "end": {
+                    "column": 107,
+                    "line": 3,
+                  },
+                  "start": {
+                    "column": 4,
+                    "line": 3,
+                  },
+                },
+                "range": [
+                  16,
+                  119,
+                ],
+                "raw": "[Cookie settings in Firefox](https://support.mozilla.org/en-US/kb/Enabling%20and%20disabling%20cookies)",
+                "start": 16,
+                "title": null,
+                "type": "MDLink",
+                "url": "https://support.mozilla.org/en-US/kb/Enabling%20and%20disabling%20cookies",
+              },
+            ],
+            "closingElement": {
+              "end": 127,
+              "loc": {
+                "end": {
+                  "column": 7,
+                  "line": 4,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 4,
+                },
+              },
+              "name": {
+                "end": 126,
+                "loc": {
+                  "end": {
+                    "column": 6,
+                    "line": 4,
+                  },
+                  "start": {
+                    "column": 4,
+                    "line": 4,
+                  },
+                },
+                "name": "li",
+                "range": [
+                  124,
+                  126,
+                ],
+                "raw": "li",
+                "start": 124,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                122,
+                127,
+              ],
+              "raw": "</li>",
+              "start": 122,
+              "type": "JSXClosingElement",
+            },
+            "end": 127,
+            "loc": {
+              "end": {
+                "column": 7,
+                "line": 4,
+              },
+              "start": {
+                "column": 2,
+                "line": 2,
+              },
+            },
+            "openingElement": {
+              "attributes": [],
+              "end": 11,
+              "loc": {
+                "end": {
+                  "column": 6,
+                  "line": 2,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 2,
+                },
+              },
+              "name": {
+                "end": 10,
+                "loc": {
+                  "end": {
+                    "column": 5,
+                    "line": 2,
+                  },
+                  "start": {
+                    "column": 3,
+                    "line": 2,
+                  },
+                },
+                "name": "li",
+                "range": [
+                  8,
+                  10,
+                ],
+                "raw": "li",
+                "start": 8,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                7,
+                11,
+              ],
+              "raw": "<li>",
+              "selfClosing": false,
+              "start": 7,
+              "type": "JSXOpeningElement",
+            },
+            "range": [
+              7,
+              127,
+            ],
+            "raw": "<li>
+    [Cookie settings in Firefox](https://support.mozilla.org/en-US/kb/Enabling%20and%20disabling%20cookies)
+  </li>",
+            "start": 7,
+            "type": "JSXElement",
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "end": 166,
+                    "loc": {
+                      "end": {
+                        "column": 38,
+                        "line": 5,
+                      },
+                      "start": {
+                        "column": 7,
+                        "line": 5,
+                      },
+                    },
+                    "range": [
+                      135,
+                      166,
+                    ],
+                    "raw": "Cookie settings in Safari (iOS)",
+                    "start": 135,
+                    "type": "MDText",
+                    "value": "Cookie settings in Safari (iOS)",
+                  },
+                ],
+                "end": 209,
+                "loc": {
+                  "end": {
+                    "column": 81,
+                    "line": 5,
+                  },
+                  "start": {
+                    "column": 6,
+                    "line": 5,
+                  },
+                },
+                "range": [
+                  134,
+                  209,
+                ],
+                "raw": "[Cookie settings in Safari (iOS)](https://support.apple.com/en-us/HT201265)",
+                "start": 134,
+                "title": null,
+                "type": "MDLink",
+                "url": "https://support.apple.com/en-us/HT201265",
+              },
+            ],
+            "closingElement": {
+              "end": 214,
+              "loc": {
+                "end": {
+                  "column": 86,
+                  "line": 5,
+                },
+                "start": {
+                  "column": 81,
+                  "line": 5,
+                },
+              },
+              "name": {
+                "end": 213,
+                "loc": {
+                  "end": {
+                    "column": 85,
+                    "line": 5,
+                  },
+                  "start": {
+                    "column": 83,
+                    "line": 5,
+                  },
+                },
+                "name": "li",
+                "range": [
+                  211,
+                  213,
+                ],
+                "raw": "li",
+                "start": 211,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                209,
+                214,
+              ],
+              "raw": "</li>",
+              "start": 209,
+              "type": "JSXClosingElement",
+            },
+            "end": 214,
+            "loc": {
+              "end": {
+                "column": 86,
+                "line": 5,
+              },
+              "start": {
+                "column": 2,
+                "line": 5,
+              },
+            },
+            "openingElement": {
+              "attributes": [],
+              "end": 134,
+              "loc": {
+                "end": {
+                  "column": 6,
+                  "line": 5,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 5,
+                },
+              },
+              "name": {
+                "end": 133,
+                "loc": {
+                  "end": {
+                    "column": 5,
+                    "line": 5,
+                  },
+                  "start": {
+                    "column": 3,
+                    "line": 5,
+                  },
+                },
+                "name": "li",
+                "range": [
+                  131,
+                  133,
+                ],
+                "raw": "li",
+                "start": 131,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                130,
+                134,
+              ],
+              "raw": "<li>",
+              "selfClosing": false,
+              "start": 130,
+              "type": "JSXOpeningElement",
+            },
+            "range": [
+              130,
+              214,
+            ],
+            "raw": "<li>[Cookie settings in Safari (iOS)](https://support.apple.com/en-us/HT201265)</li>",
+            "start": 130,
+            "type": "JSXElement",
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "end": 236,
+                    "loc": {
+                      "end": {
+                        "column": 14,
+                        "line": 7,
+                      },
+                      "start": {
+                        "column": 10,
+                        "line": 7,
+                      },
+                    },
+                    "range": [
+                      232,
+                      236,
+                    ],
+                    "raw": "Text",
+                    "start": 232,
+                    "type": "JSXText",
+                    "value": "Text",
+                  },
+                ],
+                "closingElement": {
+                  "end": 243,
+                  "loc": {
+                    "end": {
+                      "column": 21,
+                      "line": 7,
+                    },
+                    "start": {
+                      "column": 14,
+                      "line": 7,
+                    },
+                  },
+                  "name": {
+                    "end": 242,
+                    "loc": {
+                      "end": {
+                        "column": 20,
+                        "line": 7,
+                      },
+                      "start": {
+                        "column": 16,
+                        "line": 7,
+                      },
+                    },
+                    "name": "span",
+                    "range": [
+                      238,
+                      242,
+                    ],
+                    "raw": "span",
+                    "start": 238,
+                    "type": "JSXIdentifier",
+                  },
+                  "range": [
+                    236,
+                    243,
+                  ],
+                  "raw": "</span>",
+                  "start": 236,
+                  "type": "JSXClosingElement",
+                },
+                "end": 243,
+                "loc": {
+                  "end": {
+                    "column": 21,
+                    "line": 7,
+                  },
+                  "start": {
+                    "column": 4,
+                    "line": 7,
+                  },
+                },
+                "openingElement": {
+                  "attributes": [],
+                  "end": 232,
+                  "loc": {
+                    "end": {
+                      "column": 10,
+                      "line": 7,
+                    },
+                    "start": {
+                      "column": 4,
+                      "line": 7,
+                    },
+                  },
+                  "name": {
+                    "end": 231,
+                    "loc": {
+                      "end": {
+                        "column": 9,
+                        "line": 7,
+                      },
+                      "start": {
+                        "column": 5,
+                        "line": 7,
+                      },
+                    },
+                    "name": "span",
+                    "range": [
+                      227,
+                      231,
+                    ],
+                    "raw": "span",
+                    "start": 227,
+                    "type": "JSXIdentifier",
+                  },
+                  "range": [
+                    226,
+                    232,
+                  ],
+                  "raw": "<span>",
+                  "selfClosing": false,
+                  "start": 226,
+                  "type": "JSXOpeningElement",
+                },
+                "range": [
+                  226,
+                  243,
+                ],
+                "raw": "<span>Text</span>",
+                "start": 226,
+                "type": "JSXElement",
+              },
+              {
+                "end": 244,
+                "loc": {
+                  "end": {
+                    "column": 0,
+                    "line": 8,
+                  },
+                  "start": {
+                    "column": 21,
+                    "line": 7,
+                  },
+                },
+                "range": [
+                  243,
+                  244,
+                ],
+                "raw": "
+",
+                "start": 243,
+                "type": "JSXText",
+                "value": "
+",
+              },
+              {
+                "children": [
+                  {
+                    "end": 264,
+                    "loc": {
+                      "end": {
+                        "column": 20,
+                        "line": 8,
+                      },
+                      "start": {
+                        "column": 5,
+                        "line": 8,
+                      },
+                    },
+                    "range": [
+                      249,
+                      264,
+                    ],
+                    "raw": "Cookie settings",
+                    "start": 249,
+                    "type": "MDText",
+                    "value": "Cookie settings",
+                  },
+                ],
+                "end": 286,
+                "loc": {
+                  "end": {
+                    "column": 42,
+                    "line": 8,
+                  },
+                  "start": {
+                    "column": 4,
+                    "line": 8,
+                  },
+                },
+                "range": [
+                  248,
+                  286,
+                ],
+                "raw": "[Cookie settings](https://example.com)",
+                "start": 248,
+                "title": null,
+                "type": "MDLink",
+                "url": "https://example.com",
+              },
+            ],
+            "closingElement": {
+              "end": 294,
+              "loc": {
+                "end": {
+                  "column": 7,
+                  "line": 9,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 9,
+                },
+              },
+              "name": {
+                "end": 293,
+                "loc": {
+                  "end": {
+                    "column": 6,
+                    "line": 9,
+                  },
+                  "start": {
+                    "column": 4,
+                    "line": 9,
+                  },
+                },
+                "name": "li",
+                "range": [
+                  291,
+                  293,
+                ],
+                "raw": "li",
+                "start": 291,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                289,
+                294,
+              ],
+              "raw": "</li>",
+              "start": 289,
+              "type": "JSXClosingElement",
+            },
+            "end": 294,
+            "loc": {
+              "end": {
+                "column": 7,
+                "line": 9,
+              },
+              "start": {
+                "column": 2,
+                "line": 6,
+              },
+            },
+            "openingElement": {
+              "attributes": [],
+              "end": 221,
+              "loc": {
+                "end": {
+                  "column": 6,
+                  "line": 6,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 6,
+                },
+              },
+              "name": {
+                "end": 220,
+                "loc": {
+                  "end": {
+                    "column": 5,
+                    "line": 6,
+                  },
+                  "start": {
+                    "column": 3,
+                    "line": 6,
+                  },
+                },
+                "name": "li",
+                "range": [
+                  218,
+                  220,
+                ],
+                "raw": "li",
+                "start": 218,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                217,
+                221,
+              ],
+              "raw": "<li>",
+              "selfClosing": false,
+              "start": 217,
+              "type": "JSXOpeningElement",
+            },
+            "range": [
+              217,
+              294,
+            ],
+            "raw": "<li>
+    <span>Text</span>
+    [Cookie settings](https://example.com)
+  </li>",
+            "start": 217,
+            "type": "JSXElement",
+          },
+        ],
+        "closingElement": {
+          "end": 300,
+          "loc": {
+            "end": {
+              "column": 5,
+              "line": 10,
+            },
+            "start": {
+              "column": 0,
+              "line": 10,
+            },
+          },
+          "name": {
+            "end": 299,
+            "loc": {
+              "end": {
+                "column": 4,
+                "line": 10,
+              },
+              "start": {
+                "column": 2,
+                "line": 10,
+              },
+            },
+            "name": "ul",
+            "range": [
+              297,
+              299,
+            ],
+            "raw": "ul",
+            "start": 297,
+            "type": "JSXIdentifier",
+          },
+          "range": [
+            295,
+            300,
+          ],
+          "raw": "</ul>",
+          "start": 295,
+          "type": "JSXClosingElement",
+        },
+        "end": 300,
+        "loc": {
+          "end": {
+            "column": 5,
+            "line": 10,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "openingElement": {
+          "attributes": [],
+          "end": 4,
+          "loc": {
+            "end": {
+              "column": 4,
+              "line": 1,
+            },
+            "start": {
+              "column": 0,
+              "line": 1,
+            },
+          },
+          "name": {
+            "end": 3,
+            "loc": {
+              "end": {
+                "column": 3,
+                "line": 1,
+              },
+              "start": {
+                "column": 1,
+                "line": 1,
+              },
+            },
+            "name": "ul",
+            "range": [
+              1,
+              3,
+            ],
+            "raw": "ul",
+            "start": 1,
+            "type": "JSXIdentifier",
+          },
+          "range": [
+            0,
+            4,
+          ],
+          "raw": "<ul>",
+          "selfClosing": false,
+          "start": 0,
+          "type": "JSXOpeningElement",
+        },
+        "range": [
+          0,
+          300,
+        ],
+        "raw": "<ul>
+  <li>
+    [Cookie settings in Firefox](https://support.mozilla.org/en-US/kb/Enabling%20and%20disabling%20cookies)
+  </li>
+  <li>[Cookie settings in Safari (iOS)](https://support.apple.com/en-us/HT201265)</li>
+  <li>
+    <span>Text</span>
+    [Cookie settings](https://example.com)
+  </li>
+</ul>",
+        "start": 0,
+        "type": "JSXElement",
+      },
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 10,
+          "offset": 300,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "range": [
+        0,
+        300,
+      ],
+      "start": 0,
+      "type": "ExpressionStatement",
+    },
+  ],
+  "comments": [],
+  "end": 301,
+  "loc": {
+    "end": {
+      "column": 1,
+      "line": 11,
+      "offset": 301,
+    },
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "range": [
+    0,
+    301,
+  ],
+  "sourceType": undefined,
+  "start": 0,
+  "tokens": [
+    {
+      "end": 1,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 1,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 3,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        1,
+        3,
+      ],
+      "start": 1,
+      "type": "JSXIdentifier",
+      "value": "ul",
+    },
+    {
+      "end": 7,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 2,
+        },
+        "start": {
+          "column": 4,
+          "line": 1,
+        },
+      },
+      "range": [
+        4,
+        7,
+      ],
+      "start": 4,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
+      "end": 8,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 2,
+        },
+        "start": {
+          "column": 2,
+          "line": 2,
+        },
+      },
+      "range": [
+        7,
+        8,
+      ],
+      "start": 7,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 10,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 2,
+        },
+        "start": {
+          "column": 3,
+          "line": 2,
+        },
+      },
+      "range": [
+        8,
+        10,
+      ],
+      "start": 8,
+      "type": "JSXIdentifier",
+      "value": "li",
+    },
+    {
+      "end": 16,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 3,
+        },
+        "start": {
+          "column": 6,
+          "line": 2,
+        },
+      },
+      "range": [
+        11,
+        16,
+      ],
+      "start": 11,
+      "type": "JSXText",
+      "value": "
+    ",
+    },
+    {
+      "end": 43,
+      "loc": {
+        "end": {
+          "column": 31,
+          "line": 3,
+        },
+        "start": {
+          "column": 5,
+          "line": 3,
+        },
+      },
+      "range": [
+        17,
+        43,
+      ],
+      "start": 17,
+      "type": "JSXText",
+      "value": "Cookie settings in Firefox",
+    },
+    {
+      "end": 122,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 4,
+        },
+        "start": {
+          "column": 107,
+          "line": 3,
+        },
+      },
+      "range": [
+        119,
+        122,
+      ],
+      "start": 119,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
+      "end": 123,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 4,
+        },
+        "start": {
+          "column": 2,
+          "line": 4,
+        },
+      },
+      "range": [
+        122,
+        123,
+      ],
+      "start": 122,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 124,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 4,
+        },
+        "start": {
+          "column": 3,
+          "line": 4,
+        },
+      },
+      "range": [
+        123,
+        124,
+      ],
+      "start": 123,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    {
+      "end": 126,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 4,
+        },
+        "start": {
+          "column": 4,
+          "line": 4,
+        },
+      },
+      "range": [
+        124,
+        126,
+      ],
+      "start": 124,
+      "type": "JSXIdentifier",
+      "value": "li",
+    },
+    {
+      "end": 127,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 4,
+        },
+        "start": {
+          "column": 6,
+          "line": 4,
+        },
+      },
+      "range": [
+        126,
+        127,
+      ],
+      "start": 126,
+      "type": "Punctuator",
+      "value": ">",
+    },
+    {
+      "end": 130,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 5,
+        },
+        "start": {
+          "column": 7,
+          "line": 4,
+        },
+      },
+      "range": [
+        127,
+        130,
+      ],
+      "start": 127,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
+      "end": 131,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 5,
+        },
+        "start": {
+          "column": 2,
+          "line": 5,
+        },
+      },
+      "range": [
+        130,
+        131,
+      ],
+      "start": 130,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 133,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 5,
+        },
+        "start": {
+          "column": 3,
+          "line": 5,
+        },
+      },
+      "range": [
+        131,
+        133,
+      ],
+      "start": 131,
+      "type": "JSXIdentifier",
+      "value": "li",
+    },
+    {
+      "end": 166,
+      "loc": {
+        "end": {
+          "column": 38,
+          "line": 5,
+        },
+        "start": {
+          "column": 7,
+          "line": 5,
+        },
+      },
+      "range": [
+        135,
+        166,
+      ],
+      "start": 135,
+      "type": "JSXText",
+      "value": "Cookie settings in Safari (iOS)",
+    },
+    {
+      "end": 210,
+      "loc": {
+        "end": {
+          "column": 82,
+          "line": 5,
+        },
+        "start": {
+          "column": 81,
+          "line": 5,
+        },
+      },
+      "range": [
+        209,
+        210,
+      ],
+      "start": 209,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 211,
+      "loc": {
+        "end": {
+          "column": 83,
+          "line": 5,
+        },
+        "start": {
+          "column": 82,
+          "line": 5,
+        },
+      },
+      "range": [
+        210,
+        211,
+      ],
+      "start": 210,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    {
+      "end": 213,
+      "loc": {
+        "end": {
+          "column": 85,
+          "line": 5,
+        },
+        "start": {
+          "column": 83,
+          "line": 5,
+        },
+      },
+      "range": [
+        211,
+        213,
+      ],
+      "start": 211,
+      "type": "JSXIdentifier",
+      "value": "li",
+    },
+    {
+      "end": 214,
+      "loc": {
+        "end": {
+          "column": 86,
+          "line": 5,
+        },
+        "start": {
+          "column": 85,
+          "line": 5,
+        },
+      },
+      "range": [
+        213,
+        214,
+      ],
+      "start": 213,
+      "type": "Punctuator",
+      "value": ">",
+    },
+    {
+      "end": 217,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 6,
+        },
+        "start": {
+          "column": 86,
+          "line": 5,
+        },
+      },
+      "range": [
+        214,
+        217,
+      ],
+      "start": 214,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
+      "end": 218,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 6,
+        },
+        "start": {
+          "column": 2,
+          "line": 6,
+        },
+      },
+      "range": [
+        217,
+        218,
+      ],
+      "start": 217,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 220,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 6,
+        },
+        "start": {
+          "column": 3,
+          "line": 6,
+        },
+      },
+      "range": [
+        218,
+        220,
+      ],
+      "start": 218,
+      "type": "JSXIdentifier",
+      "value": "li",
+    },
+    {
+      "end": 226,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 7,
+        },
+        "start": {
+          "column": 6,
+          "line": 6,
+        },
+      },
+      "range": [
+        221,
+        226,
+      ],
+      "start": 221,
+      "type": "JSXText",
+      "value": "
+    ",
+    },
+    {
+      "end": 227,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 7,
+        },
+        "start": {
+          "column": 4,
+          "line": 7,
+        },
+      },
+      "range": [
+        226,
+        227,
+      ],
+      "start": 226,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 231,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 7,
+        },
+        "start": {
+          "column": 5,
+          "line": 7,
+        },
+      },
+      "range": [
+        227,
+        231,
+      ],
+      "start": 227,
+      "type": "JSXIdentifier",
+      "value": "span",
+    },
+    {
+      "end": 236,
+      "loc": {
+        "end": {
+          "column": 14,
+          "line": 7,
+        },
+        "start": {
+          "column": 10,
+          "line": 7,
+        },
+      },
+      "range": [
+        232,
+        236,
+      ],
+      "start": 232,
+      "type": "JSXText",
+      "value": "Text",
+    },
+    {
+      "end": 237,
+      "loc": {
+        "end": {
+          "column": 15,
+          "line": 7,
+        },
+        "start": {
+          "column": 14,
+          "line": 7,
+        },
+      },
+      "range": [
+        236,
+        237,
+      ],
+      "start": 236,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 238,
+      "loc": {
+        "end": {
+          "column": 16,
+          "line": 7,
+        },
+        "start": {
+          "column": 15,
+          "line": 7,
+        },
+      },
+      "range": [
+        237,
+        238,
+      ],
+      "start": 237,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    {
+      "end": 242,
+      "loc": {
+        "end": {
+          "column": 20,
+          "line": 7,
+        },
+        "start": {
+          "column": 16,
+          "line": 7,
+        },
+      },
+      "range": [
+        238,
+        242,
+      ],
+      "start": 238,
+      "type": "JSXIdentifier",
+      "value": "span",
+    },
+    {
+      "end": 243,
+      "loc": {
+        "end": {
+          "column": 21,
+          "line": 7,
+        },
+        "start": {
+          "column": 20,
+          "line": 7,
+        },
+      },
+      "range": [
+        242,
+        243,
+      ],
+      "start": 242,
+      "type": "Punctuator",
+      "value": ">",
+    },
+    {
+      "end": 244,
+      "loc": {
+        "end": {
+          "column": 0,
+          "line": 8,
+        },
+        "start": {
+          "column": 21,
+          "line": 7,
+        },
+      },
+      "range": [
+        243,
+        244,
+      ],
+      "start": 243,
+      "type": "JSXText",
+      "value": "
+",
+    },
+    {
+      "end": 264,
+      "loc": {
+        "end": {
+          "column": 20,
+          "line": 8,
+        },
+        "start": {
+          "column": 5,
+          "line": 8,
+        },
+      },
+      "range": [
+        249,
+        264,
+      ],
+      "start": 249,
+      "type": "JSXText",
+      "value": "Cookie settings",
+    },
+    {
+      "end": 289,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 9,
+        },
+        "start": {
+          "column": 42,
+          "line": 8,
+        },
+      },
+      "range": [
+        286,
+        289,
+      ],
+      "start": 286,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
+      "end": 290,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 9,
+        },
+        "start": {
+          "column": 2,
+          "line": 9,
+        },
+      },
+      "range": [
+        289,
+        290,
+      ],
+      "start": 289,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 291,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 9,
+        },
+        "start": {
+          "column": 3,
+          "line": 9,
+        },
+      },
+      "range": [
+        290,
+        291,
+      ],
+      "start": 290,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    {
+      "end": 293,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 9,
+        },
+        "start": {
+          "column": 4,
+          "line": 9,
+        },
+      },
+      "range": [
+        291,
+        293,
+      ],
+      "start": 291,
+      "type": "JSXIdentifier",
+      "value": "li",
+    },
+    {
+      "end": 294,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 9,
+        },
+        "start": {
+          "column": 6,
+          "line": 9,
+        },
+      },
+      "range": [
+        293,
+        294,
+      ],
+      "start": 293,
+      "type": "Punctuator",
+      "value": ">",
+    },
+    {
+      "end": 295,
+      "loc": {
+        "end": {
+          "column": 0,
+          "line": 10,
+        },
+        "start": {
+          "column": 7,
+          "line": 9,
+        },
+      },
+      "range": [
+        294,
+        295,
+      ],
+      "start": 294,
+      "type": "JSXText",
+      "value": "
+",
+    },
+    {
+      "end": 296,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 10,
+        },
+        "start": {
+          "column": 0,
+          "line": 10,
+        },
+      },
+      "range": [
+        295,
+        296,
+      ],
+      "start": 295,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 297,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 10,
+        },
+        "start": {
+          "column": 1,
+          "line": 10,
+        },
+      },
+      "range": [
+        296,
+        297,
+      ],
+      "start": 296,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    {
+      "end": 299,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 10,
+        },
+        "start": {
+          "column": 2,
+          "line": 10,
+        },
+      },
+      "range": [
+        297,
+        299,
+      ],
+      "start": 297,
+      "type": "JSXIdentifier",
+      "value": "ul",
+    },
+    {
+      "end": 300,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 10,
+        },
+        "start": {
+          "column": 4,
+          "line": 10,
+        },
+      },
+      "range": [
+        299,
+        300,
+      ],
+      "start": 299,
+      "type": "Punctuator",
+      "value": ">",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
 exports[`parser should match all AST snapshots: 576.mdx 1`] = `
 {
   "body": [
@@ -51939,6 +53582,51 @@ the installation guides.",
       "expression": {
         "children": [
           {
+            "children": [
+              {
+                "end": 262,
+                "loc": {
+                  "end": {
+                    "column": 8,
+                    "line": 17,
+                  },
+                  "start": {
+                    "column": 1,
+                    "line": 17,
+                  },
+                },
+                "range": [
+                  255,
+                  262,
+                ],
+                "raw": "Next.js",
+                "start": 255,
+                "type": "MDText",
+                "value": "Next.js",
+              },
+            ],
+            "end": 286,
+            "loc": {
+              "end": {
+                "column": 32,
+                "line": 17,
+              },
+              "start": {
+                "column": 0,
+                "line": 17,
+              },
+            },
+            "range": [
+              254,
+              286,
+            ],
+            "raw": "[Next.js](/getting-started/next)",
+            "start": 254,
+            "title": null,
+            "type": "MDLink",
+            "url": "/getting-started/next",
+          },
+          {
             "end": 290,
             "loc": {
               "end": {
@@ -51960,6 +53648,51 @@ the installation guides.",
             "type": "JSXText",
             "value": " |
 ",
+          },
+          {
+            "children": [
+              {
+                "end": 297,
+                "loc": {
+                  "end": {
+                    "column": 7,
+                    "line": 18,
+                  },
+                  "start": {
+                    "column": 1,
+                    "line": 18,
+                  },
+                },
+                "range": [
+                  291,
+                  297,
+                ],
+                "raw": "Gatsby",
+                "start": 291,
+                "type": "MDText",
+                "value": "Gatsby",
+              },
+            ],
+            "end": 323,
+            "loc": {
+              "end": {
+                "column": 33,
+                "line": 18,
+              },
+              "start": {
+                "column": 0,
+                "line": 18,
+              },
+            },
+            "range": [
+              290,
+              323,
+            ],
+            "raw": "[Gatsby](/getting-started/gatsby)",
+            "start": 290,
+            "title": null,
+            "type": "MDLink",
+            "url": "/getting-started/gatsby",
           },
           {
             "end": 327,
@@ -51985,6 +53718,51 @@ the installation guides.",
 ",
           },
           {
+            "children": [
+              {
+                "end": 344,
+                "loc": {
+                  "end": {
+                    "column": 17,
+                    "line": 19,
+                  },
+                  "start": {
+                    "column": 1,
+                    "line": 19,
+                  },
+                },
+                "range": [
+                  328,
+                  344,
+                ],
+                "raw": "Create React App",
+                "start": 328,
+                "type": "MDText",
+                "value": "Create React App",
+              },
+            ],
+            "end": 380,
+            "loc": {
+              "end": {
+                "column": 53,
+                "line": 19,
+              },
+              "start": {
+                "column": 0,
+                "line": 19,
+              },
+            },
+            "range": [
+              327,
+              380,
+            ],
+            "raw": "[Create React App](/getting-started/create-react-app)",
+            "start": 327,
+            "title": null,
+            "type": "MDLink",
+            "url": "/getting-started/create-react-app",
+          },
+          {
             "end": 384,
             "loc": {
               "end": {
@@ -52006,6 +53784,51 @@ the installation guides.",
             "type": "JSXText",
             "value": " |
 ",
+          },
+          {
+            "children": [
+              {
+                "end": 397,
+                "loc": {
+                  "end": {
+                    "column": 13,
+                    "line": 20,
+                  },
+                  "start": {
+                    "column": 1,
+                    "line": 20,
+                  },
+                },
+                "range": [
+                  385,
+                  397,
+                ],
+                "raw": "React Static",
+                "start": 385,
+                "type": "MDText",
+                "value": "React Static",
+              },
+            ],
+            "end": 429,
+            "loc": {
+              "end": {
+                "column": 45,
+                "line": 20,
+              },
+              "start": {
+                "column": 0,
+                "line": 20,
+              },
+            },
+            "range": [
+              384,
+              429,
+            ],
+            "raw": "[React Static](/getting-started/react-static)",
+            "start": 384,
+            "title": null,
+            "type": "MDLink",
+            "url": "/getting-started/react-static",
           },
           {
             "end": 433,
@@ -52031,6 +53854,51 @@ the installation guides.",
 ",
           },
           {
+            "children": [
+              {
+                "end": 441,
+                "loc": {
+                  "end": {
+                    "column": 8,
+                    "line": 21,
+                  },
+                  "start": {
+                    "column": 1,
+                    "line": 21,
+                  },
+                },
+                "range": [
+                  434,
+                  441,
+                ],
+                "raw": "Webpack",
+                "start": 434,
+                "type": "MDText",
+                "value": "Webpack",
+              },
+            ],
+            "end": 468,
+            "loc": {
+              "end": {
+                "column": 35,
+                "line": 21,
+              },
+              "start": {
+                "column": 0,
+                "line": 21,
+              },
+            },
+            "range": [
+              433,
+              468,
+            ],
+            "raw": "[Webpack](/getting-started/webpack)",
+            "start": 433,
+            "title": null,
+            "type": "MDLink",
+            "url": "/getting-started/webpack",
+          },
+          {
             "end": 472,
             "loc": {
               "end": {
@@ -52054,6 +53922,51 @@ the installation guides.",
 ",
           },
           {
+            "children": [
+              {
+                "end": 479,
+                "loc": {
+                  "end": {
+                    "column": 7,
+                    "line": 22,
+                  },
+                  "start": {
+                    "column": 1,
+                    "line": 22,
+                  },
+                },
+                "range": [
+                  473,
+                  479,
+                ],
+                "raw": "Parcel",
+                "start": 473,
+                "type": "MDText",
+                "value": "Parcel",
+              },
+            ],
+            "end": 505,
+            "loc": {
+              "end": {
+                "column": 33,
+                "line": 22,
+              },
+              "start": {
+                "column": 0,
+                "line": 22,
+              },
+            },
+            "range": [
+              472,
+              505,
+            ],
+            "raw": "[Parcel](/getting-started/parcel)",
+            "start": 472,
+            "title": null,
+            "type": "MDLink",
+            "url": "/getting-started/parcel",
+          },
+          {
             "end": 509,
             "loc": {
               "end": {
@@ -52075,6 +53988,51 @@ the installation guides.",
             "type": "JSXText",
             "value": " |
 ",
+          },
+          {
+            "children": [
+              {
+                "end": 514,
+                "loc": {
+                  "end": {
+                    "column": 5,
+                    "line": 23,
+                  },
+                  "start": {
+                    "column": 1,
+                    "line": 23,
+                  },
+                },
+                "range": [
+                  510,
+                  514,
+                ],
+                "raw": "Zero",
+                "start": 510,
+                "type": "MDText",
+                "value": "Zero",
+              },
+            ],
+            "end": 538,
+            "loc": {
+              "end": {
+                "column": 29,
+                "line": 23,
+              },
+              "start": {
+                "column": 0,
+                "line": 23,
+              },
+            },
+            "range": [
+              509,
+              538,
+            ],
+            "raw": "[Zero](/getting-started/zero)",
+            "start": 509,
+            "title": null,
+            "type": "MDLink",
+            "url": "/getting-started/zero",
           },
         ],
         "closingElement": {
