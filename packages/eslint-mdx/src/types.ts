@@ -271,13 +271,13 @@ export type MDContentNode =
 
 declare module 'estree' {
   interface ProgramBodyMap {
+    // Markdown
     MDBlockquote: MDBlockquote
     MDBreak: MDBreak
     MDCode: MDCode
     MDDefinition: MDDefinition
     MDDelete: MDDelete
     MDEmphasis: MDEmphasis
-    MDXFlowExpression: MDXFlowExpression
     MDFootnoteDefinition: MDFootnoteDefinition
     MDFootnoteReference: MDFootnoteReference
     MDHeading: MDHeading
@@ -296,10 +296,13 @@ declare module 'estree' {
     MDTableCell: MDTableCell
     MDTableRow: MDTableRow
     MDText: MDText
-    MDXTextExpression: MDXTextExpression
     MDThematicBreak: MDThematicBreak
     MDToml: MDToml
     MDYaml: MDYaml
+
+    // MDX
+    MDXFlowExpression: MDXFlowExpression
+    MDXTextExpression: MDXTextExpression
   }
 
   interface TemplateElement {

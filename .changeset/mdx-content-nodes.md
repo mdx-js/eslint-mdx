@@ -16,3 +16,5 @@ Add `MDCode`, `MDHeading`, `MDParagraph`, `MDText`, `MDList`, `MDListItem`,
 including their emitted `type` strings.
 
 Closes [#503](https://github.com/mdx-js/eslint-mdx/issues/503).
+
+`@types/estree@^1.0.10` is declared as an optional peer dependency.
