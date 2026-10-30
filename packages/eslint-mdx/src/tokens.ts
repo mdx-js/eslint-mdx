@@ -1,8 +1,7 @@
 /// <reference types="remark-mdx" />
 
-import { strict as assert } from 'node:assert'
-
 import type { Token, TokenType, tokTypes } from 'acorn'
+import { ok as assert } from 'devlop'
 import type { Root } from 'mdast'
 import type { visit as visitor } from 'unist-util-visit'
 
@@ -67,15 +66,15 @@ export const restoreTokens = (
 
     const nodePos = node.position
 
-    assert.ok(nodePos)
+    assert(nodePos)
 
     const nodeStart = nodePos.start.offset
     const nodeEnd = nodePos.end.offset
 
     const lastCharOffset = prevCharOffset(nodeEnd - 2)
 
-    assert.ok(nodeStart != null)
-    assert.ok(nodeEnd != null)
+    assert(nodeStart != null)
+    assert(nodeEnd != null)
 
     if (node.type === 'mdxFlowExpression') {
       tokens.push(
@@ -103,7 +102,7 @@ export const restoreTokens = (
     if (nodeName) {
       nodeNameStart = nextCharOffset(nodeStart + 1)
 
-      assert.ok(nodeNameStart)
+      assert(nodeNameStart)
 
       tokens.push(
         newToken(
@@ -121,17 +120,17 @@ export const restoreTokens = (
     for (const attr of node.attributes) {
       // already handled by acorn
       if (attr.type === 'mdxJsxExpressionAttribute') {
-        assert.ok(attr.data)
-        assert.ok(attr.data.estree)
-        assert.ok(attr.data.estree.range)
+        assert(attr.data)
+        assert(attr.data.estree)
+        assert(attr.data.estree.range)
 
         let [attrValStart, attrValEnd] = attr.data.estree.range
 
         attrValStart = prevCharOffset(attrValStart - 1)
         attrValEnd = nextCharOffset(attrValEnd)
 
-        assert.ok(text[attrValStart] === '{')
-        assert.ok(text[attrValEnd] === '}')
+        assert(text[attrValStart] === '{')
+        assert(text[attrValEnd] === '}')
 
         lastAttrOffset = attrValEnd
 
@@ -156,7 +155,7 @@ export const restoreTokens = (
 
       const attrStart = nextCharOffset(lastAttrOffset + 1)
 
-      assert.ok(attrStart != null)
+      assert(attrStart != null)
 
       const attrName = attr.name
       const attrNameLength = attrName.length
@@ -176,7 +175,7 @@ export const restoreTokens = (
 
       const attrEqualOffset = nextCharOffset(attrStart + attrNameLength)
 
-      assert.ok(text[attrEqualOffset] === '=')
+      assert(text[attrEqualOffset] === '=')
 
       tokens.push(newToken(tt.eq, attrEqualOffset, attrEqualOffset + 1, '='))
 
@@ -189,8 +188,8 @@ export const restoreTokens = (
         attrValStart = prevCharOffset(attrValStart - 1)
         attrValEnd = nextCharOffset(attrValEnd)
 
-        assert.ok(text[attrValStart] === '{')
-        assert.ok(text[attrValEnd] === '}')
+        assert(text[attrValStart] === '{')
+        assert(text[attrValEnd] === '}')
 
         lastAttrOffset = attrValEnd
 
@@ -206,7 +205,7 @@ export const restoreTokens = (
 
       const attrQuote = text[attrQuoteOffset]
 
-      assert.ok(attrQuote === '"' || attrQuote === "'")
+      assert(attrQuote === '"' || attrQuote === "'")
 
       tokens.push(
         newToken(
@@ -219,7 +218,7 @@ export const restoreTokens = (
 
       lastAttrOffset = nextCharOffset(attrQuoteOffset + attrValue.length + 1)
 
-      assert.ok(text[lastAttrOffset] === attrQuote)
+      assert(text[lastAttrOffset] === attrQuote)
     }
 
     let nextOffset = nextCharOffset(lastAttrOffset + 1)
@@ -237,7 +236,7 @@ export const restoreTokens = (
     if (selfClosing) {
       tokens.push(newToken(tt.slash, nextOffset, nextOffset + 1, '/'))
     } else {
-      assert.ok(
+      assert(
         nextChar === '>',
         `\`nextChar\` must be '>' but actually is '${nextChar}'`,
       )
@@ -257,13 +256,13 @@ export const restoreTokens = (
 
       const slashOffset = prevCharOffset(prevOffset - nodeNameLength)
 
-      assert.ok(text[slashOffset] === '/')
+      assert(text[slashOffset] === '/')
 
       tokens.push(newToken(tt.slash, slashOffset, slashOffset + 1, '/'))
 
       const tagStartOffset = prevCharOffset(slashOffset - 1)
 
-      assert.ok(text[tagStartOffset] === '<')
+      assert(text[tagStartOffset] === '<')
       closingTagStart = tagStartOffset
 
       tokens.push(newToken(tt.jsxTagStart, tagStartOffset, tagStartOffset + 1))

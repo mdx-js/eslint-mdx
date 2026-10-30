@@ -1,6 +1,5 @@
 /* eslint-disable unicorn-x/no-await-expression-member */
 
-import { strict as assert } from 'node:assert'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { promisify } from 'node:util'
@@ -8,6 +7,7 @@ import { promisify } from 'node:util'
 import type { Parser, Token, TokenType, tokTypes as _tokTypes } from 'acorn'
 import * as acorn from 'acorn'
 import acornJsx from 'acorn-jsx'
+import { ok as assert } from 'devlop'
 import type { AST } from 'eslint'
 import type * as TokenTranslator_ from 'espree/lib/token-translator'
 import type {
@@ -285,7 +285,7 @@ export const getRemarkProcessor = async (
 function isExpressionStatement(
   statement: Program['body'][number],
 ): asserts statement is ExpressionStatement | undefined {
-  assert.ok(!statement || statement.type === 'ExpressionStatement')
+  assert(!statement || statement.type === 'ExpressionStatement')
 }
 
 runAsWorker(
@@ -469,7 +469,7 @@ runAsWorker(
                 if (child.data && 'estree' in child.data && child.data.estree) {
                   const { estree } = child.data
 
-                  assert.ok(estree.body.length <= 1)
+                  assert(estree.body.length <= 1)
 
                   const statement = estree.body[0]
 
@@ -588,12 +588,12 @@ runAsWorker(
             if (!selfClosing) {
               const prevOffset = prevCharOffset(lastCharOffset)
               const slashOffset = prevCharOffset(prevOffset - nodeNameLength)
-              assert.ok(
+              assert(
                 code[slashOffset] === '/',
                 `expect \`${code[slashOffset]}\` to be \`/\`, the node is ${node.name}`,
               )
               const tagStartOffset = prevCharOffset(slashOffset - 1)
-              assert.ok(code[tagStartOffset] === '<')
+              assert(code[tagStartOffset] === '<')
               closingElement = {
                 ...normalizeNode(tagStartOffset, nodeEnd),
                 type: 'JSXClosingElement',
@@ -609,17 +609,17 @@ runAsWorker(
                 name: handleJsxName(node.name, nodeNameStart),
                 attributes: node.attributes.map(attr => {
                   if (attr.type === 'mdxJsxExpressionAttribute') {
-                    assert.ok(attr.data)
-                    assert.ok(attr.data.estree)
-                    assert.ok(attr.data.estree.range)
+                    assert(attr.data)
+                    assert(attr.data.estree)
+                    assert(attr.data.estree.range)
 
                     let [attrValStart, attrValEnd] = attr.data.estree.range
 
                     attrValStart = prevCharOffset(attrValStart - 1)
                     attrValEnd = nextCharOffset(attrValEnd)
 
-                    assert.ok(code[attrValStart] === '{')
-                    assert.ok(code[attrValEnd] === '}')
+                    assert(code[attrValStart] === '{')
+                    assert(code[attrValEnd] === '}')
 
                     lastAttrOffset = attrValEnd
 
@@ -639,7 +639,7 @@ runAsWorker(
 
                   const attrStart = nextCharOffset(lastAttrOffset + 1)
 
-                  assert.ok(attrStart != null)
+                  assert(attrStart != null)
 
                   const attrName = attr.name
                   const attrNameLength = attrName.length
@@ -667,7 +667,7 @@ runAsWorker(
                     attrStart + attrNameLength,
                   )
 
-                  assert.ok(code[attrEqualOffset] === '=')
+                  assert(code[attrEqualOffset] === '=')
 
                   let attrValuePos: NormalPosition
 
@@ -676,13 +676,13 @@ runAsWorker(
 
                     const attrQuote = code[attrQuoteOffset]
 
-                    assert.ok(attrQuote === '"' || attrQuote === "'")
+                    assert(attrQuote === '"' || attrQuote === "'")
 
                     lastAttrOffset = nextCharOffset(
                       attrQuoteOffset + attrValue.length + 1,
                     )
 
-                    assert.ok(code[lastAttrOffset] === attrQuote)
+                    assert(code[lastAttrOffset] === attrQuote)
 
                     attrValuePos = normalizeNode(
                       attrQuoteOffset,
@@ -696,8 +696,8 @@ runAsWorker(
                     attrValStart = prevCharOffset(attrValStart - 1)
                     attrValEnd = nextCharOffset(attrValEnd)
 
-                    assert.ok(code[attrValStart] === '{')
-                    assert.ok(code[attrValEnd] === '}')
+                    assert(code[attrValStart] === '{')
+                    assert(code[attrValEnd] === '}')
 
                     lastAttrOffset = attrValEnd
 
@@ -745,7 +745,7 @@ runAsWorker(
               nextChar = code[nextOffset]
             }
 
-            assert.ok(
+            assert(
               nextChar === expectedNextChar,
               `\`nextChar\` must be '${expectedNextChar}' but actually is '${nextChar}'`,
             )
