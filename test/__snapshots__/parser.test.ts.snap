@@ -4627,25 +4627,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
         {
           "end": 186,
           "imported": {
-            "end": 277,
+            "end": 186,
             "loc": {
               "end": {
-                "column": 57,
-                "line": 6,
-                "offset": 277,
+                "column": 28,
+                "line": 5,
+                "offset": 186,
               },
               "start": {
-                "column": 56,
-                "line": 6,
-                "offset": 276,
+                "column": 9,
+                "line": 5,
+                "offset": 167,
               },
             },
             "name": "ActiveTestComponent",
             "range": [
-              276,
-              277,
+              167,
+              186,
             ],
-            "start": 276,
+            "start": 167,
             "type": "Identifier",
           },
           "loc": {
@@ -4661,25 +4661,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             },
           },
           "local": {
-            "end": 277,
+            "end": 186,
             "loc": {
               "end": {
-                "column": 57,
-                "line": 6,
-                "offset": 277,
+                "column": 28,
+                "line": 5,
+                "offset": 186,
               },
               "start": {
-                "column": 56,
-                "line": 6,
-                "offset": 276,
+                "column": 9,
+                "line": 5,
+                "offset": 167,
               },
             },
             "name": "ActiveTestComponent",
             "range": [
-              276,
-              277,
+              167,
+              186,
             ],
-            "start": 276,
+            "start": 167,
             "type": "Identifier",
           },
           "range": [
@@ -4739,25 +4739,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
         {
           "end": 246,
           "imported": {
-            "end": 277,
+            "end": 246,
             "loc": {
               "end": {
-                "column": 57,
+                "column": 26,
                 "line": 6,
-                "offset": 277,
+                "offset": 246,
               },
               "start": {
-                "column": 57,
+                "column": 9,
                 "line": 6,
-                "offset": 277,
+                "offset": 229,
               },
             },
             "name": "LazyTestComponent",
             "range": [
-              277,
-              277,
+              229,
+              246,
             ],
-            "start": 277,
+            "start": 229,
             "type": "Identifier",
           },
           "loc": {
@@ -4773,25 +4773,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             },
           },
           "local": {
-            "end": 277,
+            "end": 246,
             "loc": {
               "end": {
-                "column": 57,
+                "column": 26,
                 "line": 6,
-                "offset": 277,
+                "offset": 246,
               },
               "start": {
-                "column": 57,
+                "column": 9,
                 "line": 6,
-                "offset": 277,
+                "offset": 229,
               },
             },
             "name": "LazyTestComponent",
             "range": [
-              277,
-              277,
+              229,
+              246,
             ],
-            "start": 277,
+            "start": 229,
             "type": "Identifier",
           },
           "range": [
@@ -4851,25 +4851,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
         {
           "end": 302,
           "imported": {
-            "end": 416,
+            "end": 302,
             "loc": {
               "end": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 14,
+                "line": 9,
+                "offset": 302,
               },
               "start": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 2,
+                "line": 9,
+                "offset": 290,
               },
             },
             "name": "ButtonModule",
             "range": [
-              416,
-              416,
+              290,
+              302,
             ],
-            "start": 416,
+            "start": 290,
             "type": "Identifier",
           },
           "loc": {
@@ -4885,25 +4885,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             },
           },
           "local": {
-            "end": 416,
+            "end": 302,
             "loc": {
               "end": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 14,
+                "line": 9,
+                "offset": 302,
               },
               "start": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 2,
+                "line": 9,
+                "offset": 290,
               },
             },
             "name": "ButtonModule",
             "range": [
-              416,
-              416,
+              290,
+              302,
             ],
-            "start": 416,
+            "start": 290,
             "type": "Identifier",
           },
           "range": [
@@ -4916,25 +4916,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
         {
           "end": 316,
           "imported": {
-            "end": 416,
+            "end": 316,
             "loc": {
               "end": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 12,
+                "line": 10,
+                "offset": 316,
               },
               "start": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 2,
+                "line": 10,
+                "offset": 306,
               },
             },
             "name": "IconModule",
             "range": [
-              416,
-              416,
+              306,
+              316,
             ],
-            "start": 416,
+            "start": 306,
             "type": "Identifier",
           },
           "loc": {
@@ -4950,25 +4950,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             },
           },
           "local": {
-            "end": 416,
+            "end": 316,
             "loc": {
               "end": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 12,
+                "line": 10,
+                "offset": 316,
               },
               "start": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 2,
+                "line": 10,
+                "offset": 306,
               },
             },
             "name": "IconModule",
             "range": [
-              416,
-              416,
+              306,
+              316,
             ],
-            "start": 416,
+            "start": 306,
             "type": "Identifier",
           },
           "range": [
@@ -4981,25 +4981,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
         {
           "end": 330,
           "imported": {
-            "end": 416,
+            "end": 330,
             "loc": {
               "end": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 12,
+                "line": 11,
+                "offset": 330,
               },
               "start": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 2,
+                "line": 11,
+                "offset": 320,
               },
             },
             "name": "FormModule",
             "range": [
-              416,
-              416,
+              320,
+              330,
             ],
-            "start": 416,
+            "start": 320,
             "type": "Identifier",
           },
           "loc": {
@@ -5015,25 +5015,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             },
           },
           "local": {
-            "end": 416,
+            "end": 330,
             "loc": {
               "end": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 12,
+                "line": 11,
+                "offset": 330,
               },
               "start": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 2,
+                "line": 11,
+                "offset": 320,
               },
             },
             "name": "FormModule",
             "range": [
-              416,
-              416,
+              320,
+              330,
             ],
-            "start": 416,
+            "start": 320,
             "type": "Identifier",
           },
           "range": [
@@ -5046,25 +5046,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
         {
           "end": 345,
           "imported": {
-            "end": 416,
+            "end": 345,
             "loc": {
               "end": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 13,
+                "line": 12,
+                "offset": 345,
               },
               "start": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 2,
+                "line": 12,
+                "offset": 334,
               },
             },
             "name": "RadioModule",
             "range": [
-              416,
-              416,
+              334,
+              345,
             ],
-            "start": 416,
+            "start": 334,
             "type": "Identifier",
           },
           "loc": {
@@ -5080,25 +5080,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             },
           },
           "local": {
-            "end": 416,
+            "end": 345,
             "loc": {
               "end": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 13,
+                "line": 12,
+                "offset": 345,
               },
               "start": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 2,
+                "line": 12,
+                "offset": 334,
               },
             },
             "name": "RadioModule",
             "range": [
-              416,
-              416,
+              334,
+              345,
             ],
-            "start": 416,
+            "start": 334,
             "type": "Identifier",
           },
           "range": [
@@ -5111,25 +5111,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
         {
           "end": 356,
           "imported": {
-            "end": 416,
+            "end": 356,
             "loc": {
               "end": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 9,
+                "line": 13,
+                "offset": 356,
               },
               "start": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 2,
+                "line": 13,
+                "offset": 349,
               },
             },
             "name": "TabSize",
             "range": [
-              416,
-              416,
+              349,
+              356,
             ],
-            "start": 416,
+            "start": 349,
             "type": "Identifier",
           },
           "loc": {
@@ -5145,25 +5145,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             },
           },
           "local": {
-            "end": 416,
+            "end": 356,
             "loc": {
               "end": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 9,
+                "line": 13,
+                "offset": 356,
               },
               "start": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 2,
+                "line": 13,
+                "offset": 349,
               },
             },
             "name": "TabSize",
             "range": [
-              416,
-              416,
+              349,
+              356,
             ],
-            "start": 416,
+            "start": 349,
             "type": "Identifier",
           },
           "range": [
@@ -5176,25 +5176,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
         {
           "end": 367,
           "imported": {
-            "end": 416,
+            "end": 367,
             "loc": {
               "end": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 9,
+                "line": 14,
+                "offset": 367,
               },
               "start": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 2,
+                "line": 14,
+                "offset": 360,
               },
             },
             "name": "TabType",
             "range": [
-              416,
-              416,
+              360,
+              367,
             ],
-            "start": 416,
+            "start": 360,
             "type": "Identifier",
           },
           "loc": {
@@ -5210,25 +5210,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             },
           },
           "local": {
-            "end": 416,
+            "end": 367,
             "loc": {
               "end": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 9,
+                "line": 14,
+                "offset": 367,
               },
               "start": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 2,
+                "line": 14,
+                "offset": 360,
               },
             },
             "name": "TabType",
             "range": [
-              416,
-              416,
+              360,
+              367,
             ],
-            "start": 416,
+            "start": 360,
             "type": "Identifier",
           },
           "range": [
@@ -5241,25 +5241,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
         {
           "end": 381,
           "imported": {
-            "end": 416,
+            "end": 381,
             "loc": {
               "end": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 12,
+                "line": 15,
+                "offset": 381,
               },
               "start": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 2,
+                "line": 15,
+                "offset": 371,
               },
             },
             "name": "TabsModule",
             "range": [
-              416,
-              416,
+              371,
+              381,
             ],
-            "start": 416,
+            "start": 371,
             "type": "Identifier",
           },
           "loc": {
@@ -5275,25 +5275,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             },
           },
           "local": {
-            "end": 416,
+            "end": 381,
             "loc": {
               "end": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 12,
+                "line": 15,
+                "offset": 381,
               },
               "start": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 2,
+                "line": 15,
+                "offset": 371,
               },
             },
             "name": "TabsModule",
             "range": [
-              416,
-              416,
+              371,
+              381,
             ],
-            "start": 416,
+            "start": 371,
             "type": "Identifier",
           },
           "range": [
@@ -5306,25 +5306,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
         {
           "end": 395,
           "imported": {
-            "end": 416,
+            "end": 395,
             "loc": {
               "end": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 12,
+                "line": 16,
+                "offset": 395,
               },
               "start": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 2,
+                "line": 16,
+                "offset": 385,
               },
             },
             "name": "CardModule",
             "range": [
-              416,
-              416,
+              385,
+              395,
             ],
-            "start": 416,
+            "start": 385,
             "type": "Identifier",
           },
           "loc": {
@@ -5340,25 +5340,25 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
             },
           },
           "local": {
-            "end": 416,
+            "end": 395,
             "loc": {
               "end": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 12,
+                "line": 16,
+                "offset": 395,
               },
               "start": {
-                "column": 19,
-                "line": 17,
-                "offset": 416,
+                "column": 2,
+                "line": 16,
+                "offset": 385,
               },
             },
             "name": "CardModule",
             "range": [
-              416,
-              416,
+              385,
+              395,
             ],
-            "start": 416,
+            "start": 385,
             "type": "Identifier",
           },
           "range": [

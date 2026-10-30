@@ -15,6 +15,7 @@ import type {
   Comment,
   Expression,
   ExpressionStatement,
+  ImportSpecifier,
   ObjectExpression,
   Program,
   SpreadElement,
@@ -78,6 +79,48 @@ const normalizeEmptyExpression = (
   }),
   type: 'JSXEmptyExpression',
 })
+
+// Acorn reuses the same Identifier object for `import { Foo }`; the
+// position fixer visits it twice and applies the offset twice.
+const fixImportSpecifier = (specifier: ImportSpecifier) => {
+  if (specifier.imported !== specifier.local) {
+    return
+  }
+
+  const { loc, range } = specifier
+  Object.assign(specifier.local, {
+    start: range[0],
+    end: range[1],
+    loc,
+    range,
+  })
+}
+
+const fixMdxEsm = (node: Extract<Nodes, { type: 'mdxjsEsm' }>) => {
+  const estree = node.data?.estree
+
+  if (!estree) {
+    return
+  }
+
+  for (const statement of estree.body) {
+    if (statement.type === 'ImportDeclaration') {
+      for (const specifier of statement.specifiers) {
+        if (specifier.type === 'ImportSpecifier') {
+          fixImportSpecifier(specifier)
+        }
+      }
+    }
+  }
+}
+
+const fixImportSpecifierPositions = (root: Root) => {
+  for (const node of root.children) {
+    if (node.type === 'mdxjsEsm') {
+      fixMdxEsm(node)
+    }
+  }
+}
 
 const appendEstreeBody = (
   body: Program['body'],
@@ -388,6 +431,8 @@ runAsWorker(
     const tokenTranslator = new TokenTranslator(tt, code)
 
     const root = processor.parse(fileOptions)
+
+    fixImportSpecifierPositions(root)
 
     const body: Program['body'] = []
     const comments: Comment[] = []

@@ -157,4 +157,37 @@ describe('parser', () => {
     })
     expect(result.body.map(node => node.type)).toContain('MDToml')
   })
+  it('should preserve import specifier positions after leading whitespace', () => {
+    const { body } = parser.parse(
+      '\n\n\n\nimport { Foo } from "./test"\n\n<Foo />\n',
+      DEFAULT_PARSER_OPTIONS,
+    )
+    const declaration = body[0]
+
+    expect(declaration.type).toBe('ImportDeclaration')
+
+    if (declaration.type !== 'ImportDeclaration') {
+      return
+    }
+
+    const [specifier] = declaration.specifiers
+    const start = 13
+    const end = 16
+    const range = [start, end]
+
+    expect(specifier).toMatchObject({
+      range,
+      loc: {
+        start: { line: 5, column: 9, offset: start },
+        end: { line: 5, column: 12, offset: end },
+      },
+    })
+    expect(specifier.local).toMatchObject({
+      range,
+      loc: {
+        start: { line: 5, column: 9, offset: start },
+        end: { line: 5, column: 12, offset: end },
+      },
+    })
+  })
 })
