@@ -524,6 +524,13 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "column": 1,
     "endColumn": 33,
     "endLine": 17,
+    "fix": {
+      "range": [
+        253,
+        288,
+      ],
+      "text": "  [Next.js](/getting-started/next) ",
+    },
     "line": 17,
     "message": "Cannot find file <RELATIVE_GETTING_STARTED_NEXT>",
     "ruleId": "remark-validate-links:missing-file-missing-file",
@@ -533,6 +540,13 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "column": 1,
     "endColumn": 34,
     "endLine": 18,
+    "fix": {
+      "range": [
+        290,
+        325,
+      ],
+      "text": "  [Gatsby](/getting-started/gatsby) ",
+    },
     "line": 18,
     "message": "Cannot find file <RELATIVE_GETTING_STARTED_GATSBY>",
     "ruleId": "remark-validate-links:missing-file-missing-file",
@@ -542,6 +556,13 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "column": 1,
     "endColumn": 54,
     "endLine": 19,
+    "fix": {
+      "range": [
+        327,
+        382,
+      ],
+      "text": "  [Create React App](/getting-started/create-react-app) ",
+    },
     "line": 19,
     "message": "Cannot find file <RELATIVE_GETTING_STARTED_CREATE_REACT_APP>",
     "ruleId": "remark-validate-links:missing-file-missing-file",
@@ -551,6 +572,13 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "column": 1,
     "endColumn": 46,
     "endLine": 20,
+    "fix": {
+      "range": [
+        384,
+        431,
+      ],
+      "text": "  [React Static](/getting-started/react-static) ",
+    },
     "line": 20,
     "message": "Cannot find file <RELATIVE_GETTING_STARTED_REACT_STATIC>",
     "ruleId": "remark-validate-links:missing-file-missing-file",
@@ -560,6 +588,13 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "column": 1,
     "endColumn": 36,
     "endLine": 21,
+    "fix": {
+      "range": [
+        433,
+        470,
+      ],
+      "text": "  [Webpack](/getting-started/webpack) ",
+    },
     "line": 21,
     "message": "Cannot find file <RELATIVE_GETTING_STARTED_WEBPACK>",
     "ruleId": "remark-validate-links:missing-file-missing-file",
@@ -569,6 +604,13 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "column": 1,
     "endColumn": 34,
     "endLine": 22,
+    "fix": {
+      "range": [
+        472,
+        507,
+      ],
+      "text": "  [Parcel](/getting-started/parcel) ",
+    },
     "line": 22,
     "message": "Cannot find file <RELATIVE_GETTING_STARTED_PARCEL>",
     "ruleId": "remark-validate-links:missing-file-missing-file",
@@ -578,6 +620,13 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "column": 1,
     "endColumn": 30,
     "endLine": 23,
+    "fix": {
+      "range": [
+        509,
+        539,
+      ],
+      "text": "  [Zero](/getting-started/zero)",
+    },
     "line": 23,
     "message": "Cannot find file <RELATIVE_GETTING_STARTED_ZERO>",
     "ruleId": "remark-validate-links:missing-file-missing-file",

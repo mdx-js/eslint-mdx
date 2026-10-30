@@ -8,22 +8,30 @@ import {
   getPhysicalFilename,
   performSyncWork,
 } from 'eslint-mdx'
-import { generateDifferences } from 'prettier-linter-helpers'
+import { generateDifferences, type Difference } from 'prettier-linter-helpers'
 
 import type { RemarkLintMessage } from './types.js'
 
-export const getFixesForMessage = (
+const normalizeDifference = (difference: Difference) => ({
+  deleteText: '',
+  insertText: '',
+  ...difference,
+})
+
+const getDifferences = (
   sourceText: string,
   fixedText: string | null | undefined,
+) =>
+  fixedText == null || fixedText === sourceText
+    ? []
+    : generateDifferences(sourceText, fixedText)
+
+const getFixesForPlace = (
+  differences: Difference[],
   place: unknown,
 ): Rule.Fix[] | null => {
-  if (
-    fixedText == null ||
-    fixedText === sourceText ||
-    place == null ||
-    typeof place !== 'object' ||
-    !('start' in place)
-  ) {
+  /* istanbul ignore if -- remark messages always include a place */
+  if (place == null || typeof place !== 'object' || !('start' in place)) {
     return null
   }
 
@@ -31,17 +39,13 @@ export const getFixesForMessage = (
     start: { offset: number }
     end: { offset: number }
   }
-  const fixes = generateDifferences(sourceText, fixedText)
+  const fixes = differences
     .filter(difference => {
-      const diffEnd =
-        difference.offset +
-        ('deleteText' in difference ? difference.deleteText.length : 0)
-      return difference.offset <= end.offset && diffEnd >= start.offset
+      const { deleteText, offset } = normalizeDifference(difference)
+      return offset <= end.offset && offset + deleteText.length >= start.offset
     })
     .map(difference => {
-      const { offset } = difference
-      const deleteText = 'deleteText' in difference ? difference.deleteText : ''
-      const insertText = 'insertText' in difference ? difference.insertText : ''
+      const { deleteText, insertText, offset } = normalizeDifference(difference)
       return {
         range: [offset, offset + deleteText.length] as [number, number],
         text: insertText,
@@ -123,7 +127,7 @@ export const remark: Rule.RuleModule = {
           remarkConfigPath,
         })
 
-        let fixed = 0
+        const differences = getDifferences(sourceText, fixedText)
 
         for (const {
           source,
@@ -157,7 +161,7 @@ export const remark: Rule.RuleModule = {
             column: column - 1,
           }
 
-          const fixes = getFixesForMessage(sourceText, fixedText, place)
+          const fixes = getFixesForPlace(differences, place)
 
           context.report({
             // related to https://github.com/eslint/eslint/issues/14198
@@ -171,7 +175,7 @@ export const remark: Rule.RuleModule = {
                   }
                 : point,
             node,
-            fix: fixes ? () => (fixed++ ? null : fixes) : null,
+            fix: fixes ? () => fixes : null,
           })
         }
       },

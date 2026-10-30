@@ -1,8 +1,8 @@
 /* istanbul ignore file */
-import { getFixesForMessage, remark } from './remark.js'
+import { remark } from './remark.js'
 
 export type * from './types.js'
 
-export { getFixesForMessage, remark }
+export { remark }
 
 export const rules = { remark }
