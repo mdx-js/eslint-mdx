@@ -30,8 +30,8 @@
   - [Flat Config](#flat-config)
 - [Parser Options](#parser-options)
 - [Parser API](#parser-api)
-  - [`MDCode`](#mdcode)
-  - [`MDHeading`](#mdheading)
+  - [Markdown content nodes](#markdown-content-nodes)
+  - [MDX expression nodes](#mdx-expression-nodes)
   - [Typings](#typings)
 - [Rules](#rules)
   - [mdx/remark](#mdxremark)
@@ -160,59 +160,78 @@ eslint . --ext js,md,mdx
 
 ## Parser API
 
-### `MDCode`
-
-A new `MDCode` estree node type is exported from `eslint-mdx` which represents code blocks in `mdx` like the following:
-
-````mdx
-<div>
-  ```js
-  export function foo() {
-    return 'bar'
-  }
-  ```
-</div>
-````
-
-See also <https://github.com/syntax-tree/mdast#code>
-
-### `MDHeading`
-
-A new `MDHeading` estree node type is exported from `eslint-mdx` which represents markdown heading in `mdx` like the following:
-
-<!-- mdx v2+ incompatible -->
-<!-- prettier-ignore -->
-```mdx
-<div>
-# Here's a text gradient short code!
-</div>
-```
-
-See also <https://github.com/syntax-tree/mdast#heading>
-
-### `MDXFlowExpression`
-
-A new `MDXFlowExpression` estree node type is exported from `eslint-mdx` which represents flow expressions in `mdx` like the following:
-
-```mdx
-{value}
-```
-
-See also <https://github.com/syntax-tree/mdast#mdxflowexpression>
-
-### `MDXTextExpression`
-
-A new `MDXTextExpression` estree node type is exported from `eslint-mdx` which represents text expressions in `mdx` like the following:
-
-```mdx
-The value is {value}.
-```
-
-See also <https://github.com/syntax-tree/mdast#mdxtextexpression>
+`eslint-mdx` returns an ESTree `Program`. In addition to standard ESTree and JSX nodes, it emits custom nodes for Markdown content and MDX expressions.
 
 ### Markdown content nodes
 
-Markdown content is also represented with ESTree-compatible nodes, including `MDParagraph`, `MDText`, `MDList`, `MDListItem`, `MDBlockquote`, `MDEmphasis`, `MDStrong`, `MDInlineCode`, `MDLink`, `MDImage`, `MDBreak`, `MDThematicBreak`, `MDDefinition`, `MDDelete`, `MDFootnoteDefinition`, `MDFootnoteReference`, `MDImageReference`, `MDInlineMath`, `MDLinkReference`, `MDMath`, `MDTable`, `MDTableCell`, `MDTableRow`, `MDToml` and `MDYaml`. They expose their mdast children or values and are traversed through the parser visitor keys. The `MD` prefix avoids collisions with ESTree/JSX nodes.
+Markdown content uses the `MD` prefix, while MDX-specific nodes use `MDX`. The prefix avoids collisions with ESTree/JSX nodes. All nodes are exposed in `Program.body` or as children of other nodes and are traversed through the parser visitor keys.
+
+| ESTree node            | mdast node           | Notes                |
+| ---------------------- | -------------------- | -------------------- |
+| `MDBlockquote`         | `blockquote`         |                      |
+| `MDBreak`              | `break`              |                      |
+| `MDCode`               | `code`               |                      |
+| `MDDefinition`         | `definition`         |                      |
+| `MDDelete`             | `delete`             | `remark-gfm`         |
+| `MDEmphasis`           | `emphasis`           |                      |
+| `MDFootnoteDefinition` | `footnoteDefinition` | `remark-gfm`         |
+| `MDFootnoteReference`  | `footnoteReference`  | `remark-gfm`         |
+| `MDHeading`            | `heading`            |                      |
+| `MDImage`              | `image`              |                      |
+| `MDImageReference`     | `imageReference`     |                      |
+| `MDInlineCode`         | `inlineCode`         |                      |
+| `MDInlineMath`         | `inlineMath`         | `remark-math`        |
+| `MDLink`               | `link`               |                      |
+| `MDLinkReference`      | `linkReference`      |                      |
+| `MDList`               | `list`               |                      |
+| `MDListItem`           | `listItem`           |                      |
+| `MDMath`               | `math`               | `remark-math`        |
+| `MDParagraph`          | `paragraph`          |                      |
+| `MDStrong`             | `strong`             |                      |
+| `MDTable`              | `table`              | `remark-gfm`         |
+| `MDTableCell`          | `tableCell`          | `remark-gfm`         |
+| `MDTableRow`           | `tableRow`           | `remark-gfm`         |
+| `MDText`               | `text`               |                      |
+| `MDThematicBreak`      | `thematicBreak`      |                      |
+| `MDToml`               | `toml`               | `remark-frontmatter` |
+| `MDYaml`               | `yaml`               | `remark-frontmatter` |
+
+For example:
+
+````mdx
+# Heading
+
+Paragraph with **strong**, _emphasis_, `inlineCode`, [link](https://example.com), and ![image](https://example.com/image.png).
+
+> Blockquote
+
+- list item
+
+```js
+const value = 1
+```
+````
+
+> `MDXCode` and `MDXHeading` were renamed to `MDCode` and `MDHeading`; the old names are no longer emitted.
+
+### MDX expression nodes
+
+MDX expressions use the `MDX` prefix and expose their ESTree `expression`:
+
+| ESTree node         | mdast node          |
+| ------------------- | ------------------- |
+| `MDXFlowExpression` | `mdxFlowExpression` |
+| `MDXTextExpression` | `mdxTextExpression` |
+
+For example:
+
+```mdx
+{value}
+
+> {value}
+
+The value is {value}.
+```
 
 ### Typings
 

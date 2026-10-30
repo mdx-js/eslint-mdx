@@ -30,8 +30,8 @@
   - [Flat Config](#flat-config)
 - [Parser Options](#parser-options)
 - [Parser API](#parser-api)
-  - [`MDCode`](#mdcode)
-  - [`MDHeading`](#mdheading)
+  - [Markdown content nodes](#markdown-content-nodes)
+  - [MDX expression nodes](#mdx-expression-nodes)
   - [Typings](#typings)
 - [Rules](#rules)
   - [mdx/remark](#mdxremark)
@@ -160,35 +160,78 @@ eslint . --ext js,md,mdx
 
 ## Parser API
 
-### `MDCode`
+`eslint-mdx` returns an ESTree `Program`. In addition to standard ESTree and JSX nodes, it emits custom nodes for Markdown content and MDX expressions.
 
-A new `MDCode` estree node type is exported from `eslint-mdx` which represents code blocks in `mdx` like the following:
+### Markdown content nodes
+
+Markdown content uses the `MD` prefix, while MDX-specific nodes use `MDX`. The prefix avoids collisions with ESTree/JSX nodes. All nodes are exposed in `Program.body` or as children of other nodes and are traversed through the parser visitor keys.
+
+| ESTree node            | mdast node           | Notes                |
+| ---------------------- | -------------------- | -------------------- |
+| `MDBlockquote`         | `blockquote`         |                      |
+| `MDBreak`              | `break`              |                      |
+| `MDCode`               | `code`               |                      |
+| `MDDefinition`         | `definition`         |                      |
+| `MDDelete`             | `delete`             | `remark-gfm`         |
+| `MDEmphasis`           | `emphasis`           |                      |
+| `MDFootnoteDefinition` | `footnoteDefinition` | `remark-gfm`         |
+| `MDFootnoteReference`  | `footnoteReference`  | `remark-gfm`         |
+| `MDHeading`            | `heading`            |                      |
+| `MDImage`              | `image`              |                      |
+| `MDImageReference`     | `imageReference`     |                      |
+| `MDInlineCode`         | `inlineCode`         |                      |
+| `MDInlineMath`         | `inlineMath`         | `remark-math`        |
+| `MDLink`               | `link`               |                      |
+| `MDLinkReference`      | `linkReference`      |                      |
+| `MDList`               | `list`               |                      |
+| `MDListItem`           | `listItem`           |                      |
+| `MDMath`               | `math`               | `remark-math`        |
+| `MDParagraph`          | `paragraph`          |                      |
+| `MDStrong`             | `strong`             |                      |
+| `MDTable`              | `table`              | `remark-gfm`         |
+| `MDTableCell`          | `tableCell`          | `remark-gfm`         |
+| `MDTableRow`           | `tableRow`           | `remark-gfm`         |
+| `MDText`               | `text`               |                      |
+| `MDThematicBreak`      | `thematicBreak`      |                      |
+| `MDToml`               | `toml`               | `remark-frontmatter` |
+| `MDYaml`               | `yaml`               | `remark-frontmatter` |
+
+For example:
 
 ````mdx
-<div>
-  ```js
-  export function foo() {
-    return 'bar'
-  }
-  ```
-</div>
+# Heading
+
+Paragraph with **strong**, _emphasis_, `inlineCode`, [link](https://example.com), and ![image](https://example.com/image.png).
+
+> Blockquote
+
+- list item
+
+```js
+const value = 1
+```
 ````
 
-See also <https://github.com/syntax-tree/mdast#code>
+> `MDXCode` and `MDXHeading` were renamed to `MDCode` and `MDHeading`; the old names are no longer emitted.
 
-### `MDHeading`
+### MDX expression nodes
 
-A new `MDHeading` estree node type is exported from `eslint-mdx` which represents markdown heading in `mdx` like the following:
+MDX expressions use the `MDX` prefix and expose their ESTree `expression`:
 
-<!-- mdx v2+ incompatible -->
-<!-- prettier-ignore -->
+| ESTree node         | mdast node          |
+| ------------------- | ------------------- |
+| `MDXFlowExpression` | `mdxFlowExpression` |
+| `MDXTextExpression` | `mdxTextExpression` |
+
+For example:
+
 ```mdx
-<div>
-# Here's a text gradient short code!
-</div>
-```
+{value}
 
-See also <https://github.com/syntax-tree/mdast#heading>
+> {value}
+
+The value is {value}.
+```
 
 ### Typings
 
