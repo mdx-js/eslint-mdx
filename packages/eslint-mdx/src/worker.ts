@@ -22,6 +22,7 @@ import type {
 import type {
   JSXClosingElement,
   JSXElement,
+  JSXEmptyExpression,
   JSXExpressionContainer,
   JSXFragment,
   JSXIdentifier,
@@ -64,10 +65,25 @@ import type {
   WorkerResult,
 } from './types.js'
 
+// JSXEmptyExpression is a standard ESTree node, so it has no `raw` extension.
+const normalizeEmptyExpression = (
+  start: number,
+  end: number,
+  code: string,
+): JSXEmptyExpression => ({
+  ...normalizePosition({
+    start: { offset: start + 1 },
+    end: { offset: end - 1 },
+    code,
+  }),
+  type: 'JSXEmptyExpression',
+})
+
 const appendEstreeBody = (
   body: Program['body'],
   node: Nodes,
   estree: Program,
+  code: string,
 ) => {
   if (node.type !== 'mdxFlowExpression' && node.type !== 'mdxTextExpression') {
     body.push(...estree.body)
@@ -79,6 +95,19 @@ const appendEstreeBody = (
       ? 'MDXFlowExpression'
       : 'MDXTextExpression'
   const position = normalizePosition(node.position)
+
+  if (estree.body.length === 0) {
+    const {
+      start: { offset: start },
+      end: { offset: end },
+    } = node.position
+    body.push({
+      ...position,
+      type,
+      expression: normalizeEmptyExpression(start, end, code),
+    })
+    return
+  }
 
   for (const statement of estree.body) {
     if (statement.type === 'ExpressionStatement') {
@@ -460,10 +489,9 @@ runAsWorker(
                     const expressionContainer: JSXExpressionContainer = {
                       ...normalizeNode(start, end),
                       type: 'JSXExpressionContainer',
-                      expression: expression || {
-                        ...normalizeNode(start + 1, end - 1),
-                        type: 'JSXEmptyExpression',
-                      },
+                      expression:
+                        expression ||
+                        normalizeEmptyExpression(start, end, code),
                     }
                     acc.push(expressionContainer)
                   } else if (expression) {
@@ -987,7 +1015,18 @@ runAsWorker(
               const statement = estree?.body[0]
               isExpressionStatement(statement)
               if (!statement?.expression) {
-                return
+                const {
+                  start: { offset: start },
+                  end: { offset: end },
+                } = node.position
+                return {
+                  ...position,
+                  type:
+                    node.type === 'mdxFlowExpression'
+                      ? 'MDXFlowExpression'
+                      : 'MDXTextExpression',
+                  expression: normalizeEmptyExpression(start, end, code),
+                }
               }
               return {
                 ...position,
@@ -1019,7 +1058,7 @@ runAsWorker(
             body: [],
             comments: [],
           }) as Program
-          appendEstreeBody(body, node, estree)
+          appendEstreeBody(body, node, estree, code)
           comments.push(...estree.comments)
           return
         }

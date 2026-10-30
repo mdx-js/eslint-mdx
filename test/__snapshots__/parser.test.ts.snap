@@ -46719,6 +46719,46 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
       "type": "MDParagraph",
     },
     {
+      "end": 203,
+      "expression": {
+        "end": 202,
+        "loc": {
+          "end": {
+            "column": 24,
+            "line": 11,
+          },
+          "start": {
+            "column": 1,
+            "line": 11,
+          },
+        },
+        "range": [
+          179,
+          202,
+        ],
+        "start": 179,
+        "type": "JSXEmptyExpression",
+      },
+      "loc": {
+        "end": {
+          "column": 26,
+          "line": 11,
+          "offset": 203,
+        },
+        "start": {
+          "column": 1,
+          "line": 11,
+          "offset": 178,
+        },
+      },
+      "range": [
+        178,
+        203,
+      ],
+      "start": 178,
+      "type": "MDXFlowExpression",
+    },
+    {
       "end": 267,
       "lang": "css",
       "loc": {
@@ -46769,7 +46809,6 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
                 277,
                 300,
               ],
-              "raw": "/* This is a comment */",
               "start": 277,
               "type": "JSXEmptyExpression",
             },
@@ -51305,7 +51344,6 @@ exports[`parser should match all AST snapshots: jsx-expression-container.mdx 1`]
                 55,
                 68,
               ],
-              "raw": "/* comment */",
               "start": 55,
               "type": "JSXEmptyExpression",
             },
@@ -60152,6 +60190,536 @@ exports[`parser should match all AST snapshots: mdx-flow-expression.mdx 1`] = `
 }
 `;
 
+exports[`parser should match all AST snapshots: nested-empty-expression.mdx 1`] = `
+{
+  "body": [
+    {
+      "children": [
+        {
+          "end": 20,
+          "expression": {
+            "end": 19,
+            "loc": {
+              "end": {
+                "column": 19,
+                "line": 1,
+              },
+              "start": {
+                "column": 3,
+                "line": 1,
+              },
+            },
+            "range": [
+              3,
+              19,
+            ],
+            "start": 3,
+            "type": "JSXEmptyExpression",
+          },
+          "loc": {
+            "end": {
+              "column": 20,
+              "line": 1,
+            },
+            "start": {
+              "column": 2,
+              "line": 1,
+            },
+          },
+          "range": [
+            2,
+            20,
+          ],
+          "raw": "{/* blockquote */}",
+          "start": 2,
+          "type": "MDXFlowExpression",
+        },
+      ],
+      "end": 20,
+      "loc": {
+        "end": {
+          "column": 20,
+          "line": 1,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        20,
+      ],
+      "raw": "> {/* blockquote */}",
+      "start": 0,
+      "type": "MDBlockquote",
+    },
+    {
+      "children": [
+        {
+          "end": 39,
+          "expression": {
+            "end": 38,
+            "loc": {
+              "end": {
+                "column": 16,
+                "line": 3,
+              },
+              "start": {
+                "column": 3,
+                "line": 3,
+              },
+            },
+            "range": [
+              25,
+              38,
+            ],
+            "start": 25,
+            "type": "JSXEmptyExpression",
+          },
+          "loc": {
+            "end": {
+              "column": 17,
+              "line": 3,
+            },
+            "start": {
+              "column": 2,
+              "line": 3,
+            },
+          },
+          "range": [
+            24,
+            39,
+          ],
+          "raw": "{/* heading */}",
+          "start": 24,
+          "type": "MDXTextExpression",
+        },
+      ],
+      "depth": 1,
+      "end": 39,
+      "loc": {
+        "end": {
+          "column": 17,
+          "line": 3,
+        },
+        "start": {
+          "column": 0,
+          "line": 3,
+        },
+      },
+      "range": [
+        22,
+        39,
+      ],
+      "raw": "# {/* heading */}",
+      "start": 22,
+      "type": "MDHeading",
+    },
+    {
+      "children": [
+        {
+          "checked": null,
+          "children": [
+            {
+              "end": 55,
+              "expression": {
+                "end": 54,
+                "loc": {
+                  "end": {
+                    "column": 13,
+                    "line": 5,
+                  },
+                  "start": {
+                    "column": 3,
+                    "line": 5,
+                  },
+                },
+                "range": [
+                  44,
+                  54,
+                ],
+                "start": 44,
+                "type": "JSXEmptyExpression",
+              },
+              "loc": {
+                "end": {
+                  "column": 14,
+                  "line": 5,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 5,
+                },
+              },
+              "range": [
+                43,
+                55,
+              ],
+              "raw": "{/* list */}",
+              "start": 43,
+              "type": "MDXFlowExpression",
+            },
+          ],
+          "end": 55,
+          "loc": {
+            "end": {
+              "column": 14,
+              "line": 5,
+            },
+            "start": {
+              "column": 0,
+              "line": 5,
+            },
+          },
+          "range": [
+            41,
+            55,
+          ],
+          "raw": "- {/* list */}",
+          "spread": false,
+          "start": 41,
+          "type": "MDListItem",
+        },
+      ],
+      "end": 55,
+      "loc": {
+        "end": {
+          "column": 14,
+          "line": 5,
+        },
+        "start": {
+          "column": 0,
+          "line": 5,
+        },
+      },
+      "ordered": false,
+      "range": [
+        41,
+        55,
+      ],
+      "raw": "- {/* list */}",
+      "spread": false,
+      "start": null,
+      "type": "MDList",
+    },
+    {
+      "children": [
+        {
+          "end": 62,
+          "loc": {
+            "end": {
+              "column": 5,
+              "line": 7,
+            },
+            "start": {
+              "column": 0,
+              "line": 7,
+            },
+          },
+          "range": [
+            57,
+            62,
+          ],
+          "raw": "text ",
+          "start": 57,
+          "type": "MDText",
+          "value": "text ",
+        },
+        {
+          "end": 64,
+          "expression": {
+            "end": 63,
+            "loc": {
+              "end": {
+                "column": 6,
+                "line": 7,
+              },
+              "start": {
+                "column": 6,
+                "line": 7,
+              },
+            },
+            "range": [
+              63,
+              63,
+            ],
+            "start": 63,
+            "type": "JSXEmptyExpression",
+          },
+          "loc": {
+            "end": {
+              "column": 7,
+              "line": 7,
+            },
+            "start": {
+              "column": 5,
+              "line": 7,
+            },
+          },
+          "range": [
+            62,
+            64,
+          ],
+          "raw": "{}",
+          "start": 62,
+          "type": "MDXTextExpression",
+        },
+        {
+          "end": 69,
+          "loc": {
+            "end": {
+              "column": 12,
+              "line": 7,
+            },
+            "start": {
+              "column": 7,
+              "line": 7,
+            },
+          },
+          "range": [
+            64,
+            69,
+          ],
+          "raw": " more",
+          "start": 64,
+          "type": "MDText",
+          "value": " more",
+        },
+      ],
+      "end": 69,
+      "loc": {
+        "end": {
+          "column": 12,
+          "line": 7,
+        },
+        "start": {
+          "column": 0,
+          "line": 7,
+        },
+      },
+      "range": [
+        57,
+        69,
+      ],
+      "raw": "text {} more",
+      "start": 57,
+      "type": "MDParagraph",
+    },
+  ],
+  "comments": [
+    {
+      "end": 19,
+      "loc": {
+        "end": {
+          "column": 19,
+          "line": 1,
+          "offset": 19,
+        },
+        "start": {
+          "column": 3,
+          "line": 1,
+          "offset": 3,
+        },
+      },
+      "range": [
+        3,
+        19,
+      ],
+      "start": 3,
+      "type": "Block",
+      "value": " blockquote ",
+    },
+    {
+      "end": 38,
+      "loc": {
+        "end": {
+          "column": 16,
+          "line": 3,
+          "offset": 38,
+        },
+        "start": {
+          "column": 3,
+          "line": 3,
+          "offset": 25,
+        },
+      },
+      "range": [
+        25,
+        38,
+      ],
+      "start": 25,
+      "type": "Block",
+      "value": " heading ",
+    },
+    {
+      "end": 54,
+      "loc": {
+        "end": {
+          "column": 13,
+          "line": 5,
+          "offset": 54,
+        },
+        "start": {
+          "column": 3,
+          "line": 5,
+          "offset": 44,
+        },
+      },
+      "range": [
+        44,
+        54,
+      ],
+      "start": 44,
+      "type": "Block",
+      "value": " list ",
+    },
+  ],
+  "end": 70,
+  "loc": {
+    "end": {
+      "column": 1,
+      "line": 8,
+      "offset": 70,
+    },
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "range": [
+    0,
+    70,
+  ],
+  "sourceType": undefined,
+  "start": 0,
+  "tokens": [
+    {
+      "end": 3,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 1,
+        },
+        "start": {
+          "column": 2,
+          "line": 1,
+        },
+      },
+      "range": [
+        2,
+        3,
+      ],
+      "start": 2,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 20,
+      "loc": {
+        "end": {
+          "column": 20,
+          "line": 1,
+        },
+        "start": {
+          "column": 19,
+          "line": 1,
+        },
+      },
+      "range": [
+        19,
+        20,
+      ],
+      "start": 19,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 44,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 5,
+        },
+        "start": {
+          "column": 2,
+          "line": 5,
+        },
+      },
+      "range": [
+        43,
+        44,
+      ],
+      "start": 43,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 55,
+      "loc": {
+        "end": {
+          "column": 14,
+          "line": 5,
+        },
+        "start": {
+          "column": 13,
+          "line": 5,
+        },
+      },
+      "range": [
+        54,
+        55,
+      ],
+      "start": 54,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 62,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 7,
+        },
+        "start": {
+          "column": 0,
+          "line": 7,
+        },
+      },
+      "range": [
+        57,
+        62,
+      ],
+      "start": 57,
+      "type": "JSXText",
+      "value": "text ",
+    },
+    {
+      "end": 69,
+      "loc": {
+        "end": {
+          "column": 12,
+          "line": 7,
+        },
+        "start": {
+          "column": 7,
+          "line": 7,
+        },
+      },
+      "range": [
+        64,
+        69,
+      ],
+      "start": 64,
+      "type": "JSXText",
+      "value": " more",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
 exports[`parser should match all AST snapshots: nested-flow-expression.mdx 1`] = `
 {
   "body": [
@@ -63840,6 +64408,46 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
       "type": "MDHeading",
     },
     {
+      "end": 74,
+      "expression": {
+        "end": 73,
+        "loc": {
+          "end": {
+            "column": 32,
+            "line": 5,
+          },
+          "start": {
+            "column": 1,
+            "line": 5,
+          },
+        },
+        "range": [
+          42,
+          73,
+        ],
+        "start": 42,
+        "type": "JSXEmptyExpression",
+      },
+      "loc": {
+        "end": {
+          "column": 34,
+          "line": 5,
+          "offset": 74,
+        },
+        "start": {
+          "column": 1,
+          "line": 5,
+          "offset": 41,
+        },
+      },
+      "range": [
+        41,
+        74,
+      ],
+      "start": 41,
+      "type": "MDXFlowExpression",
+    },
+    {
       "children": [
         {
           "end": 105,
@@ -64151,6 +64759,219 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
       "start": 105,
       "type": "JSXText",
       "value": "https://facebook.github.io/create-react-app/docs/code-splitting",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`parser should match all AST snapshots: top-level-comment-expression.mdx 1`] = `
+{
+  "body": [
+    {
+      "end": 25,
+      "expression": {
+        "end": 24,
+        "loc": {
+          "end": {
+            "column": 24,
+            "line": 1,
+          },
+          "start": {
+            "column": 1,
+            "line": 1,
+          },
+        },
+        "range": [
+          1,
+          24,
+        ],
+        "start": 1,
+        "type": "JSXEmptyExpression",
+      },
+      "loc": {
+        "end": {
+          "column": 26,
+          "line": 1,
+          "offset": 25,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "range": [
+        0,
+        25,
+      ],
+      "start": 0,
+      "type": "MDXFlowExpression",
+    },
+    {
+      "end": 29,
+      "expression": {
+        "end": 28,
+        "loc": {
+          "end": {
+            "column": 1,
+            "line": 3,
+          },
+          "start": {
+            "column": 1,
+            "line": 3,
+          },
+        },
+        "range": [
+          28,
+          28,
+        ],
+        "start": 28,
+        "type": "JSXEmptyExpression",
+      },
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 3,
+          "offset": 29,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+          "offset": 27,
+        },
+      },
+      "range": [
+        27,
+        29,
+      ],
+      "start": 27,
+      "type": "MDXFlowExpression",
+    },
+  ],
+  "comments": [
+    {
+      "end": 24,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 1,
+          "offset": 24,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 1,
+        },
+      },
+      "range": [
+        1,
+        24,
+      ],
+      "start": 1,
+      "type": "Block",
+      "value": " top-level comment ",
+    },
+  ],
+  "end": 30,
+  "loc": {
+    "end": {
+      "column": 1,
+      "line": 4,
+      "offset": 30,
+    },
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "range": [
+    0,
+    30,
+  ],
+  "sourceType": undefined,
+  "start": 0,
+  "tokens": [
+    {
+      "end": 1,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 1,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 25,
+      "loc": {
+        "end": {
+          "column": 25,
+          "line": 1,
+        },
+        "start": {
+          "column": 24,
+          "line": 1,
+        },
+      },
+      "range": [
+        24,
+        25,
+      ],
+      "start": 24,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 28,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 3,
+        },
+        "start": {
+          "column": 0,
+          "line": 3,
+        },
+      },
+      "range": [
+        27,
+        28,
+      ],
+      "start": 27,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 29,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 3,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+        },
+      },
+      "range": [
+        28,
+        29,
+      ],
+      "start": 28,
+      "type": "Punctuator",
+      "value": "}",
     },
   ],
   "type": "Program",

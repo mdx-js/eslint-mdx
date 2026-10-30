@@ -963,6 +963,8 @@ exports[`fixtures should match all snapshots: mdx-content-nodes.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: mdx-flow-expression.mdx 1`] = `[]`;
 
+exports[`fixtures should match all snapshots: nested-empty-expression.mdx 1`] = `[]`;
+
 exports[`fixtures should match all snapshots: nested-flow-expression.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `
@@ -1086,6 +1088,8 @@ exports[`fixtures should match all snapshots: remark.md 1`] = `[]`;
 exports[`fixtures should match all snapshots: remark.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: style/nested.md 1`] = `[]`;
+
+exports[`fixtures should match all snapshots: top-level-comment-expression.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: unicorn.jsx 1`] = `
 [

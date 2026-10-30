@@ -241,6 +241,7 @@ The value is {value}.
 import type { BaseNode, Expression } from 'estree'
 import type {
   JSXElement,
+  JSXEmptyExpression,
   JSXExpressionContainer,
   JSXFragment,
   JSXSpreadChild,
@@ -264,12 +265,12 @@ export interface MDHeading extends BaseNode {
 
 export interface MDXFlowExpression extends BaseNode {
   type: 'MDXFlowExpression'
-  expression: Expression
+  expression: Expression | JSXEmptyExpression
 }
 
 export interface MDXTextExpression extends BaseNode {
   type: 'MDXTextExpression'
-  expression: Expression
+  expression: Expression | JSXEmptyExpression
 }
 
 export interface MDText extends BaseNode {
