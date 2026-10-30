@@ -271,35 +271,35 @@ export type MDContentNode =
 
 declare module 'estree' {
   interface ProgramBodyMap {
-    MDXBlockquote: MDXBlockquote
-    MDXBreak: MDXBreak
-    MDXCode: MDXCode
-    MDXDefinition: MDXDefinition
-    MDXDelete: MDXDelete
-    MDXEmphasis: MDXEmphasis
+    MDBlockquote: MDBlockquote
+    MDBreak: MDBreak
+    MDCode: MDCode
+    MDDefinition: MDDefinition
+    MDDelete: MDDelete
+    MDEmphasis: MDEmphasis
     MDXFlowExpression: MDXFlowExpression
-    MDXFootnoteDefinition: MDXFootnoteDefinition
-    MDXFootnoteReference: MDXFootnoteReference
-    MDXHeading: MDXHeading
-    MDXImage: MDXImage
-    MDXImageReference: MDXImageReference
-    MDXInlineCode: MDXInlineCode
-    MDXInlineMath: MDXInlineMath
-    MDXLink: MDXLink
-    MDXLinkReference: MDXLinkReference
-    MDXList: MDXList
-    MDXListItem: MDXListItem
-    MDXMath: MDXMath
-    MDXParagraph: MDXParagraph
-    MDXStrong: MDXStrong
-    MDXTable: MDXTable
-    MDXTableCell: MDXTableCell
-    MDXTableRow: MDXTableRow
-    MDXText: MDXText
+    MDFootnoteDefinition: MDFootnoteDefinition
+    MDFootnoteReference: MDFootnoteReference
+    MDHeading: MDHeading
+    MDImage: MDImage
+    MDImageReference: MDImageReference
+    MDInlineCode: MDInlineCode
+    MDInlineMath: MDInlineMath
+    MDLink: MDLink
+    MDLinkReference: MDLinkReference
+    MDList: MDList
+    MDListItem: MDListItem
+    MDMath: MDMath
+    MDParagraph: MDParagraph
+    MDStrong: MDStrong
+    MDTable: MDTable
+    MDTableCell: MDTableCell
+    MDTableRow: MDTableRow
+    MDText: MDText
     MDXTextExpression: MDXTextExpression
-    MDXThematicBreak: MDXThematicBreak
-    MDXToml: MDXToml
-    MDXYaml: MDXYaml
+    MDThematicBreak: MDThematicBreak
+    MDToml: MDToml
+    MDYaml: MDYaml
   }
 
   interface TemplateElement {
