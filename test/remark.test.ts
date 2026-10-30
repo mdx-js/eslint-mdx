@@ -56,6 +56,44 @@ ruleTester.run('remark', remark, {
   ],
   invalid: [
     {
+      // file-level remark reports have no place, they must be reported as-is
+      code: '# Title',
+      languageOptions,
+      filename: path.resolve(_dirname, 'fixtures/-leading-dash.mdx'),
+      errors: [
+        {
+          message: JSON.stringify({
+            reason:
+              'Unexpected initial or final dashes in file name, expected dashes to join words',
+            source: 'remark-lint',
+            ruleId: 'no-file-name-outer-dashes',
+            severity: 1,
+          }),
+          line: 1,
+          column: 1,
+        },
+      ],
+    },
+    {
+      // https://github.com/syntax-tree/mdast-util-to-markdown/issues/29
+      code: '[CHANGELOG](./CHANGELOG.md)',
+      languageOptions,
+      filename: path.resolve(_dirname, 'fixtures/async/test.mdx'),
+      errors: [
+        {
+          message: JSON.stringify({
+            reason: 'Cannot find file `CHANGELOG.md`',
+            source: 'remark-validate-links:missing-file',
+            ruleId: 'missing-file',
+            severity: 1,
+          }),
+          line: 1,
+          column: 1,
+        },
+      ],
+      output: '[CHANGELOG](./CHANGELOG.md)\n',
+    },
+    {
       // https://github.com/syntax-tree/mdast-util-to-markdown/issues/29
       code: '[CHANGELOG](./CHANGELOG.md)\n',
       languageOptions,

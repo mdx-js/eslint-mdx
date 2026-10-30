@@ -43774,6 +43774,3729 @@ exports[`parser should match all AST snapshots: 488.mdx 1`] = `
 }
 `;
 
+exports[`parser should match all AST snapshots: 491.mdx 1`] = `
+{
+  "body": [
+    {
+      "attributes": [],
+      "end": 45,
+      "loc": {
+        "end": {
+          "column": 45,
+          "line": 1,
+          "offset": 45,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "range": [
+        0,
+        45,
+      ],
+      "source": {
+        "end": 45,
+        "loc": {
+          "end": {
+            "column": 45,
+            "line": 1,
+            "offset": 45,
+          },
+          "start": {
+            "column": 34,
+            "line": 1,
+            "offset": 34,
+          },
+        },
+        "range": [
+          34,
+          45,
+        ],
+        "raw": "'./Fixture'",
+        "start": 34,
+        "type": "Literal",
+        "value": "./Fixture",
+      },
+      "specifiers": [
+        {
+          "end": 20,
+          "imported": {
+            "end": 20,
+            "loc": {
+              "end": {
+                "column": 20,
+                "line": 1,
+                "offset": 20,
+              },
+              "start": {
+                "column": 17,
+                "line": 1,
+                "offset": 17,
+              },
+            },
+            "name": "Baz",
+            "range": [
+              17,
+              20,
+            ],
+            "start": 17,
+            "type": "Identifier",
+          },
+          "loc": {
+            "end": {
+              "column": 20,
+              "line": 1,
+              "offset": 20,
+            },
+            "start": {
+              "column": 17,
+              "line": 1,
+              "offset": 17,
+            },
+          },
+          "local": {
+            "end": 20,
+            "loc": {
+              "end": {
+                "column": 20,
+                "line": 1,
+                "offset": 20,
+              },
+              "start": {
+                "column": 17,
+                "line": 1,
+                "offset": 17,
+              },
+            },
+            "name": "Baz",
+            "range": [
+              17,
+              20,
+            ],
+            "start": 17,
+            "type": "Identifier",
+          },
+          "range": [
+            17,
+            20,
+          ],
+          "start": 17,
+          "type": "ImportSpecifier",
+        },
+      ],
+      "start": 0,
+      "type": "ImportDeclaration",
+    },
+    {
+      "attributes": [],
+      "declaration": {
+        "declarations": [
+          {
+            "end": 173,
+            "id": {
+              "end": 66,
+              "loc": {
+                "end": {
+                  "column": 19,
+                  "line": 3,
+                  "offset": 66,
+                },
+                "start": {
+                  "column": 16,
+                  "line": 3,
+                  "offset": 63,
+                },
+              },
+              "name": "foo",
+              "range": [
+                63,
+                66,
+              ],
+              "start": 63,
+              "type": "Identifier",
+            },
+            "init": {
+              "end": 173,
+              "loc": {
+                "end": {
+                  "column": 1,
+                  "line": 9,
+                  "offset": 173,
+                },
+                "start": {
+                  "column": 25,
+                  "line": 3,
+                  "offset": 72,
+                },
+              },
+              "properties": [
+                {
+                  "computed": false,
+                  "end": 119,
+                  "key": {
+                    "end": 78,
+                    "loc": {
+                      "end": {
+                        "column": 4,
+                        "line": 4,
+                        "offset": 78,
+                      },
+                      "start": {
+                        "column": 2,
+                        "line": 4,
+                        "offset": 76,
+                      },
+                    },
+                    "name": "hi",
+                    "range": [
+                      76,
+                      78,
+                    ],
+                    "start": 76,
+                    "type": "Identifier",
+                  },
+                  "kind": "init",
+                  "loc": {
+                    "end": {
+                      "column": 45,
+                      "line": 4,
+                      "offset": 119,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 4,
+                      "offset": 76,
+                    },
+                  },
+                  "method": false,
+                  "range": [
+                    76,
+                    119,
+                  ],
+                  "shorthand": false,
+                  "start": 76,
+                  "type": "Property",
+                  "value": {
+                    "end": 119,
+                    "expressions": [
+                      {
+                        "end": 117,
+                        "left": {
+                          "computed": false,
+                          "end": 108,
+                          "loc": {
+                            "end": {
+                              "column": 34,
+                              "line": 4,
+                              "offset": 108,
+                            },
+                            "start": {
+                              "column": 19,
+                              "line": 4,
+                              "offset": 93,
+                            },
+                          },
+                          "object": {
+                            "end": 96,
+                            "loc": {
+                              "end": {
+                                "column": 22,
+                                "line": 4,
+                                "offset": 96,
+                              },
+                              "start": {
+                                "column": 19,
+                                "line": 4,
+                                "offset": 93,
+                              },
+                            },
+                            "name": "Baz",
+                            "range": [
+                              93,
+                              96,
+                            ],
+                            "start": 93,
+                            "type": "Identifier",
+                          },
+                          "optional": false,
+                          "property": {
+                            "end": 108,
+                            "loc": {
+                              "end": {
+                                "column": 34,
+                                "line": 4,
+                                "offset": 108,
+                              },
+                              "start": {
+                                "column": 23,
+                                "line": 4,
+                                "offset": 97,
+                              },
+                            },
+                            "name": "displayName",
+                            "range": [
+                              97,
+                              108,
+                            ],
+                            "start": 97,
+                            "type": "Identifier",
+                          },
+                          "range": [
+                            93,
+                            108,
+                          ],
+                          "start": 93,
+                          "type": "MemberExpression",
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 43,
+                            "line": 4,
+                            "offset": 117,
+                          },
+                          "start": {
+                            "column": 19,
+                            "line": 4,
+                            "offset": 93,
+                          },
+                        },
+                        "operator": "||",
+                        "range": [
+                          93,
+                          117,
+                        ],
+                        "right": {
+                          "end": 117,
+                          "loc": {
+                            "end": {
+                              "column": 43,
+                              "line": 4,
+                              "offset": 117,
+                            },
+                            "start": {
+                              "column": 38,
+                              "line": 4,
+                              "offset": 112,
+                            },
+                          },
+                          "range": [
+                            112,
+                            117,
+                          ],
+                          "raw": "'Baz'",
+                          "start": 112,
+                          "type": "Literal",
+                          "value": "Baz",
+                        },
+                        "start": 93,
+                        "type": "LogicalExpression",
+                      },
+                    ],
+                    "loc": {
+                      "end": {
+                        "column": 45,
+                        "line": 4,
+                        "offset": 119,
+                      },
+                      "start": {
+                        "column": 10,
+                        "line": 4,
+                        "offset": 84,
+                      },
+                    },
+                    "quasis": [
+                      {
+                        "end": 93,
+                        "loc": {
+                          "end": {
+                            "column": 19,
+                            "line": 4,
+                            "offset": 91,
+                          },
+                          "start": {
+                            "column": 10,
+                            "line": 4,
+                            "offset": 85,
+                          },
+                        },
+                        "range": [
+                          84,
+                          93,
+                        ],
+                        "start": 84,
+                        "tail": false,
+                        "type": "TemplateElement",
+                        "value": {
+                          "cooked": "Fudge ",
+                          "raw": "Fudge ",
+                        },
+                      },
+                      {
+                        "end": 119,
+                        "loc": {
+                          "end": {
+                            "column": 45,
+                            "line": 4,
+                            "offset": 118,
+                          },
+                          "start": {
+                            "column": 43,
+                            "line": 4,
+                            "offset": 118,
+                          },
+                        },
+                        "range": [
+                          117,
+                          119,
+                        ],
+                        "start": 117,
+                        "tail": true,
+                        "type": "TemplateElement",
+                        "value": {
+                          "cooked": "",
+                          "raw": "",
+                        },
+                      },
+                    ],
+                    "range": [
+                      84,
+                      119,
+                    ],
+                    "start": 84,
+                    "type": "TemplateLiteral",
+                  },
+                },
+                {
+                  "computed": false,
+                  "end": 171,
+                  "key": {
+                    "end": 130,
+                    "loc": {
+                      "end": {
+                        "column": 9,
+                        "line": 5,
+                        "offset": 130,
+                      },
+                      "start": {
+                        "column": 2,
+                        "line": 5,
+                        "offset": 123,
+                      },
+                    },
+                    "name": "authors",
+                    "range": [
+                      123,
+                      130,
+                    ],
+                    "start": 123,
+                    "type": "Identifier",
+                  },
+                  "kind": "init",
+                  "loc": {
+                    "end": {
+                      "column": 5,
+                      "line": 8,
+                      "offset": 171,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 5,
+                      "offset": 123,
+                    },
+                  },
+                  "method": false,
+                  "range": [
+                    123,
+                    171,
+                  ],
+                  "shorthand": false,
+                  "start": 123,
+                  "type": "Property",
+                  "value": {
+                    "elements": [
+                      {
+                        "end": 145,
+                        "loc": {
+                          "end": {
+                            "column": 11,
+                            "line": 6,
+                            "offset": 145,
+                          },
+                          "start": {
+                            "column": 5,
+                            "line": 6,
+                            "offset": 139,
+                          },
+                        },
+                        "range": [
+                          139,
+                          145,
+                        ],
+                        "raw": "'fred'",
+                        "start": 139,
+                        "type": "Literal",
+                        "value": "fred",
+                      },
+                      {
+                        "end": 165,
+                        "loc": {
+                          "end": {
+                            "column": 18,
+                            "line": 7,
+                            "offset": 165,
+                          },
+                          "start": {
+                            "column": 11,
+                            "line": 7,
+                            "offset": 158,
+                          },
+                        },
+                        "range": [
+                          158,
+                          165,
+                        ],
+                        "raw": "'sally'",
+                        "start": 158,
+                        "type": "Literal",
+                        "value": "sally",
+                      },
+                    ],
+                    "end": 171,
+                    "loc": {
+                      "end": {
+                        "column": 5,
+                        "line": 8,
+                        "offset": 171,
+                      },
+                      "start": {
+                        "column": 11,
+                        "line": 5,
+                        "offset": 132,
+                      },
+                    },
+                    "range": [
+                      132,
+                      171,
+                    ],
+                    "start": 132,
+                    "type": "ArrayExpression",
+                  },
+                },
+              ],
+              "range": [
+                72,
+                173,
+              ],
+              "start": 72,
+              "type": "ObjectExpression",
+            },
+            "loc": {
+              "end": {
+                "column": 1,
+                "line": 9,
+                "offset": 173,
+              },
+              "start": {
+                "column": 16,
+                "line": 3,
+                "offset": 63,
+              },
+            },
+            "range": [
+              63,
+              173,
+            ],
+            "start": 63,
+            "type": "VariableDeclarator",
+          },
+        ],
+        "end": 173,
+        "kind": "const",
+        "loc": {
+          "end": {
+            "column": 1,
+            "line": 9,
+            "offset": 173,
+          },
+          "start": {
+            "column": 8,
+            "line": 3,
+            "offset": 55,
+          },
+        },
+        "range": [
+          55,
+          173,
+        ],
+        "start": 55,
+        "type": "VariableDeclaration",
+      },
+      "end": 173,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 9,
+          "offset": 173,
+        },
+        "start": {
+          "column": 0,
+          "line": 3,
+          "offset": 47,
+        },
+      },
+      "range": [
+        47,
+        173,
+      ],
+      "source": null,
+      "specifiers": [],
+      "start": 47,
+      "type": "ExportNamedDeclaration",
+    },
+    {
+      "attributes": [],
+      "declaration": {
+        "declarations": [
+          {
+            "end": 203,
+            "id": {
+              "end": 193,
+              "loc": {
+                "end": {
+                  "column": 18,
+                  "line": 11,
+                  "offset": 193,
+                },
+                "start": {
+                  "column": 13,
+                  "line": 11,
+                  "offset": 188,
+                },
+              },
+              "name": "hello",
+              "range": [
+                188,
+                193,
+              ],
+              "start": 188,
+              "type": "Identifier",
+            },
+            "init": {
+              "end": 203,
+              "loc": {
+                "end": {
+                  "column": 28,
+                  "line": 11,
+                  "offset": 203,
+                },
+                "start": {
+                  "column": 21,
+                  "line": 11,
+                  "offset": 196,
+                },
+              },
+              "range": [
+                196,
+                203,
+              ],
+              "raw": "'hello'",
+              "start": 196,
+              "type": "Literal",
+              "value": "hello",
+            },
+            "loc": {
+              "end": {
+                "column": 28,
+                "line": 11,
+                "offset": 203,
+              },
+              "start": {
+                "column": 13,
+                "line": 11,
+                "offset": 188,
+              },
+            },
+            "range": [
+              188,
+              203,
+            ],
+            "start": 188,
+            "type": "VariableDeclarator",
+          },
+        ],
+        "end": 203,
+        "kind": "const",
+        "loc": {
+          "end": {
+            "column": 28,
+            "line": 11,
+            "offset": 203,
+          },
+          "start": {
+            "column": 7,
+            "line": 11,
+            "offset": 182,
+          },
+        },
+        "range": [
+          182,
+          203,
+        ],
+        "start": 182,
+        "type": "VariableDeclaration",
+      },
+      "end": 203,
+      "loc": {
+        "end": {
+          "column": 28,
+          "line": 11,
+          "offset": 203,
+        },
+        "start": {
+          "column": 0,
+          "line": 11,
+          "offset": 175,
+        },
+      },
+      "range": [
+        175,
+        203,
+      ],
+      "source": null,
+      "specifiers": [],
+      "start": 175,
+      "type": "ExportNamedDeclaration",
+    },
+    {
+      "children": [
+        {
+          "end": 223,
+          "loc": {
+            "end": {
+              "column": 18,
+              "line": 13,
+            },
+            "start": {
+              "column": 2,
+              "line": 13,
+            },
+          },
+          "range": [
+            207,
+            223,
+          ],
+          "raw": "Hello,    world!",
+          "start": 207,
+          "type": "MDText",
+          "value": "Hello,    world!",
+        },
+      ],
+      "depth": 1,
+      "end": 223,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 13,
+        },
+        "start": {
+          "column": 0,
+          "line": 13,
+        },
+      },
+      "range": [
+        205,
+        223,
+      ],
+      "raw": "# Hello,    world!",
+      "start": 205,
+      "type": "MDHeading",
+    },
+    {
+      "children": [
+        {
+          "end": 252,
+          "loc": {
+            "end": {
+              "column": 27,
+              "line": 15,
+            },
+            "start": {
+              "column": 0,
+              "line": 15,
+            },
+          },
+          "range": [
+            225,
+            252,
+          ],
+          "raw": "I'm an awesome   paragraph.",
+          "start": 225,
+          "type": "MDText",
+          "value": "I'm an awesome   paragraph.",
+        },
+      ],
+      "end": 252,
+      "loc": {
+        "end": {
+          "column": 27,
+          "line": 15,
+        },
+        "start": {
+          "column": 0,
+          "line": 15,
+        },
+      },
+      "range": [
+        225,
+        252,
+      ],
+      "raw": "I'm an awesome   paragraph.",
+      "start": 225,
+      "type": "MDParagraph",
+    },
+    {
+      "end": 277,
+      "expression": {
+        "end": 276,
+        "loc": {
+          "end": {
+            "column": 22,
+            "line": 17,
+          },
+          "start": {
+            "column": 1,
+            "line": 17,
+          },
+        },
+        "range": [
+          255,
+          276,
+        ],
+        "start": 255,
+        "type": "JSXEmptyExpression",
+      },
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 17,
+          "offset": 277,
+        },
+        "start": {
+          "column": 1,
+          "line": 17,
+          "offset": 254,
+        },
+      },
+      "range": [
+        254,
+        277,
+      ],
+      "start": 254,
+      "type": "MDXFlowExpression",
+    },
+    {
+      "end": 414,
+      "expression": {
+        "children": [
+          {
+            "children": [
+              {
+                "end": 349,
+                "loc": {
+                  "end": {
+                    "column": 55,
+                    "line": 20,
+                  },
+                  "start": {
+                    "column": 9,
+                    "line": 20,
+                  },
+                },
+                "range": [
+                  303,
+                  349,
+                ],
+                "raw": "hi                                            ",
+                "start": 303,
+                "type": "JSXText",
+                "value": "hi                                            ",
+              },
+            ],
+            "closingElement": {
+              "end": 355,
+              "loc": {
+                "end": {
+                  "column": 61,
+                  "line": 20,
+                },
+                "start": {
+                  "column": 55,
+                  "line": 20,
+                },
+              },
+              "name": {
+                "end": 354,
+                "loc": {
+                  "end": {
+                    "column": 60,
+                    "line": 20,
+                  },
+                  "start": {
+                    "column": 57,
+                    "line": 20,
+                  },
+                },
+                "name": "Bar",
+                "range": [
+                  351,
+                  354,
+                ],
+                "raw": "Bar",
+                "start": 351,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                349,
+                355,
+              ],
+              "raw": "</Bar>",
+              "start": 349,
+              "type": "JSXClosingElement",
+            },
+            "end": 355,
+            "loc": {
+              "end": {
+                "column": 61,
+                "line": 20,
+              },
+              "start": {
+                "column": 4,
+                "line": 20,
+              },
+            },
+            "openingElement": {
+              "attributes": [],
+              "end": 303,
+              "loc": {
+                "end": {
+                  "column": 9,
+                  "line": 20,
+                },
+                "start": {
+                  "column": 4,
+                  "line": 20,
+                },
+              },
+              "name": {
+                "end": 302,
+                "loc": {
+                  "end": {
+                    "column": 8,
+                    "line": 20,
+                  },
+                  "start": {
+                    "column": 5,
+                    "line": 20,
+                  },
+                },
+                "name": "Bar",
+                "range": [
+                  299,
+                  302,
+                ],
+                "raw": "Bar",
+                "start": 299,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                298,
+                303,
+              ],
+              "raw": "<Bar>",
+              "selfClosing": false,
+              "start": 298,
+              "type": "JSXOpeningElement",
+            },
+            "range": [
+              298,
+              355,
+            ],
+            "raw": "<Bar>hi                                            </Bar>",
+            "start": 298,
+            "type": "JSXElement",
+          },
+          {
+            "end": 375,
+            "expression": {
+              "end": 367,
+              "loc": {
+                "end": {
+                  "column": 10,
+                  "line": 22,
+                  "offset": 367,
+                },
+                "start": {
+                  "column": 5,
+                  "line": 22,
+                  "offset": 362,
+                },
+              },
+              "name": "hello",
+              "range": [
+                362,
+                367,
+              ],
+              "start": 362,
+              "type": "Identifier",
+            },
+            "loc": {
+              "end": {
+                "column": 18,
+                "line": 22,
+              },
+              "start": {
+                "column": 2,
+                "line": 22,
+              },
+            },
+            "range": [
+              359,
+              375,
+            ],
+            "raw": "{  hello       }",
+            "start": 359,
+            "type": "JSXExpressionContainer",
+          },
+          {
+            "end": 407,
+            "expression": {
+              "end": 406,
+              "loc": {
+                "end": {
+                  "column": 29,
+                  "line": 24,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 24,
+                },
+              },
+              "range": [
+                380,
+                406,
+              ],
+              "start": 380,
+              "type": "JSXEmptyExpression",
+            },
+            "loc": {
+              "end": {
+                "column": 30,
+                "line": 24,
+              },
+              "start": {
+                "column": 2,
+                "line": 24,
+              },
+            },
+            "range": [
+              379,
+              407,
+            ],
+            "raw": "{     /* another comment */}",
+            "start": 379,
+            "type": "JSXExpressionContainer",
+          },
+        ],
+        "closingElement": {
+          "end": 414,
+          "loc": {
+            "end": {
+              "column": 6,
+              "line": 25,
+            },
+            "start": {
+              "column": 0,
+              "line": 25,
+            },
+          },
+          "name": {
+            "end": 413,
+            "loc": {
+              "end": {
+                "column": 5,
+                "line": 25,
+              },
+              "start": {
+                "column": 2,
+                "line": 25,
+              },
+            },
+            "name": "Foo",
+            "range": [
+              410,
+              413,
+            ],
+            "raw": "Foo",
+            "start": 410,
+            "type": "JSXIdentifier",
+          },
+          "range": [
+            408,
+            414,
+          ],
+          "raw": "</Foo>",
+          "start": 408,
+          "type": "JSXClosingElement",
+        },
+        "end": 414,
+        "loc": {
+          "end": {
+            "column": 6,
+            "line": 25,
+          },
+          "start": {
+            "column": 0,
+            "line": 19,
+          },
+        },
+        "openingElement": {
+          "attributes": [
+            {
+              "end": 292,
+              "loc": {
+                "end": {
+                  "column": 13,
+                  "line": 19,
+                },
+                "start": {
+                  "column": 5,
+                  "line": 19,
+                },
+              },
+              "name": {
+                "end": 286,
+                "loc": {
+                  "end": {
+                    "column": 7,
+                    "line": 19,
+                  },
+                  "start": {
+                    "column": 5,
+                    "line": 19,
+                  },
+                },
+                "name": "bg",
+                "range": [
+                  284,
+                  286,
+                ],
+                "raw": "bg",
+                "start": 284,
+                "type": "JSXIdentifier",
+              },
+              "range": [
+                284,
+                292,
+              ],
+              "raw": "bg="red"",
+              "start": 284,
+              "type": "JSXAttribute",
+              "value": {
+                "end": 292,
+                "loc": {
+                  "end": {
+                    "column": 13,
+                    "line": 19,
+                  },
+                  "start": {
+                    "column": 8,
+                    "line": 19,
+                  },
+                },
+                "range": [
+                  287,
+                  292,
+                ],
+                "raw": ""red"",
+                "start": 287,
+                "type": "Literal",
+                "value": "red",
+              },
+            },
+          ],
+          "end": 293,
+          "loc": {
+            "end": {
+              "column": 14,
+              "line": 19,
+            },
+            "start": {
+              "column": 0,
+              "line": 19,
+            },
+          },
+          "name": {
+            "end": 283,
+            "loc": {
+              "end": {
+                "column": 4,
+                "line": 19,
+              },
+              "start": {
+                "column": 1,
+                "line": 19,
+              },
+            },
+            "name": "Foo",
+            "range": [
+              280,
+              283,
+            ],
+            "raw": "Foo",
+            "start": 280,
+            "type": "JSXIdentifier",
+          },
+          "range": [
+            279,
+            293,
+          ],
+          "raw": "<Foo bg="red">",
+          "selfClosing": false,
+          "start": 279,
+          "type": "JSXOpeningElement",
+        },
+        "range": [
+          279,
+          414,
+        ],
+        "raw": "<Foo bg="red">
+    <Bar>hi                                            </Bar>
+
+  {  hello       }
+
+  {     /* another comment */}
+</Foo>",
+        "start": 279,
+        "type": "JSXElement",
+      },
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 25,
+          "offset": 414,
+        },
+        "start": {
+          "column": 1,
+          "line": 19,
+          "offset": 279,
+        },
+      },
+      "range": [
+        279,
+        414,
+      ],
+      "start": 279,
+      "type": "ExpressionStatement",
+    },
+    {
+      "end": 438,
+      "lang": null,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 29,
+        },
+        "start": {
+          "column": 0,
+          "line": 27,
+        },
+      },
+      "meta": null,
+      "range": [
+        416,
+        438,
+      ],
+      "raw": "\`\`\`
+test codeblock
+\`\`\`",
+      "start": 416,
+      "type": "MDCode",
+      "value": "test codeblock",
+    },
+    {
+      "end": 473,
+      "lang": "js",
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 33,
+        },
+        "start": {
+          "column": 0,
+          "line": 31,
+        },
+      },
+      "meta": null,
+      "range": [
+        440,
+        473,
+      ],
+      "raw": "\`\`\`js
+module.exports = 'test'
+\`\`\`",
+      "start": 440,
+      "type": "MDCode",
+      "value": "module.exports = 'test'",
+    },
+    {
+      "end": 497,
+      "lang": "sh",
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 37,
+        },
+        "start": {
+          "column": 0,
+          "line": 35,
+        },
+      },
+      "meta": null,
+      "range": [
+        475,
+        497,
+      ],
+      "raw": "\`\`\`sh
+npm i -g foo
+\`\`\`",
+      "start": 475,
+      "type": "MDCode",
+      "value": "npm i -g foo",
+    },
+    {
+      "align": [
+        "left",
+        "left",
+      ],
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 505,
+                  "loc": {
+                    "end": {
+                      "column": 6,
+                      "line": 39,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 39,
+                    },
+                  },
+                  "range": [
+                    501,
+                    505,
+                  ],
+                  "raw": "Test",
+                  "start": 501,
+                  "type": "MDText",
+                  "value": "Test",
+                },
+              ],
+              "end": 506,
+              "loc": {
+                "end": {
+                  "column": 7,
+                  "line": 39,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 39,
+                },
+              },
+              "range": [
+                499,
+                506,
+              ],
+              "raw": "| Test ",
+              "start": 499,
+              "type": "MDTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 513,
+                  "loc": {
+                    "end": {
+                      "column": 14,
+                      "line": 39,
+                    },
+                    "start": {
+                      "column": 9,
+                      "line": 39,
+                    },
+                  },
+                  "range": [
+                    508,
+                    513,
+                  ],
+                  "raw": "Table",
+                  "start": 508,
+                  "type": "MDText",
+                  "value": "Table",
+                },
+              ],
+              "end": 515,
+              "loc": {
+                "end": {
+                  "column": 16,
+                  "line": 39,
+                },
+                "start": {
+                  "column": 7,
+                  "line": 39,
+                },
+              },
+              "range": [
+                506,
+                515,
+              ],
+              "raw": "| Table |",
+              "start": 506,
+              "type": "MDTableCell",
+            },
+          ],
+          "end": 515,
+          "loc": {
+            "end": {
+              "column": 16,
+              "line": 39,
+            },
+            "start": {
+              "column": 0,
+              "line": 39,
+            },
+          },
+          "range": [
+            499,
+            515,
+          ],
+          "raw": "| Test | Table |",
+          "start": 499,
+          "type": "MDTableRow",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 539,
+                  "loc": {
+                    "end": {
+                      "column": 6,
+                      "line": 41,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 41,
+                    },
+                  },
+                  "range": [
+                    535,
+                    539,
+                  ],
+                  "raw": "Col1",
+                  "start": 535,
+                  "type": "MDText",
+                  "value": "Col1",
+                },
+              ],
+              "end": 540,
+              "loc": {
+                "end": {
+                  "column": 7,
+                  "line": 41,
+                },
+                "start": {
+                  "column": 0,
+                  "line": 41,
+                },
+              },
+              "range": [
+                533,
+                540,
+              ],
+              "raw": "| Col1 ",
+              "start": 533,
+              "type": "MDTableCell",
+            },
+            {
+              "children": [
+                {
+                  "end": 546,
+                  "loc": {
+                    "end": {
+                      "column": 13,
+                      "line": 41,
+                    },
+                    "start": {
+                      "column": 9,
+                      "line": 41,
+                    },
+                  },
+                  "range": [
+                    542,
+                    546,
+                  ],
+                  "raw": "Col2",
+                  "start": 542,
+                  "type": "MDText",
+                  "value": "Col2",
+                },
+              ],
+              "end": 549,
+              "loc": {
+                "end": {
+                  "column": 16,
+                  "line": 41,
+                },
+                "start": {
+                  "column": 7,
+                  "line": 41,
+                },
+              },
+              "range": [
+                540,
+                549,
+              ],
+              "raw": "| Col2  |",
+              "start": 540,
+              "type": "MDTableCell",
+            },
+          ],
+          "end": 549,
+          "loc": {
+            "end": {
+              "column": 16,
+              "line": 41,
+            },
+            "start": {
+              "column": 0,
+              "line": 41,
+            },
+          },
+          "range": [
+            533,
+            549,
+          ],
+          "raw": "| Col1 | Col2  |",
+          "start": 533,
+          "type": "MDTableRow",
+        },
+      ],
+      "end": 549,
+      "loc": {
+        "end": {
+          "column": 16,
+          "line": 41,
+        },
+        "start": {
+          "column": 0,
+          "line": 39,
+        },
+      },
+      "range": [
+        499,
+        549,
+      ],
+      "raw": "| Test | Table |
+| :--- | :---- |
+| Col1 | Col2  |",
+      "start": 499,
+      "type": "MDTable",
+    },
+    {
+      "declaration": {
+        "async": false,
+        "body": {
+          "children": [
+            {
+              "end": 611,
+              "expression": {
+                "end": 610,
+                "loc": {
+                  "end": {
+                    "column": 59,
+                    "line": 43,
+                    "offset": 610,
+                  },
+                  "start": {
+                    "column": 51,
+                    "line": 43,
+                    "offset": 602,
+                  },
+                },
+                "name": "children",
+                "range": [
+                  602,
+                  610,
+                ],
+                "start": 602,
+                "type": "Identifier",
+              },
+              "loc": {
+                "end": {
+                  "column": 60,
+                  "line": 43,
+                  "offset": 611,
+                },
+                "start": {
+                  "column": 46,
+                  "line": 43,
+                  "offset": 597,
+                },
+              },
+              "range": [
+                597,
+                611,
+              ],
+              "start": 597,
+              "type": "JSXExpressionContainer",
+            },
+          ],
+          "closingElement": {
+            "end": 617,
+            "loc": {
+              "end": {
+                "column": 66,
+                "line": 43,
+                "offset": 617,
+              },
+              "start": {
+                "column": 60,
+                "line": 43,
+                "offset": 611,
+              },
+            },
+            "name": {
+              "end": 616,
+              "loc": {
+                "end": {
+                  "column": 65,
+                  "line": 43,
+                  "offset": 616,
+                },
+                "start": {
+                  "column": 62,
+                  "line": 43,
+                  "offset": 613,
+                },
+              },
+              "name": "div",
+              "range": [
+                613,
+                616,
+              ],
+              "start": 613,
+              "type": "JSXIdentifier",
+            },
+            "range": [
+              611,
+              617,
+            ],
+            "start": 611,
+            "type": "JSXClosingElement",
+          },
+          "end": 617,
+          "loc": {
+            "end": {
+              "column": 66,
+              "line": 43,
+              "offset": 617,
+            },
+            "start": {
+              "column": 40,
+              "line": 43,
+              "offset": 591,
+            },
+          },
+          "openingElement": {
+            "attributes": [],
+            "end": 597,
+            "loc": {
+              "end": {
+                "column": 46,
+                "line": 43,
+                "offset": 597,
+              },
+              "start": {
+                "column": 40,
+                "line": 43,
+                "offset": 591,
+              },
+            },
+            "name": {
+              "end": 596,
+              "loc": {
+                "end": {
+                  "column": 45,
+                  "line": 43,
+                  "offset": 596,
+                },
+                "start": {
+                  "column": 42,
+                  "line": 43,
+                  "offset": 593,
+                },
+              },
+              "name": "div",
+              "range": [
+                593,
+                596,
+              ],
+              "start": 593,
+              "type": "JSXIdentifier",
+            },
+            "range": [
+              591,
+              597,
+            ],
+            "selfClosing": false,
+            "start": 591,
+            "type": "JSXOpeningElement",
+          },
+          "range": [
+            591,
+            617,
+          ],
+          "start": 591,
+          "type": "JSXElement",
+        },
+        "end": 617,
+        "expression": true,
+        "generator": false,
+        "id": null,
+        "loc": {
+          "end": {
+            "column": 66,
+            "line": 43,
+            "offset": 617,
+          },
+          "start": {
+            "column": 21,
+            "line": 43,
+            "offset": 572,
+          },
+        },
+        "params": [
+          {
+            "end": 586,
+            "loc": {
+              "end": {
+                "column": 35,
+                "line": 43,
+                "offset": 586,
+              },
+              "start": {
+                "column": 22,
+                "line": 43,
+                "offset": 573,
+              },
+            },
+            "properties": [
+              {
+                "computed": false,
+                "end": 582,
+                "key": {
+                  "end": 582,
+                  "loc": {
+                    "end": {
+                      "column": 31,
+                      "line": 43,
+                      "offset": 582,
+                    },
+                    "start": {
+                      "column": 23,
+                      "line": 43,
+                      "offset": 574,
+                    },
+                  },
+                  "name": "children",
+                  "range": [
+                    574,
+                    582,
+                  ],
+                  "start": 574,
+                  "type": "Identifier",
+                },
+                "kind": "init",
+                "loc": {
+                  "end": {
+                    "column": 31,
+                    "line": 43,
+                    "offset": 582,
+                  },
+                  "start": {
+                    "column": 23,
+                    "line": 43,
+                    "offset": 574,
+                  },
+                },
+                "method": false,
+                "range": [
+                  574,
+                  582,
+                ],
+                "shorthand": true,
+                "start": 574,
+                "type": "Property",
+                "value": {
+                  "end": 582,
+                  "loc": {
+                    "end": {
+                      "column": 31,
+                      "line": 43,
+                      "offset": 582,
+                    },
+                    "start": {
+                      "column": 23,
+                      "line": 43,
+                      "offset": 574,
+                    },
+                  },
+                  "name": "children",
+                  "range": [
+                    574,
+                    582,
+                  ],
+                  "start": 574,
+                  "type": "Identifier",
+                },
+              },
+            ],
+            "range": [
+              573,
+              586,
+            ],
+            "start": 573,
+            "type": "ObjectPattern",
+          },
+        ],
+        "range": [
+          572,
+          617,
+        ],
+        "start": 572,
+        "type": "ArrowFunctionExpression",
+      },
+      "end": 617,
+      "loc": {
+        "end": {
+          "column": 66,
+          "line": 43,
+          "offset": 617,
+        },
+        "start": {
+          "column": 0,
+          "line": 43,
+          "offset": 551,
+        },
+      },
+      "range": [
+        551,
+        617,
+      ],
+      "start": 551,
+      "type": "ExportDefaultDeclaration",
+    },
+  ],
+  "comments": [
+    {
+      "end": 275,
+      "loc": {
+        "end": {
+          "column": 21,
+          "line": 17,
+          "offset": 275,
+        },
+        "start": {
+          "column": 2,
+          "line": 17,
+          "offset": 256,
+        },
+      },
+      "range": [
+        256,
+        275,
+      ],
+      "start": 256,
+      "type": "Block",
+      "value": " I'm a comment ",
+    },
+    {
+      "end": 406,
+      "loc": {
+        "end": {
+          "column": 29,
+          "line": 24,
+          "offset": 406,
+        },
+        "start": {
+          "column": 8,
+          "line": 24,
+          "offset": 385,
+        },
+      },
+      "range": [
+        385,
+        406,
+      ],
+      "start": 385,
+      "type": "Block",
+      "value": " another comment ",
+    },
+  ],
+  "end": 618,
+  "loc": {
+    "end": {
+      "column": 1,
+      "line": 44,
+      "offset": 618,
+    },
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "range": [
+    0,
+    618,
+  ],
+  "sourceType": undefined,
+  "start": 0,
+  "tokens": [
+    {
+      "end": 6,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 1,
+          "offset": 6,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "range": [
+        0,
+        6,
+      ],
+      "start": 0,
+      "type": "Keyword",
+      "value": "import",
+    },
+    {
+      "end": 12,
+      "loc": {
+        "end": {
+          "column": 12,
+          "line": 1,
+          "offset": 12,
+        },
+        "start": {
+          "column": 11,
+          "line": 1,
+          "offset": 11,
+        },
+      },
+      "range": [
+        11,
+        12,
+      ],
+      "start": 11,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 20,
+      "loc": {
+        "end": {
+          "column": 20,
+          "line": 1,
+          "offset": 20,
+        },
+        "start": {
+          "column": 17,
+          "line": 1,
+          "offset": 17,
+        },
+      },
+      "range": [
+        17,
+        20,
+      ],
+      "start": 17,
+      "type": "Identifier",
+      "value": "Baz",
+    },
+    {
+      "end": 24,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 1,
+          "offset": 24,
+        },
+        "start": {
+          "column": 23,
+          "line": 1,
+          "offset": 23,
+        },
+      },
+      "range": [
+        23,
+        24,
+      ],
+      "start": 23,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 29,
+      "loc": {
+        "end": {
+          "column": 29,
+          "line": 1,
+          "offset": 29,
+        },
+        "start": {
+          "column": 25,
+          "line": 1,
+          "offset": 25,
+        },
+      },
+      "range": [
+        25,
+        29,
+      ],
+      "start": 25,
+      "type": "Identifier",
+      "value": "from",
+    },
+    {
+      "end": 45,
+      "loc": {
+        "end": {
+          "column": 45,
+          "line": 1,
+          "offset": 45,
+        },
+        "start": {
+          "column": 34,
+          "line": 1,
+          "offset": 34,
+        },
+      },
+      "range": [
+        34,
+        45,
+      ],
+      "start": 34,
+      "type": "String",
+      "value": "'./Fixture'",
+    },
+    {
+      "end": 53,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 3,
+          "offset": 53,
+        },
+        "start": {
+          "column": 0,
+          "line": 3,
+          "offset": 47,
+        },
+      },
+      "range": [
+        47,
+        53,
+      ],
+      "start": 47,
+      "type": "Keyword",
+      "value": "export",
+    },
+    {
+      "end": 60,
+      "loc": {
+        "end": {
+          "column": 13,
+          "line": 3,
+          "offset": 60,
+        },
+        "start": {
+          "column": 8,
+          "line": 3,
+          "offset": 55,
+        },
+      },
+      "range": [
+        55,
+        60,
+      ],
+      "start": 55,
+      "type": "Keyword",
+      "value": "const",
+    },
+    {
+      "end": 66,
+      "loc": {
+        "end": {
+          "column": 19,
+          "line": 3,
+          "offset": 66,
+        },
+        "start": {
+          "column": 16,
+          "line": 3,
+          "offset": 63,
+        },
+      },
+      "range": [
+        63,
+        66,
+      ],
+      "start": 63,
+      "type": "Identifier",
+      "value": "foo",
+    },
+    {
+      "end": 71,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 3,
+          "offset": 71,
+        },
+        "start": {
+          "column": 23,
+          "line": 3,
+          "offset": 70,
+        },
+      },
+      "range": [
+        70,
+        71,
+      ],
+      "start": 70,
+      "type": "Punctuator",
+      "value": "=",
+    },
+    {
+      "end": 73,
+      "loc": {
+        "end": {
+          "column": 26,
+          "line": 3,
+          "offset": 73,
+        },
+        "start": {
+          "column": 25,
+          "line": 3,
+          "offset": 72,
+        },
+      },
+      "range": [
+        72,
+        73,
+      ],
+      "start": 72,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 78,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 4,
+          "offset": 78,
+        },
+        "start": {
+          "column": 2,
+          "line": 4,
+          "offset": 76,
+        },
+      },
+      "range": [
+        76,
+        78,
+      ],
+      "start": 76,
+      "type": "Identifier",
+      "value": "hi",
+    },
+    {
+      "end": 79,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 4,
+          "offset": 79,
+        },
+        "start": {
+          "column": 4,
+          "line": 4,
+          "offset": 78,
+        },
+      },
+      "range": [
+        78,
+        79,
+      ],
+      "start": 78,
+      "type": "Punctuator",
+      "value": ":",
+    },
+    {
+      "end": 93,
+      "loc": {
+        "end": {
+          "column": 19,
+          "line": 4,
+          "offset": 93,
+        },
+        "start": {
+          "column": 10,
+          "line": 4,
+          "offset": 84,
+        },
+      },
+      "range": [
+        84,
+        93,
+      ],
+      "start": 84,
+      "type": "Template",
+      "value": "\`Fudge \${",
+    },
+    {
+      "end": 96,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 4,
+          "offset": 96,
+        },
+        "start": {
+          "column": 19,
+          "line": 4,
+          "offset": 93,
+        },
+      },
+      "range": [
+        93,
+        96,
+      ],
+      "start": 93,
+      "type": "Identifier",
+      "value": "Baz",
+    },
+    {
+      "end": 97,
+      "loc": {
+        "end": {
+          "column": 23,
+          "line": 4,
+          "offset": 97,
+        },
+        "start": {
+          "column": 22,
+          "line": 4,
+          "offset": 96,
+        },
+      },
+      "range": [
+        96,
+        97,
+      ],
+      "start": 96,
+      "type": "Punctuator",
+      "value": ".",
+    },
+    {
+      "end": 108,
+      "loc": {
+        "end": {
+          "column": 34,
+          "line": 4,
+          "offset": 108,
+        },
+        "start": {
+          "column": 23,
+          "line": 4,
+          "offset": 97,
+        },
+      },
+      "range": [
+        97,
+        108,
+      ],
+      "start": 97,
+      "type": "Identifier",
+      "value": "displayName",
+    },
+    {
+      "end": 111,
+      "loc": {
+        "end": {
+          "column": 37,
+          "line": 4,
+          "offset": 111,
+        },
+        "start": {
+          "column": 35,
+          "line": 4,
+          "offset": 109,
+        },
+      },
+      "range": [
+        109,
+        111,
+      ],
+      "start": 109,
+      "type": "Punctuator",
+      "value": "||",
+    },
+    {
+      "end": 117,
+      "loc": {
+        "end": {
+          "column": 43,
+          "line": 4,
+          "offset": 117,
+        },
+        "start": {
+          "column": 38,
+          "line": 4,
+          "offset": 112,
+        },
+      },
+      "range": [
+        112,
+        117,
+      ],
+      "start": 112,
+      "type": "String",
+      "value": "'Baz'",
+    },
+    {
+      "end": 119,
+      "loc": {
+        "end": {
+          "column": 45,
+          "line": 4,
+          "offset": 119,
+        },
+        "start": {
+          "column": 43,
+          "line": 4,
+          "offset": 117,
+        },
+      },
+      "range": [
+        117,
+        119,
+      ],
+      "start": 117,
+      "type": "Template",
+      "value": "}\`",
+    },
+    {
+      "end": 120,
+      "loc": {
+        "end": {
+          "column": 46,
+          "line": 4,
+          "offset": 120,
+        },
+        "start": {
+          "column": 45,
+          "line": 4,
+          "offset": 119,
+        },
+      },
+      "range": [
+        119,
+        120,
+      ],
+      "start": 119,
+      "type": "Punctuator",
+      "value": ",",
+    },
+    {
+      "end": 130,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 5,
+          "offset": 130,
+        },
+        "start": {
+          "column": 2,
+          "line": 5,
+          "offset": 123,
+        },
+      },
+      "range": [
+        123,
+        130,
+      ],
+      "start": 123,
+      "type": "Identifier",
+      "value": "authors",
+    },
+    {
+      "end": 131,
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 5,
+          "offset": 131,
+        },
+        "start": {
+          "column": 9,
+          "line": 5,
+          "offset": 130,
+        },
+      },
+      "range": [
+        130,
+        131,
+      ],
+      "start": 130,
+      "type": "Punctuator",
+      "value": ":",
+    },
+    {
+      "end": 133,
+      "loc": {
+        "end": {
+          "column": 12,
+          "line": 5,
+          "offset": 133,
+        },
+        "start": {
+          "column": 11,
+          "line": 5,
+          "offset": 132,
+        },
+      },
+      "range": [
+        132,
+        133,
+      ],
+      "start": 132,
+      "type": "Punctuator",
+      "value": "[",
+    },
+    {
+      "end": 145,
+      "loc": {
+        "end": {
+          "column": 11,
+          "line": 6,
+          "offset": 145,
+        },
+        "start": {
+          "column": 5,
+          "line": 6,
+          "offset": 139,
+        },
+      },
+      "range": [
+        139,
+        145,
+      ],
+      "start": 139,
+      "type": "String",
+      "value": "'fred'",
+    },
+    {
+      "end": 146,
+      "loc": {
+        "end": {
+          "column": 12,
+          "line": 6,
+          "offset": 146,
+        },
+        "start": {
+          "column": 11,
+          "line": 6,
+          "offset": 145,
+        },
+      },
+      "range": [
+        145,
+        146,
+      ],
+      "start": 145,
+      "type": "Punctuator",
+      "value": ",",
+    },
+    {
+      "end": 165,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 7,
+          "offset": 165,
+        },
+        "start": {
+          "column": 11,
+          "line": 7,
+          "offset": 158,
+        },
+      },
+      "range": [
+        158,
+        165,
+      ],
+      "start": 158,
+      "type": "String",
+      "value": "'sally'",
+    },
+    {
+      "end": 171,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 8,
+          "offset": 171,
+        },
+        "start": {
+          "column": 4,
+          "line": 8,
+          "offset": 170,
+        },
+      },
+      "range": [
+        170,
+        171,
+      ],
+      "start": 170,
+      "type": "Punctuator",
+      "value": "]",
+    },
+    {
+      "end": 173,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 9,
+          "offset": 173,
+        },
+        "start": {
+          "column": 0,
+          "line": 9,
+          "offset": 172,
+        },
+      },
+      "range": [
+        172,
+        173,
+      ],
+      "start": 172,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 181,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 11,
+          "offset": 181,
+        },
+        "start": {
+          "column": 0,
+          "line": 11,
+          "offset": 175,
+        },
+      },
+      "range": [
+        175,
+        181,
+      ],
+      "start": 175,
+      "type": "Keyword",
+      "value": "export",
+    },
+    {
+      "end": 187,
+      "loc": {
+        "end": {
+          "column": 12,
+          "line": 11,
+          "offset": 187,
+        },
+        "start": {
+          "column": 7,
+          "line": 11,
+          "offset": 182,
+        },
+      },
+      "range": [
+        182,
+        187,
+      ],
+      "start": 182,
+      "type": "Keyword",
+      "value": "const",
+    },
+    {
+      "end": 193,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 11,
+          "offset": 193,
+        },
+        "start": {
+          "column": 13,
+          "line": 11,
+          "offset": 188,
+        },
+      },
+      "range": [
+        188,
+        193,
+      ],
+      "start": 188,
+      "type": "Identifier",
+      "value": "hello",
+    },
+    {
+      "end": 195,
+      "loc": {
+        "end": {
+          "column": 20,
+          "line": 11,
+          "offset": 195,
+        },
+        "start": {
+          "column": 19,
+          "line": 11,
+          "offset": 194,
+        },
+      },
+      "range": [
+        194,
+        195,
+      ],
+      "start": 194,
+      "type": "Punctuator",
+      "value": "=",
+    },
+    {
+      "end": 203,
+      "loc": {
+        "end": {
+          "column": 28,
+          "line": 11,
+          "offset": 203,
+        },
+        "start": {
+          "column": 21,
+          "line": 11,
+          "offset": 196,
+        },
+      },
+      "range": [
+        196,
+        203,
+      ],
+      "start": 196,
+      "type": "String",
+      "value": "'hello'",
+    },
+    {
+      "end": 223,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 13,
+        },
+        "start": {
+          "column": 2,
+          "line": 13,
+        },
+      },
+      "range": [
+        207,
+        223,
+      ],
+      "start": 207,
+      "type": "JSXText",
+      "value": "Hello,    world!",
+    },
+    {
+      "end": 252,
+      "loc": {
+        "end": {
+          "column": 27,
+          "line": 15,
+        },
+        "start": {
+          "column": 0,
+          "line": 15,
+        },
+      },
+      "range": [
+        225,
+        252,
+      ],
+      "start": 225,
+      "type": "JSXText",
+      "value": "I'm an awesome   paragraph.",
+    },
+    {
+      "end": 255,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 17,
+        },
+        "start": {
+          "column": 0,
+          "line": 17,
+        },
+      },
+      "range": [
+        254,
+        255,
+      ],
+      "start": 254,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 277,
+      "loc": {
+        "end": {
+          "column": 23,
+          "line": 17,
+        },
+        "start": {
+          "column": 22,
+          "line": 17,
+        },
+      },
+      "range": [
+        276,
+        277,
+      ],
+      "start": 276,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 280,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 19,
+        },
+        "start": {
+          "column": 0,
+          "line": 19,
+        },
+      },
+      "range": [
+        279,
+        280,
+      ],
+      "start": 279,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 283,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 19,
+        },
+        "start": {
+          "column": 1,
+          "line": 19,
+        },
+      },
+      "range": [
+        280,
+        283,
+      ],
+      "start": 280,
+      "type": "JSXIdentifier",
+      "value": "Foo",
+    },
+    {
+      "end": 286,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 19,
+        },
+        "start": {
+          "column": 5,
+          "line": 19,
+        },
+      },
+      "range": [
+        284,
+        286,
+      ],
+      "start": 284,
+      "type": "JSXIdentifier",
+      "value": "bg",
+    },
+    {
+      "end": 287,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 19,
+        },
+        "start": {
+          "column": 7,
+          "line": 19,
+        },
+      },
+      "range": [
+        286,
+        287,
+      ],
+      "start": 286,
+      "type": "Punctuator",
+      "value": "=",
+    },
+    {
+      "end": 292,
+      "loc": {
+        "end": {
+          "column": 13,
+          "line": 19,
+        },
+        "start": {
+          "column": 8,
+          "line": 19,
+        },
+      },
+      "range": [
+        287,
+        292,
+      ],
+      "start": 287,
+      "type": "String",
+      "value": ""red"",
+    },
+    {
+      "end": 298,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 20,
+        },
+        "start": {
+          "column": 14,
+          "line": 19,
+        },
+      },
+      "range": [
+        293,
+        298,
+      ],
+      "start": 293,
+      "type": "JSXText",
+      "value": "
+    ",
+    },
+    {
+      "end": 299,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 20,
+        },
+        "start": {
+          "column": 4,
+          "line": 20,
+        },
+      },
+      "range": [
+        298,
+        299,
+      ],
+      "start": 298,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 302,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 20,
+        },
+        "start": {
+          "column": 5,
+          "line": 20,
+        },
+      },
+      "range": [
+        299,
+        302,
+      ],
+      "start": 299,
+      "type": "JSXIdentifier",
+      "value": "Bar",
+    },
+    {
+      "end": 349,
+      "loc": {
+        "end": {
+          "column": 55,
+          "line": 20,
+        },
+        "start": {
+          "column": 9,
+          "line": 20,
+        },
+      },
+      "range": [
+        303,
+        349,
+      ],
+      "start": 303,
+      "type": "JSXText",
+      "value": "hi                                            ",
+    },
+    {
+      "end": 350,
+      "loc": {
+        "end": {
+          "column": 56,
+          "line": 20,
+        },
+        "start": {
+          "column": 55,
+          "line": 20,
+        },
+      },
+      "range": [
+        349,
+        350,
+      ],
+      "start": 349,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 351,
+      "loc": {
+        "end": {
+          "column": 57,
+          "line": 20,
+        },
+        "start": {
+          "column": 56,
+          "line": 20,
+        },
+      },
+      "range": [
+        350,
+        351,
+      ],
+      "start": 350,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    {
+      "end": 354,
+      "loc": {
+        "end": {
+          "column": 60,
+          "line": 20,
+        },
+        "start": {
+          "column": 57,
+          "line": 20,
+        },
+      },
+      "range": [
+        351,
+        354,
+      ],
+      "start": 351,
+      "type": "JSXIdentifier",
+      "value": "Bar",
+    },
+    {
+      "end": 355,
+      "loc": {
+        "end": {
+          "column": 61,
+          "line": 20,
+        },
+        "start": {
+          "column": 60,
+          "line": 20,
+        },
+      },
+      "range": [
+        354,
+        355,
+      ],
+      "start": 354,
+      "type": "Punctuator",
+      "value": ">",
+    },
+    {
+      "end": 359,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 22,
+        },
+        "start": {
+          "column": 61,
+          "line": 20,
+        },
+      },
+      "range": [
+        355,
+        359,
+      ],
+      "start": 355,
+      "type": "JSXText",
+      "value": "
+
+  ",
+    },
+    {
+      "end": 360,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 22,
+        },
+        "start": {
+          "column": 2,
+          "line": 22,
+        },
+      },
+      "range": [
+        359,
+        360,
+      ],
+      "start": 359,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 367,
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 22,
+          "offset": 367,
+        },
+        "start": {
+          "column": 5,
+          "line": 22,
+          "offset": 362,
+        },
+      },
+      "range": [
+        362,
+        367,
+      ],
+      "start": 362,
+      "type": "Identifier",
+      "value": "hello",
+    },
+    {
+      "end": 375,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 22,
+        },
+        "start": {
+          "column": 17,
+          "line": 22,
+        },
+      },
+      "range": [
+        374,
+        375,
+      ],
+      "start": 374,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 379,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 24,
+        },
+        "start": {
+          "column": 18,
+          "line": 22,
+        },
+      },
+      "range": [
+        375,
+        379,
+      ],
+      "start": 375,
+      "type": "JSXText",
+      "value": "
+
+  ",
+    },
+    {
+      "end": 380,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 24,
+        },
+        "start": {
+          "column": 2,
+          "line": 24,
+        },
+      },
+      "range": [
+        379,
+        380,
+      ],
+      "start": 379,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 407,
+      "loc": {
+        "end": {
+          "column": 30,
+          "line": 24,
+        },
+        "start": {
+          "column": 29,
+          "line": 24,
+        },
+      },
+      "range": [
+        406,
+        407,
+      ],
+      "start": 406,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 408,
+      "loc": {
+        "end": {
+          "column": 0,
+          "line": 25,
+        },
+        "start": {
+          "column": 30,
+          "line": 24,
+        },
+      },
+      "range": [
+        407,
+        408,
+      ],
+      "start": 407,
+      "type": "JSXText",
+      "value": "
+",
+    },
+    {
+      "end": 409,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 25,
+        },
+        "start": {
+          "column": 0,
+          "line": 25,
+        },
+      },
+      "range": [
+        408,
+        409,
+      ],
+      "start": 408,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 410,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 25,
+        },
+        "start": {
+          "column": 1,
+          "line": 25,
+        },
+      },
+      "range": [
+        409,
+        410,
+      ],
+      "start": 409,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    {
+      "end": 413,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 25,
+        },
+        "start": {
+          "column": 2,
+          "line": 25,
+        },
+      },
+      "range": [
+        410,
+        413,
+      ],
+      "start": 410,
+      "type": "JSXIdentifier",
+      "value": "Foo",
+    },
+    {
+      "end": 414,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 25,
+        },
+        "start": {
+          "column": 5,
+          "line": 25,
+        },
+      },
+      "range": [
+        413,
+        414,
+      ],
+      "start": 413,
+      "type": "Punctuator",
+      "value": ">",
+    },
+    {
+      "end": 505,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 39,
+        },
+        "start": {
+          "column": 2,
+          "line": 39,
+        },
+      },
+      "range": [
+        501,
+        505,
+      ],
+      "start": 501,
+      "type": "JSXText",
+      "value": "Test",
+    },
+    {
+      "end": 513,
+      "loc": {
+        "end": {
+          "column": 14,
+          "line": 39,
+        },
+        "start": {
+          "column": 9,
+          "line": 39,
+        },
+      },
+      "range": [
+        508,
+        513,
+      ],
+      "start": 508,
+      "type": "JSXText",
+      "value": "Table",
+    },
+    {
+      "end": 539,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 41,
+        },
+        "start": {
+          "column": 2,
+          "line": 41,
+        },
+      },
+      "range": [
+        535,
+        539,
+      ],
+      "start": 535,
+      "type": "JSXText",
+      "value": "Col1",
+    },
+    {
+      "end": 546,
+      "loc": {
+        "end": {
+          "column": 13,
+          "line": 41,
+        },
+        "start": {
+          "column": 9,
+          "line": 41,
+        },
+      },
+      "range": [
+        542,
+        546,
+      ],
+      "start": 542,
+      "type": "JSXText",
+      "value": "Col2",
+    },
+    {
+      "end": 557,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 43,
+          "offset": 557,
+        },
+        "start": {
+          "column": 0,
+          "line": 43,
+          "offset": 551,
+        },
+      },
+      "range": [
+        551,
+        557,
+      ],
+      "start": 551,
+      "type": "Keyword",
+      "value": "export",
+    },
+    {
+      "end": 567,
+      "loc": {
+        "end": {
+          "column": 16,
+          "line": 43,
+          "offset": 567,
+        },
+        "start": {
+          "column": 9,
+          "line": 43,
+          "offset": 560,
+        },
+      },
+      "range": [
+        560,
+        567,
+      ],
+      "start": 560,
+      "type": "Keyword",
+      "value": "default",
+    },
+    {
+      "end": 573,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 43,
+          "offset": 573,
+        },
+        "start": {
+          "column": 21,
+          "line": 43,
+          "offset": 572,
+        },
+      },
+      "range": [
+        572,
+        573,
+      ],
+      "start": 572,
+      "type": "Punctuator",
+      "value": "(",
+    },
+    {
+      "end": 574,
+      "loc": {
+        "end": {
+          "column": 23,
+          "line": 43,
+          "offset": 574,
+        },
+        "start": {
+          "column": 22,
+          "line": 43,
+          "offset": 573,
+        },
+      },
+      "range": [
+        573,
+        574,
+      ],
+      "start": 573,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 582,
+      "loc": {
+        "end": {
+          "column": 31,
+          "line": 43,
+          "offset": 582,
+        },
+        "start": {
+          "column": 23,
+          "line": 43,
+          "offset": 574,
+        },
+      },
+      "range": [
+        574,
+        582,
+      ],
+      "start": 574,
+      "type": "Identifier",
+      "value": "children",
+    },
+    {
+      "end": 586,
+      "loc": {
+        "end": {
+          "column": 35,
+          "line": 43,
+          "offset": 586,
+        },
+        "start": {
+          "column": 34,
+          "line": 43,
+          "offset": 585,
+        },
+      },
+      "range": [
+        585,
+        586,
+      ],
+      "start": 585,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 587,
+      "loc": {
+        "end": {
+          "column": 36,
+          "line": 43,
+          "offset": 587,
+        },
+        "start": {
+          "column": 35,
+          "line": 43,
+          "offset": 586,
+        },
+      },
+      "range": [
+        586,
+        587,
+      ],
+      "start": 586,
+      "type": "Punctuator",
+      "value": ")",
+    },
+    {
+      "end": 590,
+      "loc": {
+        "end": {
+          "column": 39,
+          "line": 43,
+          "offset": 590,
+        },
+        "start": {
+          "column": 37,
+          "line": 43,
+          "offset": 588,
+        },
+      },
+      "range": [
+        588,
+        590,
+      ],
+      "start": 588,
+      "type": "Punctuator",
+      "value": "=>",
+    },
+    {
+      "end": 592,
+      "loc": {
+        "end": {
+          "column": 41,
+          "line": 43,
+          "offset": 592,
+        },
+        "start": {
+          "column": 40,
+          "line": 43,
+          "offset": 591,
+        },
+      },
+      "range": [
+        591,
+        592,
+      ],
+      "start": 591,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 596,
+      "loc": {
+        "end": {
+          "column": 45,
+          "line": 43,
+          "offset": 596,
+        },
+        "start": {
+          "column": 42,
+          "line": 43,
+          "offset": 593,
+        },
+      },
+      "range": [
+        593,
+        596,
+      ],
+      "start": 593,
+      "type": "JSXIdentifier",
+      "value": "div",
+    },
+    {
+      "end": 597,
+      "loc": {
+        "end": {
+          "column": 46,
+          "line": 43,
+          "offset": 597,
+        },
+        "start": {
+          "column": 45,
+          "line": 43,
+          "offset": 596,
+        },
+      },
+      "range": [
+        596,
+        597,
+      ],
+      "start": 596,
+      "type": "Punctuator",
+      "value": ">",
+    },
+    {
+      "end": 598,
+      "loc": {
+        "end": {
+          "column": 47,
+          "line": 43,
+          "offset": 598,
+        },
+        "start": {
+          "column": 46,
+          "line": 43,
+          "offset": 597,
+        },
+      },
+      "range": [
+        597,
+        598,
+      ],
+      "start": 597,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 610,
+      "loc": {
+        "end": {
+          "column": 59,
+          "line": 43,
+          "offset": 610,
+        },
+        "start": {
+          "column": 51,
+          "line": 43,
+          "offset": 602,
+        },
+      },
+      "range": [
+        602,
+        610,
+      ],
+      "start": 602,
+      "type": "Identifier",
+      "value": "children",
+    },
+    {
+      "end": 611,
+      "loc": {
+        "end": {
+          "column": 60,
+          "line": 43,
+          "offset": 611,
+        },
+        "start": {
+          "column": 59,
+          "line": 43,
+          "offset": 610,
+        },
+      },
+      "range": [
+        610,
+        611,
+      ],
+      "start": 610,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 612,
+      "loc": {
+        "end": {
+          "column": 61,
+          "line": 43,
+          "offset": 612,
+        },
+        "start": {
+          "column": 60,
+          "line": 43,
+          "offset": 611,
+        },
+      },
+      "range": [
+        611,
+        612,
+      ],
+      "start": 611,
+      "type": "Punctuator",
+      "value": "<",
+    },
+    {
+      "end": 613,
+      "loc": {
+        "end": {
+          "column": 62,
+          "line": 43,
+          "offset": 613,
+        },
+        "start": {
+          "column": 61,
+          "line": 43,
+          "offset": 612,
+        },
+      },
+      "range": [
+        612,
+        613,
+      ],
+      "start": 612,
+      "type": "Punctuator",
+      "value": "/",
+    },
+    {
+      "end": 616,
+      "loc": {
+        "end": {
+          "column": 65,
+          "line": 43,
+          "offset": 616,
+        },
+        "start": {
+          "column": 62,
+          "line": 43,
+          "offset": 613,
+        },
+      },
+      "range": [
+        613,
+        616,
+      ],
+      "start": 613,
+      "type": "JSXIdentifier",
+      "value": "div",
+    },
+    {
+      "end": 617,
+      "loc": {
+        "end": {
+          "column": 66,
+          "line": 43,
+          "offset": 617,
+        },
+        "start": {
+          "column": 65,
+          "line": 43,
+          "offset": 616,
+        },
+      },
+      "range": [
+        616,
+        617,
+      ],
+      "start": 616,
+      "type": "Punctuator",
+      "value": ">",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
 exports[`parser should match all AST snapshots: 576.mdx 1`] = `
 {
   "body": [

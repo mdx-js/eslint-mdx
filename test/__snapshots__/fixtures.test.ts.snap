@@ -199,46 +199,6 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/534.mdx 
     "column": 1,
     "endColumn": 10,
     "endLine": 20,
-    "fix": {
-      "range": [
-        0,
-        735,
-      ],
-      "text": "\`\`\`ts
-import { CommandRegister } from "@foo";
-export function registerCommands(commandRegister: CommandRegister) {
-  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
-  commandRegister.addCommand(deployProjectCommand);
-}
-\`\`\`
-
-{/* eslint-skip */}
-
-\`\`\`ts
-import { CommandRegister } from "@foo";
-export function registerCommands(commandRegister: CommandRegister) {
-  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
-  commandRegister.addCommand(deployProjectCommand);
-}
-\`\`\`
-
-# Heading
-
-# Heading
-
-{/* nothing special */}
-
-{/* eslint-disable mdx/remark */}
-
-# Heading
-
-{/* eslint-enable mdx/remark */}
-
-Content {/* nothing special */}
-
-# Heading {/* eslint-disable-line mdx/remark */}
-",
-    },
     "line": 20,
     "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
@@ -266,7 +226,6 @@ export function registerCommands(commandRegister: CommandRegister) {
 \`\`\`
 
 {/* eslint-skip */}
-
 \`\`\`ts
 import { CommandRegister } from "@foo";
 export function registerCommands(commandRegister: CommandRegister) {
@@ -468,6 +427,60 @@ exports[`fixtures should match all snapshots: 488.mdx 1`] = `
 ]
 `;
 
+exports[`fixtures should match all snapshots: 491.mdx 1`] = `
+[
+  {
+    "column": 2,
+    "endColumn": 5,
+    "endLine": 19,
+    "line": 19,
+    "message": "'Foo' is not defined.",
+    "messageId": "undefined",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+  {
+    "column": 6,
+    "endColumn": 9,
+    "endLine": 20,
+    "line": 20,
+    "message": "'Bar' is not defined.",
+    "messageId": "undefined",
+    "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 4,
+    "endLine": 29,
+    "line": 27,
+    "message": "Unexpected missing fenced code language flag in info string, expected keyword",
+    "ruleId": "remark-lint-fenced-code-flag",
+    "severity": 1,
+  },
+  {
+    "column": 22,
+    "endColumn": 67,
+    "endLine": 43,
+    "line": 43,
+    "message": "Component definition is missing display name",
+    "messageId": "noDisplayName",
+    "ruleId": "react/display-name",
+    "severity": 2,
+  },
+  {
+    "column": 24,
+    "endColumn": 32,
+    "endLine": 43,
+    "line": 43,
+    "message": "'children' is missing in props validation",
+    "messageId": "missingPropType",
+    "ruleId": "react/prop-types",
+    "severity": 2,
+  },
+]
+`;
+
 exports[`fixtures should match all snapshots: 576.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: 581.mdx 1`] = `[]`;
@@ -511,6 +524,13 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "column": 1,
     "endColumn": 33,
     "endLine": 17,
+    "fix": {
+      "range": [
+        253,
+        288,
+      ],
+      "text": "  [Next.js](/getting-started/next) ",
+    },
     "line": 17,
     "message": "Cannot find file <RELATIVE_GETTING_STARTED_NEXT>",
     "ruleId": "remark-validate-links:missing-file-missing-file",
@@ -520,6 +540,13 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "column": 1,
     "endColumn": 34,
     "endLine": 18,
+    "fix": {
+      "range": [
+        290,
+        325,
+      ],
+      "text": "  [Gatsby](/getting-started/gatsby) ",
+    },
     "line": 18,
     "message": "Cannot find file <RELATIVE_GETTING_STARTED_GATSBY>",
     "ruleId": "remark-validate-links:missing-file-missing-file",
@@ -529,6 +556,13 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "column": 1,
     "endColumn": 54,
     "endLine": 19,
+    "fix": {
+      "range": [
+        327,
+        382,
+      ],
+      "text": "  [Create React App](/getting-started/create-react-app) ",
+    },
     "line": 19,
     "message": "Cannot find file <RELATIVE_GETTING_STARTED_CREATE_REACT_APP>",
     "ruleId": "remark-validate-links:missing-file-missing-file",
@@ -538,6 +572,13 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "column": 1,
     "endColumn": 46,
     "endLine": 20,
+    "fix": {
+      "range": [
+        384,
+        431,
+      ],
+      "text": "  [React Static](/getting-started/react-static) ",
+    },
     "line": 20,
     "message": "Cannot find file <RELATIVE_GETTING_STARTED_REACT_STATIC>",
     "ruleId": "remark-validate-links:missing-file-missing-file",
@@ -547,6 +588,13 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "column": 1,
     "endColumn": 36,
     "endLine": 21,
+    "fix": {
+      "range": [
+        433,
+        470,
+      ],
+      "text": "  [Webpack](/getting-started/webpack) ",
+    },
     "line": 21,
     "message": "Cannot find file <RELATIVE_GETTING_STARTED_WEBPACK>",
     "ruleId": "remark-validate-links:missing-file-missing-file",
@@ -556,6 +604,13 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "column": 1,
     "endColumn": 34,
     "endLine": 22,
+    "fix": {
+      "range": [
+        472,
+        507,
+      ],
+      "text": "  [Parcel](/getting-started/parcel) ",
+    },
     "line": 22,
     "message": "Cannot find file <RELATIVE_GETTING_STARTED_PARCEL>",
     "ruleId": "remark-validate-links:missing-file-missing-file",
@@ -565,6 +620,13 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "column": 1,
     "endColumn": 30,
     "endLine": 23,
+    "fix": {
+      "range": [
+        509,
+        539,
+      ],
+      "text": "  [Zero](/getting-started/zero)",
+    },
     "line": 23,
     "message": "Cannot find file <RELATIVE_GETTING_STARTED_ZERO>",
     "ruleId": "remark-validate-links:missing-file-missing-file",
@@ -574,50 +636,6 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "column": 1,
     "endColumn": 16,
     "endLine": 27,
-    "fix": {
-      "range": [
-        0,
-        768,
-      ],
-      "text": "import {Box} from '@rebass/emotion'
-
-# Getting Started
-
-If you have an existing project you want to integrate MDX with, check out
-the installation guides.
-
-<Box
-  p={3}
-  bg="lightgray"
-  style={{
-  textAlign: 'center',
-  fontWeight: 'bold',
-}}
->
-  [Next.js](/getting-started/next) |
-  [Gatsby](/getting-started/gatsby) |
-  [Create React App](/getting-started/create-react-app) |
-  [React Static](/getting-started/react-static) |
-  [Webpack](/getting-started/webpack) |
-  [Parcel](/getting-started/parcel) |
-  [Zero](/getting-started/zero)
-</Box>
-
-# Hello, world!
-
-Here's a Twitter shortcode:
-
-<Tweet tweetId="1116723357410447360" />
-
-<TextGradient>
-  # Here's a text gradient shortcode!
-</TextGradient>
-
-Here's a YouTube shortcode:
-
-<YouTube videoId="4fHw4GeW3EU" />
-",
-    },
     "line": 27,
     "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
@@ -647,6 +665,13 @@ Here's a YouTube shortcode:
     "column": 1,
     "endColumn": 36,
     "endLine": 35,
+    "fix": {
+      "range": [
+        650,
+        687,
+      ],
+      "text": "  # Here's a text gradient shortcode!",
+    },
     "line": 35,
     "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
@@ -675,11 +700,11 @@ the installation guides.
 
 <Box
   p={3}
-  bg="lightgray"
+  bg='lightgray'
   style={{
-textAlign: 'center',
-fontWeight: 'bold',
-}}
+    textAlign: 'center',
+    fontWeight: 'bold',
+  }}
 >
   [Next.js](/getting-started/next) |
   [Gatsby](/getting-started/gatsby) |
@@ -748,46 +773,6 @@ exports[`fixtures should match all snapshots: code-blocks/534.mdx 1`] = `
     "column": 1,
     "endColumn": 10,
     "endLine": 20,
-    "fix": {
-      "range": [
-        0,
-        735,
-      ],
-      "text": "\`\`\`ts
-import { CommandRegister } from "@foo";
-export function registerCommands(commandRegister: CommandRegister) {
-  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
-  commandRegister.addCommand(deployProjectCommand);
-}
-\`\`\`
-
-{/* eslint-skip */}
-
-\`\`\`ts
-import { CommandRegister } from "@foo";
-export function registerCommands(commandRegister: CommandRegister) {
-  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
-  commandRegister.addCommand(deployProjectCommand);
-}
-\`\`\`
-
-# Heading
-
-# Heading
-
-{/* nothing special */}
-
-{/* eslint-disable mdx/remark */}
-
-# Heading
-
-{/* eslint-enable mdx/remark */}
-
-Content {/* nothing special */}
-
-# Heading {/* eslint-disable-line mdx/remark */}
-",
-    },
     "line": 20,
     "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
     "ruleId": "remark-lint-no-multiple-toplevel-headings",
@@ -803,43 +788,6 @@ Content {/* nothing special */}
     "severity": 1,
   },
 ]
-`;
-
-exports[`fixtures should match all snapshots: code-blocks/534.mdx 2`] = `
-"\`\`\`ts
-import { CommandRegister } from "@foo";
-export function registerCommands(commandRegister: CommandRegister) {
-  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
-  commandRegister.addCommand(deployProjectCommand);
-}
-\`\`\`
-
-{/* eslint-skip */}
-
-\`\`\`ts
-import { CommandRegister } from "@foo";
-export function registerCommands(commandRegister: CommandRegister) {
-  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
-  commandRegister.addCommand(deployProjectCommand);
-}
-\`\`\`
-
-# Heading
-
-# Heading
-
-{/* nothing special */}
-
-{/* eslint-disable mdx/remark */}
-
-# Heading
-
-{/* eslint-enable mdx/remark */}
-
-Content {/* nothing special */}
-
-# Heading {/* eslint-disable-line mdx/remark */}
-"
 `;
 
 exports[`fixtures should match all snapshots: comments.mdx 1`] = `

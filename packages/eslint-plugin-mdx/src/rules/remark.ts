@@ -8,8 +8,59 @@ import {
   getPhysicalFilename,
   performSyncWork,
 } from 'eslint-mdx'
+import { generateDifferences, type Difference } from 'prettier-linter-helpers'
+import type { VFileMessage } from 'vfile-message'
 
 import type { RemarkLintMessage } from './types.js'
+
+interface NormalizedDifference {
+  deleteText: string
+  insertText: string
+  offset: number
+}
+
+const normalizeDifference = (difference: Difference): NormalizedDifference => ({
+  deleteText: '',
+  insertText: '',
+  ...difference,
+})
+
+const getDifferences = (
+  sourceText: string,
+  fixedText: string | null | undefined,
+) =>
+  fixedText == null || fixedText === sourceText
+    ? []
+    : generateDifferences(sourceText, fixedText).map(normalizeDifference)
+
+const getFixesForPlace = (
+  differences: NormalizedDifference[],
+  place: VFileMessage['place'],
+): Rule.Fix[] | null => {
+  if (place == null) {
+    return null
+  }
+
+  /* istanbul ignore next -- remark messages use a position */
+  const start = 'start' in place ? place.start : place
+  /* istanbul ignore next -- remark messages use a position */
+  const end = 'start' in place ? place.end : place
+  /* istanbul ignore if -- remark positions include offsets */
+  if (start.offset == null || end.offset == null) {
+    return null
+  }
+  const fixes = differences
+    .filter(
+      ({ deleteText, offset }) =>
+        offset <= end.offset && offset + deleteText.length >= start.offset,
+    )
+    .map(({ deleteText, insertText, offset }) => ({
+      range: [offset, offset + deleteText.length] as [number, number],
+      text: insertText,
+    }))
+
+  return fixes.length > 0 ? fixes : null
+}
 
 export const remark: Rule.RuleModule = {
   meta: {
@@ -83,7 +134,7 @@ export const remark: Rule.RuleModule = {
           remarkConfigPath,
         })
 
-        let fixed = 0
+        const differences = getDifferences(sourceText, fixedText)
 
         for (const {
           source,
@@ -117,6 +168,8 @@ export const remark: Rule.RuleModule = {
             column: column - 1,
           }
 
+          const fixes = getFixesForPlace(differences, place)
+
           context.report({
             // related to https://github.com/eslint/eslint/issues/14198
             message: JSON.stringify(message),
@@ -129,16 +182,7 @@ export const remark: Rule.RuleModule = {
                   }
                 : point,
             node,
-            fix:
-              fixedText == null || fixedText === sourceText
-                ? null
-                : () =>
-                    fixed++
-                      ? null
-                      : {
-                          range: [0, sourceText.length],
-                          text: fixedText,
-                        },
+            fix: () => fixes,
           })
         }
       },
