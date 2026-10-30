@@ -34,18 +34,20 @@ const getCli = async () => {
   })
 }
 
-it.each(['581.mdx', 'mdx-content-nodes.mdx'])(
-  'should pass @stylistic recommended for %s',
-  async fixture => {
-    if (!isStylisticSupported) {
-      return
-    }
+it.each([
+  '581.mdx',
+  'mdx-content-nodes.mdx',
+  'mdx-flow-expression.mdx',
+  'nested-flow-expression.mdx',
+])('should pass @stylistic recommended for %s', async fixture => {
+  if (!isStylisticSupported) {
+    return
+  }
 
-    const filePath = path.join(fixturesDir, fixture)
-    const cli = await getCli()
-    const [result] = await cli.lintText(await readFile(filePath, 'utf8'), {
-      filePath,
-    })
-    expect(result.messages).toEqual([])
-  },
-)
+  const filePath = path.join(fixturesDir, fixture)
+  const cli = await getCli()
+  const [result] = await cli.lintText(await readFile(filePath, 'utf8'), {
+    filePath,
+  })
+  expect(result.messages).toEqual([])
+})

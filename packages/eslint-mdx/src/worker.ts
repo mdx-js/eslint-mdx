@@ -39,7 +39,6 @@ import { extractProperties, runAsWorker } from 'synckit'
 import { unified, type Processor } from 'unified'
 import type { ConfigResult } from 'unified-engine'
 import { Configuration } from 'unified-engine'
-import type { Node } from 'unist'
 import { visit } from 'unist-util-visit'
 import { VFile, type VFileOptions } from 'vfile'
 import type { VFileMessage } from 'vfile-message'
@@ -365,8 +364,6 @@ runAsWorker(
     const comments: Comment[] = []
     const tokens: AST.Token[] = []
 
-    const processed = new WeakSet<Node>()
-
     // TODO: merge with `tokens.ts`
     if (isMdx) {
       const prevCharOffset = prevCharOffsetFactory(code)
@@ -433,17 +430,13 @@ runAsWorker(
       }
 
       visit(root, (node, _index, parent) => {
-        if (processed.has(node) || parent !== root) {
+        if (parent !== root) {
           return
         }
-
-        processed.add(node)
 
         function handleChildren(node: Nodes) {
           return 'children' in node
             ? node.children.reduce<JSXElement['children']>((acc, child) => {
-                processed.add(child)
-
                 if (child.data && 'estree' in child.data && child.data.estree) {
                   const { estree } = child.data
 
@@ -982,6 +975,7 @@ runAsWorker(
             case 'yaml': {
               return { ...position, type: 'MDYaml', value: node.value }
             }
+            case 'mdxFlowExpression':
             case 'mdxTextExpression': {
               const estree = node.data?.estree
               if (estree) {
@@ -994,7 +988,10 @@ runAsWorker(
               }
               return {
                 ...position,
-                type: 'MDXTextExpression',
+                type:
+                  node.type === 'mdxFlowExpression'
+                    ? 'MDXFlowExpression'
+                    : 'MDXTextExpression',
                 expression: statement.expression,
               }
             }
@@ -1008,19 +1005,8 @@ runAsWorker(
           }
         }
 
-        if (node.type === 'mdxjsEsm') {
-          const estree = ((node.data &&
-            'estree' in node.data &&
-            node.data.estree) || {
-            body: [],
-            comments: [],
-          }) as Program
-          appendEstreeBody(body, node, estree)
-          comments.push(...estree.comments)
-          return
-        }
-
         if (
+          node.type === 'mdxjsEsm' ||
           node.type === 'mdxFlowExpression' ||
           node.type === 'mdxTextExpression'
         ) {

@@ -58782,6 +58782,829 @@ exports[`parser should match all AST snapshots: mdx-flow-expression.mdx 1`] = `
 }
 `;
 
+exports[`parser should match all AST snapshots: nested-flow-expression.mdx 1`] = `
+{
+  "body": [
+    {
+      "children": [
+        {
+          "end": 9,
+          "expression": {
+            "end": 8,
+            "loc": {
+              "end": {
+                "column": 8,
+                "line": 1,
+                "offset": 8,
+              },
+              "start": {
+                "column": 3,
+                "line": 1,
+                "offset": 3,
+              },
+            },
+            "name": "value",
+            "range": [
+              3,
+              8,
+            ],
+            "start": 3,
+            "type": "Identifier",
+          },
+          "loc": {
+            "end": {
+              "column": 9,
+              "line": 1,
+            },
+            "start": {
+              "column": 2,
+              "line": 1,
+            },
+          },
+          "range": [
+            2,
+            9,
+          ],
+          "raw": "{value}",
+          "start": 2,
+          "type": "MDXFlowExpression",
+        },
+      ],
+      "end": 9,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 1,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        9,
+      ],
+      "raw": "> {value}",
+      "start": 0,
+      "type": "MDBlockquote",
+    },
+    {
+      "children": [
+        {
+          "checked": null,
+          "children": [
+            {
+              "children": [
+                {
+                  "end": 17,
+                  "loc": {
+                    "end": {
+                      "column": 6,
+                      "line": 3,
+                    },
+                    "start": {
+                      "column": 2,
+                      "line": 3,
+                    },
+                  },
+                  "range": [
+                    13,
+                    17,
+                  ],
+                  "raw": "item",
+                  "start": 13,
+                  "type": "MDText",
+                  "value": "item",
+                },
+              ],
+              "end": 17,
+              "loc": {
+                "end": {
+                  "column": 6,
+                  "line": 3,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 3,
+                },
+              },
+              "range": [
+                13,
+                17,
+              ],
+              "raw": "item",
+              "start": 13,
+              "type": "MDParagraph",
+            },
+            {
+              "end": 29,
+              "expression": {
+                "end": 28,
+                "loc": {
+                  "end": {
+                    "column": 9,
+                    "line": 5,
+                    "offset": 28,
+                  },
+                  "start": {
+                    "column": 3,
+                    "line": 5,
+                    "offset": 22,
+                  },
+                },
+                "name": "value2",
+                "range": [
+                  22,
+                  28,
+                ],
+                "start": 22,
+                "type": "Identifier",
+              },
+              "loc": {
+                "end": {
+                  "column": 10,
+                  "line": 5,
+                },
+                "start": {
+                  "column": 2,
+                  "line": 5,
+                },
+              },
+              "range": [
+                21,
+                29,
+              ],
+              "raw": "{value2}",
+              "start": 21,
+              "type": "MDXFlowExpression",
+            },
+          ],
+          "end": 29,
+          "loc": {
+            "end": {
+              "column": 10,
+              "line": 5,
+            },
+            "start": {
+              "column": 0,
+              "line": 3,
+            },
+          },
+          "range": [
+            11,
+            29,
+          ],
+          "raw": "- item
+
+  {value2}",
+          "spread": true,
+          "start": 11,
+          "type": "MDListItem",
+        },
+      ],
+      "end": 29,
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 5,
+        },
+        "start": {
+          "column": 0,
+          "line": 3,
+        },
+      },
+      "ordered": false,
+      "range": [
+        11,
+        29,
+      ],
+      "raw": "- item
+
+  {value2}",
+      "spread": false,
+      "start": null,
+      "type": "MDList",
+    },
+    {
+      "attributes": [],
+      "declaration": {
+        "declarations": [
+          {
+            "end": 53,
+            "id": {
+              "end": 49,
+              "loc": {
+                "end": {
+                  "column": 18,
+                  "line": 7,
+                  "offset": 49,
+                },
+                "start": {
+                  "column": 13,
+                  "line": 7,
+                  "offset": 44,
+                },
+              },
+              "name": "value",
+              "range": [
+                44,
+                49,
+              ],
+              "start": 44,
+              "type": "Identifier",
+            },
+            "init": {
+              "end": 53,
+              "loc": {
+                "end": {
+                  "column": 22,
+                  "line": 7,
+                  "offset": 53,
+                },
+                "start": {
+                  "column": 21,
+                  "line": 7,
+                  "offset": 52,
+                },
+              },
+              "range": [
+                52,
+                53,
+              ],
+              "raw": "1",
+              "start": 52,
+              "type": "Literal",
+              "value": 1,
+            },
+            "loc": {
+              "end": {
+                "column": 22,
+                "line": 7,
+                "offset": 53,
+              },
+              "start": {
+                "column": 13,
+                "line": 7,
+                "offset": 44,
+              },
+            },
+            "range": [
+              44,
+              53,
+            ],
+            "start": 44,
+            "type": "VariableDeclarator",
+          },
+        ],
+        "end": 53,
+        "kind": "const",
+        "loc": {
+          "end": {
+            "column": 22,
+            "line": 7,
+            "offset": 53,
+          },
+          "start": {
+            "column": 7,
+            "line": 7,
+            "offset": 38,
+          },
+        },
+        "range": [
+          38,
+          53,
+        ],
+        "start": 38,
+        "type": "VariableDeclaration",
+      },
+      "end": 53,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 7,
+          "offset": 53,
+        },
+        "start": {
+          "column": 0,
+          "line": 7,
+          "offset": 31,
+        },
+      },
+      "range": [
+        31,
+        53,
+      ],
+      "source": null,
+      "specifiers": [],
+      "start": 31,
+      "type": "ExportNamedDeclaration",
+    },
+    {
+      "attributes": [],
+      "declaration": {
+        "declarations": [
+          {
+            "end": 77,
+            "id": {
+              "end": 73,
+              "loc": {
+                "end": {
+                  "column": 19,
+                  "line": 8,
+                  "offset": 73,
+                },
+                "start": {
+                  "column": 13,
+                  "line": 8,
+                  "offset": 67,
+                },
+              },
+              "name": "value2",
+              "range": [
+                67,
+                73,
+              ],
+              "start": 67,
+              "type": "Identifier",
+            },
+            "init": {
+              "end": 77,
+              "loc": {
+                "end": {
+                  "column": 23,
+                  "line": 8,
+                  "offset": 77,
+                },
+                "start": {
+                  "column": 22,
+                  "line": 8,
+                  "offset": 76,
+                },
+              },
+              "range": [
+                76,
+                77,
+              ],
+              "raw": "2",
+              "start": 76,
+              "type": "Literal",
+              "value": 2,
+            },
+            "loc": {
+              "end": {
+                "column": 23,
+                "line": 8,
+                "offset": 77,
+              },
+              "start": {
+                "column": 13,
+                "line": 8,
+                "offset": 67,
+              },
+            },
+            "range": [
+              67,
+              77,
+            ],
+            "start": 67,
+            "type": "VariableDeclarator",
+          },
+        ],
+        "end": 77,
+        "kind": "const",
+        "loc": {
+          "end": {
+            "column": 23,
+            "line": 8,
+            "offset": 77,
+          },
+          "start": {
+            "column": 7,
+            "line": 8,
+            "offset": 61,
+          },
+        },
+        "range": [
+          61,
+          77,
+        ],
+        "start": 61,
+        "type": "VariableDeclaration",
+      },
+      "end": 77,
+      "loc": {
+        "end": {
+          "column": 23,
+          "line": 8,
+          "offset": 77,
+        },
+        "start": {
+          "column": 0,
+          "line": 8,
+          "offset": 54,
+        },
+      },
+      "range": [
+        54,
+        77,
+      ],
+      "source": null,
+      "specifiers": [],
+      "start": 54,
+      "type": "ExportNamedDeclaration",
+    },
+  ],
+  "comments": [],
+  "end": 78,
+  "loc": {
+    "end": {
+      "column": 1,
+      "line": 9,
+      "offset": 78,
+    },
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "range": [
+    0,
+    78,
+  ],
+  "sourceType": undefined,
+  "start": 0,
+  "tokens": [
+    {
+      "end": 3,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 1,
+        },
+        "start": {
+          "column": 2,
+          "line": 1,
+        },
+      },
+      "range": [
+        2,
+        3,
+      ],
+      "start": 2,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 8,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 1,
+          "offset": 8,
+        },
+        "start": {
+          "column": 3,
+          "line": 1,
+          "offset": 3,
+        },
+      },
+      "range": [
+        3,
+        8,
+      ],
+      "start": 3,
+      "type": "Identifier",
+      "value": "value",
+    },
+    {
+      "end": 9,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 1,
+        },
+        "start": {
+          "column": 8,
+          "line": 1,
+        },
+      },
+      "range": [
+        8,
+        9,
+      ],
+      "start": 8,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 17,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+      "range": [
+        13,
+        17,
+      ],
+      "start": 13,
+      "type": "JSXText",
+      "value": "item",
+    },
+    {
+      "end": 22,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 5,
+        },
+        "start": {
+          "column": 2,
+          "line": 5,
+        },
+      },
+      "range": [
+        21,
+        22,
+      ],
+      "start": 21,
+      "type": "Punctuator",
+      "value": "{",
+    },
+    {
+      "end": 28,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 5,
+          "offset": 28,
+        },
+        "start": {
+          "column": 3,
+          "line": 5,
+          "offset": 22,
+        },
+      },
+      "range": [
+        22,
+        28,
+      ],
+      "start": 22,
+      "type": "Identifier",
+      "value": "value2",
+    },
+    {
+      "end": 29,
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 5,
+        },
+        "start": {
+          "column": 9,
+          "line": 5,
+        },
+      },
+      "range": [
+        28,
+        29,
+      ],
+      "start": 28,
+      "type": "Punctuator",
+      "value": "}",
+    },
+    {
+      "end": 37,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 7,
+          "offset": 37,
+        },
+        "start": {
+          "column": 0,
+          "line": 7,
+          "offset": 31,
+        },
+      },
+      "range": [
+        31,
+        37,
+      ],
+      "start": 31,
+      "type": "Keyword",
+      "value": "export",
+    },
+    {
+      "end": 43,
+      "loc": {
+        "end": {
+          "column": 12,
+          "line": 7,
+          "offset": 43,
+        },
+        "start": {
+          "column": 7,
+          "line": 7,
+          "offset": 38,
+        },
+      },
+      "range": [
+        38,
+        43,
+      ],
+      "start": 38,
+      "type": "Keyword",
+      "value": "const",
+    },
+    {
+      "end": 49,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 7,
+          "offset": 49,
+        },
+        "start": {
+          "column": 13,
+          "line": 7,
+          "offset": 44,
+        },
+      },
+      "range": [
+        44,
+        49,
+      ],
+      "start": 44,
+      "type": "Identifier",
+      "value": "value",
+    },
+    {
+      "end": 51,
+      "loc": {
+        "end": {
+          "column": 20,
+          "line": 7,
+          "offset": 51,
+        },
+        "start": {
+          "column": 19,
+          "line": 7,
+          "offset": 50,
+        },
+      },
+      "range": [
+        50,
+        51,
+      ],
+      "start": 50,
+      "type": "Punctuator",
+      "value": "=",
+    },
+    {
+      "end": 53,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 7,
+          "offset": 53,
+        },
+        "start": {
+          "column": 21,
+          "line": 7,
+          "offset": 52,
+        },
+      },
+      "range": [
+        52,
+        53,
+      ],
+      "start": 52,
+      "type": "Numeric",
+      "value": "1",
+    },
+    {
+      "end": 60,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 8,
+          "offset": 60,
+        },
+        "start": {
+          "column": 0,
+          "line": 8,
+          "offset": 54,
+        },
+      },
+      "range": [
+        54,
+        60,
+      ],
+      "start": 54,
+      "type": "Keyword",
+      "value": "export",
+    },
+    {
+      "end": 66,
+      "loc": {
+        "end": {
+          "column": 12,
+          "line": 8,
+          "offset": 66,
+        },
+        "start": {
+          "column": 7,
+          "line": 8,
+          "offset": 61,
+        },
+      },
+      "range": [
+        61,
+        66,
+      ],
+      "start": 61,
+      "type": "Keyword",
+      "value": "const",
+    },
+    {
+      "end": 73,
+      "loc": {
+        "end": {
+          "column": 19,
+          "line": 8,
+          "offset": 73,
+        },
+        "start": {
+          "column": 13,
+          "line": 8,
+          "offset": 67,
+        },
+      },
+      "range": [
+        67,
+        73,
+      ],
+      "start": 67,
+      "type": "Identifier",
+      "value": "value2",
+    },
+    {
+      "end": 75,
+      "loc": {
+        "end": {
+          "column": 21,
+          "line": 8,
+          "offset": 75,
+        },
+        "start": {
+          "column": 20,
+          "line": 8,
+          "offset": 74,
+        },
+      },
+      "range": [
+        74,
+        75,
+      ],
+      "start": 74,
+      "type": "Punctuator",
+      "value": "=",
+    },
+    {
+      "end": 77,
+      "loc": {
+        "end": {
+          "column": 23,
+          "line": 8,
+          "offset": 77,
+        },
+        "start": {
+          "column": 22,
+          "line": 8,
+          "offset": 76,
+        },
+      },
+      "range": [
+        76,
+        77,
+      ],
+      "start": 76,
+      "type": "Numeric",
+      "value": "2",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
 exports[`parser should match all AST snapshots: no-unescaped-entities.mdx 1`] = `
 {
   "body": [

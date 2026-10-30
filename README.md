@@ -212,13 +212,19 @@ See also <https://github.com/syntax-tree/mdast#mdxtextexpression>
 
 ### Markdown content nodes
 
-Markdown content is also represented with ESTree-compatible nodes, including `MDParagraph`, `MDText`, `MDList`, `MDListItem`, `MDBlockquote`, `MDEmphasis`, `MDStrong`, `MDInlineCode`, `MDLink`, `MDImage`, `MDBreak`, `MDThematicBreak`, `MDDefinition`, `MDDelete`, `MDFootnoteDefinition`, `MDFootnoteReference`, `MDImageReference`, `MDInlineMath`, `MDLinkReference`, `MDMath`, `MDTable`, `MDTableCell`, `MDTableRow`, `MDToml` and `MDYaml`. They expose their mdast children or values and are traversed through the parser visitor keys. The `MD` prefix avoids collisions with ESTree/JSX nodes; these nodes represent mdast content and are not specific to MDX syntax, as the parser also handles `.md` files.
+Markdown content is also represented with ESTree-compatible nodes, including `MDParagraph`, `MDText`, `MDList`, `MDListItem`, `MDBlockquote`, `MDEmphasis`, `MDStrong`, `MDInlineCode`, `MDLink`, `MDImage`, `MDBreak`, `MDThematicBreak`, `MDDefinition`, `MDDelete`, `MDFootnoteDefinition`, `MDFootnoteReference`, `MDImageReference`, `MDInlineMath`, `MDLinkReference`, `MDMath`, `MDTable`, `MDTableCell`, `MDTableRow`, `MDToml` and `MDYaml`. They expose their mdast children or values and are traversed through the parser visitor keys. The `MD` prefix avoids collisions with ESTree/JSX nodes.
 
 ### Typings
 
 ```ts
 import type { BaseNode, Expression } from 'estree'
-import type { JSXElement } from 'estree-jsx'
+import type {
+  JSXElement,
+  JSXExpressionContainer,
+  JSXFragment,
+  JSXSpreadChild,
+  JSXText,
+} from 'estree-jsx'
 
 export interface MDCode extends BaseNode {
   type: 'MDCode'
@@ -393,6 +399,10 @@ export interface MDYaml extends BaseNode {
 
 export type MDContentNode =
   | JSXElement
+  | JSXExpressionContainer
+  | JSXFragment
+  | JSXSpreadChild
+  | JSXText
   | MDBlockquote
   | MDBreak
   | MDCode

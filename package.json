@@ -37,6 +37,7 @@
     "@stylistic/eslint-plugin": "^5.10.0",
     "@swc/core": "^1.16.18",
     "@swc/jest": "^0.2.39",
+    "@types/estree": "^1.0.10",
     "@types/jest": "^30.0.0",
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",

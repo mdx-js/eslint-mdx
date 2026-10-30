@@ -232,6 +232,8 @@ export const restoreTokens = (
       nextChar = text[nextOffset]
     }
 
+    let closingTagStart: number | undefined
+
     if (selfClosing) {
       tokens.push(newToken(tt.slash, nextOffset, nextOffset + 1, '/'))
     } else {
@@ -262,6 +264,7 @@ export const restoreTokens = (
       const tagStartOffset = prevCharOffset(slashOffset - 1)
 
       assert.ok(text[tagStartOffset] === '<')
+      closingTagStart = tagStartOffset
 
       tokens.push(newToken(tt.jsxTagStart, tagStartOffset, tagStartOffset + 1))
     }
@@ -270,9 +273,7 @@ export const restoreTokens = (
       const firstStart = node.children[0].position?.start.offset
       const lastEnd = node.children.at(-1).position?.end.offset
       if (firstStart != null && lastEnd != null) {
-        const openEnd = text.lastIndexOf('>', firstStart - 1) + 1
-        const closeStart = text.indexOf('<', lastEnd)
-        addJsxTextToken(openEnd, firstStart)
+        addJsxTextToken(nextOffset + 1, firstStart)
         for (let i = 1; i < node.children.length; i++) {
           const prevEnd = node.children[i - 1].position?.end.offset
           const nextStart = node.children[i].position?.start.offset
@@ -280,7 +281,9 @@ export const restoreTokens = (
             addJsxTextToken(prevEnd, nextStart)
           }
         }
-        addJsxTextToken(lastEnd, closeStart)
+        if (closingTagStart != null) {
+          addJsxTextToken(lastEnd, closingTagStart)
+        }
       }
     }
 
