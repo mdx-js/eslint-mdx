@@ -34,20 +34,29 @@ const getCli = async () => {
   })
 }
 
-it.each([
+const fixtures = [
   '581.mdx',
   'mdx-content-nodes.mdx',
   'mdx-flow-expression.mdx',
   'nested-flow-expression.mdx',
-])('should pass @stylistic recommended for %s', async fixture => {
-  if (!isStylisticSupported) {
-    return
-  }
+]
 
-  const filePath = path.join(fixturesDir, fixture)
-  const cli = await getCli()
-  const [result] = await cli.lintText(await readFile(filePath, 'utf8'), {
-    filePath,
+if (isStylisticSupported) {
+  it.each(fixtures)(
+    'should pass @stylistic recommended for %s',
+    async fixture => {
+      const filePath = path.join(fixturesDir, fixture)
+      const cli = await getCli()
+      const [result] = await cli.lintText(await readFile(filePath, 'utf8'), {
+        filePath,
+      })
+      expect(result.messages).toEqual([])
+    },
+  )
+} else {
+  // @stylistic v5 requires ESLint 9+.
+  // eslint-disable-next-line jest/no-disabled-tests
+  it.skip.each(fixtures)('should pass @stylistic recommended for %s', () => {
+    expect.assertions(0)
   })
-  expect(result.messages).toEqual([])
-})
+}
