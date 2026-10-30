@@ -30,8 +30,8 @@
   - [Flat Config](#flat-config)
 - [Parser Options](#parser-options)
 - [Parser API](#parser-api)
-  - [`MDXCode`](#mdxcode)
-  - [`MDXHeading`](#mdxheading)
+  - [Markdown content nodes](#markdown-content-nodes)
+  - [MDX expression nodes](#mdx-expression-nodes)
   - [Typings](#typings)
 - [Rules](#rules)
   - [mdx/remark](#mdxremark)
@@ -160,64 +160,93 @@ eslint . --ext js,md,mdx
 
 ## Parser API
 
-### `MDXCode`
+`eslint-mdx` returns an ESTree `Program`. In addition to standard ESTree and JSX nodes, it emits custom nodes for Markdown content and MDX expressions.
 
-A new `MDXCode` estree node type is exported from `eslint-mdx` which represents code blocks in `mdx` like the following:
+### Markdown content nodes
+
+Markdown content uses the `MD` prefix, while MDX-specific nodes use `MDX`. The prefix avoids collisions with ESTree/JSX nodes. All nodes are exposed in `Program.body` or as children of other nodes and are traversed through the parser visitor keys.
+
+| ESTree node            | mdast node           | Notes                |
+| ---------------------- | -------------------- | -------------------- |
+| `MDBlockquote`         | `blockquote`         |                      |
+| `MDBreak`              | `break`              |                      |
+| `MDCode`               | `code`               |                      |
+| `MDDefinition`         | `definition`         |                      |
+| `MDDelete`             | `delete`             | `remark-gfm`         |
+| `MDEmphasis`           | `emphasis`           |                      |
+| `MDFootnoteDefinition` | `footnoteDefinition` | `remark-gfm`         |
+| `MDFootnoteReference`  | `footnoteReference`  | `remark-gfm`         |
+| `MDHeading`            | `heading`            |                      |
+| `MDImage`              | `image`              |                      |
+| `MDImageReference`     | `imageReference`     |                      |
+| `MDInlineCode`         | `inlineCode`         |                      |
+| `MDInlineMath`         | `inlineMath`         | `remark-math`        |
+| `MDLink`               | `link`               |                      |
+| `MDLinkReference`      | `linkReference`      |                      |
+| `MDList`               | `list`               |                      |
+| `MDListItem`           | `listItem`           |                      |
+| `MDMath`               | `math`               | `remark-math`        |
+| `MDParagraph`          | `paragraph`          |                      |
+| `MDStrong`             | `strong`             |                      |
+| `MDTable`              | `table`              | `remark-gfm`         |
+| `MDTableCell`          | `tableCell`          | `remark-gfm`         |
+| `MDTableRow`           | `tableRow`           | `remark-gfm`         |
+| `MDText`               | `text`               |                      |
+| `MDThematicBreak`      | `thematicBreak`      |                      |
+| `MDToml`               | `toml`               | `remark-frontmatter` |
+| `MDYaml`               | `yaml`               | `remark-frontmatter` |
+
+For example:
 
 ````mdx
-<div>
-  ```js
-  export function foo() {
-    return 'bar'
-  }
-  ```
-</div>
+# Heading
+
+Paragraph with **strong**, _emphasis_, `inlineCode`, [link](https://example.com), and ![image](https://example.com/image.png).
+
+> Blockquote
+
+- list item
+
+```js
+const value = 1
+```
 ````
 
-See also <https://github.com/syntax-tree/mdast#code>
+> `MDXCode` and `MDXHeading` were renamed to `MDCode` and `MDHeading`; the old names are no longer emitted.
 
-### `MDXHeading`
+### MDX expression nodes
 
-A new `MDXHeading` estree node type is exported from `eslint-mdx` which represents markdown heading in `mdx` like the following:
+MDX expressions use the `MDX` prefix and expose their ESTree `expression`:
 
-<!-- mdx v2+ incompatible -->
-<!-- prettier-ignore -->
-```mdx
-<div>
-# Here's a text gradient short code!
-</div>
-```
+| ESTree node         | mdast node          |
+| ------------------- | ------------------- |
+| `MDXFlowExpression` | `mdxFlowExpression` |
+| `MDXTextExpression` | `mdxTextExpression` |
 
-See also <https://github.com/syntax-tree/mdast#heading>
-
-### `MDXFlowExpression`
-
-A new `MDXFlowExpression` estree node type is exported from `eslint-mdx` which represents flow expressions in `mdx` like the following:
+For example:
 
 ```mdx
 {value}
-```
 
-See also <https://github.com/syntax-tree/mdast#mdxflowexpression>
+> {value}
 
-### `MDXTextExpression`
-
-A new `MDXTextExpression` estree node type is exported from `eslint-mdx` which represents text expressions in `mdx` like the following:
-
-```mdx
 The value is {value}.
 ```
-
-See also <https://github.com/syntax-tree/mdast#mdxtextexpression>
 
 ### Typings
 
 ```ts
 import type { BaseNode, Expression } from 'estree'
-import type { JSXElement } from 'estree-jsx'
+import type {
+  JSXElement,
+  JSXExpressionContainer,
+  JSXFragment,
+  JSXSpreadChild,
+  JSXText,
+} from 'estree-jsx'
 
-export interface MDXCode extends BaseNode {
-  type: 'MDXCode'
+export interface MDCode extends BaseNode {
+  type: 'MDCode'
   value: string
   lang?: string | null
   meta?: string | null
@@ -225,10 +254,10 @@ export interface MDXCode extends BaseNode {
 
 export type HeadingDepth = 1 | 2 | 3 | 4 | 5 | 6
 
-export interface MDXHeading extends BaseNode {
-  type: 'MDXHeading'
+export interface MDHeading extends BaseNode {
+  type: 'MDHeading'
   depth: HeadingDepth
-  children: JSXElement['children']
+  children: MDContentNode[]
 }
 
 export interface MDXFlowExpression extends BaseNode {
@@ -240,6 +269,188 @@ export interface MDXTextExpression extends BaseNode {
   type: 'MDXTextExpression'
   expression: Expression
 }
+
+export interface MDText extends BaseNode {
+  type: 'MDText'
+  value: string
+}
+
+export interface MDParagraph extends BaseNode {
+  type: 'MDParagraph'
+  children: MDContentNode[]
+}
+
+export interface MDBlockquote extends BaseNode {
+  type: 'MDBlockquote'
+  children: MDContentNode[]
+}
+
+export interface MDList extends BaseNode {
+  type: 'MDList'
+  ordered?: boolean | null
+  start?: number | null
+  spread?: boolean | null
+  children: MDListItem[]
+}
+
+export interface MDListItem extends BaseNode {
+  type: 'MDListItem'
+  checked?: boolean | null
+  spread?: boolean | null
+  children: MDContentNode[]
+}
+
+export interface MDEmphasis extends BaseNode {
+  type: 'MDEmphasis'
+  children: MDContentNode[]
+}
+
+export interface MDStrong extends BaseNode {
+  type: 'MDStrong'
+  children: MDContentNode[]
+}
+
+export interface MDInlineCode extends BaseNode {
+  type: 'MDInlineCode'
+  value: string
+}
+
+export interface MDLink extends BaseNode {
+  type: 'MDLink'
+  url: string
+  title?: string | null
+  children: MDContentNode[]
+}
+
+export interface MDImage extends BaseNode {
+  type: 'MDImage'
+  url: string
+  title?: string | null
+  alt?: string | null
+}
+
+export interface MDBreak extends BaseNode {
+  type: 'MDBreak'
+}
+
+export interface MDThematicBreak extends BaseNode {
+  type: 'MDThematicBreak'
+}
+
+export interface MDDefinition extends BaseNode {
+  type: 'MDDefinition'
+  identifier: string
+  label?: string | null
+  url: string
+  title?: string | null
+}
+
+export interface MDDelete extends BaseNode {
+  type: 'MDDelete'
+  children: MDContentNode[]
+}
+
+export interface MDFootnoteDefinition extends BaseNode {
+  type: 'MDFootnoteDefinition'
+  identifier: string
+  label?: string | null
+  children: MDContentNode[]
+}
+
+export interface MDFootnoteReference extends BaseNode {
+  type: 'MDFootnoteReference'
+  identifier: string
+  label?: string | null
+}
+
+export interface MDImageReference extends BaseNode {
+  type: 'MDImageReference'
+  identifier: string
+  label?: string | null
+  referenceType: 'collapsed' | 'full' | 'shortcut'
+  alt?: string | null
+}
+
+export interface MDInlineMath extends BaseNode {
+  type: 'MDInlineMath'
+  value: string
+}
+
+export interface MDLinkReference extends BaseNode {
+  type: 'MDLinkReference'
+  identifier: string
+  label?: string | null
+  referenceType: 'collapsed' | 'full' | 'shortcut'
+  children: MDContentNode[]
+}
+
+export interface MDMath extends BaseNode {
+  type: 'MDMath'
+  value: string
+  meta?: string | null
+}
+
+export interface MDTable extends BaseNode {
+  type: 'MDTable'
+  align?: Array<'center' | 'left' | 'right' | null> | null
+  children: MDTableRow[]
+}
+
+export interface MDTableCell extends BaseNode {
+  type: 'MDTableCell'
+  children: MDContentNode[]
+}
+
+export interface MDTableRow extends BaseNode {
+  type: 'MDTableRow'
+  children: MDTableCell[]
+}
+
+export interface MDToml extends BaseNode {
+  type: 'MDToml'
+  value: string
+}
+
+export interface MDYaml extends BaseNode {
+  type: 'MDYaml'
+  value: string
+}
+
+export type MDContentNode =
+  | JSXElement
+  | JSXExpressionContainer
+  | JSXFragment
+  | JSXSpreadChild
+  | JSXText
+  | MDBlockquote
+  | MDBreak
+  | MDCode
+  | MDDefinition
+  | MDDelete
+  | MDEmphasis
+  | MDFootnoteDefinition
+  | MDFootnoteReference
+  | MDHeading
+  | MDImage
+  | MDImageReference
+  | MDInlineCode
+  | MDInlineMath
+  | MDLink
+  | MDLinkReference
+  | MDList
+  | MDListItem
+  | MDMath
+  | MDParagraph
+  | MDStrong
+  | MDTable
+  | MDTableCell
+  | MDTableRow
+  | MDText
+  | MDThematicBreak
+  | MDToml
+  | MDXFlowExpression
+  | MDXTextExpression
+  | MDYaml
 ```
 
 ## Rules

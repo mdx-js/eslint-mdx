@@ -43,6 +43,17 @@ export const restoreTokens = (
     range: [start, end],
   })
 
+  const addJsxTextToken = (start: number, end: number) => {
+    if (start >= end) {
+      return
+    }
+    const value = text.slice(start, end)
+    if (value.trim()) {
+      return
+    }
+    tokens.push(newToken(tt.jsxText, start, end, value))
+  }
+
   // eslint-disable-next-line sonarjs/cognitive-complexity
   visit(root, node => {
     if (
@@ -221,6 +232,8 @@ export const restoreTokens = (
       nextChar = text[nextOffset]
     }
 
+    let closingTagStart: number | undefined
+
     if (selfClosing) {
       tokens.push(newToken(tt.slash, nextOffset, nextOffset + 1, '/'))
     } else {
@@ -251,8 +264,27 @@ export const restoreTokens = (
       const tagStartOffset = prevCharOffset(slashOffset - 1)
 
       assert.ok(text[tagStartOffset] === '<')
+      closingTagStart = tagStartOffset
 
       tokens.push(newToken(tt.jsxTagStart, tagStartOffset, tagStartOffset + 1))
+    }
+
+    if (node.children.length > 0) {
+      const firstStart = node.children[0].position?.start.offset
+      const lastEnd = node.children.at(-1).position?.end.offset
+      if (firstStart != null && lastEnd != null) {
+        addJsxTextToken(nextOffset + 1, firstStart)
+        for (let i = 1; i < node.children.length; i++) {
+          const prevEnd = node.children[i - 1].position?.end.offset
+          const nextStart = node.children[i].position?.start.offset
+          if (prevEnd != null && nextStart != null) {
+            addJsxTextToken(prevEnd, nextStart)
+          }
+        }
+        if (closingTagStart != null) {
+          addJsxTextToken(lastEnd, closingTagStart)
+        }
+      }
     }
 
     tokens.push(newToken(tt.jsxTagEnd, nodeEnd - 1, nodeEnd))

@@ -39,7 +39,6 @@ import { extractProperties, runAsWorker } from 'synckit'
 import { unified, type Processor } from 'unified'
 import type { ConfigResult } from 'unified-engine'
 import { Configuration } from 'unified-engine'
-import type { Node } from 'unist'
 import { visit } from 'unist-util-visit'
 import { VFile, type VFileOptions } from 'vfile'
 import type { VFileMessage } from 'vfile-message'
@@ -54,8 +53,12 @@ import { restoreTokens } from './tokens.js'
 import type {
   Arrayable,
   IgnoreClass,
-  MDXCode,
-  MDXHeading,
+  MDCode,
+  MDContentNode,
+  MDHeading,
+  MDListItem,
+  MDTableCell,
+  MDTableRow,
   NormalPosition,
   WorkerOptions,
   WorkerResult,
@@ -361,8 +364,6 @@ runAsWorker(
     const comments: Comment[] = []
     const tokens: AST.Token[] = []
 
-    const processed = new WeakSet<Node>()
-
     // TODO: merge with `tokens.ts`
     if (isMdx) {
       const prevCharOffset = prevCharOffsetFactory(code)
@@ -428,25 +429,14 @@ runAsWorker(
         }
       }
 
-      visit(root, node => {
-        if (
-          processed.has(node) ||
-          (node.type !== 'mdxFlowExpression' &&
-            node.type !== 'mdxJsxFlowElement' &&
-            node.type !== 'mdxJsxTextElement' &&
-            node.type !== 'mdxTextExpression' &&
-            node.type !== 'mdxjsEsm')
-        ) {
+      visit(root, (node, _index, parent) => {
+        if (parent !== root) {
           return
         }
-
-        processed.add(node)
 
         function handleChildren(node: Nodes) {
           return 'children' in node
             ? node.children.reduce<JSXElement['children']>((acc, child) => {
-                processed.add(child)
-
                 if (child.data && 'estree' in child.data && child.data.estree) {
                   const { estree } = child.data
 
@@ -507,25 +497,25 @@ runAsWorker(
 
           if (node.type === 'code') {
             const { lang, meta, value } = node
-            const mdxJsxCode: MDXCode = {
+            const mdCode: MDCode = {
               ...normalizeNode(start, end),
-              type: 'MDXCode',
+              type: 'MDCode',
               lang,
               meta,
               value,
             }
-            return mdxJsxCode
+            return mdCode
           }
 
           if (node.type === 'heading') {
             const { depth } = node
-            const mdxJsxHeading: MDXHeading = {
+            const mdHeading: MDHeading = {
               ...normalizeNode(start, end),
-              type: 'MDXHeading',
+              type: 'MDHeading',
               depth,
               children: handleChildren(node),
             }
-            return mdxJsxHeading
+            return mdHeading
           }
 
           if (node.type === 'text') {
@@ -763,25 +753,295 @@ runAsWorker(
           return expression
         }
 
-        const expression = handleNode(node)
-
-        if (expression) {
-          body.push({
-            ...normalizePosition(node.position),
-            type: 'ExpressionStatement',
-            expression: expression as Expression,
-          })
+        function convertChildren(node: Nodes): MDContentNode[] {
+          const children: MDContentNode[] = []
+          if ('children' in node) {
+            for (const child of node.children) {
+              const converted = convertContent(child)
+              if (converted) {
+                children.push(converted)
+              }
+            }
+          }
+          return children
         }
 
-        const estree = ((node.data &&
-          'estree' in node.data &&
-          node.data.estree) || {
-          body: [],
-          comments: [],
-        }) as Program
+        function convertContent(node: Nodes): MDContentNode | undefined {
+          const {
+            start: { offset: start },
+            end: { offset: end },
+          } = node.position
+          const position = normalizeNode(start, end)
 
-        appendEstreeBody(body, node, estree)
-        comments.push(...estree.comments)
+          const nodeType = node.type as string
+          if (
+            nodeType === 'inlineMath' ||
+            nodeType === 'math' ||
+            nodeType === 'toml'
+          ) {
+            const extended = node as Nodes & {
+              value: string
+              meta?: string | null
+            }
+            if (nodeType === 'math') {
+              return {
+                ...position,
+                type: 'MDMath',
+                value: extended.value,
+                meta: extended.meta,
+              }
+            }
+            if (nodeType === 'inlineMath') {
+              return {
+                ...position,
+                type: 'MDInlineMath',
+                value: extended.value,
+              }
+            }
+            return { ...position, type: 'MDToml', value: extended.value }
+          }
+
+          switch (node.type) {
+            case 'text': {
+              return { ...position, type: 'MDText', value: node.value }
+            }
+            case 'paragraph': {
+              return {
+                ...position,
+                type: 'MDParagraph',
+                children: convertChildren(node),
+              }
+            }
+            case 'heading': {
+              return {
+                ...position,
+                type: 'MDHeading',
+                depth: node.depth,
+                children: convertChildren(node),
+              }
+            }
+            case 'list': {
+              return {
+                ...position,
+                type: 'MDList',
+                ordered: node.ordered,
+                start: node.start,
+                spread: node.spread,
+                children: convertChildren(node) as MDListItem[],
+              }
+            }
+            case 'listItem': {
+              return {
+                ...position,
+                type: 'MDListItem',
+                checked: node.checked,
+                spread: node.spread,
+                children: convertChildren(node),
+              }
+            }
+            case 'blockquote': {
+              return {
+                ...position,
+                type: 'MDBlockquote',
+                children: convertChildren(node),
+              }
+            }
+            case 'code': {
+              return {
+                ...position,
+                type: 'MDCode',
+                lang: node.lang,
+                meta: node.meta,
+                value: node.value,
+              }
+            }
+            case 'inlineCode': {
+              return { ...position, type: 'MDInlineCode', value: node.value }
+            }
+            case 'emphasis': {
+              return {
+                ...position,
+                type: 'MDEmphasis',
+                children: convertChildren(node),
+              }
+            }
+            case 'strong': {
+              return {
+                ...position,
+                type: 'MDStrong',
+                children: convertChildren(node),
+              }
+            }
+            case 'link': {
+              return {
+                ...position,
+                type: 'MDLink',
+                url: node.url,
+                title: node.title,
+                children: convertChildren(node),
+              }
+            }
+            case 'image': {
+              return {
+                ...position,
+                type: 'MDImage',
+                url: node.url,
+                title: node.title,
+                alt: node.alt,
+              }
+            }
+            case 'break': {
+              return { ...position, type: 'MDBreak' }
+            }
+            case 'thematicBreak': {
+              return { ...position, type: 'MDThematicBreak' }
+            }
+            case 'definition': {
+              return {
+                ...position,
+                type: 'MDDefinition',
+                identifier: node.identifier,
+                label: node.label,
+                url: node.url,
+                title: node.title,
+              }
+            }
+            case 'linkReference': {
+              return {
+                ...position,
+                type: 'MDLinkReference',
+                identifier: node.identifier,
+                label: node.label,
+                referenceType: node.referenceType,
+                children: convertChildren(node),
+              }
+            }
+            case 'imageReference': {
+              return {
+                ...position,
+                type: 'MDImageReference',
+                identifier: node.identifier,
+                label: node.label,
+                referenceType: node.referenceType,
+                alt: node.alt,
+              }
+            }
+            case 'delete': {
+              return {
+                ...position,
+                type: 'MDDelete',
+                children: convertChildren(node),
+              }
+            }
+            case 'footnoteDefinition': {
+              return {
+                ...position,
+                type: 'MDFootnoteDefinition',
+                identifier: node.identifier,
+                label: node.label,
+                children: convertChildren(node),
+              }
+            }
+            case 'footnoteReference': {
+              return {
+                ...position,
+                type: 'MDFootnoteReference',
+                identifier: node.identifier,
+                label: node.label,
+              }
+            }
+            case 'table': {
+              return {
+                ...position,
+                type: 'MDTable',
+                align: node.align,
+                children: convertChildren(node) as MDTableRow[],
+              }
+            }
+            case 'tableRow': {
+              return {
+                ...position,
+                type: 'MDTableRow',
+                children: convertChildren(node) as MDTableCell[],
+              }
+            }
+            case 'tableCell': {
+              return {
+                ...position,
+                type: 'MDTableCell',
+                children: convertChildren(node),
+              }
+            }
+            case 'yaml': {
+              return { ...position, type: 'MDYaml', value: node.value }
+            }
+            case 'mdxFlowExpression':
+            case 'mdxTextExpression': {
+              const estree = node.data?.estree
+              if (estree) {
+                comments.push(...estree.comments)
+              }
+              const statement = estree?.body[0]
+              isExpressionStatement(statement)
+              if (!statement?.expression) {
+                return
+              }
+              return {
+                ...position,
+                type:
+                  node.type === 'mdxFlowExpression'
+                    ? 'MDXFlowExpression'
+                    : 'MDXTextExpression',
+                expression: statement.expression,
+              }
+            }
+            case 'mdxJsxFlowElement':
+            case 'mdxJsxTextElement': {
+              return handleNode(node) as MDContentNode
+            }
+            default: {
+              return
+            }
+          }
+        }
+
+        if (
+          node.type === 'mdxjsEsm' ||
+          node.type === 'mdxFlowExpression' ||
+          node.type === 'mdxTextExpression'
+        ) {
+          const estree = ((node.data &&
+            'estree' in node.data &&
+            node.data.estree) || {
+            body: [],
+            comments: [],
+          }) as Program
+          appendEstreeBody(body, node, estree)
+          comments.push(...estree.comments)
+          return
+        }
+
+        if (
+          node.type === 'mdxJsxFlowElement' ||
+          node.type === 'mdxJsxTextElement'
+        ) {
+          const expression = handleNode(node)
+
+          if (expression) {
+            body.push({
+              ...normalizePosition(node.position),
+              type: 'ExpressionStatement',
+              expression: expression as Expression,
+            })
+          }
+          return
+        }
+
+        const content = convertContent(node)
+
+        if (content) {
+          body.push(content as Program['body'][number])
+        }
       })
     }
 
