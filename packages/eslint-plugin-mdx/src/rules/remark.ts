@@ -12,11 +12,11 @@ import { generateDifferences } from 'prettier-linter-helpers'
 
 import type { RemarkLintMessage } from './types.js'
 
-const isFixWithinMessage = (
+export const getFixesForMessage = (
   sourceText: string,
   fixedText: string | null | undefined,
   place: unknown,
-) => {
+): Rule.Fix[] | null => {
   if (
     fixedText == null ||
     fixedText === sourceText ||
@@ -24,19 +24,31 @@ const isFixWithinMessage = (
     typeof place !== 'object' ||
     !('start' in place)
   ) {
-    return false
+    return null
   }
 
   const { start, end } = place as {
     start: { offset: number }
     end: { offset: number }
   }
-  return generateDifferences(sourceText, fixedText).every(difference => {
-    const diffEnd =
-      difference.offset +
-      ('deleteText' in difference ? difference.deleteText.length : 0)
-    return difference.offset <= end.offset && diffEnd >= start.offset
-  })
+  const fixes = generateDifferences(sourceText, fixedText)
+    .filter(difference => {
+      const diffEnd =
+        difference.offset +
+        ('deleteText' in difference ? difference.deleteText.length : 0)
+      return difference.offset <= end.offset && diffEnd >= start.offset
+    })
+    .map(difference => {
+      const { offset } = difference
+      const deleteText = 'deleteText' in difference ? difference.deleteText : ''
+      const insertText = 'insertText' in difference ? difference.insertText : ''
+      return {
+        range: [offset, offset + deleteText.length] as [number, number],
+        text: insertText,
+      }
+    })
+
+  return fixes.length > 0 ? fixes : null
 }
 
 export const remark: Rule.RuleModule = {
@@ -145,7 +157,7 @@ export const remark: Rule.RuleModule = {
             column: column - 1,
           }
 
-          const shouldFix = isFixWithinMessage(sourceText, fixedText, place)
+          const fixes = getFixesForMessage(sourceText, fixedText, place)
 
           context.report({
             // related to https://github.com/eslint/eslint/issues/14198
@@ -159,15 +171,7 @@ export const remark: Rule.RuleModule = {
                   }
                 : point,
             node,
-            fix: shouldFix
-              ? () =>
-                  fixed++
-                    ? null
-                    : {
-                        range: [0, sourceText.length],
-                        text: fixedText,
-                      }
-              : null,
+            fix: fixes ? () => (fixed++ ? null : fixes) : null,
           })
         }
       },

@@ -1,6 +1,8 @@
 import { homedir } from 'node:os'
 import path from 'node:path'
 
+import { getFixesForMessage } from '../packages/eslint-plugin-mdx/src/rules/remark.js'
+
 import { ruleTester, languageOptions } from './helpers.js'
 
 import { remark } from 'eslint-plugin-mdx'
@@ -113,4 +115,33 @@ ruleTester.run('remark', remark, {
 test('hack', () => {
   // eslint-disable-next-line sonarjs/no-trivial-assertions -- placeholder to keep the suite non-empty
   expect(true).toBe(true)
+})
+
+describe('getFixesForMessage', () => {
+  const place = { start: { offset: 0 }, end: { offset: 3 } }
+
+  it('supports insertions', () => {
+    expect(getFixesForMessage('abc', 'xabc', place)).toEqual([
+      { range: [0, 0], text: 'x' },
+    ])
+  })
+
+  it('supports deletions', () => {
+    expect(getFixesForMessage('xabc', 'abc', place)).toEqual([
+      { range: [0, 1], text: '' },
+    ])
+  })
+
+  it('ignores changes outside the message', () => {
+    expect(
+      getFixesForMessage('abc', 'xabc', {
+        start: { offset: 1 },
+        end: { offset: 3 },
+      }),
+    ).toBeNull()
+  })
+
+  it('returns null without changes', () => {
+    expect(getFixesForMessage('abc', 'abc', place)).toBeNull()
+  })
 })
