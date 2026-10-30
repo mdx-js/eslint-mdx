@@ -9,6 +9,7 @@ import {
   performSyncWork,
 } from 'eslint-mdx'
 import { generateDifferences, type Difference } from 'prettier-linter-helpers'
+import type { VFileMessage } from 'vfile-message'
 
 import type { RemarkLintMessage } from './types.js'
 
@@ -28,16 +29,17 @@ const getDifferences = (
 
 const getFixesForPlace = (
   differences: Difference[],
-  place: unknown,
+  place: VFileMessage['place'],
 ): Rule.Fix[] | null => {
-  /* istanbul ignore if -- remark messages always include a place */
-  if (place == null || typeof place !== 'object' || !('start' in place)) {
+  /* istanbul ignore if -- remark messages always include a position */
+  if (!place || !('start' in place)) {
     return null
   }
 
-  const { start, end } = place as {
-    start: { offset: number }
-    end: { offset: number }
+  const { start, end } = place
+  /* istanbul ignore if -- remark messages always include offsets */
+  if (start.offset == null || end.offset == null) {
+    return null
   }
   const fixes = differences
     .filter(difference => {
