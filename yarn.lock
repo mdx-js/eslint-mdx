@@ -7845,9 +7845,12 @@ __metadata:
     unist-util-visit: "npm:^5.1.0"
     vfile: "npm:^6.0.3"
   peerDependencies:
+    "@types/estree": ^1.0.10
     eslint: ">=8.0.0"
     remark-lint-file-extension: "*"
   peerDependenciesMeta:
+    "@types/estree":
+      optional: true
     remark-lint-file-extension:
       optional: true
   languageName: unknown
