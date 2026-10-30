@@ -1,4 +1,3 @@
-import { strict as assert } from 'node:assert'
 import path from 'node:path'
 
 import type { Rule, SourceCode } from 'eslint'
@@ -14,7 +13,13 @@ import type { VFileMessage } from 'vfile-message'
 
 import type { RemarkLintMessage } from './types.js'
 
-const normalizeDifference = (difference: Difference) => ({
+interface NormalizedDifference {
+  deleteText: string
+  insertText: string
+  offset: number
+}
+
+const normalizeDifference = (difference: Difference): NormalizedDifference => ({
   deleteText: '',
   insertText: '',
   ...difference,
@@ -26,32 +31,33 @@ const getDifferences = (
 ) =>
   fixedText == null || fixedText === sourceText
     ? []
-    : generateDifferences(sourceText, fixedText)
+    : generateDifferences(sourceText, fixedText).map(normalizeDifference)
 
 const getFixesForPlace = (
-  differences: Difference[],
+  differences: NormalizedDifference[],
   place: VFileMessage['place'],
 ): Rule.Fix[] | null => {
-  assert.ok(place)
+  if (place == null) {
+    return null
+  }
 
   /* istanbul ignore next -- remark messages use a position */
   const start = 'start' in place ? place.start : place
   /* istanbul ignore next -- remark messages use a position */
   const end = 'start' in place ? place.end : place
-  assert.ok(start.offset != null)
-  assert.ok(end.offset != null)
+  /* istanbul ignore if -- remark positions include offsets */
+  if (start.offset == null || end.offset == null) {
+    return null
+  }
   const fixes = differences
-    .filter(difference => {
-      const { deleteText, offset } = normalizeDifference(difference)
-      return offset <= end.offset && offset + deleteText.length >= start.offset
-    })
-    .map(difference => {
-      const { deleteText, insertText, offset } = normalizeDifference(difference)
-      return {
-        range: [offset, offset + deleteText.length] as [number, number],
-        text: insertText,
-      }
-    })
+    .filter(
+      ({ deleteText, offset }) =>
+        offset <= end.offset && offset + deleteText.length >= start.offset,
+    )
+    .map(({ deleteText, insertText, offset }) => ({
+      range: [offset, offset + deleteText.length] as [number, number],
+      text: insertText,
+    }))
 
   return fixes.length > 0 ? fixes : null
 }
