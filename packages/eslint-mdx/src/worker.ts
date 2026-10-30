@@ -22,6 +22,7 @@ import type {
 import type {
   JSXClosingElement,
   JSXElement,
+  JSXEmptyExpression,
   JSXExpressionContainer,
   JSXFragment,
   JSXIdentifier,
@@ -86,19 +87,18 @@ const appendEstreeBody = (
       start: { offset: start },
       end: { offset: end },
     } = node.position
-    const emptyExpression = {
-      ...normalizePosition({
-        start: { offset: start + 1 },
-        end: { offset: end - 1 },
-        code,
-      }),
-      raw: code.slice(start + 1, end - 1),
-      type: 'JSXEmptyExpression' as const,
-    }
     body.push({
       ...position,
       type,
-      expression: emptyExpression,
+      expression: {
+        ...normalizePosition({
+          start: { offset: start + 1 },
+          end: { offset: end - 1 },
+          code,
+        }),
+        raw: code.slice(start + 1, end - 1),
+        type: 'JSXEmptyExpression',
+      } as JSXEmptyExpression,
     })
     return
   }
