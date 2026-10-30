@@ -1,11 +1,9 @@
 import { homedir } from 'node:os'
 import path from 'node:path'
 
-import { getFixesForMessage } from '../packages/eslint-plugin-mdx/src/rules/remark.js'
-
 import { ruleTester, languageOptions } from './helpers.js'
 
-import { remark } from 'eslint-plugin-mdx'
+import { getFixesForMessage, remark } from 'eslint-plugin-mdx'
 
 const userDir = homedir()
 
@@ -57,6 +55,25 @@ ruleTester.run('remark', remark, {
     },
   ],
   invalid: [
+    {
+      // https://github.com/syntax-tree/mdast-util-to-markdown/issues/29
+      code: '[CHANGELOG](./CHANGELOG.md)',
+      languageOptions,
+      filename: path.resolve(_dirname, 'fixtures/async/test.mdx'),
+      errors: [
+        {
+          message: JSON.stringify({
+            reason: 'Cannot find file `CHANGELOG.md`',
+            source: 'remark-validate-links:missing-file',
+            ruleId: 'missing-file',
+            severity: 1,
+          }),
+          line: 1,
+          column: 1,
+        },
+      ],
+      output: '[CHANGELOG](./CHANGELOG.md)\n',
+    },
     {
       // https://github.com/syntax-tree/mdast-util-to-markdown/issues/29
       code: '[CHANGELOG](./CHANGELOG.md)\n',
