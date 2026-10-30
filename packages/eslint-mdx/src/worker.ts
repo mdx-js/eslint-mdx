@@ -50,6 +50,7 @@ import {
   normalizePosition,
   prevCharOffsetFactory,
 } from './helpers.js'
+import { getMicromarkTokens } from './micromark-tokens.js'
 import { restoreTokens } from './tokens.js'
 import type {
   Arrayable,
@@ -388,6 +389,13 @@ runAsWorker(
     const tokenTranslator = new TokenTranslator(tt, code)
 
     const root = processor.parse(fileOptions)
+    const acornTokens = [...sharedTokens]
+    const markdownTokens = getMicromarkTokens(
+      code,
+      processor.data('micromarkExtensions'),
+    )
+    sharedTokens.length = 0
+    sharedTokens.push(...acornTokens)
 
     const body: Program['body'] = []
     const comments: Comment[] = []
@@ -1121,11 +1129,32 @@ runAsWorker(
       },
     )
 
-    for (const token of restoreTokens(code, root, sharedTokens, tt, visit)) {
+    const restoredTokens = restoreTokens(code, root, sharedTokens, tt, visit)
+    const tokensWithMarkdown = [
+      ...restoredTokens,
+      ...markdownTokens.filter(
+        markdownToken =>
+          !restoredTokens.some(
+            token =>
+              token.start < markdownToken.end &&
+              token.end > markdownToken.start,
+          ),
+      ),
+    ].sort((a, b) => a.start - b.start)
+
+    for (const token of tokensWithMarkdown) {
       tokenTranslator.onToken(token, {
         ecmaVersion: 'latest',
         tokens: tokens as TokenTranslator_.EsprimaToken[],
       })
+    }
+
+    for (const token of tokens) {
+      const type = token.type as unknown
+
+      if (type && typeof type === 'object' && 'label' in type) {
+        ;(token as { type: string }).type = (type as { label: string }).label
+      }
     }
 
     return {

@@ -157,4 +157,20 @@ describe('parser', () => {
     })
     expect(result.body.map(node => node.type)).toContain('MDToml')
   })
+  it('should expose micromark token types for markdown markers', () => {
+    const { tokens } = parser.parse(
+      "import React from 'react';\n\n# Hello\n\n- item\n\n**bold**\n",
+      DEFAULT_PARSER_OPTIONS,
+    )
+
+    expect(tokens.find(token => token.value === '#')?.type).toBe(
+      'atxHeadingSequence',
+    )
+    expect(tokens.find(token => token.value === '-')?.type).toBe(
+      'listItemMarker',
+    )
+    expect(tokens.find(token => token.value === '**')?.type).toBe(
+      'strongSequence',
+    )
+  })
 })

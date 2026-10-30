@@ -1663,6 +1663,26 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
   "start": 0,
   "tokens": [
     {
+      "end": 1,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "atxHeadingSequence",
+      "value": "#",
+    },
+    {
       "end": 8,
       "loc": {
         "end": {
@@ -1901,6 +1921,46 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
       "start": 53,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 57,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 5,
+        },
+        "start": {
+          "column": 1,
+          "line": 5,
+        },
+      },
+      "range": [
+        56,
+        57,
+      ],
+      "start": 56,
+      "type": "listItemMarker",
+      "value": "-",
+    },
+    {
+      "end": 59,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 5,
+        },
+        "start": {
+          "column": 3,
+          "line": 5,
+        },
+      },
+      "range": [
+        58,
+        59,
+      ],
+      "start": 58,
+      "type": "listItemMarker",
+      "value": "-",
     },
     {
       "end": 61,
@@ -2719,6 +2779,126 @@ module.exports = {
       "type": "Punctuator",
       "value": ">",
     },
+    {
+      "end": 27,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 5,
+        },
+        "start": {
+          "column": 1,
+          "line": 5,
+        },
+      },
+      "range": [
+        24,
+        27,
+      ],
+      "start": 24,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
+    },
+    {
+      "end": 29,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 5,
+        },
+        "start": {
+          "column": 4,
+          "line": 5,
+        },
+      },
+      "range": [
+        27,
+        29,
+      ],
+      "start": 27,
+      "type": "data",
+      "value": "js",
+    },
+    {
+      "end": 48,
+      "loc": {
+        "end": {
+          "column": 19,
+          "line": 6,
+        },
+        "start": {
+          "column": 1,
+          "line": 6,
+        },
+      },
+      "range": [
+        30,
+        48,
+      ],
+      "start": 30,
+      "type": "codeFlowValue",
+      "value": "module.exports = {",
+    },
+    {
+      "end": 63,
+      "loc": {
+        "end": {
+          "column": 15,
+          "line": 7,
+        },
+        "start": {
+          "column": 1,
+          "line": 7,
+        },
+      },
+      "range": [
+        49,
+        63,
+      ],
+      "start": 49,
+      "type": "codeFlowValue",
+      "value": "  plugins: [],",
+    },
+    {
+      "end": 65,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 8,
+        },
+        "start": {
+          "column": 1,
+          "line": 8,
+        },
+      },
+      "range": [
+        64,
+        65,
+      ],
+      "start": 64,
+      "type": "codeFlowValue",
+      "value": "}",
+    },
+    {
+      "end": 69,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 9,
+        },
+        "start": {
+          "column": 1,
+          "line": 9,
+        },
+      },
+      "range": [
+        66,
+        69,
+      ],
+      "start": 66,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
+    },
   ],
   "type": "Program",
 }
@@ -2777,7 +2957,128 @@ related:
   ],
   "sourceType": undefined,
   "start": 0,
-  "tokens": [],
+  "tokens": [
+    {
+      "end": 3,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        3,
+      ],
+      "start": 0,
+      "type": "yamlFenceSequence",
+      "value": "---",
+    },
+    {
+      "end": 25,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 2,
+        },
+        "start": {
+          "column": 1,
+          "line": 2,
+        },
+      },
+      "range": [
+        4,
+        25,
+      ],
+      "start": 4,
+      "type": "yamlValue",
+      "value": "title: Code Splitting",
+    },
+    {
+      "end": 34,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 3,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+        },
+      },
+      "range": [
+        26,
+        34,
+      ],
+      "start": 26,
+      "type": "yamlValue",
+      "value": "related:",
+    },
+    {
+      "end": 87,
+      "loc": {
+        "end": {
+          "column": 53,
+          "line": 4,
+        },
+        "start": {
+          "column": 1,
+          "line": 4,
+        },
+      },
+      "range": [
+        35,
+        87,
+      ],
+      "start": 35,
+      "type": "yamlValue",
+      "value": "  - title: <link rel="prefetch/preload" > in webpack",
+    },
+    {
+      "end": 173,
+      "loc": {
+        "end": {
+          "column": 86,
+          "line": 5,
+        },
+        "start": {
+          "column": 1,
+          "line": 5,
+        },
+      },
+      "range": [
+        88,
+        173,
+      ],
+      "start": 88,
+      "type": "yamlValue",
+      "value": "    url: https://medium.com/webpack/link-rel-prefetch-preload-in-webpack-51a52358f84c",
+    },
+    {
+      "end": 177,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 6,
+        },
+        "start": {
+          "column": 1,
+          "line": 6,
+        },
+      },
+      "range": [
+        174,
+        177,
+      ],
+      "start": 174,
+      "type": "yamlFenceSequence",
+      "value": "---",
+    },
+  ],
   "type": "Program",
 }
 `;
@@ -3221,6 +3522,126 @@ function foo() {
   "sourceType": undefined,
   "start": 0,
   "tokens": [
+    {
+      "end": 3,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        3,
+      ],
+      "start": 0,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
+    },
+    {
+      "end": 5,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 1,
+        },
+        "start": {
+          "column": 4,
+          "line": 1,
+        },
+      },
+      "range": [
+        3,
+        5,
+      ],
+      "start": 3,
+      "type": "data",
+      "value": "js",
+    },
+    {
+      "end": 22,
+      "loc": {
+        "end": {
+          "column": 17,
+          "line": 2,
+        },
+        "start": {
+          "column": 1,
+          "line": 2,
+        },
+      },
+      "range": [
+        6,
+        22,
+      ],
+      "start": 6,
+      "type": "codeFlowValue",
+      "value": "function foo() {",
+    },
+    {
+      "end": 37,
+      "loc": {
+        "end": {
+          "column": 15,
+          "line": 3,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+        },
+      },
+      "range": [
+        23,
+        37,
+      ],
+      "start": 23,
+      "type": "codeFlowValue",
+      "value": "  return 'bar'",
+    },
+    {
+      "end": 39,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 4,
+        },
+        "start": {
+          "column": 1,
+          "line": 4,
+        },
+      },
+      "range": [
+        38,
+        39,
+      ],
+      "start": 38,
+      "type": "codeFlowValue",
+      "value": "}",
+    },
+    {
+      "end": 43,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 5,
+        },
+        "start": {
+          "column": 1,
+          "line": 5,
+        },
+      },
+      "range": [
+        40,
+        43,
+      ],
+      "start": 40,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
+    },
     {
       "end": 46,
       "loc": {
@@ -3924,6 +4345,26 @@ function foo() {
   "start": 0,
   "tokens": [
     {
+      "end": 1,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "atxHeadingSequence",
+      "value": "#",
+    },
+    {
       "end": 15,
       "loc": {
         "end": {
@@ -4004,6 +4445,126 @@ function foo() {
       "value": "
 
 ",
+    },
+    {
+      "end": 27,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 5,
+        },
+        "start": {
+          "column": 1,
+          "line": 5,
+        },
+      },
+      "range": [
+        24,
+        27,
+      ],
+      "start": 24,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
+    },
+    {
+      "end": 29,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 5,
+        },
+        "start": {
+          "column": 4,
+          "line": 5,
+        },
+      },
+      "range": [
+        27,
+        29,
+      ],
+      "start": 27,
+      "type": "data",
+      "value": "js",
+    },
+    {
+      "end": 46,
+      "loc": {
+        "end": {
+          "column": 17,
+          "line": 6,
+        },
+        "start": {
+          "column": 1,
+          "line": 6,
+        },
+      },
+      "range": [
+        30,
+        46,
+      ],
+      "start": 30,
+      "type": "codeFlowValue",
+      "value": "function foo() {",
+    },
+    {
+      "end": 60,
+      "loc": {
+        "end": {
+          "column": 14,
+          "line": 7,
+        },
+        "start": {
+          "column": 1,
+          "line": 7,
+        },
+      },
+      "range": [
+        47,
+        60,
+      ],
+      "start": 47,
+      "type": "codeFlowValue",
+      "value": "  return 123;",
+    },
+    {
+      "end": 62,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 8,
+        },
+        "start": {
+          "column": 1,
+          "line": 8,
+        },
+      },
+      "range": [
+        61,
+        62,
+      ],
+      "start": 61,
+      "type": "codeFlowValue",
+      "value": "}",
+    },
+    {
+      "end": 66,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 9,
+        },
+        "start": {
+          "column": 1,
+          "line": 9,
+        },
+      },
+      "range": [
+        63,
+        66,
+      ],
+      "start": 63,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
     },
     {
       "end": 68,
@@ -22513,6 +23074,26 @@ interface TabChangeEvent {
       "value": ">",
     },
     {
+      "end": 726,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 37,
+        },
+        "start": {
+          "column": 1,
+          "line": 37,
+        },
+      },
+      "range": [
+        725,
+        726,
+      ],
+      "start": 725,
+      "type": "atxHeadingSequence",
+      "value": "#",
+    },
+    {
       "end": 731,
       "loc": {
         "end": {
@@ -22533,6 +23114,26 @@ interface TabChangeEvent {
       "value": "Tabs",
     },
     {
+      "end": 734,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 39,
+        },
+        "start": {
+          "column": 1,
+          "line": 39,
+        },
+      },
+      "range": [
+        733,
+        734,
+      ],
+      "start": 733,
+      "type": "blockQuoteMarker",
+      "value": ">",
+    },
+    {
       "end": 791,
       "loc": {
         "end": {
@@ -22551,6 +23152,26 @@ interface TabChangeEvent {
       "start": 735,
       "type": "JSXText",
       "value": "移植自 Angular Material, 增加了风格（卡片/线条）和尺寸（大/中/小）选项和 lazy 模式。",
+    },
+    {
+      "end": 795,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 41,
+        },
+        "start": {
+          "column": 1,
+          "line": 41,
+        },
+      },
+      "range": [
+        793,
+        795,
+      ],
+      "start": 793,
+      "type": "atxHeadingSequence",
+      "value": "##",
     },
     {
       "end": 800,
@@ -23406,6 +24027,26 @@ interface TabChangeEvent {
       "start": 1465,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 1470,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 78,
+        },
+        "start": {
+          "column": 1,
+          "line": 78,
+        },
+      },
+      "range": [
+        1468,
+        1470,
+      ],
+      "start": 1468,
+      "type": "atxHeadingSequence",
+      "value": "##",
     },
     {
       "end": 1475,
@@ -24290,6 +24931,26 @@ interface TabChangeEvent {
       "start": 1948,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 1953,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 100,
+        },
+        "start": {
+          "column": 1,
+          "line": 100,
+        },
+      },
+      "range": [
+        1951,
+        1953,
+      ],
+      "start": 1951,
+      "type": "atxHeadingSequence",
+      "value": "##",
     },
     {
       "end": 1958,
@@ -25186,6 +25847,26 @@ interface TabChangeEvent {
       "start": 2881,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 2886,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 134,
+        },
+        "start": {
+          "column": 1,
+          "line": 134,
+        },
+      },
+      "range": [
+        2884,
+        2886,
+      ],
+      "start": 2884,
+      "type": "atxHeadingSequence",
+      "value": "##",
     },
     {
       "end": 2896,
@@ -26325,6 +27006,26 @@ interface TabChangeEvent {
       "value": ">",
     },
     {
+      "end": 3696,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 167,
+        },
+        "start": {
+          "column": 1,
+          "line": 167,
+        },
+      },
+      "range": [
+        3694,
+        3696,
+      ],
+      "start": 3694,
+      "type": "atxHeadingSequence",
+      "value": "##",
+    },
+    {
       "end": 3701,
       "loc": {
         "end": {
@@ -26343,6 +27044,26 @@ interface TabChangeEvent {
       "start": 3697,
       "type": "JSXText",
       "value": "添加删除",
+    },
+    {
+      "end": 3704,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 169,
+        },
+        "start": {
+          "column": 1,
+          "line": 169,
+        },
+      },
+      "range": [
+        3703,
+        3704,
+      ],
+      "start": 3703,
+      "type": "blockQuoteMarker",
+      "value": ">",
     },
     {
       "end": 3726,
@@ -29047,6 +29768,26 @@ interface TabChangeEvent {
       "value": ">",
     },
     {
+      "end": 4761,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 215,
+        },
+        "start": {
+          "column": 1,
+          "line": 215,
+        },
+      },
+      "range": [
+        4759,
+        4761,
+      ],
+      "start": 4759,
+      "type": "atxHeadingSequence",
+      "value": "##",
+    },
+    {
       "end": 4764,
       "loc": {
         "end": {
@@ -30182,6 +30923,26 @@ interface TabChangeEvent {
       "value": ">",
     },
     {
+      "end": 5463,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 246,
+        },
+        "start": {
+          "column": 1,
+          "line": 246,
+        },
+      },
+      "range": [
+        5461,
+        5463,
+      ],
+      "start": 5461,
+      "type": "atxHeadingSequence",
+      "value": "##",
+    },
+    {
       "end": 5471,
       "loc": {
         "end": {
@@ -30202,6 +30963,26 @@ interface TabChangeEvent {
       "value": "Lazy 模式",
     },
     {
+      "end": 5474,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 248,
+        },
+        "start": {
+          "column": 1,
+          "line": 248,
+        },
+      },
+      "range": [
+        5473,
+        5474,
+      ],
+      "start": 5473,
+      "type": "blockQuoteMarker",
+      "value": ">",
+    },
+    {
       "end": 5478,
       "loc": {
         "end": {
@@ -30220,6 +31001,66 @@ interface TabChangeEvent {
       "start": 5475,
       "type": "JSXText",
       "value": "依赖 ",
+    },
+    {
+      "end": 5479,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 248,
+        },
+        "start": {
+          "column": 6,
+          "line": 248,
+        },
+      },
+      "range": [
+        5478,
+        5479,
+      ],
+      "start": 5478,
+      "type": "codeTextSequence",
+      "value": "\`",
+    },
+    {
+      "end": 5493,
+      "loc": {
+        "end": {
+          "column": 21,
+          "line": 248,
+        },
+        "start": {
+          "column": 7,
+          "line": 248,
+        },
+      },
+      "range": [
+        5479,
+        5493,
+      ],
+      "start": 5479,
+      "type": "codeTextData",
+      "value": "*auiTabContent",
+    },
+    {
+      "end": 5494,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 248,
+        },
+        "start": {
+          "column": 21,
+          "line": 248,
+        },
+      },
+      "range": [
+        5493,
+        5494,
+      ],
+      "start": 5493,
+      "type": "codeTextSequence",
+      "value": "\`",
     },
     {
       "end": 5557,
@@ -31459,6 +32300,26 @@ interface TabChangeEvent {
       "value": ">",
     },
     {
+      "end": 6761,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 294,
+        },
+        "start": {
+          "column": 1,
+          "line": 294,
+        },
+      },
+      "range": [
+        6759,
+        6761,
+      ],
+      "start": 6759,
+      "type": "atxHeadingSequence",
+      "value": "##",
+    },
+    {
       "end": 6768,
       "loc": {
         "end": {
@@ -32326,6 +33187,26 @@ interface TabChangeEvent {
       "value": ">",
     },
     {
+      "end": 8199,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 343,
+        },
+        "start": {
+          "column": 1,
+          "line": 343,
+        },
+      },
+      "range": [
+        8197,
+        8199,
+      ],
+      "start": 8197,
+      "type": "atxHeadingSequence",
+      "value": "##",
+    },
+    {
       "end": 8209,
       "loc": {
         "end": {
@@ -32970,6 +33851,26 @@ interface TabChangeEvent {
       "value": ">",
     },
     {
+      "end": 8771,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 364,
+        },
+        "start": {
+          "column": 1,
+          "line": 364,
+        },
+      },
+      "range": [
+        8769,
+        8771,
+      ],
+      "start": 8769,
+      "type": "atxHeadingSequence",
+      "value": "##",
+    },
+    {
       "end": 8796,
       "loc": {
         "end": {
@@ -32988,6 +33889,26 @@ interface TabChangeEvent {
       "start": 8772,
       "type": "JSXText",
       "value": "TabGroupComponent Inputs",
+    },
+    {
+      "end": 8799,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 366,
+        },
+        "start": {
+          "column": 1,
+          "line": 366,
+        },
+      },
+      "range": [
+        8798,
+        8799,
+      ],
+      "start": 8798,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 8802,
@@ -33010,6 +33931,26 @@ interface TabChangeEvent {
       "value": "名称",
     },
     {
+      "end": 8813,
+      "loc": {
+        "end": {
+          "column": 16,
+          "line": 366,
+        },
+        "start": {
+          "column": 15,
+          "line": 366,
+        },
+      },
+      "range": [
+        8812,
+        8813,
+      ],
+      "start": 8812,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 8816,
       "loc": {
         "end": {
@@ -33028,6 +33969,26 @@ interface TabChangeEvent {
       "start": 8814,
       "type": "JSXText",
       "value": "类型",
+    },
+    {
+      "end": 8821,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 366,
+        },
+        "start": {
+          "column": 23,
+          "line": 366,
+        },
+      },
+      "range": [
+        8820,
+        8821,
+      ],
+      "start": 8820,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 8825,
@@ -33050,6 +34011,26 @@ interface TabChangeEvent {
       "value": "默认值",
     },
     {
+      "end": 8835,
+      "loc": {
+        "end": {
+          "column": 38,
+          "line": 366,
+        },
+        "start": {
+          "column": 37,
+          "line": 366,
+        },
+      },
+      "range": [
+        8834,
+        8835,
+      ],
+      "start": 8834,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 8838,
       "loc": {
         "end": {
@@ -33068,6 +34049,226 @@ interface TabChangeEvent {
       "start": 8836,
       "type": "JSXText",
       "value": "描述",
+    },
+    {
+      "end": 8851,
+      "loc": {
+        "end": {
+          "column": 54,
+          "line": 366,
+        },
+        "start": {
+          "column": 53,
+          "line": 366,
+        },
+      },
+      "range": [
+        8850,
+        8851,
+      ],
+      "start": 8850,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 8853,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 367,
+        },
+        "start": {
+          "column": 1,
+          "line": 367,
+        },
+      },
+      "range": [
+        8852,
+        8853,
+      ],
+      "start": 8852,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 8867,
+      "loc": {
+        "end": {
+          "column": 16,
+          "line": 367,
+        },
+        "start": {
+          "column": 3,
+          "line": 367,
+        },
+      },
+      "range": [
+        8854,
+        8867,
+      ],
+      "start": 8854,
+      "type": "tableDelimiterFiller",
+      "value": "-------------",
+    },
+    {
+      "end": 8869,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 367,
+        },
+        "start": {
+          "column": 17,
+          "line": 367,
+        },
+      },
+      "range": [
+        8868,
+        8869,
+      ],
+      "start": 8868,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 8877,
+      "loc": {
+        "end": {
+          "column": 26,
+          "line": 367,
+        },
+        "start": {
+          "column": 19,
+          "line": 367,
+        },
+      },
+      "range": [
+        8870,
+        8877,
+      ],
+      "start": 8870,
+      "type": "tableDelimiterFiller",
+      "value": "-------",
+    },
+    {
+      "end": 8879,
+      "loc": {
+        "end": {
+          "column": 28,
+          "line": 367,
+        },
+        "start": {
+          "column": 27,
+          "line": 367,
+        },
+      },
+      "range": [
+        8878,
+        8879,
+      ],
+      "start": 8878,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 8894,
+      "loc": {
+        "end": {
+          "column": 43,
+          "line": 367,
+        },
+        "start": {
+          "column": 29,
+          "line": 367,
+        },
+      },
+      "range": [
+        8880,
+        8894,
+      ],
+      "start": 8880,
+      "type": "tableDelimiterFiller",
+      "value": "--------------",
+    },
+    {
+      "end": 8896,
+      "loc": {
+        "end": {
+          "column": 45,
+          "line": 367,
+        },
+        "start": {
+          "column": 44,
+          "line": 367,
+        },
+      },
+      "range": [
+        8895,
+        8896,
+      ],
+      "start": 8895,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 8912,
+      "loc": {
+        "end": {
+          "column": 61,
+          "line": 367,
+        },
+        "start": {
+          "column": 46,
+          "line": 367,
+        },
+      },
+      "range": [
+        8897,
+        8912,
+      ],
+      "start": 8897,
+      "type": "tableDelimiterFiller",
+      "value": "---------------",
+    },
+    {
+      "end": 8914,
+      "loc": {
+        "end": {
+          "column": 63,
+          "line": 367,
+        },
+        "start": {
+          "column": 62,
+          "line": 367,
+        },
+      },
+      "range": [
+        8913,
+        8914,
+      ],
+      "start": 8913,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 8916,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 368,
+        },
+        "start": {
+          "column": 1,
+          "line": 368,
+        },
+      },
+      "range": [
+        8915,
+        8916,
+      ],
+      "start": 8915,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 8921,
@@ -33090,6 +34291,26 @@ interface TabChangeEvent {
       "value": "type",
     },
     {
+      "end": 8932,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 368,
+        },
+        "start": {
+          "column": 17,
+          "line": 368,
+        },
+      },
+      "range": [
+        8931,
+        8932,
+      ],
+      "start": 8931,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 8940,
       "loc": {
         "end": {
@@ -33108,6 +34329,26 @@ interface TabChangeEvent {
       "start": 8933,
       "type": "JSXText",
       "value": "TabType",
+    },
+    {
+      "end": 8942,
+      "loc": {
+        "end": {
+          "column": 28,
+          "line": 368,
+        },
+        "start": {
+          "column": 27,
+          "line": 368,
+        },
+      },
+      "range": [
+        8941,
+        8942,
+      ],
+      "start": 8941,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 8955,
@@ -33130,6 +34371,26 @@ interface TabChangeEvent {
       "value": "TabType.Line",
     },
     {
+      "end": 8959,
+      "loc": {
+        "end": {
+          "column": 45,
+          "line": 368,
+        },
+        "start": {
+          "column": 44,
+          "line": 368,
+        },
+      },
+      "range": [
+        8958,
+        8959,
+      ],
+      "start": 8958,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 8964,
       "loc": {
         "end": {
@@ -33148,6 +34409,46 @@ interface TabChangeEvent {
       "start": 8960,
       "type": "JSXText",
       "value": "样式主题",
+    },
+    {
+      "end": 8973,
+      "loc": {
+        "end": {
+          "column": 59,
+          "line": 368,
+        },
+        "start": {
+          "column": 58,
+          "line": 368,
+        },
+      },
+      "range": [
+        8972,
+        8973,
+      ],
+      "start": 8972,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 8975,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 369,
+        },
+        "start": {
+          "column": 1,
+          "line": 369,
+        },
+      },
+      "range": [
+        8974,
+        8975,
+      ],
+      "start": 8974,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 8980,
@@ -33170,6 +34471,26 @@ interface TabChangeEvent {
       "value": "size",
     },
     {
+      "end": 8991,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 369,
+        },
+        "start": {
+          "column": 17,
+          "line": 369,
+        },
+      },
+      "range": [
+        8990,
+        8991,
+      ],
+      "start": 8990,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 8999,
       "loc": {
         "end": {
@@ -33188,6 +34509,26 @@ interface TabChangeEvent {
       "start": 8992,
       "type": "JSXText",
       "value": "TabSize",
+    },
+    {
+      "end": 9001,
+      "loc": {
+        "end": {
+          "column": 28,
+          "line": 369,
+        },
+        "start": {
+          "column": 27,
+          "line": 369,
+        },
+      },
+      "range": [
+        9000,
+        9001,
+      ],
+      "start": 9000,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9016,
@@ -33210,6 +34551,26 @@ interface TabChangeEvent {
       "value": "TabSize.Medium",
     },
     {
+      "end": 9018,
+      "loc": {
+        "end": {
+          "column": 45,
+          "line": 369,
+        },
+        "start": {
+          "column": 44,
+          "line": 369,
+        },
+      },
+      "range": [
+        9017,
+        9018,
+      ],
+      "start": 9017,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9021,
       "loc": {
         "end": {
@@ -33228,6 +34589,46 @@ interface TabChangeEvent {
       "start": 9019,
       "type": "JSXText",
       "value": "尺寸",
+    },
+    {
+      "end": 9034,
+      "loc": {
+        "end": {
+          "column": 61,
+          "line": 369,
+        },
+        "start": {
+          "column": 60,
+          "line": 369,
+        },
+      },
+      "range": [
+        9033,
+        9034,
+      ],
+      "start": 9033,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9036,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 370,
+        },
+        "start": {
+          "column": 1,
+          "line": 370,
+        },
+      },
+      "range": [
+        9035,
+        9036,
+      ],
+      "start": 9035,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9040,
@@ -33250,6 +34651,26 @@ interface TabChangeEvent {
       "value": "tab",
     },
     {
+      "end": 9052,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 370,
+        },
+        "start": {
+          "column": 17,
+          "line": 370,
+        },
+      },
+      "range": [
+        9051,
+        9052,
+      ],
+      "start": 9051,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9059,
       "loc": {
         "end": {
@@ -33268,6 +34689,26 @@ interface TabChangeEvent {
       "start": 9053,
       "type": "JSXText",
       "value": "string",
+    },
+    {
+      "end": 9062,
+      "loc": {
+        "end": {
+          "column": 28,
+          "line": 370,
+        },
+        "start": {
+          "column": 27,
+          "line": 370,
+        },
+      },
+      "range": [
+        9061,
+        9062,
+      ],
+      "start": 9061,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9064,
@@ -33290,6 +34731,26 @@ interface TabChangeEvent {
       "value": "-",
     },
     {
+      "end": 9079,
+      "loc": {
+        "end": {
+          "column": 45,
+          "line": 370,
+        },
+        "start": {
+          "column": 44,
+          "line": 370,
+        },
+      },
+      "range": [
+        9078,
+        9079,
+      ],
+      "start": 9078,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9090,
       "loc": {
         "end": {
@@ -33308,6 +34769,46 @@ interface TabChangeEvent {
       "start": 9080,
       "type": "JSXText",
       "value": "选中 Tab 的名称",
+    },
+    {
+      "end": 9092,
+      "loc": {
+        "end": {
+          "column": 58,
+          "line": 370,
+        },
+        "start": {
+          "column": 57,
+          "line": 370,
+        },
+      },
+      "range": [
+        9091,
+        9092,
+      ],
+      "start": 9091,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9094,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 371,
+        },
+        "start": {
+          "column": 1,
+          "line": 371,
+        },
+      },
+      "range": [
+        9093,
+        9094,
+      ],
+      "start": 9093,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9108,
@@ -33330,6 +34831,26 @@ interface TabChangeEvent {
       "value": "selectedIndex",
     },
     {
+      "end": 9110,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 371,
+        },
+        "start": {
+          "column": 17,
+          "line": 371,
+        },
+      },
+      "range": [
+        9109,
+        9110,
+      ],
+      "start": 9109,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9117,
       "loc": {
         "end": {
@@ -33348,6 +34869,26 @@ interface TabChangeEvent {
       "start": 9111,
       "type": "JSXText",
       "value": "number",
+    },
+    {
+      "end": 9120,
+      "loc": {
+        "end": {
+          "column": 28,
+          "line": 371,
+        },
+        "start": {
+          "column": 27,
+          "line": 371,
+        },
+      },
+      "range": [
+        9119,
+        9120,
+      ],
+      "start": 9119,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9122,
@@ -33370,6 +34911,26 @@ interface TabChangeEvent {
       "value": "-",
     },
     {
+      "end": 9137,
+      "loc": {
+        "end": {
+          "column": 45,
+          "line": 371,
+        },
+        "start": {
+          "column": 44,
+          "line": 371,
+        },
+      },
+      "range": [
+        9136,
+        9137,
+      ],
+      "start": 9136,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9148,
       "loc": {
         "end": {
@@ -33388,6 +34949,46 @@ interface TabChangeEvent {
       "start": 9138,
       "type": "JSXText",
       "value": "选中 Tab 的索引",
+    },
+    {
+      "end": 9150,
+      "loc": {
+        "end": {
+          "column": 58,
+          "line": 371,
+        },
+        "start": {
+          "column": 57,
+          "line": 371,
+        },
+      },
+      "range": [
+        9149,
+        9150,
+      ],
+      "start": 9149,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9152,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 372,
+        },
+        "start": {
+          "column": 1,
+          "line": 372,
+        },
+      },
+      "range": [
+        9151,
+        9152,
+      ],
+      "start": 9151,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9157,
@@ -33410,6 +35011,26 @@ interface TabChangeEvent {
       "value": "lazy",
     },
     {
+      "end": 9168,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 372,
+        },
+        "start": {
+          "column": 17,
+          "line": 372,
+        },
+      },
+      "range": [
+        9167,
+        9168,
+      ],
+      "start": 9167,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9176,
       "loc": {
         "end": {
@@ -33428,6 +35049,26 @@ interface TabChangeEvent {
       "start": 9169,
       "type": "JSXText",
       "value": "boolean",
+    },
+    {
+      "end": 9178,
+      "loc": {
+        "end": {
+          "column": 28,
+          "line": 372,
+        },
+        "start": {
+          "column": 27,
+          "line": 372,
+        },
+      },
+      "range": [
+        9177,
+        9178,
+      ],
+      "start": 9177,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9184,
@@ -33450,6 +35091,26 @@ interface TabChangeEvent {
       "value": "false",
     },
     {
+      "end": 9195,
+      "loc": {
+        "end": {
+          "column": 45,
+          "line": 372,
+        },
+        "start": {
+          "column": 44,
+          "line": 372,
+        },
+      },
+      "range": [
+        9194,
+        9195,
+      ],
+      "start": 9194,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9201,
       "loc": {
         "end": {
@@ -33468,6 +35129,46 @@ interface TabChangeEvent {
       "start": 9196,
       "type": "JSXText",
       "value": "懒加载模式",
+    },
+    {
+      "end": 9208,
+      "loc": {
+        "end": {
+          "column": 58,
+          "line": 372,
+        },
+        "start": {
+          "column": 57,
+          "line": 372,
+        },
+      },
+      "range": [
+        9207,
+        9208,
+      ],
+      "start": 9207,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9212,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 374,
+        },
+        "start": {
+          "column": 1,
+          "line": 374,
+        },
+      },
+      "range": [
+        9210,
+        9212,
+      ],
+      "start": 9210,
+      "type": "atxHeadingSequence",
+      "value": "##",
     },
     {
       "end": 9238,
@@ -33490,6 +35191,166 @@ interface TabChangeEvent {
       "value": "TabGroupComponent Outputs",
     },
     {
+      "end": 9243,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 376,
+        },
+        "start": {
+          "column": 1,
+          "line": 376,
+        },
+      },
+      "range": [
+        9240,
+        9243,
+      ],
+      "start": 9240,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
+    },
+    {
+      "end": 9245,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 376,
+        },
+        "start": {
+          "column": 4,
+          "line": 376,
+        },
+      },
+      "range": [
+        9243,
+        9245,
+      ],
+      "start": 9243,
+      "type": "data",
+      "value": "ts",
+    },
+    {
+      "end": 9272,
+      "loc": {
+        "end": {
+          "column": 27,
+          "line": 377,
+        },
+        "start": {
+          "column": 1,
+          "line": 377,
+        },
+      },
+      "range": [
+        9246,
+        9272,
+      ],
+      "start": 9246,
+      "type": "codeFlowValue",
+      "value": "interface TabChangeEvent {",
+    },
+    {
+      "end": 9288,
+      "loc": {
+        "end": {
+          "column": 16,
+          "line": 378,
+        },
+        "start": {
+          "column": 1,
+          "line": 378,
+        },
+      },
+      "range": [
+        9273,
+        9288,
+      ],
+      "start": 9273,
+      "type": "codeFlowValue",
+      "value": "  index: number",
+    },
+    {
+      "end": 9308,
+      "loc": {
+        "end": {
+          "column": 20,
+          "line": 379,
+        },
+        "start": {
+          "column": 1,
+          "line": 379,
+        },
+      },
+      "range": [
+        9289,
+        9308,
+      ],
+      "start": 9289,
+      "type": "codeFlowValue",
+      "value": "  tab: TabComponent",
+    },
+    {
+      "end": 9310,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 380,
+        },
+        "start": {
+          "column": 1,
+          "line": 380,
+        },
+      },
+      "range": [
+        9309,
+        9310,
+      ],
+      "start": 9309,
+      "type": "codeFlowValue",
+      "value": "}",
+    },
+    {
+      "end": 9314,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 381,
+        },
+        "start": {
+          "column": 1,
+          "line": 381,
+        },
+      },
+      "range": [
+        9311,
+        9314,
+      ],
+      "start": 9311,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
+    },
+    {
+      "end": 9317,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 383,
+        },
+        "start": {
+          "column": 1,
+          "line": 383,
+        },
+      },
+      "range": [
+        9316,
+        9317,
+      ],
+      "start": 9316,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9320,
       "loc": {
         "end": {
@@ -33508,6 +35369,26 @@ interface TabChangeEvent {
       "start": 9318,
       "type": "JSXText",
       "value": "名称",
+    },
+    {
+      "end": 9337,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 383,
+        },
+        "start": {
+          "column": 21,
+          "line": 383,
+        },
+      },
+      "range": [
+        9336,
+        9337,
+      ],
+      "start": 9336,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9340,
@@ -33530,6 +35411,26 @@ interface TabChangeEvent {
       "value": "类型",
     },
     {
+      "end": 9352,
+      "loc": {
+        "end": {
+          "column": 37,
+          "line": 383,
+        },
+        "start": {
+          "column": 36,
+          "line": 383,
+        },
+      },
+      "range": [
+        9351,
+        9352,
+      ],
+      "start": 9351,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9355,
       "loc": {
         "end": {
@@ -33548,6 +35449,186 @@ interface TabChangeEvent {
       "start": 9353,
       "type": "JSXText",
       "value": "描述",
+    },
+    {
+      "end": 9382,
+      "loc": {
+        "end": {
+          "column": 67,
+          "line": 383,
+        },
+        "start": {
+          "column": 66,
+          "line": 383,
+        },
+      },
+      "range": [
+        9381,
+        9382,
+      ],
+      "start": 9381,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9384,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 384,
+        },
+        "start": {
+          "column": 1,
+          "line": 384,
+        },
+      },
+      "range": [
+        9383,
+        9384,
+      ],
+      "start": 9383,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9404,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 384,
+        },
+        "start": {
+          "column": 3,
+          "line": 384,
+        },
+      },
+      "range": [
+        9385,
+        9404,
+      ],
+      "start": 9385,
+      "type": "tableDelimiterFiller",
+      "value": "-------------------",
+    },
+    {
+      "end": 9406,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 384,
+        },
+        "start": {
+          "column": 23,
+          "line": 384,
+        },
+      },
+      "range": [
+        9405,
+        9406,
+      ],
+      "start": 9405,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9421,
+      "loc": {
+        "end": {
+          "column": 39,
+          "line": 384,
+        },
+        "start": {
+          "column": 25,
+          "line": 384,
+        },
+      },
+      "range": [
+        9407,
+        9421,
+      ],
+      "start": 9407,
+      "type": "tableDelimiterFiller",
+      "value": "--------------",
+    },
+    {
+      "end": 9423,
+      "loc": {
+        "end": {
+          "column": 41,
+          "line": 384,
+        },
+        "start": {
+          "column": 40,
+          "line": 384,
+        },
+      },
+      "range": [
+        9422,
+        9423,
+      ],
+      "start": 9422,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9453,
+      "loc": {
+        "end": {
+          "column": 71,
+          "line": 384,
+        },
+        "start": {
+          "column": 42,
+          "line": 384,
+        },
+      },
+      "range": [
+        9424,
+        9453,
+      ],
+      "start": 9424,
+      "type": "tableDelimiterFiller",
+      "value": "-----------------------------",
+    },
+    {
+      "end": 9455,
+      "loc": {
+        "end": {
+          "column": 73,
+          "line": 384,
+        },
+        "start": {
+          "column": 72,
+          "line": 384,
+        },
+      },
+      "range": [
+        9454,
+        9455,
+      ],
+      "start": 9454,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9457,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 385,
+        },
+        "start": {
+          "column": 1,
+          "line": 385,
+        },
+      },
+      "range": [
+        9456,
+        9457,
+      ],
+      "start": 9456,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9467,
@@ -33570,6 +35651,26 @@ interface TabChangeEvent {
       "value": "tabChange",
     },
     {
+      "end": 9479,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 385,
+        },
+        "start": {
+          "column": 23,
+          "line": 385,
+        },
+      },
+      "range": [
+        9478,
+        9479,
+      ],
+      "start": 9478,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9486,
       "loc": {
         "end": {
@@ -33588,6 +35689,26 @@ interface TabChangeEvent {
       "start": 9480,
       "type": "JSXText",
       "value": "string",
+    },
+    {
+      "end": 9496,
+      "loc": {
+        "end": {
+          "column": 41,
+          "line": 385,
+        },
+        "start": {
+          "column": 40,
+          "line": 385,
+        },
+      },
+      "range": [
+        9495,
+        9496,
+      ],
+      "start": 9495,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9514,
@@ -33610,6 +35731,46 @@ interface TabChangeEvent {
       "value": "Tab 切换时发射 Tab 的名称",
     },
     {
+      "end": 9520,
+      "loc": {
+        "end": {
+          "column": 65,
+          "line": 385,
+        },
+        "start": {
+          "column": 64,
+          "line": 385,
+        },
+      },
+      "range": [
+        9519,
+        9520,
+      ],
+      "start": 9519,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9522,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 386,
+        },
+        "start": {
+          "column": 1,
+          "line": 386,
+        },
+      },
+      "range": [
+        9521,
+        9522,
+      ],
+      "start": 9521,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9542,
       "loc": {
         "end": {
@@ -33628,6 +35789,26 @@ interface TabChangeEvent {
       "start": 9523,
       "type": "JSXText",
       "value": "selectedIndexChange",
+    },
+    {
+      "end": 9544,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 386,
+        },
+        "start": {
+          "column": 23,
+          "line": 386,
+        },
+      },
+      "range": [
+        9543,
+        9544,
+      ],
+      "start": 9543,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9551,
@@ -33650,6 +35831,26 @@ interface TabChangeEvent {
       "value": "number",
     },
     {
+      "end": 9561,
+      "loc": {
+        "end": {
+          "column": 41,
+          "line": 386,
+        },
+        "start": {
+          "column": 40,
+          "line": 386,
+        },
+      },
+      "range": [
+        9560,
+        9561,
+      ],
+      "start": 9560,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9579,
       "loc": {
         "end": {
@@ -33668,6 +35869,46 @@ interface TabChangeEvent {
       "start": 9562,
       "type": "JSXText",
       "value": "Tab 切换时发射 Tab 的索引",
+    },
+    {
+      "end": 9585,
+      "loc": {
+        "end": {
+          "column": 65,
+          "line": 386,
+        },
+        "start": {
+          "column": 64,
+          "line": 386,
+        },
+      },
+      "range": [
+        9584,
+        9585,
+      ],
+      "start": 9584,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9587,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 387,
+        },
+        "start": {
+          "column": 1,
+          "line": 387,
+        },
+      },
+      "range": [
+        9586,
+        9587,
+      ],
+      "start": 9586,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9605,
@@ -33690,6 +35931,26 @@ interface TabChangeEvent {
       "value": "selectedTabChange",
     },
     {
+      "end": 9609,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 387,
+        },
+        "start": {
+          "column": 23,
+          "line": 387,
+        },
+      },
+      "range": [
+        9608,
+        9609,
+      ],
+      "start": 9608,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9624,
       "loc": {
         "end": {
@@ -33708,6 +35969,26 @@ interface TabChangeEvent {
       "start": 9610,
       "type": "JSXText",
       "value": "TabChangeEvent",
+    },
+    {
+      "end": 9626,
+      "loc": {
+        "end": {
+          "column": 41,
+          "line": 387,
+        },
+        "start": {
+          "column": 40,
+          "line": 387,
+        },
+      },
+      "range": [
+        9625,
+        9626,
+      ],
+      "start": 9625,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9651,
@@ -33730,6 +36011,46 @@ interface TabChangeEvent {
       "value": "Tab 切换时发射 TabChangeEvent",
     },
     {
+      "end": 9653,
+      "loc": {
+        "end": {
+          "column": 68,
+          "line": 387,
+        },
+        "start": {
+          "column": 67,
+          "line": 387,
+        },
+      },
+      "range": [
+        9652,
+        9653,
+      ],
+      "start": 9652,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9655,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 388,
+        },
+        "start": {
+          "column": 1,
+          "line": 388,
+        },
+      },
+      "range": [
+        9654,
+        9655,
+      ],
+      "start": 9654,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9667,
       "loc": {
         "end": {
@@ -33748,6 +36069,26 @@ interface TabChangeEvent {
       "start": 9656,
       "type": "JSXText",
       "value": "focusChange",
+    },
+    {
+      "end": 9677,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 388,
+        },
+        "start": {
+          "column": 23,
+          "line": 388,
+        },
+      },
+      "range": [
+        9676,
+        9677,
+      ],
+      "start": 9676,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9692,
@@ -33770,6 +36111,26 @@ interface TabChangeEvent {
       "value": "TabChangeEvent",
     },
     {
+      "end": 9694,
+      "loc": {
+        "end": {
+          "column": 41,
+          "line": 388,
+        },
+        "start": {
+          "column": 40,
+          "line": 388,
+        },
+      },
+      "range": [
+        9693,
+        9694,
+      ],
+      "start": 9693,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9699,
       "loc": {
         "end": {
@@ -33788,6 +36149,66 @@ interface TabChangeEvent {
       "start": 9695,
       "type": "JSXText",
       "value": "Tab ",
+    },
+    {
+      "end": 9700,
+      "loc": {
+        "end": {
+          "column": 47,
+          "line": 388,
+        },
+        "start": {
+          "column": 46,
+          "line": 388,
+        },
+      },
+      "range": [
+        9699,
+        9700,
+      ],
+      "start": 9699,
+      "type": "codeTextSequence",
+      "value": "\`",
+    },
+    {
+      "end": 9705,
+      "loc": {
+        "end": {
+          "column": 52,
+          "line": 388,
+        },
+        "start": {
+          "column": 47,
+          "line": 388,
+        },
+      },
+      "range": [
+        9700,
+        9705,
+      ],
+      "start": 9700,
+      "type": "codeTextData",
+      "value": "focus",
+    },
+    {
+      "end": 9706,
+      "loc": {
+        "end": {
+          "column": 53,
+          "line": 388,
+        },
+        "start": {
+          "column": 52,
+          "line": 388,
+        },
+      },
+      "range": [
+        9705,
+        9706,
+      ],
+      "start": 9705,
+      "type": "codeTextSequence",
+      "value": "\`",
     },
     {
       "end": 9712,
@@ -33810,6 +36231,46 @@ interface TabChangeEvent {
       "value": " 切换时发射",
     },
     {
+      "end": 9721,
+      "loc": {
+        "end": {
+          "column": 68,
+          "line": 388,
+        },
+        "start": {
+          "column": 67,
+          "line": 388,
+        },
+      },
+      "range": [
+        9720,
+        9721,
+      ],
+      "start": 9720,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9725,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 390,
+        },
+        "start": {
+          "column": 1,
+          "line": 390,
+        },
+      },
+      "range": [
+        9723,
+        9725,
+      ],
+      "start": 9723,
+      "type": "atxHeadingSequence",
+      "value": "##",
+    },
+    {
       "end": 9745,
       "loc": {
         "end": {
@@ -33828,6 +36289,26 @@ interface TabChangeEvent {
       "start": 9726,
       "type": "JSXText",
       "value": "TabComponent Inputs",
+    },
+    {
+      "end": 9748,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 392,
+        },
+        "start": {
+          "column": 1,
+          "line": 392,
+        },
+      },
+      "range": [
+        9747,
+        9748,
+      ],
+      "start": 9747,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9751,
@@ -33850,6 +36331,26 @@ interface TabChangeEvent {
       "value": "名称",
     },
     {
+      "end": 9758,
+      "loc": {
+        "end": {
+          "column": 12,
+          "line": 392,
+        },
+        "start": {
+          "column": 11,
+          "line": 392,
+        },
+      },
+      "range": [
+        9757,
+        9758,
+      ],
+      "start": 9757,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9761,
       "loc": {
         "end": {
@@ -33868,6 +36369,26 @@ interface TabChangeEvent {
       "start": 9759,
       "type": "JSXText",
       "value": "类型",
+    },
+    {
+      "end": 9766,
+      "loc": {
+        "end": {
+          "column": 20,
+          "line": 392,
+        },
+        "start": {
+          "column": 19,
+          "line": 392,
+        },
+      },
+      "range": [
+        9765,
+        9766,
+      ],
+      "start": 9765,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9770,
@@ -33890,6 +36411,26 @@ interface TabChangeEvent {
       "value": "默认值",
     },
     {
+      "end": 9772,
+      "loc": {
+        "end": {
+          "column": 26,
+          "line": 392,
+        },
+        "start": {
+          "column": 25,
+          "line": 392,
+        },
+      },
+      "range": [
+        9771,
+        9772,
+      ],
+      "start": 9771,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9775,
       "loc": {
         "end": {
@@ -33908,6 +36449,226 @@ interface TabChangeEvent {
       "start": 9773,
       "type": "JSXText",
       "value": "说明",
+    },
+    {
+      "end": 9789,
+      "loc": {
+        "end": {
+          "column": 43,
+          "line": 392,
+        },
+        "start": {
+          "column": 42,
+          "line": 392,
+        },
+      },
+      "range": [
+        9788,
+        9789,
+      ],
+      "start": 9788,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9791,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 393,
+        },
+        "start": {
+          "column": 1,
+          "line": 393,
+        },
+      },
+      "range": [
+        9790,
+        9791,
+      ],
+      "start": 9790,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9801,
+      "loc": {
+        "end": {
+          "column": 12,
+          "line": 393,
+        },
+        "start": {
+          "column": 3,
+          "line": 393,
+        },
+      },
+      "range": [
+        9792,
+        9801,
+      ],
+      "start": 9792,
+      "type": "tableDelimiterFiller",
+      "value": "---------",
+    },
+    {
+      "end": 9803,
+      "loc": {
+        "end": {
+          "column": 14,
+          "line": 393,
+        },
+        "start": {
+          "column": 13,
+          "line": 393,
+        },
+      },
+      "range": [
+        9802,
+        9803,
+      ],
+      "start": 9802,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9811,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 393,
+        },
+        "start": {
+          "column": 15,
+          "line": 393,
+        },
+      },
+      "range": [
+        9804,
+        9811,
+      ],
+      "start": 9804,
+      "type": "tableDelimiterFiller",
+      "value": "-------",
+    },
+    {
+      "end": 9813,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 393,
+        },
+        "start": {
+          "column": 23,
+          "line": 393,
+        },
+      },
+      "range": [
+        9812,
+        9813,
+      ],
+      "start": 9812,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9820,
+      "loc": {
+        "end": {
+          "column": 31,
+          "line": 393,
+        },
+        "start": {
+          "column": 25,
+          "line": 393,
+        },
+      },
+      "range": [
+        9814,
+        9820,
+      ],
+      "start": 9814,
+      "type": "tableDelimiterFiller",
+      "value": "------",
+    },
+    {
+      "end": 9822,
+      "loc": {
+        "end": {
+          "column": 33,
+          "line": 393,
+        },
+        "start": {
+          "column": 32,
+          "line": 393,
+        },
+      },
+      "range": [
+        9821,
+        9822,
+      ],
+      "start": 9821,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9839,
+      "loc": {
+        "end": {
+          "column": 50,
+          "line": 393,
+        },
+        "start": {
+          "column": 34,
+          "line": 393,
+        },
+      },
+      "range": [
+        9823,
+        9839,
+      ],
+      "start": 9823,
+      "type": "tableDelimiterFiller",
+      "value": "----------------",
+    },
+    {
+      "end": 9841,
+      "loc": {
+        "end": {
+          "column": 52,
+          "line": 393,
+        },
+        "start": {
+          "column": 51,
+          "line": 393,
+        },
+      },
+      "range": [
+        9840,
+        9841,
+      ],
+      "start": 9840,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9843,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 394,
+        },
+        "start": {
+          "column": 1,
+          "line": 394,
+        },
+      },
+      "range": [
+        9842,
+        9843,
+      ],
+      "start": 9842,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9848,
@@ -33930,6 +36691,26 @@ interface TabChangeEvent {
       "value": "name",
     },
     {
+      "end": 9855,
+      "loc": {
+        "end": {
+          "column": 14,
+          "line": 394,
+        },
+        "start": {
+          "column": 13,
+          "line": 394,
+        },
+      },
+      "range": [
+        9854,
+        9855,
+      ],
+      "start": 9854,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9862,
       "loc": {
         "end": {
@@ -33948,6 +36729,26 @@ interface TabChangeEvent {
       "start": 9856,
       "type": "JSXText",
       "value": "string",
+    },
+    {
+      "end": 9865,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 394,
+        },
+        "start": {
+          "column": 23,
+          "line": 394,
+        },
+      },
+      "range": [
+        9864,
+        9865,
+      ],
+      "start": 9864,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9867,
@@ -33970,6 +36771,26 @@ interface TabChangeEvent {
       "value": "-",
     },
     {
+      "end": 9874,
+      "loc": {
+        "end": {
+          "column": 33,
+          "line": 394,
+        },
+        "start": {
+          "column": 32,
+          "line": 394,
+        },
+      },
+      "range": [
+        9873,
+        9874,
+      ],
+      "start": 9873,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9882,
       "loc": {
         "end": {
@@ -33988,6 +36809,46 @@ interface TabChangeEvent {
       "start": 9875,
       "type": "JSXText",
       "value": "tab 的名称",
+    },
+    {
+      "end": 9890,
+      "loc": {
+        "end": {
+          "column": 49,
+          "line": 394,
+        },
+        "start": {
+          "column": 48,
+          "line": 394,
+        },
+      },
+      "range": [
+        9889,
+        9890,
+      ],
+      "start": 9889,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9892,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 395,
+        },
+        "start": {
+          "column": 1,
+          "line": 395,
+        },
+      },
+      "range": [
+        9891,
+        9892,
+      ],
+      "start": 9891,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9898,
@@ -34010,6 +36871,26 @@ interface TabChangeEvent {
       "value": "label",
     },
     {
+      "end": 9904,
+      "loc": {
+        "end": {
+          "column": 14,
+          "line": 395,
+        },
+        "start": {
+          "column": 13,
+          "line": 395,
+        },
+      },
+      "range": [
+        9903,
+        9904,
+      ],
+      "start": 9903,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9911,
       "loc": {
         "end": {
@@ -34028,6 +36909,26 @@ interface TabChangeEvent {
       "start": 9905,
       "type": "JSXText",
       "value": "string",
+    },
+    {
+      "end": 9914,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 395,
+        },
+        "start": {
+          "column": 23,
+          "line": 395,
+        },
+      },
+      "range": [
+        9913,
+        9914,
+      ],
+      "start": 9913,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9916,
@@ -34050,6 +36951,26 @@ interface TabChangeEvent {
       "value": "-",
     },
     {
+      "end": 9923,
+      "loc": {
+        "end": {
+          "column": 33,
+          "line": 395,
+        },
+        "start": {
+          "column": 32,
+          "line": 395,
+        },
+      },
+      "range": [
+        9922,
+        9923,
+      ],
+      "start": 9922,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9932,
       "loc": {
         "end": {
@@ -34068,6 +36989,46 @@ interface TabChangeEvent {
       "start": 9924,
       "type": "JSXText",
       "value": "文字 label",
+    },
+    {
+      "end": 9940,
+      "loc": {
+        "end": {
+          "column": 50,
+          "line": 395,
+        },
+        "start": {
+          "column": 49,
+          "line": 395,
+        },
+      },
+      "range": [
+        9939,
+        9940,
+      ],
+      "start": 9939,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9942,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 396,
+        },
+        "start": {
+          "column": 1,
+          "line": 396,
+        },
+      },
+      "range": [
+        9941,
+        9942,
+      ],
+      "start": 9941,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9952,
@@ -34090,6 +37051,26 @@ interface TabChangeEvent {
       "value": "closeable",
     },
     {
+      "end": 9954,
+      "loc": {
+        "end": {
+          "column": 14,
+          "line": 396,
+        },
+        "start": {
+          "column": 13,
+          "line": 396,
+        },
+      },
+      "range": [
+        9953,
+        9954,
+      ],
+      "start": 9953,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9962,
       "loc": {
         "end": {
@@ -34108,6 +37089,26 @@ interface TabChangeEvent {
       "start": 9955,
       "type": "JSXText",
       "value": "boolean",
+    },
+    {
+      "end": 9964,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 396,
+        },
+        "start": {
+          "column": 23,
+          "line": 396,
+        },
+      },
+      "range": [
+        9963,
+        9964,
+      ],
+      "start": 9963,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9970,
@@ -34130,6 +37131,26 @@ interface TabChangeEvent {
       "value": "false",
     },
     {
+      "end": 9973,
+      "loc": {
+        "end": {
+          "column": 33,
+          "line": 396,
+        },
+        "start": {
+          "column": 32,
+          "line": 396,
+        },
+      },
+      "range": [
+        9972,
+        9973,
+      ],
+      "start": 9972,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 9982,
       "loc": {
         "end": {
@@ -34148,6 +37169,46 @@ interface TabChangeEvent {
       "start": 9974,
       "type": "JSXText",
       "value": "是否显示关闭按键",
+    },
+    {
+      "end": 9984,
+      "loc": {
+        "end": {
+          "column": 44,
+          "line": 396,
+        },
+        "start": {
+          "column": 43,
+          "line": 396,
+        },
+      },
+      "range": [
+        9983,
+        9984,
+      ],
+      "start": 9983,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 9986,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 397,
+        },
+        "start": {
+          "column": 1,
+          "line": 397,
+        },
+      },
+      "range": [
+        9985,
+        9986,
+      ],
+      "start": 9985,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 9995,
@@ -34170,6 +37231,26 @@ interface TabChangeEvent {
       "value": "disabled",
     },
     {
+      "end": 9998,
+      "loc": {
+        "end": {
+          "column": 14,
+          "line": 397,
+        },
+        "start": {
+          "column": 13,
+          "line": 397,
+        },
+      },
+      "range": [
+        9997,
+        9998,
+      ],
+      "start": 9997,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 10006,
       "loc": {
         "end": {
@@ -34188,6 +37269,26 @@ interface TabChangeEvent {
       "start": 9999,
       "type": "JSXText",
       "value": "boolean",
+    },
+    {
+      "end": 10008,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 397,
+        },
+        "start": {
+          "column": 23,
+          "line": 397,
+        },
+      },
+      "range": [
+        10007,
+        10008,
+      ],
+      "start": 10007,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 10014,
@@ -34210,6 +37311,26 @@ interface TabChangeEvent {
       "value": "false",
     },
     {
+      "end": 10017,
+      "loc": {
+        "end": {
+          "column": 33,
+          "line": 397,
+        },
+        "start": {
+          "column": 32,
+          "line": 397,
+        },
+      },
+      "range": [
+        10016,
+        10017,
+      ],
+      "start": 10016,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 10027,
       "loc": {
         "end": {
@@ -34228,6 +37349,46 @@ interface TabChangeEvent {
       "start": 10018,
       "type": "JSXText",
       "value": "是否禁用此 tab",
+    },
+    {
+      "end": 10031,
+      "loc": {
+        "end": {
+          "column": 47,
+          "line": 397,
+        },
+        "start": {
+          "column": 46,
+          "line": 397,
+        },
+      },
+      "range": [
+        10030,
+        10031,
+      ],
+      "start": 10030,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 10035,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 399,
+        },
+        "start": {
+          "column": 1,
+          "line": 399,
+        },
+      },
+      "range": [
+        10033,
+        10035,
+      ],
+      "start": 10033,
+      "type": "atxHeadingSequence",
+      "value": "##",
     },
     {
       "end": 10056,
@@ -34250,6 +37411,26 @@ interface TabChangeEvent {
       "value": "TabComponent Outputs",
     },
     {
+      "end": 10059,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 401,
+        },
+        "start": {
+          "column": 1,
+          "line": 401,
+        },
+      },
+      "range": [
+        10058,
+        10059,
+      ],
+      "start": 10058,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 10062,
       "loc": {
         "end": {
@@ -34268,6 +37449,26 @@ interface TabChangeEvent {
       "start": 10060,
       "type": "JSXText",
       "value": "名称",
+    },
+    {
+      "end": 10065,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 401,
+        },
+        "start": {
+          "column": 7,
+          "line": 401,
+        },
+      },
+      "range": [
+        10064,
+        10065,
+      ],
+      "start": 10064,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 10068,
@@ -34290,6 +37491,26 @@ interface TabChangeEvent {
       "value": "类型",
     },
     {
+      "end": 10070,
+      "loc": {
+        "end": {
+          "column": 13,
+          "line": 401,
+        },
+        "start": {
+          "column": 12,
+          "line": 401,
+        },
+      },
+      "range": [
+        10069,
+        10070,
+      ],
+      "start": 10069,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 10073,
       "loc": {
         "end": {
@@ -34308,6 +37529,186 @@ interface TabChangeEvent {
       "start": 10071,
       "type": "JSXText",
       "value": "描述",
+    },
+    {
+      "end": 10091,
+      "loc": {
+        "end": {
+          "column": 34,
+          "line": 401,
+        },
+        "start": {
+          "column": 33,
+          "line": 401,
+        },
+      },
+      "range": [
+        10090,
+        10091,
+      ],
+      "start": 10090,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 10093,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 402,
+        },
+        "start": {
+          "column": 1,
+          "line": 402,
+        },
+      },
+      "range": [
+        10092,
+        10093,
+      ],
+      "start": 10092,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 10099,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 402,
+        },
+        "start": {
+          "column": 3,
+          "line": 402,
+        },
+      },
+      "range": [
+        10094,
+        10099,
+      ],
+      "start": 10094,
+      "type": "tableDelimiterFiller",
+      "value": "-----",
+    },
+    {
+      "end": 10101,
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 402,
+        },
+        "start": {
+          "column": 9,
+          "line": 402,
+        },
+      },
+      "range": [
+        10100,
+        10101,
+      ],
+      "start": 10100,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 10106,
+      "loc": {
+        "end": {
+          "column": 15,
+          "line": 402,
+        },
+        "start": {
+          "column": 11,
+          "line": 402,
+        },
+      },
+      "range": [
+        10102,
+        10106,
+      ],
+      "start": 10102,
+      "type": "tableDelimiterFiller",
+      "value": "----",
+    },
+    {
+      "end": 10108,
+      "loc": {
+        "end": {
+          "column": 17,
+          "line": 402,
+        },
+        "start": {
+          "column": 16,
+          "line": 402,
+        },
+      },
+      "range": [
+        10107,
+        10108,
+      ],
+      "start": 10107,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 10129,
+      "loc": {
+        "end": {
+          "column": 38,
+          "line": 402,
+        },
+        "start": {
+          "column": 18,
+          "line": 402,
+        },
+      },
+      "range": [
+        10109,
+        10129,
+      ],
+      "start": 10109,
+      "type": "tableDelimiterFiller",
+      "value": "--------------------",
+    },
+    {
+      "end": 10131,
+      "loc": {
+        "end": {
+          "column": 40,
+          "line": 402,
+        },
+        "start": {
+          "column": 39,
+          "line": 402,
+        },
+      },
+      "range": [
+        10130,
+        10131,
+      ],
+      "start": 10130,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 10133,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 403,
+        },
+        "start": {
+          "column": 1,
+          "line": 403,
+        },
+      },
+      "range": [
+        10132,
+        10133,
+      ],
+      "start": 10132,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 10139,
@@ -34330,6 +37731,26 @@ interface TabChangeEvent {
       "value": "close",
     },
     {
+      "end": 10141,
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 403,
+        },
+        "start": {
+          "column": 9,
+          "line": 403,
+        },
+      },
+      "range": [
+        10140,
+        10141,
+      ],
+      "start": 10140,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 10146,
       "loc": {
         "end": {
@@ -34348,6 +37769,26 @@ interface TabChangeEvent {
       "start": 10142,
       "type": "JSXText",
       "value": "void",
+    },
+    {
+      "end": 10148,
+      "loc": {
+        "end": {
+          "column": 17,
+          "line": 403,
+        },
+        "start": {
+          "column": 16,
+          "line": 403,
+        },
+      },
+      "range": [
+        10147,
+        10148,
+      ],
+      "start": 10147,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 10159,
@@ -34370,6 +37811,46 @@ interface TabChangeEvent {
       "value": "关闭按键被点击时发射",
     },
     {
+      "end": 10161,
+      "loc": {
+        "end": {
+          "column": 30,
+          "line": 403,
+        },
+        "start": {
+          "column": 29,
+          "line": 403,
+        },
+      },
+      "range": [
+        10160,
+        10161,
+      ],
+      "start": 10160,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 10165,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 405,
+        },
+        "start": {
+          "column": 1,
+          "line": 405,
+        },
+      },
+      "range": [
+        10163,
+        10165,
+      ],
+      "start": 10163,
+      "type": "atxHeadingSequence",
+      "value": "##",
+    },
+    {
       "end": 10176,
       "loc": {
         "end": {
@@ -34388,6 +37869,26 @@ interface TabChangeEvent {
       "start": 10166,
       "type": "JSXText",
       "value": "Directives",
+    },
+    {
+      "end": 10179,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 407,
+        },
+        "start": {
+          "column": 1,
+          "line": 407,
+        },
+      },
+      "range": [
+        10178,
+        10179,
+      ],
+      "start": 10178,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 10182,
@@ -34410,6 +37911,26 @@ interface TabChangeEvent {
       "value": "名称",
     },
     {
+      "end": 10197,
+      "loc": {
+        "end": {
+          "column": 20,
+          "line": 407,
+        },
+        "start": {
+          "column": 19,
+          "line": 407,
+        },
+      },
+      "range": [
+        10196,
+        10197,
+      ],
+      "start": 10196,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 10202,
       "loc": {
         "end": {
@@ -34428,6 +37949,26 @@ interface TabChangeEvent {
       "start": 10198,
       "type": "JSXText",
       "value": "作用范围",
+    },
+    {
+      "end": 10213,
+      "loc": {
+        "end": {
+          "column": 36,
+          "line": 407,
+        },
+        "start": {
+          "column": 35,
+          "line": 407,
+        },
+      },
+      "range": [
+        10212,
+        10213,
+      ],
+      "start": 10212,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 10216,
@@ -34450,6 +37991,186 @@ interface TabChangeEvent {
       "value": "描述",
     },
     {
+      "end": 10241,
+      "loc": {
+        "end": {
+          "column": 64,
+          "line": 407,
+        },
+        "start": {
+          "column": 63,
+          "line": 407,
+        },
+      },
+      "range": [
+        10240,
+        10241,
+      ],
+      "start": 10240,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 10243,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 408,
+        },
+        "start": {
+          "column": 1,
+          "line": 408,
+        },
+      },
+      "range": [
+        10242,
+        10243,
+      ],
+      "start": 10242,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 10261,
+      "loc": {
+        "end": {
+          "column": 20,
+          "line": 408,
+        },
+        "start": {
+          "column": 3,
+          "line": 408,
+        },
+      },
+      "range": [
+        10244,
+        10261,
+      ],
+      "start": 10244,
+      "type": "tableDelimiterFiller",
+      "value": "-----------------",
+    },
+    {
+      "end": 10263,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 408,
+        },
+        "start": {
+          "column": 21,
+          "line": 408,
+        },
+      },
+      "range": [
+        10262,
+        10263,
+      ],
+      "start": 10262,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 10281,
+      "loc": {
+        "end": {
+          "column": 40,
+          "line": 408,
+        },
+        "start": {
+          "column": 23,
+          "line": 408,
+        },
+      },
+      "range": [
+        10264,
+        10281,
+      ],
+      "start": 10264,
+      "type": "tableDelimiterFiller",
+      "value": "-----------------",
+    },
+    {
+      "end": 10283,
+      "loc": {
+        "end": {
+          "column": 42,
+          "line": 408,
+        },
+        "start": {
+          "column": 41,
+          "line": 408,
+        },
+      },
+      "range": [
+        10282,
+        10283,
+      ],
+      "start": 10282,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 10311,
+      "loc": {
+        "end": {
+          "column": 70,
+          "line": 408,
+        },
+        "start": {
+          "column": 43,
+          "line": 408,
+        },
+      },
+      "range": [
+        10284,
+        10311,
+      ],
+      "start": 10284,
+      "type": "tableDelimiterFiller",
+      "value": "---------------------------",
+    },
+    {
+      "end": 10313,
+      "loc": {
+        "end": {
+          "column": 72,
+          "line": 408,
+        },
+        "start": {
+          "column": 71,
+          "line": 408,
+        },
+      },
+      "range": [
+        10312,
+        10313,
+      ],
+      "start": 10312,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 10315,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 409,
+        },
+        "start": {
+          "column": 1,
+          "line": 409,
+        },
+      },
+      "range": [
+        10314,
+        10315,
+      ],
+      "start": 10314,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 10333,
       "loc": {
         "end": {
@@ -34468,6 +38189,26 @@ interface TabChangeEvent {
       "start": 10316,
       "type": "JSXText",
       "value": "auiTabHeaderAddon",
+    },
+    {
+      "end": 10335,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 409,
+        },
+        "start": {
+          "column": 21,
+          "line": 409,
+        },
+      },
+      "range": [
+        10334,
+        10335,
+      ],
+      "start": 10334,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 10353,
@@ -34490,6 +38231,26 @@ interface TabChangeEvent {
       "value": "TabGroupComponent",
     },
     {
+      "end": 10355,
+      "loc": {
+        "end": {
+          "column": 42,
+          "line": 409,
+        },
+        "start": {
+          "column": 41,
+          "line": 409,
+        },
+      },
+      "range": [
+        10354,
+        10355,
+      ],
+      "start": 10354,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 10372,
       "loc": {
         "end": {
@@ -34508,6 +38269,46 @@ interface TabChangeEvent {
       "start": 10356,
       "type": "JSXText",
       "value": "自定义 Group Header",
+    },
+    {
+      "end": 10382,
+      "loc": {
+        "end": {
+          "column": 69,
+          "line": 409,
+        },
+        "start": {
+          "column": 68,
+          "line": 409,
+        },
+      },
+      "range": [
+        10381,
+        10382,
+      ],
+      "start": 10381,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 10384,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 410,
+        },
+        "start": {
+          "column": 1,
+          "line": 410,
+        },
+      },
+      "range": [
+        10383,
+        10384,
+      ],
+      "start": 10383,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 10396,
@@ -34530,6 +38331,26 @@ interface TabChangeEvent {
       "value": "auiTabLabel",
     },
     {
+      "end": 10404,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 410,
+        },
+        "start": {
+          "column": 21,
+          "line": 410,
+        },
+      },
+      "range": [
+        10403,
+        10404,
+      ],
+      "start": 10403,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 10417,
       "loc": {
         "end": {
@@ -34548,6 +38369,26 @@ interface TabChangeEvent {
       "start": 10405,
       "type": "JSXText",
       "value": "TabComponent",
+    },
+    {
+      "end": 10424,
+      "loc": {
+        "end": {
+          "column": 42,
+          "line": 410,
+        },
+        "start": {
+          "column": 41,
+          "line": 410,
+        },
+      },
+      "range": [
+        10423,
+        10424,
+      ],
+      "start": 10423,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 10438,
@@ -34570,6 +38411,46 @@ interface TabChangeEvent {
       "value": "自定义 Tab Label",
     },
     {
+      "end": 10451,
+      "loc": {
+        "end": {
+          "column": 69,
+          "line": 410,
+        },
+        "start": {
+          "column": 68,
+          "line": 410,
+        },
+      },
+      "range": [
+        10450,
+        10451,
+      ],
+      "start": 10450,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 10453,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 411,
+        },
+        "start": {
+          "column": 1,
+          "line": 411,
+        },
+      },
+      "range": [
+        10452,
+        10453,
+      ],
+      "start": 10452,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 10467,
       "loc": {
         "end": {
@@ -34588,6 +38469,26 @@ interface TabChangeEvent {
       "start": 10454,
       "type": "JSXText",
       "value": "auiTabContent",
+    },
+    {
+      "end": 10473,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 411,
+        },
+        "start": {
+          "column": 21,
+          "line": 411,
+        },
+      },
+      "range": [
+        10472,
+        10473,
+      ],
+      "start": 10472,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 10486,
@@ -34610,6 +38511,26 @@ interface TabChangeEvent {
       "value": "TabComponent",
     },
     {
+      "end": 10493,
+      "loc": {
+        "end": {
+          "column": 42,
+          "line": 411,
+        },
+        "start": {
+          "column": 41,
+          "line": 411,
+        },
+      },
+      "range": [
+        10492,
+        10493,
+      ],
+      "start": 10492,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 10512,
       "loc": {
         "end": {
@@ -34628,6 +38549,26 @@ interface TabChangeEvent {
       "start": 10494,
       "type": "JSXText",
       "value": "Tab 内容区域，lazy 模式必用",
+    },
+    {
+      "end": 10514,
+      "loc": {
+        "end": {
+          "column": 63,
+          "line": 411,
+        },
+        "start": {
+          "column": 62,
+          "line": 411,
+        },
+      },
+      "range": [
+        10513,
+        10514,
+      ],
+      "start": 10513,
+      "type": "tableCellDivider",
+      "value": "|",
     },
   ],
   "type": "Program",
@@ -34840,6 +38781,26 @@ exports[`parser should match all AST snapshots: 391.mdx 1`] = `
   "start": 0,
   "tokens": [
     {
+      "end": 1,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "atxHeadingSequence",
+      "value": "#",
+    },
+    {
       "end": 13,
       "loc": {
         "end": {
@@ -34858,6 +38819,86 @@ exports[`parser should match all AST snapshots: 391.mdx 1`] = `
       "start": 2,
       "type": "JSXText",
       "value": "Hello world",
+    },
+    {
+      "end": 18,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 3,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+        },
+      },
+      "range": [
+        15,
+        18,
+      ],
+      "start": 15,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
+    },
+    {
+      "end": 20,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 3,
+        },
+        "start": {
+          "column": 4,
+          "line": 3,
+        },
+      },
+      "range": [
+        18,
+        20,
+      ],
+      "start": 18,
+      "type": "data",
+      "value": "js",
+    },
+    {
+      "end": 28,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 4,
+        },
+        "start": {
+          "column": 1,
+          "line": 4,
+        },
+      },
+      "range": [
+        21,
+        28,
+      ],
+      "start": 21,
+      "type": "codeFlowValue",
+      "value": "<Foo />",
+    },
+    {
+      "end": 32,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 5,
+        },
+        "start": {
+          "column": 1,
+          "line": 5,
+        },
+      },
+      "range": [
+        29,
+        32,
+      ],
+      "start": 29,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
     },
     {
       "end": 35,
@@ -34938,6 +38979,86 @@ exports[`parser should match all AST snapshots: 391.mdx 1`] = `
       "start": 40,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 46,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 9,
+        },
+        "start": {
+          "column": 1,
+          "line": 9,
+        },
+      },
+      "range": [
+        43,
+        46,
+      ],
+      "start": 43,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
+    },
+    {
+      "end": 49,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 9,
+        },
+        "start": {
+          "column": 4,
+          "line": 9,
+        },
+      },
+      "range": [
+        46,
+        49,
+      ],
+      "start": 46,
+      "type": "data",
+      "value": "jsx",
+    },
+    {
+      "end": 57,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 10,
+        },
+        "start": {
+          "column": 1,
+          "line": 10,
+        },
+      },
+      "range": [
+        50,
+        57,
+      ],
+      "start": 50,
+      "type": "codeFlowValue",
+      "value": "<Foo />",
+    },
+    {
+      "end": 61,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 11,
+        },
+        "start": {
+          "column": 1,
+          "line": 11,
+        },
+      },
+      "range": [
+        58,
+        61,
+      ],
+      "start": 58,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
     },
   ],
   "type": "Program",
@@ -36732,6 +40853,26 @@ exports[`parser should match all AST snapshots: 435.mdx 1`] = `
       "start": 87,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 91,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 10,
+        },
+        "start": {
+          "column": 1,
+          "line": 10,
+        },
+      },
+      "range": [
+        90,
+        91,
+      ],
+      "start": 90,
+      "type": "listItemMarker",
+      "value": "-",
     },
     {
       "end": 98,
@@ -41281,6 +45422,26 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       "start": 67,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 71,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 5,
+        },
+        "start": {
+          "column": 1,
+          "line": 5,
+        },
+      },
+      "range": [
+        70,
+        71,
+      ],
+      "start": 70,
+      "type": "atxHeadingSequence",
+      "value": "#",
     },
     {
       "end": 76,
@@ -46429,6 +50590,26 @@ npm i -g foo
       "value": "'hello'",
     },
     {
+      "end": 206,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 13,
+        },
+        "start": {
+          "column": 1,
+          "line": 13,
+        },
+      },
+      "range": [
+        205,
+        206,
+      ],
+      "start": 205,
+      "type": "atxHeadingSequence",
+      "value": "#",
+    },
+    {
       "end": 223,
       "loc": {
         "end": {
@@ -47017,6 +51198,246 @@ npm i -g foo
       "value": ">",
     },
     {
+      "end": 419,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 27,
+        },
+        "start": {
+          "column": 1,
+          "line": 27,
+        },
+      },
+      "range": [
+        416,
+        419,
+      ],
+      "start": 416,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
+    },
+    {
+      "end": 434,
+      "loc": {
+        "end": {
+          "column": 15,
+          "line": 28,
+        },
+        "start": {
+          "column": 1,
+          "line": 28,
+        },
+      },
+      "range": [
+        420,
+        434,
+      ],
+      "start": 420,
+      "type": "codeFlowValue",
+      "value": "test codeblock",
+    },
+    {
+      "end": 438,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 29,
+        },
+        "start": {
+          "column": 1,
+          "line": 29,
+        },
+      },
+      "range": [
+        435,
+        438,
+      ],
+      "start": 435,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
+    },
+    {
+      "end": 443,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 31,
+        },
+        "start": {
+          "column": 1,
+          "line": 31,
+        },
+      },
+      "range": [
+        440,
+        443,
+      ],
+      "start": 440,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
+    },
+    {
+      "end": 445,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 31,
+        },
+        "start": {
+          "column": 4,
+          "line": 31,
+        },
+      },
+      "range": [
+        443,
+        445,
+      ],
+      "start": 443,
+      "type": "data",
+      "value": "js",
+    },
+    {
+      "end": 469,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 32,
+        },
+        "start": {
+          "column": 1,
+          "line": 32,
+        },
+      },
+      "range": [
+        446,
+        469,
+      ],
+      "start": 446,
+      "type": "codeFlowValue",
+      "value": "module.exports = 'test'",
+    },
+    {
+      "end": 473,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 33,
+        },
+        "start": {
+          "column": 1,
+          "line": 33,
+        },
+      },
+      "range": [
+        470,
+        473,
+      ],
+      "start": 470,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
+    },
+    {
+      "end": 478,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 35,
+        },
+        "start": {
+          "column": 1,
+          "line": 35,
+        },
+      },
+      "range": [
+        475,
+        478,
+      ],
+      "start": 475,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
+    },
+    {
+      "end": 480,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 35,
+        },
+        "start": {
+          "column": 4,
+          "line": 35,
+        },
+      },
+      "range": [
+        478,
+        480,
+      ],
+      "start": 478,
+      "type": "data",
+      "value": "sh",
+    },
+    {
+      "end": 493,
+      "loc": {
+        "end": {
+          "column": 13,
+          "line": 36,
+        },
+        "start": {
+          "column": 1,
+          "line": 36,
+        },
+      },
+      "range": [
+        481,
+        493,
+      ],
+      "start": 481,
+      "type": "codeFlowValue",
+      "value": "npm i -g foo",
+    },
+    {
+      "end": 497,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 37,
+        },
+        "start": {
+          "column": 1,
+          "line": 37,
+        },
+      },
+      "range": [
+        494,
+        497,
+      ],
+      "start": 494,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
+    },
+    {
+      "end": 500,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 39,
+        },
+        "start": {
+          "column": 1,
+          "line": 39,
+        },
+      },
+      "range": [
+        499,
+        500,
+      ],
+      "start": 499,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 505,
       "loc": {
         "end": {
@@ -47035,6 +51456,26 @@ npm i -g foo
       "start": 501,
       "type": "JSXText",
       "value": "Test",
+    },
+    {
+      "end": 507,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 39,
+        },
+        "start": {
+          "column": 8,
+          "line": 39,
+        },
+      },
+      "range": [
+        506,
+        507,
+      ],
+      "start": 506,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 513,
@@ -47057,6 +51498,186 @@ npm i -g foo
       "value": "Table",
     },
     {
+      "end": 515,
+      "loc": {
+        "end": {
+          "column": 17,
+          "line": 39,
+        },
+        "start": {
+          "column": 16,
+          "line": 39,
+        },
+      },
+      "range": [
+        514,
+        515,
+      ],
+      "start": 514,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 517,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 40,
+        },
+        "start": {
+          "column": 1,
+          "line": 40,
+        },
+      },
+      "range": [
+        516,
+        517,
+      ],
+      "start": 516,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 519,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 40,
+        },
+        "start": {
+          "column": 3,
+          "line": 40,
+        },
+      },
+      "range": [
+        518,
+        519,
+      ],
+      "start": 518,
+      "type": "tableDelimiterMarker",
+      "value": ":",
+    },
+    {
+      "end": 522,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 40,
+        },
+        "start": {
+          "column": 4,
+          "line": 40,
+        },
+      },
+      "range": [
+        519,
+        522,
+      ],
+      "start": 519,
+      "type": "tableDelimiterFiller",
+      "value": "---",
+    },
+    {
+      "end": 524,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 40,
+        },
+        "start": {
+          "column": 8,
+          "line": 40,
+        },
+      },
+      "range": [
+        523,
+        524,
+      ],
+      "start": 523,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 526,
+      "loc": {
+        "end": {
+          "column": 11,
+          "line": 40,
+        },
+        "start": {
+          "column": 10,
+          "line": 40,
+        },
+      },
+      "range": [
+        525,
+        526,
+      ],
+      "start": 525,
+      "type": "tableDelimiterMarker",
+      "value": ":",
+    },
+    {
+      "end": 530,
+      "loc": {
+        "end": {
+          "column": 15,
+          "line": 40,
+        },
+        "start": {
+          "column": 11,
+          "line": 40,
+        },
+      },
+      "range": [
+        526,
+        530,
+      ],
+      "start": 526,
+      "type": "tableDelimiterFiller",
+      "value": "----",
+    },
+    {
+      "end": 532,
+      "loc": {
+        "end": {
+          "column": 17,
+          "line": 40,
+        },
+        "start": {
+          "column": 16,
+          "line": 40,
+        },
+      },
+      "range": [
+        531,
+        532,
+      ],
+      "start": 531,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 534,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 41,
+        },
+        "start": {
+          "column": 1,
+          "line": 41,
+        },
+      },
+      "range": [
+        533,
+        534,
+      ],
+      "start": 533,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 539,
       "loc": {
         "end": {
@@ -47077,6 +51698,26 @@ npm i -g foo
       "value": "Col1",
     },
     {
+      "end": 541,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 41,
+        },
+        "start": {
+          "column": 8,
+          "line": 41,
+        },
+      },
+      "range": [
+        540,
+        541,
+      ],
+      "start": 540,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 546,
       "loc": {
         "end": {
@@ -47095,6 +51736,26 @@ npm i -g foo
       "start": 542,
       "type": "JSXText",
       "value": "Col2",
+    },
+    {
+      "end": 549,
+      "loc": {
+        "end": {
+          "column": 17,
+          "line": 41,
+        },
+        "start": {
+          "column": 16,
+          "line": 41,
+        },
+      },
+      "range": [
+        548,
+        549,
+      ],
+      "start": 548,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 557,
@@ -48389,6 +53050,26 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
     ",
     },
     {
+      "end": 17,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 3,
+        },
+        "start": {
+          "column": 5,
+          "line": 3,
+        },
+      },
+      "range": [
+        16,
+        17,
+      ],
+      "start": 16,
+      "type": "labelMarker",
+      "value": "[",
+    },
+    {
       "end": 43,
       "loc": {
         "end": {
@@ -48407,6 +53088,86 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "start": 17,
       "type": "JSXText",
       "value": "Cookie settings in Firefox",
+    },
+    {
+      "end": 44,
+      "loc": {
+        "end": {
+          "column": 33,
+          "line": 3,
+        },
+        "start": {
+          "column": 32,
+          "line": 3,
+        },
+      },
+      "range": [
+        43,
+        44,
+      ],
+      "start": 43,
+      "type": "labelMarker",
+      "value": "]",
+    },
+    {
+      "end": 45,
+      "loc": {
+        "end": {
+          "column": 34,
+          "line": 3,
+        },
+        "start": {
+          "column": 33,
+          "line": 3,
+        },
+      },
+      "range": [
+        44,
+        45,
+      ],
+      "start": 44,
+      "type": "resourceMarker",
+      "value": "(",
+    },
+    {
+      "end": 118,
+      "loc": {
+        "end": {
+          "column": 107,
+          "line": 3,
+        },
+        "start": {
+          "column": 34,
+          "line": 3,
+        },
+      },
+      "range": [
+        45,
+        118,
+      ],
+      "start": 45,
+      "type": "data",
+      "value": "https://support.mozilla.org/en-US/kb/Enabling%20and%20disabling%20cookies",
+    },
+    {
+      "end": 119,
+      "loc": {
+        "end": {
+          "column": 108,
+          "line": 3,
+        },
+        "start": {
+          "column": 107,
+          "line": 3,
+        },
+      },
+      "range": [
+        118,
+        119,
+      ],
+      "start": 118,
+      "type": "resourceMarker",
+      "value": ")",
     },
     {
       "end": 122,
@@ -48571,6 +53332,26 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "value": "li",
     },
     {
+      "end": 135,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 5,
+        },
+        "start": {
+          "column": 7,
+          "line": 5,
+        },
+      },
+      "range": [
+        134,
+        135,
+      ],
+      "start": 134,
+      "type": "labelMarker",
+      "value": "[",
+    },
+    {
       "end": 166,
       "loc": {
         "end": {
@@ -48589,6 +53370,86 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "start": 135,
       "type": "JSXText",
       "value": "Cookie settings in Safari (iOS)",
+    },
+    {
+      "end": 167,
+      "loc": {
+        "end": {
+          "column": 40,
+          "line": 5,
+        },
+        "start": {
+          "column": 39,
+          "line": 5,
+        },
+      },
+      "range": [
+        166,
+        167,
+      ],
+      "start": 166,
+      "type": "labelMarker",
+      "value": "]",
+    },
+    {
+      "end": 168,
+      "loc": {
+        "end": {
+          "column": 41,
+          "line": 5,
+        },
+        "start": {
+          "column": 40,
+          "line": 5,
+        },
+      },
+      "range": [
+        167,
+        168,
+      ],
+      "start": 167,
+      "type": "resourceMarker",
+      "value": "(",
+    },
+    {
+      "end": 208,
+      "loc": {
+        "end": {
+          "column": 81,
+          "line": 5,
+        },
+        "start": {
+          "column": 41,
+          "line": 5,
+        },
+      },
+      "range": [
+        168,
+        208,
+      ],
+      "start": 168,
+      "type": "data",
+      "value": "https://support.apple.com/en-us/HT201265",
+    },
+    {
+      "end": 209,
+      "loc": {
+        "end": {
+          "column": 82,
+          "line": 5,
+        },
+        "start": {
+          "column": 81,
+          "line": 5,
+        },
+      },
+      "range": [
+        208,
+        209,
+      ],
+      "start": 208,
+      "type": "resourceMarker",
+      "value": ")",
     },
     {
       "end": 210,
@@ -48914,6 +53775,26 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
 ",
     },
     {
+      "end": 249,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 8,
+        },
+        "start": {
+          "column": 5,
+          "line": 8,
+        },
+      },
+      "range": [
+        248,
+        249,
+      ],
+      "start": 248,
+      "type": "labelMarker",
+      "value": "[",
+    },
+    {
       "end": 264,
       "loc": {
         "end": {
@@ -48932,6 +53813,86 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "start": 249,
       "type": "JSXText",
       "value": "Cookie settings",
+    },
+    {
+      "end": 265,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 8,
+        },
+        "start": {
+          "column": 21,
+          "line": 8,
+        },
+      },
+      "range": [
+        264,
+        265,
+      ],
+      "start": 264,
+      "type": "labelMarker",
+      "value": "]",
+    },
+    {
+      "end": 266,
+      "loc": {
+        "end": {
+          "column": 23,
+          "line": 8,
+        },
+        "start": {
+          "column": 22,
+          "line": 8,
+        },
+      },
+      "range": [
+        265,
+        266,
+      ],
+      "start": 265,
+      "type": "resourceMarker",
+      "value": "(",
+    },
+    {
+      "end": 285,
+      "loc": {
+        "end": {
+          "column": 42,
+          "line": 8,
+        },
+        "start": {
+          "column": 23,
+          "line": 8,
+        },
+      },
+      "range": [
+        266,
+        285,
+      ],
+      "start": 266,
+      "type": "data",
+      "value": "https://example.com",
+    },
+    {
+      "end": 286,
+      "loc": {
+        "end": {
+          "column": 43,
+          "line": 8,
+        },
+        "start": {
+          "column": 42,
+          "line": 8,
+        },
+      },
+      "range": [
+        285,
+        286,
+      ],
+      "start": 285,
+      "type": "resourceMarker",
+      "value": ")",
     },
     {
       "end": 289,
@@ -49254,6 +54215,66 @@ $$",
   "start": 0,
   "tokens": [
     {
+      "end": 2,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        2,
+      ],
+      "start": 0,
+      "type": "mathFlowFenceSequence",
+      "value": "$$",
+    },
+    {
+      "end": 108,
+      "loc": {
+        "end": {
+          "column": 106,
+          "line": 2,
+        },
+        "start": {
+          "column": 1,
+          "line": 2,
+        },
+      },
+      "range": [
+        3,
+        108,
+      ],
+      "start": 3,
+      "type": "mathFlowValue",
+      "value": "\\forall \\epsilon > 0, \\exists \\delta > 0 \\text{ s.t. } |x - a| < \\delta \\Rightarrow |f(x) - b| < \\epsilon",
+    },
+    {
+      "end": 111,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 3,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+        },
+      },
+      "range": [
+        109,
+        111,
+      ],
+      "start": 109,
+      "type": "mathFlowFenceSequence",
+      "value": "$$",
+    },
+    {
       "end": 143,
       "loc": {
         "end": {
@@ -49272,6 +54293,66 @@ $$",
       "start": 113,
       "type": "JSXText",
       "value": "the aggregate amount would be ",
+    },
+    {
+      "end": 144,
+      "loc": {
+        "end": {
+          "column": 32,
+          "line": 5,
+        },
+        "start": {
+          "column": 31,
+          "line": 5,
+        },
+      },
+      "range": [
+        143,
+        144,
+      ],
+      "start": 143,
+      "type": "mathTextSequence",
+      "value": "$",
+    },
+    {
+      "end": 157,
+      "loc": {
+        "end": {
+          "column": 45,
+          "line": 5,
+        },
+        "start": {
+          "column": 32,
+          "line": 5,
+        },
+      },
+      "range": [
+        144,
+        157,
+      ],
+      "start": 144,
+      "type": "mathTextData",
+      "value": "100Mm*10^{18}",
+    },
+    {
+      "end": 158,
+      "loc": {
+        "end": {
+          "column": 46,
+          "line": 5,
+        },
+        "start": {
+          "column": 45,
+          "line": 5,
+        },
+      },
+      "range": [
+        157,
+        158,
+      ],
+      "start": 157,
+      "type": "mathTextSequence",
+      "value": "$",
     },
   ],
   "type": "Program",
@@ -50157,6 +55238,106 @@ sidebar_position: 7",
   "start": 0,
   "tokens": [
     {
+      "end": 3,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        3,
+      ],
+      "start": 0,
+      "type": "yamlFenceSequence",
+      "value": "---",
+    },
+    {
+      "end": 14,
+      "loc": {
+        "end": {
+          "column": 11,
+          "line": 2,
+        },
+        "start": {
+          "column": 1,
+          "line": 2,
+        },
+      },
+      "range": [
+        4,
+        14,
+      ],
+      "start": 4,
+      "type": "yamlValue",
+      "value": "id: chains",
+    },
+    {
+      "end": 38,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 3,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+        },
+      },
+      "range": [
+        15,
+        38,
+      ],
+      "start": 15,
+      "type": "yamlValue",
+      "value": "title: Supported Chains",
+    },
+    {
+      "end": 58,
+      "loc": {
+        "end": {
+          "column": 20,
+          "line": 4,
+        },
+        "start": {
+          "column": 1,
+          "line": 4,
+        },
+      },
+      "range": [
+        39,
+        58,
+      ],
+      "start": 39,
+      "type": "yamlValue",
+      "value": "sidebar_position: 7",
+    },
+    {
+      "end": 62,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 5,
+        },
+        "start": {
+          "column": 1,
+          "line": 5,
+        },
+      },
+      "range": [
+        59,
+        62,
+      ],
+      "start": 59,
+      "type": "yamlFenceSequence",
+      "value": "---",
+    },
+    {
       "end": 70,
       "loc": {
         "end": {
@@ -50922,6 +56103,26 @@ sidebar_position: 7",
 ",
     },
     {
+      "end": 301,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 13,
+        },
+        "start": {
+          "column": 1,
+          "line": 13,
+        },
+      },
+      "range": [
+        300,
+        301,
+      ],
+      "start": 300,
+      "type": "labelMarker",
+      "value": "[",
+    },
+    {
       "end": 318,
       "loc": {
         "end": {
@@ -50940,6 +56141,86 @@ sidebar_position: 7",
       "start": 301,
       "type": "JSXText",
       "value": "Sablier Interface",
+    },
+    {
+      "end": 319,
+      "loc": {
+        "end": {
+          "column": 20,
+          "line": 13,
+        },
+        "start": {
+          "column": 19,
+          "line": 13,
+        },
+      },
+      "range": [
+        318,
+        319,
+      ],
+      "start": 318,
+      "type": "labelMarker",
+      "value": "]",
+    },
+    {
+      "end": 320,
+      "loc": {
+        "end": {
+          "column": 21,
+          "line": 13,
+        },
+        "start": {
+          "column": 20,
+          "line": 13,
+        },
+      },
+      "range": [
+        319,
+        320,
+      ],
+      "start": 319,
+      "type": "resourceMarker",
+      "value": "(",
+    },
+    {
+      "end": 344,
+      "loc": {
+        "end": {
+          "column": 45,
+          "line": 13,
+        },
+        "start": {
+          "column": 21,
+          "line": 13,
+        },
+      },
+      "range": [
+        320,
+        344,
+      ],
+      "start": 320,
+      "type": "data",
+      "value": "https://app.sablier.com/",
+    },
+    {
+      "end": 345,
+      "loc": {
+        "end": {
+          "column": 46,
+          "line": 13,
+        },
+        "start": {
+          "column": 45,
+          "line": 13,
+        },
+      },
+      "range": [
+        344,
+        345,
+      ],
+      "start": 344,
+      "type": "resourceMarker",
+      "value": ")",
     },
     {
       "end": 346,
@@ -52846,6 +58127,26 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
       "value": "}",
     },
     {
+      "end": 75,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 7,
+        },
+        "start": {
+          "column": 1,
+          "line": 7,
+        },
+      },
+      "range": [
+        74,
+        75,
+      ],
+      "start": 74,
+      "type": "atxHeadingSequence",
+      "value": "#",
+    },
+    {
       "end": 85,
       "loc": {
         "end": {
@@ -52886,6 +58187,26 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
       "value": "Lorem ipsum dolor sit amet, consectetur adipiscing ",
     },
     {
+      "end": 140,
+      "loc": {
+        "end": {
+          "column": 54,
+          "line": 9,
+        },
+        "start": {
+          "column": 52,
+          "line": 9,
+        },
+      },
+      "range": [
+        138,
+        140,
+      ],
+      "start": 138,
+      "type": "strongSequence",
+      "value": "**",
+    },
+    {
       "end": 144,
       "loc": {
         "end": {
@@ -52904,6 +58225,26 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
       "start": 140,
       "type": "JSXText",
       "value": "elit",
+    },
+    {
+      "end": 146,
+      "loc": {
+        "end": {
+          "column": 60,
+          "line": 9,
+        },
+        "start": {
+          "column": 58,
+          "line": 9,
+        },
+      },
+      "range": [
+        144,
+        146,
+      ],
+      "start": 144,
+      "type": "strongSequence",
+      "value": "**",
     },
     {
       "end": 163,
@@ -53126,6 +58467,126 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
       "value": "}",
     },
     {
+      "end": 208,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 13,
+        },
+        "start": {
+          "column": 1,
+          "line": 13,
+        },
+      },
+      "range": [
+        205,
+        208,
+      ],
+      "start": 205,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
+    },
+    {
+      "end": 211,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 13,
+        },
+        "start": {
+          "column": 4,
+          "line": 13,
+        },
+      },
+      "range": [
+        208,
+        211,
+      ],
+      "start": 208,
+      "type": "data",
+      "value": "css",
+    },
+    {
+      "end": 239,
+      "loc": {
+        "end": {
+          "column": 28,
+          "line": 14,
+        },
+        "start": {
+          "column": 1,
+          "line": 14,
+        },
+      },
+      "range": [
+        212,
+        239,
+      ],
+      "start": 212,
+      "type": "codeFlowValue",
+      "value": "@media (min-width: 400px) {",
+    },
+    {
+      "end": 261,
+      "loc": {
+        "end": {
+          "column": 22,
+          "line": 15,
+        },
+        "start": {
+          "column": 1,
+          "line": 15,
+        },
+      },
+      "range": [
+        240,
+        261,
+      ],
+      "start": 240,
+      "type": "codeFlowValue",
+      "value": "  border-color: #000;",
+    },
+    {
+      "end": 263,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 16,
+        },
+        "start": {
+          "column": 1,
+          "line": 16,
+        },
+      },
+      "range": [
+        262,
+        263,
+      ],
+      "start": 262,
+      "type": "codeFlowValue",
+      "value": "}",
+    },
+    {
+      "end": 267,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 17,
+        },
+        "start": {
+          "column": 1,
+          "line": 17,
+        },
+      },
+      "range": [
+        264,
+        267,
+      ],
+      "start": 264,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
+    },
+    {
       "end": 270,
       "loc": {
         "end": {
@@ -53286,6 +58747,26 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
       "value": ">",
     },
     {
+      "end": 313,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 21,
+        },
+        "start": {
+          "column": 1,
+          "line": 21,
+        },
+      },
+      "range": [
+        311,
+        313,
+      ],
+      "start": 311,
+      "type": "atxHeadingSequence",
+      "value": "##",
+    },
+    {
       "end": 322,
       "loc": {
         "end": {
@@ -53326,6 +58807,26 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
       "value": "Lorem ipsum dolor sit ",
     },
     {
+      "end": 347,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 23,
+        },
+        "start": {
+          "column": 23,
+          "line": 23,
+        },
+      },
+      "range": [
+        346,
+        347,
+      ],
+      "start": 346,
+      "type": "emphasisSequence",
+      "value": "_",
+    },
+    {
       "end": 351,
       "loc": {
         "end": {
@@ -53344,6 +58845,26 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
       "start": 347,
       "type": "JSXText",
       "value": "amet",
+    },
+    {
+      "end": 352,
+      "loc": {
+        "end": {
+          "column": 29,
+          "line": 23,
+        },
+        "start": {
+          "column": 28,
+          "line": 23,
+        },
+      },
+      "range": [
+        351,
+        352,
+      ],
+      "start": 351,
+      "type": "emphasisSequence",
+      "value": "_",
     },
     {
       "end": 404,
@@ -55316,6 +60837,26 @@ the installation guides.",
       "value": "'@rebass/emotion'",
     },
     {
+      "end": 38,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 3,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+        },
+      },
+      "range": [
+        37,
+        38,
+      ],
+      "start": 37,
+      "type": "atxHeadingSequence",
+      "value": "#",
+    },
+    {
       "end": 54,
       "loc": {
         "end": {
@@ -55881,6 +61422,26 @@ the installation guides.",
 ",
     },
     {
+      "end": 255,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 17,
+        },
+        "start": {
+          "column": 1,
+          "line": 17,
+        },
+      },
+      "range": [
+        254,
+        255,
+      ],
+      "start": 254,
+      "type": "labelMarker",
+      "value": "[",
+    },
+    {
       "end": 262,
       "loc": {
         "end": {
@@ -55899,6 +61460,86 @@ the installation guides.",
       "start": 255,
       "type": "JSXText",
       "value": "Next.js",
+    },
+    {
+      "end": 263,
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 17,
+        },
+        "start": {
+          "column": 9,
+          "line": 17,
+        },
+      },
+      "range": [
+        262,
+        263,
+      ],
+      "start": 262,
+      "type": "labelMarker",
+      "value": "]",
+    },
+    {
+      "end": 264,
+      "loc": {
+        "end": {
+          "column": 11,
+          "line": 17,
+        },
+        "start": {
+          "column": 10,
+          "line": 17,
+        },
+      },
+      "range": [
+        263,
+        264,
+      ],
+      "start": 263,
+      "type": "resourceMarker",
+      "value": "(",
+    },
+    {
+      "end": 285,
+      "loc": {
+        "end": {
+          "column": 32,
+          "line": 17,
+        },
+        "start": {
+          "column": 11,
+          "line": 17,
+        },
+      },
+      "range": [
+        264,
+        285,
+      ],
+      "start": 264,
+      "type": "data",
+      "value": "/getting-started/next",
+    },
+    {
+      "end": 286,
+      "loc": {
+        "end": {
+          "column": 33,
+          "line": 17,
+        },
+        "start": {
+          "column": 32,
+          "line": 17,
+        },
+      },
+      "range": [
+        285,
+        286,
+      ],
+      "start": 285,
+      "type": "resourceMarker",
+      "value": ")",
     },
     {
       "end": 290,
@@ -55922,6 +61563,26 @@ the installation guides.",
 ",
     },
     {
+      "end": 291,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 18,
+        },
+        "start": {
+          "column": 1,
+          "line": 18,
+        },
+      },
+      "range": [
+        290,
+        291,
+      ],
+      "start": 290,
+      "type": "labelMarker",
+      "value": "[",
+    },
+    {
       "end": 297,
       "loc": {
         "end": {
@@ -55940,6 +61601,86 @@ the installation guides.",
       "start": 291,
       "type": "JSXText",
       "value": "Gatsby",
+    },
+    {
+      "end": 298,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 18,
+        },
+        "start": {
+          "column": 8,
+          "line": 18,
+        },
+      },
+      "range": [
+        297,
+        298,
+      ],
+      "start": 297,
+      "type": "labelMarker",
+      "value": "]",
+    },
+    {
+      "end": 299,
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 18,
+        },
+        "start": {
+          "column": 9,
+          "line": 18,
+        },
+      },
+      "range": [
+        298,
+        299,
+      ],
+      "start": 298,
+      "type": "resourceMarker",
+      "value": "(",
+    },
+    {
+      "end": 322,
+      "loc": {
+        "end": {
+          "column": 33,
+          "line": 18,
+        },
+        "start": {
+          "column": 10,
+          "line": 18,
+        },
+      },
+      "range": [
+        299,
+        322,
+      ],
+      "start": 299,
+      "type": "data",
+      "value": "/getting-started/gatsby",
+    },
+    {
+      "end": 323,
+      "loc": {
+        "end": {
+          "column": 34,
+          "line": 18,
+        },
+        "start": {
+          "column": 33,
+          "line": 18,
+        },
+      },
+      "range": [
+        322,
+        323,
+      ],
+      "start": 322,
+      "type": "resourceMarker",
+      "value": ")",
     },
     {
       "end": 327,
@@ -55963,6 +61704,26 @@ the installation guides.",
 ",
     },
     {
+      "end": 328,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 19,
+        },
+        "start": {
+          "column": 1,
+          "line": 19,
+        },
+      },
+      "range": [
+        327,
+        328,
+      ],
+      "start": 327,
+      "type": "labelMarker",
+      "value": "[",
+    },
+    {
       "end": 344,
       "loc": {
         "end": {
@@ -55981,6 +61742,86 @@ the installation guides.",
       "start": 328,
       "type": "JSXText",
       "value": "Create React App",
+    },
+    {
+      "end": 345,
+      "loc": {
+        "end": {
+          "column": 19,
+          "line": 19,
+        },
+        "start": {
+          "column": 18,
+          "line": 19,
+        },
+      },
+      "range": [
+        344,
+        345,
+      ],
+      "start": 344,
+      "type": "labelMarker",
+      "value": "]",
+    },
+    {
+      "end": 346,
+      "loc": {
+        "end": {
+          "column": 20,
+          "line": 19,
+        },
+        "start": {
+          "column": 19,
+          "line": 19,
+        },
+      },
+      "range": [
+        345,
+        346,
+      ],
+      "start": 345,
+      "type": "resourceMarker",
+      "value": "(",
+    },
+    {
+      "end": 379,
+      "loc": {
+        "end": {
+          "column": 53,
+          "line": 19,
+        },
+        "start": {
+          "column": 20,
+          "line": 19,
+        },
+      },
+      "range": [
+        346,
+        379,
+      ],
+      "start": 346,
+      "type": "data",
+      "value": "/getting-started/create-react-app",
+    },
+    {
+      "end": 380,
+      "loc": {
+        "end": {
+          "column": 54,
+          "line": 19,
+        },
+        "start": {
+          "column": 53,
+          "line": 19,
+        },
+      },
+      "range": [
+        379,
+        380,
+      ],
+      "start": 379,
+      "type": "resourceMarker",
+      "value": ")",
     },
     {
       "end": 384,
@@ -56004,6 +61845,26 @@ the installation guides.",
 ",
     },
     {
+      "end": 385,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 20,
+        },
+        "start": {
+          "column": 1,
+          "line": 20,
+        },
+      },
+      "range": [
+        384,
+        385,
+      ],
+      "start": 384,
+      "type": "labelMarker",
+      "value": "[",
+    },
+    {
       "end": 397,
       "loc": {
         "end": {
@@ -56022,6 +61883,86 @@ the installation guides.",
       "start": 385,
       "type": "JSXText",
       "value": "React Static",
+    },
+    {
+      "end": 398,
+      "loc": {
+        "end": {
+          "column": 15,
+          "line": 20,
+        },
+        "start": {
+          "column": 14,
+          "line": 20,
+        },
+      },
+      "range": [
+        397,
+        398,
+      ],
+      "start": 397,
+      "type": "labelMarker",
+      "value": "]",
+    },
+    {
+      "end": 399,
+      "loc": {
+        "end": {
+          "column": 16,
+          "line": 20,
+        },
+        "start": {
+          "column": 15,
+          "line": 20,
+        },
+      },
+      "range": [
+        398,
+        399,
+      ],
+      "start": 398,
+      "type": "resourceMarker",
+      "value": "(",
+    },
+    {
+      "end": 428,
+      "loc": {
+        "end": {
+          "column": 45,
+          "line": 20,
+        },
+        "start": {
+          "column": 16,
+          "line": 20,
+        },
+      },
+      "range": [
+        399,
+        428,
+      ],
+      "start": 399,
+      "type": "data",
+      "value": "/getting-started/react-static",
+    },
+    {
+      "end": 429,
+      "loc": {
+        "end": {
+          "column": 46,
+          "line": 20,
+        },
+        "start": {
+          "column": 45,
+          "line": 20,
+        },
+      },
+      "range": [
+        428,
+        429,
+      ],
+      "start": 428,
+      "type": "resourceMarker",
+      "value": ")",
     },
     {
       "end": 433,
@@ -56045,6 +61986,26 @@ the installation guides.",
 ",
     },
     {
+      "end": 434,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 21,
+        },
+        "start": {
+          "column": 1,
+          "line": 21,
+        },
+      },
+      "range": [
+        433,
+        434,
+      ],
+      "start": 433,
+      "type": "labelMarker",
+      "value": "[",
+    },
+    {
       "end": 441,
       "loc": {
         "end": {
@@ -56063,6 +62024,86 @@ the installation guides.",
       "start": 434,
       "type": "JSXText",
       "value": "Webpack",
+    },
+    {
+      "end": 442,
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 21,
+        },
+        "start": {
+          "column": 9,
+          "line": 21,
+        },
+      },
+      "range": [
+        441,
+        442,
+      ],
+      "start": 441,
+      "type": "labelMarker",
+      "value": "]",
+    },
+    {
+      "end": 443,
+      "loc": {
+        "end": {
+          "column": 11,
+          "line": 21,
+        },
+        "start": {
+          "column": 10,
+          "line": 21,
+        },
+      },
+      "range": [
+        442,
+        443,
+      ],
+      "start": 442,
+      "type": "resourceMarker",
+      "value": "(",
+    },
+    {
+      "end": 467,
+      "loc": {
+        "end": {
+          "column": 35,
+          "line": 21,
+        },
+        "start": {
+          "column": 11,
+          "line": 21,
+        },
+      },
+      "range": [
+        443,
+        467,
+      ],
+      "start": 443,
+      "type": "data",
+      "value": "/getting-started/webpack",
+    },
+    {
+      "end": 468,
+      "loc": {
+        "end": {
+          "column": 36,
+          "line": 21,
+        },
+        "start": {
+          "column": 35,
+          "line": 21,
+        },
+      },
+      "range": [
+        467,
+        468,
+      ],
+      "start": 467,
+      "type": "resourceMarker",
+      "value": ")",
     },
     {
       "end": 472,
@@ -56086,6 +62127,26 @@ the installation guides.",
 ",
     },
     {
+      "end": 473,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 22,
+        },
+        "start": {
+          "column": 1,
+          "line": 22,
+        },
+      },
+      "range": [
+        472,
+        473,
+      ],
+      "start": 472,
+      "type": "labelMarker",
+      "value": "[",
+    },
+    {
       "end": 479,
       "loc": {
         "end": {
@@ -56104,6 +62165,86 @@ the installation guides.",
       "start": 473,
       "type": "JSXText",
       "value": "Parcel",
+    },
+    {
+      "end": 480,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 22,
+        },
+        "start": {
+          "column": 8,
+          "line": 22,
+        },
+      },
+      "range": [
+        479,
+        480,
+      ],
+      "start": 479,
+      "type": "labelMarker",
+      "value": "]",
+    },
+    {
+      "end": 481,
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 22,
+        },
+        "start": {
+          "column": 9,
+          "line": 22,
+        },
+      },
+      "range": [
+        480,
+        481,
+      ],
+      "start": 480,
+      "type": "resourceMarker",
+      "value": "(",
+    },
+    {
+      "end": 504,
+      "loc": {
+        "end": {
+          "column": 33,
+          "line": 22,
+        },
+        "start": {
+          "column": 10,
+          "line": 22,
+        },
+      },
+      "range": [
+        481,
+        504,
+      ],
+      "start": 481,
+      "type": "data",
+      "value": "/getting-started/parcel",
+    },
+    {
+      "end": 505,
+      "loc": {
+        "end": {
+          "column": 34,
+          "line": 22,
+        },
+        "start": {
+          "column": 33,
+          "line": 22,
+        },
+      },
+      "range": [
+        504,
+        505,
+      ],
+      "start": 504,
+      "type": "resourceMarker",
+      "value": ")",
     },
     {
       "end": 509,
@@ -56127,6 +62268,26 @@ the installation guides.",
 ",
     },
     {
+      "end": 510,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 23,
+        },
+        "start": {
+          "column": 1,
+          "line": 23,
+        },
+      },
+      "range": [
+        509,
+        510,
+      ],
+      "start": 509,
+      "type": "labelMarker",
+      "value": "[",
+    },
+    {
       "end": 514,
       "loc": {
         "end": {
@@ -56145,6 +62306,86 @@ the installation guides.",
       "start": 510,
       "type": "JSXText",
       "value": "Zero",
+    },
+    {
+      "end": 515,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 23,
+        },
+        "start": {
+          "column": 6,
+          "line": 23,
+        },
+      },
+      "range": [
+        514,
+        515,
+      ],
+      "start": 514,
+      "type": "labelMarker",
+      "value": "]",
+    },
+    {
+      "end": 516,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 23,
+        },
+        "start": {
+          "column": 7,
+          "line": 23,
+        },
+      },
+      "range": [
+        515,
+        516,
+      ],
+      "start": 515,
+      "type": "resourceMarker",
+      "value": "(",
+    },
+    {
+      "end": 537,
+      "loc": {
+        "end": {
+          "column": 29,
+          "line": 23,
+        },
+        "start": {
+          "column": 8,
+          "line": 23,
+        },
+      },
+      "range": [
+        516,
+        537,
+      ],
+      "start": 516,
+      "type": "data",
+      "value": "/getting-started/zero",
+    },
+    {
+      "end": 538,
+      "loc": {
+        "end": {
+          "column": 30,
+          "line": 23,
+        },
+        "start": {
+          "column": 29,
+          "line": 23,
+        },
+      },
+      "range": [
+        537,
+        538,
+      ],
+      "start": 537,
+      "type": "resourceMarker",
+      "value": ")",
     },
     {
       "end": 540,
@@ -56247,6 +62488,26 @@ the installation guides.",
       "start": 545,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 549,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 27,
+        },
+        "start": {
+          "column": 1,
+          "line": 27,
+        },
+      },
+      "range": [
+        548,
+        549,
+      ],
+      "start": 548,
+      "type": "atxHeadingSequence",
+      "value": "#",
     },
     {
       "end": 563,
@@ -56489,6 +62750,26 @@ the installation guides.",
       "value": "
 
 ",
+    },
+    {
+      "end": 652,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 35,
+        },
+        "start": {
+          "column": 1,
+          "line": 35,
+        },
+      },
+      "range": [
+        651,
+        652,
+      ],
+      "start": 651,
+      "type": "atxHeadingSequence",
+      "value": "#",
     },
     {
       "end": 686,
@@ -58501,6 +64782,26 @@ exports[`parser should match all AST snapshots: jsx-imports.mdx 1`] = `
       "start": 53,
       "type": "String",
       "value": "'./button'",
+    },
+    {
+      "end": 66,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 4,
+        },
+        "start": {
+          "column": 1,
+          "line": 4,
+        },
+      },
+      "range": [
+        65,
+        66,
+      ],
+      "start": 65,
+      "type": "atxHeadingSequence",
+      "value": "#",
     },
     {
       "end": 72,
@@ -60986,6 +67287,46 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
   "start": 0,
   "tokens": [
     {
+      "end": 1,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "listItemMarker",
+      "value": "-",
+    },
+    {
+      "end": 3,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 1,
+        },
+        "start": {
+          "column": 3,
+          "line": 1,
+        },
+      },
+      "range": [
+        2,
+        3,
+      ],
+      "start": 2,
+      "type": "listItemMarker",
+      "value": "-",
+    },
+    {
       "end": 5,
       "loc": {
         "end": {
@@ -61306,6 +67647,26 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "start": 95,
       "type": "JSXText",
       "value": ": some extra text describing the preset",
+    },
+    {
+      "end": 138,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 5,
+        },
+        "start": {
+          "column": 3,
+          "line": 5,
+        },
+      },
+      "range": [
+        137,
+        138,
+      ],
+      "start": 137,
+      "type": "listItemMarker",
+      "value": "-",
     },
     {
       "end": 140,
@@ -61630,6 +67991,26 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "value": ": some extra text describing the preset",
     },
     {
+      "end": 273,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 9,
+        },
+        "start": {
+          "column": 3,
+          "line": 9,
+        },
+      },
+      "range": [
+        272,
+        273,
+      ],
+      "start": 272,
+      "type": "listItemMarker",
+      "value": "-",
+    },
+    {
       "end": 275,
       "loc": {
         "end": {
@@ -61950,6 +68331,46 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "start": 365,
       "type": "JSXText",
       "value": ": some extra text describing the preset",
+    },
+    {
+      "end": 406,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 13,
+        },
+        "start": {
+          "column": 1,
+          "line": 13,
+        },
+      },
+      "range": [
+        405,
+        406,
+      ],
+      "start": 405,
+      "type": "listItemMarker",
+      "value": "-",
+    },
+    {
+      "end": 408,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 13,
+        },
+        "start": {
+          "column": 3,
+          "line": 13,
+        },
+      },
+      "range": [
+        407,
+        408,
+      ],
+      "start": 407,
+      "type": "listItemMarker",
+      "value": "-",
     },
     {
       "end": 410,
@@ -62274,6 +68695,26 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "value": ": some extra text describing the preset",
     },
     {
+      "end": 543,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 17,
+        },
+        "start": {
+          "column": 3,
+          "line": 17,
+        },
+      },
+      "range": [
+        542,
+        543,
+      ],
+      "start": 542,
+      "type": "listItemMarker",
+      "value": "-",
+    },
+    {
       "end": 545,
       "loc": {
         "end": {
@@ -62594,6 +69035,26 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "start": 635,
       "type": "JSXText",
       "value": ": some extra text describing the preset",
+    },
+    {
+      "end": 678,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 21,
+        },
+        "start": {
+          "column": 3,
+          "line": 21,
+        },
+      },
+      "range": [
+        677,
+        678,
+      ],
+      "start": 677,
+      "type": "listItemMarker",
+      "value": "-",
     },
     {
       "end": 680,
@@ -63824,7 +70285,28 @@ exports[`parser should match all AST snapshots: markdown.md 1`] = `
   ],
   "sourceType": undefined,
   "start": 0,
-  "tokens": [],
+  "tokens": [
+    {
+      "end": 4,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        4,
+      ],
+      "start": 0,
+      "type": "htmlFlowData",
+      "value": "<br>",
+    },
+  ],
   "type": "Program",
 }
 `;
@@ -64906,6 +71388,26 @@ const value = 1
   "start": 0,
   "tokens": [
     {
+      "end": 1,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "atxHeadingSequence",
+      "value": "#",
+    },
+    {
       "end": 9,
       "loc": {
         "end": {
@@ -64946,6 +71448,26 @@ const value = 1
       "value": "Paragraph with ",
     },
     {
+      "end": 28,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 3,
+        },
+        "start": {
+          "column": 16,
+          "line": 3,
+        },
+      },
+      "range": [
+        26,
+        28,
+      ],
+      "start": 26,
+      "type": "strongSequence",
+      "value": "**",
+    },
+    {
       "end": 34,
       "loc": {
         "end": {
@@ -64964,6 +71486,26 @@ const value = 1
       "start": 28,
       "type": "JSXText",
       "value": "strong",
+    },
+    {
+      "end": 36,
+      "loc": {
+        "end": {
+          "column": 26,
+          "line": 3,
+        },
+        "start": {
+          "column": 24,
+          "line": 3,
+        },
+      },
+      "range": [
+        34,
+        36,
+      ],
+      "start": 34,
+      "type": "strongSequence",
+      "value": "**",
     },
     {
       "end": 38,
@@ -64986,6 +71528,26 @@ const value = 1
       "value": ", ",
     },
     {
+      "end": 39,
+      "loc": {
+        "end": {
+          "column": 29,
+          "line": 3,
+        },
+        "start": {
+          "column": 28,
+          "line": 3,
+        },
+      },
+      "range": [
+        38,
+        39,
+      ],
+      "start": 38,
+      "type": "emphasisSequence",
+      "value": "_",
+    },
+    {
       "end": 47,
       "loc": {
         "end": {
@@ -65004,6 +71566,26 @@ const value = 1
       "start": 39,
       "type": "JSXText",
       "value": "emphasis",
+    },
+    {
+      "end": 48,
+      "loc": {
+        "end": {
+          "column": 38,
+          "line": 3,
+        },
+        "start": {
+          "column": 37,
+          "line": 3,
+        },
+      },
+      "range": [
+        47,
+        48,
+      ],
+      "start": 47,
+      "type": "emphasisSequence",
+      "value": "_",
     },
     {
       "end": 50,
@@ -65026,6 +71608,66 @@ const value = 1
       "value": ", ",
     },
     {
+      "end": 51,
+      "loc": {
+        "end": {
+          "column": 41,
+          "line": 3,
+        },
+        "start": {
+          "column": 40,
+          "line": 3,
+        },
+      },
+      "range": [
+        50,
+        51,
+      ],
+      "start": 50,
+      "type": "codeTextSequence",
+      "value": "\`",
+    },
+    {
+      "end": 62,
+      "loc": {
+        "end": {
+          "column": 52,
+          "line": 3,
+        },
+        "start": {
+          "column": 41,
+          "line": 3,
+        },
+      },
+      "range": [
+        51,
+        62,
+      ],
+      "start": 51,
+      "type": "codeTextData",
+      "value": "inline code",
+    },
+    {
+      "end": 63,
+      "loc": {
+        "end": {
+          "column": 53,
+          "line": 3,
+        },
+        "start": {
+          "column": 52,
+          "line": 3,
+        },
+      },
+      "range": [
+        62,
+        63,
+      ],
+      "start": 62,
+      "type": "codeTextSequence",
+      "value": "\`",
+    },
+    {
       "end": 65,
       "loc": {
         "end": {
@@ -65044,6 +71686,26 @@ const value = 1
       "start": 63,
       "type": "JSXText",
       "value": ", ",
+    },
+    {
+      "end": 66,
+      "loc": {
+        "end": {
+          "column": 56,
+          "line": 3,
+        },
+        "start": {
+          "column": 55,
+          "line": 3,
+        },
+      },
+      "range": [
+        65,
+        66,
+      ],
+      "start": 65,
+      "type": "labelMarker",
+      "value": "[",
     },
     {
       "end": 70,
@@ -65066,6 +71728,86 @@ const value = 1
       "value": "link",
     },
     {
+      "end": 71,
+      "loc": {
+        "end": {
+          "column": 61,
+          "line": 3,
+        },
+        "start": {
+          "column": 60,
+          "line": 3,
+        },
+      },
+      "range": [
+        70,
+        71,
+      ],
+      "start": 70,
+      "type": "labelMarker",
+      "value": "]",
+    },
+    {
+      "end": 72,
+      "loc": {
+        "end": {
+          "column": 62,
+          "line": 3,
+        },
+        "start": {
+          "column": 61,
+          "line": 3,
+        },
+      },
+      "range": [
+        71,
+        72,
+      ],
+      "start": 71,
+      "type": "resourceMarker",
+      "value": "(",
+    },
+    {
+      "end": 91,
+      "loc": {
+        "end": {
+          "column": 81,
+          "line": 3,
+        },
+        "start": {
+          "column": 62,
+          "line": 3,
+        },
+      },
+      "range": [
+        72,
+        91,
+      ],
+      "start": 72,
+      "type": "data",
+      "value": "https://example.com",
+    },
+    {
+      "end": 92,
+      "loc": {
+        "end": {
+          "column": 82,
+          "line": 3,
+        },
+        "start": {
+          "column": 81,
+          "line": 3,
+        },
+      },
+      "range": [
+        91,
+        92,
+      ],
+      "start": 91,
+      "type": "resourceMarker",
+      "value": ")",
+    },
+    {
       "end": 94,
       "loc": {
         "end": {
@@ -65084,6 +71826,146 @@ const value = 1
       "start": 92,
       "type": "JSXText",
       "value": ", ",
+    },
+    {
+      "end": 95,
+      "loc": {
+        "end": {
+          "column": 85,
+          "line": 3,
+        },
+        "start": {
+          "column": 84,
+          "line": 3,
+        },
+      },
+      "range": [
+        94,
+        95,
+      ],
+      "start": 94,
+      "type": "labelImageMarker",
+      "value": "!",
+    },
+    {
+      "end": 96,
+      "loc": {
+        "end": {
+          "column": 86,
+          "line": 3,
+        },
+        "start": {
+          "column": 85,
+          "line": 3,
+        },
+      },
+      "range": [
+        95,
+        96,
+      ],
+      "start": 95,
+      "type": "labelMarker",
+      "value": "[",
+    },
+    {
+      "end": 101,
+      "loc": {
+        "end": {
+          "column": 91,
+          "line": 3,
+        },
+        "start": {
+          "column": 86,
+          "line": 3,
+        },
+      },
+      "range": [
+        96,
+        101,
+      ],
+      "start": 96,
+      "type": "data",
+      "value": "image",
+    },
+    {
+      "end": 102,
+      "loc": {
+        "end": {
+          "column": 92,
+          "line": 3,
+        },
+        "start": {
+          "column": 91,
+          "line": 3,
+        },
+      },
+      "range": [
+        101,
+        102,
+      ],
+      "start": 101,
+      "type": "labelMarker",
+      "value": "]",
+    },
+    {
+      "end": 103,
+      "loc": {
+        "end": {
+          "column": 93,
+          "line": 3,
+        },
+        "start": {
+          "column": 92,
+          "line": 3,
+        },
+      },
+      "range": [
+        102,
+        103,
+      ],
+      "start": 102,
+      "type": "resourceMarker",
+      "value": "(",
+    },
+    {
+      "end": 132,
+      "loc": {
+        "end": {
+          "column": 122,
+          "line": 3,
+        },
+        "start": {
+          "column": 93,
+          "line": 3,
+        },
+      },
+      "range": [
+        103,
+        132,
+      ],
+      "start": 103,
+      "type": "data",
+      "value": "https://example.com/image.png",
+    },
+    {
+      "end": 133,
+      "loc": {
+        "end": {
+          "column": 123,
+          "line": 3,
+        },
+        "start": {
+          "column": 122,
+          "line": 3,
+        },
+      },
+      "range": [
+        132,
+        133,
+      ],
+      "start": 132,
+      "type": "resourceMarker",
+      "value": ")",
     },
     {
       "end": 147,
@@ -65106,6 +71988,26 @@ const value = 1
       "value": ", and a break.",
     },
     {
+      "end": 148,
+      "loc": {
+        "end": {
+          "column": 138,
+          "line": 3,
+        },
+        "start": {
+          "column": 137,
+          "line": 3,
+        },
+      },
+      "range": [
+        147,
+        148,
+      ],
+      "start": 147,
+      "type": "hardBreakEscape",
+      "value": "\\",
+    },
+    {
       "end": 161,
       "loc": {
         "end": {
@@ -65124,6 +72026,26 @@ const value = 1
       "start": 149,
       "type": "JSXText",
       "value": "Second line.",
+    },
+    {
+      "end": 164,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 6,
+        },
+        "start": {
+          "column": 1,
+          "line": 6,
+        },
+      },
+      "range": [
+        163,
+        164,
+      ],
+      "start": 163,
+      "type": "blockQuoteMarker",
+      "value": ">",
     },
     {
       "end": 175,
@@ -65146,6 +72068,26 @@ const value = 1
       "value": "Blockquote",
     },
     {
+      "end": 178,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 8,
+        },
+        "start": {
+          "column": 1,
+          "line": 8,
+        },
+      },
+      "range": [
+        177,
+        178,
+      ],
+      "start": 177,
+      "type": "listItemMarker",
+      "value": "-",
+    },
+    {
       "end": 188,
       "loc": {
         "end": {
@@ -65164,6 +72106,26 @@ const value = 1
       "start": 179,
       "type": "JSXText",
       "value": "list item",
+    },
+    {
+      "end": 192,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 9,
+        },
+        "start": {
+          "column": 3,
+          "line": 9,
+        },
+      },
+      "range": [
+        191,
+        192,
+      ],
+      "start": 191,
+      "type": "listItemMarker",
+      "value": "-",
     },
     {
       "end": 204,
@@ -65186,6 +72148,46 @@ const value = 1
       "value": "nested item",
     },
     {
+      "end": 207,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 11,
+        },
+        "start": {
+          "column": 1,
+          "line": 11,
+        },
+      },
+      "range": [
+        206,
+        207,
+      ],
+      "start": 206,
+      "type": "listItemValue",
+      "value": "1",
+    },
+    {
+      "end": 208,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 11,
+        },
+        "start": {
+          "column": 2,
+          "line": 11,
+        },
+      },
+      "range": [
+        207,
+        208,
+      ],
+      "start": 207,
+      "type": "listItemMarker",
+      "value": ".",
+    },
+    {
       "end": 221,
       "loc": {
         "end": {
@@ -65204,6 +72206,106 @@ const value = 1
       "start": 209,
       "type": "JSXText",
       "value": "ordered item",
+    },
+    {
+      "end": 226,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 13,
+        },
+        "start": {
+          "column": 1,
+          "line": 13,
+        },
+      },
+      "range": [
+        223,
+        226,
+      ],
+      "start": 223,
+      "type": "thematicBreakSequence",
+      "value": "---",
+    },
+    {
+      "end": 231,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 15,
+        },
+        "start": {
+          "column": 1,
+          "line": 15,
+        },
+      },
+      "range": [
+        228,
+        231,
+      ],
+      "start": 228,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
+    },
+    {
+      "end": 233,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 15,
+        },
+        "start": {
+          "column": 4,
+          "line": 15,
+        },
+      },
+      "range": [
+        231,
+        233,
+      ],
+      "start": 231,
+      "type": "data",
+      "value": "js",
+    },
+    {
+      "end": 249,
+      "loc": {
+        "end": {
+          "column": 16,
+          "line": 16,
+        },
+        "start": {
+          "column": 1,
+          "line": 16,
+        },
+      },
+      "range": [
+        234,
+        249,
+      ],
+      "start": 234,
+      "type": "codeFlowValue",
+      "value": "const value = 1",
+    },
+    {
+      "end": 253,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 17,
+        },
+        "start": {
+          "column": 1,
+          "line": 17,
+        },
+      },
+      "range": [
+        250,
+        253,
+      ],
+      "start": 250,
+      "type": "codeFencedFenceSequence",
+      "value": "\`\`\`",
     },
     {
       "end": 256,
@@ -66277,6 +73379,26 @@ exports[`parser should match all AST snapshots: nested-empty-expression.mdx 1`] 
   "start": 0,
   "tokens": [
     {
+      "end": 1,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "blockQuoteMarker",
+      "value": ">",
+    },
+    {
       "end": 3,
       "loc": {
         "end": {
@@ -66315,6 +73437,46 @@ exports[`parser should match all AST snapshots: nested-empty-expression.mdx 1`] 
       "start": 19,
       "type": "Punctuator",
       "value": "}",
+    },
+    {
+      "end": 23,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 3,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+        },
+      },
+      "range": [
+        22,
+        23,
+      ],
+      "start": 22,
+      "type": "atxHeadingSequence",
+      "value": "#",
+    },
+    {
+      "end": 42,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 5,
+        },
+        "start": {
+          "column": 1,
+          "line": 5,
+        },
+      },
+      "range": [
+        41,
+        42,
+      ],
+      "start": 41,
+      "type": "listItemMarker",
+      "value": "-",
     },
     {
       "end": 44,
@@ -66628,6 +73790,26 @@ exports[`parser should match all AST snapshots: nested-flow-expression.mdx 1`] =
   "start": 0,
   "tokens": [
     {
+      "end": 1,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "blockQuoteMarker",
+      "value": ">",
+    },
+    {
       "end": 3,
       "loc": {
         "end": {
@@ -66688,6 +73870,26 @@ exports[`parser should match all AST snapshots: nested-flow-expression.mdx 1`] =
       "start": 8,
       "type": "Punctuator",
       "value": "}",
+    },
+    {
+      "end": 12,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 3,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+        },
+      },
+      "range": [
+        11,
+        12,
+      ],
+      "start": 11,
+      "type": "listItemMarker",
+      "value": "-",
     },
     {
       "end": 17,
@@ -69342,6 +76544,26 @@ exports[`parser should match all AST snapshots: no-unused-expressions-esm.mdx 1`
   "start": 0,
   "tokens": [
     {
+      "end": 1,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "atxHeadingSequence",
+      "value": "#",
+    },
+    {
       "end": 7,
       "loc": {
         "end": {
@@ -69678,6 +76900,26 @@ exports[`parser should match all AST snapshots: processor.mdx 1`] = `
   "start": 0,
   "tokens": [
     {
+      "end": 1,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "atxHeadingSequence",
+      "value": "#",
+    },
+    {
       "end": 5,
       "loc": {
         "end": {
@@ -69696,6 +76938,26 @@ exports[`parser should match all AST snapshots: processor.mdx 1`] = `
       "start": 2,
       "type": "JSXText",
       "value": "abc",
+    },
+    {
+      "end": 8,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 3,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+        },
+      },
+      "range": [
+        7,
+        8,
+      ],
+      "start": 7,
+      "type": "atxHeadingSequence",
+      "value": "#",
     },
     {
       "end": 12,
@@ -69747,6 +77009,26 @@ exports[`parser should match all AST snapshots: remark.md 1`] = `
   "start": 0,
   "tokens": [
     {
+      "end": 1,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "emphasisSequence",
+      "value": "_",
+    },
+    {
       "end": 6,
       "loc": {
         "end": {
@@ -69765,6 +77047,26 @@ exports[`parser should match all AST snapshots: remark.md 1`] = `
       "start": 1,
       "type": "JSXText",
       "value": "Hello",
+    },
+    {
+      "end": 7,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 1,
+        },
+        "start": {
+          "column": 7,
+          "line": 1,
+        },
+      },
+      "range": [
+        6,
+        7,
+      ],
+      "start": 6,
+      "type": "emphasisSequence",
+      "value": "_",
     },
     {
       "end": 9,
@@ -69787,6 +77089,26 @@ exports[`parser should match all AST snapshots: remark.md 1`] = `
       "value": ", ",
     },
     {
+      "end": 11,
+      "loc": {
+        "end": {
+          "column": 12,
+          "line": 1,
+        },
+        "start": {
+          "column": 10,
+          "line": 1,
+        },
+      },
+      "range": [
+        9,
+        11,
+      ],
+      "start": 9,
+      "type": "strongSequence",
+      "value": "**",
+    },
+    {
       "end": 16,
       "loc": {
         "end": {
@@ -69807,6 +77129,26 @@ exports[`parser should match all AST snapshots: remark.md 1`] = `
       "value": "world",
     },
     {
+      "end": 18,
+      "loc": {
+        "end": {
+          "column": 19,
+          "line": 1,
+        },
+        "start": {
+          "column": 17,
+          "line": 1,
+        },
+      },
+      "range": [
+        16,
+        18,
+      ],
+      "start": 16,
+      "type": "strongSequence",
+      "value": "**",
+    },
+    {
       "end": 19,
       "loc": {
         "end": {
@@ -69825,6 +77167,46 @@ exports[`parser should match all AST snapshots: remark.md 1`] = `
       "start": 18,
       "type": "JSXText",
       "value": "!",
+    },
+    {
+      "end": 56,
+      "loc": {
+        "end": {
+          "column": 36,
+          "line": 3,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+        },
+      },
+      "range": [
+        21,
+        56,
+      ],
+      "start": 21,
+      "type": "htmlFlowData",
+      "value": "<!--lint disable no-literal-urls-->",
+    },
+    {
+      "end": 61,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 5,
+        },
+        "start": {
+          "column": 1,
+          "line": 5,
+        },
+      },
+      "range": [
+        58,
+        61,
+      ],
+      "start": 58,
+      "type": "atxHeadingSequence",
+      "value": "###",
     },
     {
       "end": 76,
@@ -70262,6 +77644,26 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
   "start": 0,
   "tokens": [
     {
+      "end": 1,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        1,
+      ],
+      "start": 0,
+      "type": "emphasisSequence",
+      "value": "_",
+    },
+    {
       "end": 6,
       "loc": {
         "end": {
@@ -70280,6 +77682,26 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
       "start": 1,
       "type": "JSXText",
       "value": "Hello",
+    },
+    {
+      "end": 7,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 1,
+        },
+        "start": {
+          "column": 7,
+          "line": 1,
+        },
+      },
+      "range": [
+        6,
+        7,
+      ],
+      "start": 6,
+      "type": "emphasisSequence",
+      "value": "_",
     },
     {
       "end": 9,
@@ -70302,6 +77724,26 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
       "value": ", ",
     },
     {
+      "end": 11,
+      "loc": {
+        "end": {
+          "column": 12,
+          "line": 1,
+        },
+        "start": {
+          "column": 10,
+          "line": 1,
+        },
+      },
+      "range": [
+        9,
+        11,
+      ],
+      "start": 9,
+      "type": "strongSequence",
+      "value": "**",
+    },
+    {
       "end": 16,
       "loc": {
         "end": {
@@ -70322,6 +77764,26 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
       "value": "world",
     },
     {
+      "end": 18,
+      "loc": {
+        "end": {
+          "column": 19,
+          "line": 1,
+        },
+        "start": {
+          "column": 17,
+          "line": 1,
+        },
+      },
+      "range": [
+        16,
+        18,
+      ],
+      "start": 16,
+      "type": "strongSequence",
+      "value": "**",
+    },
+    {
       "end": 19,
       "loc": {
         "end": {
@@ -70340,6 +77802,26 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
       "start": 18,
       "type": "JSXText",
       "value": "!",
+    },
+    {
+      "end": 24,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 3,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+        },
+      },
+      "range": [
+        21,
+        24,
+      ],
+      "start": 21,
+      "type": "atxHeadingSequence",
+      "value": "###",
     },
     {
       "end": 39,
@@ -72159,6 +79641,86 @@ $$",
   "start": 0,
   "tokens": [
     {
+      "end": 3,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 1,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        3,
+      ],
+      "start": 0,
+      "type": "yamlFenceSequence",
+      "value": "---",
+    },
+    {
+      "end": 27,
+      "loc": {
+        "end": {
+          "column": 24,
+          "line": 2,
+        },
+        "start": {
+          "column": 1,
+          "line": 2,
+        },
+      },
+      "range": [
+        4,
+        27,
+      ],
+      "start": 4,
+      "type": "yamlValue",
+      "value": "title: YAML frontmatter",
+    },
+    {
+      "end": 31,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 3,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+        },
+      },
+      "range": [
+        28,
+        31,
+      ],
+      "start": 28,
+      "type": "yamlFenceSequence",
+      "value": "---",
+    },
+    {
+      "end": 34,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 5,
+        },
+        "start": {
+          "column": 1,
+          "line": 5,
+        },
+      },
+      "range": [
+        33,
+        34,
+      ],
+      "start": 33,
+      "type": "atxHeadingSequence",
+      "value": "#",
+    },
+    {
       "end": 42,
       "loc": {
         "end": {
@@ -72199,6 +79761,26 @@ $$",
       "value": "A ",
     },
     {
+      "end": 47,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 7,
+        },
+        "start": {
+          "column": 3,
+          "line": 7,
+        },
+      },
+      "range": [
+        46,
+        47,
+      ],
+      "start": 46,
+      "type": "labelMarker",
+      "value": "[",
+    },
+    {
       "end": 56,
       "loc": {
         "end": {
@@ -72217,6 +79799,86 @@ $$",
       "start": 47,
       "type": "JSXText",
       "value": "reference",
+    },
+    {
+      "end": 57,
+      "loc": {
+        "end": {
+          "column": 14,
+          "line": 7,
+        },
+        "start": {
+          "column": 13,
+          "line": 7,
+        },
+      },
+      "range": [
+        56,
+        57,
+      ],
+      "start": 56,
+      "type": "labelMarker",
+      "value": "]",
+    },
+    {
+      "end": 58,
+      "loc": {
+        "end": {
+          "column": 15,
+          "line": 7,
+        },
+        "start": {
+          "column": 14,
+          "line": 7,
+        },
+      },
+      "range": [
+        57,
+        58,
+      ],
+      "start": 57,
+      "type": "referenceMarker",
+      "value": "[",
+    },
+    {
+      "end": 61,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 7,
+        },
+        "start": {
+          "column": 15,
+          "line": 7,
+        },
+      },
+      "range": [
+        58,
+        61,
+      ],
+      "start": 58,
+      "type": "data",
+      "value": "ref",
+    },
+    {
+      "end": 62,
+      "loc": {
+        "end": {
+          "column": 19,
+          "line": 7,
+        },
+        "start": {
+          "column": 18,
+          "line": 7,
+        },
+      },
+      "range": [
+        61,
+        62,
+      ],
+      "start": 61,
+      "type": "referenceMarker",
+      "value": "]",
     },
     {
       "end": 67,
@@ -72239,6 +79901,146 @@ $$",
       "value": " and ",
     },
     {
+      "end": 68,
+      "loc": {
+        "end": {
+          "column": 25,
+          "line": 7,
+        },
+        "start": {
+          "column": 24,
+          "line": 7,
+        },
+      },
+      "range": [
+        67,
+        68,
+      ],
+      "start": 67,
+      "type": "labelImageMarker",
+      "value": "!",
+    },
+    {
+      "end": 69,
+      "loc": {
+        "end": {
+          "column": 26,
+          "line": 7,
+        },
+        "start": {
+          "column": 25,
+          "line": 7,
+        },
+      },
+      "range": [
+        68,
+        69,
+      ],
+      "start": 68,
+      "type": "labelMarker",
+      "value": "[",
+    },
+    {
+      "end": 72,
+      "loc": {
+        "end": {
+          "column": 29,
+          "line": 7,
+        },
+        "start": {
+          "column": 26,
+          "line": 7,
+        },
+      },
+      "range": [
+        69,
+        72,
+      ],
+      "start": 69,
+      "type": "data",
+      "value": "alt",
+    },
+    {
+      "end": 73,
+      "loc": {
+        "end": {
+          "column": 30,
+          "line": 7,
+        },
+        "start": {
+          "column": 29,
+          "line": 7,
+        },
+      },
+      "range": [
+        72,
+        73,
+      ],
+      "start": 72,
+      "type": "labelMarker",
+      "value": "]",
+    },
+    {
+      "end": 74,
+      "loc": {
+        "end": {
+          "column": 31,
+          "line": 7,
+        },
+        "start": {
+          "column": 30,
+          "line": 7,
+        },
+      },
+      "range": [
+        73,
+        74,
+      ],
+      "start": 73,
+      "type": "referenceMarker",
+      "value": "[",
+    },
+    {
+      "end": 77,
+      "loc": {
+        "end": {
+          "column": 34,
+          "line": 7,
+        },
+        "start": {
+          "column": 31,
+          "line": 7,
+        },
+      },
+      "range": [
+        74,
+        77,
+      ],
+      "start": 74,
+      "type": "data",
+      "value": "img",
+    },
+    {
+      "end": 78,
+      "loc": {
+        "end": {
+          "column": 35,
+          "line": 7,
+        },
+        "start": {
+          "column": 34,
+          "line": 7,
+        },
+      },
+      "range": [
+        77,
+        78,
+      ],
+      "start": 77,
+      "type": "referenceMarker",
+      "value": "]",
+    },
+    {
       "end": 80,
       "loc": {
         "end": {
@@ -72257,6 +80059,26 @@ $$",
       "start": 78,
       "type": "JSXText",
       "value": ", ",
+    },
+    {
+      "end": 82,
+      "loc": {
+        "end": {
+          "column": 39,
+          "line": 7,
+        },
+        "start": {
+          "column": 37,
+          "line": 7,
+        },
+      },
+      "range": [
+        80,
+        82,
+      ],
+      "start": 80,
+      "type": "strikethroughSequence",
+      "value": "~~",
     },
     {
       "end": 89,
@@ -72279,6 +80101,26 @@ $$",
       "value": "deleted",
     },
     {
+      "end": 91,
+      "loc": {
+        "end": {
+          "column": 48,
+          "line": 7,
+        },
+        "start": {
+          "column": 46,
+          "line": 7,
+        },
+      },
+      "range": [
+        89,
+        91,
+      ],
+      "start": 89,
+      "type": "strikethroughSequence",
+      "value": "~~",
+    },
+    {
       "end": 97,
       "loc": {
         "end": {
@@ -72297,6 +80139,66 @@ $$",
       "start": 91,
       "type": "JSXText",
       "value": ", and ",
+    },
+    {
+      "end": 98,
+      "loc": {
+        "end": {
+          "column": 55,
+          "line": 7,
+        },
+        "start": {
+          "column": 54,
+          "line": 7,
+        },
+      },
+      "range": [
+        97,
+        98,
+      ],
+      "start": 97,
+      "type": "mathTextSequence",
+      "value": "$",
+    },
+    {
+      "end": 104,
+      "loc": {
+        "end": {
+          "column": 61,
+          "line": 7,
+        },
+        "start": {
+          "column": 55,
+          "line": 7,
+        },
+      },
+      "range": [
+        98,
+        104,
+      ],
+      "start": 98,
+      "type": "mathTextData",
+      "value": "E=mc^2",
+    },
+    {
+      "end": 105,
+      "loc": {
+        "end": {
+          "column": 62,
+          "line": 7,
+        },
+        "start": {
+          "column": 61,
+          "line": 7,
+        },
+      },
+      "range": [
+        104,
+        105,
+      ],
+      "start": 104,
+      "type": "mathTextSequence",
+      "value": "$",
     },
     {
       "end": 106,
@@ -72319,6 +80221,86 @@ $$",
       "value": ".",
     },
     {
+      "end": 110,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 9,
+        },
+        "start": {
+          "column": 1,
+          "line": 9,
+        },
+      },
+      "range": [
+        108,
+        110,
+      ],
+      "start": 108,
+      "type": "mathFlowFenceSequence",
+      "value": "$$",
+    },
+    {
+      "end": 121,
+      "loc": {
+        "end": {
+          "column": 11,
+          "line": 10,
+        },
+        "start": {
+          "column": 1,
+          "line": 10,
+        },
+      },
+      "range": [
+        111,
+        121,
+      ],
+      "start": 111,
+      "type": "mathFlowValue",
+      "value": "block math",
+    },
+    {
+      "end": 124,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 11,
+        },
+        "start": {
+          "column": 1,
+          "line": 11,
+        },
+      },
+      "range": [
+        122,
+        124,
+      ],
+      "start": 122,
+      "type": "mathFlowFenceSequence",
+      "value": "$$",
+    },
+    {
+      "end": 127,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 13,
+        },
+        "start": {
+          "column": 1,
+          "line": 13,
+        },
+      },
+      "range": [
+        126,
+        127,
+      ],
+      "start": 126,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 129,
       "loc": {
         "end": {
@@ -72337,6 +80319,26 @@ $$",
       "start": 128,
       "type": "JSXText",
       "value": "a",
+    },
+    {
+      "end": 131,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 13,
+        },
+        "start": {
+          "column": 5,
+          "line": 13,
+        },
+      },
+      "range": [
+        130,
+        131,
+      ],
+      "start": 130,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 133,
@@ -72359,6 +80361,146 @@ $$",
       "value": "b",
     },
     {
+      "end": 135,
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 13,
+        },
+        "start": {
+          "column": 9,
+          "line": 13,
+        },
+      },
+      "range": [
+        134,
+        135,
+      ],
+      "start": 134,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 137,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 14,
+        },
+        "start": {
+          "column": 1,
+          "line": 14,
+        },
+      },
+      "range": [
+        136,
+        137,
+      ],
+      "start": 136,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 139,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 14,
+        },
+        "start": {
+          "column": 3,
+          "line": 14,
+        },
+      },
+      "range": [
+        138,
+        139,
+      ],
+      "start": 138,
+      "type": "tableDelimiterFiller",
+      "value": "-",
+    },
+    {
+      "end": 141,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 14,
+        },
+        "start": {
+          "column": 5,
+          "line": 14,
+        },
+      },
+      "range": [
+        140,
+        141,
+      ],
+      "start": 140,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 143,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 14,
+        },
+        "start": {
+          "column": 7,
+          "line": 14,
+        },
+      },
+      "range": [
+        142,
+        143,
+      ],
+      "start": 142,
+      "type": "tableDelimiterFiller",
+      "value": "-",
+    },
+    {
+      "end": 145,
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 14,
+        },
+        "start": {
+          "column": 9,
+          "line": 14,
+        },
+      },
+      "range": [
+        144,
+        145,
+      ],
+      "start": 144,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
+      "end": 147,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 15,
+        },
+        "start": {
+          "column": 1,
+          "line": 15,
+        },
+      },
+      "range": [
+        146,
+        147,
+      ],
+      "start": 146,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 149,
       "loc": {
         "end": {
@@ -72377,6 +80519,26 @@ $$",
       "start": 148,
       "type": "JSXText",
       "value": "1",
+    },
+    {
+      "end": 151,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 15,
+        },
+        "start": {
+          "column": 5,
+          "line": 15,
+        },
+      },
+      "range": [
+        150,
+        151,
+      ],
+      "start": 150,
+      "type": "tableCellDivider",
+      "value": "|",
     },
     {
       "end": 153,
@@ -72399,6 +80561,26 @@ $$",
       "value": "2",
     },
     {
+      "end": 155,
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 15,
+        },
+        "start": {
+          "column": 9,
+          "line": 15,
+        },
+      },
+      "range": [
+        154,
+        155,
+      ],
+      "start": 154,
+      "type": "tableCellDivider",
+      "value": "|",
+    },
+    {
       "end": 165,
       "loc": {
         "end": {
@@ -72417,6 +80599,86 @@ $$",
       "start": 157,
       "type": "JSXText",
       "value": "Footnote",
+    },
+    {
+      "end": 166,
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 17,
+        },
+        "start": {
+          "column": 9,
+          "line": 17,
+        },
+      },
+      "range": [
+        165,
+        166,
+      ],
+      "start": 165,
+      "type": "gfmFootnoteCallLabelMarker",
+      "value": "[",
+    },
+    {
+      "end": 167,
+      "loc": {
+        "end": {
+          "column": 11,
+          "line": 17,
+        },
+        "start": {
+          "column": 10,
+          "line": 17,
+        },
+      },
+      "range": [
+        166,
+        167,
+      ],
+      "start": 166,
+      "type": "gfmFootnoteCallMarker",
+      "value": "^",
+    },
+    {
+      "end": 168,
+      "loc": {
+        "end": {
+          "column": 12,
+          "line": 17,
+        },
+        "start": {
+          "column": 11,
+          "line": 17,
+        },
+      },
+      "range": [
+        167,
+        168,
+      ],
+      "start": 167,
+      "type": "data",
+      "value": "1",
+    },
+    {
+      "end": 169,
+      "loc": {
+        "end": {
+          "column": 13,
+          "line": 17,
+        },
+        "start": {
+          "column": 12,
+          "line": 17,
+        },
+      },
+      "range": [
+        168,
+        169,
+      ],
+      "start": 168,
+      "type": "gfmFootnoteCallLabelMarker",
+      "value": "]",
     },
     {
       "end": 170,
@@ -72439,6 +80701,106 @@ $$",
       "value": ".",
     },
     {
+      "end": 173,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 19,
+        },
+        "start": {
+          "column": 1,
+          "line": 19,
+        },
+      },
+      "range": [
+        172,
+        173,
+      ],
+      "start": 172,
+      "type": "gfmFootnoteDefinitionLabelMarker",
+      "value": "[",
+    },
+    {
+      "end": 174,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 19,
+        },
+        "start": {
+          "column": 2,
+          "line": 19,
+        },
+      },
+      "range": [
+        173,
+        174,
+      ],
+      "start": 173,
+      "type": "gfmFootnoteDefinitionMarker",
+      "value": "^",
+    },
+    {
+      "end": 175,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 19,
+        },
+        "start": {
+          "column": 3,
+          "line": 19,
+        },
+      },
+      "range": [
+        174,
+        175,
+      ],
+      "start": 174,
+      "type": "data",
+      "value": "1",
+    },
+    {
+      "end": 176,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 19,
+        },
+        "start": {
+          "column": 4,
+          "line": 19,
+        },
+      },
+      "range": [
+        175,
+        176,
+      ],
+      "start": 175,
+      "type": "gfmFootnoteDefinitionLabelMarker",
+      "value": "]",
+    },
+    {
+      "end": 177,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 19,
+        },
+        "start": {
+          "column": 5,
+          "line": 19,
+        },
+      },
+      "range": [
+        176,
+        177,
+      ],
+      "start": 176,
+      "type": "definitionMarker",
+      "value": ":",
+    },
+    {
       "end": 195,
       "loc": {
         "end": {
@@ -72457,6 +80819,206 @@ $$",
       "start": 178,
       "type": "JSXText",
       "value": "Footnote content.",
+    },
+    {
+      "end": 198,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 21,
+        },
+        "start": {
+          "column": 1,
+          "line": 21,
+        },
+      },
+      "range": [
+        197,
+        198,
+      ],
+      "start": 197,
+      "type": "definitionLabelMarker",
+      "value": "[",
+    },
+    {
+      "end": 201,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 21,
+        },
+        "start": {
+          "column": 2,
+          "line": 21,
+        },
+      },
+      "range": [
+        198,
+        201,
+      ],
+      "start": 198,
+      "type": "data",
+      "value": "ref",
+    },
+    {
+      "end": 202,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 21,
+        },
+        "start": {
+          "column": 5,
+          "line": 21,
+        },
+      },
+      "range": [
+        201,
+        202,
+      ],
+      "start": 201,
+      "type": "definitionLabelMarker",
+      "value": "]",
+    },
+    {
+      "end": 203,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 21,
+        },
+        "start": {
+          "column": 6,
+          "line": 21,
+        },
+      },
+      "range": [
+        202,
+        203,
+      ],
+      "start": 202,
+      "type": "definitionMarker",
+      "value": ":",
+    },
+    {
+      "end": 227,
+      "loc": {
+        "end": {
+          "column": 31,
+          "line": 21,
+        },
+        "start": {
+          "column": 8,
+          "line": 21,
+        },
+      },
+      "range": [
+        204,
+        227,
+      ],
+      "start": 204,
+      "type": "data",
+      "value": "https://example.com/ref",
+    },
+    {
+      "end": 229,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 22,
+        },
+        "start": {
+          "column": 1,
+          "line": 22,
+        },
+      },
+      "range": [
+        228,
+        229,
+      ],
+      "start": 228,
+      "type": "definitionLabelMarker",
+      "value": "[",
+    },
+    {
+      "end": 232,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 22,
+        },
+        "start": {
+          "column": 2,
+          "line": 22,
+        },
+      },
+      "range": [
+        229,
+        232,
+      ],
+      "start": 229,
+      "type": "data",
+      "value": "img",
+    },
+    {
+      "end": 233,
+      "loc": {
+        "end": {
+          "column": 6,
+          "line": 22,
+        },
+        "start": {
+          "column": 5,
+          "line": 22,
+        },
+      },
+      "range": [
+        232,
+        233,
+      ],
+      "start": 232,
+      "type": "definitionLabelMarker",
+      "value": "]",
+    },
+    {
+      "end": 234,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 22,
+        },
+        "start": {
+          "column": 6,
+          "line": 22,
+        },
+      },
+      "range": [
+        233,
+        234,
+      ],
+      "start": 233,
+      "type": "definitionMarker",
+      "value": ":",
+    },
+    {
+      "end": 262,
+      "loc": {
+        "end": {
+          "column": 35,
+          "line": 22,
+        },
+        "start": {
+          "column": 8,
+          "line": 22,
+        },
+      },
+      "range": [
+        235,
+        262,
+      ],
+      "start": 235,
+      "type": "data",
+      "value": "https://example.com/img.png",
     },
   ],
   "type": "Program",

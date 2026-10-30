@@ -61,6 +61,7 @@
     "eslint-visitor-keys": "^4.2.0",
     "espree": "^9.6.1 || ^10.4.0 || ^11.2.0",
     "estree-util-visit": "^2.0.0",
+    "micromark": "^4.0.0",
     "remark-mdx": "^3.1.1",
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0",
