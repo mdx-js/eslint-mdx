@@ -61,6 +61,35 @@ import type {
   WorkerResult,
 } from './types.js'
 
+const appendEstreeBody = (
+  body: Program['body'],
+  node: Nodes,
+  estree: Program,
+) => {
+  if (node.type !== 'mdxFlowExpression' && node.type !== 'mdxTextExpression') {
+    body.push(...estree.body)
+    return
+  }
+
+  const type =
+    node.type === 'mdxFlowExpression'
+      ? 'MDXFlowExpression'
+      : 'MDXTextExpression'
+  const position = normalizePosition(node.position)
+
+  for (const statement of estree.body) {
+    if (statement.type === 'ExpressionStatement') {
+      body.push({
+        ...position,
+        type,
+        expression: statement.expression,
+      })
+    } else {
+      body.push(statement)
+    }
+  }
+}
+
 let acornParser: typeof Parser
 
 let tokTypes: typeof _tokTypes
@@ -751,7 +780,7 @@ runAsWorker(
           comments: [],
         }) as Program
 
-        body.push(...estree.body)
+        appendEstreeBody(body, node, estree)
         comments.push(...estree.comments)
       })
     }
@@ -776,9 +805,7 @@ runAsWorker(
         const startOffset = -1
         const endOffset = templateElement.tail ? 1 : 2
 
-        // @ts-expect-error - unavailable for typing from estree
         templateElement.start += startOffset
-        // @ts-expect-error - unavailable for typing from estree
         templateElement.end += endOffset
 
         if (templateElement.range) {

@@ -1,6 +1,7 @@
 import path from 'node:path'
 
 import type { Linter } from 'eslint'
+import { KEYS } from 'eslint-visitor-keys'
 import type { VFileMessage } from 'vfile-message'
 
 import { arrayify, normalizePosition, getPhysicalFilename } from './helpers.js'
@@ -88,6 +89,13 @@ export class Parser {
         body,
         comments,
         tokens,
+      },
+      visitorKeys: {
+        ...KEYS,
+        MDXCode: [],
+        MDXFlowExpression: ['expression'],
+        MDXHeading: ['children'],
+        MDXTextExpression: ['expression'],
       },
     }
   }

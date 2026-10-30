@@ -585,6 +585,8 @@ exports[`fixtures should match all snapshots: 488.mdx 1`] = `
 
 exports[`fixtures should match all snapshots: 576.mdx 1`] = `[]`;
 
+exports[`fixtures should match all snapshots: 581.mdx 1`] = `[]`;
+
 exports[`fixtures should match all snapshots: acorn.mdx 1`] = `
 [
   {
@@ -1115,6 +1117,8 @@ exports[`fixtures should match all snapshots: leading-spaces.mdx 1`] = `[]`;
 
 exports[`fixtures should match all snapshots: markdown.md 1`] = `[]`;
 
+exports[`fixtures should match all snapshots: mdx-flow-expression.mdx 1`] = `[]`;
+
 exports[`fixtures should match all snapshots: no-unescaped-entities.mdx 1`] = `
 [
   {
@@ -1178,6 +1182,31 @@ exports[`fixtures should match all snapshots: no-unused-expressions.mdx 1`] = `
     "message": "'Story' is not defined.",
     "messageId": "undefined",
     "ruleId": "react/jsx-no-undef",
+    "severity": 2,
+  },
+]
+`;
+
+exports[`fixtures should match all snapshots: no-unused-expressions-esm.mdx 1`] = `
+[
+  {
+    "column": 3,
+    "endColumn": 5,
+    "endLine": 5,
+    "line": 5,
+    "message": "Expected an assignment or function call and instead saw an expression.",
+    "messageId": "unusedExpression",
+    "ruleId": "no-unused-expressions",
+    "severity": 2,
+  },
+  {
+    "column": 3,
+    "endColumn": 5,
+    "endLine": 5,
+    "line": 5,
+    "message": "Expected an assignment or function call and instead saw an expression.",
+    "messageId": "unusedExpression",
+    "ruleId": "@typescript-eslint/no-unused-expressions",
     "severity": 2,
   },
 ]

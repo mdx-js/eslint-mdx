@@ -1,6 +1,6 @@
 import type { Position } from 'acorn'
 import type { AST, Linter } from 'eslint'
-import type { BaseNode, Program } from 'estree'
+import type { BaseNode, Expression, Program } from 'estree'
 import type { JSXElement } from 'estree-jsx'
 import type { Root } from 'mdast'
 import type { VFileMessage } from 'vfile-message'
@@ -69,6 +69,28 @@ export interface MDXHeading extends BaseNode {
   type: 'MDXHeading'
   depth: HeadingDepth
   children: JSXElement['children']
+}
+
+export interface MDXFlowExpression extends BaseNode {
+  type: 'MDXFlowExpression'
+  expression: Expression
+}
+
+export interface MDXTextExpression extends BaseNode {
+  type: 'MDXTextExpression'
+  expression: Expression
+}
+
+declare module 'estree' {
+  interface ProgramBodyMap {
+    MDXFlowExpression: MDXFlowExpression
+    MDXTextExpression: MDXTextExpression
+  }
+
+  interface TemplateElement {
+    start: number
+    end: number
+  }
 }
 
 export interface CjsRequire extends NodeJS.Require {
