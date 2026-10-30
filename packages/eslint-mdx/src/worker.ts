@@ -504,25 +504,25 @@ runAsWorker(
 
           if (node.type === 'code') {
             const { lang, meta, value } = node
-            const mdxJsxCode: MDCode = {
+            const mdCode: MDCode = {
               ...normalizeNode(start, end),
               type: 'MDCode',
               lang,
               meta,
               value,
             }
-            return mdxJsxCode
+            return mdCode
           }
 
           if (node.type === 'heading') {
             const { depth } = node
-            const mdxJsxHeading: MDHeading = {
+            const mdHeading: MDHeading = {
               ...normalizeNode(start, end),
               type: 'MDHeading',
               depth,
               children: handleChildren(node),
             }
-            return mdxJsxHeading
+            return mdHeading
           }
 
           if (node.type === 'text') {
