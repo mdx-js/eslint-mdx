@@ -8,43 +8,9 @@ import {
   getPhysicalFilename,
   performSyncWork,
 } from 'eslint-mdx'
+import { generateDifferences } from 'prettier-linter-helpers'
 
 import type { RemarkLintMessage } from './types.js'
-
-const getCommonPrefixLength = (before: string, after: string) => {
-  let index = 0
-  while (
-    index < before.length &&
-    index < after.length &&
-    before[index] === after[index]
-  ) {
-    index++
-  }
-  return index
-}
-
-const getCommonSuffixLength = (
-  before: string,
-  after: string,
-  prefixLength: number,
-) => {
-  let index = 0
-  while (
-    index < before.length - prefixLength &&
-    index < after.length - prefixLength &&
-    before[before.length - 1 - index] === after[after.length - 1 - index]
-  ) {
-    index++
-  }
-  return index
-}
-
-const getChangedRange = (before: string, after: string): [number, number] => {
-  const start = getCommonPrefixLength(before, after)
-  const suffix = getCommonSuffixLength(before, after, start)
-
-  return [start, before.length - suffix]
-}
 
 const isFixWithinMessage = (
   sourceText: string,
@@ -65,8 +31,12 @@ const isFixWithinMessage = (
     start: { offset: number }
     end: { offset: number }
   }
-  const changedRange = getChangedRange(sourceText, fixedText)
-  return changedRange[0] <= end.offset && changedRange[1] >= start.offset
+  return generateDifferences(sourceText, fixedText).every(difference => {
+    const diffEnd =
+      difference.offset +
+      ('deleteText' in difference ? difference.deleteText.length : 0)
+    return difference.offset <= end.offset && diffEnd >= start.offset
+  })
 }
 
 export const remark: Rule.RuleModule = {
