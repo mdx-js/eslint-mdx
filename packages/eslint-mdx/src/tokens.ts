@@ -14,7 +14,8 @@ const getTokenType = (label: string) => {
   return tokenType
 }
 
-const isMdxJsx = (type: string) => type.startsWith('mdxJsx')
+const isMdxJsxToken = (type: string, name: string) =>
+  type === `mdxJsxFlow${name}` || type === `mdxJsxText${name}`
 
 const isMdxExpressionMarker = (type: string) =>
   type === 'mdxFlowExpressionMarker' || type === 'mdxTextExpressionMarker'
@@ -136,8 +137,8 @@ export const getTokens = (
 
       if (
         !skip &&
-        isMdxJsx(type) &&
-        (type.endsWith('TagName') || type.endsWith('TagAttributeName'))
+        (isMdxJsxToken(type, 'TagName') ||
+          isMdxJsxToken(type, 'TagAttributeName'))
       ) {
         const trimmedEnd = start + code.slice(start, end).trimEnd().length
         pushToken(
@@ -148,14 +149,10 @@ export const getTokens = (
           trimmedEnd === end ? token.end : getPoint(trimmedEnd),
         )
         emitted = true
-      } else if (
-        !skip &&
-        isMdxJsx(type) &&
-        type.endsWith('TagAttributeValueLiteral')
-      ) {
+      } else if (!skip && isMdxJsxToken(type, 'TagAttributeValueLiteral')) {
         pushToken(tt.string, start, end, token.start, token.end)
         emitted = true
-      } else if (!skip && isMdxJsx(type) && type.endsWith('TagMarker')) {
+      } else if (!skip && isMdxJsxToken(type, 'TagMarker')) {
         pushToken(
           getTagMarkerType(code[start], tt),
           start,
@@ -166,25 +163,22 @@ export const getTokens = (
         emitted = true
       } else if (
         !skip &&
-        isMdxJsx(type) &&
-        (type.endsWith('TagClosingMarker') ||
-          type.endsWith('TagSelfClosingMarker'))
+        (isMdxJsxToken(type, 'TagClosingMarker') ||
+          isMdxJsxToken(type, 'TagSelfClosingMarker'))
       ) {
         pushToken(tt.slash, start, end, token.start, token.end)
         emitted = true
       } else if (
         !skip &&
-        isMdxJsx(type) &&
-        type.endsWith('TagAttributeInitializerMarker')
+        isMdxJsxToken(type, 'TagAttributeInitializerMarker')
       ) {
         pushToken(tt.eq, start, end, token.start, token.end)
         emitted = true
       } else if (
         !skip &&
         (isMdxExpressionMarker(type) ||
-          (isMdxJsx(type) &&
-            (type.endsWith('ExpressionAttributeMarker') ||
-              type.endsWith('TagAttributeValueExpressionMarker'))))
+          isMdxJsxToken(type, 'TagExpressionAttributeMarker') ||
+          isMdxJsxToken(type, 'TagAttributeValueExpressionMarker'))
       ) {
         pushToken(
           code[start] === '{' ? tt.braceL : tt.braceR,
