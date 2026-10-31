@@ -57,6 +57,32 @@ describe('#574', () => {
     )
   })
 
+  it('keeps local components visible in nested MDX scopes', () => {
+    const messages = linter.verify(
+      [
+        '{(() => { const Foo = () => null; return <Foo /> })()}',
+        '{(() => { const Bar = () => null; return <Bar /> })()}',
+        '{(() => { const A = () => null; return () => { const B = () => null; return <B /> } })()}',
+        '',
+      ].join('\n'),
+      [
+        mdx.configs.flat,
+        {
+          plugins: {
+            react,
+          },
+          rules: {
+            'no-undef': 'error',
+            'react/jsx-no-undef': 'error',
+          },
+        },
+      ],
+      { filename: 'test.mdx' },
+    )
+
+    expect(messages).toEqual([])
+  })
+
   it('does not treat props as defined in MDX ESM', () => {
     const messages = linter.verify(
       'export const foo = props.bar\n',

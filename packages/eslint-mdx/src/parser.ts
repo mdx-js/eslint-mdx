@@ -154,27 +154,47 @@ export class Parser {
     )
 
     // react/jsx-no-undef reads scope variables instead of through.
-    // Give JSX content a small block scope containing props; ESM JSX
-    // nodes keep the original scope and still report the missing variable.
-    const propsScope = new Scope(
-      scopeManager,
-      'block',
-      globalScope,
-      { type: 'Program' } as AST.Program,
-      false,
-    )
-    const propsVariable = new Variable('props', propsScope)
-    propsScope.variables.push(propsVariable)
-
+    // Give JSX content a small block scope containing props, but preserve
+    // the real innermost scope so local components remain visible.
     const acquireScope = scopeManager.acquire.bind(scopeManager)
+    const propsScopes = new WeakMap<Scope, Scope>()
 
+    const getPropsScope = (upper: Scope) => {
+      let propsScope = propsScopes.get(upper)
+
+      if (!propsScope) {
+        propsScope = new Scope(
+          scopeManager,
+          'block',
+          upper,
+          { type: 'Program' } as AST.Program,
+          false,
+        )
+        propsScope.variables.push(new Variable('props', propsScope))
+        propsScopes.set(upper, propsScope)
+      }
+
+      return propsScope
+    }
+
+    const getOriginalScope = (node: Parameters<typeof acquireScope>[0]) => {
+      let current = node
+      let scope = acquireScope(current, true)
+
+      while (!scope) {
+        current = (current as { parent?: typeof current }).parent
+        scope = acquireScope(current, true)
+      }
+
+      return scope
+    }
     scopeManager.acquire = (node, inner) => {
       if (
         node?.type === 'JSXIdentifier' &&
         node.range &&
         !isEsmRange(node.range)
       ) {
-        return propsScope
+        return getPropsScope(getOriginalScope(node))
       }
 
       return acquireScope(node, inner)
