@@ -1,6 +1,6 @@
 import path from 'node:path'
 
-import type { Linter } from 'eslint'
+import type { AST, Linter } from 'eslint'
 import { analyze } from 'eslint-scope'
 import { KEYS } from 'eslint-visitor-keys'
 import type { VFileMessage } from 'vfile-message'
@@ -26,7 +26,7 @@ export class Parser {
     code: string,
     {
       filePath,
-      sourceType,
+      sourceType = 'module',
       ignoreRemarkConfig,
       remarkConfigPath,
       extensions,
@@ -114,22 +114,26 @@ export class Parser {
       MDYaml: [],
     }
 
-    const ast = {
+    const ast: AST.Program = {
       ...normalizePosition(root.position),
-      type: 'Program' as const,
+      type: 'Program',
+      // @ts-expect-error -- should we change?
       sourceType,
       body,
       comments,
       tokens,
-    } as Linter.ESLintParseResult['ast']
+    }
 
     const scopeManager = analyze(ast, {
       childVisitorKeys: visitorKeys,
       ecmaVersion: 2024,
       ignoreEval: true,
       jsx: true,
-      sourceType: sourceType || 'module',
+      sourceType,
     })
+
+    const { globalScope } = scopeManager
+
     const esmRanges = body
       .filter(
         node =>
@@ -140,8 +144,6 @@ export class Parser {
       )
       .map(node => node.range)
       .filter(Boolean)
-
-    const globalScope = scopeManager.globalScope
 
     globalScope.through = globalScope.through.filter(
       reference =>
