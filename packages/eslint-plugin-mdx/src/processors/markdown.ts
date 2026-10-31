@@ -175,7 +175,14 @@ function getBlockRangeMap(text: string, node: Node, comments: string[]) {
    * Extract the Markdown source to determine the leading whitespace for each
    * line.
    */
-  const endOffset = node.position!.end.offset
+  const position = node.position
+
+  /* istanbul ignore if -- code block positions include offsets */
+  if (!position) {
+    throw new Error('Expected code block position')
+  }
+
+  const endOffset = position.end.offset
 
   /* istanbul ignore if -- code block positions include offsets */
   if (endOffset == null) {
@@ -504,11 +511,10 @@ function adjustBlock(block: CodeBlock) {
 function excludeUnsatisfiableRules(
   message: Linter.LintMessage | null,
 ): message is Linter.LintMessage {
-  if (!message) {
-    return false
-  }
-
-  return message.ruleId == null || !UNSATISFIABLE_RULES.has(message.ruleId)
+  return (
+    message != null &&
+    (message.ruleId == null || !UNSATISFIABLE_RULES.has(message.ruleId))
+  )
 }
 
 /**
@@ -527,12 +533,8 @@ function postprocess(
 
   blocksCache.delete(filename)
 
-  if (!blocks) {
-    return []
-  }
-
   return messages.flatMap((group, i) => {
-    const adjust = adjustBlock(blocks[i])
+    const adjust = adjustBlock(blocks![i])
     return group.map(adjust).filter(excludeUnsatisfiableRules)
   })
 }

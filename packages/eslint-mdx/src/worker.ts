@@ -20,7 +20,6 @@ import type {
   SpreadElement,
 } from 'estree'
 import type {
-  JSXAttribute,
   JSXClosingElement,
   JSXElement,
   JSXEmptyExpression,
@@ -29,13 +28,11 @@ import type {
   JSXIdentifier,
   JSXMemberExpression,
   JSXNamespacedName,
-  JSXSpreadAttribute,
   JSXText,
 } from 'estree-jsx'
 import { visit as visitEstree } from 'estree-util-visit'
 import type { Nodes, Root } from 'mdast'
 import { fromMarkdown } from 'mdast-util-from-markdown'
-import type { MdxJsxAttribute, MdxJsxExpressionAttribute } from 'mdast-util-mdx'
 import type { Options } from 'micromark-extension-mdx-expression'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
@@ -96,23 +93,21 @@ const appendEstreeBody = (
     return
   }
 
-  assert(node.position)
-
   const type =
     node.type === 'mdxFlowExpression'
       ? 'MDXFlowExpression'
       : 'MDXTextExpression'
-  const position = normalizePosition(node.position)
+  const position = normalizePosition(node.position!)
 
   if (estree.body.length === 0) {
     const {
-      start: { offset: start = 0 },
-      end: { offset: end = 0 },
-    } = node.position
+      start: { offset: start },
+      end: { offset: end },
+    } = node.position!
     body.push({
       ...position,
       type,
-      expression: normalizeEmptyExpression(start, end, code),
+      expression: normalizeEmptyExpression(start!, end!, code),
     })
     return
   }
@@ -274,46 +269,42 @@ const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
       return
     }
 
-    const nodeStart = position.start.offset ?? 0
-    const nodeEnd = position.end.offset ?? 0
+    const nodeStart = position.start.offset!
+    const nodeEnd = position.end.offset!
     const children = 'children' in node ? node.children : []
 
     if (children.length === 0) {
       return
     }
 
-    const firstChild = children[0]
-    const lastChild = children.at(-1)
+    const firstStart = children[0].position!.start.offset!
+    const lastEnd = children.at(-1)!.position!.end.offset!
 
-    assert(firstChild.position && lastChild?.position)
+    if (firstStart != null) {
+      let gapStart = firstStart
 
-    const firstStart = firstChild.position.start.offset ?? 0
-    const lastEnd = lastChild.position.end.offset ?? 0
+      while (gapStart > nodeStart && /\s/.test(code[gapStart - 1])) {
+        gapStart--
+      }
 
-    let gapStart = firstStart
-
-    while (gapStart > nodeStart && /\s/.test(code[gapStart - 1])) {
-      gapStart--
+      addJsxTextRange(gapStart, firstStart)
     }
-
-    addJsxTextRange(gapStart, firstStart)
 
     for (let index = 1; index < children.length; index++) {
-      const prevChild = children[index - 1]
-      const nextChild = children[index]
+      const prevEnd = children[index - 1].position!.end.offset!
+      const nextStart = children[index].position!.start.offset!
 
-      assert(prevChild.position && nextChild.position)
-
-      const prevEnd = prevChild.position.end.offset ?? 0
-      const nextStart = nextChild.position.start.offset ?? 0
-
-      addJsxTextRange(prevEnd, nextStart)
+      if (prevEnd != null && nextStart != null) {
+        addJsxTextRange(prevEnd, nextStart)
+      }
     }
 
-    const closingStart = code.indexOf('</', lastEnd)
+    if (lastEnd != null) {
+      const closingStart = code.indexOf('</', lastEnd)
 
-    if (closingStart !== -1 && closingStart < nodeEnd) {
-      addJsxTextRange(lastEnd, closingStart)
+      if (closingStart !== -1 && closingStart < nodeEnd) {
+        addJsxTextRange(lastEnd, closingStart)
+      }
     }
   })
   /* eslint-enable sonarjs/cognitive-complexity */
@@ -401,7 +392,7 @@ export const getRemarkProcessor = async (
 
 function isExpressionStatement(
   statement: Program['body'][number] | undefined,
-): asserts statement is ExpressionStatement | undefined {
+): asserts statement is ExpressionStatement {
   assert(!statement || statement.type === 'ExpressionStatement')
 }
 
@@ -445,9 +436,7 @@ runAsWorker(
     if (process) {
       const cacheKey = remarkConfigPath ? `${cwd}\0${remarkConfigPath}` : cwd
 
-      assert(cacheKey)
-
-      const ignoreCheck = ignoreCheckCache.get(cacheKey)
+      const ignoreCheck = ignoreCheckCache.get(cacheKey!)
 
       assert(ignoreCheck)
 
@@ -622,19 +611,17 @@ runAsWorker(
                     child.type === 'mdxFlowExpression' ||
                     child.type === 'mdxTextExpression'
                   ) {
-                    assert(child.position)
-
                     const {
-                      start: { offset: start = 0 },
-                      end: { offset: end = 0 },
-                    } = child.position
+                      start: { offset: start },
+                      end: { offset: end },
+                    } = child.position!
 
                     const expressionContainer: JSXExpressionContainer = {
-                      ...normalizeNode(start, end),
+                      ...normalizeNode(start!, end!),
                       type: 'JSXExpressionContainer',
                       expression:
                         expression ||
-                        normalizeEmptyExpression(start, end, code),
+                        normalizeEmptyExpression(start!, end!, code),
                     }
                     acc.push(expressionContainer)
                   } else if (expression) {
@@ -663,17 +650,15 @@ runAsWorker(
             return handleChildren(node)
           }
 
-          assert(node.position)
-
           const {
-            start: { offset: start = 0 },
-            end: { offset: end = 0 },
-          } = node.position
+            start: { offset: start },
+            end: { offset: end },
+          } = node.position!
 
           if (node.type === 'code') {
             const { lang, meta, value } = node
             const mdCode: MDCode = {
-              ...normalizeNode(start, end),
+              ...normalizeNode(start!, end!),
               type: 'MDCode',
               lang,
               meta,
@@ -685,7 +670,7 @@ runAsWorker(
           if (node.type === 'heading') {
             const { depth } = node
             const mdHeading: MDHeading = {
-              ...normalizeNode(start, end),
+              ...normalizeNode(start!, end!),
               type: 'MDHeading',
               depth,
               children: handleChildren(node),
@@ -695,7 +680,7 @@ runAsWorker(
 
           if (node.type === 'text') {
             const jsxText: JSXText = {
-              ...normalizeNode(start, end),
+              ...normalizeNode(start!, end!),
               type: 'JSXText',
               value: node.value,
             }
@@ -711,10 +696,10 @@ runAsWorker(
 
           const children = handleChildren(node)
 
-          const nodePos = node.position
+          const nodePos = node.position!
 
-          const nodeStart = nodePos.start.offset ?? 0
-          const nodeEnd = nodePos.end.offset ?? 0
+          const nodeStart = nodePos.start.offset!
+          const nodeEnd = nodePos.end.offset!
 
           const lastCharOffset = prevCharOffset(nodeEnd - 2)
 
@@ -752,148 +737,128 @@ runAsWorker(
               openingElement: {
                 type: 'JSXOpeningElement',
                 name: handleJsxName(node.name, nodeNameStart),
-                attributes: node.attributes.map(
-                  (
-                    attr: MdxJsxAttribute | MdxJsxExpressionAttribute,
-                  ): JSXAttribute | JSXSpreadAttribute => {
-                    if (attr.type === 'mdxJsxExpressionAttribute') {
-                      assert(attr.data)
-                      assert(attr.data.estree)
-                      assert(attr.data.estree.range)
+                attributes: node.attributes.map(attr => {
+                  if (attr.type === 'mdxJsxExpressionAttribute') {
+                    assert(attr.data)
+                    assert(attr.data.estree)
+                    assert(attr.data.estree.range)
 
-                      let [attrValStart, attrValEnd] = attr.data.estree.range
+                    let [attrValStart, attrValEnd] = attr.data.estree.range
 
-                      attrValStart = prevCharOffset(attrValStart - 1)
-                      attrValEnd = nextCharOffset(attrValEnd)
+                    attrValStart = prevCharOffset(attrValStart - 1)
+                    attrValEnd = nextCharOffset(attrValEnd)
 
-                      assert(code[attrValStart] === '{')
-                      assert(code[attrValEnd] === '}')
+                    assert(code[attrValStart] === '{')
+                    assert(code[attrValEnd] === '}')
 
-                      lastAttrOffset = attrValEnd
-
-                      return {
-                        // mdxJsxExpressionAttribute
-                        ...normalizeNode(attrValStart, attrValEnd + 1),
-                        type: 'JSXSpreadAttribute',
-                        // https://github.com/mdx-js/eslint-mdx/pull/394#discussion_r872974843
-                        argument: (
-                          (
-                            (attr.data.estree.body[0] as ExpressionStatement)
-                              .expression as ObjectExpression
-                          ).properties[0] as SpreadElement
-                        ).argument,
-                      }
-                    }
-
-                    const attrStart = nextCharOffset(lastAttrOffset + 1)
-
-                    assert(attrStart != null)
-
-                    const attrName = attr.name
-                    const attrNameLength = attrName.length
-
-                    const attrValue = attr.value
-
-                    lastAttrOffset = attrStart + attrNameLength
-
-                    const attrNamePos = normalizeNode(attrStart, lastAttrOffset)
-
-                    if (attrValue == null) {
-                      return {
-                        ...normalizeNode(attrStart, lastAttrOffset),
-                        type: 'JSXAttribute',
-                        name: {
-                          ...attrNamePos,
-                          type: 'JSXIdentifier',
-                          name: attrName,
-                        },
-                        value: null,
-                      }
-                    }
-
-                    const attrEqualOffset = nextCharOffset(
-                      attrStart + attrNameLength,
-                    )
-
-                    assert(code[attrEqualOffset] === '=')
-
-                    let attrValuePos: NormalPosition
-
-                    if (typeof attrValue === 'string') {
-                      const attrQuoteOffset = nextCharOffset(
-                        attrEqualOffset + 1,
-                      )
-
-                      const attrQuote = code[attrQuoteOffset]
-
-                      assert(attrQuote === '"' || attrQuote === "'")
-
-                      lastAttrOffset = nextCharOffset(
-                        attrQuoteOffset + attrValue.length + 1,
-                      )
-
-                      assert(code[lastAttrOffset] === attrQuote)
-
-                      attrValuePos = normalizeNode(
-                        attrQuoteOffset,
-                        lastAttrOffset + 1,
-                      )
-                    } else {
-                      const expressionAttr = attrValue
-                      const data = expressionAttr.data
-
-                      assert(data?.estree?.range)
-
-                      let [attrValStart, attrValEnd] = data.estree.range
-
-                      attrValStart = prevCharOffset(attrValStart - 1)
-                      attrValEnd = nextCharOffset(attrValEnd)
-
-                      assert(code[attrValStart] === '{')
-                      assert(code[attrValEnd] === '}')
-
-                      lastAttrOffset = attrValEnd
-
-                      attrValuePos = normalizeNode(attrValStart, attrValEnd + 1)
-                    }
-
-                    let value: JSXAttribute['value']
-
-                    if (typeof attr.value === 'string') {
-                      value = {
-                        ...attrValuePos,
-                        type: 'Literal',
-                        value: attr.value,
-                      }
-                    } else {
-                      assert(attr.value)
-
-                      const expressionAttr = attr.value
-
-                      assert(expressionAttr.data?.estree)
-
-                      value = {
-                        ...attrValuePos,
-                        type: 'JSXExpressionContainer',
-                        expression: (
-                          expressionAttr.data.estree
-                            .body[0] as ExpressionStatement
-                        ).expression,
-                      }
-                    }
+                    lastAttrOffset = attrValEnd
 
                     return {
-                      ...normalizeNode(attrStart, lastAttrOffset + 1),
+                      // mdxJsxExpressionAttribute
+                      ...normalizeNode(attrValStart, attrValEnd + 1),
+                      type: 'JSXSpreadAttribute',
+                      // https://github.com/mdx-js/eslint-mdx/pull/394#discussion_r872974843
+                      argument: (
+                        (
+                          (attr.data.estree.body[0] as ExpressionStatement)
+                            .expression as ObjectExpression
+                        ).properties[0] as SpreadElement
+                      ).argument,
+                    }
+                  }
+
+                  const attrStart = nextCharOffset(lastAttrOffset + 1)
+
+                  assert(attrStart != null)
+
+                  const attrName = attr.name
+                  const attrNameLength = attrName.length
+
+                  const attrValue = attr.value
+
+                  lastAttrOffset = attrStart + attrNameLength
+
+                  const attrNamePos = normalizeNode(attrStart, lastAttrOffset)
+
+                  if (attrValue == null) {
+                    return {
+                      ...normalizeNode(attrStart, lastAttrOffset),
                       type: 'JSXAttribute',
                       name: {
                         ...attrNamePos,
                         type: 'JSXIdentifier',
                         name: attrName,
                       },
-                      value,
+                      value: null,
                     }
-                  },
-                ),
+                  }
+
+                  const attrEqualOffset = nextCharOffset(
+                    attrStart + attrNameLength,
+                  )
+
+                  assert(code[attrEqualOffset] === '=')
+
+                  let attrValuePos: NormalPosition
+
+                  if (typeof attrValue === 'string') {
+                    const attrQuoteOffset = nextCharOffset(attrEqualOffset + 1)
+
+                    const attrQuote = code[attrQuoteOffset]
+
+                    assert(attrQuote === '"' || attrQuote === "'")
+
+                    lastAttrOffset = nextCharOffset(
+                      attrQuoteOffset + attrValue.length + 1,
+                    )
+
+                    assert(code[lastAttrOffset] === attrQuote)
+
+                    attrValuePos = normalizeNode(
+                      attrQuoteOffset,
+                      lastAttrOffset + 1,
+                    )
+                  } else {
+                    const data = attrValue.data!
+
+                    let [attrValStart, attrValEnd] = data.estree!.range!
+
+                    attrValStart = prevCharOffset(attrValStart - 1)
+                    attrValEnd = nextCharOffset(attrValEnd)
+
+                    assert(code[attrValStart] === '{')
+                    assert(code[attrValEnd] === '}')
+
+                    lastAttrOffset = attrValEnd
+
+                    attrValuePos = normalizeNode(attrValStart, attrValEnd + 1)
+                  }
+
+                  return {
+                    ...normalizeNode(attrStart, lastAttrOffset + 1),
+                    type: 'JSXAttribute',
+                    name: {
+                      ...attrNamePos,
+                      type: 'JSXIdentifier',
+                      name: attrName,
+                    },
+                    value:
+                      typeof attr.value === 'string'
+                        ? {
+                            ...attrValuePos,
+                            type: 'Literal',
+                            value: attr.value,
+                          }
+                        : {
+                            ...attrValuePos,
+                            type: 'JSXExpressionContainer',
+                            expression: (
+                              attr.value!.data!.estree!
+                                .body[0] as ExpressionStatement
+                            ).expression,
+                          },
+                  }
+                }),
                 selfClosing,
               },
               closingElement,
@@ -962,13 +927,11 @@ runAsWorker(
         }
 
         function convertContent(node: Nodes): MDContentNode | undefined {
-          assert(node.position)
-
           const {
-            start: { offset: start = 0 },
-            end: { offset: end = 0 },
-          } = node.position
-          const position = normalizeNode(start, end)
+            start: { offset: start },
+            end: { offset: end },
+          } = node.position!
+          const position = normalizeNode(start!, end!)
 
           const nodeType = node.type as string
           if (
@@ -1176,22 +1139,22 @@ runAsWorker(
             case 'mdxTextExpression': {
               const estree = node.data?.estree
               if (estree) {
-                comments.push(...(estree.comments || []))
+                comments.push(...estree.comments!)
               }
               const statement = estree?.body[0]
               isExpressionStatement(statement)
               if (!statement?.expression) {
                 const {
-                  start: { offset: start = 0 },
-                  end: { offset: end = 0 },
-                } = node.position
+                  start: { offset: start },
+                  end: { offset: end },
+                } = node.position!
                 return {
                   ...position,
                   type:
                     node.type === 'mdxFlowExpression'
                       ? 'MDXFlowExpression'
                       : 'MDXTextExpression',
-                  expression: normalizeEmptyExpression(start, end, code),
+                  expression: normalizeEmptyExpression(start!, end!, code),
                 }
               }
               return {
@@ -1225,7 +1188,7 @@ runAsWorker(
             comments: [],
           }) as Program
           appendEstreeBody(body, node, estree, code)
-          comments.push(...(estree.comments || []))
+          comments.push(...estree.comments!)
           return
         }
 
@@ -1236,10 +1199,8 @@ runAsWorker(
           const expression = handleNode(node)
 
           if (expression) {
-            assert(node.position)
-
             body.push({
-              ...normalizePosition(node.position),
+              ...normalizePosition(node.position!),
               type: 'ExpressionStatement',
               expression: expression as Expression,
             })

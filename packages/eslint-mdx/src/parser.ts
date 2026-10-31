@@ -1,6 +1,5 @@
 import path from 'node:path'
 
-import { ok as assert } from 'devlop'
 import type { AST, Linter } from 'eslint'
 import { analyze, Scope, Variable } from 'eslint-scope'
 import { KEYS } from 'eslint-visitor-keys'
@@ -118,10 +117,8 @@ export class Parser {
       MDYaml: [],
     }
 
-    assert(root.position)
-
     const ast: AST.Program = {
-      ...normalizePosition(root.position),
+      ...normalizePosition(root.position!),
       type: 'Program',
       // @ts-expect-error -- should we change?
       sourceType,
@@ -139,30 +136,23 @@ export class Parser {
       sourceType,
     })
 
-    assert(scopeManager.globalScope)
+    const globalScope = scopeManager.globalScope!
 
-    const globalScope = scopeManager.globalScope
-
-    const esmRanges: Array<[number, number]> = []
-
-    for (const node of root.children) {
-      if (node.type === 'mdxjsEsm' && node.position) {
-        esmRanges.push([node.position.start.offset!, node.position.end.offset!])
-      }
-    }
+    const esmRanges = root.children
+      .filter(node => node.type === 'mdxjsEsm' && node.position)
+      .map(
+        node =>
+          [node.position!.start.offset!, node.position!.end.offset!] as const,
+      )
 
     const isEsmRange = (range: [number, number]) =>
       esmRanges.some(([start, end]) => range[0] >= start && range[1] <= end)
 
-    globalScope.through = globalScope.through.filter(reference => {
-      if (reference.identifier.name !== 'props') {
-        return true
-      }
-
-      const range = reference.identifier.range
-
-      return isEsmRange(range!)
-    })
+    globalScope.through = globalScope.through.filter(
+      reference =>
+        reference.identifier.name !== 'props' ||
+        isEsmRange(reference.identifier.range!),
+    )
 
     // react/jsx-no-undef reads scope variables instead of through.
     // Give JSX content a small block scope containing props, but preserve

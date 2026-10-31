@@ -45,17 +45,14 @@ const getFixesForPlace = (
   const start = 'start' in place ? place.start : place
   /* istanbul ignore next -- remark messages use a position */
   const end = 'start' in place ? place.end : place
-  const startOffset = start.offset
-  const endOffset = end.offset
-
   /* istanbul ignore if -- remark positions include offsets */
-  if (startOffset == null || endOffset == null) {
+  if (start.offset == null || end.offset == null) {
     return null
   }
   const fixes: Rule.Fix[] = differences
     .filter(
       ({ deleteText, offset }) =>
-        offset <= endOffset && offset + deleteText.length >= startOffset,
+        offset <= end.offset! && offset + deleteText.length >= start.offset!,
     )
     .map(({ deleteText, insertText, offset }) => ({
       range: [offset, offset + deleteText.length],
