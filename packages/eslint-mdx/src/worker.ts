@@ -388,7 +388,10 @@ export const getRemarkProcessor = async (
 function isExpressionStatement(
   statement: Program['body'][number],
 ): asserts statement is ExpressionStatement | undefined {
-  assert(!statement || statement.type === 'ExpressionStatement')
+  assert(
+    !statement || statement.type === 'ExpressionStatement',
+    `Expected an expression statement, got \`${statement?.type}\``,
+  )
 }
 
 runAsWorker(
@@ -590,7 +593,10 @@ runAsWorker(
                 if (child.data && 'estree' in child.data && child.data.estree) {
                   const { estree } = child.data
 
-                  assert(estree.body.length <= 1)
+                  assert(
+                    estree.body.length <= 1,
+                    `Expected at most one estree body node, got ${estree.body.length}`,
+                  )
 
                   const statement = estree.body[0]
 
@@ -714,7 +720,10 @@ runAsWorker(
                 `expect \`${code[slashOffset]}\` to be \`/\`, the node is ${node.name}`,
               )
               const tagStartOffset = prevCharOffset(slashOffset - 1)
-              assert(code[tagStartOffset] === '<')
+              assert(
+                code[tagStartOffset] === '<',
+                `Expected \`<\` at offset ${tagStartOffset}, got \`${code[tagStartOffset]}\``,
+              )
               closingElement = {
                 ...normalizeNode(tagStartOffset, nodeEnd),
                 type: 'JSXClosingElement',
@@ -730,17 +739,29 @@ runAsWorker(
                 name: handleJsxName(node.name, nodeNameStart),
                 attributes: node.attributes.map(attr => {
                   if (attr.type === 'mdxJsxExpressionAttribute') {
-                    assert(attr.data)
-                    assert(attr.data.estree)
-                    assert(attr.data.estree.range)
+                    assert(attr.data, 'Expected expression attribute data')
+                    assert(
+                      attr.data.estree,
+                      'Expected expression attribute estree',
+                    )
+                    assert(
+                      attr.data.estree.range,
+                      'Expected expression attribute range',
+                    )
 
                     let [attrValStart, attrValEnd] = attr.data.estree.range
 
                     attrValStart = prevCharOffset(attrValStart - 1)
                     attrValEnd = nextCharOffset(attrValEnd)
 
-                    assert(code[attrValStart] === '{')
-                    assert(code[attrValEnd] === '}')
+                    assert(
+                      code[attrValStart] === '{',
+                      `Expected \`{\` at offset ${attrValStart}, got \`${code[attrValStart]}\``,
+                    )
+                    assert(
+                      code[attrValEnd] === '}',
+                      `Expected \`}\` at offset ${attrValEnd}, got \`${code[attrValEnd]}\``,
+                    )
 
                     lastAttrOffset = attrValEnd
 
@@ -760,7 +781,10 @@ runAsWorker(
 
                   const attrStart = nextCharOffset(lastAttrOffset + 1)
 
-                  assert(attrStart != null)
+                  assert(
+                    attrStart != null,
+                    `Expected an attribute start after offset ${lastAttrOffset}`,
+                  )
 
                   const attrName = attr.name
                   const attrNameLength = attrName.length
@@ -788,7 +812,10 @@ runAsWorker(
                     attrStart + attrNameLength,
                   )
 
-                  assert(code[attrEqualOffset] === '=')
+                  assert(
+                    code[attrEqualOffset] === '=',
+                    `Expected \`=\` at offset ${attrEqualOffset}, got \`${code[attrEqualOffset]}\``,
+                  )
 
                   let attrValuePos: NormalPosition
 
@@ -797,13 +824,19 @@ runAsWorker(
 
                     const attrQuote = code[attrQuoteOffset]
 
-                    assert(attrQuote === '"' || attrQuote === "'")
+                    assert(
+                      attrQuote === '"' || attrQuote === "'",
+                      `Expected a quote at offset ${attrQuoteOffset}, got \`${attrQuote}\``,
+                    )
 
                     lastAttrOffset = nextCharOffset(
                       attrQuoteOffset + attrValue.length + 1,
                     )
 
-                    assert(code[lastAttrOffset] === attrQuote)
+                    assert(
+                      code[lastAttrOffset] === attrQuote,
+                      `Expected closing quote \`${attrQuote}\` at offset ${lastAttrOffset}, got \`${code[lastAttrOffset]}\``,
+                    )
 
                     attrValuePos = normalizeNode(
                       attrQuoteOffset,
@@ -817,8 +850,14 @@ runAsWorker(
                     attrValStart = prevCharOffset(attrValStart - 1)
                     attrValEnd = nextCharOffset(attrValEnd)
 
-                    assert(code[attrValStart] === '{')
-                    assert(code[attrValEnd] === '}')
+                    assert(
+                      code[attrValStart] === '{',
+                      `Expected \`{\` at offset ${attrValStart}, got \`${code[attrValStart]}\``,
+                    )
+                    assert(
+                      code[attrValEnd] === '}',
+                      `Expected \`}\` at offset ${attrValEnd}, got \`${code[attrValEnd]}\``,
+                    )
 
                     lastAttrOffset = attrValEnd
 
