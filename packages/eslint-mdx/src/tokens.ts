@@ -72,7 +72,6 @@ export const getTokens = (
     end: number,
     startPoint: { line: number; column: number },
     endPoint: { line: number; column: number },
-    micromarkType?: string,
   ) => {
     const value = code.slice(start, end)
 
@@ -85,7 +84,6 @@ export const getTokens = (
       value,
       start,
       end,
-      ...(micromarkType ? { micromarkType } : {}),
       loc: {
         start: { line: startPoint.line, column: startPoint.column - 1 },
         end: { line: endPoint.line, column: endPoint.column - 1 },
@@ -165,7 +163,7 @@ export const getTokens = (
         )
         emitted = true
       } else if (!skip && type === 'data') {
-        pushToken(tt.jsxText, start, end, token.start, token.end, type)
+        pushToken(getTokenType(type), start, end, token.start, token.end)
         emitted = true
       }
 
@@ -200,7 +198,6 @@ export const getTokens = (
         frame.end,
         frame.startPoint,
         frame.endPoint,
-        frame.type,
       )
     }
   }

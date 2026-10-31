@@ -1145,8 +1145,10 @@ runAsWorker(
         markdownToken =>
           !acornTokens.some(
             token =>
-              token.start < markdownToken.end &&
-              token.end > markdownToken.start,
+              (token.start < markdownToken.end &&
+                token.end > markdownToken.start) ||
+              (token.start === markdownToken.start &&
+                token.end === markdownToken.end),
           ),
       ),
     ]
@@ -1171,18 +1173,21 @@ runAsWorker(
         tokens: tokens as TokenTranslator_.EsprimaToken[],
       })
 
-      for (let index = tokenStart; index < tokens.length; index++) {
-        const translatedToken = tokens[index]
+      const sourceType = token.type
 
-        if (translatedToken.micromarkType) {
-          translatedToken.type = [
-            'data',
-            'codeFlowValue',
-            'htmlFlowData',
-            'htmlTextData',
-          ].includes(translatedToken.micromarkType)
-            ? 'JSXText'
-            : 'Punctuator'
+      if (
+        typeof sourceType !== 'string' &&
+        !Object.values(tt).includes(sourceType)
+      ) {
+        for (let index = tokenStart; index < tokens.length; index++) {
+          const translatedToken = tokens[index]
+
+          if (
+            translatedToken.range[0] === token.start &&
+            translatedToken.range[1] === token.end
+          ) {
+            translatedToken.type = sourceType.label as AST.Token['type']
+          }
         }
       }
     }

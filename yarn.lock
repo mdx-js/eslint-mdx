@@ -7838,6 +7838,7 @@ __metadata:
     espree: "npm:^9.6.1 || ^10.4.0 || ^11.2.0"
     estree-util-visit: "npm:^2.0.0"
     mdast-util-from-markdown: "npm:^2.1.0"
+    micromark-util-types: "npm:^2.0.3"
     remark-mdx: "npm:^3.1.1"
     remark-parse: "npm:^11.0.0"
     remark-stringify: "npm:^11.0.0"

@@ -10,6 +10,7 @@ import type {
   JSXText,
 } from 'estree-jsx'
 import type { Root } from 'mdast'
+import type { TokenTypeMap as MicromarkTokenTypeMap } from 'micromark-util-types'
 import type { VFileMessage } from 'vfile-message'
 
 export interface CommonOptions {
@@ -273,15 +274,13 @@ export type MDContentNode =
 declare module 'eslint' {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace AST {
-    interface Token {
-      micromarkType?: string
-    }
+    // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+    interface TokenTypeMap extends MicromarkTokenTypeMap {}
   }
 }
 
 declare module 'acorn' {
   interface Token {
-    micromarkType?: string
     value?: string
   }
 }
