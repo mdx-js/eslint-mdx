@@ -1,9 +1,4 @@
-import {
-  TokenType,
-  type Token,
-  type TokenType as AcornTokenType,
-  type tokTypes,
-} from 'acorn'
+import { TokenType, type Token, type tokTypes } from 'acorn'
 
 const tokenTypes = new Map<string, TokenType>()
 
@@ -11,7 +6,8 @@ const getTokenType = (label: string) => {
   let tokenType = tokenTypes.get(label)
 
   if (!tokenType) {
-    tokenType = Object.assign(new TokenType(), { label })
+    tokenType = new TokenType()
+    tokenType.label = label
     tokenTypes.set(label, tokenType)
   }
 
@@ -22,7 +18,7 @@ const isMdx = (type: string) => type.startsWith('mdxJsx')
 
 const getTagMarkerType = (
   char: string,
-  tt: Record<string, AcornTokenType> & typeof tokTypes,
+  tt: Record<string, TokenType> & typeof tokTypes,
 ) => {
   if (char === '<') {
     return tt.jsxTagStart
@@ -52,7 +48,7 @@ export interface MicromarkEvent {
 export const getTokens = (
   code: string,
   events: MicromarkEvent[],
-  tt: Record<string, AcornTokenType> & typeof tokTypes,
+  tt: Record<string, TokenType> & typeof tokTypes,
 ): Token[] => {
   const tokens: Token[] = []
   const stack: Array<{
@@ -67,7 +63,7 @@ export const getTokens = (
   }> = []
 
   const pushToken = (
-    type: AcornTokenType,
+    type: TokenType,
     start: number,
     end: number,
     startPoint: { line: number; column: number },

@@ -395,10 +395,10 @@ runAsWorker(
       mdastExtensions: [
         ...(processor.data('fromMarkdownExtensions') || []),
         {
-          afterExit(token: MicromarkEvent['token']) {
+          afterExit(token) {
             events.push({ enter: false, token })
           },
-          beforeEnter(token: MicromarkEvent['token']) {
+          beforeEnter(token) {
             events.push({ enter: true, token })
           },
         },
@@ -1153,9 +1153,7 @@ runAsWorker(
       ),
     ]
       .filter(token => {
-        const type =
-          typeof token.type === 'string' ? token.type : token.type.label
-        const key = `${token.start}:${token.end}:${type}`
+        const key = `${token.start}:${token.end}:${token.type.label}`
 
         if (seenTokens.has(key)) {
           return false
@@ -1186,8 +1184,7 @@ runAsWorker(
             translatedToken.range[0] === token.start &&
             translatedToken.range[1] === token.end
           ) {
-            // @ts-expect-error -- TokenTypeMap labels are still widened to string
-            translatedToken.type = sourceType.label
+            translatedToken.type = sourceType.label as AST.TokenType
           }
         }
       }
