@@ -409,11 +409,7 @@ runAsWorker(
 
     const body: Program['body'] = []
     const comments: Comment[] = []
-    type TokenWithLabel = Omit<AST.Token, 'type'> & {
-      type: string | { label: string }
-    }
-
-    const tokens: TokenWithLabel[] = []
+    const tokens: AST.Token[] = []
 
     if (isMdx) {
       const prevCharOffset = prevCharOffsetFactory(code)
@@ -1169,39 +1165,33 @@ runAsWorker(
       .sort((a, b) => a.start - b.start)
 
     for (const token of tokensWithMarkdown) {
+      const tokenStart = tokens.length
       tokenTranslator.onToken(token, {
         ecmaVersion: 'latest',
         tokens: tokens as TokenTranslator_.EsprimaToken[],
       })
+
+      for (let index = tokenStart; index < tokens.length; index++) {
+        const translatedToken = tokens[index]
+
+        if (translatedToken.micromarkType) {
+          translatedToken.type = [
+            'data',
+            'codeFlowValue',
+            'htmlFlowData',
+            'htmlTextData',
+          ].includes(translatedToken.micromarkType)
+            ? 'JSXText'
+            : 'Punctuator'
+        }
+      }
     }
-
-    const normalizedTokens = tokens.map(token => {
-      const label =
-        typeof token.type === 'string' ? token.type : token.type.label
-      let type = label
-
-      if (token.micromarkType) {
-        type = [
-          'data',
-          'codeFlowValue',
-          'htmlFlowData',
-          'htmlTextData',
-        ].includes(token.micromarkType)
-          ? 'JSXText'
-          : 'Punctuator'
-      }
-
-      return {
-        ...token,
-        type: type as AST.Token['type'],
-      }
-    })
 
     return {
       root,
       body,
       comments,
-      tokens: normalizedTokens,
+      tokens,
     }
   },
 )
