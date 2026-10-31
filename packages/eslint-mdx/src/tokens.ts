@@ -14,7 +14,10 @@ const getTokenType = (label: string) => {
   return tokenType
 }
 
-const isMdx = (type: string) => type.startsWith('mdxJsx')
+const isMdxJsx = (type: string) => type.startsWith('mdxJsx')
+
+const isMdxExpressionMarker = (type: string) =>
+  type === 'mdxFlowExpressionMarker' || type === 'mdxTextExpressionMarker'
 
 const getTagMarkerType = (
   char: string,
@@ -133,7 +136,7 @@ export const getTokens = (
 
       if (
         !skip &&
-        isMdx(type) &&
+        isMdxJsx(type) &&
         (type.endsWith('TagName') || type.endsWith('TagAttributeName'))
       ) {
         const trimmedEnd = start + code.slice(start, end).trimEnd().length
@@ -147,12 +150,12 @@ export const getTokens = (
         emitted = true
       } else if (
         !skip &&
-        isMdx(type) &&
+        isMdxJsx(type) &&
         type.endsWith('TagAttributeValueLiteral')
       ) {
         pushToken(tt.string, start, end, token.start, token.end)
         emitted = true
-      } else if (!skip && type.endsWith('TagMarker')) {
+      } else if (!skip && isMdxJsx(type) && type.endsWith('TagMarker')) {
         pushToken(
           getTagMarkerType(code[start], tt),
           start,
@@ -163,18 +166,25 @@ export const getTokens = (
         emitted = true
       } else if (
         !skip &&
+        isMdxJsx(type) &&
         (type.endsWith('TagClosingMarker') ||
           type.endsWith('TagSelfClosingMarker'))
       ) {
         pushToken(tt.slash, start, end, token.start, token.end)
         emitted = true
-      } else if (!skip && type.endsWith('TagAttributeInitializerMarker')) {
+      } else if (
+        !skip &&
+        isMdxJsx(type) &&
+        type.endsWith('TagAttributeInitializerMarker')
+      ) {
         pushToken(tt.eq, start, end, token.start, token.end)
         emitted = true
       } else if (
         !skip &&
-        (type.endsWith('ExpressionMarker') ||
-          type.endsWith('ExpressionAttributeMarker'))
+        (isMdxExpressionMarker(type) ||
+          (isMdxJsx(type) &&
+            (type.endsWith('ExpressionAttributeMarker') ||
+              type.endsWith('TagAttributeValueExpressionMarker'))))
       ) {
         pushToken(
           code[start] === '{' ? tt.braceL : tt.braceR,
