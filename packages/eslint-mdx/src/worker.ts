@@ -32,6 +32,7 @@ import type {
 } from 'estree-jsx'
 import { visit as visitEstree } from 'estree-util-visit'
 import type { Nodes, Root } from 'mdast'
+import { fromMarkdown } from 'mdast-util-from-markdown'
 import type { Options } from 'micromark-extension-mdx-expression'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
@@ -50,8 +51,7 @@ import {
   normalizePosition,
   prevCharOffsetFactory,
 } from './helpers.js'
-import { getMicromarkTokens } from './micromark-tokens.js'
-import { restoreTokens } from './tokens.js'
+import { getTokens, type MicromarkEvent } from './tokens.js'
 import type {
   Arrayable,
   IgnoreClass,
@@ -388,20 +388,29 @@ runAsWorker(
 
     const tokenTranslator = new TokenTranslator(tt, code)
 
-    const root = processor.parse(fileOptions)
+    const events: MicromarkEvent[] = []
+    const root = fromMarkdown(code, {
+      ...processor.data('settings'),
+      extensions: processor.data('micromarkExtensions') || [],
+      mdastExtensions: [
+        ...(processor.data('fromMarkdownExtensions') || []),
+        {
+          afterExit(token: MicromarkEvent['token']) {
+            events.push({ enter: false, token })
+          },
+          beforeEnter(token: MicromarkEvent['token']) {
+            events.push({ enter: true, token })
+          },
+        },
+      ],
+    })
     const acornTokens = [...sharedTokens]
-    const markdownTokens = getMicromarkTokens(
-      code,
-      processor.data('micromarkExtensions'),
-    )
-    sharedTokens.length = 0
-    sharedTokens.push(...acornTokens)
+    const markdownTokens = getTokens(code, events, tt)
 
     const body: Program['body'] = []
     const comments: Comment[] = []
     const tokens: AST.Token[] = []
 
-    // TODO: merge with `tokens.ts`
     if (isMdx) {
       const prevCharOffset = prevCharOffsetFactory(code)
       const nextCharOffset = nextCharOffsetFactory(code)
@@ -1129,18 +1138,31 @@ runAsWorker(
       },
     )
 
-    const restoredTokens = restoreTokens(code, root, sharedTokens, tt, visit)
+    const seenTokens = new Set<string>()
     const tokensWithMarkdown = [
-      ...restoredTokens,
+      ...acornTokens,
       ...markdownTokens.filter(
         markdownToken =>
-          !restoredTokens.some(
+          !acornTokens.some(
             token =>
               token.start < markdownToken.end &&
               token.end > markdownToken.start,
           ),
       ),
-    ].sort((a, b) => a.start - b.start)
+    ]
+      .filter(token => {
+        const type =
+          typeof token.type === 'string' ? token.type : token.type.label
+        const key = `${token.start}:${token.end}:${type}`
+
+        if (seenTokens.has(key)) {
+          return false
+        }
+
+        seenTokens.add(key)
+        return true
+      })
+      .sort((a, b) => a.start - b.start)
 
     for (const token of tokensWithMarkdown) {
       tokenTranslator.onToken(token, {
@@ -1150,10 +1172,10 @@ runAsWorker(
     }
 
     for (const token of tokens) {
-      const type = token.type as unknown
+      const type: unknown = token.type
 
       if (type && typeof type === 'object' && 'label' in type) {
-        ;(token as { type: string }).type = (type as { label: string }).label
+        Object.assign(token, { type: type.label })
       }
     }
 

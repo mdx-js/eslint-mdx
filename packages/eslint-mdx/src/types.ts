@@ -270,6 +270,12 @@ export type MDContentNode =
   | MDXTextExpression
   | MDYaml
 
+declare module 'acorn' {
+  interface Token {
+    value?: string
+  }
+}
+
 declare module 'estree' {
   interface ProgramBodyMap {
     // Markdown
