@@ -1,7 +1,7 @@
 import path from 'node:path'
 
 import type { AST, Linter } from 'eslint'
-import { analyze } from 'eslint-scope'
+import { analyze, Variable, type Scope } from 'eslint-scope'
 import { KEYS } from 'eslint-visitor-keys'
 import type { VFileMessage } from 'vfile-message'
 
@@ -154,6 +154,22 @@ export class Parser {
             reference.identifier.range[1] <= range[1],
         ),
     )
+
+    // `react/jsx-no-undef` reads scope variables instead of `through`, so
+    // expose `props` for JSX content without resolving the remaining ESM refs.
+    const addPropsVariable = (scope: Scope) => {
+      const propsVariable = new Variable('props', scope)
+      scope.variables.push(propsVariable)
+      scope.set.set('props', propsVariable)
+    }
+
+    addPropsVariable(globalScope)
+
+    for (const scope of scopeManager.scopes) {
+      if (scope.type === 'module') {
+        addPropsVariable(scope)
+      }
+    }
 
     return {
       ast,
