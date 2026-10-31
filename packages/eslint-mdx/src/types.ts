@@ -18,6 +18,7 @@ export interface CommonOptions {
 }
 
 export interface ParserOptions extends Linter.ParserOptions, CommonOptions {
+  ecmaVersion?: Linter.LanguageOptions['ecmaVersion']
   extensions?: string[] | string
   markdownExtensions?: string[] | string
   filePath?: string

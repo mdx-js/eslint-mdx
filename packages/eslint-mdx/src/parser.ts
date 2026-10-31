@@ -1,7 +1,10 @@
 import path from 'node:path'
 
-import type { Linter } from 'eslint'
+import type { AST, Linter } from 'eslint'
+import { analyze, Scope, Variable } from 'eslint-scope'
 import { KEYS } from 'eslint-visitor-keys'
+import { latestEcmaVersion } from 'espree'
+import type { Node } from 'estree'
 import type { VFileMessage } from 'vfile-message'
 
 import { arrayify, normalizePosition, getPhysicalFilename } from './helpers.js'
@@ -25,7 +28,8 @@ export class Parser {
     code: string,
     {
       filePath,
-      sourceType,
+      sourceType = 'module',
+      ecmaVersion,
       ignoreRemarkConfig,
       remarkConfigPath,
       extensions,
@@ -80,48 +84,116 @@ export class Parser {
 
     const { root, body, comments, tokens } = result
 
+    const visitorKeys: Record<string, string[]> = {
+      ...KEYS,
+      MDBlockquote: ['children'],
+      MDBreak: [],
+      MDCode: [],
+      MDDefinition: [],
+      MDDelete: ['children'],
+      MDEmphasis: ['children'],
+      MDFootnoteDefinition: ['children'],
+      MDFootnoteReference: [],
+      MDHeading: ['children'],
+      MDImage: [],
+      MDImageReference: [],
+      MDInlineCode: [],
+      MDInlineMath: [],
+      MDLink: ['children'],
+      MDLinkReference: ['children'],
+      MDList: ['children'],
+      MDListItem: ['children'],
+      MDMath: [],
+      MDParagraph: ['children'],
+      MDStrong: ['children'],
+      MDTable: ['children'],
+      MDTableCell: ['children'],
+      MDTableRow: ['children'],
+      MDText: [],
+      MDThematicBreak: [],
+      MDToml: [],
+      MDXFlowExpression: ['expression'],
+      MDXTextExpression: ['expression'],
+      MDYaml: [],
+    }
+
+    const ast: AST.Program = {
+      ...normalizePosition(root.position),
+      type: 'Program',
+      // @ts-expect-error -- should we change?
+      sourceType,
+      body,
+      comments,
+      tokens,
+    }
+
+    const scopeManager = analyze(ast, {
+      childVisitorKeys: visitorKeys,
+      ecmaVersion:
+        typeof ecmaVersion === 'number' ? ecmaVersion : latestEcmaVersion,
+      ignoreEval: true,
+      jsx: true,
+      sourceType,
+    })
+
+    const { globalScope } = scopeManager
+
+    const esmRanges = root.children
+      .filter(node => node.type === 'mdxjsEsm' && node.position)
+      .map(
+        node => [node.position.start.offset, node.position.end.offset] as const,
+      )
+
+    const isEsmRange = (range: [number, number]) =>
+      esmRanges.some(([start, end]) => range[0] >= start && range[1] <= end)
+
+    globalScope.through = globalScope.through.filter(
+      reference =>
+        reference.identifier.name !== 'props' ||
+        isEsmRange(reference.identifier.range),
+    )
+
+    // react/jsx-no-undef reads scope variables instead of through.
+    // Give JSX content a small block scope containing props, but preserve
+    // the real innermost scope so local components remain visible.
+    const acquireScope = scopeManager.acquire.bind(scopeManager)
+
+    const getOriginalScope = (node: Node) => {
+      let current: Node | undefined = node
+      let scope = acquireScope(current, true)
+
+      while (current && !scope) {
+        current = (current as { parent?: Node }).parent
+        scope = current ? acquireScope(current, true) : undefined
+      }
+
+      return scope || globalScope
+    }
+
+    scopeManager.acquire = (node, inner) => {
+      if (
+        node.type !== 'JSXIdentifier' ||
+        !node.range ||
+        isEsmRange(node.range)
+      ) {
+        return acquireScope(node, inner)
+      }
+
+      const propsScope = new Scope(
+        scopeManager,
+        'block',
+        getOriginalScope(node),
+        ast,
+        false,
+      )
+      propsScope.variables.push(new Variable('props', propsScope))
+      return propsScope
+    }
+
     return {
-      ast: {
-        ...normalizePosition(root.position),
-        type: 'Program',
-        // @ts-expect-error -- should we change?
-        sourceType,
-        body,
-        comments,
-        tokens,
-      },
-      visitorKeys: {
-        ...KEYS,
-        MDBlockquote: ['children'],
-        MDBreak: [],
-        MDCode: [],
-        MDDefinition: [],
-        MDDelete: ['children'],
-        MDEmphasis: ['children'],
-        MDFootnoteDefinition: ['children'],
-        MDFootnoteReference: [],
-        MDHeading: ['children'],
-        MDImage: [],
-        MDImageReference: [],
-        MDInlineCode: [],
-        MDInlineMath: [],
-        MDLink: ['children'],
-        MDLinkReference: ['children'],
-        MDList: ['children'],
-        MDListItem: ['children'],
-        MDMath: [],
-        MDParagraph: ['children'],
-        MDStrong: ['children'],
-        MDTable: ['children'],
-        MDTableCell: ['children'],
-        MDTableRow: ['children'],
-        MDText: [],
-        MDThematicBreak: [],
-        MDToml: [],
-        MDXFlowExpression: ['expression'],
-        MDXTextExpression: ['expression'],
-        MDYaml: [],
-      },
+      ast,
+      scopeManager,
+      visitorKeys,
     }
   }
 }

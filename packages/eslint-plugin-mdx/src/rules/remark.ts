@@ -36,7 +36,7 @@ const getDifferences = (
 const getFixesForPlace = (
   differences: NormalizedDifference[],
   place: VFileMessage['place'],
-): Rule.Fix[] | null => {
+) => {
   if (place == null) {
     return null
   }
@@ -49,13 +49,13 @@ const getFixesForPlace = (
   if (start.offset == null || end.offset == null) {
     return null
   }
-  const fixes = differences
+  const fixes: Rule.Fix[] = differences
     .filter(
       ({ deleteText, offset }) =>
         offset <= end.offset && offset + deleteText.length >= start.offset,
     )
     .map(({ deleteText, insertText, offset }) => ({
-      range: [offset, offset + deleteText.length] as [number, number],
+      range: [offset, offset + deleteText.length],
       text: insertText,
     }))
 

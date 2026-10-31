@@ -487,7 +487,7 @@ exports[`parser should match all AST snapshots: 287.mdx 1`] = `
     0,
     204,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -1699,7 +1699,7 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
     0,
     191,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -2614,7 +2614,7 @@ module.exports = {
     0,
     70,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -3055,7 +3055,7 @@ related:
     0,
     178,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -3619,7 +3619,7 @@ function foo() {
     0,
     87,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -4501,7 +4501,7 @@ function foo() {
     0,
     75,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -21050,7 +21050,7 @@ interface TabChangeEvent {
     0,
     10515,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -39317,7 +39317,7 @@ exports[`parser should match all AST snapshots: 391.mdx 1`] = `
     0,
     62,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -39948,7 +39948,7 @@ exports[`parser should match all AST snapshots: 429.mdx 1`] = `
     0,
     52,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -40929,7 +40929,7 @@ exports[`parser should match all AST snapshots: 435.mdx 1`] = `
     0,
     134,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -41939,7 +41939,7 @@ exports[`parser should match all AST snapshots: 437.mdx 1`] = `
     0,
     32,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -43264,7 +43264,7 @@ exports[`parser should match all AST snapshots: 445.mdx 1`] = `
     0,
     188,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -45806,7 +45806,7 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
     0,
     417,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -48227,7 +48227,7 @@ exports[`parser should match all AST snapshots: 488.mdx 1`] = `
     0,
     78,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -50518,7 +50518,7 @@ npm i -g foo
     0,
     618,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -53644,7 +53644,7 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
     0,
     301,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -55031,7 +55031,7 @@ $$",
     0,
     159,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -56054,7 +56054,7 @@ sidebar_position: 7",
     0,
     347,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -57432,7 +57432,7 @@ exports[`parser should match all AST snapshots: adjacent.mdx 1`] = `
     0,
     50,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -58714,7 +58714,7 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
     0,
     405,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -61640,7 +61640,7 @@ the installation guides.",
     0,
     768,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -64858,7 +64858,7 @@ text {value}
     0,
     78,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -65934,7 +65934,7 @@ exports[`parser should match all AST snapshots: jsx-imports.mdx 1`] = `
     0,
     117,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -68741,7 +68741,7 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
     0,
     810,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -71368,7 +71368,7 @@ exports[`parser should match all AST snapshots: leading-spaces.mdx 1`] = `
     0,
     42,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -71921,7 +71921,7 @@ exports[`parser should match all AST snapshots: markdown.md 1`] = `
     0,
     5,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -73022,7 +73022,7 @@ const value = 1
     0,
     287,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -74471,7 +74471,7 @@ exports[`parser should match all AST snapshots: mdx-flow-expression.mdx 1`] = `
     0,
     32,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -75053,7 +75053,7 @@ exports[`parser should match all AST snapshots: nested-empty-expression.mdx 1`] 
     0,
     70,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -75544,7 +75544,7 @@ exports[`parser should match all AST snapshots: nested-flow-expression.mdx 1`] =
     0,
     30,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -76379,7 +76379,7 @@ Main <main> > </main>",
     0,
     99,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -77741,7 +77741,7 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
     0,
     90,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -78576,7 +78576,7 @@ exports[`parser should match all AST snapshots: no-unused-expressions-esm.mdx 1`
     0,
     76,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -78932,7 +78932,7 @@ exports[`parser should match all AST snapshots: processor.mdx 1`] = `
     0,
     13,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -79041,7 +79041,7 @@ exports[`parser should match all AST snapshots: remark.md 1`] = `
     0,
     171,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -79676,7 +79676,7 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
     0,
     169,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -80089,7 +80089,7 @@ exports[`parser should match all AST snapshots: top-level-comment-expression.mdx
     0,
     30,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -80509,7 +80509,7 @@ exports[`parser should match all AST snapshots: unicorn.mdx 1`] = `
     0,
     118,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
@@ -83272,7 +83272,7 @@ exports[`parser should parse jsx spread correctly 1`] = `
     0,
     19,
   ],
-  "sourceType": undefined,
+  "sourceType": "module",
   "start": 0,
   "tokens": [
     {
