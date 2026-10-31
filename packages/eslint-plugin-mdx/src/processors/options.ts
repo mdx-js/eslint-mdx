@@ -20,6 +20,7 @@ export interface LinterConfig extends ESLint.Linter.Config {
   extractConfig?(filename?: string): ESLint.Linter.Config
 }
 
+/* istanbul ignore next -- eslint is in the cache once the configs import it */
 const ESLinter = cjsRequire<typeof ESLint>(linterPath || 'eslint').Linter
 
 // patch Linter#verify
