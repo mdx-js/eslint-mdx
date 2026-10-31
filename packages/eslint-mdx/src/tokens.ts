@@ -39,6 +39,13 @@ const getTagMarkerType = (
  * JavaScript tokens are provided by acorn; this function covers the Markdown
  * and MDX JSX/expression structure.
  */
+export interface JsxTextRange {
+  end: number
+  endPoint: { column: number; line: number }
+  start: number
+  startPoint: { column: number; line: number }
+}
+
 export interface MicromarkEvent {
   enter: boolean
   token: {
@@ -53,35 +60,9 @@ export const getTokens = (
   code: string,
   events: MicromarkEvent[],
   tt: Record<string, TokenType> & typeof tokTypes,
-  jsxTextRanges?: Array<{ end: number; start: number }>,
+  jsxTextRanges?: JsxTextRange[],
 ): Token[] => {
   const tokens: Token[] = []
-  const lineStarts = [0]
-
-  for (const match of code.matchAll(/\n/g)) {
-    lineStarts.push(match.index + 1)
-  }
-
-  const getPoint = (offset: number) => {
-    let low = 0
-    let high = lineStarts.length - 1
-
-    while (low < high) {
-      const middle = Math.ceil((low + high) / 2)
-
-      if (lineStarts[middle] <= offset) {
-        low = middle
-      } else {
-        high = middle - 1
-      }
-    }
-
-    return {
-      line: low + 1,
-      column: offset - lineStarts[low] + 1,
-    }
-  }
-
   const stack: Array<{
     emitted: boolean
     end: number
@@ -140,14 +121,20 @@ export const getTokens = (
         (isMdxJsxToken(type, 'TagName') ||
           isMdxJsxToken(type, 'TagAttributeName'))
       ) {
-        const trimmedEnd = start + code.slice(start, end).trimEnd().length
-        pushToken(
-          tt.jsxName,
-          start,
-          trimmedEnd,
-          token.start,
-          trimmedEnd === end ? token.end : getPoint(trimmedEnd),
-        )
+        const value = code.slice(start, end).trimEnd()
+        const trimmedEnd = start + value.length
+        const lineOffset = value.split('\n').length - 1
+        const endPoint =
+          trimmedEnd === end
+            ? token.end
+            : {
+                line: token.start.line + lineOffset,
+                column: lineOffset
+                  ? value.length - value.lastIndexOf('\n')
+                  : token.start.column + value.length,
+              }
+
+        pushToken(tt.jsxName, start, trimmedEnd, token.start, endPoint)
         emitted = true
       } else if (!skip && isMdxJsxToken(type, 'TagAttributeValueLiteral')) {
         pushToken(tt.string, start, end, token.start, token.end)
@@ -247,8 +234,8 @@ export const getTokens = (
       tt.jsxText,
       range.start,
       range.end,
-      getPoint(range.start),
-      getPoint(range.end),
+      range.startPoint,
+      range.endPoint,
       true,
     )
   }

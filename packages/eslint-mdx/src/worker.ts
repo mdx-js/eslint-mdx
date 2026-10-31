@@ -52,7 +52,7 @@ import {
   normalizePosition,
   prevCharOffsetFactory,
 } from './helpers.js'
-import { getTokens, type MicromarkEvent } from './tokens.js'
+import { getTokens, type JsxTextRange, type MicromarkEvent } from './tokens.js'
 import type {
   Arrayable,
   IgnoreClass,
@@ -406,7 +406,7 @@ runAsWorker(
       ],
     })
     const acornTokens = [...sharedTokens]
-    const jsxTextRanges: Array<{ end: number; start: number }> = []
+    const jsxTextRanges: JsxTextRange[] = []
 
     visitParents(root, (node, ancestors) => {
       if (
@@ -420,8 +420,13 @@ runAsWorker(
         const start = node.position?.start.offset
         const end = node.position?.end.offset
 
-        if (start != null && end != null) {
-          jsxTextRanges.push({ end, start })
+        if (start != null && end != null && node.position) {
+          jsxTextRanges.push({
+            end,
+            endPoint: node.position.end,
+            start,
+            startPoint: node.position.start,
+          })
         }
       }
     })
