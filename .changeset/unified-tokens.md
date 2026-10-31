@@ -2,13 +2,13 @@
 "eslint-mdx": minor
 ---
 
-feat: unify token generation with micromark
+feat: use micromark token types directly
 
 Generate markdown and MDX structural tokens from the same micromark parse
-used for the mdast tree, map them to ESLint-compatible token types, and merge
-them with acorn's JavaScript tokens.
-This removes the hand-written `restoreTokens` logic and keeps token ranges
-aligned across markdown, JSX, expressions and ESM.
+used for the mdast tree, map MDX JSX/expression events to ESLint token types,
+and merge them with acorn's JavaScript tokens. Markdown token types now use
+the original micromark labels.
 
-Token `type` values stay compatible with ESLint's standard token types; the
-original micromark label is exposed as `token.micromarkType`.
+This relies on ESLint supporting custom token types; until
+[eslint/eslint#21465](https://github.com/eslint/eslint/issues/21465) lands, the
+repository carries a temporary type patch.
