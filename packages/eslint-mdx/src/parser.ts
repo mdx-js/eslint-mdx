@@ -3,6 +3,7 @@ import path from 'node:path'
 import type { AST, Linter } from 'eslint'
 import { analyze, Scope, Variable } from 'eslint-scope'
 import { KEYS } from 'eslint-visitor-keys'
+import type { Node } from 'estree'
 import type { VFileMessage } from 'vfile-message'
 
 import { arrayify, normalizePosition, getPhysicalFilename } from './helpers.js'
@@ -137,11 +138,7 @@ export class Parser {
     const esmRanges = root.children
       .filter(node => node.type === 'mdxjsEsm' && node.position)
       .map(
-        node =>
-          [node.position.start.offset, node.position.end.offset] as [
-            number,
-            number,
-          ],
+        node => [node.position.start.offset, node.position.end.offset] as const,
       )
 
     const isEsmRange = (range: [number, number]) =>
@@ -158,12 +155,12 @@ export class Parser {
     // the real innermost scope so local components remain visible.
     const acquireScope = scopeManager.acquire.bind(scopeManager)
 
-    const getOriginalScope = (node: Parameters<typeof acquireScope>[0]) => {
-      let current: typeof node | undefined = node
+    const getOriginalScope = (node: Node) => {
+      let current: Node | undefined = node
       let scope = acquireScope(current, true)
 
       while (current && !scope) {
-        current = (current as { parent?: typeof current }).parent
+        current = (current as { parent?: Node }).parent
         scope = current ? acquireScope(current, true) : undefined
       }
 
@@ -172,7 +169,7 @@ export class Parser {
 
     scopeManager.acquire = (node, inner) => {
       if (
-        node?.type === 'JSXIdentifier' &&
+        node.type === 'JSXIdentifier' &&
         node.range &&
         !isEsmRange(node.range)
       ) {
@@ -189,6 +186,7 @@ export class Parser {
 
       return acquireScope(node, inner)
     }
+
     return {
       ast,
       scopeManager,
