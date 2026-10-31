@@ -157,25 +157,6 @@ export class Parser {
     // Give JSX content a small block scope containing props, but preserve
     // the real innermost scope so local components remain visible.
     const acquireScope = scopeManager.acquire.bind(scopeManager)
-    const propsScopes = new WeakMap<Scope, Scope>()
-
-    const getPropsScope = (upper: Scope) => {
-      let propsScope = propsScopes.get(upper)
-
-      if (!propsScope) {
-        propsScope = new Scope(
-          scopeManager,
-          'block',
-          upper,
-          { type: 'Program' } as AST.Program,
-          false,
-        )
-        propsScope.variables.push(new Variable('props', propsScope))
-        propsScopes.set(upper, propsScope)
-      }
-
-      return propsScope
-    }
 
     const getOriginalScope = (node: Parameters<typeof acquireScope>[0]) => {
       let current: typeof node | undefined = node
@@ -188,13 +169,22 @@ export class Parser {
 
       return scope || globalScope
     }
+
     scopeManager.acquire = (node, inner) => {
       if (
         node?.type === 'JSXIdentifier' &&
         node.range &&
         !isEsmRange(node.range)
       ) {
-        return getPropsScope(getOriginalScope(node))
+        const propsScope = new Scope(
+          scopeManager,
+          'block',
+          getOriginalScope(node),
+          ast,
+          false,
+        )
+        propsScope.variables.push(new Variable('props', propsScope))
+        return propsScope
       }
 
       return acquireScope(node, inner)

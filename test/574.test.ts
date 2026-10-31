@@ -29,7 +29,7 @@ describe('#574', () => {
 
   it('treats props as defined in MDX content', () => {
     const messages = linter.verify(
-      '### {props.foo}\n\n{props.foo} is a foo.\n\n<props.Component />\n',
+      '### {props.foo}\n\n{props.foo} is a foo.\n\n<><props.Component /><props.Other /></>\n',
       [
         mdx.configs.flat,
         {
