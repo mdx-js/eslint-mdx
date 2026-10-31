@@ -32,6 +32,7 @@ import type {
 } from 'estree-jsx'
 import { visit as visitEstree } from 'estree-util-visit'
 import type { Nodes, Root } from 'mdast'
+import { fromMarkdown } from 'mdast-util-from-markdown'
 import type { Options } from 'micromark-extension-mdx-expression'
 import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
@@ -41,16 +42,18 @@ import { unified, type Processor } from 'unified'
 import type { ConfigResult } from 'unified-engine'
 import { Configuration } from 'unified-engine'
 import { visit } from 'unist-util-visit'
+import { visitParents } from 'unist-util-visit-parents'
 import { VFile, type VFileOptions } from 'vfile'
 import type { VFileMessage } from 'vfile-message'
 
 import {
   cjsRequire,
+  getPositionAtFactory,
   nextCharOffsetFactory,
   normalizePosition,
   prevCharOffsetFactory,
 } from './helpers.js'
-import { restoreTokens } from './tokens.js'
+import { getTokens, type JsxTextRange, type MicromarkEvent } from './tokens.js'
 import type {
   Arrayable,
   IgnoreClass,
@@ -204,6 +207,106 @@ const getRemarkMdxOptions = (tokens: Token[]): Options => ({
 })
 
 const sharedTokens: Token[] = []
+
+const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
+  const ranges: JsxTextRange[] = []
+  const getPositionAt = getPositionAtFactory(code)
+
+  const toSourcePoint = (offset: number) => {
+    const { column, line } = getPositionAt(offset)
+
+    return { column: column + 1, line }
+  }
+
+  const addJsxTextRange = (start: number, end: number) => {
+    if (start >= end || code.slice(start, end).trim()) {
+      return
+    }
+
+    ranges.push({
+      end,
+      endPoint: toSourcePoint(end),
+      start,
+      startPoint: toSourcePoint(start),
+    })
+  }
+
+  /* eslint-disable sonarjs/cognitive-complexity -- traverses JSX children */
+  visitParents(root, (node, ancestors) => {
+    const position = node.position
+
+    if (
+      node.type === 'text' &&
+      position &&
+      ancestors.some(
+        ancestor =>
+          ancestor.type === 'mdxJsxFlowElement' ||
+          ancestor.type === 'mdxJsxTextElement',
+      )
+    ) {
+      const start = position.start.offset
+      const end = position.end.offset
+
+      if (start != null && end != null) {
+        ranges.push({
+          end,
+          endPoint: position.end,
+          start,
+          startPoint: position.start,
+        })
+      }
+    }
+
+    if (
+      (node.type !== 'mdxJsxFlowElement' &&
+        node.type !== 'mdxJsxTextElement') ||
+      !position
+    ) {
+      return
+    }
+
+    const nodeStart = position.start.offset
+    const nodeEnd = position.end.offset
+    const children = 'children' in node ? node.children : []
+
+    if (children.length === 0) {
+      return
+    }
+
+    const firstStart = children[0].position?.start.offset
+    const lastEnd = children.at(-1)?.position?.end.offset
+
+    if (firstStart != null) {
+      let gapStart = firstStart
+
+      while (gapStart > nodeStart && /\s/.test(code[gapStart - 1])) {
+        gapStart--
+      }
+
+      addJsxTextRange(gapStart, firstStart)
+    }
+
+    for (let index = 1; index < children.length; index++) {
+      const prevEnd = children[index - 1].position?.end.offset
+      const nextStart = children[index].position?.start.offset
+
+      if (prevEnd != null && nextStart != null) {
+        addJsxTextRange(prevEnd, nextStart)
+      }
+    }
+
+    if (lastEnd != null) {
+      const closingStart = code.indexOf('</', lastEnd)
+
+      if (closingStart !== -1 && closingStart < nodeEnd) {
+        addJsxTextRange(lastEnd, closingStart)
+      }
+    }
+  })
+  /* eslint-enable sonarjs/cognitive-complexity */
+
+  return ranges
+}
 
 export const getRemarkProcessor = async (
   filePath: string,
@@ -387,13 +490,31 @@ runAsWorker(
 
     const tokenTranslator = new TokenTranslator(tt, code)
 
-    const root = processor.parse(fileOptions)
+    const events: MicromarkEvent[] = []
+    const root = fromMarkdown(code, {
+      ...processor.data('settings'),
+      extensions: processor.data('micromarkExtensions') || [],
+      mdastExtensions: [
+        ...(processor.data('fromMarkdownExtensions') || []),
+        {
+          afterExit(token) {
+            events.push({ enter: false, token })
+          },
+          beforeEnter(token) {
+            events.push({ enter: true, token })
+          },
+        },
+      ],
+    })
+    const acornTokens = [...sharedTokens]
+    const jsxTextRanges = collectJsxTextRanges(root, code)
+
+    const markdownTokens = getTokens(code, events, tt, jsxTextRanges)
 
     const body: Program['body'] = []
     const comments: Comment[] = []
     const tokens: AST.Token[] = []
 
-    // TODO: merge with `tokens.ts`
     if (isMdx) {
       const prevCharOffset = prevCharOffsetFactory(code)
       const nextCharOffset = nextCharOffsetFactory(code)
@@ -1121,11 +1242,68 @@ runAsWorker(
       },
     )
 
-    for (const token of restoreTokens(code, root, sharedTokens, tt, visit)) {
+    const seenTokens = new Set<string>()
+    const tokensWithMarkdown = [
+      ...acornTokens,
+      ...markdownTokens.filter(
+        markdownToken =>
+          !acornTokens.some(
+            token =>
+              token.start < markdownToken.end &&
+              token.end > markdownToken.start,
+          ),
+      ),
+    ]
+      .filter(token => {
+        const key = `${token.type.label}:${token.start}:${token.end}`
+
+        if (seenTokens.has(key)) {
+          return false
+        }
+
+        seenTokens.add(key)
+        return true
+      })
+      .sort((a, b) => a.start - b.start)
+
+    tokensWithMarkdown.push({
+      type: tt.eof,
+      value: '',
+      start: code.length,
+      end: code.length,
+      range: [code.length, code.length],
+      loc: {
+        start: { line: 0, column: 0 },
+        end: { line: 0, column: 0 },
+      },
+    })
+
+    const tokenTypes = new Set(Object.values(tt))
+
+    for (const token of tokensWithMarkdown) {
+      // Capture before TokenTranslator mutates token.type for standard tokens.
+      const sourceType = token.type
+      const tokenStart = tokens.length
+
       tokenTranslator.onToken(token, {
         ecmaVersion: 'latest',
         tokens: tokens as TokenTranslator_.EsprimaToken[],
       })
+
+      if (tokenTypes.has(sourceType)) {
+        continue
+      }
+
+      for (let index = tokenStart; index < tokens.length; index++) {
+        const translatedToken = tokens[index]
+
+        if (
+          translatedToken.range[0] === token.start &&
+          translatedToken.range[1] === token.end
+        ) {
+          translatedToken.type = sourceType.label as AST.TokenType
+        }
+      }
     }
 
     return {

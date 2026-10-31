@@ -157,4 +157,70 @@ describe('parser', () => {
     })
     expect(result.body.map(node => node.type)).toContain('MDToml')
   })
+  it('should emit JSX text gaps and split around entities', () => {
+    const { tokens: gapTokens } = parser.parse(
+      '<Box>\n  <A />\n  <B />\n</Box>\n',
+      DEFAULT_PARSER_OPTIONS,
+    )
+
+    const gapTextTokens = gapTokens.filter(token => token.type === 'JSXText')
+
+    expect(gapTextTokens.map(token => token.value)).toEqual([
+      '\n  ',
+      '\n  ',
+      '\n',
+    ])
+    expect(gapTextTokens.map(token => token.loc)).toEqual([
+      {
+        start: { column: 5, line: 1 },
+        end: { column: 2, line: 2 },
+      },
+      {
+        start: { column: 7, line: 2 },
+        end: { column: 2, line: 3 },
+      },
+      {
+        start: { column: 7, line: 3 },
+        end: { column: 0, line: 4 },
+      },
+    ])
+
+    const { tokens: entityTokens } = parser.parse(
+      '<Box>a &amp; b</Box>\n',
+      DEFAULT_PARSER_OPTIONS,
+    )
+
+    const entityTextTokens = entityTokens.filter(
+      token => token.type === 'JSXText',
+    )
+
+    expect(entityTextTokens.map(token => token.value)).toEqual(['a ', ' b'])
+    expect(entityTextTokens.map(token => token.loc)).toEqual([
+      {
+        start: { column: 5, line: 1 },
+        end: { column: 7, line: 1 },
+      },
+      {
+        start: { column: 12, line: 1 },
+        end: { column: 14, line: 1 },
+      },
+    ])
+  })
+
+  it('should expose micromark token types for markdown markers', () => {
+    const { tokens } = parser.parse(
+      "import React from 'react';\n\n# Hello\n\n- item\n\n**bold**\n",
+      DEFAULT_PARSER_OPTIONS,
+    )
+
+    expect(tokens.find(token => token.value === '#')?.type).toBe(
+      'atxHeadingSequence',
+    )
+    expect(tokens.find(token => token.value === '-')?.type).toBe(
+      'listItemMarker',
+    )
+    expect(tokens.find(token => token.value === '**')?.type).toBe(
+      'strongSequence',
+    )
+  })
 })

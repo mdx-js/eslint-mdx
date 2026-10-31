@@ -1,306 +1,269 @@
-/// <reference types="remark-mdx" />
+import { TokenType, type Token, type tokTypes } from 'acorn'
 
-import type { Token, TokenType, tokTypes } from 'acorn'
-import { ok as assert } from 'devlop'
-import type { Root } from 'mdast'
-import type { visit as visitor } from 'unist-util-visit'
+const tokenTypes = new Map<string, TokenType>()
 
-import {
-  getPositionAtFactory,
-  nextCharOffsetFactory,
-  prevCharOffsetFactory,
-} from './helpers.js'
+const getTokenType = (label: string) => {
+  let tokenType = tokenTypes.get(label)
 
-export const restoreTokens = (
-  text: string,
-  root: Root,
-  tokens: Token[],
+  if (!tokenType) {
+    tokenType = new TokenType()
+    tokenType.label = label
+    tokenTypes.set(label, tokenType)
+  }
+
+  return tokenType
+}
+
+const isMdxJsxToken = (type: string, name: string) =>
+  type === `mdxJsxFlow${name}` || type === `mdxJsxText${name}`
+
+const isMdxExpressionMarker = (type: string) =>
+  type === 'mdxFlowExpressionMarker' || type === 'mdxTextExpressionMarker'
+
+const getTagMarkerType = (
+  char: string,
   tt: Record<string, TokenType> & typeof tokTypes,
-  visit: typeof visitor,
 ) => {
-  tokens = [...tokens]
+  if (char === '<') {
+    return tt.jsxTagStart
+  }
+  if (char === '/') {
+    return tt.slash
+  }
+  return tt.jsxTagEnd
+}
 
-  const getPositionAt = getPositionAtFactory(text)
-  const prevCharOffset = prevCharOffsetFactory(text)
-  const nextCharOffset = nextCharOffsetFactory(text)
+/**
+ * Generate the complete token stream for Markdown and MDX syntax.
+ *
+ * JavaScript tokens are provided by acorn; this function covers the Markdown
+ * and MDX JSX/expression structure.
+ */
+export interface JsxTextRange {
+  end: number
+  endPoint: { column: number; line: number }
+  start: number
+  startPoint: { column: number; line: number }
+}
 
-  const newToken = (
+export interface MicromarkEvent {
+  enter: boolean
+  token: {
+    end: { column: number; line: number; offset: number }
+    start: { column: number; line: number; offset: number }
+    type: string
+  }
+}
+
+/* eslint-disable sonarjs/cognitive-complexity -- event handling is switch-like */
+export const getTokens = (
+  code: string,
+  events: MicromarkEvent[],
+  tt: Record<string, TokenType> & typeof tokTypes,
+  jsxTextRanges: JsxTextRange[] = [],
+): Token[] => {
+  const tokens: Token[] = []
+  const stack: Array<{
+    emitted: boolean
+    end: number
+    endPoint: { line: number; column: number }
+    hasChild: boolean
+    skip: boolean
+    start: number
+    startPoint: { line: number; column: number }
+    type: string
+  }> = []
+
+  const pushToken = (
     type: TokenType,
     start: number,
     end: number,
-    value?: string,
-  ): Token => ({
-    type,
-    // @ts-expect-error -- FIXME: `value` is a valid property of `Token`
-    value,
-    start,
-    end,
-    loc: {
-      start: getPositionAt(start),
-      end: getPositionAt(end),
-    },
-    range: [start, end],
-  })
+    startPoint: { line: number; column: number },
+    endPoint: { line: number; column: number },
+    allowWhitespace = false,
+  ) => {
+    const value = code.slice(start, end)
 
-  const addJsxTextToken = (start: number, end: number) => {
-    if (start >= end) {
+    if (!allowWhitespace && !value.trim()) {
       return
     }
-    const value = text.slice(start, end)
-    if (value.trim()) {
-      return
-    }
-    tokens.push(newToken(tt.jsxText, start, end, value))
+
+    tokens.push({
+      type,
+      value,
+      start,
+      end,
+      loc: {
+        start: { line: startPoint.line, column: startPoint.column - 1 },
+        end: { line: endPoint.line, column: endPoint.column - 1 },
+      },
+      range: [start, end],
+    })
   }
 
-  // eslint-disable-next-line sonarjs/cognitive-complexity
-  visit(root, node => {
-    if (
-      node.type !== 'mdxFlowExpression' &&
-      node.type !== 'mdxJsxFlowElement' &&
-      node.type !== 'mdxJsxTextElement' &&
-      node.type !== 'text'
-    ) {
-      return
-    }
+  for (const event of events) {
+    const token = event.token
+    const type = token.type
+    const start = token.start.offset
+    const end = token.end.offset
 
-    const nodePos = node.position
+    if (event.enter) {
+      const parent = stack.at(-1)
+      const skip = parent?.skip
+      let emitted = false
 
-    assert(nodePos)
+      if (parent) {
+        parent.hasChild = true
+      }
 
-    const nodeStart = nodePos.start.offset
-    const nodeEnd = nodePos.end.offset
+      if (
+        !skip &&
+        (isMdxJsxToken(type, 'TagName') ||
+          isMdxJsxToken(type, 'TagAttributeName'))
+      ) {
+        const value = code.slice(start, end).trimEnd()
+        const trimmedEnd = start + value.length
+        const endPoint =
+          trimmedEnd === end
+            ? token.end
+            : {
+                line: token.start.line,
+                column: token.start.column + value.length,
+              }
 
-    const lastCharOffset = prevCharOffset(nodeEnd - 2)
-
-    assert(nodeStart != null)
-    assert(nodeEnd != null)
-
-    if (node.type === 'mdxFlowExpression') {
-      tokens.push(
-        newToken(tt.braceL, nodeStart, nodeStart + 1),
-        newToken(tt.braceR, nodeEnd - 1, nodeEnd),
-      )
-
-      return
-    }
-
-    if (node.type === 'text') {
-      tokens.push(newToken(tt.jsxText, nodeStart, nodeEnd, node.value))
-      return
-    }
-
-    tokens.push(newToken(tt.jsxTagStart, nodeStart, nodeStart + 1))
-
-    const nodeName = node.name
-    const nodeNameLength = nodeName?.length ?? 0
-
-    const selfClosing = text[lastCharOffset] === '/'
-
-    let nodeNameStart = nodeStart + 1
-
-    if (nodeName) {
-      nodeNameStart = nextCharOffset(nodeStart + 1)
-
-      assert(nodeNameStart)
-
-      tokens.push(
-        newToken(
-          tt.jsxName,
-          nodeNameStart,
-          nodeNameStart + nodeNameLength,
-          nodeName,
-        ),
-      )
-    }
-
-    // will always add 1 in `nextCharOffset`, so we minus 1 here
-    let lastAttrOffset = nodeNameStart + nodeNameLength - 1
-
-    for (const attr of node.attributes) {
-      // already handled by acorn
-      if (attr.type === 'mdxJsxExpressionAttribute') {
-        assert(attr.data)
-        assert(attr.data.estree)
-        assert(attr.data.estree.range)
-
-        let [attrValStart, attrValEnd] = attr.data.estree.range
-
-        attrValStart = prevCharOffset(attrValStart - 1)
-        attrValEnd = nextCharOffset(attrValEnd)
-
-        assert(text[attrValStart] === '{')
-        assert(text[attrValEnd] === '}')
-
-        lastAttrOffset = attrValEnd
-
-        tokens.push(
-          newToken(tt.braceL, attrValStart, attrValStart + 1),
-          newToken(tt.braceR, attrValEnd, attrValEnd + 1),
+        pushToken(tt.jsxName, start, trimmedEnd, token.start, endPoint)
+        emitted = true
+      } else if (!skip && isMdxJsxToken(type, 'TagAttributeValueLiteral')) {
+        pushToken(tt.string, start, end, token.start, token.end)
+        emitted = true
+      } else if (!skip && isMdxJsxToken(type, 'TagMarker')) {
+        pushToken(
+          getTagMarkerType(code[start], tt),
+          start,
+          end,
+          token.start,
+          token.end,
+        )
+        emitted = true
+      } else if (
+        !skip &&
+        (isMdxJsxToken(type, 'TagClosingMarker') ||
+          isMdxJsxToken(type, 'TagSelfClosingMarker'))
+      ) {
+        pushToken(tt.slash, start, end, token.start, token.end)
+        emitted = true
+      } else if (
+        !skip &&
+        isMdxJsxToken(type, 'TagAttributeInitializerMarker')
+      ) {
+        pushToken(tt.eq, start, end, token.start, token.end)
+        emitted = true
+      } else if (
+        !skip &&
+        (isMdxExpressionMarker(type) ||
+          isMdxJsxToken(type, 'TagExpressionAttributeMarker') ||
+          isMdxJsxToken(type, 'TagAttributeValueExpressionMarker'))
+      ) {
+        pushToken(
+          code[start] === '{' ? tt.braceL : tt.braceR,
+          start,
+          end,
+          token.start,
+          token.end,
+        )
+        emitted = true
+      } else if (!skip && type === 'data') {
+        const isJsxText = jsxTextRanges.some(
+          range => range.start <= start && range.end >= end,
         )
 
-        continue
+        if (!isJsxText) {
+          pushToken(getTokenType(type), start, end, token.start, token.end)
+        }
+
+        emitted = true
       }
 
-      /**
-       * Not available yet
-       *
-       * @see https://github.com/mdx-js/mdx/issues/2034
-       */
-
-      // const attrPos = attr.position
-
-      // const attrStart = attrPos.start.offset
-      // const attrEnd = attrPos.end.offset
-
-      const attrStart = nextCharOffset(lastAttrOffset + 1)
-
-      assert(attrStart != null)
-
-      const attrName = attr.name
-      const attrNameLength = attrName.length
-
-      tokens.push(
-        newToken(tt.jsxName, attrStart, attrStart + attrNameLength, attrName),
-      )
-
-      const attrValue = attr.value
-
-      // void attribute and empty attribute are different
-      // @see #450
-      if (attrValue == null) {
-        lastAttrOffset = attrStart + attrNameLength
-        continue
-      }
-
-      const attrEqualOffset = nextCharOffset(attrStart + attrNameLength)
-
-      assert(text[attrEqualOffset] === '=')
-
-      tokens.push(newToken(tt.eq, attrEqualOffset, attrEqualOffset + 1, '='))
-
-      // `mdxJsxAttributeValueExpression`, already handled by acorn
-      if (typeof attrValue === 'object') {
-        const data = attrValue.data
-
-        let [attrValStart, attrValEnd] = data.estree.range
-
-        attrValStart = prevCharOffset(attrValStart - 1)
-        attrValEnd = nextCharOffset(attrValEnd)
-
-        assert(text[attrValStart] === '{')
-        assert(text[attrValEnd] === '}')
-
-        lastAttrOffset = attrValEnd
-
-        tokens.push(
-          newToken(tt.braceL, attrValStart, attrValStart + 1),
-          newToken(tt.braceR, attrValEnd, attrValEnd + 1),
-        )
-
-        continue
-      }
-
-      const attrQuoteOffset = nextCharOffset(attrEqualOffset + 1)
-
-      const attrQuote = text[attrQuoteOffset]
-
-      assert(attrQuote === '"' || attrQuote === "'")
-
-      tokens.push(
-        newToken(
-          tt.string,
-          attrQuoteOffset,
-          attrQuoteOffset + attrValue.length + 2,
-          attrValue,
-        ),
-      )
-
-      lastAttrOffset = nextCharOffset(attrQuoteOffset + attrValue.length + 1)
-
-      assert(text[lastAttrOffset] === attrQuote)
-    }
-
-    let nextOffset = nextCharOffset(lastAttrOffset + 1)
-    let nextChar = text[nextOffset]
-
-    const expectedNextChar = selfClosing ? '/' : '>'
-
-    if (nextChar !== expectedNextChar) {
-      nextOffset = /** @type {number} */ nextCharOffset(lastAttrOffset)
-      nextChar = text[nextOffset]
-    }
-
-    let closingTagStart: number | undefined
-
-    if (selfClosing) {
-      tokens.push(newToken(tt.slash, nextOffset, nextOffset + 1, '/'))
+      stack.push({
+        emitted,
+        end,
+        endPoint: token.end,
+        hasChild: false,
+        skip: skip || emitted,
+        start,
+        startPoint: token.start,
+        type,
+      })
     } else {
-      assert(
-        nextChar === '>',
-        `\`nextChar\` must be '>' but actually is '${nextChar}'`,
+      const frame = stack.pop()
+
+      if (
+        !frame ||
+        frame.emitted ||
+        frame.skip ||
+        frame.hasChild ||
+        frame.type.startsWith('mdx') ||
+        frame.type.startsWith('lineEnding') ||
+        frame.type === 'whitespace'
+      ) {
+        continue
+      }
+
+      pushToken(
+        getTokenType(frame.type),
+        frame.start,
+        frame.end,
+        frame.startPoint,
+        frame.endPoint,
       )
-
-      const prevOffset = prevCharOffset(nodeEnd - 2)
-
-      if (nodeName) {
-        tokens.push(
-          newToken(
-            tt.jsxName,
-            prevOffset + 1 - nodeNameLength,
-            prevOffset + 1,
-            nodeName,
-          ),
-        )
-      }
-
-      const slashOffset = prevCharOffset(prevOffset - nodeNameLength)
-
-      assert(text[slashOffset] === '/')
-
-      tokens.push(newToken(tt.slash, slashOffset, slashOffset + 1, '/'))
-
-      const tagStartOffset = prevCharOffset(slashOffset - 1)
-
-      assert(text[tagStartOffset] === '<')
-      closingTagStart = tagStartOffset
-
-      tokens.push(newToken(tt.jsxTagStart, tagStartOffset, tagStartOffset + 1))
     }
+  }
 
-    if (node.children.length > 0) {
-      const firstStart = node.children[0].position?.start.offset
-      const lastEnd = node.children.at(-1).position?.end.offset
-      if (firstStart != null && lastEnd != null) {
-        addJsxTextToken(nextOffset + 1, firstStart)
-        for (let i = 1; i < node.children.length; i++) {
-          const prevEnd = node.children[i - 1].position?.end.offset
-          const nextStart = node.children[i].position?.start.offset
-          if (prevEnd != null && nextStart != null) {
-            addJsxTextToken(prevEnd, nextStart)
-          }
-        }
-        if (closingTagStart != null) {
-          addJsxTextToken(lastEnd, closingTagStart)
-        }
-      }
-    }
+  const sortedTokens = [...tokens].sort((a, b) => a.start - b.start)
 
-    tokens.push(newToken(tt.jsxTagEnd, nodeEnd - 1, nodeEnd))
+  const toSourcePoint = (point: { column: number; line: number }) => ({
+    column: point.column + 1,
+    line: point.line,
   })
 
-  tokens.push(newToken(tt.eof, text.length, text.length))
+  for (const range of jsxTextRanges) {
+    let cursor = range.start
+    let cursorPoint = range.startPoint
+
+    for (const token of sortedTokens) {
+      if (token.end <= cursor || token.start >= range.end) {
+        continue
+      }
+
+      if (token.start > cursor) {
+        pushToken(
+          tt.jsxText,
+          cursor,
+          token.start,
+          cursorPoint,
+          toSourcePoint(token.loc.start),
+          true,
+        )
+      }
+
+      if (token.end > cursor) {
+        cursor = token.end
+        cursorPoint = toSourcePoint(token.loc.end)
+      }
+    }
+
+    if (cursor < range.end) {
+      pushToken(
+        tt.jsxText,
+        cursor,
+        range.end,
+        cursorPoint,
+        range.endPoint,
+        true,
+      )
+    }
+  }
 
   return tokens
-    .filter(
-      t =>
-        !(
-          t.start === t.end &&
-          (t.type === tt.braceL ||
-            t.type === tt.braceR ||
-            t.type === tt.parenL ||
-            t.type === tt.parenR)
-        ),
-    )
-    .sort((a, b) => a.start - b.start)
 }
+/* eslint-enable sonarjs/cognitive-complexity */
