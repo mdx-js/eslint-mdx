@@ -2,7 +2,6 @@
   // used by all files but do not includes paths
   "extends": "@1stg/tsconfig/node16",
   "compilerOptions": {
-    "strictNullChecks": true,
     // https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping#node-18
     "target": "ES2022",
     "rewriteRelativeImportExtensions": false,
