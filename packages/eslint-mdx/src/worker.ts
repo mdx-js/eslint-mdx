@@ -1172,7 +1172,7 @@ runAsWorker(
       ),
     ]
       .filter(token => {
-        const key = `${token.start}:${token.end}:${token.type.label}`
+        const key = `${token.type.label}:${token.start}:${token.end}`
 
         if (seenTokens.has(key)) {
           return false
@@ -1198,15 +1198,15 @@ runAsWorker(
     const tokenTypes = new Set(Object.values(tt))
 
     for (const token of tokensWithMarkdown) {
+      const sourceType = token.type
       const tokenStart = tokens.length
+
       tokenTranslator.onToken(token, {
         ecmaVersion: 'latest',
         tokens: tokens as TokenTranslator_.EsprimaToken[],
       })
 
-      const sourceType = token.type
-
-      if (typeof sourceType !== 'string' && !tokenTypes.has(sourceType)) {
+      if (!tokenTypes.has(sourceType)) {
         for (let index = tokenStart; index < tokens.length; index++) {
           const translatedToken = tokens[index]
 
