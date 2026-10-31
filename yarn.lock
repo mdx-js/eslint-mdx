@@ -8011,14 +8011,11 @@ __metadata:
   resolution: "eslint-plugin-mdx@workspace:packages/eslint-plugin-mdx"
   dependencies:
     eslint-mdx: "npm:^3.8.3"
-    mdast-util-from-markdown: "npm:^2.1.0"
     mdast-util-mdx: "npm:^3.0.0"
-    micromark-extension-mdxjs: "npm:^3.0.0"
     prettier-linter-helpers: "npm:^1.0.1"
     remark-mdx: "npm:^3.1.1"
     remark-parse: "npm:^11.0.0"
     remark-stringify: "npm:^11.0.0"
-    synckit: "npm:^0.12.3"
     unified: "npm:^11.0.5"
     vfile: "npm:^6.0.3"
   peerDependencies:
