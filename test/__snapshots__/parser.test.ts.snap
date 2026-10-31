@@ -647,7 +647,7 @@ exports[`parser should match all AST snapshots: 287.mdx 1`] = `
         107,
       ],
       "start": 95,
-      "type": "data",
+      "type": "JSXText",
       "value": "announcement",
     },
     {
@@ -887,7 +887,7 @@ exports[`parser should match all AST snapshots: 287.mdx 1`] = `
         198,
       ],
       "start": 170,
-      "type": "data",
+      "type": "JSXText",
       "value": "webpack 4 documentation here",
     },
     {
@@ -1899,7 +1899,7 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
         48,
       ],
       "start": 41,
-      "type": "data",
+      "type": "JSXText",
       "value": "content",
     },
     {
@@ -2219,7 +2219,7 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
         135,
       ],
       "start": 121,
-      "type": "data",
+      "type": "JSXText",
       "value": "Vuetify preset",
     },
     {
@@ -3795,7 +3795,7 @@ function foo() {
         60,
       ],
       "start": 56,
-      "type": "data",
+      "type": "JSXText",
       "value": "test",
     },
     {
@@ -3955,7 +3955,7 @@ function foo() {
         75,
       ],
       "start": 71,
-      "type": "data",
+      "type": "JSXText",
       "value": "test",
     },
     {
@@ -22092,11 +22092,11 @@ interface TabChangeEvent {
       "value": "<",
     },
     {
-      "end": 425,
+      "end": 423,
       "loc": {
         "end": {
-          "column": 1,
-          "line": 20,
+          "column": 5,
+          "line": 19,
         },
         "start": {
           "column": 1,
@@ -22105,12 +22105,11 @@ interface TabChangeEvent {
       },
       "range": [
         419,
-        425,
+        423,
       ],
       "start": 419,
       "type": "JSXIdentifier",
-      "value": "Meta
- ",
+      "value": "Meta",
     },
     {
       "end": 431,
@@ -23263,11 +23262,11 @@ interface TabChangeEvent {
       "value": "<",
     },
     {
-      "end": 823,
+      "end": 819,
       "loc": {
         "end": {
-          "column": 3,
-          "line": 45,
+          "column": 8,
+          "line": 44,
         },
         "start": {
           "column": 3,
@@ -23276,12 +23275,11 @@ interface TabChangeEvent {
       },
       "range": [
         814,
-        823,
+        819,
       ],
       "start": 814,
       "type": "JSXIdentifier",
-      "value": "Story
-   ",
+      "value": "Story",
     },
     {
       "end": 828,
@@ -24095,11 +24093,11 @@ interface TabChangeEvent {
       "value": "<",
     },
     {
-      "end": 1498,
+      "end": 1494,
       "loc": {
         "end": {
-          "column": 3,
-          "line": 82,
+          "column": 8,
+          "line": 81,
         },
         "start": {
           "column": 3,
@@ -24108,12 +24106,11 @@ interface TabChangeEvent {
       },
       "range": [
         1489,
-        1498,
+        1494,
       ],
       "start": 1489,
       "type": "JSXIdentifier",
-      "value": "Story
-   ",
+      "value": "Story",
     },
     {
       "end": 1503,
@@ -24956,11 +24953,11 @@ interface TabChangeEvent {
       "value": "<",
     },
     {
-      "end": 1981,
+      "end": 1977,
       "loc": {
         "end": {
-          "column": 3,
-          "line": 104,
+          "column": 8,
+          "line": 103,
         },
         "start": {
           "column": 3,
@@ -24969,12 +24966,11 @@ interface TabChangeEvent {
       },
       "range": [
         1972,
-        1981,
+        1977,
       ],
       "start": 1972,
       "type": "JSXIdentifier",
-      "value": "Story
-   ",
+      "value": "Story",
     },
     {
       "end": 1986,
@@ -25829,11 +25825,11 @@ interface TabChangeEvent {
       "value": "<",
     },
     {
-      "end": 2919,
+      "end": 2915,
       "loc": {
         "end": {
-          "column": 3,
-          "line": 138,
+          "column": 8,
+          "line": 137,
         },
         "start": {
           "column": 3,
@@ -25842,12 +25838,11 @@ interface TabChangeEvent {
       },
       "range": [
         2910,
-        2919,
+        2915,
       ],
       "start": 2910,
       "type": "JSXIdentifier",
-      "value": "Story
-   ",
+      "value": "Story",
     },
     {
       "end": 2924,
@@ -26983,11 +26978,11 @@ interface TabChangeEvent {
       "value": "<",
     },
     {
-      "end": 3749,
+      "end": 3745,
       "loc": {
         "end": {
-          "column": 3,
-          "line": 173,
+          "column": 8,
+          "line": 172,
         },
         "start": {
           "column": 3,
@@ -26996,12 +26991,11 @@ interface TabChangeEvent {
       },
       "range": [
         3740,
-        3749,
+        3745,
       ],
       "start": 3740,
       "type": "JSXIdentifier",
-      "value": "Story
-   ",
+      "value": "Story",
     },
     {
       "end": 3754,
@@ -29662,11 +29656,11 @@ interface TabChangeEvent {
       "value": "<",
     },
     {
-      "end": 4787,
+      "end": 4783,
       "loc": {
         "end": {
-          "column": 3,
-          "line": 219,
+          "column": 8,
+          "line": 218,
         },
         "start": {
           "column": 3,
@@ -29675,12 +29669,11 @@ interface TabChangeEvent {
       },
       "range": [
         4778,
-        4787,
+        4783,
       ],
       "start": 4778,
       "type": "JSXIdentifier",
-      "value": "Story
-   ",
+      "value": "Story",
     },
     {
       "end": 4792,
@@ -30894,11 +30887,11 @@ interface TabChangeEvent {
       "value": "<",
     },
     {
-      "end": 5580,
+      "end": 5576,
       "loc": {
         "end": {
-          "column": 3,
-          "line": 252,
+          "column": 8,
+          "line": 251,
         },
         "start": {
           "column": 3,
@@ -30907,12 +30900,11 @@ interface TabChangeEvent {
       },
       "range": [
         5571,
-        5580,
+        5576,
       ],
       "start": 5571,
       "type": "JSXIdentifier",
-      "value": "Story
-   ",
+      "value": "Story",
     },
     {
       "end": 5585,
@@ -32108,11 +32100,11 @@ interface TabChangeEvent {
       "value": "<",
     },
     {
-      "end": 6791,
+      "end": 6787,
       "loc": {
         "end": {
-          "column": 3,
-          "line": 298,
+          "column": 8,
+          "line": 297,
         },
         "start": {
           "column": 3,
@@ -32121,12 +32113,11 @@ interface TabChangeEvent {
       },
       "range": [
         6782,
-        6791,
+        6787,
       ],
       "start": 6782,
       "type": "JSXIdentifier",
-      "value": "Story
-   ",
+      "value": "Story",
     },
     {
       "end": 6796,
@@ -32952,11 +32943,11 @@ interface TabChangeEvent {
       "value": "<",
     },
     {
-      "end": 8232,
+      "end": 8228,
       "loc": {
         "end": {
-          "column": 3,
-          "line": 347,
+          "column": 8,
+          "line": 346,
         },
         "start": {
           "column": 3,
@@ -32965,12 +32956,11 @@ interface TabChangeEvent {
       },
       "range": [
         8223,
-        8232,
+        8228,
       ],
       "start": 8223,
       "type": "JSXIdentifier",
-      "value": "Story
-   ",
+      "value": "Story",
     },
     {
       "end": 8237,
@@ -39110,7 +39100,7 @@ exports[`parser should match all AST snapshots: 429.mdx 1`] = `
         22,
       ],
       "start": 17,
-      "type": "data",
+      "type": "JSXText",
       "value": "Hello",
     },
     {
@@ -40015,11 +40005,11 @@ exports[`parser should match all AST snapshots: 435.mdx 1`] = `
       "value": "<",
     },
     {
-      "end": 9,
+      "end": 7,
       "loc": {
         "end": {
-          "column": 1,
-          "line": 2,
+          "column": 7,
+          "line": 1,
         },
         "start": {
           "column": 1,
@@ -40028,12 +40018,11 @@ exports[`parser should match all AST snapshots: 435.mdx 1`] = `
       },
       "range": [
         1,
-        9,
+        7,
       ],
       "start": 1,
       "type": "JSXIdentifier",
-      "value": "button
-	",
+      "value": "button",
     },
     {
       "end": 14,
@@ -40372,7 +40361,7 @@ exports[`parser should match all AST snapshots: 435.mdx 1`] = `
         78,
       ],
       "start": 73,
-      "type": "data",
+      "type": "JSXText",
       "value": "Hello",
     },
     {
@@ -42577,7 +42566,7 @@ exports[`parser should match all AST snapshots: 445.mdx 1`] = `
         114,
       ],
       "start": 101,
-      "type": "data",
+      "type": "JSXText",
       "value": "Hello World !",
     },
     {
@@ -45163,11 +45152,11 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       "value": "<",
     },
     {
-      "end": 113,
+      "end": 111,
       "loc": {
         "end": {
-          "column": 1,
-          "line": 10,
+          "column": 4,
+          "line": 9,
         },
         "start": {
           "column": 1,
@@ -45176,12 +45165,11 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       },
       "range": [
         108,
-        113,
+        111,
       ],
       "start": 108,
       "type": "JSXIdentifier",
-      "value": "img
- ",
+      "value": "img",
     },
     {
       "end": 117,
@@ -45364,11 +45352,11 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       "value": """",
     },
     {
-      "end": 193,
+      "end": 191,
       "loc": {
         "end": {
-          "column": 1,
-          "line": 14,
+          "column": 15,
+          "line": 13,
         },
         "start": {
           "column": 2,
@@ -45377,12 +45365,11 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       },
       "range": [
         178,
-        193,
+        191,
       ],
       "start": 178,
       "type": "JSXIdentifier",
-      "value": "aria-disabled
- ",
+      "value": "aria-disabled",
     },
     {
       "end": 203,
@@ -47232,11 +47219,11 @@ exports[`parser should match all AST snapshots: 488.mdx 1`] = `
       "value": "<",
     },
     {
-      "end": 8,
+      "end": 6,
       "loc": {
         "end": {
-          "column": 1,
-          "line": 2,
+          "column": 6,
+          "line": 1,
         },
         "start": {
           "column": 1,
@@ -47245,12 +47232,11 @@ exports[`parser should match all AST snapshots: 488.mdx 1`] = `
       },
       "range": [
         1,
-        8,
+        6,
       ],
       "start": 1,
       "type": "JSXIdentifier",
-      "value": "Image
- ",
+      "value": "Image",
     },
     {
       "end": 12,
@@ -50548,7 +50534,7 @@ npm i -g foo
         349,
       ],
       "start": 303,
-      "type": "data",
+      "type": "JSXText",
       "value": "hi                                            ",
     },
     {
@@ -52700,7 +52686,7 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
         43,
       ],
       "start": 17,
-      "type": "data",
+      "type": "JSXText",
       "value": "Cookie settings in Firefox",
     },
     {
@@ -52960,7 +52946,7 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
         166,
       ],
       "start": 135,
-      "type": "data",
+      "type": "JSXText",
       "value": "Cookie settings in Safari (iOS)",
     },
     {
@@ -53260,7 +53246,7 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
         236,
       ],
       "start": 232,
-      "type": "data",
+      "type": "JSXText",
       "value": "Text",
     },
     {
@@ -53380,7 +53366,7 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
         264,
       ],
       "start": 249,
-      "type": "data",
+      "type": "JSXText",
       "value": "Cookie settings",
     },
     {
@@ -57949,7 +57935,7 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
         171,
       ],
       "start": 166,
-      "type": "data",
+      "type": "JSXText",
       "value": "velit",
     },
     {
@@ -60583,11 +60569,11 @@ the installation guides.",
       "value": "<",
     },
     {
-      "end": 162,
+      "end": 160,
       "loc": {
         "end": {
-          "column": 1,
-          "line": 9,
+          "column": 4,
+          "line": 8,
         },
         "start": {
           "column": 1,
@@ -60596,12 +60582,11 @@ the installation guides.",
       },
       "range": [
         157,
-        162,
+        160,
       ],
       "start": 157,
       "type": "JSXIdentifier",
-      "value": "Box
- ",
+      "value": "Box",
     },
     {
       "end": 164,
@@ -61122,7 +61107,7 @@ the installation guides.",
         262,
       ],
       "start": 255,
-      "type": "data",
+      "type": "JSXText",
       "value": "Next.js",
     },
     {
@@ -61206,6 +61191,26 @@ the installation guides.",
       "value": ")",
     },
     {
+      "end": 287,
+      "loc": {
+        "end": {
+          "column": 33,
+          "line": 17,
+        },
+        "start": {
+          "column": 32,
+          "line": 17,
+        },
+      },
+      "range": [
+        286,
+        287,
+      ],
+      "start": 286,
+      "type": "JSXText",
+      "value": " ",
+    },
+    {
       "end": 288,
       "loc": {
         "end": {
@@ -61282,7 +61287,7 @@ the installation guides.",
         297,
       ],
       "start": 291,
-      "type": "data",
+      "type": "JSXText",
       "value": "Gatsby",
     },
     {
@@ -61366,6 +61371,26 @@ the installation guides.",
       "value": ")",
     },
     {
+      "end": 324,
+      "loc": {
+        "end": {
+          "column": 34,
+          "line": 18,
+        },
+        "start": {
+          "column": 33,
+          "line": 18,
+        },
+      },
+      "range": [
+        323,
+        324,
+      ],
+      "start": 323,
+      "type": "JSXText",
+      "value": " ",
+    },
+    {
       "end": 325,
       "loc": {
         "end": {
@@ -61442,7 +61467,7 @@ the installation guides.",
         344,
       ],
       "start": 328,
-      "type": "data",
+      "type": "JSXText",
       "value": "Create React App",
     },
     {
@@ -61526,6 +61551,26 @@ the installation guides.",
       "value": ")",
     },
     {
+      "end": 381,
+      "loc": {
+        "end": {
+          "column": 54,
+          "line": 19,
+        },
+        "start": {
+          "column": 53,
+          "line": 19,
+        },
+      },
+      "range": [
+        380,
+        381,
+      ],
+      "start": 380,
+      "type": "JSXText",
+      "value": " ",
+    },
+    {
       "end": 382,
       "loc": {
         "end": {
@@ -61602,7 +61647,7 @@ the installation guides.",
         397,
       ],
       "start": 385,
-      "type": "data",
+      "type": "JSXText",
       "value": "React Static",
     },
     {
@@ -61686,6 +61731,26 @@ the installation guides.",
       "value": ")",
     },
     {
+      "end": 430,
+      "loc": {
+        "end": {
+          "column": 46,
+          "line": 20,
+        },
+        "start": {
+          "column": 45,
+          "line": 20,
+        },
+      },
+      "range": [
+        429,
+        430,
+      ],
+      "start": 429,
+      "type": "JSXText",
+      "value": " ",
+    },
+    {
       "end": 431,
       "loc": {
         "end": {
@@ -61762,7 +61827,7 @@ the installation guides.",
         441,
       ],
       "start": 434,
-      "type": "data",
+      "type": "JSXText",
       "value": "Webpack",
     },
     {
@@ -61846,6 +61911,26 @@ the installation guides.",
       "value": ")",
     },
     {
+      "end": 469,
+      "loc": {
+        "end": {
+          "column": 36,
+          "line": 21,
+        },
+        "start": {
+          "column": 35,
+          "line": 21,
+        },
+      },
+      "range": [
+        468,
+        469,
+      ],
+      "start": 468,
+      "type": "JSXText",
+      "value": " ",
+    },
+    {
       "end": 470,
       "loc": {
         "end": {
@@ -61922,7 +62007,7 @@ the installation guides.",
         479,
       ],
       "start": 473,
-      "type": "data",
+      "type": "JSXText",
       "value": "Parcel",
     },
     {
@@ -62006,6 +62091,26 @@ the installation guides.",
       "value": ")",
     },
     {
+      "end": 506,
+      "loc": {
+        "end": {
+          "column": 34,
+          "line": 22,
+        },
+        "start": {
+          "column": 33,
+          "line": 22,
+        },
+      },
+      "range": [
+        505,
+        506,
+      ],
+      "start": 505,
+      "type": "JSXText",
+      "value": " ",
+    },
+    {
       "end": 507,
       "loc": {
         "end": {
@@ -62082,7 +62187,7 @@ the installation guides.",
         514,
       ],
       "start": 510,
-      "type": "data",
+      "type": "JSXText",
       "value": "Zero",
     },
     {
@@ -62542,7 +62647,7 @@ the installation guides.",
         686,
       ],
       "start": 653,
-      "type": "data",
+      "type": "JSXText",
       "value": "Here's a text gradient shortcode!",
     },
     {
@@ -63484,7 +63589,7 @@ text {value}
         45,
       ],
       "start": 40,
-      "type": "data",
+      "type": "JSXText",
       "value": "text ",
     },
     {
@@ -64664,7 +64769,7 @@ exports[`parser should match all AST snapshots: jsx-imports.mdx 1`] = `
         99,
       ],
       "start": 91,
-      "type": "data",
+      "type": "JSXText",
       "value": "Click me",
     },
     {
@@ -67225,7 +67330,7 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
         79,
       ],
       "start": 65,
-      "type": "data",
+      "type": "JSXText",
       "value": "Vuetify preset",
     },
     {
@@ -67545,7 +67650,7 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
         214,
       ],
       "start": 200,
-      "type": "data",
+      "type": "JSXText",
       "value": "Vuetify preset",
     },
     {
@@ -67865,7 +67970,7 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
         349,
       ],
       "start": 335,
-      "type": "data",
+      "type": "JSXText",
       "value": "Vuetify preset",
     },
     {
@@ -68205,7 +68310,7 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
         484,
       ],
       "start": 470,
-      "type": "data",
+      "type": "JSXText",
       "value": "Vuetify preset",
     },
     {
@@ -68525,7 +68630,7 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
         619,
       ],
       "start": 605,
-      "type": "data",
+      "type": "JSXText",
       "value": "Vuetify preset",
     },
     {
@@ -68845,7 +68950,7 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
         754,
       ],
       "start": 740,
-      "type": "data",
+      "type": "JSXText",
       "value": "Vuetify preset",
     },
     {
@@ -69500,7 +69605,7 @@ exports[`parser should match all AST snapshots: leading-spaces.mdx 1`] = `
         15,
       ],
       "start": 11,
-      "type": "data",
+      "type": "JSXText",
       "value": "test",
     },
     {
@@ -69660,7 +69765,7 @@ exports[`parser should match all AST snapshots: leading-spaces.mdx 1`] = `
         30,
       ],
       "start": 26,
-      "type": "data",
+      "type": "JSXText",
       "value": "test",
     },
     {
@@ -72010,7 +72115,7 @@ const value = 1
         272,
       ],
       "start": 269,
-      "type": "data",
+      "type": "JSXText",
       "value": "JSX",
     },
     {
@@ -72511,6 +72616,26 @@ exports[`parser should match all AST snapshots: mdx-flow-expression.mdx 1`] = `
       "start": 25,
       "type": "Identifier",
       "value": "value",
+    },
+    {
+      "end": 31,
+      "loc": {
+        "end": {
+          "column": 7,
+          "line": 3,
+        },
+        "start": {
+          "column": 6,
+          "line": 3,
+        },
+      },
+      "range": [
+        30,
+        31,
+      ],
+      "start": 30,
+      "type": "Punctuator",
+      "value": "}",
     },
   ],
   "type": "Program",
@@ -73577,6 +73702,26 @@ exports[`parser should match all AST snapshots: nested-flow-expression.mdx 1`] =
       "type": "Identifier",
       "value": "value2",
     },
+    {
+      "end": 29,
+      "loc": {
+        "end": {
+          "column": 10,
+          "line": 5,
+        },
+        "start": {
+          "column": 9,
+          "line": 5,
+        },
+      },
+      "range": [
+        28,
+        29,
+      ],
+      "start": 28,
+      "type": "Punctuator",
+      "value": "}",
+    },
   ],
   "type": "Program",
 }
@@ -74289,6 +74434,26 @@ Main <main> > </main>",
       "value": ">",
     },
     {
+      "end": 9,
+      "loc": {
+        "end": {
+          "column": 9,
+          "line": 1,
+        },
+        "start": {
+          "column": 8,
+          "line": 1,
+        },
+      },
+      "range": [
+        8,
+        9,
+      ],
+      "start": 8,
+      "type": "JSXText",
+      "value": " ",
+    },
+    {
       "end": 10,
       "loc": {
         "end": {
@@ -74505,7 +74670,7 @@ Main <main> > </main>",
         35,
       ],
       "start": 32,
-      "type": "data",
+      "type": "JSXText",
       "value": " > ",
     },
     {
@@ -74667,6 +74832,26 @@ Main <main> > </main>",
       "start": 58,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 60,
+      "loc": {
+        "end": {
+          "column": 16,
+          "line": 4,
+        },
+        "start": {
+          "column": 15,
+          "line": 4,
+        },
+      },
+      "range": [
+        59,
+        60,
+      ],
+      "start": 59,
+      "type": "JSXText",
+      "value": " ",
     },
     {
       "end": 61,
@@ -74905,7 +75090,7 @@ Main <main> > </main>",
         91,
       ],
       "start": 88,
-      "type": "data",
+      "type": "JSXText",
       "value": " > ",
     },
     {
@@ -75531,11 +75716,11 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
       "value": "<",
     },
     {
-      "end": 8,
+      "end": 6,
       "loc": {
         "end": {
-          "column": 1,
-          "line": 2,
+          "column": 6,
+          "line": 1,
         },
         "start": {
           "column": 1,
@@ -75544,19 +75729,18 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
       },
       "range": [
         1,
-        8,
+        6,
       ],
       "start": 1,
       "type": "JSXIdentifier",
-      "value": "Story
- ",
+      "value": "Story",
     },
     {
-      "end": 14,
+      "end": 12,
       "loc": {
         "end": {
-          "column": 1,
-          "line": 3,
+          "column": 5,
+          "line": 2,
         },
         "start": {
           "column": 2,
@@ -75565,12 +75749,11 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
       },
       "range": [
         9,
-        14,
+        12,
       ],
       "start": 9,
       "type": "JSXIdentifier",
-      "value": "abc
- ",
+      "value": "abc",
     },
     {
       "end": 16,
@@ -76007,7 +76190,7 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
         86,
       ],
       "start": 76,
-      "type": "data",
+      "type": "JSXText",
       "value": " Fragment ",
     },
     {
@@ -76520,6 +76703,28 @@ exports[`parser should match all AST snapshots: no-unused-expressions-esm.mdx 1`
       "start": 72,
       "type": "Punctuator",
       "value": ";",
+    },
+    {
+      "end": 75,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 6,
+          "offset": 75,
+        },
+        "start": {
+          "column": 0,
+          "line": 6,
+          "offset": 74,
+        },
+      },
+      "range": [
+        74,
+        75,
+      ],
+      "start": 74,
+      "type": "Punctuator",
+      "value": "}",
     },
   ],
   "type": "Program",
@@ -77855,6 +78060,26 @@ exports[`parser should match all AST snapshots: top-level-comment-expression.mdx
       "start": 27,
       "type": "Punctuator",
       "value": "{",
+    },
+    {
+      "end": 29,
+      "loc": {
+        "end": {
+          "column": 2,
+          "line": 3,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+        },
+      },
+      "range": [
+        28,
+        29,
+      ],
+      "start": 28,
+      "type": "Punctuator",
+      "value": "}",
     },
   ],
   "type": "Program",

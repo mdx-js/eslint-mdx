@@ -7838,7 +7838,6 @@ __metadata:
     espree: "npm:^9.6.1 || ^10.4.0 || ^11.2.0"
     estree-util-visit: "npm:^2.0.0"
     mdast-util-from-markdown: "npm:^2.1.0"
-    micromark-util-types: "npm:^2.0.3"
     remark-mdx: "npm:^3.1.1"
     remark-parse: "npm:^11.0.0"
     remark-stringify: "npm:^11.0.0"
@@ -7846,6 +7845,7 @@ __metadata:
     unified: "npm:^11.0.5"
     unified-engine: "npm:^11.2.2"
     unist-util-visit: "npm:^5.1.0"
+    unist-util-visit-parents: "npm:^6.0.0"
     vfile: "npm:^6.0.3"
   peerDependencies:
     "@types/estree": ^1.0.10

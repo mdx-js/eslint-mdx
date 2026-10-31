@@ -62,7 +62,6 @@
     "espree": "^9.6.1 || ^10.4.0 || ^11.2.0",
     "estree-util-visit": "^2.0.0",
     "mdast-util-from-markdown": "^2.1.0",
-    "micromark-util-types": "^2.0.3",
     "remark-mdx": "^3.1.1",
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0",
@@ -70,6 +69,7 @@
     "unified": "^11.0.5",
     "unified-engine": "^11.2.2",
     "unist-util-visit": "^5.1.0",
+    "unist-util-visit-parents": "^6.0.0",
     "vfile": "^6.0.3"
   },
   "publishConfig": {

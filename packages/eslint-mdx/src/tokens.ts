@@ -49,8 +49,35 @@ export const getTokens = (
   code: string,
   events: MicromarkEvent[],
   tt: Record<string, TokenType> & typeof tokTypes,
+  jsxTextStarts?: Set<number>,
 ): Token[] => {
   const tokens: Token[] = []
+  const lineStarts = [0]
+
+  for (const match of code.matchAll(/\n/g)) {
+    lineStarts.push(match.index + 1)
+  }
+
+  const getPoint = (offset: number) => {
+    let low = 0
+    let high = lineStarts.length - 1
+
+    while (low < high) {
+      const middle = Math.ceil((low + high) / 2)
+
+      if (lineStarts[middle] <= offset) {
+        low = middle
+      } else {
+        high = middle - 1
+      }
+    }
+
+    return {
+      line: low + 1,
+      column: offset - lineStarts[low] + 1,
+    }
+  }
+
   const stack: Array<{
     emitted: boolean
     end: number
@@ -68,10 +95,11 @@ export const getTokens = (
     end: number,
     startPoint: { line: number; column: number },
     endPoint: { line: number; column: number },
+    allowWhitespace = false,
   ) => {
     const value = code.slice(start, end)
 
-    if (!value.trim()) {
+    if (!allowWhitespace && !value.trim()) {
       return
     }
 
@@ -108,15 +136,13 @@ export const getTokens = (
         isMdx(type) &&
         (type.endsWith('TagName') || type.endsWith('TagAttributeName'))
       ) {
-        const trimmedEnd = end - (code[end - 1] === ' ' ? 1 : 0)
+        const trimmedEnd = start + code.slice(start, end).trimEnd().length
         pushToken(
           tt.jsxName,
           start,
           trimmedEnd,
           token.start,
-          trimmedEnd === end
-            ? token.end
-            : { line: token.end.line, column: token.end.column - 1 },
+          trimmedEnd === end ? token.end : getPoint(trimmedEnd),
         )
         emitted = true
       } else if (
@@ -159,7 +185,16 @@ export const getTokens = (
         )
         emitted = true
       } else if (!skip && type === 'data') {
-        pushToken(getTokenType(type), start, end, token.start, token.end)
+        const isJsxText = jsxTextStarts?.has(start) ?? false
+
+        pushToken(
+          isJsxText ? tt.jsxText : getTokenType(type),
+          start,
+          end,
+          token.start,
+          token.end,
+          isJsxText,
+        )
         emitted = true
       }
 

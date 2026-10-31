@@ -42,6 +42,7 @@ import { unified, type Processor } from 'unified'
 import type { ConfigResult } from 'unified-engine'
 import { Configuration } from 'unified-engine'
 import { visit } from 'unist-util-visit'
+import { visitParents } from 'unist-util-visit-parents'
 import { VFile, type VFileOptions } from 'vfile'
 import type { VFileMessage } from 'vfile-message'
 
@@ -405,7 +406,26 @@ runAsWorker(
       ],
     })
     const acornTokens = [...sharedTokens]
-    const markdownTokens = getTokens(code, events, tt)
+    const jsxTextStarts = new Set<number>()
+
+    visitParents(root, (node, ancestors) => {
+      if (
+        node.type === 'text' &&
+        ancestors.some(
+          ancestor =>
+            ancestor.type === 'mdxJsxFlowElement' ||
+            ancestor.type === 'mdxJsxTextElement',
+        )
+      ) {
+        const offset = node.position?.start.offset
+
+        if (offset != null) {
+          jsxTextStarts.add(offset)
+        }
+      }
+    })
+
+    const markdownTokens = getTokens(code, events, tt, jsxTextStarts)
 
     const body: Program['body'] = []
     const comments: Comment[] = []
@@ -1145,10 +1165,8 @@ runAsWorker(
         markdownToken =>
           !acornTokens.some(
             token =>
-              (token.start < markdownToken.end &&
-                token.end > markdownToken.start) ||
-              (token.start === markdownToken.start &&
-                token.end === markdownToken.end),
+              token.start < markdownToken.end &&
+              token.end > markdownToken.start,
           ),
       ),
     ]
@@ -1164,6 +1182,20 @@ runAsWorker(
       })
       .sort((a, b) => a.start - b.start)
 
+    tokensWithMarkdown.push({
+      type: tt.eof,
+      value: '',
+      start: code.length,
+      end: code.length,
+      range: [code.length, code.length],
+      loc: {
+        start: { line: 0, column: 0 },
+        end: { line: 0, column: 0 },
+      },
+    })
+
+    const tokenTypes = new Set(Object.values(tt))
+
     for (const token of tokensWithMarkdown) {
       const tokenStart = tokens.length
       tokenTranslator.onToken(token, {
@@ -1173,10 +1205,7 @@ runAsWorker(
 
       const sourceType = token.type
 
-      if (
-        typeof sourceType !== 'string' &&
-        !Object.values(tt).includes(sourceType)
-      ) {
+      if (typeof sourceType !== 'string' && !tokenTypes.has(sourceType)) {
         for (let index = tokenStart; index < tokens.length; index++) {
           const translatedToken = tokens[index]
 
