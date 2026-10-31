@@ -60,7 +60,7 @@ export const getTokens = (
   code: string,
   events: MicromarkEvent[],
   tt: Record<string, TokenType> & typeof tokTypes,
-  jsxTextRanges?: JsxTextRange[],
+  jsxTextRanges: JsxTextRange[] = [],
 ): Token[] => {
   const tokens: Token[] = []
   const stack: Array<{
@@ -173,10 +173,9 @@ export const getTokens = (
         )
         emitted = true
       } else if (!skip && type === 'data') {
-        const isJsxText =
-          jsxTextRanges?.some(
-            range => range.start <= start && range.end >= end,
-          ) ?? false
+        const isJsxText = jsxTextRanges.some(
+          range => range.start <= start && range.end >= end,
+        )
 
         if (!isJsxText) {
           pushToken(getTokenType(type), start, end, token.start, token.end)
@@ -227,7 +226,7 @@ export const getTokens = (
     line: point.line,
   })
 
-  for (const range of jsxTextRanges || []) {
+  for (const range of jsxTextRanges) {
     let cursor = range.start
     let cursorPoint = range.startPoint
 
