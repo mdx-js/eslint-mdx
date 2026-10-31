@@ -16,7 +16,6 @@ export const overrides: Linter.LegacyConfig = {
   ...base,
   globals: {
     React: false,
-    props: false,
   },
   plugins: arrayify<string[] | string | null>(
     base.plugins,

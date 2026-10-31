@@ -22,12 +22,25 @@ describe('#574', () => {
     expect(messages).toEqual([])
   })
 
-  it('exposes props in both config variants', () => {
-    expect(mdx.configs.flat.languageOptions.globals).toMatchObject({
-      props: false,
-    })
-    expect(mdx.configs.overrides.globals).toMatchObject({
-      props: false,
-    })
+  it('does not treat props as defined in MDX ESM', () => {
+    const messages = linter.verify(
+      'export const foo = props.bar\n',
+      [
+        mdx.configs.flat,
+        {
+          rules: {
+            'no-undef': 'error',
+          },
+        },
+      ],
+      { filename: 'test.mdx' },
+    )
+
+    expect(messages).toEqual([
+      expect.objectContaining({
+        message: "'props' is not defined.",
+        ruleId: 'no-undef',
+      }),
+    ])
   })
 })

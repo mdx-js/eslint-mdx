@@ -1,6 +1,7 @@
 import path from 'node:path'
 
 import type { Linter } from 'eslint'
+import { analyze } from 'eslint-scope'
 import { KEYS } from 'eslint-visitor-keys'
 import type { VFileMessage } from 'vfile-message'
 
@@ -80,48 +81,82 @@ export class Parser {
 
     const { root, body, comments, tokens } = result
 
+    const visitorKeys: Record<string, string[]> = {
+      ...KEYS,
+      MDBlockquote: ['children'],
+      MDBreak: [],
+      MDCode: [],
+      MDDefinition: [],
+      MDDelete: ['children'],
+      MDEmphasis: ['children'],
+      MDFootnoteDefinition: ['children'],
+      MDFootnoteReference: [],
+      MDHeading: ['children'],
+      MDImage: [],
+      MDImageReference: [],
+      MDInlineCode: [],
+      MDInlineMath: [],
+      MDLink: ['children'],
+      MDLinkReference: ['children'],
+      MDList: ['children'],
+      MDListItem: ['children'],
+      MDMath: [],
+      MDParagraph: ['children'],
+      MDStrong: ['children'],
+      MDTable: ['children'],
+      MDTableCell: ['children'],
+      MDTableRow: ['children'],
+      MDText: [],
+      MDThematicBreak: [],
+      MDToml: [],
+      MDXFlowExpression: ['expression'],
+      MDXTextExpression: ['expression'],
+      MDYaml: [],
+    }
+
+    const ast = {
+      ...normalizePosition(root.position),
+      type: 'Program' as const,
+      sourceType,
+      body,
+      comments,
+      tokens,
+    } as Linter.ESLintParseResult['ast']
+
+    const scopeManager = analyze(ast, {
+      childVisitorKeys: visitorKeys,
+      ecmaVersion: 2024,
+      ignoreEval: true,
+      jsx: true,
+      sourceType: sourceType || 'module',
+    })
+    const esmRanges = body
+      .filter(
+        node =>
+          node.type === 'ImportDeclaration' ||
+          node.type === 'ExportAllDeclaration' ||
+          node.type === 'ExportDefaultDeclaration' ||
+          node.type === 'ExportNamedDeclaration',
+      )
+      .map(node => node.range)
+      .filter(Boolean)
+
+    const globalScope = scopeManager.globalScope
+
+    globalScope.through = globalScope.through.filter(
+      reference =>
+        reference.identifier.name !== 'props' ||
+        esmRanges.some(
+          range =>
+            reference.identifier.range[0] >= range[0] &&
+            reference.identifier.range[1] <= range[1],
+        ),
+    )
+
     return {
-      ast: {
-        ...normalizePosition(root.position),
-        type: 'Program',
-        // @ts-expect-error -- should we change?
-        sourceType,
-        body,
-        comments,
-        tokens,
-      },
-      visitorKeys: {
-        ...KEYS,
-        MDBlockquote: ['children'],
-        MDBreak: [],
-        MDCode: [],
-        MDDefinition: [],
-        MDDelete: ['children'],
-        MDEmphasis: ['children'],
-        MDFootnoteDefinition: ['children'],
-        MDFootnoteReference: [],
-        MDHeading: ['children'],
-        MDImage: [],
-        MDImageReference: [],
-        MDInlineCode: [],
-        MDInlineMath: [],
-        MDLink: ['children'],
-        MDLinkReference: ['children'],
-        MDList: ['children'],
-        MDListItem: ['children'],
-        MDMath: [],
-        MDParagraph: ['children'],
-        MDStrong: ['children'],
-        MDTable: ['children'],
-        MDTableCell: ['children'],
-        MDTableRow: ['children'],
-        MDText: [],
-        MDThematicBreak: [],
-        MDToml: [],
-        MDXFlowExpression: ['expression'],
-        MDXTextExpression: ['expression'],
-        MDYaml: [],
-      },
+      ast,
+      scopeManager,
+      visitorKeys,
     }
   }
 }

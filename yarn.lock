@@ -7834,6 +7834,7 @@ __metadata:
     acorn: "npm:^8.19.0"
     acorn-jsx: "npm:^5.3.2"
     devlop: "npm:^1.1.0"
+    eslint-scope: "npm:^9.1.2"
     eslint-visitor-keys: "npm:^4.2.0"
     espree: "npm:^9.6.1 || ^10.4.0 || ^11.2.0"
     estree-util-visit: "npm:^2.0.0"
