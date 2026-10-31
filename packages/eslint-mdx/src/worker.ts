@@ -1186,7 +1186,8 @@ runAsWorker(
             translatedToken.range[0] === token.start &&
             translatedToken.range[1] === token.end
           ) {
-            translatedToken.type = sourceType.label as AST.Token['type']
+            // @ts-expect-error -- TokenTypeMap labels are still widened to string
+            translatedToken.type = sourceType.label
           }
         }
       }
