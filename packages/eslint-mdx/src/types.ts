@@ -270,6 +270,15 @@ export type MDContentNode =
   | MDXTextExpression
   | MDYaml
 
+declare module 'eslint' {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace AST {
+    interface Token {
+      micromarkType?: string
+    }
+  }
+}
+
 declare module 'acorn' {
   interface Token {
     value?: string

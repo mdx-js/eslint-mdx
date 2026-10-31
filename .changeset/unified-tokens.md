@@ -9,3 +9,6 @@ used for the mdast tree, map them to ESLint-compatible token types, and merge
 them with acorn's JavaScript tokens.
 This removes the hand-written `restoreTokens` logic and keeps token ranges
 aligned across markdown, JSX, expressions and ESM.
+
+Token `type` values stay compatible with ESLint's standard token types; the
+original micromark label is exposed as `token.micromarkType`.

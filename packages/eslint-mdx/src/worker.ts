@@ -409,7 +409,11 @@ runAsWorker(
 
     const body: Program['body'] = []
     const comments: Comment[] = []
-    const tokens: AST.Token[] = []
+    type TokenWithLabel = Omit<AST.Token, 'type'> & {
+      type: string | { label: string }
+    }
+
+    const tokens: TokenWithLabel[] = []
 
     if (isMdx) {
       const prevCharOffset = prevCharOffsetFactory(code)
@@ -1171,19 +1175,33 @@ runAsWorker(
       })
     }
 
-    for (const token of tokens) {
-      const type: unknown = token.type
+    const normalizedTokens = tokens.map(token => {
+      const label =
+        typeof token.type === 'string' ? token.type : token.type.label
+      let type = label
 
-      if (type && typeof type === 'object' && 'label' in type) {
-        Object.assign(token, { type: type.label })
+      if (token.micromarkType) {
+        type = [
+          'data',
+          'codeFlowValue',
+          'htmlFlowData',
+          'htmlTextData',
+        ].includes(token.micromarkType)
+          ? 'JSXText'
+          : 'Punctuator'
       }
-    }
+
+      return {
+        ...token,
+        type: type as AST.Token['type'],
+      }
+    })
 
     return {
       root,
       body,
       comments,
-      tokens,
+      tokens: normalizedTokens,
     }
   },
 )

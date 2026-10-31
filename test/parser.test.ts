@@ -163,13 +163,13 @@ describe('parser', () => {
       DEFAULT_PARSER_OPTIONS,
     )
 
-    expect(tokens.find(token => token.value === '#')?.type).toBe(
+    expect(tokens.find(token => token.value === '#')?.micromarkType).toBe(
       'atxHeadingSequence',
     )
-    expect(tokens.find(token => token.value === '-')?.type).toBe(
+    expect(tokens.find(token => token.value === '-')?.micromarkType).toBe(
       'listItemMarker',
     )
-    expect(tokens.find(token => token.value === '**')?.type).toBe(
+    expect(tokens.find(token => token.value === '**')?.micromarkType).toBe(
       'strongSequence',
     )
   })
