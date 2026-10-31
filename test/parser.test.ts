@@ -163,22 +163,48 @@ describe('parser', () => {
       DEFAULT_PARSER_OPTIONS,
     )
 
-    expect(
-      gapTokens
-        .filter(token => token.type === 'JSXText')
-        .map(token => token.value),
-    ).toEqual(['\n  ', '\n  ', '\n'])
+    const gapTextTokens = gapTokens.filter(token => token.type === 'JSXText')
+
+    expect(gapTextTokens.map(token => token.value)).toEqual([
+      '\n  ',
+      '\n  ',
+      '\n',
+    ])
+    expect(gapTextTokens.map(token => token.loc)).toEqual([
+      {
+        start: { column: 5, line: 1 },
+        end: { column: 2, line: 2 },
+      },
+      {
+        start: { column: 7, line: 2 },
+        end: { column: 2, line: 3 },
+      },
+      {
+        start: { column: 7, line: 3 },
+        end: { column: 0, line: 4 },
+      },
+    ])
 
     const { tokens: entityTokens } = parser.parse(
       '<Box>a &amp; b</Box>\n',
       DEFAULT_PARSER_OPTIONS,
     )
 
-    expect(
-      entityTokens
-        .filter(token => token.type === 'JSXText')
-        .map(token => token.value),
-    ).toEqual(['a ', ' b'])
+    const entityTextTokens = entityTokens.filter(
+      token => token.type === 'JSXText',
+    )
+
+    expect(entityTextTokens.map(token => token.value)).toEqual(['a ', ' b'])
+    expect(entityTextTokens.map(token => token.loc)).toEqual([
+      {
+        start: { column: 5, line: 1 },
+        end: { column: 7, line: 1 },
+      },
+      {
+        start: { column: 12, line: 1 },
+        end: { column: 14, line: 1 },
+      },
+    ])
   })
 
   it('should expose micromark token types for markdown markers', () => {

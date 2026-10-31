@@ -222,6 +222,11 @@ export const getTokens = (
 
   const sortedTokens = [...tokens].sort((a, b) => a.start - b.start)
 
+  const toSourcePoint = (point: { column: number; line: number }) => ({
+    column: point.column + 1,
+    line: point.line,
+  })
+
   for (const range of jsxTextRanges || []) {
     let cursor = range.start
     let cursorPoint = range.startPoint
@@ -237,14 +242,14 @@ export const getTokens = (
           cursor,
           token.start,
           cursorPoint,
-          token.loc.start,
+          toSourcePoint(token.loc.start),
           true,
         )
       }
 
       if (token.end > cursor) {
         cursor = token.end
-        cursorPoint = token.loc.end
+        cursorPoint = toSourcePoint(token.loc.end)
       }
     }
 

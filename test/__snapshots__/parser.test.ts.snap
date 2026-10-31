@@ -2206,11 +2206,11 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
       "end": 121,
       "loc": {
         "end": {
-          "column": 5,
+          "column": 6,
           "line": 6,
         },
         "start": {
-          "column": 57,
+          "column": 58,
           "line": 5,
         },
       },
@@ -2247,11 +2247,11 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
       "end": 140,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 7,
         },
         "start": {
-          "column": 19,
+          "column": 20,
           "line": 6,
         },
       },
@@ -2681,11 +2681,11 @@ module.exports = {
       "end": 8,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 2,
         },
         "start": {
-          "column": 4,
+          "column": 5,
           "line": 1,
         },
       },
@@ -2782,11 +2782,11 @@ module.exports = {
       "end": 16,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 3,
         },
         "start": {
-          "column": 8,
+          "column": 9,
           "line": 2,
         },
       },
@@ -3806,11 +3806,11 @@ function foo() {
       "end": 53,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 8,
         },
         "start": {
-          "column": 4,
+          "column": 5,
           "line": 7,
         },
       },
@@ -3987,11 +3987,11 @@ function foo() {
       "end": 68,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 10,
         },
         "start": {
-          "column": 12,
+          "column": 13,
           "line": 8,
         },
       },
@@ -4169,11 +4169,11 @@ function foo() {
       "end": 80,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 11,
         },
         "start": {
-          "column": 12,
+          "column": 13,
           "line": 10,
         },
       },
@@ -4608,11 +4608,11 @@ function foo() {
       "end": 24,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 5,
         },
         "start": {
-          "column": 4,
+          "column": 5,
           "line": 3,
         },
       },
@@ -4750,11 +4750,11 @@ function foo() {
       "end": 68,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 11,
         },
         "start": {
-          "column": 2,
+          "column": 3,
           "line": 9,
         },
       },
@@ -23437,11 +23437,11 @@ interface TabChangeEvent {
       "end": 813,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 44,
         },
         "start": {
-          "column": 7,
+          "column": 8,
           "line": 43,
         },
       },
@@ -23638,11 +23638,11 @@ interface TabChangeEvent {
       "end": 864,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 48,
         },
         "start": {
-          "column": 2,
+          "column": 3,
           "line": 47,
         },
       },
@@ -24050,11 +24050,11 @@ interface TabChangeEvent {
       "end": 1448,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 75,
         },
         "start": {
-          "column": 5,
+          "column": 6,
           "line": 74,
         },
       },
@@ -24151,11 +24151,11 @@ interface TabChangeEvent {
       "end": 1457,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 76,
         },
         "start": {
-          "column": 9,
+          "column": 10,
           "line": 75,
         },
       },
@@ -24352,11 +24352,11 @@ interface TabChangeEvent {
       "end": 1488,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 81,
         },
         "start": {
-          "column": 7,
+          "column": 8,
           "line": 80,
         },
       },
@@ -24553,11 +24553,11 @@ interface TabChangeEvent {
       "end": 1538,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 85,
         },
         "start": {
-          "column": 2,
+          "column": 3,
           "line": 84,
         },
       },
@@ -24994,11 +24994,11 @@ interface TabChangeEvent {
       "end": 1931,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 97,
         },
         "start": {
-          "column": 5,
+          "column": 6,
           "line": 96,
         },
       },
@@ -25095,11 +25095,11 @@ interface TabChangeEvent {
       "end": 1940,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 98,
         },
         "start": {
-          "column": 9,
+          "column": 10,
           "line": 97,
         },
       },
@@ -25296,11 +25296,11 @@ interface TabChangeEvent {
       "end": 1971,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 103,
         },
         "start": {
-          "column": 7,
+          "column": 8,
           "line": 102,
         },
       },
@@ -25497,11 +25497,11 @@ interface TabChangeEvent {
       "end": 2021,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 107,
         },
         "start": {
-          "column": 2,
+          "column": 3,
           "line": 106,
         },
       },
@@ -25950,11 +25950,11 @@ interface TabChangeEvent {
       "end": 2864,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 131,
         },
         "start": {
-          "column": 5,
+          "column": 6,
           "line": 130,
         },
       },
@@ -26051,11 +26051,11 @@ interface TabChangeEvent {
       "end": 2873,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 132,
         },
         "start": {
-          "column": 9,
+          "column": 10,
           "line": 131,
         },
       },
@@ -26252,11 +26252,11 @@ interface TabChangeEvent {
       "end": 2909,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 137,
         },
         "start": {
-          "column": 7,
+          "column": 8,
           "line": 136,
         },
       },
@@ -26453,11 +26453,11 @@ interface TabChangeEvent {
       "end": 2966,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 141,
         },
         "start": {
-          "column": 2,
+          "column": 3,
           "line": 140,
         },
       },
@@ -27147,11 +27147,11 @@ interface TabChangeEvent {
       "end": 3674,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 164,
         },
         "start": {
-          "column": 5,
+          "column": 6,
           "line": 163,
         },
       },
@@ -27248,11 +27248,11 @@ interface TabChangeEvent {
       "end": 3683,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 165,
         },
         "start": {
-          "column": 9,
+          "column": 10,
           "line": 164,
         },
       },
@@ -27489,11 +27489,11 @@ interface TabChangeEvent {
       "end": 3739,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 172,
         },
         "start": {
-          "column": 7,
+          "column": 8,
           "line": 171,
         },
       },
@@ -27690,11 +27690,11 @@ interface TabChangeEvent {
       "end": 3793,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 176,
         },
         "start": {
-          "column": 2,
+          "column": 3,
           "line": 175,
         },
       },
@@ -29949,11 +29949,11 @@ interface TabChangeEvent {
       "end": 4739,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 212,
         },
         "start": {
-          "column": 5,
+          "column": 6,
           "line": 211,
         },
       },
@@ -30050,11 +30050,11 @@ interface TabChangeEvent {
       "end": 4748,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 213,
         },
         "start": {
-          "column": 9,
+          "column": 10,
           "line": 212,
         },
       },
@@ -30251,11 +30251,11 @@ interface TabChangeEvent {
       "end": 4777,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 218,
         },
         "start": {
-          "column": 7,
+          "column": 8,
           "line": 217,
         },
       },
@@ -30452,11 +30452,11 @@ interface TabChangeEvent {
       "end": 4831,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 222,
         },
         "start": {
-          "column": 2,
+          "column": 3,
           "line": 221,
         },
       },
@@ -31144,11 +31144,11 @@ interface TabChangeEvent {
       "end": 5441,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 243,
         },
         "start": {
-          "column": 5,
+          "column": 6,
           "line": 242,
         },
       },
@@ -31245,11 +31245,11 @@ interface TabChangeEvent {
       "end": 5450,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 244,
         },
         "start": {
-          "column": 9,
+          "column": 10,
           "line": 243,
         },
       },
@@ -31566,11 +31566,11 @@ interface TabChangeEvent {
       "end": 5570,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 251,
         },
         "start": {
-          "column": 7,
+          "column": 8,
           "line": 250,
         },
       },
@@ -31767,11 +31767,11 @@ interface TabChangeEvent {
       "end": 5620,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 255,
         },
         "start": {
-          "column": 2,
+          "column": 3,
           "line": 254,
         },
       },
@@ -32561,11 +32561,11 @@ interface TabChangeEvent {
       "end": 6739,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 291,
         },
         "start": {
-          "column": 5,
+          "column": 6,
           "line": 290,
         },
       },
@@ -32662,11 +32662,11 @@ interface TabChangeEvent {
       "end": 6748,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 292,
         },
         "start": {
-          "column": 9,
+          "column": 10,
           "line": 291,
         },
       },
@@ -32863,11 +32863,11 @@ interface TabChangeEvent {
       "end": 6781,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 297,
         },
         "start": {
-          "column": 7,
+          "column": 8,
           "line": 296,
         },
       },
@@ -33064,11 +33064,11 @@ interface TabChangeEvent {
       "end": 6831,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 301,
         },
         "start": {
-          "column": 2,
+          "column": 3,
           "line": 300,
         },
       },
@@ -33488,11 +33488,11 @@ interface TabChangeEvent {
       "end": 8177,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 340,
         },
         "start": {
-          "column": 5,
+          "column": 6,
           "line": 339,
         },
       },
@@ -33589,11 +33589,11 @@ interface TabChangeEvent {
       "end": 8186,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 341,
         },
         "start": {
-          "column": 9,
+          "column": 10,
           "line": 340,
         },
       },
@@ -33790,11 +33790,11 @@ interface TabChangeEvent {
       "end": 8222,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 346,
         },
         "start": {
-          "column": 7,
+          "column": 8,
           "line": 345,
         },
       },
@@ -33991,11 +33991,11 @@ interface TabChangeEvent {
       "end": 8273,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 350,
         },
         "start": {
-          "column": 2,
+          "column": 3,
           "line": 349,
         },
       },
@@ -34192,11 +34192,11 @@ interface TabChangeEvent {
       "end": 8749,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 361,
         },
         "start": {
-          "column": 5,
+          "column": 6,
           "line": 360,
         },
       },
@@ -34293,11 +34293,11 @@ interface TabChangeEvent {
       "end": 8758,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 362,
         },
         "start": {
-          "column": 9,
+          "column": 10,
           "line": 361,
         },
       },
@@ -41296,11 +41296,11 @@ exports[`parser should match all AST snapshots: 435.mdx 1`] = `
       "end": 73,
       "loc": {
         "end": {
-          "column": 0,
+          "column": 1,
           "line": 7,
         },
         "start": {
-          "column": 0,
+          "column": 1,
           "line": 6,
         },
       },
@@ -41337,11 +41337,11 @@ exports[`parser should match all AST snapshots: 435.mdx 1`] = `
       "end": 79,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 8,
         },
         "start": {
-          "column": 5,
+          "column": 6,
           "line": 7,
         },
       },
@@ -43483,11 +43483,11 @@ exports[`parser should match all AST snapshots: 445.mdx 1`] = `
       "end": 79,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 4,
         },
         "start": {
-          "column": 24,
+          "column": 25,
           "line": 3,
         },
       },
@@ -43664,11 +43664,11 @@ exports[`parser should match all AST snapshots: 445.mdx 1`] = `
       "end": 138,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 5,
         },
         "start": {
-          "column": 59,
+          "column": 60,
           "line": 4,
         },
       },
@@ -51493,11 +51493,11 @@ npm i -g foo
       "end": 298,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 20,
         },
         "start": {
-          "column": 13,
+          "column": 14,
           "line": 19,
         },
       },
@@ -51674,11 +51674,11 @@ npm i -g foo
       "end": 359,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 22,
         },
         "start": {
-          "column": 60,
+          "column": 61,
           "line": 20,
         },
       },
@@ -51758,11 +51758,11 @@ npm i -g foo
       "end": 379,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 24,
         },
         "start": {
-          "column": 17,
+          "column": 18,
           "line": 22,
         },
       },
@@ -51820,11 +51820,11 @@ npm i -g foo
       "end": 408,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 25,
         },
         "start": {
-          "column": 29,
+          "column": 30,
           "line": 24,
         },
       },
@@ -53711,11 +53711,11 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "end": 7,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 2,
         },
         "start": {
-          "column": 3,
+          "column": 4,
           "line": 1,
         },
       },
@@ -53792,11 +53792,11 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "end": 16,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 3,
         },
         "start": {
-          "column": 5,
+          "column": 6,
           "line": 2,
         },
       },
@@ -53933,11 +53933,11 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "end": 122,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 4,
         },
         "start": {
-          "column": 106,
+          "column": 107,
           "line": 3,
         },
       },
@@ -54034,11 +54034,11 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "end": 130,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 5,
         },
         "start": {
-          "column": 6,
+          "column": 7,
           "line": 4,
         },
       },
@@ -54315,11 +54315,11 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "end": 217,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 6,
         },
         "start": {
-          "column": 85,
+          "column": 86,
           "line": 5,
         },
       },
@@ -54396,11 +54396,11 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "end": 226,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 7,
         },
         "start": {
-          "column": 5,
+          "column": 6,
           "line": 6,
         },
       },
@@ -54718,11 +54718,11 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "end": 289,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 9,
         },
         "start": {
-          "column": 41,
+          "column": 42,
           "line": 8,
         },
       },
@@ -54819,11 +54819,11 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "end": 295,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 10,
         },
         "start": {
-          "column": 6,
+          "column": 7,
           "line": 9,
         },
       },
@@ -62381,11 +62381,11 @@ the installation guides.",
       "end": 254,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 17,
         },
         "start": {
-          "column": 0,
+          "column": 1,
           "line": 15,
         },
       },
@@ -62523,7 +62523,7 @@ the installation guides.",
       "end": 287,
       "loc": {
         "end": {
-          "column": 32,
+          "column": 33,
           "line": 17,
         },
         "start": {
@@ -62587,7 +62587,7 @@ the installation guides.",
           "line": 18,
         },
         "start": {
-          "column": 34,
+          "column": 35,
           "line": 17,
         },
       },
@@ -62724,7 +62724,7 @@ the installation guides.",
       "end": 324,
       "loc": {
         "end": {
-          "column": 33,
+          "column": 34,
           "line": 18,
         },
         "start": {
@@ -62788,7 +62788,7 @@ the installation guides.",
           "line": 19,
         },
         "start": {
-          "column": 35,
+          "column": 36,
           "line": 18,
         },
       },
@@ -62925,7 +62925,7 @@ the installation guides.",
       "end": 381,
       "loc": {
         "end": {
-          "column": 53,
+          "column": 54,
           "line": 19,
         },
         "start": {
@@ -62989,7 +62989,7 @@ the installation guides.",
           "line": 20,
         },
         "start": {
-          "column": 55,
+          "column": 56,
           "line": 19,
         },
       },
@@ -63126,7 +63126,7 @@ the installation guides.",
       "end": 430,
       "loc": {
         "end": {
-          "column": 45,
+          "column": 46,
           "line": 20,
         },
         "start": {
@@ -63190,7 +63190,7 @@ the installation guides.",
           "line": 21,
         },
         "start": {
-          "column": 47,
+          "column": 48,
           "line": 20,
         },
       },
@@ -63327,7 +63327,7 @@ the installation guides.",
       "end": 469,
       "loc": {
         "end": {
-          "column": 35,
+          "column": 36,
           "line": 21,
         },
         "start": {
@@ -63391,7 +63391,7 @@ the installation guides.",
           "line": 22,
         },
         "start": {
-          "column": 37,
+          "column": 38,
           "line": 21,
         },
       },
@@ -63528,7 +63528,7 @@ the installation guides.",
       "end": 506,
       "loc": {
         "end": {
-          "column": 33,
+          "column": 34,
           "line": 22,
         },
         "start": {
@@ -63592,7 +63592,7 @@ the installation guides.",
           "line": 23,
         },
         "start": {
-          "column": 35,
+          "column": 36,
           "line": 22,
         },
       },
@@ -63729,11 +63729,11 @@ the installation guides.",
       "end": 540,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 25,
         },
         "start": {
-          "column": 28,
+          "column": 29,
           "line": 23,
         },
       },
@@ -64091,11 +64091,11 @@ the installation guides.",
       "end": 651,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 35,
         },
         "start": {
-          "column": 13,
+          "column": 14,
           "line": 33,
         },
       },
@@ -64153,11 +64153,11 @@ the installation guides.",
       "end": 688,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 37,
         },
         "start": {
-          "column": 34,
+          "column": 35,
           "line": 35,
         },
       },
@@ -65035,11 +65035,11 @@ text {value}
       "end": 31,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 5,
         },
         "start": {
-          "column": 4,
+          "column": 5,
           "line": 3,
         },
       },
@@ -65119,11 +65119,11 @@ text {value}
       "end": 40,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 7,
         },
         "start": {
-          "column": 6,
+          "column": 7,
           "line": 5,
         },
       },
@@ -65223,11 +65223,11 @@ text {value}
       "end": 54,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 9,
         },
         "start": {
-          "column": 11,
+          "column": 12,
           "line": 7,
         },
       },
@@ -65285,11 +65285,11 @@ text {value}
       "end": 71,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 11,
         },
         "start": {
-          "column": 14,
+          "column": 15,
           "line": 9,
         },
       },
@@ -66305,11 +66305,11 @@ exports[`parser should match all AST snapshots: jsx-imports.mdx 1`] = `
       "end": 83,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 7,
         },
         "start": {
-          "column": 5,
+          "column": 6,
           "line": 6,
         },
       },
@@ -66486,11 +66486,11 @@ exports[`parser should match all AST snapshots: jsx-imports.mdx 1`] = `
       "end": 109,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 8,
         },
         "start": {
-          "column": 26,
+          "column": 27,
           "line": 7,
         },
       },
@@ -68968,11 +68968,11 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "end": 65,
       "loc": {
         "end": {
-          "column": 5,
+          "column": 6,
           "line": 2,
         },
         "start": {
-          "column": 57,
+          "column": 58,
           "line": 1,
         },
       },
@@ -69009,11 +69009,11 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "end": 84,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 3,
         },
         "start": {
-          "column": 19,
+          "column": 20,
           "line": 2,
         },
       },
@@ -69330,11 +69330,11 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "end": 200,
       "loc": {
         "end": {
-          "column": 5,
+          "column": 6,
           "line": 6,
         },
         "start": {
-          "column": 57,
+          "column": 58,
           "line": 5,
         },
       },
@@ -69371,11 +69371,11 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "end": 219,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 7,
         },
         "start": {
-          "column": 19,
+          "column": 20,
           "line": 6,
         },
       },
@@ -69692,11 +69692,11 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "end": 335,
       "loc": {
         "end": {
-          "column": 5,
+          "column": 6,
           "line": 10,
         },
         "start": {
-          "column": 57,
+          "column": 58,
           "line": 9,
         },
       },
@@ -69733,11 +69733,11 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "end": 354,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 11,
         },
         "start": {
-          "column": 19,
+          "column": 20,
           "line": 10,
         },
       },
@@ -70074,11 +70074,11 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "end": 470,
       "loc": {
         "end": {
-          "column": 5,
+          "column": 6,
           "line": 14,
         },
         "start": {
-          "column": 57,
+          "column": 58,
           "line": 13,
         },
       },
@@ -70115,11 +70115,11 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "end": 489,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 15,
         },
         "start": {
-          "column": 19,
+          "column": 20,
           "line": 14,
         },
       },
@@ -70436,11 +70436,11 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "end": 605,
       "loc": {
         "end": {
-          "column": 5,
+          "column": 6,
           "line": 18,
         },
         "start": {
-          "column": 57,
+          "column": 58,
           "line": 17,
         },
       },
@@ -70477,11 +70477,11 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "end": 624,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 19,
         },
         "start": {
-          "column": 19,
+          "column": 20,
           "line": 18,
         },
       },
@@ -70798,11 +70798,11 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "end": 740,
       "loc": {
         "end": {
-          "column": 5,
+          "column": 6,
           "line": 22,
         },
         "start": {
-          "column": 57,
+          "column": 58,
           "line": 21,
         },
       },
@@ -70839,11 +70839,11 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "end": 759,
       "loc": {
         "end": {
-          "column": 3,
+          "column": 4,
           "line": 23,
         },
         "start": {
-          "column": 19,
+          "column": 20,
           "line": 22,
         },
       },
@@ -71435,11 +71435,11 @@ exports[`parser should match all AST snapshots: leading-spaces.mdx 1`] = `
       "end": 8,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 2,
         },
         "start": {
-          "column": 4,
+          "column": 5,
           "line": 1,
         },
       },
@@ -71616,11 +71616,11 @@ exports[`parser should match all AST snapshots: leading-spaces.mdx 1`] = `
       "end": 23,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 4,
         },
         "start": {
-          "column": 12,
+          "column": 13,
           "line": 2,
         },
       },
@@ -71798,11 +71798,11 @@ exports[`parser should match all AST snapshots: leading-spaces.mdx 1`] = `
       "end": 35,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 5,
         },
         "start": {
-          "column": 12,
+          "column": 13,
           "line": 4,
         },
       },
@@ -74009,11 +74009,11 @@ const value = 1
       "end": 263,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 20,
         },
         "start": {
-          "column": 4,
+          "column": 5,
           "line": 19,
         },
       },
@@ -74190,11 +74190,11 @@ const value = 1
       "end": 280,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 21,
         },
         "start": {
-          "column": 17,
+          "column": 18,
           "line": 20,
         },
       },
@@ -76446,7 +76446,7 @@ Main <main> > </main>",
       "end": 9,
       "loc": {
         "end": {
-          "column": 8,
+          "column": 9,
           "line": 1,
         },
         "start": {
@@ -76530,7 +76530,7 @@ Main <main> > </main>",
           "line": 1,
         },
         "start": {
-          "column": 14,
+          "column": 15,
           "line": 1,
         },
       },
@@ -76866,7 +76866,7 @@ Main <main> > </main>",
       "end": 60,
       "loc": {
         "end": {
-          "column": 15,
+          "column": 16,
           "line": 4,
         },
         "start": {
@@ -76950,7 +76950,7 @@ Main <main> > </main>",
           "line": 4,
         },
         "start": {
-          "column": 21,
+          "column": 22,
           "line": 4,
         },
       },
@@ -77934,11 +77934,11 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
       "end": 27,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 5,
         },
         "start": {
-          "column": 0,
+          "column": 1,
           "line": 4,
         },
       },
@@ -78127,11 +78127,11 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
       "end": 64,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 8,
         },
         "start": {
-          "column": 3,
+          "column": 4,
           "line": 7,
         },
       },
@@ -80576,11 +80576,11 @@ exports[`parser should match all AST snapshots: unicorn.mdx 1`] = `
       "end": 10,
       "loc": {
         "end": {
-          "column": 1,
+          "column": 2,
           "line": 2,
         },
         "start": {
-          "column": 6,
+          "column": 7,
           "line": 1,
         },
       },
@@ -80772,11 +80772,11 @@ exports[`parser should match all AST snapshots: unicorn.mdx 1`] = `
       "end": 109,
       "loc": {
         "end": {
-          "column": -1,
+          "column": 0,
           "line": 8,
         },
         "start": {
-          "column": 3,
+          "column": 4,
           "line": 7,
         },
       },

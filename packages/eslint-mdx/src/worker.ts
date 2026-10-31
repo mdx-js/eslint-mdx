@@ -212,6 +212,12 @@ const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
   const ranges: JsxTextRange[] = []
   const getPositionAt = getPositionAtFactory(code)
 
+  const toSourcePoint = (offset: number) => {
+    const { column, line } = getPositionAt(offset)
+
+    return { column: column + 1, line }
+  }
+
   const addJsxTextRange = (start: number, end: number) => {
     if (start >= end || code.slice(start, end).trim()) {
       return
@@ -219,9 +225,9 @@ const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
 
     ranges.push({
       end,
-      endPoint: getPositionAt(end),
+      endPoint: toSourcePoint(end),
       start,
-      startPoint: getPositionAt(start),
+      startPoint: toSourcePoint(start),
     })
   }
 
