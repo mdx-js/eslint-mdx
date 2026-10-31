@@ -1,5 +1,20 @@
 # Change Log
 
+## 3.9.0
+
+### Patch Changes
+
+- [#634](https://github.com/mdx-js/eslint-mdx/pull/634) [`7921c79`](https://github.com/mdx-js/eslint-mdx/commit/7921c79fe49c64d82eb5c31725410c8aa33b2b52) Thanks [@JounQin](https://github.com/JounQin)! - fix: only apply remark fixes to the reported message range
+
+  A remark fix used to rewrite the whole document, so unrelated formatting changes
+  could conflict with `prettier/prettier` and produce circular fixes. Apply only the
+  differences that overlap the reported message, as localized fixes.
+
+  Closes [#491](https://github.com/mdx-js/eslint-mdx/issues/491).
+
+- Updated dependencies [[`4241ceb`](https://github.com/mdx-js/eslint-mdx/commit/4241cebb0c654a6acaf94f00f4ae8044325b782f), [`5e0b172`](https://github.com/mdx-js/eslint-mdx/commit/5e0b1728b7d50dc3d3e1a75bfa8f2793004b1e07), [`d41d8ee`](https://github.com/mdx-js/eslint-mdx/commit/d41d8ee9204fa78855a850bbfb9979acff4b8145), [`1c675f4`](https://github.com/mdx-js/eslint-mdx/commit/1c675f47e83e614b31b6e93ac54a7cb86ee97f87), [`2c41867`](https://github.com/mdx-js/eslint-mdx/commit/2c418677453da02a9156483296bb8359021e0a79), [`43af536`](https://github.com/mdx-js/eslint-mdx/commit/43af5362758e8041d31eae582dcdfd7da9f17264), [`b476a1c`](https://github.com/mdx-js/eslint-mdx/commit/b476a1c4375c450ffde0eb4ee2e07d779eb6d44d), [`b3eb3bf`](https://github.com/mdx-js/eslint-mdx/commit/b3eb3bfc723dae7715e1b4a8b2dab4794385b418), [`fd72b28`](https://github.com/mdx-js/eslint-mdx/commit/fd72b28428a7a87b96ad9430b074c409bdd2608c)]:
+  - eslint-mdx@3.9.0
+
 ## 3.8.3
 
 ### Patch Changes
