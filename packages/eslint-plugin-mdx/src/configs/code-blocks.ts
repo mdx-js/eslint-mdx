@@ -1,6 +1,5 @@
+import { ESLint } from 'eslint'
 import type { Linter } from 'eslint'
-
-import { cjsRequire } from '../helpers.js'
 
 // ESLint removed the deprecated formatting rules in this major version.
 const ESLINT_WITHOUT_FORMATTING_RULES = 11
@@ -14,7 +13,8 @@ export const deprecatedCodeBlockRules = (
 ): Linter.RulesRecord => {
   // parseInt stops at the first dot, which is exactly the major version.
   const major = Number.parseInt(eslintVersion, 10)
-  if (!Number.isNaN(major) && major >= ESLINT_WITHOUT_FORMATTING_RULES) {
+  /* istanbul ignore if -- We can't cover all versions in one test */
+  if (major >= ESLINT_WITHOUT_FORMATTING_RULES) {
     return {}
   }
   return {
@@ -24,16 +24,6 @@ export const deprecatedCodeBlockRules = (
 
     // In code snippets and examples, a padded block is often counterproductive.
     'padded-blocks': 'off',
-  }
-}
-
-const installedEslintVersion = (): string => {
-  /* istanbul ignore next */
-  try {
-    const manifest: { version?: string } = cjsRequire('eslint/package.json')
-    return manifest.version ?? ''
-  } catch {
-    return ''
   }
 }
 
@@ -48,7 +38,7 @@ export const codeBlocks = {
     },
   },
   rules: {
-    ...deprecatedCodeBlockRules(installedEslintVersion()),
+    ...deprecatedCodeBlockRules(ESLint.version),
 
     // In code snippets and examples, these rules are often
     // counterproductive to clarity and brevity.
