@@ -172,22 +172,22 @@ export class Parser {
 
     scopeManager.acquire = (node, inner) => {
       if (
-        node.type === 'JSXIdentifier' &&
-        node.range &&
-        !isEsmRange(node.range)
+        node.type !== 'JSXIdentifier' ||
+        !node.range ||
+        isEsmRange(node.range)
       ) {
-        const propsScope = new Scope(
-          scopeManager,
-          'block',
-          getOriginalScope(node),
-          ast,
-          false,
-        )
-        propsScope.variables.push(new Variable('props', propsScope))
-        return propsScope
+        return acquireScope(node, inner)
       }
 
-      return acquireScope(node, inner)
+      const propsScope = new Scope(
+        scopeManager,
+        'block',
+        getOriginalScope(node),
+        ast,
+        false,
+      )
+      propsScope.variables.push(new Variable('props', propsScope))
+      return propsScope
     }
 
     return {
