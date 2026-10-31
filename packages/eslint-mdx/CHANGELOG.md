@@ -1,5 +1,73 @@
 # Change Log
 
+## 3.9.0
+
+### Minor Changes
+
+- [#622](https://github.com/mdx-js/eslint-mdx/pull/622) [`2c41867`](https://github.com/mdx-js/eslint-mdx/commit/2c418677453da02a9156483296bb8359021e0a79) Thanks [@JounQin](https://github.com/JounQin)! - feat: add ESTree nodes for Markdown content
+
+  Add `MDCode`, `MDHeading`, `MDParagraph`, `MDText`, `MDList`, `MDListItem`,
+  `MDBlockquote`, `MDEmphasis`, `MDStrong`, `MDInlineCode`, `MDLink`, `MDImage`,
+  `MDBreak`, `MDThematicBreak`, `MDDefinition`, `MDDelete`,
+  `MDFootnoteDefinition`, `MDFootnoteReference`, `MDImageReference`,
+  `MDInlineMath`, `MDLinkReference`, `MDMath`, `MDTable`, `MDTableCell`,
+  `MDTableRow`, `MDToml` and `MDYaml` nodes with visitor keys. Restore whitespace
+  `JSXText` tokens inside JSX elements so the AST body and tokens stay aligned.
+
+  `MDXCode` and `MDXHeading` have been replaced by `MDCode` and `MDHeading`,
+  including their emitted `type` strings.
+
+  Closes [#503](https://github.com/mdx-js/eslint-mdx/issues/503).
+
+  `@types/estree@^1.0.10` is declared as an optional peer dependency.
+
+- [#621](https://github.com/mdx-js/eslint-mdx/pull/621) [`43af536`](https://github.com/mdx-js/eslint-mdx/commit/43af5362758e8041d31eae582dcdfd7da9f17264) Thanks [@JounQin](https://github.com/JounQin)! - feat: add `MDXFlowExpression` and `MDXTextExpression` nodes
+
+  MDX content expressions are no longer emitted as top-level `ExpressionStatement`
+  nodes, so `no-unused-expressions` no longer reports them. The new nodes expose
+  their `expression` and are traversed via the extended visitor keys.
+
+  Closes [#581](https://github.com/mdx-js/eslint-mdx/issues/581).
+
+- [#637](https://github.com/mdx-js/eslint-mdx/pull/637) [`fd72b28`](https://github.com/mdx-js/eslint-mdx/commit/fd72b28428a7a87b96ad9430b074c409bdd2608c) Thanks [@JounQin](https://github.com/JounQin)! - feat: use micromark token types directly
+
+  Generate markdown and MDX structural tokens from the same micromark parse
+  used for the mdast tree, map MDX JSX/expression events to ESLint token types,
+  and merge them with acorn's JavaScript tokens. Markdown token types now use
+  the original micromark labels; JSX text keeps using `JSXText` for compatibility.
+
+### Patch Changes
+
+- [#632](https://github.com/mdx-js/eslint-mdx/pull/632) [`5e0b172`](https://github.com/mdx-js/eslint-mdx/commit/5e0b1728b7d50dc3d3e1a75bfa8f2793004b1e07) Thanks [@JounQin](https://github.com/JounQin)! - fix: emit empty MDX expressions
+
+  Top-level and nested comment-only or empty expressions (`{/* ... */}`, `{}`)
+  were skipped because their ESTree body is empty, leaving their brace tokens or
+  parent children without a corresponding node. Emit an `MDXFlowExpression` or
+  `MDXTextExpression` containing a `JSXEmptyExpression` instead.
+
+- [#630](https://github.com/mdx-js/eslint-mdx/pull/630) [`d41d8ee`](https://github.com/mdx-js/eslint-mdx/commit/d41d8ee9204fa78855a850bbfb9979acff4b8145) Thanks [@JounQin](https://github.com/JounQin)! - fix: wrap MDX expressions in `JSXExpressionContainer`
+
+  Flow expressions inside JSX children were emitted as raw expressions and used
+  the parent element range. They are now wrapped in `JSXExpressionContainer`
+  nodes with their own range; both flow and text expression containers now use the
+  expression's own range.
+
+  Closes [#628](https://github.com/mdx-js/eslint-mdx/issues/628).
+
+- [#636](https://github.com/mdx-js/eslint-mdx/pull/636) [`1c675f4`](https://github.com/mdx-js/eslint-mdx/commit/1c675f47e83e614b31b6e93ac54a7cb86ee97f87) Thanks [@JounQin](https://github.com/JounQin)! - fix: preserve markdown children of JSX elements
+
+  Markdown nodes such as links and emphasis were dropped when they appeared
+  inside JSX elements, making them look empty to rules like
+  `react/self-closing-comp`.
+
+- [#631](https://github.com/mdx-js/eslint-mdx/pull/631) [`b476a1c`](https://github.com/mdx-js/eslint-mdx/commit/b476a1c4375c450ffde0eb4ee2e07d779eb6d44d) Thanks [@hippi345](https://github.com/hippi345)! - chore: migrate to `devlop`
+
+  Replace `node:assert` with [`devlop`](https://github.com/wooorm/devlop) so development-only assertions are stripped in production builds.
+
+  Closes [#568](https://github.com/mdx-js/eslint-mdx/issues/568).
+
+- [#639](https://github.com/mdx-js/eslint-mdx/pull/639) [`b3eb3bf`](https://github.com/mdx-js/eslint-mdx/commit/b3eb3bfc723dae7715e1b4a8b2dab4794385b418) Thanks [@JounQin](https://github.com/JounQin)! - fix: treat `props` as defined in MDX content, but not in `mdxjsEsm`
+
 ## 3.8.3
 
 ### Patch Changes
