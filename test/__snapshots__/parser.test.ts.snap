@@ -53330,6 +53330,27 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "value": ">",
     },
     {
+      "end": 244,
+      "loc": {
+        "end": {
+          "column": 0,
+          "line": 8,
+        },
+        "start": {
+          "column": 21,
+          "line": 7,
+        },
+      },
+      "range": [
+        243,
+        244,
+      ],
+      "start": 243,
+      "type": "JSXText",
+      "value": "
+",
+    },
+    {
       "end": 249,
       "loc": {
         "end": {
@@ -61191,26 +61212,6 @@ the installation guides.",
       "value": ")",
     },
     {
-      "end": 287,
-      "loc": {
-        "end": {
-          "column": 33,
-          "line": 17,
-        },
-        "start": {
-          "column": 32,
-          "line": 17,
-        },
-      },
-      "range": [
-        286,
-        287,
-      ],
-      "start": 286,
-      "type": "JSXText",
-      "value": " ",
-    },
-    {
       "end": 288,
       "loc": {
         "end": {
@@ -61369,26 +61370,6 @@ the installation guides.",
       "start": 322,
       "type": "resourceMarker",
       "value": ")",
-    },
-    {
-      "end": 324,
-      "loc": {
-        "end": {
-          "column": 34,
-          "line": 18,
-        },
-        "start": {
-          "column": 33,
-          "line": 18,
-        },
-      },
-      "range": [
-        323,
-        324,
-      ],
-      "start": 323,
-      "type": "JSXText",
-      "value": " ",
     },
     {
       "end": 325,
@@ -61551,26 +61532,6 @@ the installation guides.",
       "value": ")",
     },
     {
-      "end": 381,
-      "loc": {
-        "end": {
-          "column": 54,
-          "line": 19,
-        },
-        "start": {
-          "column": 53,
-          "line": 19,
-        },
-      },
-      "range": [
-        380,
-        381,
-      ],
-      "start": 380,
-      "type": "JSXText",
-      "value": " ",
-    },
-    {
       "end": 382,
       "loc": {
         "end": {
@@ -61729,26 +61690,6 @@ the installation guides.",
       "start": 428,
       "type": "resourceMarker",
       "value": ")",
-    },
-    {
-      "end": 430,
-      "loc": {
-        "end": {
-          "column": 46,
-          "line": 20,
-        },
-        "start": {
-          "column": 45,
-          "line": 20,
-        },
-      },
-      "range": [
-        429,
-        430,
-      ],
-      "start": 429,
-      "type": "JSXText",
-      "value": " ",
     },
     {
       "end": 431,
@@ -61911,26 +61852,6 @@ the installation guides.",
       "value": ")",
     },
     {
-      "end": 469,
-      "loc": {
-        "end": {
-          "column": 36,
-          "line": 21,
-        },
-        "start": {
-          "column": 35,
-          "line": 21,
-        },
-      },
-      "range": [
-        468,
-        469,
-      ],
-      "start": 468,
-      "type": "JSXText",
-      "value": " ",
-    },
-    {
       "end": 470,
       "loc": {
         "end": {
@@ -62089,26 +62010,6 @@ the installation guides.",
       "start": 504,
       "type": "resourceMarker",
       "value": ")",
-    },
-    {
-      "end": 506,
-      "loc": {
-        "end": {
-          "column": 34,
-          "line": 22,
-        },
-        "start": {
-          "column": 33,
-          "line": 22,
-        },
-      },
-      "range": [
-        505,
-        506,
-      ],
-      "start": 505,
-      "type": "JSXText",
-      "value": " ",
     },
     {
       "end": 507,
@@ -74434,26 +74335,6 @@ Main <main> > </main>",
       "value": ">",
     },
     {
-      "end": 9,
-      "loc": {
-        "end": {
-          "column": 9,
-          "line": 1,
-        },
-        "start": {
-          "column": 8,
-          "line": 1,
-        },
-      },
-      "range": [
-        8,
-        9,
-      ],
-      "start": 8,
-      "type": "JSXText",
-      "value": " ",
-    },
-    {
       "end": 10,
       "loc": {
         "end": {
@@ -74832,26 +74713,6 @@ Main <main> > </main>",
       "start": 58,
       "type": "Punctuator",
       "value": ">",
-    },
-    {
-      "end": 60,
-      "loc": {
-        "end": {
-          "column": 16,
-          "line": 4,
-        },
-        "start": {
-          "column": 15,
-          "line": 4,
-        },
-      },
-      "range": [
-        59,
-        60,
-      ],
-      "start": 59,
-      "type": "JSXText",
-      "value": " ",
     },
     {
       "end": 61,

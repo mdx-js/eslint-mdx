@@ -406,7 +406,7 @@ runAsWorker(
       ],
     })
     const acornTokens = [...sharedTokens]
-    const jsxTextStarts = new Set<number>()
+    const jsxTextRanges: Array<{ end: number; start: number }> = []
 
     visitParents(root, (node, ancestors) => {
       if (
@@ -417,15 +417,16 @@ runAsWorker(
             ancestor.type === 'mdxJsxTextElement',
         )
       ) {
-        const offset = node.position?.start.offset
+        const start = node.position?.start.offset
+        const end = node.position?.end.offset
 
-        if (offset != null) {
-          jsxTextStarts.add(offset)
+        if (start != null && end != null) {
+          jsxTextRanges.push({ end, start })
         }
       }
     })
 
-    const markdownTokens = getTokens(code, events, tt, jsxTextStarts)
+    const markdownTokens = getTokens(code, events, tt, jsxTextRanges)
 
     const body: Program['body'] = []
     const comments: Comment[] = []
