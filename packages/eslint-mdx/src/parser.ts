@@ -1,7 +1,7 @@
 import path from 'node:path'
 
 import type { AST, Linter } from 'eslint'
-import { analyze, Variable, type Scope } from 'eslint-scope'
+import { analyze, Scope, Variable } from 'eslint-scope'
 import { KEYS } from 'eslint-visitor-keys'
 import type { VFileMessage } from 'vfile-message'
 
@@ -134,44 +134,51 @@ export class Parser {
 
     const { globalScope } = scopeManager
 
-    const esmRanges = body
-      .filter(
+    const esmRanges = root.children
+      .filter(node => node.type === 'mdxjsEsm' && node.position)
+      .map(
         node =>
-          node.type === 'ImportDeclaration' ||
-          node.type === 'ExportAllDeclaration' ||
-          node.type === 'ExportDefaultDeclaration' ||
-          node.type === 'ExportNamedDeclaration',
+          [node.position.start.offset, node.position.end.offset] as [
+            number,
+            number,
+          ],
       )
-      .map(node => node.range)
-      .filter(Boolean)
+
+    const isEsmRange = (range: [number, number]) =>
+      esmRanges.some(([start, end]) => range[0] >= start && range[1] <= end)
 
     globalScope.through = globalScope.through.filter(
       reference =>
         reference.identifier.name !== 'props' ||
-        esmRanges.some(
-          range =>
-            reference.identifier.range[0] >= range[0] &&
-            reference.identifier.range[1] <= range[1],
-        ),
+        isEsmRange(reference.identifier.range),
     )
 
-    // `react/jsx-no-undef` reads scope variables instead of `through`, so
-    // expose `props` for JSX content without resolving the remaining ESM refs.
-    const addPropsVariable = (scope: Scope) => {
-      const propsVariable = new Variable('props', scope)
-      // Keep it out of `scope.set`: ESLint 8/9's addDeclaredGlobals resolves
-      // every name in `globalScope.set`, which would hide ESM references.
-      scope.variables.push(propsVariable)
-    }
+    // react/jsx-no-undef reads scope variables instead of through.
+    // Give JSX content a small block scope containing props; ESM JSX
+    // nodes keep the original scope and still report the missing variable.
+    const propsScope = new Scope(
+      scopeManager,
+      'block',
+      globalScope,
+      { type: 'Program' } as AST.Program,
+      false,
+    )
+    const propsVariable = new Variable('props', propsScope)
+    propsScope.variables.push(propsVariable)
 
-    addPropsVariable(globalScope)
+    const acquireScope = scopeManager.acquire.bind(scopeManager)
 
-    for (const scope of scopeManager.scopes) {
-      if (scope.type === 'module') {
-        addPropsVariable(scope)
+    scopeManager.acquire = (node, inner) => {
+      if (
+        node?.type === 'JSXIdentifier' &&
+        node.range &&
+        !isEsmRange(node.range)
+      ) {
+        return propsScope
       }
-    }
 
+      return acquireScope(node, inner)
+    }
     return {
       ast,
       scopeManager,

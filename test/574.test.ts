@@ -27,6 +27,36 @@ describe('#574', () => {
     expect(messages).toEqual([])
   })
 
+  it('does not treat props as defined in JSX inside MDX ESM', () => {
+    const messages = linter.verify(
+      'export const foo = <props.Component />\n',
+      [
+        mdx.configs.flat,
+        {
+          plugins: {
+            react,
+          },
+          rules: {
+            'no-undef': 'error',
+            'react/jsx-no-undef': 'error',
+          },
+        },
+      ],
+      { filename: 'test.mdx' },
+    )
+
+    expect(messages).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          ruleId: 'no-undef',
+        }),
+        expect.objectContaining({
+          ruleId: 'react/jsx-no-undef',
+        }),
+      ]),
+    )
+  })
+
   it('does not treat props as defined in MDX ESM', () => {
     const messages = linter.verify(
       'export const foo = props.bar\n',
