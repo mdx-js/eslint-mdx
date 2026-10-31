@@ -3,6 +3,7 @@ import path from 'node:path'
 import type { AST, Linter } from 'eslint'
 import { analyze, Scope, Variable } from 'eslint-scope'
 import { KEYS } from 'eslint-visitor-keys'
+import { latestEcmaVersion } from 'espree'
 import type { Node } from 'estree'
 import type { VFileMessage } from 'vfile-message'
 
@@ -28,6 +29,7 @@ export class Parser {
     {
       filePath,
       sourceType = 'module',
+      ecmaVersion,
       ignoreRemarkConfig,
       remarkConfigPath,
       extensions,
@@ -127,7 +129,8 @@ export class Parser {
 
     const scopeManager = analyze(ast, {
       childVisitorKeys: visitorKeys,
-      ecmaVersion: 2024,
+      ecmaVersion:
+        typeof ecmaVersion === 'number' ? ecmaVersion : latestEcmaVersion,
       ignoreEval: true,
       jsx: true,
       sourceType,
