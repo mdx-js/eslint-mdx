@@ -15,7 +15,7 @@ export function getShortLang(
   filename: string,
   languageMapper?: Record<string, string> | false,
 ): string {
-  const language = filename.split('.').at(-1)
+  const language = filename.slice(filename.lastIndexOf('.') + 1)
   if (languageMapper === false) {
     return language
   }

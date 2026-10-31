@@ -60,6 +60,9 @@ export const getPositionAtFactory = (code: string) => {
 
       currOffset = nextOffset + 1 // add a line break `\n` offset
     }
+
+    /* istanbul ignore next -- offset beyond the source */
+    return { column: 0, line: lines.length }
   }
 }
 
@@ -72,8 +75,8 @@ export const normalizePosition = ({
   end: Point | { offset: number }
   code?: string
 }): NormalPosition => {
-  const startOffset = start.offset
-  const endOffset = end.offset
+  const startOffset = start.offset!
+  const endOffset = end.offset!
   const range: [number, number] = [startOffset, endOffset]
   const getPositionAt =
     code == null
@@ -86,11 +89,11 @@ export const normalizePosition = ({
       start:
         /* istanbul ignore next -- used in worker */ 'line' in start
           ? start
-          : getPositionAt(startOffset),
+          : getPositionAt!(startOffset),
       end:
         /* istanbul ignore next -- used in worker */ 'line' in end
           ? end
-          : getPositionAt(endOffset),
+          : getPositionAt!(endOffset),
     },
     range,
   }
@@ -106,6 +109,9 @@ export const prevCharOffsetFactory =
         return i
       }
     }
+
+    /* istanbul ignore next -- no non-whitespace character */
+    return 0
   }
 
 /* istanbul ignore next -- used in worker */
@@ -118,6 +124,9 @@ export const nextCharOffsetFactory = (text: string) => {
         return i
       }
     }
+
+    /* istanbul ignore next -- no non-whitespace character */
+    return total
   }
 }
 

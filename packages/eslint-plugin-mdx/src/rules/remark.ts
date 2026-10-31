@@ -45,14 +45,17 @@ const getFixesForPlace = (
   const start = 'start' in place ? place.start : place
   /* istanbul ignore next -- remark messages use a position */
   const end = 'start' in place ? place.end : place
+  const startOffset = start.offset
+  const endOffset = end.offset
+
   /* istanbul ignore if -- remark positions include offsets */
-  if (start.offset == null || end.offset == null) {
+  if (startOffset == null || endOffset == null) {
     return null
   }
   const fixes: Rule.Fix[] = differences
     .filter(
       ({ deleteText, offset }) =>
-        offset <= end.offset && offset + deleteText.length >= start.offset,
+        offset <= endOffset && offset + deleteText.length >= startOffset,
     )
     .map(({ deleteText, insertText, offset }) => ({
       range: [offset, offset + deleteText.length],
@@ -157,15 +160,15 @@ export const remark: Rule.RuleModule = {
 
           const message: RemarkLintMessage = {
             reason,
-            source,
-            ruleId,
+            source: source!,
+            ruleId: ruleId!,
             severity,
           }
 
           const point = {
-            line,
+            line: line!,
             // ! eslint ast column is 0-indexed, but unified is 1-indexed
-            column: column - 1,
+            column: column! - 1,
           }
 
           const fixes = getFixesForPlace(differences, place)

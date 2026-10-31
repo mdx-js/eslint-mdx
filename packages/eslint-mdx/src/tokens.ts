@@ -231,7 +231,9 @@ export const getTokens = (
     let cursorPoint = range.startPoint
 
     for (const token of sortedTokens) {
-      if (token.end <= cursor || token.start >= range.end) {
+      const tokenLoc = token.loc
+
+      if (!tokenLoc || token.end <= cursor || token.start >= range.end) {
         continue
       }
 
@@ -241,14 +243,14 @@ export const getTokens = (
           cursor,
           token.start,
           cursorPoint,
-          toSourcePoint(token.loc.start),
+          toSourcePoint(tokenLoc.start),
           true,
         )
       }
 
       if (token.end > cursor) {
         cursor = token.end
-        cursorPoint = toSourcePoint(token.loc.end)
+        cursorPoint = toSourcePoint(tokenLoc.end)
       }
     }
 

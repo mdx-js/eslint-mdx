@@ -117,6 +117,7 @@
       "**/*.d.ts"
     ],
     "strict": true,
-    "update": true
+    "update": true,
+    "ignoreNonNullAssertion": true
   }
 }

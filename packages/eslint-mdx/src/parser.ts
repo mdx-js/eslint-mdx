@@ -1,5 +1,6 @@
 import path from 'node:path'
 
+import { ok as assert } from 'devlop'
 import type { AST, Linter } from 'eslint'
 import { analyze, Scope, Variable } from 'eslint-scope'
 import { KEYS } from 'eslint-visitor-keys'
@@ -36,7 +37,7 @@ export class Parser {
       markdownExtensions,
     }: ParserOptions,
   ): Linter.ESLintParseResult {
-    const extname = path.extname(filePath)
+    const extname = path.extname(filePath!)
 
     const isMdx = [...DEFAULT_EXTENSIONS, ...arrayify(extensions)].includes(
       extname,
@@ -57,7 +58,7 @@ export class Parser {
 
     try {
       result = performSyncWork({
-        filePath: getPhysicalFilename(filePath),
+        filePath: getPhysicalFilename(filePath!),
         code,
         isMdx,
         ignoreRemarkConfig,
@@ -117,13 +118,15 @@ export class Parser {
       MDYaml: [],
     }
 
+    assert(root.position)
+
     const ast: AST.Program = {
       ...normalizePosition(root.position),
       type: 'Program',
       // @ts-expect-error -- should we change?
       sourceType,
       body,
-      comments,
+      comments: comments!,
       tokens,
     }
 
@@ -136,22 +139,30 @@ export class Parser {
       sourceType,
     })
 
-    const { globalScope } = scopeManager
+    assert(scopeManager.globalScope)
 
-    const esmRanges = root.children
-      .filter(node => node.type === 'mdxjsEsm' && node.position)
-      .map(
-        node => [node.position.start.offset, node.position.end.offset] as const,
-      )
+    const globalScope = scopeManager.globalScope
+
+    const esmRanges: Array<[number, number]> = []
+
+    for (const node of root.children) {
+      if (node.type === 'mdxjsEsm' && node.position) {
+        esmRanges.push([node.position.start.offset!, node.position.end.offset!])
+      }
+    }
 
     const isEsmRange = (range: [number, number]) =>
       esmRanges.some(([start, end]) => range[0] >= start && range[1] <= end)
 
-    globalScope.through = globalScope.through.filter(
-      reference =>
-        reference.identifier.name !== 'props' ||
-        isEsmRange(reference.identifier.range),
-    )
+    globalScope.through = globalScope.through.filter(reference => {
+      if (reference.identifier.name !== 'props') {
+        return true
+      }
+
+      const range = reference.identifier.range
+
+      return isEsmRange(range!)
+    })
 
     // react/jsx-no-undef reads scope variables instead of through.
     // Give JSX content a small block scope containing props, but preserve
@@ -160,7 +171,7 @@ export class Parser {
 
     const getOriginalScope = (node: Node) => {
       let current: Node | undefined = node
-      let scope = acquireScope(current, true)
+      let scope: Scope | null | undefined = acquireScope(current, true)
 
       while (current && !scope) {
         current = (current as { parent?: Node }).parent
