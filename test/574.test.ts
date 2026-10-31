@@ -1,11 +1,32 @@
 import { Linter } from 'eslint'
 import react from 'eslint-plugin-react'
 
+import { parser } from 'eslint-mdx'
 import * as mdx from 'eslint-plugin-mdx'
 
 const linter = new Linter({ configType: 'flat' })
 
 describe('#574', () => {
+  it('keeps scopeManager.acquire safe for detached JSX identifiers', () => {
+    const { scopeManager } = parser.parseForESLint('<props.Component />\n', {
+      ecmaFeatures: { jsx: true },
+      filePath: 'test.mdx',
+      sourceType: 'module',
+    })
+    const detached = {
+      name: 'props',
+      range: [0, 5] as [number, number],
+      type: 'JSXIdentifier',
+    }
+
+    expect(() =>
+      scopeManager.acquire(
+        detached as Parameters<typeof scopeManager.acquire>[0],
+        true,
+      ),
+    ).not.toThrow()
+  })
+
   it('treats props as defined in MDX content', () => {
     const messages = linter.verify(
       '### {props.foo}\n\n{props.foo} is a foo.\n\n<props.Component />\n',

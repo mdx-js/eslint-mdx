@@ -178,15 +178,15 @@ export class Parser {
     }
 
     const getOriginalScope = (node: Parameters<typeof acquireScope>[0]) => {
-      let current = node
+      let current: typeof node | undefined = node
       let scope = acquireScope(current, true)
 
-      while (!scope) {
+      while (current && !scope) {
         current = (current as { parent?: typeof current }).parent
-        scope = acquireScope(current, true)
+        scope = current ? acquireScope(current, true) : undefined
       }
 
-      return scope
+      return scope || globalScope
     }
     scopeManager.acquire = (node, inner) => {
       if (
