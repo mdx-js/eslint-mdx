@@ -1198,6 +1198,7 @@ runAsWorker(
     const tokenTypes = new Set(Object.values(tt))
 
     for (const token of tokensWithMarkdown) {
+      // Capture before TokenTranslator mutates token.type for standard tokens.
       const sourceType = token.type
       const tokenStart = tokens.length
 
@@ -1206,16 +1207,18 @@ runAsWorker(
         tokens: tokens as TokenTranslator_.EsprimaToken[],
       })
 
-      if (!tokenTypes.has(sourceType)) {
-        for (let index = tokenStart; index < tokens.length; index++) {
-          const translatedToken = tokens[index]
+      if (tokenTypes.has(sourceType)) {
+        continue
+      }
 
-          if (
-            translatedToken.range[0] === token.start &&
-            translatedToken.range[1] === token.end
-          ) {
-            translatedToken.type = sourceType.label as AST.TokenType
-          }
+      for (let index = tokenStart; index < tokens.length; index++) {
+        const translatedToken = tokens[index]
+
+        if (
+          translatedToken.range[0] === token.start &&
+          translatedToken.range[1] === token.end
+        ) {
+          translatedToken.type = sourceType.label as AST.TokenType
         }
       }
     }
