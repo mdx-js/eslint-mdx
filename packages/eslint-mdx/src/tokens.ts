@@ -123,15 +123,12 @@ export const getTokens = (
       ) {
         const value = code.slice(start, end).trimEnd()
         const trimmedEnd = start + value.length
-        const lineOffset = value.split('\n').length - 1
         const endPoint =
           trimmedEnd === end
             ? token.end
             : {
-                line: token.start.line + lineOffset,
-                column: lineOffset
-                  ? value.length - value.lastIndexOf('\n')
-                  : token.start.column + value.length,
+                line: token.start.line,
+                column: token.start.column + value.length,
               }
 
         pushToken(tt.jsxName, start, trimmedEnd, token.start, endPoint)
@@ -223,21 +220,44 @@ export const getTokens = (
     }
   }
 
+  const sortedTokens = [...tokens].sort((a, b) => a.start - b.start)
+
   for (const range of jsxTextRanges || []) {
-    if (
-      tokens.some(token => token.start < range.end && token.end > range.start)
-    ) {
-      continue
+    let cursor = range.start
+    let cursorPoint = range.startPoint
+
+    for (const token of sortedTokens) {
+      if (token.end <= cursor || token.start >= range.end) {
+        continue
+      }
+
+      if (token.start > cursor) {
+        pushToken(
+          tt.jsxText,
+          cursor,
+          token.start,
+          cursorPoint,
+          token.loc.start,
+          true,
+        )
+      }
+
+      if (token.end > cursor) {
+        cursor = token.end
+        cursorPoint = token.loc.end
+      }
     }
 
-    pushToken(
-      tt.jsxText,
-      range.start,
-      range.end,
-      range.startPoint,
-      range.endPoint,
-      true,
-    )
+    if (cursor < range.end) {
+      pushToken(
+        tt.jsxText,
+        cursor,
+        range.end,
+        cursorPoint,
+        range.endPoint,
+        true,
+      )
+    }
   }
 
   return tokens

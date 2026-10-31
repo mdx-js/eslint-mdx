@@ -157,6 +157,30 @@ describe('parser', () => {
     })
     expect(result.body.map(node => node.type)).toContain('MDToml')
   })
+  it('should emit JSX text gaps and split around entities', () => {
+    const { tokens: gapTokens } = parser.parse(
+      '<Box>\n  <A />\n  <B />\n</Box>\n',
+      DEFAULT_PARSER_OPTIONS,
+    )
+
+    expect(
+      gapTokens
+        .filter(token => token.type === 'JSXText')
+        .map(token => token.value),
+    ).toEqual(['\n  ', '\n  ', '\n'])
+
+    const { tokens: entityTokens } = parser.parse(
+      '<Box>a &amp; b</Box>\n',
+      DEFAULT_PARSER_OPTIONS,
+    )
+
+    expect(
+      entityTokens
+        .filter(token => token.type === 'JSXText')
+        .map(token => token.value),
+    ).toEqual(['a ', ' b'])
+  })
+
   it('should expose micromark token types for markdown markers', () => {
     const { tokens } = parser.parse(
       "import React from 'react';\n\n# Hello\n\n- item\n\n**bold**\n",

@@ -2203,6 +2203,27 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
       "value": ">",
     },
     {
+      "end": 121,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 6,
+        },
+        "start": {
+          "column": 57,
+          "line": 5,
+        },
+      },
+      "range": [
+        114,
+        121,
+      ],
+      "start": 114,
+      "type": "JSXText",
+      "value": "
+      ",
+    },
+    {
       "end": 135,
       "loc": {
         "end": {
@@ -2221,6 +2242,27 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
       "start": 121,
       "type": "JSXText",
       "value": "Vuetify preset",
+    },
+    {
+      "end": 140,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 7,
+        },
+        "start": {
+          "column": 19,
+          "line": 6,
+        },
+      },
+      "range": [
+        135,
+        140,
+      ],
+      "start": 135,
+      "type": "JSXText",
+      "value": "
+    ",
     },
     {
       "end": 141,
@@ -2636,6 +2678,27 @@ module.exports = {
       "value": ">",
     },
     {
+      "end": 8,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 2,
+        },
+        "start": {
+          "column": 4,
+          "line": 1,
+        },
+      },
+      "range": [
+        5,
+        8,
+      ],
+      "start": 5,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 9,
       "loc": {
         "end": {
@@ -2714,6 +2777,27 @@ module.exports = {
       "start": 14,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 16,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 3,
+        },
+        "start": {
+          "column": 8,
+          "line": 2,
+        },
+      },
+      "range": [
+        15,
+        16,
+      ],
+      "start": 15,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 17,
@@ -3719,6 +3803,27 @@ function foo() {
       "value": ">",
     },
     {
+      "end": 53,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 8,
+        },
+        "start": {
+          "column": 4,
+          "line": 7,
+        },
+      },
+      "range": [
+        50,
+        53,
+      ],
+      "start": 50,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 54,
       "loc": {
         "end": {
@@ -3879,6 +3984,28 @@ function foo() {
       "value": ">",
     },
     {
+      "end": 68,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 10,
+        },
+        "start": {
+          "column": 12,
+          "line": 8,
+        },
+      },
+      "range": [
+        64,
+        68,
+      ],
+      "start": 64,
+      "type": "JSXText",
+      "value": "
+
+  ",
+    },
+    {
       "end": 69,
       "loc": {
         "end": {
@@ -4037,6 +4164,27 @@ function foo() {
       "start": 78,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 80,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 11,
+        },
+        "start": {
+          "column": 12,
+          "line": 10,
+        },
+      },
+      "range": [
+        79,
+        80,
+      ],
+      "start": 79,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 81,
@@ -4457,6 +4605,28 @@ function foo() {
       "value": ">",
     },
     {
+      "end": 24,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 5,
+        },
+        "start": {
+          "column": 4,
+          "line": 3,
+        },
+      },
+      "range": [
+        22,
+        24,
+      ],
+      "start": 22,
+      "type": "JSXText",
+      "value": "
+
+",
+    },
+    {
       "end": 27,
       "loc": {
         "end": {
@@ -4575,6 +4745,28 @@ function foo() {
       "start": 63,
       "type": "codeFencedFenceSequence",
       "value": "\`\`\`",
+    },
+    {
+      "end": 68,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 11,
+        },
+        "start": {
+          "column": 2,
+          "line": 9,
+        },
+      },
+      "range": [
+        66,
+        68,
+      ],
+      "start": 66,
+      "type": "JSXText",
+      "value": "
+
+",
     },
     {
       "end": 69,
@@ -23242,6 +23434,27 @@ interface TabChangeEvent {
       "value": ">",
     },
     {
+      "end": 813,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 44,
+        },
+        "start": {
+          "column": 7,
+          "line": 43,
+        },
+      },
+      "range": [
+        810,
+        813,
+      ],
+      "start": 810,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 814,
       "loc": {
         "end": {
@@ -23420,6 +23633,27 @@ interface TabChangeEvent {
       "start": 858,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 864,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 48,
+        },
+        "start": {
+          "column": 2,
+          "line": 47,
+        },
+      },
+      "range": [
+        859,
+        864,
+      ],
+      "start": 859,
+      "type": "JSXText",
+      "value": "
+    ",
     },
     {
       "end": 865,
@@ -23813,6 +24047,27 @@ interface TabChangeEvent {
       "value": "}",
     },
     {
+      "end": 1448,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 75,
+        },
+        "start": {
+          "column": 5,
+          "line": 74,
+        },
+      },
+      "range": [
+        1445,
+        1448,
+      ],
+      "start": 1445,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 1449,
       "loc": {
         "end": {
@@ -23891,6 +24146,27 @@ interface TabChangeEvent {
       "start": 1455,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 1457,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 76,
+        },
+        "start": {
+          "column": 9,
+          "line": 75,
+        },
+      },
+      "range": [
+        1456,
+        1457,
+      ],
+      "start": 1456,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 1458,
@@ -24073,6 +24349,27 @@ interface TabChangeEvent {
       "value": ">",
     },
     {
+      "end": 1488,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 81,
+        },
+        "start": {
+          "column": 7,
+          "line": 80,
+        },
+      },
+      "range": [
+        1485,
+        1488,
+      ],
+      "start": 1485,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 1489,
       "loc": {
         "end": {
@@ -24251,6 +24548,27 @@ interface TabChangeEvent {
       "start": 1532,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 1538,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 85,
+        },
+        "start": {
+          "column": 2,
+          "line": 84,
+        },
+      },
+      "range": [
+        1533,
+        1538,
+      ],
+      "start": 1533,
+      "type": "JSXText",
+      "value": "
+    ",
     },
     {
       "end": 1539,
@@ -24673,6 +24991,27 @@ interface TabChangeEvent {
       "value": "}",
     },
     {
+      "end": 1931,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 97,
+        },
+        "start": {
+          "column": 5,
+          "line": 96,
+        },
+      },
+      "range": [
+        1928,
+        1931,
+      ],
+      "start": 1928,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 1932,
       "loc": {
         "end": {
@@ -24751,6 +25090,27 @@ interface TabChangeEvent {
       "start": 1938,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 1940,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 98,
+        },
+        "start": {
+          "column": 9,
+          "line": 97,
+        },
+      },
+      "range": [
+        1939,
+        1940,
+      ],
+      "start": 1939,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 1941,
@@ -24933,6 +25293,27 @@ interface TabChangeEvent {
       "value": ">",
     },
     {
+      "end": 1971,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 103,
+        },
+        "start": {
+          "column": 7,
+          "line": 102,
+        },
+      },
+      "range": [
+        1968,
+        1971,
+      ],
+      "start": 1968,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 1972,
       "loc": {
         "end": {
@@ -25111,6 +25492,27 @@ interface TabChangeEvent {
       "start": 2015,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 2021,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 107,
+        },
+        "start": {
+          "column": 2,
+          "line": 106,
+        },
+      },
+      "range": [
+        2016,
+        2021,
+      ],
+      "start": 2016,
+      "type": "JSXText",
+      "value": "
+    ",
     },
     {
       "end": 2022,
@@ -25545,6 +25947,27 @@ interface TabChangeEvent {
       "value": "}",
     },
     {
+      "end": 2864,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 131,
+        },
+        "start": {
+          "column": 5,
+          "line": 130,
+        },
+      },
+      "range": [
+        2861,
+        2864,
+      ],
+      "start": 2861,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 2865,
       "loc": {
         "end": {
@@ -25623,6 +26046,27 @@ interface TabChangeEvent {
       "start": 2871,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 2873,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 132,
+        },
+        "start": {
+          "column": 9,
+          "line": 131,
+        },
+      },
+      "range": [
+        2872,
+        2873,
+      ],
+      "start": 2872,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 2874,
@@ -25805,6 +26249,27 @@ interface TabChangeEvent {
       "value": ">",
     },
     {
+      "end": 2909,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 137,
+        },
+        "start": {
+          "column": 7,
+          "line": 136,
+        },
+      },
+      "range": [
+        2906,
+        2909,
+      ],
+      "start": 2906,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 2910,
       "loc": {
         "end": {
@@ -25983,6 +26448,27 @@ interface TabChangeEvent {
       "start": 2960,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 2966,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 141,
+        },
+        "start": {
+          "column": 2,
+          "line": 140,
+        },
+      },
+      "range": [
+        2961,
+        2966,
+      ],
+      "start": 2961,
+      "type": "JSXText",
+      "value": "
+    ",
     },
     {
       "end": 2967,
@@ -26658,6 +27144,27 @@ interface TabChangeEvent {
       "value": "}",
     },
     {
+      "end": 3674,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 164,
+        },
+        "start": {
+          "column": 5,
+          "line": 163,
+        },
+      },
+      "range": [
+        3671,
+        3674,
+      ],
+      "start": 3671,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 3675,
       "loc": {
         "end": {
@@ -26736,6 +27243,27 @@ interface TabChangeEvent {
       "start": 3681,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 3683,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 165,
+        },
+        "start": {
+          "column": 9,
+          "line": 164,
+        },
+      },
+      "range": [
+        3682,
+        3683,
+      ],
+      "start": 3682,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 3684,
@@ -26958,6 +27486,27 @@ interface TabChangeEvent {
       "value": ">",
     },
     {
+      "end": 3739,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 172,
+        },
+        "start": {
+          "column": 7,
+          "line": 171,
+        },
+      },
+      "range": [
+        3736,
+        3739,
+      ],
+      "start": 3736,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 3740,
       "loc": {
         "end": {
@@ -27136,6 +27685,27 @@ interface TabChangeEvent {
       "start": 3787,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 3793,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 176,
+        },
+        "start": {
+          "column": 2,
+          "line": 175,
+        },
+      },
+      "range": [
+        3788,
+        3793,
+      ],
+      "start": 3788,
+      "type": "JSXText",
+      "value": "
+    ",
     },
     {
       "end": 3794,
@@ -29376,6 +29946,27 @@ interface TabChangeEvent {
       "value": "}",
     },
     {
+      "end": 4739,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 212,
+        },
+        "start": {
+          "column": 5,
+          "line": 211,
+        },
+      },
+      "range": [
+        4736,
+        4739,
+      ],
+      "start": 4736,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 4740,
       "loc": {
         "end": {
@@ -29454,6 +30045,27 @@ interface TabChangeEvent {
       "start": 4746,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 4748,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 213,
+        },
+        "start": {
+          "column": 9,
+          "line": 212,
+        },
+      },
+      "range": [
+        4747,
+        4748,
+      ],
+      "start": 4747,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 4749,
@@ -29636,6 +30248,27 @@ interface TabChangeEvent {
       "value": ">",
     },
     {
+      "end": 4777,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 218,
+        },
+        "start": {
+          "column": 7,
+          "line": 217,
+        },
+      },
+      "range": [
+        4774,
+        4777,
+      ],
+      "start": 4774,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 4778,
       "loc": {
         "end": {
@@ -29814,6 +30447,27 @@ interface TabChangeEvent {
       "start": 4825,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 4831,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 222,
+        },
+        "start": {
+          "column": 2,
+          "line": 221,
+        },
+      },
+      "range": [
+        4826,
+        4831,
+      ],
+      "start": 4826,
+      "type": "JSXText",
+      "value": "
+    ",
     },
     {
       "end": 4832,
@@ -30487,6 +31141,27 @@ interface TabChangeEvent {
       "value": "}",
     },
     {
+      "end": 5441,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 243,
+        },
+        "start": {
+          "column": 5,
+          "line": 242,
+        },
+      },
+      "range": [
+        5438,
+        5441,
+      ],
+      "start": 5438,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 5442,
       "loc": {
         "end": {
@@ -30565,6 +31240,27 @@ interface TabChangeEvent {
       "start": 5448,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 5450,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 244,
+        },
+        "start": {
+          "column": 9,
+          "line": 243,
+        },
+      },
+      "range": [
+        5449,
+        5450,
+      ],
+      "start": 5449,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 5451,
@@ -30867,6 +31563,27 @@ interface TabChangeEvent {
       "value": ">",
     },
     {
+      "end": 5570,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 251,
+        },
+        "start": {
+          "column": 7,
+          "line": 250,
+        },
+      },
+      "range": [
+        5567,
+        5570,
+      ],
+      "start": 5567,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 5571,
       "loc": {
         "end": {
@@ -31045,6 +31762,27 @@ interface TabChangeEvent {
       "start": 5614,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 5620,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 255,
+        },
+        "start": {
+          "column": 2,
+          "line": 254,
+        },
+      },
+      "range": [
+        5615,
+        5620,
+      ],
+      "start": 5615,
+      "type": "JSXText",
+      "value": "
+    ",
     },
     {
       "end": 5621,
@@ -31820,6 +32558,27 @@ interface TabChangeEvent {
       "value": "}",
     },
     {
+      "end": 6739,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 291,
+        },
+        "start": {
+          "column": 5,
+          "line": 290,
+        },
+      },
+      "range": [
+        6736,
+        6739,
+      ],
+      "start": 6736,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 6740,
       "loc": {
         "end": {
@@ -31898,6 +32657,27 @@ interface TabChangeEvent {
       "start": 6746,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 6748,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 292,
+        },
+        "start": {
+          "column": 9,
+          "line": 291,
+        },
+      },
+      "range": [
+        6747,
+        6748,
+      ],
+      "start": 6747,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 6749,
@@ -32080,6 +32860,27 @@ interface TabChangeEvent {
       "value": ">",
     },
     {
+      "end": 6781,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 297,
+        },
+        "start": {
+          "column": 7,
+          "line": 296,
+        },
+      },
+      "range": [
+        6778,
+        6781,
+      ],
+      "start": 6778,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 6782,
       "loc": {
         "end": {
@@ -32258,6 +33059,27 @@ interface TabChangeEvent {
       "start": 6825,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 6831,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 301,
+        },
+        "start": {
+          "column": 2,
+          "line": 300,
+        },
+      },
+      "range": [
+        6826,
+        6831,
+      ],
+      "start": 6826,
+      "type": "JSXText",
+      "value": "
+    ",
     },
     {
       "end": 6832,
@@ -32663,6 +33485,27 @@ interface TabChangeEvent {
       "value": "}",
     },
     {
+      "end": 8177,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 340,
+        },
+        "start": {
+          "column": 5,
+          "line": 339,
+        },
+      },
+      "range": [
+        8174,
+        8177,
+      ],
+      "start": 8174,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 8178,
       "loc": {
         "end": {
@@ -32741,6 +33584,27 @@ interface TabChangeEvent {
       "start": 8184,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 8186,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 341,
+        },
+        "start": {
+          "column": 9,
+          "line": 340,
+        },
+      },
+      "range": [
+        8185,
+        8186,
+      ],
+      "start": 8185,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 8187,
@@ -32923,6 +33787,27 @@ interface TabChangeEvent {
       "value": ">",
     },
     {
+      "end": 8222,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 346,
+        },
+        "start": {
+          "column": 7,
+          "line": 345,
+        },
+      },
+      "range": [
+        8219,
+        8222,
+      ],
+      "start": 8219,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 8223,
       "loc": {
         "end": {
@@ -33101,6 +33986,27 @@ interface TabChangeEvent {
       "start": 8267,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 8273,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 350,
+        },
+        "start": {
+          "column": 2,
+          "line": 349,
+        },
+      },
+      "range": [
+        8268,
+        8273,
+      ],
+      "start": 8268,
+      "type": "JSXText",
+      "value": "
+    ",
     },
     {
       "end": 8274,
@@ -33283,6 +34189,27 @@ interface TabChangeEvent {
       "value": "}",
     },
     {
+      "end": 8749,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 361,
+        },
+        "start": {
+          "column": 5,
+          "line": 360,
+        },
+      },
+      "range": [
+        8746,
+        8749,
+      ],
+      "start": 8746,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 8750,
       "loc": {
         "end": {
@@ -33361,6 +34288,27 @@ interface TabChangeEvent {
       "start": 8756,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 8758,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 362,
+        },
+        "start": {
+          "column": 9,
+          "line": 361,
+        },
+      },
+      "range": [
+        8757,
+        8758,
+      ],
+      "start": 8757,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 8759,
@@ -40345,6 +41293,27 @@ exports[`parser should match all AST snapshots: 435.mdx 1`] = `
       "value": ">",
     },
     {
+      "end": 73,
+      "loc": {
+        "end": {
+          "column": 0,
+          "line": 7,
+        },
+        "start": {
+          "column": 0,
+          "line": 6,
+        },
+      },
+      "range": [
+        71,
+        73,
+      ],
+      "start": 71,
+      "type": "JSXText",
+      "value": "
+	",
+    },
+    {
       "end": 78,
       "loc": {
         "end": {
@@ -40363,6 +41332,27 @@ exports[`parser should match all AST snapshots: 435.mdx 1`] = `
       "start": 73,
       "type": "JSXText",
       "value": "Hello",
+    },
+    {
+      "end": 79,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 8,
+        },
+        "start": {
+          "column": 5,
+          "line": 7,
+        },
+      },
+      "range": [
+        78,
+        79,
+      ],
+      "start": 78,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 80,
@@ -42490,6 +43480,27 @@ exports[`parser should match all AST snapshots: 445.mdx 1`] = `
       "value": ">",
     },
     {
+      "end": 79,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 4,
+        },
+        "start": {
+          "column": 24,
+          "line": 3,
+        },
+      },
+      "range": [
+        76,
+        79,
+      ],
+      "start": 76,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 80,
       "loc": {
         "end": {
@@ -42648,6 +43659,27 @@ exports[`parser should match all AST snapshots: 445.mdx 1`] = `
       "start": 136,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 138,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 5,
+        },
+        "start": {
+          "column": 59,
+          "line": 4,
+        },
+      },
+      "range": [
+        137,
+        138,
+      ],
+      "start": 137,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 139,
@@ -50458,6 +51490,27 @@ npm i -g foo
       "value": ">",
     },
     {
+      "end": 298,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 20,
+        },
+        "start": {
+          "column": 13,
+          "line": 19,
+        },
+      },
+      "range": [
+        293,
+        298,
+      ],
+      "start": 293,
+      "type": "JSXText",
+      "value": "
+    ",
+    },
+    {
       "end": 299,
       "loc": {
         "end": {
@@ -50618,6 +51671,28 @@ npm i -g foo
       "value": ">",
     },
     {
+      "end": 359,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 22,
+        },
+        "start": {
+          "column": 60,
+          "line": 20,
+        },
+      },
+      "range": [
+        355,
+        359,
+      ],
+      "start": 355,
+      "type": "JSXText",
+      "value": "
+
+  ",
+    },
+    {
       "end": 360,
       "loc": {
         "end": {
@@ -50680,6 +51755,28 @@ npm i -g foo
       "value": "}",
     },
     {
+      "end": 379,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 24,
+        },
+        "start": {
+          "column": 17,
+          "line": 22,
+        },
+      },
+      "range": [
+        375,
+        379,
+      ],
+      "start": 375,
+      "type": "JSXText",
+      "value": "
+
+  ",
+    },
+    {
       "end": 380,
       "loc": {
         "end": {
@@ -50718,6 +51815,27 @@ npm i -g foo
       "start": 406,
       "type": "Punctuator",
       "value": "}",
+    },
+    {
+      "end": 408,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 25,
+        },
+        "start": {
+          "column": 29,
+          "line": 24,
+        },
+      },
+      "range": [
+        407,
+        408,
+      ],
+      "start": 407,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 409,
@@ -52590,6 +53708,27 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "value": ">",
     },
     {
+      "end": 7,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 2,
+        },
+        "start": {
+          "column": 3,
+          "line": 1,
+        },
+      },
+      "range": [
+        4,
+        7,
+      ],
+      "start": 4,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 8,
       "loc": {
         "end": {
@@ -52648,6 +53787,27 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "start": 10,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 16,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 3,
+        },
+        "start": {
+          "column": 5,
+          "line": 2,
+        },
+      },
+      "range": [
+        11,
+        16,
+      ],
+      "start": 11,
+      "type": "JSXText",
+      "value": "
+    ",
     },
     {
       "end": 17,
@@ -52770,6 +53930,27 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "value": ")",
     },
     {
+      "end": 122,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 4,
+        },
+        "start": {
+          "column": 106,
+          "line": 3,
+        },
+      },
+      "range": [
+        119,
+        122,
+      ],
+      "start": 119,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 123,
       "loc": {
         "end": {
@@ -52848,6 +54029,27 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "start": 126,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 130,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 5,
+        },
+        "start": {
+          "column": 6,
+          "line": 4,
+        },
+      },
+      "range": [
+        127,
+        130,
+      ],
+      "start": 127,
+      "type": "JSXText",
+      "value": "
+  ",
     },
     {
       "end": 131,
@@ -53110,6 +54312,27 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "value": ">",
     },
     {
+      "end": 217,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 6,
+        },
+        "start": {
+          "column": 85,
+          "line": 5,
+        },
+      },
+      "range": [
+        214,
+        217,
+      ],
+      "start": 214,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 218,
       "loc": {
         "end": {
@@ -53168,6 +54391,27 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "start": 220,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 226,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 7,
+        },
+        "start": {
+          "column": 5,
+          "line": 6,
+        },
+      },
+      "range": [
+        221,
+        226,
+      ],
+      "start": 221,
+      "type": "JSXText",
+      "value": "
+    ",
     },
     {
       "end": 227,
@@ -53471,6 +54715,27 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "value": ")",
     },
     {
+      "end": 289,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 9,
+        },
+        "start": {
+          "column": 41,
+          "line": 8,
+        },
+      },
+      "range": [
+        286,
+        289,
+      ],
+      "start": 286,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 290,
       "loc": {
         "end": {
@@ -53549,6 +54814,27 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       "start": 293,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 295,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 10,
+        },
+        "start": {
+          "column": 6,
+          "line": 9,
+        },
+      },
+      "range": [
+        294,
+        295,
+      ],
+      "start": 294,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 296,
@@ -61092,6 +62378,28 @@ the installation guides.",
       "value": ">",
     },
     {
+      "end": 254,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 17,
+        },
+        "start": {
+          "column": 0,
+          "line": 15,
+        },
+      },
+      "range": [
+        252,
+        254,
+      ],
+      "start": 252,
+      "type": "JSXText",
+      "value": "
+
+",
+    },
+    {
       "end": 255,
       "loc": {
         "end": {
@@ -61212,6 +62520,26 @@ the installation guides.",
       "value": ")",
     },
     {
+      "end": 287,
+      "loc": {
+        "end": {
+          "column": 32,
+          "line": 17,
+        },
+        "start": {
+          "column": 32,
+          "line": 17,
+        },
+      },
+      "range": [
+        286,
+        287,
+      ],
+      "start": 286,
+      "type": "JSXText",
+      "value": " ",
+    },
+    {
       "end": 288,
       "loc": {
         "end": {
@@ -61250,6 +62578,27 @@ the installation guides.",
       "start": 288,
       "type": "characterEscapeValue",
       "value": "|",
+    },
+    {
+      "end": 290,
+      "loc": {
+        "end": {
+          "column": 0,
+          "line": 18,
+        },
+        "start": {
+          "column": 34,
+          "line": 17,
+        },
+      },
+      "range": [
+        289,
+        290,
+      ],
+      "start": 289,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 291,
@@ -61372,6 +62721,26 @@ the installation guides.",
       "value": ")",
     },
     {
+      "end": 324,
+      "loc": {
+        "end": {
+          "column": 33,
+          "line": 18,
+        },
+        "start": {
+          "column": 33,
+          "line": 18,
+        },
+      },
+      "range": [
+        323,
+        324,
+      ],
+      "start": 323,
+      "type": "JSXText",
+      "value": " ",
+    },
+    {
       "end": 325,
       "loc": {
         "end": {
@@ -61410,6 +62779,27 @@ the installation guides.",
       "start": 325,
       "type": "characterEscapeValue",
       "value": "|",
+    },
+    {
+      "end": 327,
+      "loc": {
+        "end": {
+          "column": 0,
+          "line": 19,
+        },
+        "start": {
+          "column": 35,
+          "line": 18,
+        },
+      },
+      "range": [
+        326,
+        327,
+      ],
+      "start": 326,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 328,
@@ -61532,6 +62922,26 @@ the installation guides.",
       "value": ")",
     },
     {
+      "end": 381,
+      "loc": {
+        "end": {
+          "column": 53,
+          "line": 19,
+        },
+        "start": {
+          "column": 53,
+          "line": 19,
+        },
+      },
+      "range": [
+        380,
+        381,
+      ],
+      "start": 380,
+      "type": "JSXText",
+      "value": " ",
+    },
+    {
       "end": 382,
       "loc": {
         "end": {
@@ -61570,6 +62980,27 @@ the installation guides.",
       "start": 382,
       "type": "characterEscapeValue",
       "value": "|",
+    },
+    {
+      "end": 384,
+      "loc": {
+        "end": {
+          "column": 0,
+          "line": 20,
+        },
+        "start": {
+          "column": 55,
+          "line": 19,
+        },
+      },
+      "range": [
+        383,
+        384,
+      ],
+      "start": 383,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 385,
@@ -61692,6 +63123,26 @@ the installation guides.",
       "value": ")",
     },
     {
+      "end": 430,
+      "loc": {
+        "end": {
+          "column": 45,
+          "line": 20,
+        },
+        "start": {
+          "column": 45,
+          "line": 20,
+        },
+      },
+      "range": [
+        429,
+        430,
+      ],
+      "start": 429,
+      "type": "JSXText",
+      "value": " ",
+    },
+    {
       "end": 431,
       "loc": {
         "end": {
@@ -61730,6 +63181,27 @@ the installation guides.",
       "start": 431,
       "type": "characterEscapeValue",
       "value": "|",
+    },
+    {
+      "end": 433,
+      "loc": {
+        "end": {
+          "column": 0,
+          "line": 21,
+        },
+        "start": {
+          "column": 47,
+          "line": 20,
+        },
+      },
+      "range": [
+        432,
+        433,
+      ],
+      "start": 432,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 434,
@@ -61852,6 +63324,26 @@ the installation guides.",
       "value": ")",
     },
     {
+      "end": 469,
+      "loc": {
+        "end": {
+          "column": 35,
+          "line": 21,
+        },
+        "start": {
+          "column": 35,
+          "line": 21,
+        },
+      },
+      "range": [
+        468,
+        469,
+      ],
+      "start": 468,
+      "type": "JSXText",
+      "value": " ",
+    },
+    {
       "end": 470,
       "loc": {
         "end": {
@@ -61890,6 +63382,27 @@ the installation guides.",
       "start": 470,
       "type": "characterEscapeValue",
       "value": "|",
+    },
+    {
+      "end": 472,
+      "loc": {
+        "end": {
+          "column": 0,
+          "line": 22,
+        },
+        "start": {
+          "column": 37,
+          "line": 21,
+        },
+      },
+      "range": [
+        471,
+        472,
+      ],
+      "start": 471,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 473,
@@ -62012,6 +63525,26 @@ the installation guides.",
       "value": ")",
     },
     {
+      "end": 506,
+      "loc": {
+        "end": {
+          "column": 33,
+          "line": 22,
+        },
+        "start": {
+          "column": 33,
+          "line": 22,
+        },
+      },
+      "range": [
+        505,
+        506,
+      ],
+      "start": 505,
+      "type": "JSXText",
+      "value": " ",
+    },
+    {
       "end": 507,
       "loc": {
         "end": {
@@ -62050,6 +63583,27 @@ the installation guides.",
       "start": 507,
       "type": "characterEscapeValue",
       "value": "|",
+    },
+    {
+      "end": 509,
+      "loc": {
+        "end": {
+          "column": 0,
+          "line": 23,
+        },
+        "start": {
+          "column": 35,
+          "line": 22,
+        },
+      },
+      "range": [
+        508,
+        509,
+      ],
+      "start": 508,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 510,
@@ -62170,6 +63724,28 @@ the installation guides.",
       "start": 537,
       "type": "resourceMarker",
       "value": ")",
+    },
+    {
+      "end": 540,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 25,
+        },
+        "start": {
+          "column": 28,
+          "line": 23,
+        },
+      },
+      "range": [
+        538,
+        540,
+      ],
+      "start": 538,
+      "type": "JSXText",
+      "value": "
+
+",
     },
     {
       "end": 541,
@@ -62512,6 +64088,28 @@ the installation guides.",
       "value": ">",
     },
     {
+      "end": 651,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 35,
+        },
+        "start": {
+          "column": 13,
+          "line": 33,
+        },
+      },
+      "range": [
+        649,
+        651,
+      ],
+      "start": 649,
+      "type": "JSXText",
+      "value": "
+
+",
+    },
+    {
       "end": 652,
       "loc": {
         "end": {
@@ -62550,6 +64148,28 @@ the installation guides.",
       "start": 653,
       "type": "JSXText",
       "value": "Here's a text gradient shortcode!",
+    },
+    {
+      "end": 688,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 37,
+        },
+        "start": {
+          "column": 34,
+          "line": 35,
+        },
+      },
+      "range": [
+        686,
+        688,
+      ],
+      "start": 686,
+      "type": "JSXText",
+      "value": "
+
+",
     },
     {
       "end": 689,
@@ -63412,6 +65032,28 @@ text {value}
       "value": ">",
     },
     {
+      "end": 31,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 5,
+        },
+        "start": {
+          "column": 4,
+          "line": 3,
+        },
+      },
+      "range": [
+        29,
+        31,
+      ],
+      "start": 29,
+      "type": "JSXText",
+      "value": "
+
+",
+    },
+    {
       "end": 32,
       "loc": {
         "end": {
@@ -63472,6 +65114,28 @@ text {value}
       "start": 37,
       "type": "Punctuator",
       "value": "}",
+    },
+    {
+      "end": 40,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 7,
+        },
+        "start": {
+          "column": 6,
+          "line": 5,
+        },
+      },
+      "range": [
+        38,
+        40,
+      ],
+      "start": 38,
+      "type": "JSXText",
+      "value": "
+
+",
     },
     {
       "end": 45,
@@ -63556,6 +65220,28 @@ text {value}
       "value": "}",
     },
     {
+      "end": 54,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 9,
+        },
+        "start": {
+          "column": 11,
+          "line": 7,
+        },
+      },
+      "range": [
+        52,
+        54,
+      ],
+      "start": 52,
+      "type": "JSXText",
+      "value": "
+
+",
+    },
+    {
       "end": 55,
       "loc": {
         "end": {
@@ -63594,6 +65280,28 @@ text {value}
       "start": 68,
       "type": "Punctuator",
       "value": "}",
+    },
+    {
+      "end": 71,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 11,
+        },
+        "start": {
+          "column": 14,
+          "line": 9,
+        },
+      },
+      "range": [
+        69,
+        71,
+      ],
+      "start": 69,
+      "type": "JSXText",
+      "value": "
+
+",
     },
     {
       "end": 72,
@@ -64594,6 +66302,27 @@ exports[`parser should match all AST snapshots: jsx-imports.mdx 1`] = `
       "value": ">",
     },
     {
+      "end": 83,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 7,
+        },
+        "start": {
+          "column": 5,
+          "line": 6,
+        },
+      },
+      "range": [
+        80,
+        83,
+      ],
+      "start": 80,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 84,
       "loc": {
         "end": {
@@ -64752,6 +66481,27 @@ exports[`parser should match all AST snapshots: jsx-imports.mdx 1`] = `
       "start": 107,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 109,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 8,
+        },
+        "start": {
+          "column": 26,
+          "line": 7,
+        },
+      },
+      "range": [
+        108,
+        109,
+      ],
+      "start": 108,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 110,
@@ -67215,6 +68965,27 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "value": ">",
     },
     {
+      "end": 65,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 2,
+        },
+        "start": {
+          "column": 57,
+          "line": 1,
+        },
+      },
+      "range": [
+        58,
+        65,
+      ],
+      "start": 58,
+      "type": "JSXText",
+      "value": "
+      ",
+    },
+    {
       "end": 79,
       "loc": {
         "end": {
@@ -67233,6 +69004,27 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "start": 65,
       "type": "JSXText",
       "value": "Vuetify preset",
+    },
+    {
+      "end": 84,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 3,
+        },
+        "start": {
+          "column": 19,
+          "line": 2,
+        },
+      },
+      "range": [
+        79,
+        84,
+      ],
+      "start": 79,
+      "type": "JSXText",
+      "value": "
+    ",
     },
     {
       "end": 85,
@@ -67535,6 +69327,27 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "value": ">",
     },
     {
+      "end": 200,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 6,
+        },
+        "start": {
+          "column": 57,
+          "line": 5,
+        },
+      },
+      "range": [
+        193,
+        200,
+      ],
+      "start": 193,
+      "type": "JSXText",
+      "value": "
+      ",
+    },
+    {
       "end": 214,
       "loc": {
         "end": {
@@ -67553,6 +69366,27 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "start": 200,
       "type": "JSXText",
       "value": "Vuetify preset",
+    },
+    {
+      "end": 219,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 7,
+        },
+        "start": {
+          "column": 19,
+          "line": 6,
+        },
+      },
+      "range": [
+        214,
+        219,
+      ],
+      "start": 214,
+      "type": "JSXText",
+      "value": "
+    ",
     },
     {
       "end": 220,
@@ -67855,6 +69689,27 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "value": ">",
     },
     {
+      "end": 335,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 10,
+        },
+        "start": {
+          "column": 57,
+          "line": 9,
+        },
+      },
+      "range": [
+        328,
+        335,
+      ],
+      "start": 328,
+      "type": "JSXText",
+      "value": "
+      ",
+    },
+    {
       "end": 349,
       "loc": {
         "end": {
@@ -67873,6 +69728,27 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "start": 335,
       "type": "JSXText",
       "value": "Vuetify preset",
+    },
+    {
+      "end": 354,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 11,
+        },
+        "start": {
+          "column": 19,
+          "line": 10,
+        },
+      },
+      "range": [
+        349,
+        354,
+      ],
+      "start": 349,
+      "type": "JSXText",
+      "value": "
+    ",
     },
     {
       "end": 355,
@@ -68195,6 +70071,27 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "value": ">",
     },
     {
+      "end": 470,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 14,
+        },
+        "start": {
+          "column": 57,
+          "line": 13,
+        },
+      },
+      "range": [
+        463,
+        470,
+      ],
+      "start": 463,
+      "type": "JSXText",
+      "value": "
+      ",
+    },
+    {
       "end": 484,
       "loc": {
         "end": {
@@ -68213,6 +70110,27 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "start": 470,
       "type": "JSXText",
       "value": "Vuetify preset",
+    },
+    {
+      "end": 489,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 15,
+        },
+        "start": {
+          "column": 19,
+          "line": 14,
+        },
+      },
+      "range": [
+        484,
+        489,
+      ],
+      "start": 484,
+      "type": "JSXText",
+      "value": "
+    ",
     },
     {
       "end": 490,
@@ -68515,6 +70433,27 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "value": ">",
     },
     {
+      "end": 605,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 18,
+        },
+        "start": {
+          "column": 57,
+          "line": 17,
+        },
+      },
+      "range": [
+        598,
+        605,
+      ],
+      "start": 598,
+      "type": "JSXText",
+      "value": "
+      ",
+    },
+    {
       "end": 619,
       "loc": {
         "end": {
@@ -68533,6 +70472,27 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "start": 605,
       "type": "JSXText",
       "value": "Vuetify preset",
+    },
+    {
+      "end": 624,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 19,
+        },
+        "start": {
+          "column": 19,
+          "line": 18,
+        },
+      },
+      "range": [
+        619,
+        624,
+      ],
+      "start": 619,
+      "type": "JSXText",
+      "value": "
+    ",
     },
     {
       "end": 625,
@@ -68835,6 +70795,27 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "value": ">",
     },
     {
+      "end": 740,
+      "loc": {
+        "end": {
+          "column": 5,
+          "line": 22,
+        },
+        "start": {
+          "column": 57,
+          "line": 21,
+        },
+      },
+      "range": [
+        733,
+        740,
+      ],
+      "start": 733,
+      "type": "JSXText",
+      "value": "
+      ",
+    },
+    {
       "end": 754,
       "loc": {
         "end": {
@@ -68853,6 +70834,27 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
       "start": 740,
       "type": "JSXText",
       "value": "Vuetify preset",
+    },
+    {
+      "end": 759,
+      "loc": {
+        "end": {
+          "column": 3,
+          "line": 23,
+        },
+        "start": {
+          "column": 19,
+          "line": 22,
+        },
+      },
+      "range": [
+        754,
+        759,
+      ],
+      "start": 754,
+      "type": "JSXText",
+      "value": "
+    ",
     },
     {
       "end": 760,
@@ -69430,6 +71432,27 @@ exports[`parser should match all AST snapshots: leading-spaces.mdx 1`] = `
       "value": ">",
     },
     {
+      "end": 8,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 2,
+        },
+        "start": {
+          "column": 4,
+          "line": 1,
+        },
+      },
+      "range": [
+        5,
+        8,
+      ],
+      "start": 5,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 9,
       "loc": {
         "end": {
@@ -69590,6 +71613,28 @@ exports[`parser should match all AST snapshots: leading-spaces.mdx 1`] = `
       "value": ">",
     },
     {
+      "end": 23,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 4,
+        },
+        "start": {
+          "column": 12,
+          "line": 2,
+        },
+      },
+      "range": [
+        19,
+        23,
+      ],
+      "start": 19,
+      "type": "JSXText",
+      "value": "
+
+  ",
+    },
+    {
       "end": 24,
       "loc": {
         "end": {
@@ -69748,6 +71793,27 @@ exports[`parser should match all AST snapshots: leading-spaces.mdx 1`] = `
       "start": 33,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 35,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 5,
+        },
+        "start": {
+          "column": 12,
+          "line": 4,
+        },
+      },
+      "range": [
+        34,
+        35,
+      ],
+      "start": 34,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 36,
@@ -71940,6 +74006,27 @@ const value = 1
       "value": ">",
     },
     {
+      "end": 263,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 20,
+        },
+        "start": {
+          "column": 4,
+          "line": 19,
+        },
+      },
+      "range": [
+        260,
+        263,
+      ],
+      "start": 260,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 264,
       "loc": {
         "end": {
@@ -72098,6 +74185,27 @@ const value = 1
       "start": 278,
       "type": "Punctuator",
       "value": ">",
+    },
+    {
+      "end": 280,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 21,
+        },
+        "start": {
+          "column": 17,
+          "line": 20,
+        },
+      },
+      "range": [
+        279,
+        280,
+      ],
+      "start": 279,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 281,
@@ -74335,6 +76443,26 @@ Main <main> > </main>",
       "value": ">",
     },
     {
+      "end": 9,
+      "loc": {
+        "end": {
+          "column": 8,
+          "line": 1,
+        },
+        "start": {
+          "column": 8,
+          "line": 1,
+        },
+      },
+      "range": [
+        8,
+        9,
+      ],
+      "start": 8,
+      "type": "JSXText",
+      "value": " ",
+    },
+    {
       "end": 10,
       "loc": {
         "end": {
@@ -74393,6 +76521,26 @@ Main <main> > </main>",
       "start": 14,
       "type": "characterReferenceMarker",
       "value": ";",
+    },
+    {
+      "end": 16,
+      "loc": {
+        "end": {
+          "column": 16,
+          "line": 1,
+        },
+        "start": {
+          "column": 14,
+          "line": 1,
+        },
+      },
+      "range": [
+        15,
+        16,
+      ],
+      "start": 15,
+      "type": "JSXText",
+      "value": " ",
     },
     {
       "end": 17,
@@ -74715,6 +76863,26 @@ Main <main> > </main>",
       "value": ">",
     },
     {
+      "end": 60,
+      "loc": {
+        "end": {
+          "column": 15,
+          "line": 4,
+        },
+        "start": {
+          "column": 15,
+          "line": 4,
+        },
+      },
+      "range": [
+        59,
+        60,
+      ],
+      "start": 59,
+      "type": "JSXText",
+      "value": " ",
+    },
+    {
       "end": 61,
       "loc": {
         "end": {
@@ -74773,6 +76941,26 @@ Main <main> > </main>",
       "start": 65,
       "type": "characterReferenceMarker",
       "value": ";",
+    },
+    {
+      "end": 67,
+      "loc": {
+        "end": {
+          "column": 23,
+          "line": 4,
+        },
+        "start": {
+          "column": 21,
+          "line": 4,
+        },
+      },
+      "range": [
+        66,
+        67,
+      ],
+      "start": 66,
+      "type": "JSXText",
+      "value": " ",
     },
     {
       "end": 68,
@@ -75743,6 +77931,27 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
       "value": ">",
     },
     {
+      "end": 27,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 5,
+        },
+        "start": {
+          "column": 0,
+          "line": 4,
+        },
+      },
+      "range": [
+        24,
+        27,
+      ],
+      "start": 24,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 28,
       "loc": {
         "end": {
@@ -75913,6 +78122,27 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
       "start": 62,
       "type": "Punctuator",
       "value": "}",
+    },
+    {
+      "end": 64,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 8,
+        },
+        "start": {
+          "column": 3,
+          "line": 7,
+        },
+      },
+      "range": [
+        63,
+        64,
+      ],
+      "start": 63,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 65,
@@ -78343,6 +80573,27 @@ exports[`parser should match all AST snapshots: unicorn.mdx 1`] = `
       "value": ">",
     },
     {
+      "end": 10,
+      "loc": {
+        "end": {
+          "column": 1,
+          "line": 2,
+        },
+        "start": {
+          "column": 6,
+          "line": 1,
+        },
+      },
+      "range": [
+        7,
+        10,
+      ],
+      "start": 7,
+      "type": "JSXText",
+      "value": "
+  ",
+    },
+    {
       "end": 11,
       "loc": {
         "end": {
@@ -78516,6 +80767,27 @@ exports[`parser should match all AST snapshots: unicorn.mdx 1`] = `
       "start": 107,
       "type": "Punctuator",
       "value": "}",
+    },
+    {
+      "end": 109,
+      "loc": {
+        "end": {
+          "column": -1,
+          "line": 8,
+        },
+        "start": {
+          "column": 3,
+          "line": 7,
+        },
+      },
+      "range": [
+        108,
+        109,
+      ],
+      "start": 108,
+      "type": "JSXText",
+      "value": "
+",
     },
     {
       "end": 110,

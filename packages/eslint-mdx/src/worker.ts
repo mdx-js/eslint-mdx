@@ -48,6 +48,7 @@ import type { VFileMessage } from 'vfile-message'
 
 import {
   cjsRequire,
+  getPositionAtFactory,
   nextCharOffsetFactory,
   normalizePosition,
   prevCharOffsetFactory,
@@ -206,6 +207,100 @@ const getRemarkMdxOptions = (tokens: Token[]): Options => ({
 })
 
 const sharedTokens: Token[] = []
+
+const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
+  const ranges: JsxTextRange[] = []
+  const getPositionAt = getPositionAtFactory(code)
+
+  const addJsxTextRange = (start: number, end: number) => {
+    if (start >= end || code.slice(start, end).trim()) {
+      return
+    }
+
+    ranges.push({
+      end,
+      endPoint: getPositionAt(end),
+      start,
+      startPoint: getPositionAt(start),
+    })
+  }
+
+  /* eslint-disable sonarjs/cognitive-complexity -- traverses JSX children */
+  visitParents(root, (node, ancestors) => {
+    const position = node.position
+
+    if (
+      node.type === 'text' &&
+      position &&
+      ancestors.some(
+        ancestor =>
+          ancestor.type === 'mdxJsxFlowElement' ||
+          ancestor.type === 'mdxJsxTextElement',
+      )
+    ) {
+      const start = position.start.offset
+      const end = position.end.offset
+
+      if (start != null && end != null) {
+        ranges.push({
+          end,
+          endPoint: position.end,
+          start,
+          startPoint: position.start,
+        })
+      }
+    }
+
+    if (
+      (node.type !== 'mdxJsxFlowElement' &&
+        node.type !== 'mdxJsxTextElement') ||
+      !position
+    ) {
+      return
+    }
+
+    const nodeStart = position.start.offset
+    const nodeEnd = position.end.offset
+    const children = 'children' in node ? node.children : []
+
+    if (children.length === 0) {
+      return
+    }
+
+    const firstStart = children[0].position?.start.offset
+    const lastEnd = children.at(-1)?.position?.end.offset
+
+    if (firstStart != null) {
+      let gapStart = firstStart
+
+      while (gapStart > nodeStart && /\s/.test(code[gapStart - 1])) {
+        gapStart--
+      }
+
+      addJsxTextRange(gapStart, firstStart)
+    }
+
+    for (let index = 1; index < children.length; index++) {
+      const prevEnd = children[index - 1].position?.end.offset
+      const nextStart = children[index].position?.start.offset
+
+      if (prevEnd != null && nextStart != null) {
+        addJsxTextRange(prevEnd, nextStart)
+      }
+    }
+
+    if (lastEnd != null) {
+      const closingStart = code.indexOf('</', lastEnd)
+
+      if (closingStart !== -1 && closingStart < nodeEnd) {
+        addJsxTextRange(lastEnd, closingStart)
+      }
+    }
+  })
+  /* eslint-enable sonarjs/cognitive-complexity */
+
+  return ranges
+}
 
 export const getRemarkProcessor = async (
   filePath: string,
@@ -406,30 +501,7 @@ runAsWorker(
       ],
     })
     const acornTokens = [...sharedTokens]
-    const jsxTextRanges: JsxTextRange[] = []
-
-    visitParents(root, (node, ancestors) => {
-      if (
-        node.type === 'text' &&
-        ancestors.some(
-          ancestor =>
-            ancestor.type === 'mdxJsxFlowElement' ||
-            ancestor.type === 'mdxJsxTextElement',
-        )
-      ) {
-        const start = node.position?.start.offset
-        const end = node.position?.end.offset
-
-        if (start != null && end != null && node.position) {
-          jsxTextRanges.push({
-            end,
-            endPoint: node.position.end,
-            start,
-            startPoint: node.position.start,
-          })
-        }
-      }
-    })
+    const jsxTextRanges = collectJsxTextRanges(root, code)
 
     const markdownTokens = getTokens(code, events, tt, jsxTextRanges)
 
