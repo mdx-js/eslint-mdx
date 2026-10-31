@@ -109,7 +109,7 @@ export const getTokens = (
 
     if (event.enter) {
       const parent = stack.at(-1)
-      const skip = parent?.skip ?? false
+      const skip = parent?.skip
       let emitted = false
 
       if (parent) {
