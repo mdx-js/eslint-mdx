@@ -19,6 +19,7 @@ export const flat: Linter.FlatConfig = {
     },
     globals: {
       React: false,
+      props: false,
     },
   },
   plugins: {
