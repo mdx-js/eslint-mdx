@@ -19,11 +19,14 @@ describe('#574', () => {
       type: 'JSXIdentifier',
     }
 
+    if (!scopeManager) {
+      throw new Error('Expected a scope manager')
+    }
+
+    const manager = scopeManager
+
     expect(() =>
-      scopeManager.acquire(
-        detached as Parameters<typeof scopeManager.acquire>[0],
-        true,
-      ),
+      manager.acquire(detached as Parameters<typeof manager.acquire>[0], true),
     ).not.toThrow()
   })
 

@@ -17,7 +17,11 @@ const removeImportRule: Rule.RuleModule = {
         }
 
         context.report({
-          fix: fixer => fixer.removeRange([node.range[0], nextToken.range[0]]),
+          fix: fixer =>
+            fixer.removeRange([
+              node.range?.[0] ?? nextToken.range[0],
+              nextToken.range[0],
+            ]),
           message: 'remove unused import',
           node,
         })

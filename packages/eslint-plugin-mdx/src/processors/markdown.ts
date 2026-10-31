@@ -37,7 +37,7 @@ function traverse(
   } & { '*': () => void },
 ) {
   if (callbacks[node.type]) {
-    callbacks[node.type](node as never)
+    callbacks[node.type]?.(node as never)
   } else {
     callbacks['*']()
   }
@@ -106,7 +106,7 @@ const leadingWhitespaceRegex = /^[>\s]*/u
  * @returns The offset for the first column of the node's first line.
  */
 function getBeginningOfLineOffset(node: Node) {
-  return node.position.start.offset - node.position.start.column + 1
+  return node.position!.start.offset! - node.position!.start.column + 1
 }
 
 /**
@@ -119,9 +119,11 @@ function getBeginningOfLineOffset(node: Node) {
  *   the code block.
  */
 function getIndentText(text: string, node: Node) {
-  return leadingWhitespaceRegex.exec(
-    text.slice(getBeginningOfLineOffset(node)),
-  )[0]
+  return (
+    leadingWhitespaceRegex.exec(
+      text.slice(getBeginningOfLineOffset(node)),
+    )?.[0] || ''
+  )
 }
 
 /**
@@ -173,7 +175,14 @@ function getBlockRangeMap(text: string, node: Node, comments: string[]) {
    * Extract the Markdown source to determine the leading whitespace for each
    * line.
    */
-  const code = text.slice(startOffset, node.position.end.offset)
+  const endOffset = node.position!.end.offset
+
+  /* istanbul ignore if -- code block positions include offsets */
+  if (endOffset == null) {
+    throw new Error('Expected code block end offset')
+  }
+
+  const code = text.slice(startOffset, endOffset)
   const lines = code.split('\n')
 
   /**
@@ -224,7 +233,8 @@ function getBlockRangeMap(text: string, node: Node, comments: string[]) {
    */
   for (let i = 0; i + 1 < lines.length; i++) {
     const line = lines[i + 1]
-    const leadingWhitespaceLength = leadingWhitespaceRegex.exec(line)[0].length
+    const leadingWhitespaceLength =
+      leadingWhitespaceRegex.exec(line)?.[0].length || 0
 
     // The parser trims leading whitespace up to the level of the opening
     // fence, so keep any additional indentation beyond that.
@@ -261,8 +271,8 @@ const codeBlockFileNameRegex =
 function fileNameFromMeta(block: CodeBlock) {
   // istanbul ignore next
   return codeBlockFileNameRegex
-    .exec(block.meta)
-    ?.groups.filename.replaceAll(/\s+/gu, '_')
+    .exec(block.meta || '')
+    ?.groups?.filename.replaceAll(/\s+/gu, '_')
 }
 
 /**
@@ -340,7 +350,7 @@ function preprocess(
      * @param node The visited node.
      */
     code(node) {
-      if (!node.lang) {
+      if (!node?.lang) {
         return
       }
 
@@ -371,7 +381,7 @@ function preprocess(
      * @param node The visited node.
      */
     html(node) {
-      const comment = getComment(node.value)
+      const comment = getComment(node!.value)
       if (comment) {
         allComments.push(comment)
       } else {
@@ -379,12 +389,12 @@ function preprocess(
       }
     },
 
-    mdxFlowExpression: mdxExpression,
-    mdxTextExpression: mdxExpression,
+    mdxFlowExpression: node => mdxExpression(node!),
+    mdxTextExpression: node => mdxExpression(node!),
   })
 
   return blocks.map((block, index) => {
-    const [language] = block.lang.trim().split(' ')
+    const [language] = block.lang!.trim().split(' ')
     return {
       filename: fileNameFromMeta(block) ?? `${index}.${language}`,
       text: [...block.comments, block.value, ''].join('\n'),
@@ -430,7 +440,7 @@ function adjustBlock(block: CodeBlock) {
     0,
   )
 
-  const blockStart = block.position.start.line
+  const blockStart = block.position!.start.line
 
   /**
    * Adjusts ESLint messages to point to the correct location in the Markdown.
@@ -440,13 +450,13 @@ function adjustBlock(block: CodeBlock) {
    */
   return function adjustMessage(
     message: Linter.LintMessage,
-  ): Linter.LintMessage {
+  ): Linter.LintMessage | null {
     // istanbul ignore if
     if (!Number.isInteger(message.line)) {
       return {
         ...message,
         line: blockStart,
-        column: block.position.start.column,
+        column: block.position!.start.column,
       }
     }
 
@@ -463,7 +473,7 @@ function adjustBlock(block: CodeBlock) {
     }
 
     // istanbul ignore if
-    if (Number.isInteger(message.endLine)) {
+    if (message.endLine != null && Number.isInteger(message.endLine)) {
       out.endLine = message.endLine - leadingCommentLines + blockStart
     }
 
@@ -491,8 +501,14 @@ function adjustBlock(block: CodeBlock) {
  * @param message A message from the linter.
  * @returns True if the message should be included in output.
  */
-function excludeUnsatisfiableRules(message: Linter.LintMessage) {
-  return message && !UNSATISFIABLE_RULES.has(message.ruleId)
+function excludeUnsatisfiableRules(
+  message: Linter.LintMessage | null,
+): message is Linter.LintMessage {
+  if (!message) {
+    return false
+  }
+
+  return message.ruleId == null || !UNSATISFIABLE_RULES.has(message.ruleId)
 }
 
 /**
@@ -510,6 +526,10 @@ function postprocess(
   const blocks = blocksCache.get(filename)
 
   blocksCache.delete(filename)
+
+  if (!blocks) {
+    return []
+  }
 
   return messages.flatMap((group, i) => {
     const adjust = adjustBlock(blocks[i])
