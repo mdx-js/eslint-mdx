@@ -54,7 +54,7 @@ export const getTokens = (
   events: MicromarkEvent[],
   tt: Record<string, AcornTokenType> & typeof tokTypes,
 ): Token[] => {
-  const tokens: Array<Token & { micromarkType?: string }> = []
+  const tokens: Token[] = []
   const stack: Array<{
     emitted: boolean
     end: number

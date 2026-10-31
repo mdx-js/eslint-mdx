@@ -281,6 +281,7 @@ declare module 'eslint' {
 
 declare module 'acorn' {
   interface Token {
+    micromarkType?: string
     value?: string
   }
 }
