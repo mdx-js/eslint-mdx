@@ -159,8 +159,9 @@ export class Parser {
     // expose `props` for JSX content without resolving the remaining ESM refs.
     const addPropsVariable = (scope: Scope) => {
       const propsVariable = new Variable('props', scope)
+      // Keep it out of `scope.set`: ESLint 8/9's addDeclaredGlobals resolves
+      // every name in `globalScope.set`, which would hide ESM references.
       scope.variables.push(propsVariable)
-      scope.set.set('props', propsVariable)
     }
 
     addPropsVariable(globalScope)
