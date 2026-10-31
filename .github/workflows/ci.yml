@@ -49,6 +49,10 @@ jobs:
         run: |
           yarn add -D eslint@${{ matrix.eslint }} @types/eslint@${{ matrix.eslint }}
 
+      - name: Install eslint-scope 8 for ESLint 8
+        if: ${{ matrix.eslint == 8 }}
+        run: yarn add -D eslint-scope@8
+
       - name: Build and Lint
         if: ${{ matrix.node > 18 && matrix.eslint == 10 }}
         run: |
