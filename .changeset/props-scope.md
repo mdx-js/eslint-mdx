@@ -1,4 +1,5 @@
 ---
+"eslint-mdx": patch
 "eslint-plugin-mdx": patch
 ---
 
