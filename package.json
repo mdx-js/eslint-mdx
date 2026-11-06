@@ -28,7 +28,7 @@
     "version": "changeset version && yarn --no-immutable"
   },
   "devDependencies": {
-    "@1stg/common-config": "^16.0.0",
+    "@1stg/common-config": "^17.0.0",
     "@changesets/changelog-github": "^1.0.1",
     "@changesets/cli": "^3.0.3",
     "@commitlint/cli": "^21.2.4",
@@ -62,7 +62,7 @@
     "ts-node": "^10.9.2",
     "type-coverage": "^2.30.4",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
-    "yarn-berry-deduplicate": "^7.1.0"
+    "yarn-berry-deduplicate": "^8.0.0"
   },
   "resolutions": {
     "eslint-mdx": "link:packages/eslint-mdx",
