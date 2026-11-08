@@ -134,9 +134,10 @@ export const remark: Rule.RuleModule = {
           remarkConfigPath,
         })
 
-        // Avoid diffing the whole document when there is nothing to report.
-        const differences =
-          messages.length > 0 ? getDifferences(sourceText, fixedText) : []
+        let differences: NormalizedDifference[] | undefined
+
+        const getDifferencesOnce = () =>
+          (differences ??= getDifferences(sourceText, fixedText))
 
         for (const {
           source,
@@ -170,8 +171,6 @@ export const remark: Rule.RuleModule = {
             column: column - 1,
           }
 
-          const fixes = getFixesForPlace(differences, place)
-
           context.report({
             // related to https://github.com/eslint/eslint/issues/14198
             message: JSON.stringify(message),
@@ -184,7 +183,7 @@ export const remark: Rule.RuleModule = {
                   }
                 : point,
             node,
-            fix: () => fixes,
+            fix: () => getFixesForPlace(getDifferencesOnce(), place),
           })
         }
       },
