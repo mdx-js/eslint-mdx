@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.9.3
+
+### Patch Changes
+
+- [#648](https://github.com/mdx-js/eslint-mdx/pull/648) [`ee85742`](https://github.com/mdx-js/eslint-mdx/commit/ee8574214ba0aba5829251af7c0de5c036143f14) Thanks [@JounQin](https://github.com/JounQin)! - perf: compute remark differences only when fixes are applied
+- Updated dependencies []:
+  - eslint-mdx@3.9.3
+
 ## 3.9.2
 
 ### Patch Changes
