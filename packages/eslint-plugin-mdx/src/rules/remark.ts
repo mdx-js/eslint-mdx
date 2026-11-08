@@ -134,7 +134,9 @@ export const remark: Rule.RuleModule = {
           remarkConfigPath,
         })
 
-        const differences = getDifferences(sourceText, fixedText)
+        // Avoid diffing the whole document when there is nothing to report.
+        const differences =
+          messages.length > 0 ? getDifferences(sourceText, fixedText) : []
 
         for (const {
           source,
