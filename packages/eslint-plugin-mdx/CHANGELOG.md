@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.9.2
+
+### Patch Changes
+
+- [#646](https://github.com/mdx-js/eslint-mdx/pull/646) [`928f50d`](https://github.com/mdx-js/eslint-mdx/commit/928f50d3554d9155dd309ccfa768de65f76753ae) Thanks [@JounQin](https://github.com/JounQin)! - perf: skip remark difference generation when there are no lint messages
+- Updated dependencies []:
+  - eslint-mdx@3.9.2
+
 ## 3.9.1
 
 ### Patch Changes
