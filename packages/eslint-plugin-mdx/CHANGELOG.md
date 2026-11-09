@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.9.4
+
+### Patch Changes
+
+- [#650](https://github.com/mdx-js/eslint-mdx/pull/650) [`d970e2b`](https://github.com/mdx-js/eslint-mdx/commit/d970e2bee206d9d06756cb7c8ca93c5af4841e79) Thanks [@JounQin](https://github.com/JounQin)! - fix: skip remark autofixes when output is unchanged or expands past 2x
+- Updated dependencies []:
+  - eslint-mdx@3.9.4
+
 ## 3.9.3
 
 ### Patch Changes
