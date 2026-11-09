@@ -19,6 +19,9 @@ interface NormalizedDifference {
   offset: number
 }
 
+// eslint-disable-next-line @typescript-eslint/no-magic-numbers -- 64 KiB
+const LARGE_DOCUMENT_THRESHOLD = 64 * 1024
+
 const normalizeDifference = (difference: Difference): NormalizedDifference => ({
   deleteText: '',
   insertText: '',
@@ -135,6 +138,7 @@ export const remark: Rule.RuleModule = {
         })
 
         let differences: NormalizedDifference[] | undefined
+        let wholeDocumentFixed = false
 
         const getDifferencesOnce = () =>
           (differences ??= getDifferences(sourceText, fixedText))
@@ -183,7 +187,31 @@ export const remark: Rule.RuleModule = {
                   }
                 : point,
             node,
-            fix: () => getFixesForPlace(getDifferencesOnce(), place),
+            fix: (): Rule.Fix[] | null => {
+              /*
+               * `fast-diff` has pathological worst cases on very large
+               * documents. Keep the 3.8-compatible whole-document fix for
+               * those, instead of risking a multi-minute diff.
+               */
+              /* istanbul ignore if -- large document fallback */
+              if (sourceText.length > LARGE_DOCUMENT_THRESHOLD) {
+                /* istanbul ignore if -- only one whole-document fix per pass */
+                if (wholeDocumentFixed || fixedText == null) {
+                  return null
+                }
+
+                wholeDocumentFixed = true
+
+                return [
+                  {
+                    range: [0, sourceText.length],
+                    text: fixedText,
+                  },
+                ]
+              }
+
+              return getFixesForPlace(getDifferencesOnce(), place)
+            },
           })
         }
       },
