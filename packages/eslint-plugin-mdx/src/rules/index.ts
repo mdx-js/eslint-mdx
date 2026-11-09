@@ -8,7 +8,7 @@ export type * from './types.js'
 export { emphasisMarker, headingIncrement, remark }
 
 export const rules = {
-  emphasisMarker,
-  headingIncrement,
+  'emphasis-marker': emphasisMarker,
+  'heading-increment': headingIncrement,
   remark,
 }

@@ -3,6 +3,7 @@ import * as eslintMdx from 'eslint-mdx'
 
 import * as mdx from '../index.js'
 import { remark } from '../processors/remark.js'
+import { NATIVE_REMARK_RULES } from '../rules/helpers.js'
 
 import { codeBlocks } from './code-blocks.js'
 
@@ -26,9 +27,14 @@ export const flat: Linter.FlatConfig = {
   },
   processor: remark,
   rules: {
+    'mdx/emphasis-marker': 'warn',
+    'mdx/heading-increment': 'warn',
     'mdx/remark': 'warn',
     'no-unused-expressions': 'error',
     'react/react-in-jsx-scope': 'off',
+  },
+  settings: {
+    'mdx/native-rules': [...NATIVE_REMARK_RULES],
   },
 }
 
