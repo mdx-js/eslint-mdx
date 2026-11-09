@@ -4,7 +4,7 @@ import { getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
-    'no-duplicate-headings': undefined
+    'no-duplicate-headings': never
   }
 }
 
