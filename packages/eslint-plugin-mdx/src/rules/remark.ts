@@ -33,7 +33,7 @@ const getDifferences = (
   sourceText: string,
   fixedText: string | null | undefined,
 ) =>
-  fixedText == null || fixedText === sourceText
+  fixedText === undefined || fixedText === sourceText
     ? []
     : generateDifferences(sourceText, fixedText).map(normalizeDifference)
 
@@ -196,7 +196,7 @@ export const remark: Rule.RuleModule = {
                */
               /* istanbul ignore if -- transformed output is not a safe fix */
               if (
-                fixedText == null ||
+                fixedText === undefined ||
                 fixedText.length > sourceText.length * MAX_FIXED_TEXT_RATIO
               ) {
                 return null
@@ -205,7 +205,7 @@ export const remark: Rule.RuleModule = {
               /* istanbul ignore if -- large document fallback */
               if (sourceText.length > LARGE_DOCUMENT_THRESHOLD) {
                 /* istanbul ignore if -- only one whole-document fix per pass */
-                if (wholeDocumentFixed || fixedText == null) {
+                if (wholeDocumentFixed || fixedText === undefined) {
                   return null
                 }
 
