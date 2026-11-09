@@ -131,7 +131,7 @@ export const remark: Rule.RuleModule = {
           isMdx,
           process: true,
           ignoreRemarkConfig,
-          ignoreRemarkRules: [...NATIVE_REMARK_RULES],
+          ignoreRemarkRules: NATIVE_REMARK_RULES,
           remarkConfigPath,
         })
 

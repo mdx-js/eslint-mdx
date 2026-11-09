@@ -336,23 +336,20 @@ const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
   return ranges
 }
 
-const getRemarkIgnoreKey = (rules?: string[]) =>
-  rules?.length
+const getRemarkIgnoreKey = (rules?: ReadonlySet<string>) =>
+  rules?.size
     ? `\0ignore:${[...rules].sort((a, b) => a.localeCompare(b)).join(',')}`
     : ''
 
 const filterRemarkPlugins = (
   plugins: ConfigResult['plugins'],
-  ignoreRemarkRules?: string[],
-) => {
-  const ignored = new Set(ignoreRemarkRules)
-
-  return plugins.filter(([plugin]) => {
+  ignoreRemarkRules?: ReadonlySet<string>,
+) =>
+  plugins.filter(([plugin]) => {
     const name = plugin.name?.slice('remark-lint:'.length)
 
-    return !name || !ignored.has(name)
+    return !name || !ignoreRemarkRules?.has(name)
   })
-}
 
 export const getRemarkProcessor = async (
   filePath: string,
@@ -360,7 +357,7 @@ export const getRemarkProcessor = async (
   ignoreRemarkConfig?: boolean,
   cwd = process.cwd(),
   remarkConfigPath?: string,
-  ignoreRemarkRules?: string[],
+  ignoreRemarkRules?: ReadonlySet<string>,
 ) => {
   const ignoreKey = getRemarkIgnoreKey(ignoreRemarkRules)
   const initCacheKey = `${String(isMdx)}-${cwd}\0${filePath}${ignoreKey}`
