@@ -30,9 +30,6 @@ const normalizeDifference = (difference: Difference): NormalizedDifference => ({
   ...difference,
 })
 
-const isNativeRule = (ruleId: string | undefined) =>
-  Boolean(ruleId && NATIVE_REMARK_RULES.has(ruleId))
-
 const getDifferences = (sourceText: string, fixedText: string) =>
   generateDifferences(sourceText, fixedText).map(normalizeDifference)
 
@@ -134,6 +131,7 @@ export const remark: Rule.RuleModule = {
           isMdx,
           process: true,
           ignoreRemarkConfig,
+          ignoreRemarkRules: [...NATIVE_REMARK_RULES],
           remarkConfigPath,
         })
 
@@ -152,10 +150,6 @@ export const remark: Rule.RuleModule = {
           column,
           place,
         } of messages) {
-          if (isNativeRule(ruleId)) {
-            continue
-          }
-
           // https://github.com/remarkjs/remark-lint/issues/65#issuecomment-220800231
           /* istanbul ignore next */
           // eslint-disable-next-line sonarjs/no-nested-conditional

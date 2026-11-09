@@ -38,6 +38,7 @@ export interface NormalPosition {
 
 export interface SyncOptions extends CommonOptions {
   cwd?: string
+  ignoreRemarkRules?: string[]
 }
 
 export interface WorkerOptions extends SyncOptions {

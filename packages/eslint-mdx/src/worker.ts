@@ -336,14 +336,34 @@ const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
   return ranges
 }
 
+const getRemarkIgnoreKey = (rules?: string[]) =>
+  rules?.length
+    ? `\0ignore:${[...rules].sort((a, b) => a.localeCompare(b)).join(',')}`
+    : ''
+
+const filterRemarkPlugins = (
+  plugins: ConfigResult['plugins'],
+  ignoreRemarkRules?: string[],
+) => {
+  const ignored = new Set(ignoreRemarkRules)
+
+  return plugins.filter(([plugin]) => {
+    const name = plugin.name?.slice('remark-lint:'.length)
+
+    return !name || !ignored.has(name)
+  })
+}
+
 export const getRemarkProcessor = async (
   filePath: string,
   isMdx: boolean,
   ignoreRemarkConfig?: boolean,
   cwd = process.cwd(),
   remarkConfigPath?: string,
+  ignoreRemarkRules?: string[],
 ) => {
-  const initCacheKey = `${String(isMdx)}-${cwd}\0${filePath}`
+  const ignoreKey = getRemarkIgnoreKey(ignoreRemarkRules)
+  const initCacheKey = `${String(isMdx)}-${cwd}\0${filePath}${ignoreKey}`
 
   let cachedProcessor = processorCache.get(initCacheKey)
 
@@ -355,9 +375,9 @@ export const getRemarkProcessor = async (
     ? null
     : await getRemarkConfig(filePath, cwd, remarkConfigPath)
 
-  const cacheKey = result?.filePath
-    ? `${String(isMdx)}-${result.filePath}`
-    : String(isMdx)
+  const cacheKey = `${
+    result?.filePath ? `${String(isMdx)}-${result.filePath}` : String(isMdx)
+  }${ignoreKey}`
 
   cachedProcessor = processorCache.get(cacheKey)
 
@@ -393,7 +413,7 @@ export const getRemarkProcessor = async (
       initProcessor.use(remarkMdx, getRemarkMdxOptions(sharedTokens))
     }
 
-    cachedProcessor = plugins
+    cachedProcessor = filterRemarkPlugins(plugins, ignoreRemarkRules)
       .reduce((processor, plugin) => processor.use(...plugin), initProcessor)
       .freeze()
   } else {
@@ -430,6 +450,7 @@ runAsWorker(
     isMdx,
     process,
     ignoreRemarkConfig,
+    ignoreRemarkRules,
     remarkConfigPath,
     // eslint-disable-next-line sonarjs/cognitive-complexity
   }: WorkerOptions): Promise<WorkerResult> => {
@@ -451,6 +472,7 @@ runAsWorker(
       ignoreRemarkConfig,
       cwd,
       remarkConfigPath,
+      ignoreRemarkRules,
     )
 
     const fileOptions: VFileOptions = {
