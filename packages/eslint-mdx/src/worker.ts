@@ -337,9 +337,7 @@ const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
 }
 
 const getRemarkIgnoreKey = (rules?: ReadonlySet<string>) =>
-  rules?.size
-    ? `\0ignore:${[...rules].sort((a, b) => a.localeCompare(b)).join(',')}`
-    : ''
+  rules?.size ? `\0ignore:${[...rules].join(',')}` : ''
 
 const filterRemarkPlugins = (
   plugins: ConfigResult['plugins'],
