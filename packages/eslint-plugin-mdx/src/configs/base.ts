@@ -16,6 +16,8 @@ export const base: Linter.LegacyConfig = {
     'mdx/heading-increment': 'warn',
     'mdx/no-duplicate-headings': 'warn',
     'mdx/no-heading-punctuation': 'warn',
+    'mdx/no-shortcut-reference-image': 'warn',
+    'mdx/no-shortcut-reference-link': 'warn',
     'mdx/remark': 'warn',
     'mdx/strong-marker': 'warn',
     'mdx/unordered-list-marker-style': 'warn',

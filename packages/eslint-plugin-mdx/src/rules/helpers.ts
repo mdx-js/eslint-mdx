@@ -6,6 +6,8 @@ export const NATIVE_REMARK_RULES = new Set([
   'heading-increment',
   'no-duplicate-headings',
   'no-heading-punctuation',
+  'no-shortcut-reference-image',
+  'no-shortcut-reference-link',
   'strong-marker',
   'unordered-list-marker-style',
 ])
