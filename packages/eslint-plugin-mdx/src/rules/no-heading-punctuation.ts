@@ -27,7 +27,7 @@ export const noHeadingPunctuation: Rule.RuleModule = {
     /* istanbul ignore next -- POC covers the default option */
     /* eslint-disable sonarjs/no-nested-conditional */
     const expected =
-      config.options === undefined
+      config.options == null
         ? /[!,.:;?]/u
         : typeof config.options === 'string'
           ? new RegExp(`[${config.options}]`, 'u')
