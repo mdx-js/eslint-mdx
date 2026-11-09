@@ -19,19 +19,18 @@ interface NormalizedDifference {
   offset: number
 }
 
+// eslint-disable-next-line @typescript-eslint/no-magic-numbers -- 64 KiB
+const LARGE_DOCUMENT_THRESHOLD = 64 * 1024
+const MAX_FIXED_TEXT_RATIO = 2
+
 const normalizeDifference = (difference: Difference): NormalizedDifference => ({
   deleteText: '',
   insertText: '',
   ...difference,
 })
 
-const getDifferences = (
-  sourceText: string,
-  fixedText: string | null | undefined,
-) =>
-  fixedText == null || fixedText === sourceText
-    ? []
-    : generateDifferences(sourceText, fixedText).map(normalizeDifference)
+const getDifferences = (sourceText: string, fixedText: string) =>
+  generateDifferences(sourceText, fixedText).map(normalizeDifference)
 
 const getFixesForPlace = (
   differences: NormalizedDifference[],
@@ -135,6 +134,7 @@ export const remark: Rule.RuleModule = {
         })
 
         let differences: NormalizedDifference[] | undefined
+        let wholeDocumentFixed = false
 
         const getDifferencesOnce = () =>
           (differences ??= getDifferences(sourceText, fixedText))
@@ -183,7 +183,37 @@ export const remark: Rule.RuleModule = {
                   }
                 : point,
             node,
-            fix: () => getFixesForPlace(getDifferencesOnce(), place),
+            fix: (): Rule.Fix[] | null => {
+              /*
+               * `fast-diff` has pathological worst cases on very large
+               * documents. Keep the 3.8-compatible whole-document fix for
+               * those, instead of risking a multi-minute diff.
+               */
+              if (fixedText == null || fixedText === sourceText) {
+                return null
+              }
+
+              if (fixedText.length > sourceText.length * MAX_FIXED_TEXT_RATIO) {
+                return null
+              }
+
+              if (sourceText.length > LARGE_DOCUMENT_THRESHOLD) {
+                if (wholeDocumentFixed) {
+                  return null
+                }
+
+                wholeDocumentFixed = true
+
+                return [
+                  {
+                    range: [0, sourceText.length],
+                    text: fixedText,
+                  },
+                ]
+              }
+
+              return getFixesForPlace(getDifferencesOnce(), place)
+            },
           })
         }
       },
