@@ -2,4 +2,4 @@
 test/fixtures
 auto-imports.d.ts
 
-test/remark-fixtures
+test/remark-fixtures/table-padding.mdx

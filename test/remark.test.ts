@@ -2,6 +2,8 @@ import { readFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 import path from 'node:path'
 
+import type { Rule } from 'eslint'
+
 import { ruleTester, languageOptions } from './helpers.js'
 
 import { remark } from 'eslint-plugin-mdx'
@@ -183,7 +185,7 @@ test('hack', () => {
 
 describe('remark large document handling', () => {
   function getFixes(code: string, filename: string) {
-    const fixes: Array<() => unknown> = []
+    const fixes: Array<() => Rule.Fix[] | null> = []
     const visitor = remark.create({
       cwd: process.cwd(),
       filename,
@@ -196,7 +198,7 @@ describe('remark large document handling', () => {
         },
       },
       parserOptions: {},
-      report({ fix }: { fix?: () => unknown }) {
+      report({ fix }: { fix?: () => Rule.Fix[] | null }) {
         if (fix) {
           fixes.push(fix)
         }
@@ -229,7 +231,7 @@ describe('remark large document handling', () => {
     expect(fixes[0]()).toBeNull()
   })
 
-  it('uses the whole-document fallback once', () => {
+  it('does not generate a no-op fix when output equals source', () => {
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- just above threshold
     const code = `# Title\n\n### A\n\n${'x'.repeat(65 * 1024)}\n\n### B\n`
     const fixes = getFixes(
@@ -238,7 +240,25 @@ describe('remark large document handling', () => {
     )
 
     expect(fixes.length).toBeGreaterThan(0)
-    expect(fixes[0]()).not.toBeNull()
+    expect(fixes[0]()).toBeNull()
+  })
+
+  it('uses the whole-document fallback once', () => {
+    const unit = '* item one\n* item two\n\n'
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- above threshold
+    const code = `# Title\n\n### A\n\n${unit.repeat(5000)}\n### B\n`
+    const fixes = getFixes(
+      code,
+      path.resolve(import.meta.dirname, 'fixtures/style/large.mdx'),
+    )
+
+    expect(fixes.length).toBeGreaterThan(0)
+    const fix = fixes[0]()
+
+    expect(fix).toHaveLength(1)
+    expect(fix?.[0].range).toEqual([0, code.length])
+    expect(typeof fix?.[0].text).toBe('string')
+    expect(fix?.[0].text).not.toBe(code)
     expect(fixes[0]()).toBeNull()
   })
 })

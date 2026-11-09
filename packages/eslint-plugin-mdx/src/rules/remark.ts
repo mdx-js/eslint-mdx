@@ -29,13 +29,8 @@ const normalizeDifference = (difference: Difference): NormalizedDifference => ({
   ...difference,
 })
 
-const getDifferences = (
-  sourceText: string,
-  fixedText: string | null | undefined,
-) =>
-  fixedText == null || fixedText === sourceText
-    ? []
-    : generateDifferences(sourceText, fixedText).map(normalizeDifference)
+const getDifferences = (sourceText: string, fixedText: string) =>
+  generateDifferences(sourceText, fixedText).map(normalizeDifference)
 
 const getFixesForPlace = (
   differences: NormalizedDifference[],
@@ -194,10 +189,11 @@ export const remark: Rule.RuleModule = {
                * documents. Keep the 3.8-compatible whole-document fix for
                * those, instead of risking a multi-minute diff.
                */
-              if (
-                fixedText == null ||
-                fixedText.length > sourceText.length * MAX_FIXED_TEXT_RATIO
-              ) {
+              if (fixedText == null || fixedText === sourceText) {
+                return null
+              }
+
+              if (fixedText.length > sourceText.length * MAX_FIXED_TEXT_RATIO) {
                 return null
               }
 
