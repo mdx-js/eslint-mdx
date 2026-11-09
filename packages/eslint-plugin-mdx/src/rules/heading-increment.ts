@@ -1,6 +1,6 @@
 import type { Rule } from 'eslint'
 
-import { getLoc, getRuleOptions, visitMarkdown } from './native-helpers.js'
+import { getRuleOptions, type MarkdownNode } from './native-helpers.js'
 
 export const headingIncrement: Rule.RuleModule = {
   meta: {
@@ -20,19 +20,18 @@ export const headingIncrement: Rule.RuleModule = {
     let previous = 0
 
     return {
-      Program() {
-        visitMarkdown(context.sourceCode.ast.body, 'MDHeading', node => {
-          const expected = previous + 1
+      MDHeading(node: MarkdownNode) {
+        const depth = node.depth
+        const expected = previous + 1
 
-          if (previous > 0 && node.depth > expected) {
-            context.report({
-              loc: getLoc(node),
-              message: `Unexpected heading rank \`${node.depth}\`, exected rank \`${expected}\``,
-            })
-          }
+        if (previous > 0 && depth > expected) {
+          context.report({
+            loc: node.loc,
+            message: `Unexpected heading rank \`${depth}\`, exected rank \`${expected}\``,
+          })
+        }
 
-          previous = node.depth
-        })
+        previous = depth
       },
     }
   },

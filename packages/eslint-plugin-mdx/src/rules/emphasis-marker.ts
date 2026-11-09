@@ -1,6 +1,6 @@
 import type { Rule } from 'eslint'
 
-import { getLoc, getRuleOptions, visitMarkdown } from './native-helpers.js'
+import { getRuleOptions, type MarkdownNode } from './native-helpers.js'
 
 export const emphasisMarker: Rule.RuleModule = {
   meta: {
@@ -23,25 +23,23 @@ export const emphasisMarker: Rule.RuleModule = {
       rule.options === '*' || rule.options === '_' ? rule.options : undefined
 
     return {
-      Program() {
-        visitMarkdown(context.sourceCode.ast.body, 'MDEmphasis', node => {
-          const [start, end] = node.range
-          const actual = sourceText.charAt(start)
+      MDEmphasis(node: MarkdownNode) {
+        const [start, end] = node.range
+        const actual = sourceText.charAt(start)
 
-          expected ??= actual
+        expected ??= actual
 
-          if (actual === expected) {
-            return
-          }
+        if (actual === expected) {
+          return
+        }
 
-          context.report({
-            loc: getLoc(node),
-            message: `Unexpected emphasis marker \`${actual}\`, expected \`${expected}\``,
-            fix: fixer => [
-              fixer.replaceTextRange([start, start + 1], expected),
-              fixer.replaceTextRange([end - 1, end], expected),
-            ],
-          })
+        context.report({
+          loc: node.loc,
+          message: `Unexpected emphasis marker \`${actual}\`, expected \`${expected}\``,
+          fix: fixer => [
+            fixer.replaceTextRange([start, start + 1], expected),
+            fixer.replaceTextRange([end - 1, end], expected),
+          ],
         })
       },
     }

@@ -2,31 +2,12 @@ import type { SourceCode } from 'eslint'
 
 export interface MarkdownNode {
   type: string
-  children?: MarkdownNode[]
   loc: {
     start: { line: number; column: number }
     end: { line: number; column: number }
   }
   range: [number, number]
   depth?: number
-}
-
-export const visitMarkdown = (
-  nodes: readonly unknown[],
-  type: string,
-  callback: (node: MarkdownNode) => void,
-) => {
-  for (const value of nodes) {
-    const node = value as MarkdownNode
-
-    if (node.type === type) {
-      callback(node)
-    }
-
-    if (node.children) {
-      visitMarkdown(node.children, type, callback)
-    }
-  }
 }
 
 export const getRuleOptions = (sourceCode: SourceCode, name: string) => {
@@ -43,5 +24,3 @@ export const getRuleOptions = (sourceCode: SourceCode, name: string) => {
     ? { enabled: rule.options !== false, options: rule.options }
     : null
 }
-
-export const getLoc = (node: MarkdownNode) => node.loc
