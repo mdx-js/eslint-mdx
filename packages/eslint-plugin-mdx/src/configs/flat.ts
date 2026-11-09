@@ -31,6 +31,7 @@ export const flat: Linter.FlatConfig = {
     'mdx/no-duplicate-headings': 'warn',
     'mdx/no-heading-punctuation': 'warn',
     'mdx/no-shortcut-reference-image': 'warn',
+    'mdx/no-unused-definitions': 'warn',
     'mdx/no-shortcut-reference-link': 'warn',
     'mdx/remark': 'warn',
     'mdx/strong-marker': 'warn',
