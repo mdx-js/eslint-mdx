@@ -6,6 +6,7 @@ import type { Rule } from 'eslint'
 
 import { ruleTester, languageOptions } from './helpers.js'
 
+import { performSyncWork } from 'eslint-mdx'
 import { remark } from 'eslint-plugin-mdx'
 
 const userDir = homedir()
@@ -150,18 +151,6 @@ ruleTester.run('remark', remark, {
       errors: [
         {
           message: JSON.stringify({
-            reason: 'Unexpected emphasis marker `_`, expected `*`',
-            source: 'remark-lint',
-            ruleId: 'emphasis-marker',
-            severity: 1,
-          }),
-          line: 1,
-          column: 1,
-          endLine: 1,
-          endColumn: 11,
-        },
-        {
-          message: JSON.stringify({
             reason: 'Unexpected strong marker `_`, expected `*`',
             source: 'remark-lint',
             ruleId: 'strong-marker',
@@ -223,7 +212,7 @@ describe('remark large document handling', () => {
 
   it('skips fixes when the remark output expands the document', () => {
     const fixes = getFixes(
-      `# A\n\n### B\n\n${TABLE_PADDING_MDX}`,
+      `# A!\n\n${TABLE_PADDING_MDX}`,
       path.resolve(import.meta.dirname, 'fixtures/-leading-dash.mdx'),
     )
 
@@ -233,7 +222,18 @@ describe('remark large document handling', () => {
 
   it('does not generate a no-op fix when output equals source', () => {
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- just above threshold
-    const code = `# Title\n\n### A\n\n${'x'.repeat(65 * 1024)}\n\n### B\n`
+    const source = `# Title!\n\n${'x'.repeat(65 * 1024)}`
+    const code = performSyncWork({
+      code: source,
+      cwd: process.cwd(),
+      filePath: path.resolve(import.meta.dirname, 'fixtures/style/large.mdx'),
+      isMdx: true,
+      process: true,
+      remarkConfigPath: path.resolve(
+        import.meta.dirname,
+        'remark-fixtures/large.remarkrc',
+      ),
+    }).content
     const fixes = getFixes(
       code,
       path.resolve(import.meta.dirname, 'fixtures/style/large.mdx'),
@@ -246,7 +246,7 @@ describe('remark large document handling', () => {
   it('uses the whole-document fallback once', () => {
     const unit = '* item one\n* item two\n\n'
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- above threshold
-    const code = `# Title\n\n### A\n\n${unit.repeat(5000)}\n### B\n`
+    const code = `# Title!\n\n${unit.repeat(5000)}`
     const fixes = getFixes(
       code,
       path.resolve(import.meta.dirname, 'fixtures/style/large.mdx'),

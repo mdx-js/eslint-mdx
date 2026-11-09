@@ -1,6 +1,1 @@
-{
-  "plugins": [
-    "remark-gfm",
-    "remark-lint-heading-increment"
-  ]
-}
+{"plugins":["remark-lint-no-heading-punctuation"]}

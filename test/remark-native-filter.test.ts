@@ -19,9 +19,6 @@ ruleTester.run('remark filters native rules', remark, {
           ),
         },
       },
-      settings: {
-        'mdx/native-rules': ['heading-increment'],
-      },
     },
   ],
   invalid: [],

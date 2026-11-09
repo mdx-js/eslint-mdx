@@ -11,6 +11,7 @@ import {
 import { generateDifferences, type Difference } from 'prettier-linter-helpers'
 import type { VFileMessage } from 'vfile-message'
 
+import { NATIVE_REMARK_RULES } from './helpers.js'
 import type { RemarkLintMessage } from './types.js'
 
 interface NormalizedDifference {
@@ -29,8 +30,8 @@ const normalizeDifference = (difference: Difference): NormalizedDifference => ({
   ...difference,
 })
 
-const isNativeRule = (ruleId: string | undefined, nativeRules: string[]) =>
-  Boolean(ruleId && nativeRules.includes(ruleId))
+const isNativeRule = (ruleId: string | undefined) =>
+  Boolean(ruleId && (NATIVE_REMARK_RULES as readonly string[]).includes(ruleId))
 
 const getDifferences = (sourceText: string, fixedText: string) =>
   generateDifferences(sourceText, fixedText).map(normalizeDifference)
@@ -136,9 +137,6 @@ export const remark: Rule.RuleModule = {
           remarkConfigPath,
         })
 
-        const nativeRules = (context.settings?.['mdx/native-rules'] ??
-          []) as string[]
-
         let differences: NormalizedDifference[] | undefined
         let wholeDocumentFixed = false
 
@@ -154,7 +152,7 @@ export const remark: Rule.RuleModule = {
           column,
           place,
         } of messages) {
-          if (isNativeRule(ruleId, nativeRules)) {
+          if (isNativeRule(ruleId)) {
             continue
           }
 
