@@ -2,9 +2,7 @@ import { readFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 import path from 'node:path'
 
-import { Linter } from 'eslint'
-
-import { ruleTester, languageOptions, parser } from './helpers.js'
+import { ruleTester, languageOptions } from './helpers.js'
 
 import { remark } from 'eslint-plugin-mdx'
 
@@ -184,68 +182,63 @@ test('hack', () => {
 })
 
 describe('remark large document handling', () => {
-  it('skips fixes when the remark output expands the document', () => {
-    const linter = new Linter()
-    const filename = path.resolve(
-      import.meta.dirname,
-      'fixtures/-leading-dash.mdx',
-    )
-    const config = [
-      {
-        files: ['**/*.mdx'],
-        languageOptions: {
-          ...languageOptions,
-          parserOptions: {
-            ...languageOptions.parserOptions,
-            remarkConfigPath: path.resolve(
-              import.meta.dirname,
-              'remark-fixtures/large.remarkrc',
-            ),
-          },
+  function getFixes(code: string, filename: string) {
+    const fixes: Array<() => unknown> = []
+    const visitor = remark.create({
+      cwd: process.cwd(),
+      filename,
+      languageOptions: {
+        parserOptions: {
+          remarkConfigPath: path.resolve(
+            import.meta.dirname,
+            'remark-fixtures/large.remarkrc',
+          ),
         },
-        plugins: { mdx: { rules: { remark } } },
-        rules: { 'mdx/remark': 'warn' },
       },
-    ] as Linter.Config[]
+      parserOptions: {},
+      report({ fix }: { fix?: () => unknown }) {
+        if (fix) {
+          fixes.push(fix)
+        }
+      },
+      sourceCode: {
+        getText: () => code,
+      },
+    } as never)
 
-    expect(
-      linter.verify(`# A\n\n### B\n\n${TABLE_PADDING_MDX}`, config, {
-        filename,
-      }).length,
-    ).toBeGreaterThan(0)
-    expect(
-      linter.verifyAndFix(`# A\n\n### B\n\n${TABLE_PADDING_MDX}`, config, {
-        filename,
-      }).fixed,
-    ).toBe(false)
+    const program = visitor.Program
+
+    if (!program) {
+      throw new Error('Expected a Program visitor')
+    }
+
+    program({
+      type: 'Program',
+    } as never)
+
+    return fixes
+  }
+
+  it('skips fixes when the remark output expands the document', () => {
+    const fixes = getFixes(
+      `# A\n\n### B\n\n${TABLE_PADDING_MDX}`,
+      path.resolve(import.meta.dirname, 'fixtures/-leading-dash.mdx'),
+    )
+
+    expect(fixes.length).toBeGreaterThan(0)
+    expect(fixes[0]()).toBeNull()
   })
 
-  it('uses the whole-document fallback and reports remaining messages', () => {
-    const linter = new Linter()
+  it('uses the whole-document fallback once', () => {
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- just above threshold
-    const code = `# Title\n\n${'x'.repeat(65 * 1024)}\n\n_emphasis_\n\n_emphasis_\n`
-    const config = [
-      {
-        files: ['**/*.mdx'],
-        languageOptions: {
-          parser,
-          parserOptions: {
-            remarkConfigPath: path.resolve(
-              import.meta.dirname,
-              'fixtures/style/.remarkrc',
-            ),
-          },
-        },
-        plugins: { mdx: { rules: { remark } } },
-        rules: { 'mdx/remark': 'warn' },
-      },
-    ] as Linter.Config[]
-    const filename = path.resolve(
-      import.meta.dirname,
-      'fixtures/style/large.mdx',
+    const code = `# Title\n\n### A\n\n${'x'.repeat(65 * 1024)}\n\n### B\n`
+    const fixes = getFixes(
+      code,
+      path.resolve(import.meta.dirname, 'fixtures/style/large.mdx'),
     )
 
-    expect(linter.verify(code, config, { filename }).length).toBeGreaterThan(0)
-    expect(linter.verifyAndFix(code, config, { filename }).fixed).toBe(true)
+    expect(fixes.length).toBeGreaterThan(0)
+    expect(fixes[0]()).not.toBeNull()
+    expect(fixes[0]()).toBeNull()
   })
 })
