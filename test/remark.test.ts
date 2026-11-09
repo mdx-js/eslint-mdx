@@ -13,7 +13,7 @@ const userDir = homedir()
 // One long table cell makes remark-gfm pad every short row to its width.
 // The transformed document becomes large enough that diffing is unsafe.
 const TABLE_PADDING_MDX = readFileSync(
-  new URL('remark-fixtures/table-padding.txt', import.meta.url),
+  new URL('remark-fixtures/table-padding.mdx', import.meta.url),
   'utf8',
 )
 

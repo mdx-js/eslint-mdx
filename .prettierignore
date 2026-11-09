@@ -1,3 +1,5 @@
 .yarn
 test/fixtures
 auto-imports.d.ts
+
+test/remark-fixtures
