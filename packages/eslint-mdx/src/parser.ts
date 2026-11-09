@@ -119,7 +119,6 @@ export class Parser {
     }
 
     const ast: AST.Program & {
-      root: typeof root
       remarkConfig?: typeof remarkConfig
     } = {
       ...normalizePosition(root.position),
@@ -131,13 +130,9 @@ export class Parser {
       tokens,
     }
 
-    Object.defineProperty(ast, 'root', {
-      configurable: true,
-      value: root,
-    })
     Object.defineProperty(ast, 'remarkConfig', {
       configurable: true,
-      value: remarkConfig,
+      value: remarkConfig ?? { rules: [] },
     })
 
     const scopeManager = analyze(ast, {

@@ -2,7 +2,7 @@ import path from 'node:path'
 
 import { languageOptions, ruleTester } from './helpers.js'
 
-import { nativeEmphasisMarker, nativeHeadingIncrement } from 'eslint-plugin-mdx'
+import { emphasisMarker, headingIncrement } from 'eslint-plugin-mdx'
 
 const emptyLanguageOptions = {
   ...languageOptions,
@@ -11,6 +11,17 @@ const emptyLanguageOptions = {
     remarkConfigPath: path.resolve(
       import.meta.dirname,
       'remark-fixtures/empty.remarkrc',
+    ),
+  },
+}
+
+const consistentLanguageOptions = {
+  ...languageOptions,
+  parserOptions: {
+    ...languageOptions.parserOptions,
+    remarkConfigPath: path.resolve(
+      import.meta.dirname,
+      'remark-fixtures/consistent.remarkrc',
     ),
   },
 }
@@ -26,7 +37,7 @@ const nativeLanguageOptions = {
   },
 }
 
-ruleTester.run('native remark heading increment', nativeHeadingIncrement, {
+ruleTester.run('native remark heading increment', headingIncrement, {
   valid: [
     {
       code: '# A\n\n## B',
@@ -56,7 +67,7 @@ ruleTester.run('native remark heading increment', nativeHeadingIncrement, {
   ],
 })
 
-ruleTester.run('native remark emphasis marker', nativeEmphasisMarker, {
+ruleTester.run('native remark emphasis marker', emphasisMarker, {
   valid: [
     {
       code: '*emphasis*',
@@ -68,6 +79,12 @@ ruleTester.run('native remark emphasis marker', nativeEmphasisMarker, {
       code: '_emphasis_',
       filename: 'native.mdx',
       languageOptions: emptyLanguageOptions,
+    },
+
+    {
+      code: '_consistent_',
+      filename: 'native.mdx',
+      languageOptions: consistentLanguageOptions,
     },
   ],
   invalid: [
@@ -83,6 +100,20 @@ ruleTester.run('native remark emphasis marker', nativeEmphasisMarker, {
         },
       ],
       output: '*emphasis*',
+    },
+
+    {
+      code: '_consistent_ and *other*',
+      filename: 'native.mdx',
+      languageOptions: consistentLanguageOptions,
+      errors: [
+        {
+          message: 'Unexpected emphasis marker `*`, expected `_`',
+          line: 1,
+          column: 18,
+        },
+      ],
+      output: '_consistent_ and _other_',
     },
   ],
 })
