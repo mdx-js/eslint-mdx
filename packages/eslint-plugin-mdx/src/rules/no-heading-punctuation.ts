@@ -4,7 +4,7 @@ import { getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
-    'no-heading-punctuation': RegExp | string | true
+    'no-heading-punctuation': RegExp | string | undefined
   }
 }
 
@@ -27,7 +27,7 @@ export const noHeadingPunctuation: Rule.RuleModule = {
     /* istanbul ignore next -- POC covers the default option */
     /* eslint-disable sonarjs/no-nested-conditional */
     const expected =
-      config.options === true
+      config.options === undefined
         ? /[!,.:;?]/u
         : typeof config.options === 'string'
           ? new RegExp(`[${config.options}]`, 'u')
