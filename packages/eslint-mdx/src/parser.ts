@@ -82,7 +82,7 @@ export class Parser {
       )
     }
 
-    const { root, body, comments, tokens } = result
+    const { root, body, comments, tokens, remarkConfig } = result
 
     const visitorKeys: Record<string, string[]> = {
       ...KEYS,
@@ -118,7 +118,10 @@ export class Parser {
       MDYaml: [],
     }
 
-    const ast: AST.Program = {
+    const ast: AST.Program & {
+      root: typeof root
+      remarkConfig?: typeof remarkConfig
+    } = {
       ...normalizePosition(root.position),
       type: 'Program',
       // @ts-expect-error -- should we change?
@@ -127,6 +130,15 @@ export class Parser {
       comments,
       tokens,
     }
+
+    Object.defineProperty(ast, 'root', {
+      configurable: true,
+      value: root,
+    })
+    Object.defineProperty(ast, 'remarkConfig', {
+      configurable: true,
+      value: remarkConfig,
+    })
 
     const scopeManager = analyze(ast, {
       childVisitorKeys: visitorKeys,

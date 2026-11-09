@@ -57,6 +57,7 @@ import { getTokens, type JsxTextRange, type MicromarkEvent } from './tokens.js'
 import type {
   Arrayable,
   IgnoreClass,
+  ResolvedRemarkConfig,
   MDCode,
   MDContentNode,
   MDHeading,
@@ -193,6 +194,27 @@ const getRemarkConfig = async (
   }
 
   return configLoad(filePath)
+}
+
+const resolveRemarkConfig = (
+  result: ConfigResult | null | undefined,
+): ResolvedRemarkConfig | undefined => {
+  if (!result) {
+    return
+  }
+
+  return {
+    rules: result.plugins.flatMap(([plugin, options]) => {
+      const name = plugin.name
+
+      if (!name?.startsWith('remark-lint:') || options === false) {
+        return []
+      }
+
+      return [{ name: name.slice('remark-lint:'.length), options }]
+    }),
+    settings: result.settings as Record<string, unknown>,
+  }
 }
 
 const getRemarkMdxOptions = (tokens: Token[]): Options => ({
@@ -1359,11 +1381,22 @@ runAsWorker(
       }
     }
 
+    const remarkConfig = ignoreRemarkConfig
+      ? undefined
+      : resolveRemarkConfig(
+          await getRemarkConfig(
+            filePath,
+            cwd ?? globalThis.process.cwd(),
+            remarkConfigPath,
+          ),
+        )
+
     return {
       root,
       body,
       comments,
       tokens,
+      remarkConfig,
     }
   },
 )

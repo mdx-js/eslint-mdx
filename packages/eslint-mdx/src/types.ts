@@ -46,11 +46,22 @@ export interface WorkerOptions extends SyncOptions {
   process?: boolean
 }
 
+export interface ResolvedRemarkRule {
+  name: string
+  options?: unknown
+}
+
+export interface ResolvedRemarkConfig {
+  rules: ResolvedRemarkRule[]
+  settings?: Record<string, unknown>
+}
+
 export interface WorkerParseResult {
   root: Root
   body: Program['body']
   comments: Program['comments']
   tokens: AST.Token[]
+  remarkConfig?: ResolvedRemarkConfig
 }
 
 export interface WorkerProcessResult {

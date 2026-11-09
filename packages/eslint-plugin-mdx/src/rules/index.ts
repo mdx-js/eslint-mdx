@@ -1,8 +1,13 @@
 /* istanbul ignore file */
+import { nativeEmphasisMarker, nativeHeadingIncrement } from './native.js'
 import { remark } from './remark.js'
 
 export type * from './types.js'
 
-export { remark }
+export { nativeEmphasisMarker, nativeHeadingIncrement, remark }
 
-export const rules = { remark }
+export const rules = {
+  nativeEmphasisMarker,
+  nativeHeadingIncrement,
+  remark,
+}
