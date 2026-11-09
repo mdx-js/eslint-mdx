@@ -21,6 +21,7 @@ interface NormalizedDifference {
 
 // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- 64 KiB
 const LARGE_DOCUMENT_THRESHOLD = 64 * 1024
+const MAX_FIXED_TEXT_RATIO = 2
 
 const normalizeDifference = (difference: Difference): NormalizedDifference => ({
   deleteText: '',
@@ -193,6 +194,14 @@ export const remark: Rule.RuleModule = {
                * documents. Keep the 3.8-compatible whole-document fix for
                * those, instead of risking a multi-minute diff.
                */
+              /* istanbul ignore if -- transformed output is not a safe fix */
+              if (
+                fixedText == null ||
+                fixedText.length > sourceText.length * MAX_FIXED_TEXT_RATIO
+              ) {
+                return null
+              }
+
               /* istanbul ignore if -- large document fallback */
               if (sourceText.length > LARGE_DOCUMENT_THRESHOLD) {
                 /* istanbul ignore if -- only one whole-document fix per pass */

@@ -2,4 +2,4 @@
 "eslint-plugin-mdx": patch
 ---
 
-fix: avoid pathological remark diffs on large documents
+fix: skip fixes when remark output is not a safe document replacement
