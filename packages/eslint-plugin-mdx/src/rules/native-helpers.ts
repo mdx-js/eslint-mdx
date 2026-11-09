@@ -11,13 +11,16 @@ export interface MarkdownNode {
 }
 
 export const getRuleOptions = (sourceCode: SourceCode, name: string) => {
-  const rules = (
-    sourceCode.ast as unknown as {
-      remarkConfig: {
-        rules: Array<{ name: string; options?: unknown }>
+  const services = (
+    sourceCode as unknown as {
+      parserServices: {
+        remarkConfig: {
+          rules: Array<{ name: string; options?: unknown }>
+        }
       }
     }
-  ).remarkConfig.rules
+  ).parserServices
+  const rules = services.remarkConfig.rules
   const rule = rules.find(rule => rule.name === name)
 
   return rule
