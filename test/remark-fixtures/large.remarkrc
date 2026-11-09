@@ -1,1 +1,1 @@
-{"plugins":["remark-lint-no-heading-punctuation"]}
+{"plugins":["remark-lint-no-duplicate-headings"]}

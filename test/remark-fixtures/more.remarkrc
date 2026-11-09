@@ -1,0 +1,7 @@
+{
+  "plugins": [
+    ["remark-lint-strong-marker", "*"],
+    ["remark-lint-unordered-list-marker-style", "-"],
+    "remark-lint-no-heading-punctuation"
+  ]
+}

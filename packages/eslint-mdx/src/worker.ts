@@ -215,7 +215,8 @@ const resolveRemarkConfig = (
     }
 
     // @ts-expect-error -- no idea
-    ruleOptions[name.slice(/* REMARK_LINT_PREFIX.length */ 12)] = options
+    ruleOptions[name.slice(/* REMARK_LINT_PREFIX.length */ 12)] =
+      options ?? true
   }
 
   return {

@@ -144,26 +144,6 @@ ruleTester.run('remark', remark, {
         },
       ],
     },
-    {
-      code: `_emphasis_ and __strong__`,
-      languageOptions,
-      filename: path.resolve(_dirname, 'fixtures/style/test.mdx'),
-      errors: [
-        {
-          message: JSON.stringify({
-            reason: 'Unexpected strong marker `_`, expected `*`',
-            source: 'remark-lint',
-            ruleId: 'strong-marker',
-            severity: 1,
-          }),
-          line: 1,
-          column: 16,
-          endLine: 1,
-          endColumn: 26,
-        },
-      ],
-      output: '*emphasis* and **strong**\n',
-    },
   ],
 })
 
@@ -212,7 +192,7 @@ describe('remark large document handling', () => {
 
   it('skips fixes when the remark output expands the document', () => {
     const fixes = getFixes(
-      `# A!\n\n${TABLE_PADDING_MDX}`,
+      `# A\n\n# A\n\n${TABLE_PADDING_MDX}`,
       path.resolve(import.meta.dirname, 'fixtures/-leading-dash.mdx'),
     )
 
@@ -222,7 +202,7 @@ describe('remark large document handling', () => {
 
   it('does not generate a no-op fix when output equals source', () => {
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- just above threshold
-    const source = `# Title!\n\n${'x'.repeat(65 * 1024)}`
+    const source = `# A\n\n# A\n\n${'x'.repeat(65 * 1024)}`
     const code = performSyncWork({
       code: source,
       cwd: process.cwd(),
@@ -246,7 +226,7 @@ describe('remark large document handling', () => {
   it('uses the whole-document fallback once', () => {
     const unit = '* item one\n* item two\n\n'
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- above threshold
-    const code = `# Title!\n\n${unit.repeat(5000)}`
+    const code = `# A\n\n# A\n\n${unit.repeat(5000)}`
     const fixes = getFixes(
       code,
       path.resolve(import.meta.dirname, 'fixtures/style/large.mdx'),

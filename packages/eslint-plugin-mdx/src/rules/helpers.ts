@@ -4,6 +4,9 @@ import type { RemarkRuleOptions, RemarkConfig } from 'eslint-mdx'
 export const NATIVE_REMARK_RULES = new Set([
   'emphasis-marker',
   'heading-increment',
+  'no-heading-punctuation',
+  'strong-marker',
+  'unordered-list-marker-style',
 ])
 
 export const getRuleConfig = <RuleName extends keyof RemarkRuleOptions>(
