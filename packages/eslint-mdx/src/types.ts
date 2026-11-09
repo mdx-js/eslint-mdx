@@ -52,7 +52,7 @@ export interface RemarkRuleOptions {}
 
 export interface RemarkConfig {
   ruleOptions: RemarkRuleOptions
-  settings?: Settings
+  settings: Settings
 }
 
 export interface WorkerParseResult {
