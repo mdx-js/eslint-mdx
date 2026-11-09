@@ -139,6 +139,7 @@ export const processorCache = new Map<
   string,
   Processor<Root, undefined, undefined, Root, string>
 >()
+const processorConfigCache = new Map<string, ConfigResult | null>()
 
 const configLoadCache = new Map<
   string,
@@ -349,6 +350,11 @@ const filterRemarkPlugins = (
     return !name || !ignoreRemarkRules?.has(name)
   })
 
+interface RemarkProcessorResult {
+  config: ConfigResult | null
+  processor: Processor<Root, undefined, undefined, Root, string>
+}
+
 export const getRemarkProcessor = async (
   filePath: string,
   isMdx: boolean,
@@ -356,14 +362,18 @@ export const getRemarkProcessor = async (
   cwd = process.cwd(),
   remarkConfigPath?: string,
   ignoreRemarkRules?: ReadonlySet<string>,
-) => {
+): Promise<RemarkProcessorResult> => {
   const ignoreKey = getRemarkIgnoreKey(ignoreRemarkRules)
-  const initCacheKey = `${String(isMdx)}-${cwd}\0${filePath}${ignoreKey}`
+  const configKey = remarkConfigPath ?? ''
+  const initCacheKey = `${String(isMdx)}-${cwd}\0${filePath}\0${configKey}${ignoreKey}`
 
   let cachedProcessor = processorCache.get(initCacheKey)
 
   if (cachedProcessor) {
-    return cachedProcessor
+    return {
+      config: processorConfigCache.get(initCacheKey) ?? null,
+      processor: cachedProcessor,
+    }
   }
 
   const result = ignoreRemarkConfig
@@ -372,12 +382,15 @@ export const getRemarkProcessor = async (
 
   const cacheKey = `${
     result?.filePath ? `${String(isMdx)}-${result.filePath}` : String(isMdx)
-  }${ignoreKey}`
+  }${configKey}${ignoreKey}`
 
   cachedProcessor = processorCache.get(cacheKey)
 
   if (cachedProcessor) {
-    return cachedProcessor
+    return {
+      config: processorConfigCache.get(cacheKey) ?? null,
+      processor: cachedProcessor,
+    }
   }
 
   const remarkProcessor = unified().use(remarkParse).freeze()
@@ -424,8 +437,11 @@ export const getRemarkProcessor = async (
   processorCache
     .set(initCacheKey, cachedProcessor)
     .set(cacheKey, cachedProcessor)
+  processorConfigCache
+    .set(initCacheKey, result ?? null)
+    .set(cacheKey, result ?? null)
 
-  return cachedProcessor
+  return { config: result ?? null, processor: cachedProcessor }
 }
 
 function isExpressionStatement(
@@ -443,7 +459,7 @@ runAsWorker(
     code,
     cwd,
     isMdx,
-    process,
+    process: shouldProcess,
     ignoreRemarkConfig,
     ignoreRemarkRules,
     remarkConfigPath,
@@ -461,7 +477,7 @@ runAsWorker(
       acornParser = acorn.Parser.extend(acornJsx())
     }
 
-    const processor = await getRemarkProcessor(
+    const { config: remarkConfigResult, processor } = await getRemarkProcessor(
       filePath,
       isMdx,
       ignoreRemarkConfig,
@@ -476,7 +492,7 @@ runAsWorker(
       cwd,
     }
 
-    if (process) {
+    if (shouldProcess) {
       const cacheKey = remarkConfigPath ? `${cwd}\0${remarkConfigPath}` : cwd
 
       if (await ignoreCheckCache.get(cacheKey)(filePath)) {
@@ -1406,13 +1422,7 @@ runAsWorker(
 
     const remarkConfig = ignoreRemarkConfig
       ? undefined
-      : resolveRemarkConfig(
-          await getRemarkConfig(
-            filePath,
-            cwd ?? globalThis.process.cwd(),
-            remarkConfigPath,
-          ),
-        )
+      : resolveRemarkConfig(remarkConfigResult)
 
     return {
       root,
