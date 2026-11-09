@@ -2,7 +2,9 @@ import { readFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 import path from 'node:path'
 
-import { ruleTester, languageOptions } from './helpers.js'
+import { Linter } from 'eslint'
+
+import { ruleTester, languageOptions, parser } from './helpers.js'
 
 import { remark } from 'eslint-plugin-mdx'
 
@@ -11,7 +13,7 @@ const userDir = homedir()
 // One long table cell makes remark-gfm pad every short row to its width.
 // The transformed document becomes large enough that diffing is unsafe.
 const TABLE_PADDING_MDX = readFileSync(
-  new URL('remark-fixtures/table-padding.mdx', import.meta.url),
+  new URL('remark-fixtures/table-padding.txt', import.meta.url),
   'utf8',
 )
 
@@ -179,4 +181,71 @@ ruleTester.run('remark', remark, {
 test('hack', () => {
   // eslint-disable-next-line sonarjs/no-trivial-assertions -- placeholder to keep the suite non-empty
   expect(true).toBe(true)
+})
+
+describe('remark large document handling', () => {
+  it('skips fixes when the remark output expands the document', () => {
+    const linter = new Linter()
+    const filename = path.resolve(
+      import.meta.dirname,
+      'fixtures/-leading-dash.mdx',
+    )
+    const config = [
+      {
+        files: ['**/*.mdx'],
+        languageOptions: {
+          ...languageOptions,
+          parserOptions: {
+            ...languageOptions.parserOptions,
+            remarkConfigPath: path.resolve(
+              import.meta.dirname,
+              'remark-fixtures/large.remarkrc',
+            ),
+          },
+        },
+        plugins: { mdx: { rules: { remark } } },
+        rules: { 'mdx/remark': 'warn' },
+      },
+    ] as Linter.Config[]
+
+    expect(
+      linter.verify(`# A\n\n### B\n\n${TABLE_PADDING_MDX}`, config, {
+        filename,
+      }).length,
+    ).toBeGreaterThan(0)
+    expect(
+      linter.verifyAndFix(`# A\n\n### B\n\n${TABLE_PADDING_MDX}`, config, {
+        filename,
+      }).fixed,
+    ).toBe(false)
+  })
+
+  it('uses the whole-document fallback and reports remaining messages', () => {
+    const linter = new Linter()
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- just above threshold
+    const code = `# Title\n\n${'x'.repeat(65 * 1024)}\n\n_emphasis_\n\n_emphasis_\n`
+    const config = [
+      {
+        files: ['**/*.mdx'],
+        languageOptions: {
+          parser,
+          parserOptions: {
+            remarkConfigPath: path.resolve(
+              import.meta.dirname,
+              'fixtures/style/.remarkrc',
+            ),
+          },
+        },
+        plugins: { mdx: { rules: { remark } } },
+        rules: { 'mdx/remark': 'warn' },
+      },
+    ] as Linter.Config[]
+    const filename = path.resolve(
+      import.meta.dirname,
+      'fixtures/style/large.mdx',
+    )
+
+    expect(linter.verify(code, config, { filename }).length).toBeGreaterThan(0)
+    expect(linter.verifyAndFix(code, config, { filename }).fixed).toBe(true)
+  })
 })

@@ -194,7 +194,6 @@ export const remark: Rule.RuleModule = {
                * documents. Keep the 3.8-compatible whole-document fix for
                * those, instead of risking a multi-minute diff.
                */
-              /* istanbul ignore if -- transformed output is not a safe fix */
               if (
                 fixedText == null ||
                 fixedText.length > sourceText.length * MAX_FIXED_TEXT_RATIO
@@ -202,9 +201,7 @@ export const remark: Rule.RuleModule = {
                 return null
               }
 
-              /* istanbul ignore if -- large document fallback */
               if (sourceText.length > LARGE_DOCUMENT_THRESHOLD) {
-                /* istanbul ignore if -- only one whole-document fix per pass */
                 if (wholeDocumentFixed) {
                   return null
                 }
