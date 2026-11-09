@@ -14,6 +14,7 @@ export const base: Linter.LegacyConfig = {
   rules: {
     'mdx/emphasis-marker': 'warn',
     'mdx/heading-increment': 'warn',
+    'mdx/no-duplicate-headings': 'warn',
     'mdx/no-heading-punctuation': 'warn',
     'mdx/remark': 'warn',
     'mdx/strong-marker': 'warn',

@@ -192,7 +192,7 @@ describe('remark large document handling', () => {
 
   it('skips fixes when the remark output expands the document', () => {
     const fixes = getFixes(
-      `# A\n\n# A\n\n${TABLE_PADDING_MDX}`,
+      `[a]: x\n\n[a]: x\n\n${TABLE_PADDING_MDX}`,
       path.resolve(import.meta.dirname, 'fixtures/-leading-dash.mdx'),
     )
 
@@ -202,7 +202,7 @@ describe('remark large document handling', () => {
 
   it('does not generate a no-op fix when output equals source', () => {
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- just above threshold
-    const source = `# A\n\n# A\n\n${'x'.repeat(65 * 1024)}`
+    const source = `[a]: x\n\n[a]: x\n\n${'x'.repeat(65 * 1024)}`
     const code = performSyncWork({
       code: source,
       cwd: process.cwd(),
@@ -226,7 +226,7 @@ describe('remark large document handling', () => {
   it('uses the whole-document fallback once', () => {
     const unit = '* item one\n* item two\n\n'
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- above threshold
-    const code = `# A\n\n# A\n\n${unit.repeat(5000)}`
+    const code = `[a]: x\n\n[a]: x\n\n${unit.repeat(5000)}`
     const fixes = getFixes(
       code,
       path.resolve(import.meta.dirname, 'fixtures/style/large.mdx'),
