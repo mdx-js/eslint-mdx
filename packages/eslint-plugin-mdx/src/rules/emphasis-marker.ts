@@ -1,6 +1,12 @@
 import type { Rule } from 'eslint'
 
-import { getRuleOptions } from './native-helpers.js'
+import { getRuleConfig } from './native-helpers.js'
+
+declare module 'eslint-mdx' {
+  interface RemarkRuleOptions {
+    'emphasis-marker': '_' | '*' | 'consistent'
+  }
+}
 
 export const emphasisMarker: Rule.RuleModule = {
   meta: {
@@ -12,20 +18,22 @@ export const emphasisMarker: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const rule = getRuleOptions(context.sourceCode, 'emphasis-marker')
+    const config = getRuleConfig(context.sourceCode, 'emphasis-marker')
 
-    if (!rule?.enabled) {
+    if (!config) {
       return {}
     }
 
     const sourceText = context.sourceCode.getText()
-    let expected =
-      rule.options === '*' || rule.options === '_' ? rule.options : undefined
+    let expected: '_' | '*' | undefined =
+      config.options === '*' || config.options === '_'
+        ? config.options
+        : undefined
 
     return {
       MDEmphasis(node) {
         const [start, end] = node.range
-        const actual = sourceText.charAt(start)
+        const actual = sourceText.charAt(start) as '_' | '*'
 
         expected ??= actual
 

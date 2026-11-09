@@ -1,19 +1,19 @@
 import type { SourceCode } from 'eslint'
+import type { RemarkRuleOptions, ResolvedRemarkConfig } from 'eslint-mdx'
 
-export const getRuleOptions = (sourceCode: SourceCode, name: string) => {
+export const getRuleConfig = <RuleName extends keyof RemarkRuleOptions>(
+  sourceCode: SourceCode,
+  name: RuleName,
+) => {
   const services = (
     sourceCode as unknown as {
       parserServices: {
-        remarkConfig: {
-          rules: Array<{ name: string; options?: unknown }>
-        }
+        remarkConfig: ResolvedRemarkConfig
       }
     }
   ).parserServices
-  const rules = services.remarkConfig.rules
-  const rule = rules.find(rule => rule.name === name)
+  const { ruleOptions, settings } = services.remarkConfig
+  const options = name in ruleOptions ? ruleOptions[name] : false
 
-  return rule
-    ? { enabled: rule.options !== false, options: rule.options }
-    : null
+  return options === false ? null : { options, settings }
 }

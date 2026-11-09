@@ -203,16 +203,21 @@ const resolveRemarkConfig = (
     return
   }
 
+  const ruleOptions: Record<string, unknown> = {}
+
+  for (const [plugin, options] of result.plugins) {
+    const name = plugin.name
+
+    if (!name?.startsWith('remark-lint:') || options === false) {
+      continue
+    }
+
+    ruleOptions[name.slice('remark-lint:'.length)] =
+      options === undefined ? true : options
+  }
+
   return {
-    rules: result.plugins.flatMap(([plugin, options]) => {
-      const name = plugin.name
-
-      if (!name?.startsWith('remark-lint:') || options === false) {
-        return []
-      }
-
-      return [{ name: name.slice('remark-lint:'.length), options }]
-    }),
+    ruleOptions,
     settings: result.settings as Record<string, unknown>,
   }
 }

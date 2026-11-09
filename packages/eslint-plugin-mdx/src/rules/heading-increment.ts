@@ -1,6 +1,12 @@
 import type { Rule } from 'eslint'
 
-import { getRuleOptions } from './native-helpers.js'
+import { getRuleConfig } from './native-helpers.js'
+
+declare module 'eslint-mdx' {
+  interface RemarkRuleOptions {
+    'heading-increment': true
+  }
+}
 
 export const headingIncrement: Rule.RuleModule = {
   meta: {
@@ -11,9 +17,9 @@ export const headingIncrement: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const rule = getRuleOptions(context.sourceCode, 'heading-increment')
+    const config = getRuleConfig(context.sourceCode, 'heading-increment')
 
-    if (!rule?.enabled) {
+    if (!config) {
       return {}
     }
 

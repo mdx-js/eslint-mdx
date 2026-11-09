@@ -46,13 +46,11 @@ export interface WorkerOptions extends SyncOptions {
   process?: boolean
 }
 
-export interface ResolvedRemarkRule {
-  name: string
-  options?: unknown
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type -- augmented by rule packages
+export interface RemarkRuleOptions {}
 
 export interface ResolvedRemarkConfig {
-  rules: ResolvedRemarkRule[]
+  ruleOptions: RemarkRuleOptions
   settings?: Record<string, unknown>
 }
 
