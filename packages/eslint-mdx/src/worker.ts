@@ -57,7 +57,7 @@ import { getTokens, type JsxTextRange, type MicromarkEvent } from './tokens.js'
 import type {
   Arrayable,
   IgnoreClass,
-  ResolvedRemarkConfig,
+  RemarkConfig,
   MDCode,
   MDContentNode,
   MDHeading,
@@ -67,6 +67,7 @@ import type {
   NormalPosition,
   WorkerOptions,
   WorkerResult,
+  RemarkRuleOptions,
 } from './types.js'
 
 // JSXEmptyExpression is a standard ESTree node, so it has no `raw` extension.
@@ -196,29 +197,29 @@ const getRemarkConfig = async (
   return configLoad(filePath)
 }
 
+const REMARK_LINT_PREFIX = 'remark-lint:'
+
 const resolveRemarkConfig = (
   result: ConfigResult | null | undefined,
-): ResolvedRemarkConfig | undefined => {
+): RemarkConfig | undefined => {
   if (!result) {
     return
   }
 
-  const ruleOptions: Record<string, unknown> = {}
+  const ruleOptions = {} as RemarkRuleOptions
 
-  for (const [plugin, options] of result.plugins) {
-    const name = plugin.name
-
-    if (!name?.startsWith('remark-lint:') || options === false) {
+  for (const [{ name }, options] of result.plugins) {
+    if (!name?.startsWith(REMARK_LINT_PREFIX) || options === false) {
       continue
     }
 
-    ruleOptions[name.slice('remark-lint:'.length)] =
-      options === undefined ? true : options
+    // @ts-expect-error -- no idea
+    ruleOptions[name.slice(/* REMARK_LINT_PREFIX.length */ 12)] = options
   }
 
   return {
     ruleOptions,
-    settings: result.settings as Record<string, unknown>,
+    settings: result.settings,
   }
 }
 

@@ -10,6 +10,7 @@ import type {
   JSXText,
 } from 'estree-jsx'
 import type { Root } from 'mdast'
+import type { Settings } from 'unified'
 import type { VFileMessage } from 'vfile-message'
 
 export interface CommonOptions {
@@ -49,9 +50,9 @@ export interface WorkerOptions extends SyncOptions {
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type -- augmented by rule packages
 export interface RemarkRuleOptions {}
 
-export interface ResolvedRemarkConfig {
+export interface RemarkConfig {
   ruleOptions: RemarkRuleOptions
-  settings?: Record<string, unknown>
+  settings?: Settings
 }
 
 export interface WorkerParseResult {
@@ -59,7 +60,7 @@ export interface WorkerParseResult {
   body: Program['body']
   comments: Program['comments']
   tokens: AST.Token[]
-  remarkConfig?: ResolvedRemarkConfig
+  remarkConfig?: RemarkConfig
 }
 
 export interface WorkerProcessResult {

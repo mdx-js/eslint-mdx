@@ -1,6 +1,6 @@
 import type { Rule } from 'eslint'
 
-import { getRuleConfig } from './native-helpers.js'
+import { getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -24,11 +24,11 @@ export const emphasisMarker: Rule.RuleModule = {
       return {}
     }
 
+    const { options } = config
+
     const sourceText = context.sourceCode.getText()
-    let expected: '_' | '*' | undefined =
-      config.options === '*' || config.options === '_'
-        ? config.options
-        : undefined
+
+    let expected = options === '*' || options === '_' ? options : undefined
 
     return {
       MDEmphasis(node) {

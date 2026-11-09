@@ -1,10 +1,10 @@
 import type { Rule } from 'eslint'
 
-import { getRuleConfig } from './native-helpers.js'
+import { getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
-    'heading-increment': true
+    'heading-increment': never
   }
 }
 
