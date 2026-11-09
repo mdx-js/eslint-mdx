@@ -31,7 +31,7 @@ const normalizeDifference = (difference: Difference): NormalizedDifference => ({
 })
 
 const isNativeRule = (ruleId: string | undefined) =>
-  Boolean(ruleId && (NATIVE_REMARK_RULES as readonly string[]).includes(ruleId))
+  Boolean(ruleId && NATIVE_REMARK_RULES.has(ruleId))
 
 const getDifferences = (sourceText: string, fixedText: string) =>
   generateDifferences(sourceText, fixedText).map(normalizeDifference)

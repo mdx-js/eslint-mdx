@@ -1,10 +1,10 @@
 import type { SourceCode } from 'eslint'
 import type { RemarkRuleOptions, RemarkConfig } from 'eslint-mdx'
 
-export const NATIVE_REMARK_RULES = [
+export const NATIVE_REMARK_RULES = new Set([
   'emphasis-marker',
   'heading-increment',
-] as const
+])
 
 export const getRuleConfig = <RuleName extends keyof RemarkRuleOptions>(
   sourceCode: SourceCode,
