@@ -437,11 +437,9 @@ export const getRemarkProcessor = async (
   processorCache
     .set(initCacheKey, cachedProcessor)
     .set(cacheKey, cachedProcessor)
-  processorConfigCache
-    .set(initCacheKey, result ?? null)
-    .set(cacheKey, result ?? null)
+  processorConfigCache.set(initCacheKey, result).set(cacheKey, result)
 
-  return { config: result ?? null, processor: cachedProcessor }
+  return { config: result, processor: cachedProcessor }
 }
 
 function isExpressionStatement(
@@ -459,7 +457,7 @@ runAsWorker(
     code,
     cwd,
     isMdx,
-    process: shouldProcess,
+    process,
     ignoreRemarkConfig,
     ignoreRemarkRules,
     remarkConfigPath,
@@ -492,7 +490,7 @@ runAsWorker(
       cwd,
     }
 
-    if (shouldProcess) {
+    if (process) {
       const cacheKey = remarkConfigPath ? `${cwd}\0${remarkConfigPath}` : cwd
 
       if (await ignoreCheckCache.get(cacheKey)(filePath)) {
