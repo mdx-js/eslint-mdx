@@ -1,6 +1,7 @@
 import type { Rule } from 'eslint'
+import type { MDEmphasis } from 'eslint-mdx'
 
-import { getRuleOptions, type MarkdownNode } from './native-helpers.js'
+import { getRuleOptions } from './native-helpers.js'
 
 export const emphasisMarker: Rule.RuleModule = {
   meta: {
@@ -23,7 +24,7 @@ export const emphasisMarker: Rule.RuleModule = {
       rule.options === '*' || rule.options === '_' ? rule.options : undefined
 
     return {
-      MDEmphasis(node: MarkdownNode) {
+      MDEmphasis(node: MDEmphasis) {
         const [start, end] = node.range
         const actual = sourceText.charAt(start)
 
@@ -42,6 +43,6 @@ export const emphasisMarker: Rule.RuleModule = {
           ],
         })
       },
-    }
+    } as unknown as Rule.RuleListener
   },
 }

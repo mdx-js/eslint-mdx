@@ -1,6 +1,7 @@
 import type { Rule } from 'eslint'
+import type { MDHeading } from 'eslint-mdx'
 
-import { getRuleOptions, type MarkdownNode } from './native-helpers.js'
+import { getRuleOptions } from './native-helpers.js'
 
 export const headingIncrement: Rule.RuleModule = {
   meta: {
@@ -20,7 +21,7 @@ export const headingIncrement: Rule.RuleModule = {
     let previous = 0
 
     return {
-      MDHeading(node: MarkdownNode) {
+      MDHeading(node: MDHeading) {
         const depth = node.depth
         const expected = previous + 1
 
@@ -33,6 +34,6 @@ export const headingIncrement: Rule.RuleModule = {
 
         previous = depth
       },
-    }
+    } as unknown as Rule.RuleListener
   },
 }
