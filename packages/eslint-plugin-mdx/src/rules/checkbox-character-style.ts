@@ -1,11 +1,18 @@
 /* istanbul ignore file -- POC rule */
 import type { Rule } from 'eslint'
+import type { MDListItem } from 'eslint-mdx'
 
 import { getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
-    'checkbox-character-style': unknown
+    'checkbox-character-style':
+      | 'consistent'
+      | {
+          checked?: 'consistent' | 'X' | 'x'
+          unchecked?: ' ' | '\t' | 'consistent'
+        }
+      | undefined
   }
 }
 
@@ -20,6 +27,46 @@ export const checkboxCharacterStyle: Rule.RuleModule = {
     if (!config) {
       return {}
     }
-    return {}
+    const sourceText = context.sourceCode.getText()
+    const options =
+      typeof config.options === 'object' ? config.options : undefined
+    let checkedExpected =
+      options?.checked === 'x' || options?.checked === 'X'
+        ? options.checked
+        : undefined
+    let uncheckedExpected =
+      options?.unchecked === ' ' || options?.unchecked === '\t'
+        ? options.unchecked
+        : undefined
+
+    return {
+      MDListItem(node: MDListItem) {
+        const raw = sourceText.slice(node.range[0], node.range[1])
+        const match = /^\s*(?:[-*+]|\d+[.)])\s+\[([ x\t])\]/iu.exec(raw)
+        if (!match) {
+          return
+        }
+        const actual = match[1]
+        const expected = node.checked ? checkedExpected : uncheckedExpected
+        if (!expected) {
+          if (node.checked) {
+            checkedExpected = actual as 'X' | 'x'
+          } else {
+            uncheckedExpected = actual as ' ' | '\t'
+          }
+          return
+        }
+        if (actual !== expected) {
+          const actualText = actual === '\t' ? String.raw`\t` : actual
+          const expectedText = expected === '\t' ? String.raw`\t` : expected
+          const checked = node.checked ? '' : 'un'
+
+          context.report({
+            loc: node.loc,
+            message: `Unexpected ${checked}checked checkbox value \`${actualText}\`, expected \`${expectedText}\``,
+          })
+        }
+      },
+    }
   },
 }

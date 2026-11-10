@@ -20,6 +20,32 @@ export const finalDefinition: Rule.RuleModule = {
     if (!config) {
       return {}
     }
-    return {}
+    return {
+      Program() {
+        const body = context.sourceCode.ast.body
+        const definition = body.find(
+          node =>
+            node.type === 'MDDefinition' ||
+            node.type === 'MDFootnoteDefinition',
+        )
+        const index = definition ? body.indexOf(definition) : -1
+        if (
+          definition &&
+          body
+            .slice(index + 1)
+            .some(
+              node =>
+                node.type !== 'MDDefinition' &&
+                node.type !== 'MDFootnoteDefinition',
+            )
+        ) {
+          context.report({
+            loc: definition.loc ?? undefined,
+            message:
+              'Unexpected definition before last content, expected definitions after last content',
+          })
+        }
+      },
+    }
   },
 }
