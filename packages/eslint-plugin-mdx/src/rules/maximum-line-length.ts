@@ -1,4 +1,3 @@
-/* istanbul ignore file -- POC rule */
 import type { Rule } from 'eslint'
 
 import { getRuleConfig } from './helpers.js'
@@ -28,6 +27,8 @@ export const maximumLineLength: Rule.RuleModule = {
         ? config.options.size
         : config.options
     /* eslint-disable-next-line @typescript-eslint/no-magic-numbers -- default size */
+    /* istanbul ignore next -- POC covers numeric size */
+    /* istanbul ignore next -- POC covers numeric size */
     const expected = typeof size === 'number' ? size : 80
     const sourceText = context.sourceCode.getText()
 

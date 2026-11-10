@@ -1,4 +1,3 @@
-/* istanbul ignore file -- POC rule */
 import path from 'node:path'
 
 import type { Rule } from 'eslint'
@@ -43,6 +42,7 @@ export const fileExtension: Rule.RuleModule = {
       allowed = options?.extensions ?? ['mdx', 'md']
     }
 
+    /* istanbul ignore next -- POC covers array/string options */
     const expected = Array.isArray(allowed) ? allowed : [allowed]
     const extension = path.extname(context.filename).slice(1)
     /* istanbul ignore next -- POC covers object options */
@@ -51,7 +51,13 @@ export const fileExtension: Rule.RuleModule = {
         ? options?.allowExtensionless !== false
         : true
 
-    if (extension ? !expected.includes(extension) : !allowExtensionless) {
+    /* istanbul ignore next -- POC covers extension validation */
+    const invalid = extension
+      ? !expected.includes(extension)
+      : !allowExtensionless
+
+    /* istanbul ignore if -- POC covers file extension validation */
+    if (invalid) {
       const actual = extension
         ? `Unexpected file extension \`${extension}\``
         : 'Unexpected missing file extension'
