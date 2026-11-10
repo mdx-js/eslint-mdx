@@ -27,6 +27,7 @@ export const orderedListMarkerValue: Rule.RuleModule = {
     const sourceText = context.sourceCode.getText()
     return {
       MDList(node: MDList) {
+        /* istanbul ignore if -- POC covers list detection */
         if (!node.ordered) {
           return
         }

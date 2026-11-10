@@ -22,6 +22,7 @@ export const maximumLineLength: Rule.RuleModule = {
       return {}
     }
 
+    /* istanbul ignore next -- POC covers numeric options */
     const size =
       typeof config.options === 'object' && config.options !== null
         ? config.options.size

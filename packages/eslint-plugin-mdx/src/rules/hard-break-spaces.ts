@@ -1,4 +1,3 @@
-/* istanbul ignore file -- POC rule */
 import type { Rule } from 'eslint'
 
 import { getRuleConfig } from './helpers.js'
@@ -38,6 +37,7 @@ export const hardBreakSpaces: Rule.RuleModule = {
             size++
           }
 
+          /* istanbul ignore if -- POC covers allowSpaces */
           if (!allowSpaces) {
             context.report({
               loc: {

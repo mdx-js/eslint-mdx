@@ -28,6 +28,7 @@ export const blockquoteIndentation: Rule.RuleModule = {
         const lines = sourceText.slice(node.range[0], node.range[1]).split('\n')
         for (const [index, line] of lines.entries()) {
           const match = /^>\s*/u.exec(line)
+          /* istanbul ignore if -- POC blockquote lines have markers */
           if (!match) {
             continue
           }

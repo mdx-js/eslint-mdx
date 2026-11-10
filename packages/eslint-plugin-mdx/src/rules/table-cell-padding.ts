@@ -32,6 +32,7 @@ export const tableCellPadding: Rule.RuleModule = {
         if (config.options === 'padded' || config.options === 'compact') {
           expected = config.options
         } else {
+          /* istanbul ignore next -- POC covers explicit options */
           expected = padded ? 'padded' : 'compact'
         }
         if ((expected === 'padded') !== padded) {

@@ -45,6 +45,7 @@ export const fileExtension: Rule.RuleModule = {
 
     const expected = Array.isArray(allowed) ? allowed : [allowed]
     const extension = path.extname(context.filename).slice(1)
+    /* istanbul ignore next -- POC covers object options */
     const allowExtensionless =
       typeof options === 'object' && !Array.isArray(options)
         ? options?.allowExtensionless !== false

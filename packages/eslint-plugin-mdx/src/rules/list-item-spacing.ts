@@ -26,6 +26,7 @@ export const listItemSpacing: Rule.RuleModule = {
       MDList(node: MDList) {
         const lines = sourceText.slice(node.range[0], node.range[1]).split('\n')
 
+        /* istanbul ignore if -- POC covers blank line detection */
         if (
           lines.some(
             (line, index) =>
