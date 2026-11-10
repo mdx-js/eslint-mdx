@@ -12,6 +12,7 @@ import { noFileNameConsecutiveDashes } from './no-file-name-consecutive-dashes.j
 import { noFileNameIrregularCharacters } from './no-file-name-irregular-characters.js'
 import { noFileNameMixedCase } from './no-file-name-mixed-case.js'
 import { noFileNameOuterDashes } from './no-file-name-outer-dashes.js'
+import { noHeadingContentIndent } from './no-heading-content-indent.js'
 import { noHeadingPunctuation } from './no-heading-punctuation.js'
 import { noLiteralUrls } from './no-literal-urls.js'
 import { noMultipleToplevelHeadings } from './no-multiple-toplevel-headings.js'
@@ -39,6 +40,7 @@ export {
   noFileNameIrregularCharacters,
   noFileNameMixedCase,
   noFileNameOuterDashes,
+  noHeadingContentIndent,
   noHeadingPunctuation,
   noLiteralUrls,
   noMultipleToplevelHeadings,
@@ -65,6 +67,7 @@ export const rules = {
   'no-file-name-irregular-characters': noFileNameIrregularCharacters,
   'no-file-name-mixed-case': noFileNameMixedCase,
   'no-file-name-outer-dashes': noFileNameOuterDashes,
+  'no-heading-content-indent': noHeadingContentIndent,
   'no-heading-punctuation': noHeadingPunctuation,
   'no-literal-urls': noLiteralUrls,
   'no-multiple-toplevel-headings': noMultipleToplevelHeadings,
