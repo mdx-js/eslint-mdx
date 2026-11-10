@@ -5,6 +5,8 @@ export const NATIVE_REMARK_RULES = new Set([
   'emphasis-marker',
   'final-newline',
   'heading-increment',
+  'definition-case',
+  'no-consecutive-blank-lines',
   'no-duplicate-definitions',
   'no-duplicate-headings',
   'no-duplicate-headings-in-section',

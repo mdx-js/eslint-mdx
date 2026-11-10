@@ -20,6 +20,8 @@
     [
       "remark-lint-rule-style",
       "***"
-    ]
+    ],
+    "remark-lint-definition-case",
+    "remark-lint-no-consecutive-blank-lines"
   ]
 }

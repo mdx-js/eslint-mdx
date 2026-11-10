@@ -1,8 +1,10 @@
 /* istanbul ignore file */
+import { definitionCase } from './definition-case.js'
 import { emphasisMarker } from './emphasis-marker.js'
 import { finalNewline } from './final-newline.js'
 import { headingIncrement } from './heading-increment.js'
 import { maximumHeadingLength } from './maximum-heading-length.js'
+import { noConsecutiveBlankLines } from './no-consecutive-blank-lines.js'
 import { noDuplicateDefinitions } from './no-duplicate-definitions.js'
 import { noDuplicateHeadingsInSection } from './no-duplicate-headings-in-section.js'
 import { noDuplicateHeadings } from './no-duplicate-headings.js'
@@ -29,10 +31,12 @@ import { unorderedListMarkerStyle } from './unordered-list-marker-style.js'
 export type * from './types.js'
 
 export {
+  definitionCase,
   emphasisMarker,
   finalNewline,
   headingIncrement,
   maximumHeadingLength,
+  noConsecutiveBlankLines,
   noDuplicateDefinitions,
   noDuplicateHeadings,
   noDuplicateHeadingsInSection,
@@ -62,6 +66,8 @@ export const rules = {
   'final-newline': finalNewline,
   'heading-increment': headingIncrement,
   'maximum-heading-length': maximumHeadingLength,
+  'definition-case': definitionCase,
+  'no-consecutive-blank-lines': noConsecutiveBlankLines,
   'no-duplicate-definitions': noDuplicateDefinitions,
   'no-duplicate-headings': noDuplicateHeadings,
   'no-duplicate-headings-in-section': noDuplicateHeadingsInSection,

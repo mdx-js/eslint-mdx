@@ -29,6 +29,8 @@ export const flat: Linter.FlatConfig = {
     'mdx/emphasis-marker': 'warn',
     'mdx/final-newline': 'warn',
     'mdx/heading-increment': 'warn',
+    'mdx/definition-case': 'warn',
+    'mdx/no-consecutive-blank-lines': 'warn',
     'mdx/no-duplicate-definitions': 'warn',
     'mdx/no-duplicate-headings': 'warn',
     'mdx/no-duplicate-headings-in-section': 'warn',
