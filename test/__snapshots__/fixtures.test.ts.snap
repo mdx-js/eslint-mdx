@@ -177,34 +177,6 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/534.mdx 
     "ruleId": "mdx/no-multiple-toplevel-headings",
     "severity": 1,
   },
-  {
-    "column": 2,
-    "fix": {
-      "range": [
-        592,
-        620,
-      ],
-      "text": "",
-    },
-    "line": 24,
-    "message": "Unused eslint-disable directive (no problems were reported from 'mdx/maximum-heading-length').",
-    "ruleId": null,
-    "severity": 1,
-  },
-  {
-    "column": 12,
-    "fix": {
-      "range": [
-        924,
-        962,
-      ],
-      "text": "",
-    },
-    "line": 32,
-    "message": "Unused eslint-disable directive (no problems were reported from 'mdx/no-duplicate-headings-in-section').",
-    "ruleId": null,
-    "severity": 1,
-  },
 ]
 `;
 
@@ -758,71 +730,7 @@ exports[`fixtures should match all snapshots: code-blocks/534.mdx 1`] = `
     "ruleId": "mdx/no-multiple-toplevel-headings",
     "severity": 1,
   },
-  {
-    "column": 2,
-    "fix": {
-      "range": [
-        592,
-        620,
-      ],
-      "text": "",
-    },
-    "line": 24,
-    "message": "Unused eslint-disable directive (no problems were reported from 'mdx/maximum-heading-length').",
-    "ruleId": null,
-    "severity": 1,
-  },
-  {
-    "column": 12,
-    "fix": {
-      "range": [
-        924,
-        962,
-      ],
-      "text": "",
-    },
-    "line": 32,
-    "message": "Unused eslint-disable directive (no problems were reported from 'mdx/no-duplicate-headings-in-section').",
-    "ruleId": null,
-    "severity": 1,
-  },
 ]
-`;
-
-exports[`fixtures should match all snapshots: code-blocks/534.mdx 2`] = `
-"\`\`\`ts
-import { CommandRegister } from "@foo";
-export function registerCommands(commandRegister: CommandRegister) {
-  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
-  commandRegister.addCommand(deployProjectCommand);
-}
-\`\`\`
-
-{/* eslint-skip */}
-\`\`\`ts
-import { CommandRegister } from "@foo";
-export function registerCommands(commandRegister: CommandRegister) {
-  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
-  commandRegister.addCommand(deployProjectCommand);
-}
-\`\`\`
-
-# Heading
-
-# Heading
-
-{/* nothing special */}
-
-{/* eslint-disable mdx/no-duplicate-headings-in-section, mdx/no-multiple-toplevel-headings */}
-
-# Heading
-
-{/* eslint-enable mdx/no-duplicate-headings-in-section, mdx/no-multiple-toplevel-headings */}
-
-Content {/* nothing special */}
-
-# Heading {/* eslint-disable-line mdx/maximum-heading-length, mdx/no-multiple-toplevel-headings */}
-"
 `;
 
 exports[`fixtures should match all snapshots: comments.mdx 1`] = `
