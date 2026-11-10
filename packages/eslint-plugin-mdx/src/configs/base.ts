@@ -22,6 +22,7 @@ export const base: Linter.LegacyConfig = {
     'mdx/no-file-name-irregular-characters': 'warn',
     'mdx/no-file-name-mixed-case': 'warn',
     'mdx/no-file-name-outer-dashes': 'warn',
+    'mdx/maximum-heading-length': 'warn',
     'mdx/no-heading-punctuation': 'warn',
     'mdx/no-multiple-toplevel-headings': 'warn',
     'mdx/no-shortcut-reference-image': 'warn',

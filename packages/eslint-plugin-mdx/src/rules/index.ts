@@ -1,6 +1,7 @@
 /* istanbul ignore file */
 import { emphasisMarker } from './emphasis-marker.js'
 import { headingIncrement } from './heading-increment.js'
+import { maximumHeadingLength } from './maximum-heading-length.js'
 import { noDuplicateHeadingsInSection } from './no-duplicate-headings-in-section.js'
 import { noDuplicateHeadings } from './no-duplicate-headings.js'
 import { noEmphasisAsHeading } from './no-emphasis-as-heading.js'
@@ -23,6 +24,7 @@ export type * from './types.js'
 export {
   emphasisMarker,
   headingIncrement,
+  maximumHeadingLength,
   noDuplicateHeadings,
   noDuplicateHeadingsInSection,
   noEmphasisAsHeading,
@@ -44,6 +46,7 @@ export {
 export const rules = {
   'emphasis-marker': emphasisMarker,
   'heading-increment': headingIncrement,
+  'maximum-heading-length': maximumHeadingLength,
   'no-duplicate-headings': noDuplicateHeadings,
   'no-duplicate-headings-in-section': noDuplicateHeadingsInSection,
   'no-emphasis-as-heading': noEmphasisAsHeading,
