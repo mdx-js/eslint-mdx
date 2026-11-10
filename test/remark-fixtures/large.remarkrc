@@ -1,6 +1,8 @@
 {
   "plugins": [
     "remark-gfm",
-    "remark-lint-no-duplicate-definitions"
+    "remark-lint-no-consecutive-blank-lines",
+    "remark-lint-no-literal-urls",
+    "remark-lint-no-shell-dollars"
   ]
 }

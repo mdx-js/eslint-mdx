@@ -2,6 +2,7 @@
 import { emphasisMarker } from './emphasis-marker.js'
 import { headingIncrement } from './heading-increment.js'
 import { maximumHeadingLength } from './maximum-heading-length.js'
+import { noDuplicateDefinitions } from './no-duplicate-definitions.js'
 import { noDuplicateHeadingsInSection } from './no-duplicate-headings-in-section.js'
 import { noDuplicateHeadings } from './no-duplicate-headings.js'
 import { noEmphasisAsHeading } from './no-emphasis-as-heading.js'
@@ -25,6 +26,7 @@ export {
   emphasisMarker,
   headingIncrement,
   maximumHeadingLength,
+  noDuplicateDefinitions,
   noDuplicateHeadings,
   noDuplicateHeadingsInSection,
   noEmphasisAsHeading,
@@ -47,6 +49,7 @@ export const rules = {
   'emphasis-marker': emphasisMarker,
   'heading-increment': headingIncrement,
   'maximum-heading-length': maximumHeadingLength,
+  'no-duplicate-definitions': noDuplicateDefinitions,
   'no-duplicate-headings': noDuplicateHeadings,
   'no-duplicate-headings-in-section': noDuplicateHeadingsInSection,
   'no-emphasis-as-heading': noEmphasisAsHeading,

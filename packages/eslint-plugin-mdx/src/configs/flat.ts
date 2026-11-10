@@ -28,6 +28,7 @@ export const flat: Linter.FlatConfig = {
   rules: {
     'mdx/emphasis-marker': 'warn',
     'mdx/heading-increment': 'warn',
+    'mdx/no-duplicate-definitions': 'warn',
     'mdx/no-duplicate-headings': 'warn',
     'mdx/no-duplicate-headings-in-section': 'warn',
     'mdx/no-emphasis-as-heading': 'warn',

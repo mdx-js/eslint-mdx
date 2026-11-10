@@ -4,6 +4,7 @@ import type { RemarkRuleOptions, RemarkConfig } from 'eslint-mdx'
 export const NATIVE_REMARK_RULES = new Set([
   'emphasis-marker',
   'heading-increment',
+  'no-duplicate-definitions',
   'no-duplicate-headings',
   'no-duplicate-headings-in-section',
   'no-file-name-articles',
