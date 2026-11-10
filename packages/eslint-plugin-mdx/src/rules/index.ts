@@ -6,6 +6,7 @@ import { fencedCodeMarker } from './fenced-code-marker.js'
 import { finalNewline } from './final-newline.js'
 import { headingIncrement } from './heading-increment.js'
 import { headingStyle } from './heading-style.js'
+import { linkTitleStyle } from './link-title-style.js'
 import { maximumHeadingLength } from './maximum-heading-length.js'
 import { noConsecutiveBlankLines } from './no-consecutive-blank-lines.js'
 import { noDuplicateDefinitions } from './no-duplicate-definitions.js'
@@ -26,6 +27,7 @@ import { noShortcutReferenceImage } from './no-shortcut-reference-image.js'
 import { noShortcutReferenceLink } from './no-shortcut-reference-link.js'
 import { noTableIndentation } from './no-table-indentation.js'
 import { noUnusedDefinitions } from './no-unused-definitions.js'
+import { orderedListMarkerStyle } from './ordered-list-marker-style.js'
 import { remark } from './remark.js'
 import { ruleStyle } from './rule-style.js'
 import { strongMarker } from './strong-marker.js'
@@ -41,6 +43,7 @@ export {
   finalNewline,
   headingIncrement,
   headingStyle,
+  linkTitleStyle,
   maximumHeadingLength,
   noConsecutiveBlankLines,
   noDuplicateDefinitions,
@@ -61,6 +64,7 @@ export {
   noShortcutReferenceLink,
   noTableIndentation,
   noUnusedDefinitions,
+  orderedListMarkerStyle,
   remark,
   ruleStyle,
   strongMarker,
@@ -87,7 +91,9 @@ export const rules = {
   'no-file-name-mixed-case': noFileNameMixedCase,
   'no-file-name-outer-dashes': noFileNameOuterDashes,
   'no-heading-content-indent': noHeadingContentIndent,
+  'link-title-style': linkTitleStyle,
   'no-heading-punctuation': noHeadingPunctuation,
+  'ordered-list-marker-style': orderedListMarkerStyle,
   'no-literal-urls': noLiteralUrls,
   'no-multiple-toplevel-headings': noMultipleToplevelHeadings,
   'no-shell-dollars': noShellDollars,

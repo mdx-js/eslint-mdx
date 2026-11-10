@@ -31,6 +31,14 @@
       "remark-lint-fenced-code-marker",
       "`"
     ],
-    "remark-lint-definition-spacing"
+    "remark-lint-definition-spacing",
+    [
+      "remark-lint-link-title-style",
+      "\""
+    ],
+    [
+      "remark-lint-ordered-list-marker-style",
+      ")"
+    ]
   ]
 }
