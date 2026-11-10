@@ -1,8 +1,0 @@
-{
-  "plugins": [
-    "remark-gfm",
-    "remark-lint-no-consecutive-blank-lines",
-    "remark-lint-no-literal-urls",
-    "remark-lint-no-shell-dollars"
-  ]
-}

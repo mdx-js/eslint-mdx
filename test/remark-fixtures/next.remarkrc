@@ -11,6 +11,7 @@
       "remark-lint-maximum-heading-length",
       10
     ],
-    "remark-lint-no-duplicate-definitions"
+    "remark-lint-no-duplicate-definitions",
+    "remark-lint-no-shell-dollars"
   ]
 }

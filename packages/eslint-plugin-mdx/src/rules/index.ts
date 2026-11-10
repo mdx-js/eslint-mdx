@@ -13,6 +13,7 @@ import { noFileNameMixedCase } from './no-file-name-mixed-case.js'
 import { noFileNameOuterDashes } from './no-file-name-outer-dashes.js'
 import { noHeadingPunctuation } from './no-heading-punctuation.js'
 import { noMultipleToplevelHeadings } from './no-multiple-toplevel-headings.js'
+import { noShellDollars } from './no-shell-dollars.js'
 import { noShortcutReferenceImage } from './no-shortcut-reference-image.js'
 import { noShortcutReferenceLink } from './no-shortcut-reference-link.js'
 import { noUnusedDefinitions } from './no-unused-definitions.js'
@@ -37,6 +38,7 @@ export {
   noFileNameOuterDashes,
   noHeadingPunctuation,
   noMultipleToplevelHeadings,
+  noShellDollars,
   noShortcutReferenceImage,
   noShortcutReferenceLink,
   noUnusedDefinitions,
@@ -60,6 +62,7 @@ export const rules = {
   'no-file-name-outer-dashes': noFileNameOuterDashes,
   'no-heading-punctuation': noHeadingPunctuation,
   'no-multiple-toplevel-headings': noMultipleToplevelHeadings,
+  'no-shell-dollars': noShellDollars,
   'no-shortcut-reference-image': noShortcutReferenceImage,
   'no-unused-definitions': noUnusedDefinitions,
   'no-shortcut-reference-link': noShortcutReferenceLink,

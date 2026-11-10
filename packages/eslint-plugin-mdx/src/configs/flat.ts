@@ -40,6 +40,7 @@ export const flat: Linter.FlatConfig = {
     'mdx/maximum-heading-length': 'warn',
     'mdx/no-heading-punctuation': 'warn',
     'mdx/no-multiple-toplevel-headings': 'warn',
+    'mdx/no-shell-dollars': 'warn',
     'mdx/no-shortcut-reference-image': 'warn',
     'mdx/no-shortcut-reference-link': 'warn',
     'mdx/no-unused-definitions': 'warn',

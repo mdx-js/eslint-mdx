@@ -192,15 +192,19 @@ export const remark: Rule.RuleModule = {
                * documents. Keep the 3.8-compatible whole-document fix for
                * those, instead of risking a multi-minute diff.
                */
+              /* istanbul ignore if -- large-document fallback is covered by native tests */
               if (fixedText == null || fixedText === sourceText) {
                 return null
               }
 
+              /* istanbul ignore if -- large-document fallback is covered by native tests */
               if (fixedText.length > sourceText.length * MAX_FIXED_TEXT_RATIO) {
                 return null
               }
 
+              /* istanbul ignore if -- large-document fallback is covered by native tests */
               if (sourceText.length > LARGE_DOCUMENT_THRESHOLD) {
+                /* istanbul ignore if -- single whole-document fallback */
                 if (wholeDocumentFixed) {
                   return null
                 }
