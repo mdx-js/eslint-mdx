@@ -1,5 +1,6 @@
 /* istanbul ignore file */
 import { blockquoteIndentation } from './blockquote-indentation.js'
+import { checkboxCharacterStyle } from './checkbox-character-style.js'
 import { codeBlockStyle } from './code-block-style.js'
 import { definitionCase } from './definition-case.js'
 import { definitionSpacing } from './definition-spacing.js'
@@ -7,11 +8,14 @@ import { emphasisMarker } from './emphasis-marker.js'
 import { fencedCodeFlag } from './fenced-code-flag.js'
 import { fencedCodeMarker } from './fenced-code-marker.js'
 import { fileExtension } from './file-extension.js'
+import { finalDefinition } from './final-definition.js'
 import { finalNewline } from './final-newline.js'
 import { hardBreakSpaces } from './hard-break-spaces.js'
 import { headingIncrement } from './heading-increment.js'
 import { headingStyle } from './heading-style.js'
 import { linkTitleStyle } from './link-title-style.js'
+import { listItemBulletIndent } from './list-item-bullet-indent.js'
+import { listItemContentIndent } from './list-item-content-indent.js'
 import { listItemIndent } from './list-item-indent.js'
 import { listItemSpacing } from './list-item-spacing.js'
 import { maximumHeadingLength } from './maximum-heading-length.js'
@@ -35,18 +39,23 @@ import { noShellDollars } from './no-shell-dollars.js'
 import { noShortcutReferenceImage } from './no-shortcut-reference-image.js'
 import { noShortcutReferenceLink } from './no-shortcut-reference-link.js'
 import { noTableIndentation } from './no-table-indentation.js'
+import { noUndefinedReferences } from './no-undefined-references.js'
 import { noUnusedDefinitions } from './no-unused-definitions.js'
 import { orderedListMarkerStyle } from './ordered-list-marker-style.js'
 import { orderedListMarkerValue } from './ordered-list-marker-value.js'
 import { remark } from './remark.js'
 import { ruleStyle } from './rule-style.js'
 import { strongMarker } from './strong-marker.js'
+import { tableCellPadding } from './table-cell-padding.js'
+import { tablePipeAlignment } from './table-pipe-alignment.js'
+import { tablePipes } from './table-pipes.js'
 import { unorderedListMarkerStyle } from './unordered-list-marker-style.js'
 
 export type * from './types.js'
 
 export {
   blockquoteIndentation,
+  checkboxCharacterStyle,
   codeBlockStyle,
   definitionCase,
   definitionSpacing,
@@ -54,11 +63,14 @@ export {
   fencedCodeFlag,
   fencedCodeMarker,
   fileExtension,
+  finalDefinition,
   finalNewline,
   hardBreakSpaces,
   headingIncrement,
   headingStyle,
   linkTitleStyle,
+  listItemBulletIndent,
+  listItemContentIndent,
   listItemIndent,
   listItemSpacing,
   maximumHeadingLength,
@@ -82,12 +94,16 @@ export {
   noShortcutReferenceImage,
   noShortcutReferenceLink,
   noTableIndentation,
+  noUndefinedReferences,
   noUnusedDefinitions,
   orderedListMarkerStyle,
   orderedListMarkerValue,
   remark,
   ruleStyle,
   strongMarker,
+  tableCellPadding,
+  tablePipeAlignment,
+  tablePipes,
   unorderedListMarkerStyle,
 }
 
@@ -104,6 +120,14 @@ export const rules = {
   'ordered-list-marker-value': orderedListMarkerValue,
   'blockquote-indentation': blockquoteIndentation,
   'no-blockquote-without-marker': noBlockquoteWithoutMarker,
+  'checkbox-character-style': checkboxCharacterStyle,
+  'list-item-bullet-indent': listItemBulletIndent,
+  'list-item-content-indent': listItemContentIndent,
+  'table-pipes': tablePipes,
+  'table-pipe-alignment': tablePipeAlignment,
+  'table-cell-padding': tableCellPadding,
+  'final-definition': finalDefinition,
+  'no-undefined-references': noUndefinedReferences,
   'definition-case': definitionCase,
   'fenced-code-flag': fencedCodeFlag,
   'file-extension': fileExtension,

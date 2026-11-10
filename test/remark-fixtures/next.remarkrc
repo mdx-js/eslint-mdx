@@ -60,6 +60,14 @@
     "remark-lint-list-item-spacing",
     "remark-lint-ordered-list-marker-value",
     "remark-lint-blockquote-indentation",
-    "remark-lint-no-blockquote-without-marker"
+    "remark-lint-no-blockquote-without-marker",
+    "remark-lint-checkbox-character-style",
+    "remark-lint-list-item-bullet-indent",
+    "remark-lint-list-item-content-indent",
+    "remark-lint-table-pipes",
+    "remark-lint-table-pipe-alignment",
+    "remark-lint-table-cell-padding",
+    "remark-lint-final-definition",
+    "remark-lint-no-undefined-references"
   ]
 }
