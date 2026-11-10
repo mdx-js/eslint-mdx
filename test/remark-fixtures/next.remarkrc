@@ -26,6 +26,10 @@
     [
       "remark-lint-heading-style",
       "atx"
+    ],
+    [
+      "remark-lint-fenced-code-marker",
+      "`"
     ]
   ]
 }

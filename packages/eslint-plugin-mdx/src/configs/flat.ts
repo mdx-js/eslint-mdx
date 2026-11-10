@@ -28,6 +28,7 @@ export const flat: Linter.FlatConfig = {
   rules: {
     'mdx/emphasis-marker': 'warn',
     'mdx/final-newline': 'warn',
+    'mdx/fenced-code-marker': 'warn',
     'mdx/heading-increment': 'warn',
     'mdx/heading-style': 'warn',
     'mdx/definition-case': 'warn',

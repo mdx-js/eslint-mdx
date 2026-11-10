@@ -1,6 +1,7 @@
 /* istanbul ignore file */
 import { definitionCase } from './definition-case.js'
 import { emphasisMarker } from './emphasis-marker.js'
+import { fencedCodeMarker } from './fenced-code-marker.js'
 import { finalNewline } from './final-newline.js'
 import { headingIncrement } from './heading-increment.js'
 import { headingStyle } from './heading-style.js'
@@ -34,6 +35,7 @@ export type * from './types.js'
 export {
   definitionCase,
   emphasisMarker,
+  fencedCodeMarker,
   finalNewline,
   headingIncrement,
   headingStyle,
@@ -66,6 +68,7 @@ export {
 export const rules = {
   'emphasis-marker': emphasisMarker,
   'final-newline': finalNewline,
+  'fenced-code-marker': fencedCodeMarker,
   'heading-increment': headingIncrement,
   'heading-style': headingStyle,
   'maximum-heading-length': maximumHeadingLength,
