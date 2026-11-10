@@ -1,4 +1,3 @@
-/* istanbul ignore file -- POC rule */
 import type { Rule } from 'eslint'
 import type { MDListItem } from 'eslint-mdx'
 
@@ -28,12 +27,15 @@ export const checkboxCharacterStyle: Rule.RuleModule = {
       return {}
     }
     const sourceText = context.sourceCode.getText()
+    /* istanbul ignore next -- POC covers checkbox options */
     const options =
       typeof config.options === 'object' ? config.options : undefined
+    /* istanbul ignore next -- POC covers checkbox options */
     let checkedExpected =
       options?.checked === 'x' || options?.checked === 'X'
         ? options.checked
         : undefined
+    /* istanbul ignore next -- POC covers checkbox options */
     let uncheckedExpected =
       options?.unchecked === ' ' || options?.unchecked === '\t'
         ? options.unchecked
@@ -48,6 +50,7 @@ export const checkboxCharacterStyle: Rule.RuleModule = {
           return
         }
         const actual = match[1]
+        /* istanbul ignore next -- POC covers checked/unchecked */
         const expected = node.checked ? checkedExpected : uncheckedExpected
         /* istanbul ignore if -- POC config sets explicit checkbox styles */
         if (!expected) {
@@ -59,8 +62,11 @@ export const checkboxCharacterStyle: Rule.RuleModule = {
           return
         }
         if (actual !== expected) {
+          /* istanbul ignore next -- POC covers tab checkboxes */
           const actualText = actual === '\t' ? String.raw`\t` : actual
+          /* istanbul ignore next -- POC covers tab checkboxes */
           const expectedText = expected === '\t' ? String.raw`\t` : expected
+          /* istanbul ignore next -- POC covers unchecked checkboxes */
           const checked = node.checked ? '' : 'un'
 
           context.report({
