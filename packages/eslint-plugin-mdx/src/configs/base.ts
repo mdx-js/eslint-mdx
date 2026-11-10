@@ -15,6 +15,7 @@ export const base: Linter.LegacyConfig = {
     'mdx/emphasis-marker': 'warn',
     'mdx/heading-increment': 'warn',
     'mdx/no-duplicate-headings': 'warn',
+    'mdx/no-duplicate-headings-in-section': 'warn',
     'mdx/no-emphasis-as-heading': 'warn',
     'mdx/no-file-name-articles': 'warn',
     'mdx/no-file-name-consecutive-dashes': 'warn',

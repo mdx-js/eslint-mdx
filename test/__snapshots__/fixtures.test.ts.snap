@@ -3,15 +3,6 @@
 exports[`fixtures lint code blocks should work as expected: code-blocks/278.md 1`] = `
 [
   {
-    "column": 1,
-    "endColumn": 6,
-    "endLine": 3,
-    "line": 3,
-    "message": "Unexpected heading with equivalent text in section, expected unique headings",
-    "ruleId": "remark-lint-no-duplicate-headings-in-section",
-    "severity": 1,
-  },
-  {
     "column": 8,
     "endColumn": 22,
     "endLine": 10,
@@ -41,19 +32,10 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/278.md 1
   {
     "column": 1,
     "endColumn": 6,
-    "endLine": 38,
-    "line": 38,
-    "message": "Unexpected heading with equivalent text in section, expected unique headings",
-    "ruleId": "remark-lint-no-duplicate-headings-in-section",
-    "severity": 1,
-  },
-  {
-    "column": 1,
-    "endColumn": 6,
     "endLine": 50,
     "line": 50,
     "message": "Unexpected heading with equivalent text in section, expected unique headings",
-    "ruleId": "remark-lint-no-duplicate-headings-in-section",
+    "ruleId": "mdx/no-duplicate-headings-in-section",
     "severity": 1,
   },
   {
@@ -183,7 +165,7 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/534.mdx 
     "endLine": 20,
     "line": 20,
     "message": "Unexpected heading with equivalent text in section, expected unique headings",
-    "ruleId": "remark-lint-no-duplicate-headings-in-section",
+    "ruleId": "mdx/no-duplicate-headings-in-section",
     "severity": 1,
   },
   {
@@ -193,6 +175,34 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/534.mdx 
     "line": 20,
     "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
     "ruleId": "mdx/no-multiple-toplevel-headings",
+    "severity": 1,
+  },
+  {
+    "column": 2,
+    "fix": {
+      "range": [
+        663,
+        675,
+      ],
+      "text": "",
+    },
+    "line": 24,
+    "message": "Unused eslint-disable directive (no problems were reported from 'mdx/remark').",
+    "ruleId": null,
+    "severity": 1,
+  },
+  {
+    "column": 12,
+    "fix": {
+      "range": [
+        866,
+        904,
+      ],
+      "text": "",
+    },
+    "line": 32,
+    "message": "Unused eslint-disable directive (no problems were reported from 'mdx/no-duplicate-headings-in-section').",
+    "ruleId": null,
     "severity": 1,
   },
 ]
@@ -222,11 +232,11 @@ export function registerCommands(commandRegister: CommandRegister) {
 
 {/* nothing special */}
 
-{/* eslint-disable mdx/no-multiple-toplevel-headings, mdx/remark */}
+{/* eslint-disable mdx/no-duplicate-headings-in-section, mdx/no-multiple-toplevel-headings */}
 
 # Heading
 
-{/* eslint-enable mdx/no-multiple-toplevel-headings, mdx/remark */}
+{/* eslint-enable mdx/no-duplicate-headings-in-section, mdx/no-multiple-toplevel-headings */}
 
 Content {/* nothing special */}
 
@@ -714,15 +724,6 @@ exports[`fixtures should match all snapshots: code-blocks/278.md 1`] = `
 [
   {
     "column": 1,
-    "endColumn": 6,
-    "endLine": 3,
-    "line": 3,
-    "message": "Unexpected heading with equivalent text in section, expected unique headings",
-    "ruleId": "remark-lint-no-duplicate-headings-in-section",
-    "severity": 1,
-  },
-  {
-    "column": 1,
     "endColumn": 4,
     "endLine": 17,
     "line": 15,
@@ -745,7 +746,7 @@ exports[`fixtures should match all snapshots: code-blocks/534.mdx 1`] = `
     "endLine": 20,
     "line": 20,
     "message": "Unexpected heading with equivalent text in section, expected unique headings",
-    "ruleId": "remark-lint-no-duplicate-headings-in-section",
+    "ruleId": "mdx/no-duplicate-headings-in-section",
     "severity": 1,
   },
   {
@@ -757,7 +758,71 @@ exports[`fixtures should match all snapshots: code-blocks/534.mdx 1`] = `
     "ruleId": "mdx/no-multiple-toplevel-headings",
     "severity": 1,
   },
+  {
+    "column": 2,
+    "fix": {
+      "range": [
+        663,
+        675,
+      ],
+      "text": "",
+    },
+    "line": 24,
+    "message": "Unused eslint-disable directive (no problems were reported from 'mdx/remark').",
+    "ruleId": null,
+    "severity": 1,
+  },
+  {
+    "column": 12,
+    "fix": {
+      "range": [
+        866,
+        904,
+      ],
+      "text": "",
+    },
+    "line": 32,
+    "message": "Unused eslint-disable directive (no problems were reported from 'mdx/no-duplicate-headings-in-section').",
+    "ruleId": null,
+    "severity": 1,
+  },
 ]
+`;
+
+exports[`fixtures should match all snapshots: code-blocks/534.mdx 2`] = `
+"\`\`\`ts
+import { CommandRegister } from "@foo";
+export function registerCommands(commandRegister: CommandRegister) {
+  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
+  commandRegister.addCommand(deployProjectCommand);
+}
+\`\`\`
+
+{/* eslint-skip */}
+\`\`\`ts
+import { CommandRegister } from "@foo";
+export function registerCommands(commandRegister: CommandRegister) {
+  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
+  commandRegister.addCommand(deployProjectCommand);
+}
+\`\`\`
+
+# Heading
+
+# Heading
+
+{/* nothing special */}
+
+{/* eslint-disable mdx/no-duplicate-headings-in-section, mdx/no-multiple-toplevel-headings */}
+
+# Heading
+
+{/* eslint-enable mdx/no-duplicate-headings-in-section, mdx/no-multiple-toplevel-headings */}
+
+Content {/* nothing special */}
+
+# Heading {/* eslint-disable-line mdx/no-multiple-toplevel-headings, mdx/remark */}
+"
 `;
 
 exports[`fixtures should match all snapshots: comments.mdx 1`] = `
@@ -986,7 +1051,7 @@ exports[`fixtures should match all snapshots: processor.mdx 1`] = `
     "endLine": 3,
     "line": 3,
     "message": "Unexpected heading with equivalent text in section, expected unique headings",
-    "ruleId": "remark-lint-no-duplicate-headings-in-section",
+    "ruleId": "mdx/no-duplicate-headings-in-section",
     "severity": 1,
   },
   {

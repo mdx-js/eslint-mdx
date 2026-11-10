@@ -1,6 +1,7 @@
 /* istanbul ignore file */
 import { emphasisMarker } from './emphasis-marker.js'
 import { headingIncrement } from './heading-increment.js'
+import { noDuplicateHeadingsInSection } from './no-duplicate-headings-in-section.js'
 import { noDuplicateHeadings } from './no-duplicate-headings.js'
 import { noEmphasisAsHeading } from './no-emphasis-as-heading.js'
 import { noFileNameArticles } from './no-file-name-articles.js'
@@ -23,6 +24,7 @@ export {
   emphasisMarker,
   headingIncrement,
   noDuplicateHeadings,
+  noDuplicateHeadingsInSection,
   noEmphasisAsHeading,
   noFileNameArticles,
   noFileNameConsecutiveDashes,
@@ -43,6 +45,7 @@ export const rules = {
   'emphasis-marker': emphasisMarker,
   'heading-increment': headingIncrement,
   'no-duplicate-headings': noDuplicateHeadings,
+  'no-duplicate-headings-in-section': noDuplicateHeadingsInSection,
   'no-emphasis-as-heading': noEmphasisAsHeading,
   'no-file-name-articles': noFileNameArticles,
   'no-file-name-consecutive-dashes': noFileNameConsecutiveDashes,

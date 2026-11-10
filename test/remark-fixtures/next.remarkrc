@@ -5,6 +5,7 @@
     "remark-lint-no-shortcut-reference-link",
     "remark-lint-no-unused-definitions",
     "remark-lint-no-multiple-toplevel-headings",
-    "remark-lint-no-emphasis-as-heading"
+    "remark-lint-no-emphasis-as-heading",
+    "remark-lint-no-duplicate-headings-in-section"
   ]
 }
