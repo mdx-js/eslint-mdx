@@ -19,7 +19,7 @@ export const fileExtension: Rule.RuleModule = {
   meta: {
     type: 'problem',
     docs: { description: 'Enforce file extensions' },
-    schema: [],
+    schema: [{ items: { type: 'string' }, type: 'array' }],
   },
   create(context) {
     const config = getRuleConfig(context.sourceCode, 'file-extension')
@@ -28,7 +28,12 @@ export const fileExtension: Rule.RuleModule = {
       return {}
     }
 
-    const options = config.options
+    // type-coverage:ignore-next-line -- ESLint option typing
+    const options = (context.options[0] ?? config.options) as
+      | string[]
+      | string
+      | { allowExtensionless?: boolean; extensions?: string[] | string }
+      | undefined
     let allowed: string[] | string | undefined
 
     /* eslint-disable-next-line unicorn-x/prefer-ternary -- clarity */
