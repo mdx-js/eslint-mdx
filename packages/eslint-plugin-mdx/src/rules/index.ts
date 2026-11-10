@@ -19,6 +19,7 @@ import { noMultipleToplevelHeadings } from './no-multiple-toplevel-headings.js'
 import { noShellDollars } from './no-shell-dollars.js'
 import { noShortcutReferenceImage } from './no-shortcut-reference-image.js'
 import { noShortcutReferenceLink } from './no-shortcut-reference-link.js'
+import { noTableIndentation } from './no-table-indentation.js'
 import { noUnusedDefinitions } from './no-unused-definitions.js'
 import { remark } from './remark.js'
 import { strongMarker } from './strong-marker.js'
@@ -47,6 +48,7 @@ export {
   noShellDollars,
   noShortcutReferenceImage,
   noShortcutReferenceLink,
+  noTableIndentation,
   noUnusedDefinitions,
   remark,
   strongMarker,
@@ -72,6 +74,7 @@ export const rules = {
   'no-literal-urls': noLiteralUrls,
   'no-multiple-toplevel-headings': noMultipleToplevelHeadings,
   'no-shell-dollars': noShellDollars,
+  'no-table-indentation': noTableIndentation,
   'no-shortcut-reference-image': noShortcutReferenceImage,
   'no-unused-definitions': noUnusedDefinitions,
   'no-shortcut-reference-link': noShortcutReferenceLink,

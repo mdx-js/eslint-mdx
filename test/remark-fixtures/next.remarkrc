@@ -15,6 +15,7 @@
     "remark-lint-no-shell-dollars",
     "remark-lint-no-literal-urls",
     "remark-lint-final-newline",
-    "remark-lint-no-heading-content-indent"
+    "remark-lint-no-heading-content-indent",
+    "remark-lint-no-table-indentation"
   ]
 }

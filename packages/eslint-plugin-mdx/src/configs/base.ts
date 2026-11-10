@@ -30,6 +30,7 @@ export const base: Linter.LegacyConfig = {
     'mdx/no-literal-urls': 'warn',
     'mdx/no-multiple-toplevel-headings': 'warn',
     'mdx/no-shell-dollars': 'warn',
+    'mdx/no-table-indentation': 'warn',
     'mdx/no-shortcut-reference-image': 'warn',
     'mdx/no-shortcut-reference-link': 'warn',
     'mdx/no-unused-definitions': 'warn',

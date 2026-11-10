@@ -21,6 +21,7 @@ export const NATIVE_REMARK_RULES = new Set([
   'no-multiple-toplevel-headings',
   'no-unused-definitions',
   'no-shell-dollars',
+  'no-table-indentation',
   'no-shortcut-reference-image',
   'no-shortcut-reference-link',
   'strong-marker',
