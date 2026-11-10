@@ -1,4 +1,5 @@
 /* istanbul ignore file */
+import { blockquoteIndentation } from './blockquote-indentation.js'
 import { codeBlockStyle } from './code-block-style.js'
 import { definitionCase } from './definition-case.js'
 import { definitionSpacing } from './definition-spacing.js'
@@ -11,8 +12,11 @@ import { hardBreakSpaces } from './hard-break-spaces.js'
 import { headingIncrement } from './heading-increment.js'
 import { headingStyle } from './heading-style.js'
 import { linkTitleStyle } from './link-title-style.js'
+import { listItemIndent } from './list-item-indent.js'
+import { listItemSpacing } from './list-item-spacing.js'
 import { maximumHeadingLength } from './maximum-heading-length.js'
 import { maximumLineLength } from './maximum-line-length.js'
+import { noBlockquoteWithoutMarker } from './no-blockquote-without-marker.js'
 import { noConsecutiveBlankLines } from './no-consecutive-blank-lines.js'
 import { noDuplicateDefinitions } from './no-duplicate-definitions.js'
 import { noDuplicateHeadingsInSection } from './no-duplicate-headings-in-section.js'
@@ -33,6 +37,7 @@ import { noShortcutReferenceLink } from './no-shortcut-reference-link.js'
 import { noTableIndentation } from './no-table-indentation.js'
 import { noUnusedDefinitions } from './no-unused-definitions.js'
 import { orderedListMarkerStyle } from './ordered-list-marker-style.js'
+import { orderedListMarkerValue } from './ordered-list-marker-value.js'
 import { remark } from './remark.js'
 import { ruleStyle } from './rule-style.js'
 import { strongMarker } from './strong-marker.js'
@@ -41,6 +46,7 @@ import { unorderedListMarkerStyle } from './unordered-list-marker-style.js'
 export type * from './types.js'
 
 export {
+  blockquoteIndentation,
   codeBlockStyle,
   definitionCase,
   definitionSpacing,
@@ -53,8 +59,11 @@ export {
   headingIncrement,
   headingStyle,
   linkTitleStyle,
+  listItemIndent,
+  listItemSpacing,
   maximumHeadingLength,
   maximumLineLength,
+  noBlockquoteWithoutMarker,
   noConsecutiveBlankLines,
   noDuplicateDefinitions,
   noDuplicateHeadings,
@@ -75,6 +84,7 @@ export {
   noTableIndentation,
   noUnusedDefinitions,
   orderedListMarkerStyle,
+  orderedListMarkerValue,
   remark,
   ruleStyle,
   strongMarker,
@@ -89,6 +99,11 @@ export const rules = {
   'heading-style': headingStyle,
   'maximum-heading-length': maximumHeadingLength,
   'code-block-style': codeBlockStyle,
+  'list-item-indent': listItemIndent,
+  'list-item-spacing': listItemSpacing,
+  'ordered-list-marker-value': orderedListMarkerValue,
+  'blockquote-indentation': blockquoteIndentation,
+  'no-blockquote-without-marker': noBlockquoteWithoutMarker,
   'definition-case': definitionCase,
   'fenced-code-flag': fencedCodeFlag,
   'file-extension': fileExtension,

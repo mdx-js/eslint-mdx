@@ -55,6 +55,11 @@
     [
       "remark-lint-maximum-line-length",
       10
-    ]
+    ],
+    "remark-lint-list-item-indent",
+    "remark-lint-list-item-spacing",
+    "remark-lint-ordered-list-marker-value",
+    "remark-lint-blockquote-indentation",
+    "remark-lint-no-blockquote-without-marker"
   ]
 }
