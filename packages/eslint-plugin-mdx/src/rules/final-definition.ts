@@ -1,4 +1,3 @@
-/* istanbul ignore file -- POC rule */
 import type { Rule } from 'eslint'
 
 import { getRuleConfig } from './helpers.js'
@@ -41,7 +40,7 @@ export const finalDefinition: Rule.RuleModule = {
         ) {
           context.report({
             /* istanbul ignore next -- parser definitions have locations */
-            loc: definition.loc ?? undefined,
+            loc: definition.loc as never,
             message:
               'Unexpected definition before last content, expected definitions after last content',
           })

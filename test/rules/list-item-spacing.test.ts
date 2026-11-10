@@ -6,7 +6,10 @@ import { listItemSpacing } from 'eslint-plugin-mdx'
 
 const languageOptions = createLanguageOptions({ remarkConfig: 'next.remarkrc' })
 ruleTester.run('list-item-spacing', listItemSpacing, {
-  valid: [{ code: '# A', filename: 'native.mdx', languageOptions }],
+  valid: [
+    { code: '# A', filename: 'native.mdx', languageOptions },
+    { code: '- a\n- b', filename: 'native.mdx', languageOptions },
+  ],
   invalid: [
     {
       code: '- a\n\n- b',
