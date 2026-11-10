@@ -13,6 +13,7 @@
     ],
     "remark-lint-no-duplicate-definitions",
     "remark-lint-no-shell-dollars",
-    "remark-lint-no-literal-urls"
+    "remark-lint-no-literal-urls",
+    "remark-lint-final-newline"
   ]
 }

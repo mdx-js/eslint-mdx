@@ -3,6 +3,7 @@ import type { RemarkRuleOptions, RemarkConfig } from 'eslint-mdx'
 
 export const NATIVE_REMARK_RULES = new Set([
   'emphasis-marker',
+  'final-newline',
   'heading-increment',
   'no-duplicate-definitions',
   'no-duplicate-headings',

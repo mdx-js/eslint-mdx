@@ -1,5 +1,6 @@
 /* istanbul ignore file */
 import { emphasisMarker } from './emphasis-marker.js'
+import { finalNewline } from './final-newline.js'
 import { headingIncrement } from './heading-increment.js'
 import { maximumHeadingLength } from './maximum-heading-length.js'
 import { noDuplicateDefinitions } from './no-duplicate-definitions.js'
@@ -26,6 +27,7 @@ export type * from './types.js'
 
 export {
   emphasisMarker,
+  finalNewline,
   headingIncrement,
   maximumHeadingLength,
   noDuplicateDefinitions,
@@ -51,6 +53,7 @@ export {
 
 export const rules = {
   'emphasis-marker': emphasisMarker,
+  'final-newline': finalNewline,
   'heading-increment': headingIncrement,
   'maximum-heading-length': maximumHeadingLength,
   'no-duplicate-definitions': noDuplicateDefinitions,

@@ -27,6 +27,7 @@ export const flat: Linter.FlatConfig = {
   processor: remark,
   rules: {
     'mdx/emphasis-marker': 'warn',
+    'mdx/final-newline': 'warn',
     'mdx/heading-increment': 'warn',
     'mdx/no-duplicate-definitions': 'warn',
     'mdx/no-duplicate-headings': 'warn',
