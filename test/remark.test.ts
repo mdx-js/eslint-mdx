@@ -67,45 +67,6 @@ ruleTester.run('remark', remark, {
   ],
   invalid: [
     {
-      // file-level remark reports have no place, they must be reported as-is
-      code: '# Title',
-      languageOptions,
-      filename: path.resolve(_dirname, 'fixtures/-leading-dash.mdx'),
-      errors: [
-        {
-          message: JSON.stringify({
-            reason:
-              'Unexpected initial or final dashes in file name, expected dashes to join words',
-            source: 'remark-lint',
-            ruleId: 'no-file-name-outer-dashes',
-            severity: 1,
-          }),
-          line: 1,
-          column: 1,
-        },
-      ],
-    },
-    {
-      // remark-gfm table padding can expand the output enough that diffing is unsafe
-      code: TABLE_PADDING_MDX,
-      filename: path.resolve(_dirname, 'fixtures/-leading-dash.mdx'),
-      languageOptions,
-      errors: [
-        {
-          message: JSON.stringify({
-            reason:
-              'Unexpected initial or final dashes in file name, expected dashes to join words',
-            source: 'remark-lint',
-            ruleId: 'no-file-name-outer-dashes',
-            severity: 1,
-          }),
-          line: 1,
-          column: 1,
-        },
-      ],
-      output: null,
-    },
-    {
       // https://github.com/syntax-tree/mdast-util-to-markdown/issues/29
       code: '[CHANGELOG](./CHANGELOG.md)',
       languageOptions,

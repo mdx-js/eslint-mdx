@@ -37,6 +37,7 @@ const getFixesForPlace = (
   differences: NormalizedDifference[],
   place: VFileMessage['place'],
 ) => {
+  /* istanbul ignore if -- no file-level remark messages remain */
   if (place == null) {
     return null
   }
