@@ -3,6 +3,7 @@
     "remark-gfm",
     "remark-lint-no-shortcut-reference-image",
     "remark-lint-no-shortcut-reference-link",
-    "remark-lint-no-unused-definitions"
+    "remark-lint-no-unused-definitions",
+    "remark-lint-no-multiple-toplevel-headings"
   ]
 }

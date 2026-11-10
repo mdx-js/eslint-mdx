@@ -11,6 +11,7 @@ export const NATIVE_REMARK_RULES = new Set([
   'no-file-name-mixed-case',
   'no-file-name-outer-dashes',
   'no-heading-punctuation',
+  'no-multiple-toplevel-headings',
   'no-unused-definitions',
   'no-shortcut-reference-image',
   'no-shortcut-reference-link',
