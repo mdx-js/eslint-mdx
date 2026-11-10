@@ -22,6 +22,7 @@ import { noShortcutReferenceLink } from './no-shortcut-reference-link.js'
 import { noTableIndentation } from './no-table-indentation.js'
 import { noUnusedDefinitions } from './no-unused-definitions.js'
 import { remark } from './remark.js'
+import { ruleStyle } from './rule-style.js'
 import { strongMarker } from './strong-marker.js'
 import { unorderedListMarkerStyle } from './unordered-list-marker-style.js'
 
@@ -51,6 +52,7 @@ export {
   noTableIndentation,
   noUnusedDefinitions,
   remark,
+  ruleStyle,
   strongMarker,
   unorderedListMarkerStyle,
 }
@@ -77,6 +79,7 @@ export const rules = {
   'no-table-indentation': noTableIndentation,
   'no-shortcut-reference-image': noShortcutReferenceImage,
   'no-unused-definitions': noUnusedDefinitions,
+  'rule-style': ruleStyle,
   'no-shortcut-reference-link': noShortcutReferenceLink,
   'strong-marker': strongMarker,
   'unordered-list-marker-style': unorderedListMarkerStyle,

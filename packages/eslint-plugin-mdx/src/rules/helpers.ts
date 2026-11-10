@@ -20,6 +20,7 @@ export const NATIVE_REMARK_RULES = new Set([
   'no-literal-urls',
   'no-multiple-toplevel-headings',
   'no-unused-definitions',
+  'rule-style',
   'no-shell-dollars',
   'no-table-indentation',
   'no-shortcut-reference-image',

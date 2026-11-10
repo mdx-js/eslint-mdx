@@ -50,6 +50,7 @@ export const flat: Linter.FlatConfig = {
     'mdx/no-unused-definitions': 'warn',
     'mdx/strong-marker': 'warn',
     'mdx/unordered-list-marker-style': 'warn',
+    'mdx/rule-style': 'warn',
     'mdx/remark': 'warn',
     'no-unused-expressions': 'error',
     'react/react-in-jsx-scope': 'off',

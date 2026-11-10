@@ -16,6 +16,10 @@
     "remark-lint-no-literal-urls",
     "remark-lint-final-newline",
     "remark-lint-no-heading-content-indent",
-    "remark-lint-no-table-indentation"
+    "remark-lint-no-table-indentation",
+    [
+      "remark-lint-rule-style",
+      "***"
+    ]
   ]
 }
