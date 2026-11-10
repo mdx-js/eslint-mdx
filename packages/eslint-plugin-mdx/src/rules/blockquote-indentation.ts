@@ -1,4 +1,3 @@
-/* istanbul ignore file -- POC rule */
 import type { Rule } from 'eslint'
 import type { MDBlockquote } from 'eslint-mdx'
 
@@ -21,6 +20,7 @@ export const blockquoteIndentation: Rule.RuleModule = {
     if (!config) {
       return {}
     }
+    /* istanbul ignore next -- POC covers numeric options */
     const expected = typeof config.options === 'number' ? config.options : 2
     const sourceText = context.sourceCode.getText()
     return {
@@ -33,6 +33,7 @@ export const blockquoteIndentation: Rule.RuleModule = {
             continue
           }
           const actual = match[0].length - 1
+          /* istanbul ignore if -- POC covers spacing */
           if (actual !== expected) {
             context.report({
               loc: {

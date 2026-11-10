@@ -26,9 +26,10 @@ export const maximumLineLength: Rule.RuleModule = {
       typeof config.options === 'object' && config.options !== null
         ? config.options.size
         : config.options
+
+    /* istanbul ignore next -- POC covers numeric size */
+    /* istanbul ignore next -- POC covers numeric size */
     /* eslint-disable-next-line @typescript-eslint/no-magic-numbers -- default size */
-    /* istanbul ignore next -- POC covers numeric size */
-    /* istanbul ignore next -- POC covers numeric size */
     const expected = typeof size === 'number' ? size : 80
     const sourceText = context.sourceCode.getText()
 

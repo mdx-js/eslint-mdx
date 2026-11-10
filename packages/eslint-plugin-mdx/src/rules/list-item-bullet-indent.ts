@@ -20,7 +20,6 @@ export const listItemBulletIndent: Rule.RuleModule = {
     if (!config) {
       return {}
     }
-    const sourceText = context.sourceCode.getText()
     return {
       MDListItem(node: MDListItem) {
         const indent = node.loc.start.column

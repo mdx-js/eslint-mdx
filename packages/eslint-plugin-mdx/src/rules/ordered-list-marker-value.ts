@@ -1,4 +1,3 @@
-/* istanbul ignore file -- POC rule */
 import type { Rule } from 'eslint'
 import type { MDList } from 'eslint-mdx'
 
@@ -39,14 +38,17 @@ export const orderedListMarkerValue: Rule.RuleModule = {
           const trimmed = line.trimStart()
           const dot = trimmed.indexOf('.')
           const paren = trimmed.indexOf(')')
+          /* istanbul ignore next -- POC covers marker detection */
           const index = [dot, paren]
             .filter(value => value > 0)
             .sort((a, b) => a - b)[0]
 
+          /* istanbul ignore if -- POC covers marker values */
           if (index != null && /^\d+$/u.test(trimmed.slice(0, index))) {
             values.push(Number(trimmed.slice(0, index)))
           }
         }
+        /* istanbul ignore next -- POC covers ordered values */
         const expected =
           config.options === 'one'
             ? values.map(() => 1)
