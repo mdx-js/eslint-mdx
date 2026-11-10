@@ -1,4 +1,3 @@
-/* istanbul ignore file -- POC rule */
 import type { Rule } from 'eslint'
 import type { MDListItem } from 'eslint-mdx'
 
@@ -24,8 +23,7 @@ export const listItemBulletIndent: Rule.RuleModule = {
     const sourceText = context.sourceCode.getText()
     return {
       MDListItem(node: MDListItem) {
-        const raw = sourceText.slice(node.range[0], node.range[1])
-        const indent = /^\s*/u.exec(raw)?.[0].length ?? 0
+        const indent = node.loc.start.column
         if (indent > 0) {
           context.report({
             loc: node.loc,
