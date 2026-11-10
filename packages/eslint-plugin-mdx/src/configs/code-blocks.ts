@@ -23,6 +23,11 @@ export const codeBlocks = {
     // counterproductive to clarity and brevity.
     'no-undef': 'off',
     'no-unused-expressions': 'off',
+    'mdx/no-file-name-articles': 'off',
+    'mdx/no-file-name-consecutive-dashes': 'off',
+    'mdx/no-file-name-irregular-characters': 'off',
+    'mdx/no-file-name-mixed-case': 'off',
+    'mdx/no-file-name-outer-dashes': 'off',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     'padded-blocks': 'off',

@@ -2,7 +2,9 @@
 import { emphasisMarker } from './emphasis-marker.js'
 import { headingIncrement } from './heading-increment.js'
 import { noDuplicateHeadings } from './no-duplicate-headings.js'
+import { noFileNameArticles } from './no-file-name-articles.js'
 import { noFileNameConsecutiveDashes } from './no-file-name-consecutive-dashes.js'
+import { noFileNameIrregularCharacters } from './no-file-name-irregular-characters.js'
 import { noFileNameMixedCase } from './no-file-name-mixed-case.js'
 import { noFileNameOuterDashes } from './no-file-name-outer-dashes.js'
 import { noHeadingPunctuation } from './no-heading-punctuation.js'
@@ -19,7 +21,9 @@ export {
   emphasisMarker,
   headingIncrement,
   noDuplicateHeadings,
+  noFileNameArticles,
   noFileNameConsecutiveDashes,
+  noFileNameIrregularCharacters,
   noFileNameMixedCase,
   noFileNameOuterDashes,
   noHeadingPunctuation,
@@ -35,7 +39,9 @@ export const rules = {
   'emphasis-marker': emphasisMarker,
   'heading-increment': headingIncrement,
   'no-duplicate-headings': noDuplicateHeadings,
+  'no-file-name-articles': noFileNameArticles,
   'no-file-name-consecutive-dashes': noFileNameConsecutiveDashes,
+  'no-file-name-irregular-characters': noFileNameIrregularCharacters,
   'no-file-name-mixed-case': noFileNameMixedCase,
   'no-file-name-outer-dashes': noFileNameOuterDashes,
   'no-heading-punctuation': noHeadingPunctuation,
