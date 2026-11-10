@@ -18,6 +18,7 @@ export const base: Linter.LegacyConfig = {
     'mdx/heading-increment': 'warn',
     'mdx/heading-style': 'warn',
     'mdx/definition-case': 'warn',
+    'mdx/definition-spacing': 'warn',
     'mdx/no-consecutive-blank-lines': 'warn',
     'mdx/no-duplicate-definitions': 'warn',
     'mdx/no-duplicate-headings': 'warn',

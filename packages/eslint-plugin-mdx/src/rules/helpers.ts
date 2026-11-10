@@ -8,6 +8,7 @@ export const NATIVE_REMARK_RULES = new Set([
   'heading-increment',
   'heading-style',
   'definition-case',
+  'definition-spacing',
   'no-consecutive-blank-lines',
   'no-duplicate-definitions',
   'no-duplicate-headings',

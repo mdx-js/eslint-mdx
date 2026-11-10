@@ -1,5 +1,6 @@
 /* istanbul ignore file */
 import { definitionCase } from './definition-case.js'
+import { definitionSpacing } from './definition-spacing.js'
 import { emphasisMarker } from './emphasis-marker.js'
 import { fencedCodeMarker } from './fenced-code-marker.js'
 import { finalNewline } from './final-newline.js'
@@ -34,6 +35,7 @@ export type * from './types.js'
 
 export {
   definitionCase,
+  definitionSpacing,
   emphasisMarker,
   fencedCodeMarker,
   finalNewline,
@@ -73,6 +75,7 @@ export const rules = {
   'heading-style': headingStyle,
   'maximum-heading-length': maximumHeadingLength,
   'definition-case': definitionCase,
+  'definition-spacing': definitionSpacing,
   'no-consecutive-blank-lines': noConsecutiveBlankLines,
   'no-duplicate-definitions': noDuplicateDefinitions,
   'no-duplicate-headings': noDuplicateHeadings,

@@ -30,6 +30,7 @@
     [
       "remark-lint-fenced-code-marker",
       "`"
-    ]
+    ],
+    "remark-lint-definition-spacing"
   ]
 }
