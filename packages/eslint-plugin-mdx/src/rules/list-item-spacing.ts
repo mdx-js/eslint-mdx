@@ -1,4 +1,3 @@
-/* istanbul ignore file -- POC rule */
 import type { Rule } from 'eslint'
 import type { MDList } from 'eslint-mdx'
 
@@ -33,7 +32,8 @@ export const listItemSpacing: Rule.RuleModule = {
             (line, index) =>
               !line.trim() &&
               /^(?:[-*+]|\d+[.)])\s/u.test(
-                (lines[index + 1] ?? '').trimStart(),
+                // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion -- next line exists
+                (lines[index + 1] as string).trimStart(),
               ),
           )
         ) {

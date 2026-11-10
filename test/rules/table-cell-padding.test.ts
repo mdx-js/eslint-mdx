@@ -5,7 +5,7 @@ import { createLanguageOptions } from './helpers.js'
 import { tableCellPadding } from 'eslint-plugin-mdx'
 
 const languageOptions = createLanguageOptions({ remarkConfig: 'next.remarkrc' })
-ruleTester.run('table-cell-padding', tableCellPadding, {
+ruleTester.run('table cell padding', tableCellPadding, {
   valid: [{ code: '# A', filename: 'native.mdx', languageOptions }],
   invalid: [
     {

@@ -24,8 +24,9 @@ export const tableCellPadding: Rule.RuleModule = {
     const sourceText = context.sourceCode.getText()
     return {
       MDTable(node: MDTable) {
-        const row =
-          sourceText.slice(node.range[0], node.range[1]).split('\n')[0] ?? ''
+        const row = sourceText
+          .slice(node.range[0], node.range[1])
+          .split('\n')[0]
         const padded = /\|\s/.test(row) && /\s\|/.test(row)
         let expected: 'compact' | 'padded'
 
