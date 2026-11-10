@@ -72,7 +72,10 @@
     "remark-lint-list-item-content-indent",
     "remark-lint-table-pipes",
     "remark-lint-table-pipe-alignment",
-    "remark-lint-table-cell-padding",
+    [
+      "remark-lint-table-cell-padding",
+      "padded"
+    ],
     "remark-lint-final-definition",
     "remark-lint-no-undefined-references"
   ]

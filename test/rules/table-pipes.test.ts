@@ -6,6 +6,12 @@ import { tablePipes } from 'eslint-plugin-mdx'
 
 const languageOptions = createLanguageOptions({ remarkConfig: 'next.remarkrc' })
 ruleTester.run('table-pipes', tablePipes, {
-  valid: [{ code: '# A', filename: 'native.mdx', languageOptions }],
+  valid: [
+    {
+      code: '| a | b |\n| - | - |\n| c | d |',
+      filename: 'native.mdx',
+      languageOptions,
+    },
+  ],
   invalid: [],
 })

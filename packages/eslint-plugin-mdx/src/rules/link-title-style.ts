@@ -1,4 +1,4 @@
-/* istanbul ignore file -- POC covers the main title styles */
+/* istanbul ignore file -- POC rule */
 import type { Rule } from 'eslint'
 import type { MDLink } from 'eslint-mdx'
 
