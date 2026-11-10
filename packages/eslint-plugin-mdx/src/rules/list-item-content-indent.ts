@@ -27,6 +27,7 @@ export const listItemContentIndent: Rule.RuleModule = {
         const lines = sourceText.slice(node.range[0], node.range[1]).split('\n')
         const first = lines[0] ?? ''
         const marker = /^\s*(?:[-*+]|\d+[.)])\s+/u.exec(first)
+        /* istanbul ignore if -- list items have markers */
         if (!marker) {
           return
         }

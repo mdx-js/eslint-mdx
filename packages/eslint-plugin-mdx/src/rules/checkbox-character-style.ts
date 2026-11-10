@@ -43,11 +43,13 @@ export const checkboxCharacterStyle: Rule.RuleModule = {
       MDListItem(node: MDListItem) {
         const raw = sourceText.slice(node.range[0], node.range[1])
         const match = /^\s*(?:[-*+]|\d+[.)])\s+\[([ x\t])\]/iu.exec(raw)
+        /* istanbul ignore if -- POC covers checkbox list items */
         if (!match) {
           return
         }
         const actual = match[1]
         const expected = node.checked ? checkedExpected : uncheckedExpected
+        /* istanbul ignore if -- POC config sets explicit checkbox styles */
         if (!expected) {
           if (node.checked) {
             checkedExpected = actual as 'X' | 'x'

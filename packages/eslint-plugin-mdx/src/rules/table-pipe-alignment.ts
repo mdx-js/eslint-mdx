@@ -1,4 +1,3 @@
-/* istanbul ignore file -- POC rule */
 import type { Rule } from 'eslint'
 import type { MDTable } from 'eslint-mdx'
 
@@ -29,6 +28,7 @@ export const tablePipeAlignment: Rule.RuleModule = {
           [...line]
             .map((char, index) => (char === '|' ? index : -1))
             .filter(index => index >= 0)
+        /* istanbul ignore next -- parser tables have delimiter rows */
         const expected = positions(rows[1] ?? '')
         for (const [index, row] of rows.entries()) {
           const actual = positions(row)
