@@ -39,6 +39,7 @@ export const flat: Linter.FlatConfig = {
     'mdx/no-file-name-outer-dashes': 'warn',
     'mdx/maximum-heading-length': 'warn',
     'mdx/no-heading-punctuation': 'warn',
+    'mdx/no-literal-urls': 'warn',
     'mdx/no-multiple-toplevel-headings': 'warn',
     'mdx/no-shell-dollars': 'warn',
     'mdx/no-shortcut-reference-image': 'warn',

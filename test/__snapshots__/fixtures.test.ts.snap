@@ -976,7 +976,35 @@ exports[`fixtures should match all snapshots: processor.mdx 1`] = `
 
 exports[`fixtures should match all snapshots: remark.md 1`] = `[]`;
 
-exports[`fixtures should match all snapshots: remark.mdx 1`] = `[]`;
+exports[`fixtures should match all snapshots: remark.mdx 1`] = `
+[
+  {
+    "column": 2,
+    "fix": {
+      "range": [
+        79,
+        91,
+      ],
+      "text": "",
+    },
+    "line": 5,
+    "message": "Unused eslint-disable directive (no problems were reported from 'mdx/remark').",
+    "ruleId": null,
+    "severity": 1,
+  },
+]
+`;
+
+exports[`fixtures should match all snapshots: remark.mdx 2`] = `
+"_Hello_, **world**!
+
+### Code Splitting
+
+{/* eslint-disable mdx/no-literal-urls */}
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+"
+`;
 
 exports[`fixtures should match all snapshots: style/nested.md 1`] = `[]`;
 

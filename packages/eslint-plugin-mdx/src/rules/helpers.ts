@@ -15,6 +15,7 @@ export const NATIVE_REMARK_RULES = new Set([
   'no-emphasis-as-heading',
   'maximum-heading-length',
   'no-heading-punctuation',
+  'no-literal-urls',
   'no-multiple-toplevel-headings',
   'no-unused-definitions',
   'no-shell-dollars',
