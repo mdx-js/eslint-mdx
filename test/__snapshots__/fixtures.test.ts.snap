@@ -7,6 +7,15 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/278.md 1
     "endColumn": 6,
     "endLine": 3,
     "line": 3,
+    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
+    "severity": 1,
+  },
+  {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 3,
+    "line": 3,
     "message": "Unexpected heading with equivalent text in section, expected unique headings",
     "ruleId": "remark-lint-no-duplicate-headings-in-section",
     "severity": 1,
@@ -43,8 +52,26 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/278.md 1
     "endColumn": 6,
     "endLine": 38,
     "line": 38,
+    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
+    "severity": 1,
+  },
+  {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 38,
+    "line": 38,
     "message": "Unexpected heading with equivalent text in section, expected unique headings",
     "ruleId": "remark-lint-no-duplicate-headings-in-section",
+    "severity": 1,
+  },
+  {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 50,
+    "line": 50,
+    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
   },
   {
@@ -173,8 +200,8 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/534.mdx 
     "endColumn": 10,
     "endLine": 20,
     "line": 20,
-    "message": "Unexpected heading with equivalent text in section, expected unique headings",
-    "ruleId": "remark-lint-no-duplicate-headings-in-section",
+    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
   },
   {
@@ -182,40 +209,8 @@ exports[`fixtures lint code blocks should work as expected: code-blocks/534.mdx 
     "endColumn": 10,
     "endLine": 20,
     "line": 20,
-    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
-    "ruleId": "mdx/no-multiple-toplevel-headings",
-    "severity": 1,
-  },
-  {
-    "column": 1,
-    "endColumn": 10,
-    "endLine": 26,
-    "line": 26,
-    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
-    "ruleId": "mdx/no-multiple-toplevel-headings",
-    "severity": 1,
-  },
-  {
-    "column": 1,
-    "endColumn": 49,
-    "endLine": 32,
-    "line": 32,
-    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
-    "ruleId": "mdx/no-multiple-toplevel-headings",
-    "severity": 1,
-  },
-  {
-    "column": 12,
-    "fix": {
-      "range": [
-        697,
-        733,
-      ],
-      "text": " ",
-    },
-    "line": 32,
-    "message": "Unused eslint-disable directive (no problems were reported from 'mdx/remark').",
-    "ruleId": null,
+    "message": "Unexpected heading with equivalent text in section, expected unique headings",
+    "ruleId": "remark-lint-no-duplicate-headings-in-section",
     "severity": 1,
   },
 ]
@@ -253,7 +248,7 @@ export function registerCommands(commandRegister: CommandRegister) {
 
 Content {/* nothing special */}
 
-# Heading { }
+# Heading {/* eslint-disable-line mdx/remark */}
 "
 `;
 
@@ -645,7 +640,7 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "endLine": 27,
     "line": 27,
     "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
-    "ruleId": "mdx/no-multiple-toplevel-headings",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
   },
   {
@@ -672,9 +667,16 @@ exports[`fixtures should match all snapshots: blank-lines.mdx 1`] = `
     "column": 1,
     "endColumn": 36,
     "endLine": 35,
+    "fix": {
+      "range": [
+        650,
+        687,
+      ],
+      "text": "  # Here's a text gradient shortcode!",
+    },
     "line": 35,
     "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
-    "ruleId": "mdx/no-multiple-toplevel-headings",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
   },
   {
@@ -722,9 +724,7 @@ Here's a Twitter shortcode:
 <Tweet tweetId="1116723357410447360" />
 
 <TextGradient>
-
-# Here's a text gradient shortcode!
-
+  # Here's a text gradient shortcode!
 </TextGradient>
 
 Here's a YouTube shortcode:
@@ -735,6 +735,15 @@ Here's a YouTube shortcode:
 
 exports[`fixtures should match all snapshots: code-blocks/278.md 1`] = `
 [
+  {
+    "column": 1,
+    "endColumn": 6,
+    "endLine": 3,
+    "line": 3,
+    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
+    "severity": 1,
+  },
   {
     "column": 1,
     "endColumn": 6,
@@ -767,8 +776,8 @@ exports[`fixtures should match all snapshots: code-blocks/534.mdx 1`] = `
     "endColumn": 10,
     "endLine": 20,
     "line": 20,
-    "message": "Unexpected heading with equivalent text in section, expected unique headings",
-    "ruleId": "remark-lint-no-duplicate-headings-in-section",
+    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
   },
   {
@@ -776,79 +785,11 @@ exports[`fixtures should match all snapshots: code-blocks/534.mdx 1`] = `
     "endColumn": 10,
     "endLine": 20,
     "line": 20,
-    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
-    "ruleId": "mdx/no-multiple-toplevel-headings",
-    "severity": 1,
-  },
-  {
-    "column": 1,
-    "endColumn": 10,
-    "endLine": 26,
-    "line": 26,
-    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
-    "ruleId": "mdx/no-multiple-toplevel-headings",
-    "severity": 1,
-  },
-  {
-    "column": 1,
-    "endColumn": 49,
-    "endLine": 32,
-    "line": 32,
-    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
-    "ruleId": "mdx/no-multiple-toplevel-headings",
-    "severity": 1,
-  },
-  {
-    "column": 12,
-    "fix": {
-      "range": [
-        697,
-        733,
-      ],
-      "text": " ",
-    },
-    "line": 32,
-    "message": "Unused eslint-disable directive (no problems were reported from 'mdx/remark').",
-    "ruleId": null,
+    "message": "Unexpected heading with equivalent text in section, expected unique headings",
+    "ruleId": "remark-lint-no-duplicate-headings-in-section",
     "severity": 1,
   },
 ]
-`;
-
-exports[`fixtures should match all snapshots: code-blocks/534.mdx 2`] = `
-"\`\`\`ts
-import { CommandRegister } from "@foo";
-export function registerCommands(commandRegister: CommandRegister) {
-  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
-  commandRegister.addCommand(deployProjectCommand);
-}
-\`\`\`
-
-{/* eslint-skip */}
-\`\`\`ts
-import { CommandRegister } from "@foo";
-export function registerCommands(commandRegister: CommandRegister) {
-  let deployProjectCommand: DeployProjectCommand = new DeployProjectCommand();
-  commandRegister.addCommand(deployProjectCommand);
-}
-\`\`\`
-
-# Heading
-
-# Heading
-
-{/* nothing special */}
-
-{/* eslint-disable mdx/remark */}
-
-# Heading
-
-{/* eslint-enable mdx/remark */}
-
-Content {/* nothing special */}
-
-# Heading { }
-"
 `;
 
 exports[`fixtures should match all snapshots: comments.mdx 1`] = `
@@ -1076,8 +1017,8 @@ exports[`fixtures should match all snapshots: processor.mdx 1`] = `
     "endColumn": 6,
     "endLine": 3,
     "line": 3,
-    "message": "Unexpected heading with equivalent text in section, expected unique headings",
-    "ruleId": "remark-lint-no-duplicate-headings-in-section",
+    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
+    "ruleId": "remark-lint-no-multiple-toplevel-headings",
     "severity": 1,
   },
   {
@@ -1085,8 +1026,8 @@ exports[`fixtures should match all snapshots: processor.mdx 1`] = `
     "endColumn": 6,
     "endLine": 3,
     "line": 3,
-    "message": "Unexpected duplicate toplevel heading, exected a single heading with rank \`1\`",
-    "ruleId": "mdx/no-multiple-toplevel-headings",
+    "message": "Unexpected heading with equivalent text in section, expected unique headings",
+    "ruleId": "remark-lint-no-duplicate-headings-in-section",
     "severity": 1,
   },
 ]

@@ -22,6 +22,7 @@ export const noMultipleToplevelHeadings: Rule.RuleModule = {
       'no-multiple-toplevel-headings',
     )
 
+    /* istanbul ignore if -- rule is enabled by config */
     if (!config) {
       return {}
     }
