@@ -1,10 +1,4 @@
-/* istanbul ignore file -- POC rule */
 import type { Rule } from 'eslint'
-import type {
-  MDFootnoteReference,
-  MDImageReference,
-  MDLinkReference,
-} from 'eslint-mdx'
 
 import { getRuleConfig } from './helpers.js'
 
@@ -22,37 +16,45 @@ export const noUndefinedReferences: Rule.RuleModule = {
   },
   create(context) {
     const config = getRuleConfig(context.sourceCode, 'no-undefined-references')
+
     if (!config) {
       return {}
     }
-    const definitions = new Set<string>()
-    const references: Array<{
-      identifier: string
-      loc: MDFootnoteReference['loc']
-    }> = []
+
+    const sourceText = context.sourceCode.getText()
+
     return {
-      MDDefinition(node) {
-        definitions.add(node.identifier)
-      },
-      MDFootnoteDefinition(node) {
-        definitions.add(node.identifier)
-      },
-      MDImageReference(node: MDImageReference) {
-        references.push({ identifier: node.identifier, loc: node.loc })
-      },
-      MDLinkReference(node: MDLinkReference) {
-        references.push({ identifier: node.identifier, loc: node.loc })
-      },
-      MDFootnoteReference(node: MDFootnoteReference) {
-        references.push({ identifier: node.identifier, loc: node.loc })
-      },
-      'Program:exit'() {
-        for (const { identifier, loc } of references) {
-          if (!definitions.has(identifier)) {
-            context.report({
-              loc,
-              message: `Unexpected reference to undefined definition \`${identifier}\``,
-            })
+      Program() {
+        const definitions = new Set<string>()
+        const lines = sourceText.split('\n')
+
+        for (const line of lines) {
+          if (line.startsWith('[')) {
+            const close = line.indexOf(']:')
+
+            if (close > 1) {
+              definitions.add(line.slice(1, close))
+            }
+          }
+        }
+
+        for (const [lineIndex, line] of lines.entries()) {
+          // eslint-disable-next-line sonarjs/super-linear-regex -- short inline references
+          for (const match of line.matchAll(/\[[^\]]*\]\[([^\]]+)\]/gu)) {
+            const identifier = match[1]
+
+            if (!definitions.has(identifier)) {
+              context.report({
+                loc: {
+                  start: { line: lineIndex + 1, column: match.index },
+                  end: {
+                    line: lineIndex + 1,
+                    column: match.index + match[0].length,
+                  },
+                },
+                message: `Unexpected reference to undefined definition \`${identifier}\``,
+              })
+            }
           }
         }
       },

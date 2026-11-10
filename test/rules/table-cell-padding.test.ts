@@ -6,7 +6,14 @@ import { tableCellPadding } from 'eslint-plugin-mdx'
 
 const languageOptions = createLanguageOptions({ remarkConfig: 'next.remarkrc' })
 ruleTester.run('table cell padding', tableCellPadding, {
-  valid: [{ code: '# A', filename: 'native.mdx', languageOptions }],
+  valid: [
+    { code: '# A', filename: 'native.mdx', languageOptions },
+    {
+      code: '| a | b |\n| - | - |',
+      filename: 'native.mdx',
+      languageOptions,
+    },
+  ],
   invalid: [
     {
       code: '|a|b|\n| - | - |',

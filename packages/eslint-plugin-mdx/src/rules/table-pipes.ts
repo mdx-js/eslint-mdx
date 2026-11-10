@@ -1,6 +1,4 @@
-/* istanbul ignore file -- POC rule */
 import type { Rule } from 'eslint'
-import type { MDTable } from 'eslint-mdx'
 
 import { getRuleConfig } from './helpers.js'
 
@@ -18,21 +16,35 @@ export const tablePipes: Rule.RuleModule = {
   },
   create(context) {
     const config = getRuleConfig(context.sourceCode, 'table-pipes')
+
     if (!config) {
       return {}
     }
+
     const sourceText = context.sourceCode.getText()
+
     return {
-      MDTable(node: MDTable) {
-        for (const [index, line] of sourceText
-          .slice(node.range[0], node.range[1])
-          .split('\n')
-          .entries()) {
-          if (!line.trim().startsWith('|') || !line.trim().endsWith('|')) {
+      Program() {
+        const lines = sourceText.split('\n')
+
+        for (const [index, line] of lines.entries()) {
+          if (!line.includes('|')) {
+            continue
+          }
+
+          const next = lines[index + 1] ?? ''
+
+          if (!/^[|:\s-]+$/u.test(next)) {
+            continue
+          }
+
+          const trimmed = line.trim()
+
+          if (!trimmed.startsWith('|') || !trimmed.endsWith('|')) {
             context.report({
               loc: {
-                start: { line: node.loc.start.line + index, column: 0 },
-                end: { line: node.loc.start.line + index, column: 0 },
+                start: { line: index + 1, column: 0 },
+                end: { line: index + 1, column: line.length },
               },
               message: 'Unexpected table row without leading or trailing pipe',
             })
