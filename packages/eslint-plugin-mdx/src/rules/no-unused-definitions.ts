@@ -72,7 +72,6 @@ export const noUnusedDefinitions: Rule.RuleModule = {
             continue
           }
 
-          /* istanbul ignore next -- footnote definitions require GFM */
           const prefix = node.type === 'MDFootnoteDefinition' ? 'footnote ' : ''
 
           context.report({

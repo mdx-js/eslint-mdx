@@ -18,6 +18,19 @@ ruleTester.run('no unused definitions', noUnusedDefinitions, {
   ],
   invalid: [
     {
+      code: '[^a]: x',
+      filename: 'native.mdx',
+      languageOptions,
+      errors: [
+        {
+          message:
+            'Unexpected unused footnote definition, expected no definition or one or more footnote references to `a`',
+          line: 1,
+          column: 1,
+        },
+      ],
+    },
+    {
       code: '[a]: x',
       filename: 'native.mdx',
       languageOptions,
