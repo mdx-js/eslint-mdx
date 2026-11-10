@@ -18,6 +18,18 @@ ruleTester.run('link title style', linkTitleStyle, {
   ],
   invalid: [
     {
+      code: '[a](x (t))',
+      filename: 'native.mdx',
+      languageOptions,
+      errors: [
+        {
+          message: 'Unexpected title markers `()`, expected `"`',
+          line: 1,
+          column: 1,
+        },
+      ],
+    },
+    {
       code: "[a](x 't')",
       filename: 'native.mdx',
       languageOptions,

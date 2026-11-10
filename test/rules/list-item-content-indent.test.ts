@@ -23,5 +23,18 @@ ruleTester.run('list item content indent', listItemContentIndent, {
         },
       ],
     },
+    {
+      code: '- item\n continuation',
+      filename: 'native.mdx',
+      languageOptions,
+      errors: [
+        {
+          message:
+            'Unexpected unaligned list item child, expected to align with first child, add `1` spaces',
+          line: 1,
+          column: 1,
+        },
+      ],
+    },
   ],
 })

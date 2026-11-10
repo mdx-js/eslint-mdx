@@ -1,4 +1,3 @@
-/* istanbul ignore file -- POC rule */
 import type { Rule } from 'eslint'
 import type { MDLink } from 'eslint-mdx'
 
@@ -45,11 +44,14 @@ export const linkTitleStyle: Rule.RuleModule = {
         const raw = new Set(sourceText.slice(node.range[0], node.range[1]))
         let actual: '"' | '()' | "'" | undefined
 
+        /* istanbul ignore next -- POC covers title styles */
         if (raw.has('"')) {
           actual = '"'
         } else if (raw.has("'")) {
           actual = "'"
+          /* istanbul ignore next -- POC covers paren titles */
         } else if (raw.has('(')) {
+          /* istanbul ignore next -- POC covers paren titles */
           actual = '()'
         }
 

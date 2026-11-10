@@ -1,4 +1,3 @@
-/* istanbul ignore file -- POC rule */
 import type { Rule } from 'eslint'
 import type { MDListItem } from 'eslint-mdx'
 
@@ -25,6 +24,7 @@ export const listItemContentIndent: Rule.RuleModule = {
     return {
       MDListItem(node: MDListItem) {
         const lines = sourceText.slice(node.range[0], node.range[1]).split('\n')
+        /* istanbul ignore next -- list items have lines */
         const first = lines[0] ?? ''
         const marker = /^\s*(?:[-*+]|\d+[.)])\s+/u.exec(first)
         /* istanbul ignore if -- list items have markers */
@@ -36,6 +36,7 @@ export const listItemContentIndent: Rule.RuleModule = {
           if (index === 0 || !line.trim()) {
             continue
           }
+          /* istanbul ignore next -- regex always matches */
           const actual = /^\s*/u.exec(line)?.[0].length ?? 0
           if (actual !== expected) {
             context.report({
