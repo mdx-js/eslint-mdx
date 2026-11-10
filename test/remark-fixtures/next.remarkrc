@@ -39,6 +39,22 @@
     [
       "remark-lint-ordered-list-marker-style",
       ")"
+    ],
+    [
+      "remark-lint-code-block-style",
+      "fenced"
+    ],
+    "remark-lint-fenced-code-flag",
+    "remark-lint-file-extension",
+    [
+      "remark-lint-hard-break-spaces",
+      {
+        "allowSpaces": true
+      }
+    ],
+    [
+      "remark-lint-maximum-line-length",
+      10
     ]
   ]
 }

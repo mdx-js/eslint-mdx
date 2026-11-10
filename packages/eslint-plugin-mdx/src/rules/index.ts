@@ -1,13 +1,18 @@
 /* istanbul ignore file */
+import { codeBlockStyle } from './code-block-style.js'
 import { definitionCase } from './definition-case.js'
 import { definitionSpacing } from './definition-spacing.js'
 import { emphasisMarker } from './emphasis-marker.js'
+import { fencedCodeFlag } from './fenced-code-flag.js'
 import { fencedCodeMarker } from './fenced-code-marker.js'
+import { fileExtension } from './file-extension.js'
 import { finalNewline } from './final-newline.js'
+import { hardBreakSpaces } from './hard-break-spaces.js'
 import { headingIncrement } from './heading-increment.js'
 import { headingStyle } from './heading-style.js'
 import { linkTitleStyle } from './link-title-style.js'
 import { maximumHeadingLength } from './maximum-heading-length.js'
+import { maximumLineLength } from './maximum-line-length.js'
 import { noConsecutiveBlankLines } from './no-consecutive-blank-lines.js'
 import { noDuplicateDefinitions } from './no-duplicate-definitions.js'
 import { noDuplicateHeadingsInSection } from './no-duplicate-headings-in-section.js'
@@ -36,15 +41,20 @@ import { unorderedListMarkerStyle } from './unordered-list-marker-style.js'
 export type * from './types.js'
 
 export {
+  codeBlockStyle,
   definitionCase,
   definitionSpacing,
   emphasisMarker,
+  fencedCodeFlag,
   fencedCodeMarker,
+  fileExtension,
   finalNewline,
+  hardBreakSpaces,
   headingIncrement,
   headingStyle,
   linkTitleStyle,
   maximumHeadingLength,
+  maximumLineLength,
   noConsecutiveBlankLines,
   noDuplicateDefinitions,
   noDuplicateHeadings,
@@ -78,7 +88,12 @@ export const rules = {
   'heading-increment': headingIncrement,
   'heading-style': headingStyle,
   'maximum-heading-length': maximumHeadingLength,
+  'code-block-style': codeBlockStyle,
   'definition-case': definitionCase,
+  'fenced-code-flag': fencedCodeFlag,
+  'file-extension': fileExtension,
+  'hard-break-spaces': hardBreakSpaces,
+  'maximum-line-length': maximumLineLength,
   'definition-spacing': definitionSpacing,
   'no-consecutive-blank-lines': noConsecutiveBlankLines,
   'no-duplicate-definitions': noDuplicateDefinitions,
