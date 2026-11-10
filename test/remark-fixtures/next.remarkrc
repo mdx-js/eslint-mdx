@@ -22,6 +22,10 @@
       "***"
     ],
     "remark-lint-definition-case",
-    "remark-lint-no-consecutive-blank-lines"
+    "remark-lint-no-consecutive-blank-lines",
+    [
+      "remark-lint-heading-style",
+      "atx"
+    ]
   ]
 }

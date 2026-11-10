@@ -3,6 +3,7 @@ import { definitionCase } from './definition-case.js'
 import { emphasisMarker } from './emphasis-marker.js'
 import { finalNewline } from './final-newline.js'
 import { headingIncrement } from './heading-increment.js'
+import { headingStyle } from './heading-style.js'
 import { maximumHeadingLength } from './maximum-heading-length.js'
 import { noConsecutiveBlankLines } from './no-consecutive-blank-lines.js'
 import { noDuplicateDefinitions } from './no-duplicate-definitions.js'
@@ -35,6 +36,7 @@ export {
   emphasisMarker,
   finalNewline,
   headingIncrement,
+  headingStyle,
   maximumHeadingLength,
   noConsecutiveBlankLines,
   noDuplicateDefinitions,
@@ -65,6 +67,7 @@ export const rules = {
   'emphasis-marker': emphasisMarker,
   'final-newline': finalNewline,
   'heading-increment': headingIncrement,
+  'heading-style': headingStyle,
   'maximum-heading-length': maximumHeadingLength,
   'definition-case': definitionCase,
   'no-consecutive-blank-lines': noConsecutiveBlankLines,
