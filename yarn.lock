@@ -6855,7 +6855,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"collapse-white-space@npm:^2.0.0":
+"collapse-white-space@npm:^2.0.0, collapse-white-space@npm:^2.1.0":
   version: 2.1.0
   resolution: "collapse-white-space@npm:2.1.0"
   checksum: 10c0/b2e2800f4ab261e62eb27a1fbe853378296e3a726d6695117ed033e82d61fb6abeae4ffc1465d5454499e237005de9cfc52c9562dc7ca4ac759b9a222ef14453
@@ -8012,8 +8012,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "eslint-plugin-mdx@workspace:packages/eslint-plugin-mdx"
   dependencies:
+    collapse-white-space: "npm:^2.1.0"
     eslint-mdx: "npm:^3.9.5"
     mdast-util-mdx: "npm:^3.0.0"
+    micromark-util-normalize-identifier: "npm:^2.0.1"
     prettier-linter-helpers: "npm:^1.0.1"
     remark-mdx: "npm:^3.1.1"
     remark-parse: "npm:^11.0.0"
@@ -11582,7 +11584,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"micromark-util-normalize-identifier@npm:^2.0.0":
+"micromark-util-normalize-identifier@npm:^2.0.0, micromark-util-normalize-identifier@npm:^2.0.1":
   version: 2.0.1
   resolution: "micromark-util-normalize-identifier@npm:2.0.1"
   dependencies:
