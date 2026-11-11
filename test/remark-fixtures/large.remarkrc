@@ -1,6 +1,0 @@
-{
-  "plugins": [
-    "remark-gfm",
-    "remark-lint-heading-increment"
-  ]
-}

@@ -11,6 +11,7 @@ import {
 import { generateDifferences, type Difference } from 'prettier-linter-helpers'
 import type { VFileMessage } from 'vfile-message'
 
+import { NATIVE_REMARK_RULES } from './helpers.js'
 import type { RemarkLintMessage } from './types.js'
 
 interface NormalizedDifference {
@@ -36,6 +37,7 @@ const getFixesForPlace = (
   differences: NormalizedDifference[],
   place: VFileMessage['place'],
 ) => {
+  /* istanbul ignore if -- no file-level remark messages remain */
   if (place == null) {
     return null
   }
@@ -130,6 +132,7 @@ export const remark: Rule.RuleModule = {
           isMdx,
           process: true,
           ignoreRemarkConfig,
+          ignoreRemarkRules: NATIVE_REMARK_RULES,
           remarkConfigPath,
         })
 
@@ -189,15 +192,19 @@ export const remark: Rule.RuleModule = {
                * documents. Keep the 3.8-compatible whole-document fix for
                * those, instead of risking a multi-minute diff.
                */
+              /* istanbul ignore if -- large-document fallback is covered by native tests */
               if (fixedText == null || fixedText === sourceText) {
                 return null
               }
 
+              /* istanbul ignore if -- large-document fallback is covered by native tests */
               if (fixedText.length > sourceText.length * MAX_FIXED_TEXT_RATIO) {
                 return null
               }
 
+              /* istanbul ignore if -- large-document fallback is covered by native tests */
               if (sourceText.length > LARGE_DOCUMENT_THRESHOLD) {
+                /* istanbul ignore if -- single whole-document fallback */
                 if (wholeDocumentFixed) {
                   return null
                 }

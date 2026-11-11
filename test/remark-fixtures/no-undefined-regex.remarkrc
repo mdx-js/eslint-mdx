@@ -1,0 +1,5 @@
+{
+  "plugins": [
+    ["remark-lint-no-undefined-references", { "allow": [{ "source": "^b$" }] }]
+  ]
+}

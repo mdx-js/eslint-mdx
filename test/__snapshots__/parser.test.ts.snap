@@ -79833,12 +79833,12 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
       "type": "MDHeading",
     },
     {
-      "end": 74,
+      "end": 95,
       "expression": {
-        "end": 73,
+        "end": 94,
         "loc": {
           "end": {
-            "column": 32,
+            "column": 53,
             "line": 5,
           },
           "start": {
@@ -79848,16 +79848,16 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
         },
         "range": [
           42,
-          73,
+          94,
         ],
         "start": 42,
         "type": "JSXEmptyExpression",
       },
       "loc": {
         "end": {
-          "column": 34,
+          "column": 55,
           "line": 5,
-          "offset": 74,
+          "offset": 95,
         },
         "start": {
           "column": 1,
@@ -79867,7 +79867,7 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
       },
       "range": [
         41,
-        74,
+        95,
       ],
       "start": 41,
       "type": "MDXFlowExpression",
@@ -79875,7 +79875,7 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
     {
       "children": [
         {
-          "end": 105,
+          "end": 126,
           "loc": {
             "end": {
               "column": 29,
@@ -79887,18 +79887,18 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
             },
           },
           "range": [
-            76,
-            105,
+            97,
+            126,
           ],
           "raw": "This section has moved here: ",
-          "start": 76,
+          "start": 97,
           "type": "MDText",
           "value": "This section has moved here: ",
         },
         {
           "children": [
             {
-              "end": 168,
+              "end": 189,
               "loc": {
                 "end": {
                   "column": 92,
@@ -79910,16 +79910,16 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
                 },
               },
               "range": [
-                105,
-                168,
+                126,
+                189,
               ],
               "raw": "https://facebook.github.io/create-react-app/docs/code-splitting",
-              "start": 105,
+              "start": 126,
               "type": "MDText",
               "value": "https://facebook.github.io/create-react-app/docs/code-splitting",
             },
           ],
-          "end": 168,
+          "end": 189,
           "loc": {
             "end": {
               "column": 92,
@@ -79931,17 +79931,17 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
             },
           },
           "range": [
-            105,
-            168,
+            126,
+            189,
           ],
           "raw": "https://facebook.github.io/create-react-app/docs/code-splitting",
-          "start": 105,
+          "start": 126,
           "title": null,
           "type": "MDLink",
           "url": "https://facebook.github.io/create-react-app/docs/code-splitting",
         },
       ],
-      "end": 168,
+      "end": 189,
       "loc": {
         "end": {
           "column": 92,
@@ -79953,22 +79953,22 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
         },
       },
       "range": [
-        76,
-        168,
+        97,
+        189,
       ],
       "raw": "This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting",
-      "start": 76,
+      "start": 97,
       "type": "MDParagraph",
     },
   ],
   "comments": [
     {
-      "end": 73,
+      "end": 94,
       "loc": {
         "end": {
-          "column": 32,
+          "column": 53,
           "line": 5,
-          "offset": 73,
+          "offset": 94,
         },
         "start": {
           "column": 1,
@@ -79978,19 +79978,19 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
       },
       "range": [
         42,
-        73,
+        94,
       ],
       "start": 42,
       "type": "Block",
-      "value": " eslint-disable mdx/remark ",
+      "value": " eslint-disable mdx/no-literal-urls, mdx/remark ",
     },
   ],
-  "end": 169,
+  "end": 190,
   "loc": {
     "end": {
       "column": 1,
       "line": 8,
-      "offset": 169,
+      "offset": 190,
     },
     "start": {
       "column": 1,
@@ -80000,7 +80000,7 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
   },
   "range": [
     0,
-    169,
+    190,
   ],
   "sourceType": "module",
   "start": 0,
@@ -80226,27 +80226,27 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
       "value": "{",
     },
     {
-      "end": 74,
+      "end": 95,
       "loc": {
         "end": {
-          "column": 33,
+          "column": 54,
           "line": 5,
         },
         "start": {
-          "column": 32,
+          "column": 53,
           "line": 5,
         },
       },
       "range": [
-        73,
-        74,
+        94,
+        95,
       ],
-      "start": 73,
+      "start": 94,
       "type": "Punctuator",
       "value": "}",
     },
     {
-      "end": 105,
+      "end": 126,
       "loc": {
         "end": {
           "column": 29,
@@ -80258,15 +80258,15 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
         },
       },
       "range": [
-        76,
-        105,
+        97,
+        126,
       ],
-      "start": 76,
+      "start": 97,
       "type": "data",
       "value": "This section has moved here: ",
     },
     {
-      "end": 168,
+      "end": 189,
       "loc": {
         "end": {
           "column": 92,
@@ -80278,10 +80278,10 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
         },
       },
       "range": [
-        105,
-        168,
+        126,
+        189,
       ],
-      "start": 105,
+      "start": 126,
       "type": "literalAutolinkHttp",
       "value": "https://facebook.github.io/create-react-app/docs/code-splitting",
     },

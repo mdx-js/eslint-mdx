@@ -1,0 +1,6 @@
+{
+  "plugins": [
+    "remark-lint-heading-increment",
+    ["remark-lint-emphasis-marker", "consistent"]
+  ]
+}

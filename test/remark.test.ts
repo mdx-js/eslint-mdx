@@ -1,21 +1,11 @@
-import { readFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 import path from 'node:path'
-
-import type { Rule } from 'eslint'
 
 import { ruleTester, languageOptions } from './helpers.js'
 
 import { remark } from 'eslint-plugin-mdx'
 
 const userDir = homedir()
-
-// One long table cell makes remark-gfm pad every short row to its width.
-// The transformed document becomes large enough that diffing is unsafe.
-const TABLE_PADDING_MDX = readFileSync(
-  new URL('remark-fixtures/table-padding.mdx', import.meta.url),
-  'utf8',
-)
 
 const _dirname = import.meta.dirname
 const _filename = import.meta.filename
@@ -66,45 +56,6 @@ ruleTester.run('remark', remark, {
   ],
   invalid: [
     {
-      // file-level remark reports have no place, they must be reported as-is
-      code: '# Title',
-      languageOptions,
-      filename: path.resolve(_dirname, 'fixtures/-leading-dash.mdx'),
-      errors: [
-        {
-          message: JSON.stringify({
-            reason:
-              'Unexpected initial or final dashes in file name, expected dashes to join words',
-            source: 'remark-lint',
-            ruleId: 'no-file-name-outer-dashes',
-            severity: 1,
-          }),
-          line: 1,
-          column: 1,
-        },
-      ],
-    },
-    {
-      // remark-gfm table padding can expand the output enough that diffing is unsafe
-      code: TABLE_PADDING_MDX,
-      filename: path.resolve(_dirname, 'fixtures/-leading-dash.mdx'),
-      languageOptions,
-      errors: [
-        {
-          message: JSON.stringify({
-            reason:
-              'Unexpected initial or final dashes in file name, expected dashes to join words',
-            source: 'remark-lint',
-            ruleId: 'no-file-name-outer-dashes',
-            severity: 1,
-          }),
-          line: 1,
-          column: 1,
-        },
-      ],
-      output: null,
-    },
-    {
       // https://github.com/syntax-tree/mdast-util-to-markdown/issues/29
       code: '[CHANGELOG](./CHANGELOG.md)',
       languageOptions,
@@ -143,122 +94,10 @@ ruleTester.run('remark', remark, {
         },
       ],
     },
-    {
-      code: `_emphasis_ and __strong__`,
-      languageOptions,
-      filename: path.resolve(_dirname, 'fixtures/style/test.mdx'),
-      errors: [
-        {
-          message: JSON.stringify({
-            reason: 'Unexpected emphasis marker `_`, expected `*`',
-            source: 'remark-lint',
-            ruleId: 'emphasis-marker',
-            severity: 1,
-          }),
-          line: 1,
-          column: 1,
-          endLine: 1,
-          endColumn: 11,
-        },
-        {
-          message: JSON.stringify({
-            reason: 'Unexpected strong marker `_`, expected `*`',
-            source: 'remark-lint',
-            ruleId: 'strong-marker',
-            severity: 1,
-          }),
-          line: 1,
-          column: 16,
-          endLine: 1,
-          endColumn: 26,
-        },
-      ],
-      output: '*emphasis* and **strong**\n',
-    },
   ],
 })
 
 test('hack', () => {
   // eslint-disable-next-line sonarjs/no-trivial-assertions -- placeholder to keep the suite non-empty
   expect(true).toBe(true)
-})
-
-describe('remark large document handling', () => {
-  function getFixes(code: string, filename: string) {
-    const fixes: Array<() => Rule.Fix[] | null> = []
-    const visitor = remark.create({
-      cwd: process.cwd(),
-      filename,
-      languageOptions: {
-        parserOptions: {
-          remarkConfigPath: path.resolve(
-            import.meta.dirname,
-            'remark-fixtures/large.remarkrc',
-          ),
-        },
-      },
-      parserOptions: {},
-      report({ fix }: { fix?: () => Rule.Fix[] | null }) {
-        if (fix) {
-          fixes.push(fix)
-        }
-      },
-      sourceCode: {
-        getText: () => code,
-      },
-    } as never)
-
-    const program = visitor.Program
-
-    if (!program) {
-      throw new Error('Expected a Program visitor')
-    }
-
-    program({
-      type: 'Program',
-    } as never)
-
-    return fixes
-  }
-
-  it('skips fixes when the remark output expands the document', () => {
-    const fixes = getFixes(
-      `# A\n\n### B\n\n${TABLE_PADDING_MDX}`,
-      path.resolve(import.meta.dirname, 'fixtures/-leading-dash.mdx'),
-    )
-
-    expect(fixes.length).toBeGreaterThan(0)
-    expect(fixes[0]()).toBeNull()
-  })
-
-  it('does not generate a no-op fix when output equals source', () => {
-    // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- just above threshold
-    const code = `# Title\n\n### A\n\n${'x'.repeat(65 * 1024)}\n\n### B\n`
-    const fixes = getFixes(
-      code,
-      path.resolve(import.meta.dirname, 'fixtures/style/large.mdx'),
-    )
-
-    expect(fixes.length).toBeGreaterThan(0)
-    expect(fixes[0]()).toBeNull()
-  })
-
-  it('uses the whole-document fallback once', () => {
-    const unit = '* item one\n* item two\n\n'
-    // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- above threshold
-    const code = `# Title\n\n### A\n\n${unit.repeat(5000)}\n### B\n`
-    const fixes = getFixes(
-      code,
-      path.resolve(import.meta.dirname, 'fixtures/style/large.mdx'),
-    )
-
-    expect(fixes.length).toBeGreaterThan(0)
-    const fix = fixes[0]()
-
-    expect(fix).toHaveLength(1)
-    expect(fix?.[0].range).toEqual([0, code.length])
-    expect(typeof fix?.[0].text).toBe('string')
-    expect(fix?.[0].text).not.toBe(code)
-    expect(fixes[0]()).toBeNull()
-  })
 })
