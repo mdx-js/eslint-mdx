@@ -1,4 +1,5 @@
 import type { Rule } from 'eslint'
+import type { MDHeading } from 'eslint-mdx'
 
 import { getRuleConfig } from './helpers.js'
 
@@ -26,7 +27,7 @@ export const headingIncrement: Rule.RuleModule = {
     let previous = 0
 
     return {
-      MDHeading(node) {
+      MDHeading(node: MDHeading) {
         const depth = node.depth
         const expected = previous + 1
 
@@ -39,6 +40,6 @@ export const headingIncrement: Rule.RuleModule = {
 
         previous = depth
       },
-    } as unknown as Rule.RuleListener
+    }
   },
 }
