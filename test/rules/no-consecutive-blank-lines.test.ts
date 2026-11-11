@@ -15,6 +15,11 @@ ruleTester.run('no consecutive blank lines', noConsecutiveBlankLines, {
       filename: 'native.mdx',
       languageOptions,
     },
+    {
+      code: '- a\n\n- b',
+      filename: 'native.mdx',
+      languageOptions,
+    },
   ],
   invalid: [
     {
@@ -27,6 +32,19 @@ ruleTester.run('no consecutive blank lines', noConsecutiveBlankLines, {
             'Unexpected `2` blank lines before node, expected up to `1` blank line, remove `1` blank line',
           line: 4,
           column: 1,
+        },
+      ],
+    },
+    {
+      code: '- a\n\n\n  b',
+      filename: 'native.mdx',
+      languageOptions,
+      errors: [
+        {
+          message:
+            'Unexpected `2` blank lines before node, expected up to `1` blank line, remove `1` blank line',
+          line: 4,
+          column: 3,
         },
       ],
     },
