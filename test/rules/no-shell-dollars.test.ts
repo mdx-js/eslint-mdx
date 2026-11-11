@@ -15,8 +15,26 @@ ruleTester.run('no shell dollars', noShellDollars, {
       filename: 'native.mdx',
       languageOptions,
     },
+    {
+      code: '```sh\n$ echo hi\noutput\n```',
+      filename: 'native.mdx',
+      languageOptions,
+    },
   ],
   invalid: [
+    {
+      code: '```sh\n$ echo hi\n$ ls\n```',
+      filename: 'native.mdx',
+      languageOptions,
+      errors: [
+        {
+          message:
+            'Unexpected shell code with every line prefixed by `$`, expected different code for input and output',
+          line: 1,
+          column: 1,
+        },
+      ],
+    },
     {
       code: '```sh\n$ echo hi\n```',
       filename: 'native.mdx',
