@@ -26,7 +26,7 @@ ruleTester.run('no table indentation', noTableIndentation, {
           message:
             'Unexpected `2` extra spaces before table row, remove `2` spaces',
           line: 3,
-          column: 2,
+          column: 3,
         },
       ],
     },

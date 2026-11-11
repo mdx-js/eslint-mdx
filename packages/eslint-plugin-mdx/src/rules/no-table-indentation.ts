@@ -24,35 +24,23 @@ export const noTableIndentation: Rule.RuleModule = {
       return {}
     }
 
-    const sourceText = context.sourceCode.getText()
-
     return {
       MDTable(node: MDTable) {
-        const raw = sourceText.slice(node.range[0], node.range[1])
-        const lines = raw.split('\n')
+        const [first, ...rest] = node.children
+        /* istanbul ignore next -- tables have rows */
+        const expected = first?.loc?.start.column ?? 0
 
-        for (const [index, line] of lines.entries()) {
-          const match = /^( +)/u.exec(line)
+        for (const row of rest) {
+          const actual = row.loc.start.column - expected
 
-          if (!match) {
-            continue
+          if (actual > 0) {
+            const spaces = actual === 1 ? 'space' : 'spaces'
+
+            context.report({
+              loc: row.loc,
+              message: `Unexpected \`${actual}\` extra ${spaces} before table row, remove \`${actual}\` ${spaces}`,
+            })
           }
-
-          const difference = match[1].length
-
-          context.report({
-            loc: {
-              start: {
-                line: node.loc.start.line + index,
-                column: 1,
-              },
-              end: {
-                line: node.loc.start.line + index,
-                column: difference + 1,
-              },
-            },
-            message: `Unexpected \`${difference}\` extra ${difference === 1 ? 'space' : 'spaces'} before table row, remove \`${difference}\` ${difference === 1 ? 'space' : 'spaces'}`,
-          })
         }
       },
     }
