@@ -283,49 +283,46 @@ declare module 'acorn' {
   }
 }
 
-interface MDEstreeNodeMap {
-  // Markdown
-  MDBlockquote: MDBlockquote
-  MDBreak: MDBreak
-  MDCode: MDCode
-  MDDefinition: MDDefinition
-  MDDelete: MDDelete
-  MDEmphasis: MDEmphasis
-  MDFootnoteDefinition: MDFootnoteDefinition
-  MDFootnoteReference: MDFootnoteReference
-  MDHeading: MDHeading
-  MDHtml: MDHtml
-  MDImage: MDImage
-  MDImageReference: MDImageReference
-  MDInlineCode: MDInlineCode
-  MDInlineMath: MDInlineMath
-  MDLink: MDLink
-  MDLinkReference: MDLinkReference
-  MDList: MDList
-  MDListItem: MDListItem
-  MDMath: MDMath
-  MDParagraph: MDParagraph
-  MDStrong: MDStrong
-  MDTable: MDTable
-  MDTableCell: MDTableCell
-  MDTableRow: MDTableRow
-  MDText: MDText
-  MDThematicBreak: MDThematicBreak
-  MDToml: MDToml
-  MDYaml: MDYaml
-
-  // MDX
-  MDXFlowExpression: MDXFlowExpression
-  MDXTextExpression: MDXTextExpression
-}
-
 declare module 'estree' {
-  // Expose Markdown nodes for third-party plugins via both estree maps.
+  // NodeMap shares the Markdown node declarations with ProgramBodyMap.
   // eslint-disable-next-line @typescript-eslint/no-empty-object-type -- declaration merging
-  interface NodeMap extends MDEstreeNodeMap {}
+  interface NodeMap extends ProgramBodyMap {}
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-object-type -- declaration merging
-  interface ProgramBodyMap extends MDEstreeNodeMap {}
+  interface ProgramBodyMap {
+    // Markdown
+    MDBlockquote: MDBlockquote
+    MDBreak: MDBreak
+    MDCode: MDCode
+    MDDefinition: MDDefinition
+    MDDelete: MDDelete
+    MDEmphasis: MDEmphasis
+    MDFootnoteDefinition: MDFootnoteDefinition
+    MDFootnoteReference: MDFootnoteReference
+    MDHeading: MDHeading
+    MDHtml: MDHtml
+    MDImage: MDImage
+    MDImageReference: MDImageReference
+    MDInlineCode: MDInlineCode
+    MDInlineMath: MDInlineMath
+    MDLink: MDLink
+    MDLinkReference: MDLinkReference
+    MDList: MDList
+    MDListItem: MDListItem
+    MDMath: MDMath
+    MDParagraph: MDParagraph
+    MDStrong: MDStrong
+    MDTable: MDTable
+    MDTableCell: MDTableCell
+    MDTableRow: MDTableRow
+    MDText: MDText
+    MDThematicBreak: MDThematicBreak
+    MDToml: MDToml
+    MDYaml: MDYaml
+
+    // MDX
+    MDXFlowExpression: MDXFlowExpression
+    MDXTextExpression: MDXTextExpression
+  }
 
   interface TemplateElement {
     start: number
