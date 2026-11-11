@@ -530,6 +530,8 @@ runAsWorker(
       raw: code.slice(start, end),
     })
 
+    // Rebuild loc from mdast positions instead of delegating to normalizePosition:
+    // normalizePosition would leak mdast's offset into loc.* points and add lookups.
     const normalizeNodePosition = (position: Nodes['position']) => {
       const start = position.start.offset
       const end = position.end.offset

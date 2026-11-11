@@ -42,6 +42,7 @@ export const getPhysicalFilename = (
 }
 
 /* istanbul ignore next -- used in worker */
+// The worker handles one file at a time; a single-entry cache avoids re-splitting the same source.
 let cachedCode: string | undefined
 let cachedLineStarts: number[] | undefined
 
