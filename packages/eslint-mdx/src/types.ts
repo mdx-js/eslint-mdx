@@ -283,46 +283,48 @@ declare module 'acorn' {
   }
 }
 
+export interface MDNodeMap {
+  // Markdown
+  MDBlockquote: MDBlockquote
+  MDBreak: MDBreak
+  MDCode: MDCode
+  MDDefinition: MDDefinition
+  MDDelete: MDDelete
+  MDEmphasis: MDEmphasis
+  MDFootnoteDefinition: MDFootnoteDefinition
+  MDFootnoteReference: MDFootnoteReference
+  MDHeading: MDHeading
+  MDHtml: MDHtml
+  MDImage: MDImage
+  MDImageReference: MDImageReference
+  MDInlineCode: MDInlineCode
+  MDInlineMath: MDInlineMath
+  MDLink: MDLink
+  MDLinkReference: MDLinkReference
+  MDList: MDList
+  MDListItem: MDListItem
+  MDMath: MDMath
+  MDParagraph: MDParagraph
+  MDStrong: MDStrong
+  MDTable: MDTable
+  MDTableCell: MDTableCell
+  MDTableRow: MDTableRow
+  MDText: MDText
+  MDThematicBreak: MDThematicBreak
+  MDToml: MDToml
+  MDYaml: MDYaml
+
+  // MDX
+  MDXFlowExpression: MDXFlowExpression
+  MDXTextExpression: MDXTextExpression
+}
+
 declare module 'estree' {
-  // NodeMap shares the Markdown node declarations with ProgramBodyMap.
   // eslint-disable-next-line @typescript-eslint/no-empty-object-type -- declaration merging
-  interface NodeMap extends ProgramBodyMap {}
+  interface NodeMap extends MDNodeMap {}
 
-  interface ProgramBodyMap {
-    // Markdown
-    MDBlockquote: MDBlockquote
-    MDBreak: MDBreak
-    MDCode: MDCode
-    MDDefinition: MDDefinition
-    MDDelete: MDDelete
-    MDEmphasis: MDEmphasis
-    MDFootnoteDefinition: MDFootnoteDefinition
-    MDFootnoteReference: MDFootnoteReference
-    MDHeading: MDHeading
-    MDHtml: MDHtml
-    MDImage: MDImage
-    MDImageReference: MDImageReference
-    MDInlineCode: MDInlineCode
-    MDInlineMath: MDInlineMath
-    MDLink: MDLink
-    MDLinkReference: MDLinkReference
-    MDList: MDList
-    MDListItem: MDListItem
-    MDMath: MDMath
-    MDParagraph: MDParagraph
-    MDStrong: MDStrong
-    MDTable: MDTable
-    MDTableCell: MDTableCell
-    MDTableRow: MDTableRow
-    MDText: MDText
-    MDThematicBreak: MDThematicBreak
-    MDToml: MDToml
-    MDYaml: MDYaml
-
-    // MDX
-    MDXFlowExpression: MDXFlowExpression
-    MDXTextExpression: MDXTextExpression
-  }
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type -- declaration merging
+  interface ProgramBodyMap extends MDNodeMap {}
 
   interface TemplateElement {
     start: number
