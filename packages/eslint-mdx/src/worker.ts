@@ -518,736 +518,727 @@ runAsWorker(
     const comments: Comment[] = []
     const tokens: AST.Token[] = []
 
-    {
-      const prevCharOffset = prevCharOffsetFactory(code)
-      const nextCharOffset = nextCharOffsetFactory(code)
+    const prevCharOffset = prevCharOffsetFactory(code)
+    const nextCharOffset = nextCharOffsetFactory(code)
 
-      const normalizeNode = (start: number, end: number) => ({
-        ...normalizePosition({
-          start: { offset: start },
-          end: { offset: end },
-          code,
-        }),
-        raw: code.slice(start, end),
-      })
+    const normalizeNode = (start: number, end: number) => ({
+      ...normalizePosition({
+        start: { offset: start },
+        end: { offset: end },
+        code,
+      }),
+      raw: code.slice(start, end),
+    })
 
-      const handleJsxName = (
-        nodeName: string,
-        start: number,
-      ): JSXIdentifier | JSXMemberExpression | JSXNamespacedName => {
-        const name = nodeName.trim()
-        const nameIndex = nodeName.indexOf(name)
+    const handleJsxName = (
+      nodeName: string,
+      start: number,
+    ): JSXIdentifier | JSXMemberExpression | JSXNamespacedName => {
+      const name = nodeName.trim()
+      const nameIndex = nodeName.indexOf(name)
 
-        const colonIndex = nodeName.indexOf(':')
-        if (colonIndex !== -1) {
-          const [fullNamespace, fullName] = nodeName.split(':')
-          return {
-            ...normalizeNode(
-              start + nameIndex,
-              start + nameIndex + name.length,
-            ),
-            type: 'JSXNamespacedName',
-            namespace: handleJsxName(fullNamespace, start) as JSXIdentifier,
-            name: handleJsxName(
-              fullName,
-              start + colonIndex + 1,
-            ) as JSXIdentifier,
-          }
-        }
-
-        const lastPointIndex = nodeName.lastIndexOf('.')
-        if (lastPointIndex === -1) {
-          return {
-            ...normalizeNode(
-              start + nameIndex,
-              start + nameIndex + name.length,
-            ),
-            type: 'JSXIdentifier',
-            name,
-          }
-        }
-
-        const objectName = nodeName.slice(0, lastPointIndex)
-        const propertyName = nodeName.slice(lastPointIndex + 1)
-
+      const colonIndex = nodeName.indexOf(':')
+      if (colonIndex !== -1) {
+        const [fullNamespace, fullName] = nodeName.split(':')
         return {
           ...normalizeNode(start + nameIndex, start + nameIndex + name.length),
-          type: 'JSXMemberExpression',
-          object: handleJsxName(objectName, start) as
-            JSXIdentifier | JSXMemberExpression,
-          property: handleJsxName(
-            propertyName,
-            start + lastPointIndex + 1,
+          type: 'JSXNamespacedName',
+          namespace: handleJsxName(fullNamespace, start) as JSXIdentifier,
+          name: handleJsxName(
+            fullName,
+            start + colonIndex + 1,
           ) as JSXIdentifier,
         }
       }
 
-      visit(root, (node, _index, parent) => {
-        if (parent !== root) {
+      const lastPointIndex = nodeName.lastIndexOf('.')
+      if (lastPointIndex === -1) {
+        return {
+          ...normalizeNode(start + nameIndex, start + nameIndex + name.length),
+          type: 'JSXIdentifier',
+          name,
+        }
+      }
+
+      const objectName = nodeName.slice(0, lastPointIndex)
+      const propertyName = nodeName.slice(lastPointIndex + 1)
+
+      return {
+        ...normalizeNode(start + nameIndex, start + nameIndex + name.length),
+        type: 'JSXMemberExpression',
+        object: handleJsxName(objectName, start) as
+          JSXIdentifier | JSXMemberExpression,
+        property: handleJsxName(
+          propertyName,
+          start + lastPointIndex + 1,
+        ) as JSXIdentifier,
+      }
+    }
+
+    visit(root, (node, _index, parent) => {
+      if (parent !== root) {
+        return
+      }
+
+      function handleChildren(node: Nodes) {
+        return 'children' in node
+          ? node.children.reduce<JSXElement['children']>((acc, child) => {
+              if (child.data && 'estree' in child.data && child.data.estree) {
+                const { estree } = child.data
+
+                assert(
+                  estree.body.length <= 1,
+                  `Expected at most one estree body node, got ${estree.body.length}`,
+                )
+
+                const statement = estree.body[0]
+
+                isExpressionStatement(statement)
+
+                const expression = statement?.expression
+
+                if (
+                  child.type === 'mdxFlowExpression' ||
+                  child.type === 'mdxTextExpression'
+                ) {
+                  const {
+                    start: { offset: start },
+                    end: { offset: end },
+                  } = child.position
+
+                  const expressionContainer: JSXExpressionContainer = {
+                    ...normalizeNode(start, end),
+                    type: 'JSXExpressionContainer',
+                    expression:
+                      expression || normalizeEmptyExpression(start, end, code),
+                  }
+                  acc.push(expressionContainer)
+                } else if (expression) {
+                  acc.push(expression as JSXElement['children'][number])
+                }
+
+                comments.push(...estree.comments)
+              } else {
+                const expression = (handleNode(child) ??
+                  convertContent(child)) as Arrayable<JSXElement['children']>
+                if (Array.isArray(expression)) {
+                  acc.push(...expression)
+                } else if (expression) {
+                  acc.push(expression)
+                }
+              }
+
+              return acc
+            }, [])
+          : []
+      }
+
+      // eslint-disable-next-line sonarjs/cognitive-complexity, sonarjs/function-return-type
+      function handleNode(node: Nodes) {
+        if (node.type === 'paragraph') {
+          return handleChildren(node)
+        }
+
+        const {
+          start: { offset: start },
+          end: { offset: end },
+        } = node.position
+
+        if (node.type === 'code') {
+          const { lang, meta, value } = node
+          const mdCode: MDCode = {
+            ...normalizeNode(start, end),
+            type: 'MDCode',
+            lang,
+            meta,
+            value,
+          }
+          return mdCode
+        }
+
+        if (node.type === 'heading') {
+          const { depth } = node
+          const mdHeading: MDHeading = {
+            ...normalizeNode(start, end),
+            type: 'MDHeading',
+            depth,
+            children: handleChildren(node),
+          }
+          return mdHeading
+        }
+
+        if (node.type === 'text') {
+          const jsxText: JSXText = {
+            ...normalizeNode(start, end),
+            type: 'JSXText',
+            value: node.value,
+          }
+          return jsxText
+        }
+
+        if (
+          node.type !== 'mdxJsxTextElement' &&
+          node.type !== 'mdxJsxFlowElement'
+        ) {
           return
         }
 
-        function handleChildren(node: Nodes) {
-          return 'children' in node
-            ? node.children.reduce<JSXElement['children']>((acc, child) => {
-                if (child.data && 'estree' in child.data && child.data.estree) {
-                  const { estree } = child.data
+        const children = handleChildren(node)
 
+        const nodePos = node.position
+
+        const nodeStart = nodePos.start.offset
+        const nodeEnd = nodePos.end.offset
+
+        const lastCharOffset = prevCharOffset(nodeEnd - 2)
+
+        let expression: BaseExpression
+
+        if ('name' in node && node.name) {
+          const nodeNameLength = node.name.length
+          const nodeNameStart = nextCharOffset(nodeStart + 1)
+
+          const selfClosing = code[lastCharOffset] === '/'
+
+          let lastAttrOffset = nodeNameStart + nodeNameLength - 1
+
+          let closingElement: JSXClosingElement | null = null
+
+          if (!selfClosing) {
+            const prevOffset = prevCharOffset(lastCharOffset)
+            const slashOffset = prevCharOffset(prevOffset - nodeNameLength)
+            assert(
+              code[slashOffset] === '/',
+              `expect \`${code[slashOffset]}\` to be \`/\`, the node is ${node.name}`,
+            )
+            const tagStartOffset = prevCharOffset(slashOffset - 1)
+            assert(
+              code[tagStartOffset] === '<',
+              `Expected \`<\` at offset ${tagStartOffset}, got \`${code[tagStartOffset]}\``,
+            )
+            closingElement = {
+              ...normalizeNode(tagStartOffset, nodeEnd),
+              type: 'JSXClosingElement',
+              name: handleJsxName(node.name, prevOffset + 1 - nodeNameLength),
+            }
+          }
+
+          const jsxEl: JSXElement = {
+            ...normalizeNode(nodeStart, nodeEnd),
+            type: 'JSXElement',
+            openingElement: {
+              type: 'JSXOpeningElement',
+              name: handleJsxName(node.name, nodeNameStart),
+              attributes: node.attributes.map(attr => {
+                if (attr.type === 'mdxJsxExpressionAttribute') {
+                  assert(attr.data, 'Expected expression attribute data')
                   assert(
-                    estree.body.length <= 1,
-                    `Expected at most one estree body node, got ${estree.body.length}`,
+                    attr.data.estree,
+                    'Expected expression attribute estree',
+                  )
+                  assert(
+                    attr.data.estree.range,
+                    'Expected expression attribute range',
                   )
 
-                  const statement = estree.body[0]
+                  let [attrValStart, attrValEnd] = attr.data.estree.range
 
-                  isExpressionStatement(statement)
+                  attrValStart = prevCharOffset(attrValStart - 1)
+                  attrValEnd = nextCharOffset(attrValEnd)
 
-                  const expression = statement?.expression
+                  assert(
+                    code[attrValStart] === '{',
+                    `Expected \`{\` at offset ${attrValStart}, got \`${code[attrValStart]}\``,
+                  )
+                  assert(
+                    code[attrValEnd] === '}',
+                    `Expected \`}\` at offset ${attrValEnd}, got \`${code[attrValEnd]}\``,
+                  )
 
-                  if (
-                    child.type === 'mdxFlowExpression' ||
-                    child.type === 'mdxTextExpression'
-                  ) {
-                    const {
-                      start: { offset: start },
-                      end: { offset: end },
-                    } = child.position
+                  lastAttrOffset = attrValEnd
 
-                    const expressionContainer: JSXExpressionContainer = {
-                      ...normalizeNode(start, end),
-                      type: 'JSXExpressionContainer',
-                      expression:
-                        expression ||
-                        normalizeEmptyExpression(start, end, code),
-                    }
-                    acc.push(expressionContainer)
-                  } else if (expression) {
-                    acc.push(expression as JSXElement['children'][number])
-                  }
-
-                  comments.push(...estree.comments)
-                } else {
-                  const expression = (handleNode(child) ??
-                    convertContent(child)) as Arrayable<JSXElement['children']>
-                  if (Array.isArray(expression)) {
-                    acc.push(...expression)
-                  } else if (expression) {
-                    acc.push(expression)
+                  return {
+                    // mdxJsxExpressionAttribute
+                    ...normalizeNode(attrValStart, attrValEnd + 1),
+                    type: 'JSXSpreadAttribute',
+                    // https://github.com/mdx-js/eslint-mdx/pull/394#discussion_r872974843
+                    argument: (
+                      (
+                        (attr.data.estree.body[0] as ExpressionStatement)
+                          .expression as ObjectExpression
+                      ).properties[0] as SpreadElement
+                    ).argument,
                   }
                 }
 
-                return acc
-              }, [])
-            : []
-        }
+                const attrStart = nextCharOffset(lastAttrOffset + 1)
 
-        // eslint-disable-next-line sonarjs/cognitive-complexity, sonarjs/function-return-type
-        function handleNode(node: Nodes) {
-          if (node.type === 'paragraph') {
-            return handleChildren(node)
-          }
+                assert(
+                  attrStart != null,
+                  `Expected an attribute start after offset ${lastAttrOffset}`,
+                )
 
-          const {
-            start: { offset: start },
-            end: { offset: end },
-          } = node.position
+                const attrName = attr.name
+                const attrNameLength = attrName.length
 
-          if (node.type === 'code') {
-            const { lang, meta, value } = node
-            const mdCode: MDCode = {
-              ...normalizeNode(start, end),
-              type: 'MDCode',
-              lang,
-              meta,
-              value,
-            }
-            return mdCode
-          }
+                const attrValue = attr.value
 
-          if (node.type === 'heading') {
-            const { depth } = node
-            const mdHeading: MDHeading = {
-              ...normalizeNode(start, end),
-              type: 'MDHeading',
-              depth,
-              children: handleChildren(node),
-            }
-            return mdHeading
-          }
+                lastAttrOffset = attrStart + attrNameLength
 
-          if (node.type === 'text') {
-            const jsxText: JSXText = {
-              ...normalizeNode(start, end),
-              type: 'JSXText',
-              value: node.value,
-            }
-            return jsxText
-          }
+                const attrNamePos = normalizeNode(attrStart, lastAttrOffset)
 
-          if (
-            node.type !== 'mdxJsxTextElement' &&
-            node.type !== 'mdxJsxFlowElement'
-          ) {
-            return
-          }
-
-          const children = handleChildren(node)
-
-          const nodePos = node.position
-
-          const nodeStart = nodePos.start.offset
-          const nodeEnd = nodePos.end.offset
-
-          const lastCharOffset = prevCharOffset(nodeEnd - 2)
-
-          let expression: BaseExpression
-
-          if ('name' in node && node.name) {
-            const nodeNameLength = node.name.length
-            const nodeNameStart = nextCharOffset(nodeStart + 1)
-
-            const selfClosing = code[lastCharOffset] === '/'
-
-            let lastAttrOffset = nodeNameStart + nodeNameLength - 1
-
-            let closingElement: JSXClosingElement | null = null
-
-            if (!selfClosing) {
-              const prevOffset = prevCharOffset(lastCharOffset)
-              const slashOffset = prevCharOffset(prevOffset - nodeNameLength)
-              assert(
-                code[slashOffset] === '/',
-                `expect \`${code[slashOffset]}\` to be \`/\`, the node is ${node.name}`,
-              )
-              const tagStartOffset = prevCharOffset(slashOffset - 1)
-              assert(
-                code[tagStartOffset] === '<',
-                `Expected \`<\` at offset ${tagStartOffset}, got \`${code[tagStartOffset]}\``,
-              )
-              closingElement = {
-                ...normalizeNode(tagStartOffset, nodeEnd),
-                type: 'JSXClosingElement',
-                name: handleJsxName(node.name, prevOffset + 1 - nodeNameLength),
-              }
-            }
-
-            const jsxEl: JSXElement = {
-              ...normalizeNode(nodeStart, nodeEnd),
-              type: 'JSXElement',
-              openingElement: {
-                type: 'JSXOpeningElement',
-                name: handleJsxName(node.name, nodeNameStart),
-                attributes: node.attributes.map(attr => {
-                  if (attr.type === 'mdxJsxExpressionAttribute') {
-                    assert(attr.data, 'Expected expression attribute data')
-                    assert(
-                      attr.data.estree,
-                      'Expected expression attribute estree',
-                    )
-                    assert(
-                      attr.data.estree.range,
-                      'Expected expression attribute range',
-                    )
-
-                    let [attrValStart, attrValEnd] = attr.data.estree.range
-
-                    attrValStart = prevCharOffset(attrValStart - 1)
-                    attrValEnd = nextCharOffset(attrValEnd)
-
-                    assert(
-                      code[attrValStart] === '{',
-                      `Expected \`{\` at offset ${attrValStart}, got \`${code[attrValStart]}\``,
-                    )
-                    assert(
-                      code[attrValEnd] === '}',
-                      `Expected \`}\` at offset ${attrValEnd}, got \`${code[attrValEnd]}\``,
-                    )
-
-                    lastAttrOffset = attrValEnd
-
-                    return {
-                      // mdxJsxExpressionAttribute
-                      ...normalizeNode(attrValStart, attrValEnd + 1),
-                      type: 'JSXSpreadAttribute',
-                      // https://github.com/mdx-js/eslint-mdx/pull/394#discussion_r872974843
-                      argument: (
-                        (
-                          (attr.data.estree.body[0] as ExpressionStatement)
-                            .expression as ObjectExpression
-                        ).properties[0] as SpreadElement
-                      ).argument,
-                    }
-                  }
-
-                  const attrStart = nextCharOffset(lastAttrOffset + 1)
-
-                  assert(
-                    attrStart != null,
-                    `Expected an attribute start after offset ${lastAttrOffset}`,
-                  )
-
-                  const attrName = attr.name
-                  const attrNameLength = attrName.length
-
-                  const attrValue = attr.value
-
-                  lastAttrOffset = attrStart + attrNameLength
-
-                  const attrNamePos = normalizeNode(attrStart, lastAttrOffset)
-
-                  if (attrValue == null) {
-                    return {
-                      ...normalizeNode(attrStart, lastAttrOffset),
-                      type: 'JSXAttribute',
-                      name: {
-                        ...attrNamePos,
-                        type: 'JSXIdentifier',
-                        name: attrName,
-                      },
-                      value: null,
-                    }
-                  }
-
-                  const attrEqualOffset = nextCharOffset(
-                    attrStart + attrNameLength,
-                  )
-
-                  assert(
-                    code[attrEqualOffset] === '=',
-                    `Expected \`=\` at offset ${attrEqualOffset}, got \`${code[attrEqualOffset]}\``,
-                  )
-
-                  let attrValuePos: NormalPosition
-
-                  if (typeof attrValue === 'string') {
-                    const attrQuoteOffset = nextCharOffset(attrEqualOffset + 1)
-
-                    const attrQuote = code[attrQuoteOffset]
-
-                    assert(
-                      attrQuote === '"' || attrQuote === "'",
-                      `Expected a quote at offset ${attrQuoteOffset}, got \`${attrQuote}\``,
-                    )
-
-                    lastAttrOffset = nextCharOffset(
-                      attrQuoteOffset + attrValue.length + 1,
-                    )
-
-                    assert(
-                      code[lastAttrOffset] === attrQuote,
-                      `Expected closing quote \`${attrQuote}\` at offset ${lastAttrOffset}, got \`${code[lastAttrOffset]}\``,
-                    )
-
-                    attrValuePos = normalizeNode(
-                      attrQuoteOffset,
-                      lastAttrOffset + 1,
-                    )
-                  } else {
-                    const data = attrValue.data
-
-                    let [attrValStart, attrValEnd] = data.estree.range
-
-                    attrValStart = prevCharOffset(attrValStart - 1)
-                    attrValEnd = nextCharOffset(attrValEnd)
-
-                    assert(
-                      code[attrValStart] === '{',
-                      `Expected \`{\` at offset ${attrValStart}, got \`${code[attrValStart]}\``,
-                    )
-                    assert(
-                      code[attrValEnd] === '}',
-                      `Expected \`}\` at offset ${attrValEnd}, got \`${code[attrValEnd]}\``,
-                    )
-
-                    lastAttrOffset = attrValEnd
-
-                    attrValuePos = normalizeNode(attrValStart, attrValEnd + 1)
-                  }
-
+                if (attrValue == null) {
                   return {
-                    ...normalizeNode(attrStart, lastAttrOffset + 1),
+                    ...normalizeNode(attrStart, lastAttrOffset),
                     type: 'JSXAttribute',
                     name: {
                       ...attrNamePos,
                       type: 'JSXIdentifier',
                       name: attrName,
                     },
-                    value:
-                      typeof attr.value === 'string'
-                        ? {
-                            ...attrValuePos,
-                            type: 'Literal',
-                            value: attr.value,
-                          }
-                        : {
-                            ...attrValuePos,
-                            type: 'JSXExpressionContainer',
-                            expression: (
-                              attr.value.data.estree
-                                .body[0] as ExpressionStatement
-                            ).expression,
-                          },
+                    value: null,
                   }
-                }),
-                selfClosing,
-              },
-              closingElement,
-              children,
-            }
-
-            let nextOffset = nextCharOffset(lastAttrOffset + 1)
-            let nextChar = code[nextOffset]
-
-            const expectedNextChar = selfClosing ? '/' : '>'
-
-            if (nextChar !== expectedNextChar) {
-              nextOffset = /** @type {number} */ nextCharOffset(lastAttrOffset)
-              nextChar = code[nextOffset]
-            }
-
-            assert(
-              nextChar === expectedNextChar,
-              `\`nextChar\` must be '${expectedNextChar}' but actually is '${nextChar}'`,
-            )
-
-            Object.assign(
-              jsxEl.openingElement,
-              normalizeNode(nodeStart, selfClosing ? nodeEnd : nextOffset + 1),
-            )
-
-            expression = jsxEl
-          } else {
-            const openEndOffset = nextCharOffset(nodeStart + 1)
-
-            const openPos = normalizeNode(nodeStart, openEndOffset)
-
-            const closeStartOffset = prevCharOffset(lastCharOffset - 1)
-
-            const jsxFrg: JSXFragment = {
-              ...openPos,
-              type: 'JSXFragment',
-              openingFragment: {
-                ...openPos,
-                type: 'JSXOpeningFragment',
-              },
-              closingFragment: {
-                ...normalizeNode(closeStartOffset, nodeEnd),
-                type: 'JSXClosingFragment',
-              },
-              children,
-            }
-
-            expression = jsxFrg
-          }
-
-          return expression
-        }
-
-        function convertChildren(node: Nodes): MDContentNode[] {
-          const children: MDContentNode[] = []
-          if ('children' in node) {
-            for (const child of node.children) {
-              const converted = convertContent(child)
-              if (converted) {
-                children.push(converted)
-              }
-            }
-          }
-          return children
-        }
-
-        function convertContent(node: Nodes): MDContentNode | undefined {
-          const {
-            start: { offset: start },
-            end: { offset: end },
-          } = node.position
-          const position = normalizeNode(start, end)
-
-          const nodeType = node.type as string
-          if (
-            nodeType === 'inlineMath' ||
-            nodeType === 'math' ||
-            nodeType === 'toml'
-          ) {
-            const extended = node as Nodes & {
-              value: string
-              meta?: string | null
-            }
-            if (nodeType === 'math') {
-              return {
-                ...position,
-                type: 'MDMath',
-                value: extended.value,
-                meta: extended.meta,
-              }
-            }
-            if (nodeType === 'inlineMath') {
-              return {
-                ...position,
-                type: 'MDInlineMath',
-                value: extended.value,
-              }
-            }
-            return { ...position, type: 'MDToml', value: extended.value }
-          }
-
-          switch (node.type) {
-            case 'text': {
-              return { ...position, type: 'MDText', value: node.value }
-            }
-            case 'paragraph': {
-              return {
-                ...position,
-                type: 'MDParagraph',
-                children: convertChildren(node),
-              }
-            }
-            case 'heading': {
-              return {
-                ...position,
-                type: 'MDHeading',
-                depth: node.depth,
-                children: convertChildren(node),
-              }
-            }
-            case 'list': {
-              return {
-                ...position,
-                type: 'MDList',
-                ordered: node.ordered,
-                start: node.start,
-                spread: node.spread,
-                children: convertChildren(node) as MDListItem[],
-              }
-            }
-            case 'listItem': {
-              return {
-                ...position,
-                type: 'MDListItem',
-                checked: node.checked,
-                spread: node.spread,
-                children: convertChildren(node),
-              }
-            }
-            case 'blockquote': {
-              return {
-                ...position,
-                type: 'MDBlockquote',
-                children: convertChildren(node),
-              }
-            }
-            case 'code': {
-              return {
-                ...position,
-                type: 'MDCode',
-                lang: node.lang,
-                meta: node.meta,
-                value: node.value,
-              }
-            }
-            case 'inlineCode': {
-              return { ...position, type: 'MDInlineCode', value: node.value }
-            }
-            case 'emphasis': {
-              return {
-                ...position,
-                type: 'MDEmphasis',
-                children: convertChildren(node),
-              }
-            }
-            case 'strong': {
-              return {
-                ...position,
-                type: 'MDStrong',
-                children: convertChildren(node),
-              }
-            }
-            case 'link': {
-              return {
-                ...position,
-                type: 'MDLink',
-                url: node.url,
-                title: node.title,
-                children: convertChildren(node),
-              }
-            }
-            case 'image': {
-              return {
-                ...position,
-                type: 'MDImage',
-                url: node.url,
-                title: node.title,
-                alt: node.alt,
-              }
-            }
-            case 'break': {
-              return { ...position, type: 'MDBreak' }
-            }
-            case 'thematicBreak': {
-              return { ...position, type: 'MDThematicBreak' }
-            }
-            case 'definition': {
-              return {
-                ...position,
-                type: 'MDDefinition',
-                identifier: node.identifier,
-                label: node.label,
-                url: node.url,
-                title: node.title,
-              }
-            }
-            case 'linkReference': {
-              return {
-                ...position,
-                type: 'MDLinkReference',
-                identifier: node.identifier,
-                label: node.label,
-                referenceType: node.referenceType,
-                children: convertChildren(node),
-              }
-            }
-            case 'imageReference': {
-              return {
-                ...position,
-                type: 'MDImageReference',
-                identifier: node.identifier,
-                label: node.label,
-                referenceType: node.referenceType,
-                alt: node.alt,
-              }
-            }
-            case 'delete': {
-              return {
-                ...position,
-                type: 'MDDelete',
-                children: convertChildren(node),
-              }
-            }
-            case 'footnoteDefinition': {
-              return {
-                ...position,
-                type: 'MDFootnoteDefinition',
-                identifier: node.identifier,
-                label: node.label,
-                children: convertChildren(node),
-              }
-            }
-            case 'footnoteReference': {
-              return {
-                ...position,
-                type: 'MDFootnoteReference',
-                identifier: node.identifier,
-                label: node.label,
-              }
-            }
-            case 'table': {
-              return {
-                ...position,
-                type: 'MDTable',
-                align: node.align,
-                children: convertChildren(node) as MDTableRow[],
-              }
-            }
-            case 'tableRow': {
-              return {
-                ...position,
-                type: 'MDTableRow',
-                children: convertChildren(node) as MDTableCell[],
-              }
-            }
-            case 'tableCell': {
-              return {
-                ...position,
-                type: 'MDTableCell',
-                children: convertChildren(node),
-              }
-            }
-            case 'yaml': {
-              return { ...position, type: 'MDYaml', value: node.value }
-            }
-            case 'html': {
-              return { ...position, type: 'MDHtml', value: node.value }
-            }
-            case 'mdxFlowExpression':
-            case 'mdxTextExpression': {
-              const estree = node.data?.estree
-              if (estree) {
-                comments.push(...estree.comments)
-              }
-              const statement = estree?.body[0]
-              isExpressionStatement(statement)
-              if (!statement?.expression) {
-                const {
-                  start: { offset: start },
-                  end: { offset: end },
-                } = node.position
-                return {
-                  ...position,
-                  type:
-                    node.type === 'mdxFlowExpression'
-                      ? 'MDXFlowExpression'
-                      : 'MDXTextExpression',
-                  expression: normalizeEmptyExpression(start, end, code),
                 }
-              }
+
+                const attrEqualOffset = nextCharOffset(
+                  attrStart + attrNameLength,
+                )
+
+                assert(
+                  code[attrEqualOffset] === '=',
+                  `Expected \`=\` at offset ${attrEqualOffset}, got \`${code[attrEqualOffset]}\``,
+                )
+
+                let attrValuePos: NormalPosition
+
+                if (typeof attrValue === 'string') {
+                  const attrQuoteOffset = nextCharOffset(attrEqualOffset + 1)
+
+                  const attrQuote = code[attrQuoteOffset]
+
+                  assert(
+                    attrQuote === '"' || attrQuote === "'",
+                    `Expected a quote at offset ${attrQuoteOffset}, got \`${attrQuote}\``,
+                  )
+
+                  lastAttrOffset = nextCharOffset(
+                    attrQuoteOffset + attrValue.length + 1,
+                  )
+
+                  assert(
+                    code[lastAttrOffset] === attrQuote,
+                    `Expected closing quote \`${attrQuote}\` at offset ${lastAttrOffset}, got \`${code[lastAttrOffset]}\``,
+                  )
+
+                  attrValuePos = normalizeNode(
+                    attrQuoteOffset,
+                    lastAttrOffset + 1,
+                  )
+                } else {
+                  const data = attrValue.data
+
+                  let [attrValStart, attrValEnd] = data.estree.range
+
+                  attrValStart = prevCharOffset(attrValStart - 1)
+                  attrValEnd = nextCharOffset(attrValEnd)
+
+                  assert(
+                    code[attrValStart] === '{',
+                    `Expected \`{\` at offset ${attrValStart}, got \`${code[attrValStart]}\``,
+                  )
+                  assert(
+                    code[attrValEnd] === '}',
+                    `Expected \`}\` at offset ${attrValEnd}, got \`${code[attrValEnd]}\``,
+                  )
+
+                  lastAttrOffset = attrValEnd
+
+                  attrValuePos = normalizeNode(attrValStart, attrValEnd + 1)
+                }
+
+                return {
+                  ...normalizeNode(attrStart, lastAttrOffset + 1),
+                  type: 'JSXAttribute',
+                  name: {
+                    ...attrNamePos,
+                    type: 'JSXIdentifier',
+                    name: attrName,
+                  },
+                  value:
+                    typeof attr.value === 'string'
+                      ? {
+                          ...attrValuePos,
+                          type: 'Literal',
+                          value: attr.value,
+                        }
+                      : {
+                          ...attrValuePos,
+                          type: 'JSXExpressionContainer',
+                          expression: (
+                            attr.value.data.estree
+                              .body[0] as ExpressionStatement
+                          ).expression,
+                        },
+                }
+              }),
+              selfClosing,
+            },
+            closingElement,
+            children,
+          }
+
+          let nextOffset = nextCharOffset(lastAttrOffset + 1)
+          let nextChar = code[nextOffset]
+
+          const expectedNextChar = selfClosing ? '/' : '>'
+
+          if (nextChar !== expectedNextChar) {
+            nextOffset = /** @type {number} */ nextCharOffset(lastAttrOffset)
+            nextChar = code[nextOffset]
+          }
+
+          assert(
+            nextChar === expectedNextChar,
+            `\`nextChar\` must be '${expectedNextChar}' but actually is '${nextChar}'`,
+          )
+
+          Object.assign(
+            jsxEl.openingElement,
+            normalizeNode(nodeStart, selfClosing ? nodeEnd : nextOffset + 1),
+          )
+
+          expression = jsxEl
+        } else {
+          const openEndOffset = nextCharOffset(nodeStart + 1)
+
+          const openPos = normalizeNode(nodeStart, openEndOffset)
+
+          const closeStartOffset = prevCharOffset(lastCharOffset - 1)
+
+          const jsxFrg: JSXFragment = {
+            ...openPos,
+            type: 'JSXFragment',
+            openingFragment: {
+              ...openPos,
+              type: 'JSXOpeningFragment',
+            },
+            closingFragment: {
+              ...normalizeNode(closeStartOffset, nodeEnd),
+              type: 'JSXClosingFragment',
+            },
+            children,
+          }
+
+          expression = jsxFrg
+        }
+
+        return expression
+      }
+
+      function convertChildren(node: Nodes): MDContentNode[] {
+        const children: MDContentNode[] = []
+        if ('children' in node) {
+          for (const child of node.children) {
+            const converted = convertContent(child)
+            if (converted) {
+              children.push(converted)
+            }
+          }
+        }
+        return children
+      }
+
+      function convertContent(node: Nodes): MDContentNode | undefined {
+        const {
+          start: { offset: start },
+          end: { offset: end },
+        } = node.position
+        const position = normalizeNode(start, end)
+
+        const nodeType = node.type as string
+        if (
+          nodeType === 'inlineMath' ||
+          nodeType === 'math' ||
+          nodeType === 'toml'
+        ) {
+          const extended = node as Nodes & {
+            value: string
+            meta?: string | null
+          }
+          if (nodeType === 'math') {
+            return {
+              ...position,
+              type: 'MDMath',
+              value: extended.value,
+              meta: extended.meta,
+            }
+          }
+          if (nodeType === 'inlineMath') {
+            return {
+              ...position,
+              type: 'MDInlineMath',
+              value: extended.value,
+            }
+          }
+          return { ...position, type: 'MDToml', value: extended.value }
+        }
+
+        switch (node.type) {
+          case 'text': {
+            return { ...position, type: 'MDText', value: node.value }
+          }
+          case 'paragraph': {
+            return {
+              ...position,
+              type: 'MDParagraph',
+              children: convertChildren(node),
+            }
+          }
+          case 'heading': {
+            return {
+              ...position,
+              type: 'MDHeading',
+              depth: node.depth,
+              children: convertChildren(node),
+            }
+          }
+          case 'list': {
+            return {
+              ...position,
+              type: 'MDList',
+              ordered: node.ordered,
+              start: node.start,
+              spread: node.spread,
+              children: convertChildren(node) as MDListItem[],
+            }
+          }
+          case 'listItem': {
+            return {
+              ...position,
+              type: 'MDListItem',
+              checked: node.checked,
+              spread: node.spread,
+              children: convertChildren(node),
+            }
+          }
+          case 'blockquote': {
+            return {
+              ...position,
+              type: 'MDBlockquote',
+              children: convertChildren(node),
+            }
+          }
+          case 'code': {
+            return {
+              ...position,
+              type: 'MDCode',
+              lang: node.lang,
+              meta: node.meta,
+              value: node.value,
+            }
+          }
+          case 'inlineCode': {
+            return { ...position, type: 'MDInlineCode', value: node.value }
+          }
+          case 'emphasis': {
+            return {
+              ...position,
+              type: 'MDEmphasis',
+              children: convertChildren(node),
+            }
+          }
+          case 'strong': {
+            return {
+              ...position,
+              type: 'MDStrong',
+              children: convertChildren(node),
+            }
+          }
+          case 'link': {
+            return {
+              ...position,
+              type: 'MDLink',
+              url: node.url,
+              title: node.title,
+              children: convertChildren(node),
+            }
+          }
+          case 'image': {
+            return {
+              ...position,
+              type: 'MDImage',
+              url: node.url,
+              title: node.title,
+              alt: node.alt,
+            }
+          }
+          case 'break': {
+            return { ...position, type: 'MDBreak' }
+          }
+          case 'thematicBreak': {
+            return { ...position, type: 'MDThematicBreak' }
+          }
+          case 'definition': {
+            return {
+              ...position,
+              type: 'MDDefinition',
+              identifier: node.identifier,
+              label: node.label,
+              url: node.url,
+              title: node.title,
+            }
+          }
+          case 'linkReference': {
+            return {
+              ...position,
+              type: 'MDLinkReference',
+              identifier: node.identifier,
+              label: node.label,
+              referenceType: node.referenceType,
+              children: convertChildren(node),
+            }
+          }
+          case 'imageReference': {
+            return {
+              ...position,
+              type: 'MDImageReference',
+              identifier: node.identifier,
+              label: node.label,
+              referenceType: node.referenceType,
+              alt: node.alt,
+            }
+          }
+          case 'delete': {
+            return {
+              ...position,
+              type: 'MDDelete',
+              children: convertChildren(node),
+            }
+          }
+          case 'footnoteDefinition': {
+            return {
+              ...position,
+              type: 'MDFootnoteDefinition',
+              identifier: node.identifier,
+              label: node.label,
+              children: convertChildren(node),
+            }
+          }
+          case 'footnoteReference': {
+            return {
+              ...position,
+              type: 'MDFootnoteReference',
+              identifier: node.identifier,
+              label: node.label,
+            }
+          }
+          case 'table': {
+            return {
+              ...position,
+              type: 'MDTable',
+              align: node.align,
+              children: convertChildren(node) as MDTableRow[],
+            }
+          }
+          case 'tableRow': {
+            return {
+              ...position,
+              type: 'MDTableRow',
+              children: convertChildren(node) as MDTableCell[],
+            }
+          }
+          case 'tableCell': {
+            return {
+              ...position,
+              type: 'MDTableCell',
+              children: convertChildren(node),
+            }
+          }
+          case 'yaml': {
+            return { ...position, type: 'MDYaml', value: node.value }
+          }
+          case 'html': {
+            return { ...position, type: 'MDHtml', value: node.value }
+          }
+          case 'mdxFlowExpression':
+          case 'mdxTextExpression': {
+            const estree = node.data?.estree
+            if (estree) {
+              comments.push(...estree.comments)
+            }
+            const statement = estree?.body[0]
+            isExpressionStatement(statement)
+            if (!statement?.expression) {
+              const {
+                start: { offset: start },
+                end: { offset: end },
+              } = node.position
               return {
                 ...position,
                 type:
                   node.type === 'mdxFlowExpression'
                     ? 'MDXFlowExpression'
                     : 'MDXTextExpression',
-                expression: statement.expression,
+                expression: normalizeEmptyExpression(start, end, code),
               }
             }
-            case 'mdxJsxFlowElement':
-            case 'mdxJsxTextElement': {
-              return handleNode(node) as MDContentNode
-            }
-            default: {
-              return
+            return {
+              ...position,
+              type:
+                node.type === 'mdxFlowExpression'
+                  ? 'MDXFlowExpression'
+                  : 'MDXTextExpression',
+              expression: statement.expression,
             }
           }
-        }
-
-        if (
-          node.type === 'mdxjsEsm' ||
-          node.type === 'mdxFlowExpression' ||
-          node.type === 'mdxTextExpression'
-        ) {
-          const estree = ((node.data &&
-            'estree' in node.data &&
-            node.data.estree) || {
-            body: [],
-            comments: [],
-          }) as Program
-          appendEstreeBody(body, node, estree, code)
-          comments.push(...estree.comments)
-          return
-        }
-
-        if (
-          node.type === 'mdxJsxFlowElement' ||
-          node.type === 'mdxJsxTextElement'
-        ) {
-          const expression = handleNode(node)
-
-          if (expression) {
-            body.push({
-              ...normalizePosition(node.position),
-              type: 'ExpressionStatement',
-              expression: expression as Expression,
-            })
+          case 'mdxJsxFlowElement':
+          case 'mdxJsxTextElement': {
+            return handleNode(node) as MDContentNode
           }
-          return
+          default: {
+            return
+          }
         }
+      }
 
-        const content = convertContent(node)
+      if (
+        node.type === 'mdxjsEsm' ||
+        node.type === 'mdxFlowExpression' ||
+        node.type === 'mdxTextExpression'
+      ) {
+        const estree = ((node.data &&
+          'estree' in node.data &&
+          node.data.estree) || {
+          body: [],
+          comments: [],
+        }) as Program
+        appendEstreeBody(body, node, estree, code)
+        comments.push(...estree.comments)
+        return
+      }
 
-        if (content) {
-          body.push(content as Program['body'][number])
+      if (
+        node.type === 'mdxJsxFlowElement' ||
+        node.type === 'mdxJsxTextElement'
+      ) {
+        const expression = handleNode(node)
+
+        if (expression) {
+          body.push({
+            ...normalizePosition(node.position),
+            type: 'ExpressionStatement',
+            expression: expression as Expression,
+          })
         }
-      })
-    }
+        return
+      }
+
+      const content = convertContent(node)
+
+      if (content) {
+        body.push(content as Program['body'][number])
+      }
+    })
 
     visitEstree(
       {
