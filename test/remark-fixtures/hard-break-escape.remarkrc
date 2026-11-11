@@ -1,0 +1,5 @@
+{
+  "plugins": [
+    ["remark-lint-hard-break-spaces", { "allowSpaces": false }]
+  ]
+}

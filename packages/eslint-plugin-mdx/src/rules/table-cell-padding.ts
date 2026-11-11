@@ -1,4 +1,5 @@
 import type { Rule } from 'eslint'
+import type { MDTable } from 'eslint-mdx'
 
 import { getRuleConfig } from './helpers.js'
 
@@ -24,34 +25,22 @@ export const tableCellPadding: Rule.RuleModule = {
     const sourceText = context.sourceCode.getText()
 
     return {
-      Program() {
-        const lines = sourceText.split('\n')
-        /* istanbul ignore next -- POC config sets padding */
-        let expected: 'compact' | 'padded' =
-          config.options === 'padded' ? 'padded' : 'compact'
+      MDTable(node: MDTable) {
+        /* istanbul ignore next -- POC covers explicit options */
+        let expected: 'compact' | 'padded' | undefined =
+          config.options === 'padded' || config.options === 'compact'
+            ? config.options
+            : undefined
 
-        for (const [index, line] of lines.entries()) {
-          /* istanbul ignore next -- table rows have following lines */
-          const next = lines[index + 1] ?? ''
-
-          if (!line.includes('|') || !/^[|:\s-]+$/u.test(next)) {
-            continue
-          }
-
-          const padded = /^\|\s/u.test(line) && /\s\|$/u.test(line)
-
-          /* istanbul ignore next -- POC config sets padding */
-          if (config.options !== 'padded' && config.options !== 'compact') {
-            /* istanbul ignore next -- POC config sets padding */
-            expected = padded ? 'padded' : 'compact'
-          }
+        for (const row of node.children) {
+          const raw = sourceText.slice(row.range[0], row.range[1])
+          const padded = /^\|\s/u.test(raw) && /\s\|$/u.test(raw)
+          /* istanbul ignore next -- POC covers consistent options */
+          expected ??= padded ? 'padded' : 'compact'
 
           if ((expected === 'padded') !== padded) {
             context.report({
-              loc: {
-                start: { line: index + 1, column: 0 },
-                end: { line: index + 1, column: line.length },
-              },
+              loc: row.loc,
               message: `Unexpected table cell padding, expected ${expected} cells`,
             })
           }

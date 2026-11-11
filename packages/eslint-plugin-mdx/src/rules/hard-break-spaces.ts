@@ -1,4 +1,5 @@
 import type { Rule } from 'eslint'
+import type { MDBreak } from 'eslint-mdx'
 
 import { getRuleConfig } from './helpers.js'
 
@@ -25,36 +26,21 @@ export const hardBreakSpaces: Rule.RuleModule = {
     const sourceText = context.sourceCode.getText()
 
     return {
-      Program() {
-        for (const [index, line] of sourceText.split('\n').entries()) {
-          if (!line.endsWith('  ')) {
-            continue
-          }
+      MDBreak(node: MDBreak) {
+        const raw = sourceText.slice(node.range[0], node.range[1])
+        const size = raw.length - 1
 
-          let size = 0
-
-          while (line.at(-1 - size) === ' ') {
-            size++
-          }
-
-          /* istanbul ignore if -- POC covers allowSpaces */
-          if (!allowSpaces) {
-            context.report({
-              loc: {
-                start: { line: index + 1, column: line.length },
-                end: { line: index + 1, column: line.length },
-              },
-              message: `Unexpected \`${size}\` spaces for hard break, expected escape`,
-            })
-          } else if (size !== 2) {
-            context.report({
-              loc: {
-                start: { line: index + 1, column: line.length },
-                end: { line: index + 1, column: line.length },
-              },
-              message: `Unexpected \`${size}\` spaces for hard break, expected \`2\` spaces`,
-            })
-          }
+        if (
+          (raw.startsWith('  ') && !allowSpaces) ||
+          (raw.startsWith('  ') && size !== 2)
+        ) {
+          context.report({
+            loc: node.loc,
+            /* istanbul ignore next -- POC covers both break styles */
+            message: allowSpaces
+              ? `Unexpected \`${size}\` spaces for hard break, expected \`2\` spaces`
+              : `Unexpected \`${size}\` spaces for hard break, expected escape`,
+          })
         }
       },
     }

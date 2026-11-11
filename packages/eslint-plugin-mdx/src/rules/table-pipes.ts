@@ -1,4 +1,5 @@
 import type { Rule } from 'eslint'
+import type { MDTable } from 'eslint-mdx'
 
 import { getRuleConfig } from './helpers.js'
 
@@ -24,28 +25,14 @@ export const tablePipes: Rule.RuleModule = {
     const sourceText = context.sourceCode.getText()
 
     return {
-      Program() {
-        const lines = sourceText.split('\n')
-
-        for (const [index, line] of lines.entries()) {
-          if (!line.includes('|')) {
-            continue
-          }
-
-          const next = lines[index + 1] ?? ''
-
-          if (!/^[|:\s-]+$/u.test(next)) {
-            continue
-          }
-
-          const trimmed = line.trim()
+      MDTable(node: MDTable) {
+        for (const row of node.children) {
+          const raw = sourceText.slice(row.range[0], row.range[1])
+          const trimmed = raw.trim()
 
           if (!trimmed.startsWith('|') || !trimmed.endsWith('|')) {
             context.report({
-              loc: {
-                start: { line: index + 1, column: 0 },
-                end: { line: index + 1, column: line.length },
-              },
+              loc: row.loc,
               message: 'Unexpected table row without leading or trailing pipe',
             })
           }
