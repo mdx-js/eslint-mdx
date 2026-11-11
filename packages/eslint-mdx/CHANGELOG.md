@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.9.5
+
+### Patch Changes
+
+- [#653](https://github.com/mdx-js/eslint-mdx/pull/653) [`51bd834`](https://github.com/mdx-js/eslint-mdx/commit/51bd834d46f9db5de848078b199ac2847025be17) Thanks [@JounQin](https://github.com/JounQin)! - Parse plain markdown files into `MD*` AST nodes, including `MDHtml` for raw HTML, instead of leaving the Program body empty.
+
 ## 3.9.4
 
 No changes in this release.
