@@ -24,6 +24,16 @@ ruleTester.run('maximum line length', maximumLineLength, {
       languageOptions,
     },
     {
+      code: '<div>this line is too long</div>',
+      filename: 'native.md',
+      languageOptions,
+    },
+    {
+      code: '<Component>this line is too long</Component>',
+      filename: 'native.mdx',
+      languageOptions,
+    },
+    {
       code: '```\nthis line is too long\n```',
       filename: 'native.mdx',
       languageOptions,

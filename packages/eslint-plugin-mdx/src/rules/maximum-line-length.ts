@@ -72,9 +72,11 @@ export const maximumLineLength: Rule.RuleModule = {
       MDDefinition: ignore,
       MDFootnoteDefinition: ignore,
       MDHeading: ignore,
+      MDHtml: ignore,
       MDMath: ignore,
       MDXFlowExpression: ignore,
       MDXTextExpression: ignore,
+      JSXElement: ignore,
       MDYaml: ignore,
       MDTable: ignore,
       'Program:exit'() {
