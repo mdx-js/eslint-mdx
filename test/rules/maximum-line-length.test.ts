@@ -9,6 +9,11 @@ ruleTester.run('maximum line length', maximumLineLength, {
   valid: [
     { code: 'short', filename: 'native.mdx', languageOptions },
     {
+      code: '[abcdefghij](x)',
+      filename: 'native.mdx',
+      languageOptions,
+    },
+    {
       code: '```\nthis line is too long\n```',
       filename: 'native.mdx',
       languageOptions,

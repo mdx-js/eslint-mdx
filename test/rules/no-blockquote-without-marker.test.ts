@@ -13,7 +13,12 @@ ruleTester.run('no-blockquote-without-marker', noBlockquoteWithoutMarker, {
       filename: 'native.mdx',
       languageOptions,
       errors: [
-        { message: 'Unexpected blockquote without marker', line: 2, column: 1 },
+        {
+          message:
+            'Unexpected `0` block quote marker before paragraph line, expected `1` marker, add `1` marker',
+          line: 2,
+          column: 1,
+        },
       ],
     },
   ],

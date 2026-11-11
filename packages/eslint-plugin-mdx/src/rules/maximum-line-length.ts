@@ -31,6 +31,7 @@ export const maximumLineLength: Rule.RuleModule = {
     const expected = typeof size === 'number' ? size : 80
     const sourceText = context.sourceCode.getText()
     const ignoredLines = new Set<number>()
+    const unwrappable = new Set<string>()
 
     const ignore = (node: {
       loc?: { end: { line: number }; start: { line: number } }
@@ -45,8 +46,29 @@ export const maximumLineLength: Rule.RuleModule = {
       }
     }
 
+    const track = (node: {
+      loc?: {
+        end: { column: number; line: number }
+        start: { column: number; line: number }
+      }
+    }) => {
+      /* istanbul ignore next -- POC covers single-line spans */
+      if (node.loc && node.loc.start.line === node.loc.end.line) {
+        for (
+          let column = node.loc.start.column;
+          column < node.loc.end.column;
+          column++
+        ) {
+          unwrappable.add(`${node.loc.start.line}:${column}`)
+        }
+      }
+    }
+
     return {
       MDCode: ignore,
+      MDImage: track,
+      MDInlineCode: track,
+      MDLink: track,
       MDDefinition: ignore,
       MDFootnoteDefinition: ignore,
       MDHeading: ignore,
@@ -57,6 +79,10 @@ export const maximumLineLength: Rule.RuleModule = {
           const actual = [...line].length
 
           if (ignoredLines.has(lineNumber)) {
+            continue
+          }
+
+          if (unwrappable.has(`${lineNumber}:${expected}`)) {
             continue
           }
 
