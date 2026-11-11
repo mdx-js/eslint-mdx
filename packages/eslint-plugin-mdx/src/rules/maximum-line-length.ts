@@ -72,6 +72,10 @@ export const maximumLineLength: Rule.RuleModule = {
       MDDefinition: ignore,
       MDFootnoteDefinition: ignore,
       MDHeading: ignore,
+      MDMath: ignore,
+      MDXFlowExpression: ignore,
+      MDXTextExpression: ignore,
+      MDYaml: ignore,
       MDTable: ignore,
       'Program:exit'() {
         for (const [index, line] of sourceText.split('\n').entries()) {

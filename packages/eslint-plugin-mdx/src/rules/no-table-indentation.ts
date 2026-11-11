@@ -24,11 +24,31 @@ export const noTableIndentation: Rule.RuleModule = {
       return {}
     }
 
+    const sourceText = context.sourceCode.getText()
+
     return {
       MDTable(node: MDTable) {
         const [first, ...rest] = node.children
-        /* istanbul ignore next -- tables have rows */
-        const expected = first?.loc?.start.column ?? 0
+
+        /* istanbul ignore if -- tables have rows */
+        if (!first) {
+          return
+        }
+
+        const lineStart = sourceText.lastIndexOf('\n', first.range[0] - 1) + 1
+        const prefix = sourceText.slice(lineStart, first.range[0])
+        const leading = /^\s+$/u.test(prefix) ? prefix.length : 0
+
+        if (leading > 0) {
+          const spaces = leading === 1 ? 'space' : 'spaces'
+
+          context.report({
+            loc: first.loc,
+            message: `Unexpected \`${leading}\` extra ${spaces} before table row, remove \`${leading}\` ${spaces}`,
+          })
+        }
+
+        const expected = first.loc.start.column
 
         for (const row of rest) {
           const actual = row.loc.start.column - expected

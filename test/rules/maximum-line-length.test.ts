@@ -14,6 +14,16 @@ ruleTester.run('maximum line length', maximumLineLength, {
       languageOptions,
     },
     {
+      code: '{someLongIdentifier + anotherLongIdentifier}',
+      filename: 'native.mdx',
+      languageOptions,
+    },
+    {
+      code: '---\nthis line is too long\n---',
+      filename: 'native.mdx',
+      languageOptions,
+    },
+    {
       code: '```\nthis line is too long\n```',
       filename: 'native.mdx',
       languageOptions,
