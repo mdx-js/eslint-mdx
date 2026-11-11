@@ -518,7 +518,7 @@ runAsWorker(
     const comments: Comment[] = []
     const tokens: AST.Token[] = []
 
-    if (isMdx) {
+    {
       const prevCharOffset = prevCharOffsetFactory(code)
       const nextCharOffset = nextCharOffsetFactory(code)
 
@@ -1164,6 +1164,9 @@ runAsWorker(
             }
             case 'yaml': {
               return { ...position, type: 'MDYaml', value: node.value }
+            }
+            case 'html': {
+              return { ...position, type: 'MDHtml', value: node.value }
             }
             case 'mdxFlowExpression':
             case 'mdxTextExpression': {

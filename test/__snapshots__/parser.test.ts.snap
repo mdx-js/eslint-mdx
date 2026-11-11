@@ -71902,7 +71902,29 @@ exports[`parser should match all AST snapshots: leading-spaces.mdx 1`] = `
 
 exports[`parser should match all AST snapshots: markdown.md 1`] = `
 {
-  "body": [],
+  "body": [
+    {
+      "end": 4,
+      "loc": {
+        "end": {
+          "column": 4,
+          "line": 1,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        4,
+      ],
+      "raw": "<br>",
+      "start": 0,
+      "type": "MDHtml",
+      "value": "<br>",
+    },
+  ],
   "comments": [],
   "end": 5,
   "loc": {
@@ -79022,7 +79044,311 @@ exports[`parser should match all AST snapshots: processor.mdx 1`] = `
 
 exports[`parser should match all AST snapshots: remark.md 1`] = `
 {
-  "body": [],
+  "body": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "end": 6,
+              "loc": {
+                "end": {
+                  "column": 6,
+                  "line": 1,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 1,
+                },
+              },
+              "range": [
+                1,
+                6,
+              ],
+              "raw": "Hello",
+              "start": 1,
+              "type": "MDText",
+              "value": "Hello",
+            },
+          ],
+          "end": 7,
+          "loc": {
+            "end": {
+              "column": 7,
+              "line": 1,
+            },
+            "start": {
+              "column": 0,
+              "line": 1,
+            },
+          },
+          "range": [
+            0,
+            7,
+          ],
+          "raw": "_Hello_",
+          "start": 0,
+          "type": "MDEmphasis",
+        },
+        {
+          "end": 9,
+          "loc": {
+            "end": {
+              "column": 9,
+              "line": 1,
+            },
+            "start": {
+              "column": 7,
+              "line": 1,
+            },
+          },
+          "range": [
+            7,
+            9,
+          ],
+          "raw": ", ",
+          "start": 7,
+          "type": "MDText",
+          "value": ", ",
+        },
+        {
+          "children": [
+            {
+              "end": 16,
+              "loc": {
+                "end": {
+                  "column": 16,
+                  "line": 1,
+                },
+                "start": {
+                  "column": 11,
+                  "line": 1,
+                },
+              },
+              "range": [
+                11,
+                16,
+              ],
+              "raw": "world",
+              "start": 11,
+              "type": "MDText",
+              "value": "world",
+            },
+          ],
+          "end": 18,
+          "loc": {
+            "end": {
+              "column": 18,
+              "line": 1,
+            },
+            "start": {
+              "column": 9,
+              "line": 1,
+            },
+          },
+          "range": [
+            9,
+            18,
+          ],
+          "raw": "**world**",
+          "start": 9,
+          "type": "MDStrong",
+        },
+        {
+          "end": 19,
+          "loc": {
+            "end": {
+              "column": 19,
+              "line": 1,
+            },
+            "start": {
+              "column": 18,
+              "line": 1,
+            },
+          },
+          "range": [
+            18,
+            19,
+          ],
+          "raw": "!",
+          "start": 18,
+          "type": "MDText",
+          "value": "!",
+        },
+      ],
+      "end": 19,
+      "loc": {
+        "end": {
+          "column": 19,
+          "line": 1,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "range": [
+        0,
+        19,
+      ],
+      "raw": "_Hello_, **world**!",
+      "start": 0,
+      "type": "MDParagraph",
+    },
+    {
+      "end": 56,
+      "loc": {
+        "end": {
+          "column": 35,
+          "line": 3,
+        },
+        "start": {
+          "column": 0,
+          "line": 3,
+        },
+      },
+      "range": [
+        21,
+        56,
+      ],
+      "raw": "<!--lint disable no-literal-urls-->",
+      "start": 21,
+      "type": "MDHtml",
+      "value": "<!--lint disable no-literal-urls-->",
+    },
+    {
+      "children": [
+        {
+          "end": 76,
+          "loc": {
+            "end": {
+              "column": 18,
+              "line": 5,
+            },
+            "start": {
+              "column": 4,
+              "line": 5,
+            },
+          },
+          "range": [
+            62,
+            76,
+          ],
+          "raw": "Code Splitting",
+          "start": 62,
+          "type": "MDText",
+          "value": "Code Splitting",
+        },
+      ],
+      "depth": 3,
+      "end": 76,
+      "loc": {
+        "end": {
+          "column": 18,
+          "line": 5,
+        },
+        "start": {
+          "column": 0,
+          "line": 5,
+        },
+      },
+      "range": [
+        58,
+        76,
+      ],
+      "raw": "### Code Splitting",
+      "start": 58,
+      "type": "MDHeading",
+    },
+    {
+      "children": [
+        {
+          "end": 107,
+          "loc": {
+            "end": {
+              "column": 29,
+              "line": 7,
+            },
+            "start": {
+              "column": 0,
+              "line": 7,
+            },
+          },
+          "range": [
+            78,
+            107,
+          ],
+          "raw": "This section has moved here: ",
+          "start": 78,
+          "type": "MDText",
+          "value": "This section has moved here: ",
+        },
+        {
+          "children": [
+            {
+              "end": 170,
+              "loc": {
+                "end": {
+                  "column": 92,
+                  "line": 7,
+                },
+                "start": {
+                  "column": 29,
+                  "line": 7,
+                },
+              },
+              "range": [
+                107,
+                170,
+              ],
+              "raw": "https://facebook.github.io/create-react-app/docs/code-splitting",
+              "start": 107,
+              "type": "MDText",
+              "value": "https://facebook.github.io/create-react-app/docs/code-splitting",
+            },
+          ],
+          "end": 170,
+          "loc": {
+            "end": {
+              "column": 92,
+              "line": 7,
+            },
+            "start": {
+              "column": 29,
+              "line": 7,
+            },
+          },
+          "range": [
+            107,
+            170,
+          ],
+          "raw": "https://facebook.github.io/create-react-app/docs/code-splitting",
+          "start": 107,
+          "title": null,
+          "type": "MDLink",
+          "url": "https://facebook.github.io/create-react-app/docs/code-splitting",
+        },
+      ],
+      "end": 170,
+      "loc": {
+        "end": {
+          "column": 92,
+          "line": 7,
+        },
+        "start": {
+          "column": 0,
+          "line": 7,
+        },
+      },
+      "range": [
+        78,
+        170,
+      ],
+      "raw": "This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting",
+      "start": 78,
+      "type": "MDParagraph",
+    },
+  ],
   "comments": [],
   "end": 171,
   "loc": {

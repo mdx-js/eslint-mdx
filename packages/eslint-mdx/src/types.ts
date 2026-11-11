@@ -89,6 +89,11 @@ export interface MDXTextExpression extends BaseNode {
   expression: Expression | JSXEmptyExpression
 }
 
+export interface MDHtml extends BaseNode {
+  type: 'MDHtml'
+  value: string
+}
+
 export interface MDText extends BaseNode {
   type: 'MDText'
   value: string
@@ -250,6 +255,7 @@ export type MDContentNode =
   | MDFootnoteDefinition
   | MDFootnoteReference
   | MDHeading
+  | MDHtml
   | MDImage
   | MDImageReference
   | MDInlineCode
@@ -289,6 +295,7 @@ declare module 'estree' {
     MDFootnoteDefinition: MDFootnoteDefinition
     MDFootnoteReference: MDFootnoteReference
     MDHeading: MDHeading
+    MDHtml: MDHtml
     MDImage: MDImage
     MDImageReference: MDImageReference
     MDInlineCode: MDInlineCode
