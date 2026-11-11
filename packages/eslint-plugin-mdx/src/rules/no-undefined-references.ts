@@ -1,5 +1,7 @@
+import { collapseWhiteSpace } from 'collapse-white-space'
 import type { Rule } from 'eslint'
 import type { MDText } from 'eslint-mdx'
+import { normalizeIdentifier } from 'micromark-util-normalize-identifier'
 
 import { getRuleConfig } from './helpers.js'
 
@@ -7,14 +9,24 @@ declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
     'no-undefined-references':
       | {
-          allow?: Array<string | { source: string; flags?: string }>
+          allow?: Array<string | { flags?: string; source: string }>
           allowShortcutLink?: boolean
         }
       | undefined
   }
 }
 
-const normalize = (value: string) => value.trim().toLowerCase()
+type Range = number[]
+
+const FULL_REFERENCE_LENGTH = 4
+
+const labelFor = (before: string | undefined, after: string | undefined) => {
+  if (before === '!') {
+    return 'image'
+  }
+
+  return after === '^' ? 'footnote' : 'link'
+}
 
 export const noUndefinedReferences: Rule.RuleModule = {
   meta: {
@@ -37,92 +49,137 @@ export const noUndefinedReferences: Rule.RuleModule = {
 
     for (const value of options?.allow ?? []) {
       if (typeof value === 'string') {
-        allowStrings.add(normalize(value))
+        allowStrings.add(normalizeIdentifier(value))
       } else {
-        /* istanbul ignore next -- POC covers regex allow entries */
         allowRegexes.push(new RegExp(value.source, value.flags ?? 'i'))
       }
     }
+
     const definitions = new Set<string>()
-    const footnotes = new Set<string>()
-    const references: Array<{
-      footnote: boolean
-      identifier: string
-      loc: MDText['loc']
-    }> = []
+    const footnoteDefinitions = new Set<string>()
 
-    const allowed = (identifier: string) =>
-      allowStrings.has(normalize(identifier)) ||
-      /* istanbul ignore next -- POC covers string allow entries */
-      allowRegexes.some(value => value.test(identifier))
+    const report = (range: Range, node: MDText) => {
+      /* istanbul ignore if -- POC covers unmatched brackets */
+      if (range.length === 1) {
+        return
+      }
 
-    return {
-      MDDefinition(node) {
-        definitions.add(normalize(node.identifier))
-      },
-      MDFootnoteDefinition(node) {
-        footnotes.add(normalize(node.identifier))
-      },
-      MDText(node: MDText) {
-        const value = sourceText.slice(node.range[0], node.range[1])
-        const spans: Array<[number, number]> = []
+      // `[x][` has no destination yet.
+      /* istanbul ignore if -- POC covers collapsed references */
+      if (range.length === 3) {
+        /* istanbul ignore next -- POC covers collapsed references */
+        range.length = 2
+      }
 
-        for (const match of value.matchAll(
-          // eslint-disable-next-line sonarjs/super-linear-regex -- short inline references
-          /(?<!\\)\[([^\]]*)\]\[([^\]]*)\]/gu,
-        )) {
-          /* istanbul ignore next -- POC covers full/collapsed references */
-          const identifier = match[2] || match[1]
+      // Empty `[]` is regular text.
+      if (range.length === 2 && range[0] + 2 === range[1]) {
+        return
+      }
 
-          references.push({ footnote: false, identifier, loc: node.loc })
-          spans.push([match.index, match.index + match[0].length])
-        }
+      const startOffset = node.range[0]
+      const before = sourceText[startOffset + range[0] - 1]
+      const after = sourceText[startOffset + range[0] + 1]
+      const label = labelFor(before, after)
+      const offset =
+        range.length === FULL_REFERENCE_LENGTH && range[2] + 2 !== range[3]
+          ? 2
+          : 0
+      let identifier = normalizeIdentifier(
+        collapseWhiteSpace(
+          sourceText.slice(
+            startOffset + range[offset] + 1,
+            startOffset + range[offset + 1] - 1,
+          ),
+          { style: 'html', trim: true },
+        ),
+      )
+      let defined = definitions
 
-        /* istanbul ignore next -- POC covers footnote references */
-        for (const match of value.matchAll(/(?<!\\)\[\^([^\]]+)\]/gu)) {
-          references.push({
-            footnote: true,
-            identifier: match[1],
-            loc: node.loc,
-          })
-          spans.push([match.index, match.index + match[0].length])
-        }
-
-        if (allowShortcutLink) {
+      if (label === 'footnote') {
+        if (identifier.includes(' ')) {
           return
         }
 
-        // eslint-disable-next-line sonarjs/super-linear-regex -- short inline references
-        for (const match of value.matchAll(/(?<!\\)\[([^\]]+)\](?![[(:])/gu)) {
-          if (
-            spans.some(
-              ([start, end]) => match.index >= start && match.index < end,
-            )
-          ) {
-            continue
-          }
+        defined = footnoteDefinitions
+        identifier = identifier.slice(1)
+      }
 
-          references.push({
-            footnote: false,
-            identifier: match[1],
-            loc: node.loc,
-          })
+      if (
+        (allowShortcutLink && range.length === 2) ||
+        defined.has(identifier) ||
+        allowStrings.has(identifier) ||
+        allowRegexes.some(regex => regex.test(identifier))
+      ) {
+        return
+      }
+
+      context.report({
+        loc: {
+          end: context.sourceCode.getLocFromIndex(startOffset + range.at(-1)),
+          start: context.sourceCode.getLocFromIndex(startOffset + range[0]),
+        },
+        message: `Unexpected reference to undefined definition, expected corresponding definition (\`${identifier.toLowerCase()}\`) for ${label === 'image' ? 'an' : 'a'} ${label} or escaped opening bracket (\`\\[\`) for regular text`,
+      })
+    }
+
+    const scan = (value: string, node: MDText) => {
+      const ranges: Range[] = []
+      let index = 0
+
+      while (index < value.length) {
+        const char = value[index]
+
+        switch (char) {
+          case '[': {
+            ranges.push([index])
+            index++
+            break
+          }
+          case '\\': {
+            const next = value[index + 1]
+
+            index++
+
+            if (next === '[' || next === ']') {
+              index++
+            }
+
+            break
+          }
+          case ']': {
+            const range = ranges.at(-1)
+
+            if (!range) {
+              index++
+            } else if (value[index + 1] === '[' && range.length !== 3) {
+              index++
+              range.push(index, index)
+              index++
+            } else {
+              index++
+              range.push(index)
+              report(range, node)
+              ranges.pop()
+            }
+
+            break
+          }
+          default: {
+            index++
+          }
         }
+      }
+    }
+
+    return {
+      MDDefinition(node) {
+        definitions.add(normalizeIdentifier(node.identifier))
       },
-      'Program:exit'() {
-        for (const { footnote, identifier, loc } of references) {
-          /* istanbul ignore next -- POC covers link/footnote references */
-          const known = footnote ? footnotes : definitions
-
-          if (known.has(normalize(identifier)) || allowed(identifier)) {
-            continue
-          }
-
-          context.report({
-            loc,
-            message: `Unexpected reference to undefined definition \`${identifier}\``,
-          })
-        }
+      MDFootnoteDefinition(node) {
+        footnoteDefinitions.add(normalizeIdentifier(node.identifier))
+      },
+      MDText(node: MDText) {
+        scan(sourceText.slice(node.range[0], node.range[1]), node)
       },
     }
   },
