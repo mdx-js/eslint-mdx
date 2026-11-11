@@ -17,33 +17,38 @@ export const listItemContentIndent: Rule.RuleModule = {
   },
   create(context) {
     const config = getRuleConfig(context.sourceCode, 'list-item-content-indent')
+
     if (!config) {
       return {}
     }
-    const sourceText = context.sourceCode.getText()
+
     return {
       MDListItem(node: MDListItem) {
-        const lines = sourceText.slice(node.range[0], node.range[1]).split('\n')
-        /* istanbul ignore next -- list items have lines */
-        const first = lines[0] ?? ''
-        const marker = /^\s*(?:[-*+]|\d+[.)])\s+/u.exec(first)
-        /* istanbul ignore if -- list items have markers */
-        if (!marker) {
+        const children = node.children.filter(child => child.loc)
+        const [first] = children
+
+        /* istanbul ignore if -- list items have children */
+        if (!first?.loc) {
           return
         }
-        const expected = marker[0].length
-        for (const [index, line] of lines.entries()) {
-          if (index === 0 || !line.trim()) {
+
+        const expected = first.loc.start.column
+
+        for (const child of children.slice(1)) {
+          /* istanbul ignore if -- AST children have locations */
+          if (!child.loc) {
             continue
           }
-          /* istanbul ignore next -- regex always matches */
-          const actual = /^\s*/u.exec(line)?.[0].length ?? 0
+
+          const actual = child.loc.start.column
+
           if (actual !== expected) {
+            const difference = expected - actual
+
             context.report({
-              loc: node.loc,
-              message: `Unexpected unaligned list item child, expected to align with first child, ${actual < expected ? 'add' : 'remove'} \`${Math.abs(expected - actual)}\` spaces`,
+              loc: child.loc,
+              message: `Unexpected unaligned list item child, expected to align with first child, ${['remove', 'remove', 'add'][Math.sign(difference) + 1]} \`${Math.abs(difference)}\` spaces`,
             })
-            break
           }
         }
       },

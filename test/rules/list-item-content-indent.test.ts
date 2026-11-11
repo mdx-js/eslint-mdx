@@ -7,32 +7,20 @@ import { listItemContentIndent } from 'eslint-plugin-mdx'
 const languageOptions = createLanguageOptions({ remarkConfig: 'next.remarkrc' })
 ruleTester.run('list item content indent', listItemContentIndent, {
   valid: [
-    { code: '- item\n  continuation', filename: 'native.mdx', languageOptions },
+    { code: '- item', filename: 'native.mdx', languageOptions },
+    { code: '- item\n\n  paragraph', filename: 'native.mdx', languageOptions },
   ],
   invalid: [
     {
-      code: '- item\n    continuation',
+      code: '- item\n\n    paragraph',
       filename: 'native.mdx',
       languageOptions,
       errors: [
         {
           message:
             'Unexpected unaligned list item child, expected to align with first child, remove `2` spaces',
-          line: 1,
-          column: 1,
-        },
-      ],
-    },
-    {
-      code: '- item\n continuation',
-      filename: 'native.mdx',
-      languageOptions,
-      errors: [
-        {
-          message:
-            'Unexpected unaligned list item child, expected to align with first child, add `1` spaces',
-          line: 1,
-          column: 1,
+          line: 3,
+          column: 5,
         },
       ],
     },

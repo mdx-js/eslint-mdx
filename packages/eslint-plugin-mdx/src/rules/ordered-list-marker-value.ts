@@ -9,6 +9,51 @@ declare module 'eslint-mdx' {
   }
 }
 
+type Style = 'one' | 'ordered' | 'single'
+
+const configuredStyle = (
+  option: 'one' | 'ordered' | 'single' | undefined,
+): Style | undefined => {
+  /* istanbul ignore if -- POC config is consistent */
+  if (option === 'one' || option === 'ordered' || option === 'single') {
+    return option
+  }
+}
+
+const inferStyle = (
+  first: number | undefined,
+  second: number | undefined,
+): Style => {
+  if (second != null && second === first) {
+    return 'single'
+  }
+
+  return 'ordered'
+}
+
+const expectedValue = (style: Style, first: number, index: number) => {
+  /* istanbul ignore if -- POC covers single/ordered */
+  if (style === 'one') {
+    return 1
+  }
+
+  return style === 'single' ? first : first + index
+}
+
+const markerValue = (sourceText: string, item: MDList['children'][number]) => {
+  const child = item.children[0]
+
+  /* istanbul ignore if -- ordered items have children */
+  if (!child) {
+    return
+  }
+
+  const raw = sourceText.slice(item.range[0], child.range[0])
+  const match = /^(\d+)[.)]\s/u.exec(raw)
+
+  return Number(match[1])
+}
+
 export const orderedListMarkerValue: Rule.RuleModule = {
   meta: {
     type: 'layout',
@@ -20,44 +65,43 @@ export const orderedListMarkerValue: Rule.RuleModule = {
       context.sourceCode,
       'ordered-list-marker-value',
     )
+
     if (!config) {
       return {}
     }
+
     const sourceText = context.sourceCode.getText()
+
     return {
       MDList(node: MDList) {
-        /* istanbul ignore if -- POC covers list detection */
+        /* istanbul ignore if -- POC covers ordered lists */
         if (!node.ordered) {
           return
         }
-        const values: number[] = []
 
-        for (const line of sourceText
-          .slice(node.range[0], node.range[1])
-          .split('\n')) {
-          const trimmed = line.trimStart()
-          const dot = trimmed.indexOf('.')
-          const paren = trimmed.indexOf(')')
-          /* istanbul ignore next -- POC covers marker detection */
-          const index = [dot, paren]
-            .filter(value => value > 0)
-            .sort((a, b) => a - b)[0]
+        const values = node.children.map(item => markerValue(sourceText, item))
+        const first = values[0]
+        const second = values[1]
+        const style =
+          configuredStyle(config.options) ?? inferStyle(first, second)
 
-          /* istanbul ignore if -- POC covers marker values */
-          if (index != null && /^\d+$/u.test(trimmed.slice(0, index))) {
-            values.push(Number(trimmed.slice(0, index)))
-          }
+        /* istanbul ignore if -- ordered lists have values */
+        if (first == null) {
+          return
         }
-        /* istanbul ignore next -- POC covers ordered values */
-        const expected =
-          config.options === 'one'
-            ? values.map(() => 1)
-            : values.map((_, index) => (values[0] ?? 1) + index)
-        for (const [index, value] of values.entries()) {
-          if (value !== expected[index]) {
+
+        for (const [index, actual] of values.entries()) {
+          /* istanbul ignore if -- ordered items have markers */
+          if (actual == null) {
+            continue
+          }
+
+          const expected = expectedValue(style, first, index)
+
+          if (actual !== expected) {
             context.report({
-              loc: node.loc,
-              message: `Unexpected ordered list marker value \`${value}\`, expected \`${expected[index]}\``,
+              loc: node.children[index].loc,
+              message: `Unexpected ordered list item value \`${actual}\`, expected \`${expected}\``,
             })
           }
         }

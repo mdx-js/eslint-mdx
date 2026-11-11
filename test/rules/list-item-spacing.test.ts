@@ -18,8 +18,21 @@ ruleTester.run('list-item-spacing', listItemSpacing, {
       errors: [
         {
           message:
-            'Unexpected blank line between list items, expected no blank lines',
-          line: 1,
+            'Unexpected `1` blank lines between list items, expected `0` blank lines, remove `1` blank lines',
+          line: 3,
+          column: 1,
+        },
+      ],
+    },
+    {
+      code: '- a\n  continuation\n- b',
+      filename: 'native.mdx',
+      languageOptions,
+      errors: [
+        {
+          message:
+            'Unexpected `0` blank lines between list items, expected `1` blank lines, add `1` blank lines',
+          line: 3,
           column: 1,
         },
       ],
