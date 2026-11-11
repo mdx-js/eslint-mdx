@@ -284,6 +284,43 @@ declare module 'acorn' {
 }
 
 declare module 'estree' {
+  // Expose Markdown nodes through estree's NodeMap for third-party plugins.
+  interface NodeMap {
+    // Markdown
+    MDBlockquote: MDBlockquote
+    MDBreak: MDBreak
+    MDCode: MDCode
+    MDDefinition: MDDefinition
+    MDDelete: MDDelete
+    MDEmphasis: MDEmphasis
+    MDFootnoteDefinition: MDFootnoteDefinition
+    MDFootnoteReference: MDFootnoteReference
+    MDHeading: MDHeading
+    MDHtml: MDHtml
+    MDImage: MDImage
+    MDImageReference: MDImageReference
+    MDInlineCode: MDInlineCode
+    MDInlineMath: MDInlineMath
+    MDLink: MDLink
+    MDLinkReference: MDLinkReference
+    MDList: MDList
+    MDListItem: MDListItem
+    MDMath: MDMath
+    MDParagraph: MDParagraph
+    MDStrong: MDStrong
+    MDTable: MDTable
+    MDTableCell: MDTableCell
+    MDTableRow: MDTableRow
+    MDText: MDText
+    MDThematicBreak: MDThematicBreak
+    MDToml: MDToml
+    MDYaml: MDYaml
+
+    // MDX
+    MDXFlowExpression: MDXFlowExpression
+    MDXTextExpression: MDXTextExpression
+  }
+
   interface ProgramBodyMap {
     // Markdown
     MDBlockquote: MDBlockquote
