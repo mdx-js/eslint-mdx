@@ -82,7 +82,7 @@ export class Parser {
       )
     }
 
-    const { root, body, comments, tokens } = result
+    const { root, body, comments, tokens, remarkConfig } = result
 
     const visitorKeys: Record<string, string[]> = {
       ...KEYS,
@@ -194,6 +194,9 @@ export class Parser {
     return {
       ast,
       scopeManager,
+      services: {
+        remarkConfig: remarkConfig ?? { ruleOptions: {}, settings: {} },
+      },
       visitorKeys,
     }
   }

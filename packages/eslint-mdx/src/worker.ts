@@ -57,6 +57,7 @@ import { getTokens, type JsxTextRange, type MicromarkEvent } from './tokens.js'
 import type {
   Arrayable,
   IgnoreClass,
+  RemarkConfig,
   MDCode,
   MDContentNode,
   MDHeading,
@@ -66,6 +67,7 @@ import type {
   NormalPosition,
   WorkerOptions,
   WorkerResult,
+  RemarkRuleOptions,
 } from './types.js'
 
 // JSXEmptyExpression is a standard ESTree node, so it has no `raw` extension.
@@ -137,6 +139,7 @@ export const processorCache = new Map<
   string,
   Processor<Root, undefined, undefined, Root, string>
 >()
+const processorConfigCache = new Map<string, ConfigResult | null>()
 
 const configLoadCache = new Map<
   string,
@@ -193,6 +196,32 @@ const getRemarkConfig = async (
   }
 
   return configLoad(filePath)
+}
+
+const REMARK_LINT_PREFIX = 'remark-lint:'
+
+const resolveRemarkConfig = (
+  result: ConfigResult | null | undefined,
+): RemarkConfig | undefined => {
+  if (!result) {
+    return
+  }
+
+  const ruleOptions = {} as RemarkRuleOptions
+
+  for (const [{ name }, options] of result.plugins) {
+    if (!name?.startsWith(REMARK_LINT_PREFIX) || options === false) {
+      continue
+    }
+
+    // @ts-expect-error -- no idea
+    ruleOptions[name.slice(/* REMARK_LINT_PREFIX.length */ 12)] = options
+  }
+
+  return {
+    ruleOptions,
+    settings: result.settings,
+  }
 }
 
 const getRemarkMdxOptions = (tokens: Token[]): Options => ({
@@ -308,33 +337,60 @@ const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
   return ranges
 }
 
+const getRemarkIgnoreKey = (rules?: ReadonlySet<string>) =>
+  rules?.size ? `\0ignore:${[...rules].join(',')}` : ''
+
+const filterRemarkPlugins = (
+  plugins: ConfigResult['plugins'],
+  ignoreRemarkRules?: ReadonlySet<string>,
+) =>
+  plugins.filter(([plugin]) => {
+    const name = plugin.name?.slice('remark-lint:'.length)
+
+    return !name || !ignoreRemarkRules?.has(name)
+  })
+
+interface RemarkProcessorResult {
+  config: ConfigResult | null
+  processor: Processor<Root, undefined, undefined, Root, string>
+}
+
 export const getRemarkProcessor = async (
   filePath: string,
   isMdx: boolean,
   ignoreRemarkConfig?: boolean,
   cwd = process.cwd(),
   remarkConfigPath?: string,
-) => {
-  const initCacheKey = `${String(isMdx)}-${cwd}\0${filePath}`
+  ignoreRemarkRules?: ReadonlySet<string>,
+): Promise<RemarkProcessorResult> => {
+  const ignoreKey = getRemarkIgnoreKey(ignoreRemarkRules)
+  const configKey = remarkConfigPath ?? ''
+  const initCacheKey = `${String(isMdx)}-${cwd}\0${filePath}\0${configKey}${ignoreKey}`
 
   let cachedProcessor = processorCache.get(initCacheKey)
 
   if (cachedProcessor) {
-    return cachedProcessor
+    return {
+      config: processorConfigCache.get(initCacheKey) ?? null,
+      processor: cachedProcessor,
+    }
   }
 
   const result = ignoreRemarkConfig
     ? null
     : await getRemarkConfig(filePath, cwd, remarkConfigPath)
 
-  const cacheKey = result?.filePath
-    ? `${String(isMdx)}-${result.filePath}`
-    : String(isMdx)
+  const cacheKey = `${
+    result?.filePath ? `${String(isMdx)}-${result.filePath}` : String(isMdx)
+  }${configKey}${ignoreKey}`
 
   cachedProcessor = processorCache.get(cacheKey)
 
   if (cachedProcessor) {
-    return cachedProcessor
+    return {
+      config: processorConfigCache.get(cacheKey) ?? null,
+      processor: cachedProcessor,
+    }
   }
 
   const remarkProcessor = unified().use(remarkParse).freeze()
@@ -365,7 +421,7 @@ export const getRemarkProcessor = async (
       initProcessor.use(remarkMdx, getRemarkMdxOptions(sharedTokens))
     }
 
-    cachedProcessor = plugins
+    cachedProcessor = filterRemarkPlugins(plugins, ignoreRemarkRules)
       .reduce((processor, plugin) => processor.use(...plugin), initProcessor)
       .freeze()
   } else {
@@ -381,8 +437,9 @@ export const getRemarkProcessor = async (
   processorCache
     .set(initCacheKey, cachedProcessor)
     .set(cacheKey, cachedProcessor)
+  processorConfigCache.set(initCacheKey, result).set(cacheKey, result)
 
-  return cachedProcessor
+  return { config: result, processor: cachedProcessor }
 }
 
 function isExpressionStatement(
@@ -402,6 +459,7 @@ runAsWorker(
     isMdx,
     process,
     ignoreRemarkConfig,
+    ignoreRemarkRules,
     remarkConfigPath,
     // eslint-disable-next-line sonarjs/cognitive-complexity
   }: WorkerOptions): Promise<WorkerResult> => {
@@ -417,12 +475,13 @@ runAsWorker(
       acornParser = acorn.Parser.extend(acornJsx())
     }
 
-    const processor = await getRemarkProcessor(
+    const { config: remarkConfigResult, processor } = await getRemarkProcessor(
       filePath,
       isMdx,
       ignoreRemarkConfig,
       cwd,
       remarkConfigPath,
+      ignoreRemarkRules,
     )
 
     const fileOptions: VFileOptions = {
@@ -1359,11 +1418,16 @@ runAsWorker(
       }
     }
 
+    const remarkConfig = ignoreRemarkConfig
+      ? undefined
+      : resolveRemarkConfig(remarkConfigResult)
+
     return {
       root,
       body,
       comments,
       tokens,
+      remarkConfig,
     }
   },
 )

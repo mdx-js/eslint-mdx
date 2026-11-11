@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - master
+      - next
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -44,5 +44,6 @@ jobs:
         with:
           commit-message: 'chore: release package(s)'
           pr-title: 'chore: release package(s)'
+          pr-base-branch: next
           version-script: yarn run version
-          publish-script: yarn release:only
+          publish-script: yarn release:only --tag next

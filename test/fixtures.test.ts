@@ -33,6 +33,9 @@ const getCli = (lintCodeBlocks = false, fix?: boolean) => {
       prettierRecommended,
       {
         files: ['**/*.{js,jsx,md,mdx,ts,tsx}'],
+        linterOptions: {
+          reportUnusedDisableDirectives: 'warn',
+        },
         extends: [react.configs.flat.recommended],
         processor: mdx.createRemarkProcessor({
           lintCodeBlocks,
