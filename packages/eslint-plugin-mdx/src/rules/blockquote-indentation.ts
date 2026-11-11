@@ -17,32 +17,32 @@ export const blockquoteIndentation: Rule.RuleModule = {
   },
   create(context) {
     const config = getRuleConfig(context.sourceCode, 'blockquote-indentation')
+
     if (!config) {
       return {}
     }
-    /* istanbul ignore next -- POC covers numeric options */
-    const expected = typeof config.options === 'number' ? config.options : 2
-    const sourceText = context.sourceCode.getText()
+
+    /* istanbul ignore next -- POC config sets indentation */
+    let expected =
+      typeof config.options === 'number' ? config.options : undefined
+
     return {
       MDBlockquote(node: MDBlockquote) {
-        const lines = sourceText.slice(node.range[0], node.range[1]).split('\n')
-        for (const [index, line] of lines.entries()) {
-          const match = /^>\s*/u.exec(line)
-          /* istanbul ignore if -- POC blockquote lines have markers */
-          if (!match) {
-            continue
-          }
-          const actual = match[0].length - 1
-          /* istanbul ignore if -- POC covers spacing */
-          if (actual !== expected) {
-            context.report({
-              loc: {
-                start: { line: node.loc.start.line + index, column: 0 },
-                end: { line: node.loc.start.line + index, column: 0 },
-              },
-              message: `Unexpected \`${actual}\` spaces before blockquote content, expected \`${expected}\``,
-            })
-          }
+        const [child] = node.children
+
+        /* istanbul ignore if -- blockquotes have children */
+        if (!child) {
+          return
+        }
+
+        const actual = child.loc.start.column - node.loc.start.column
+        expected ??= actual
+
+        if (actual !== expected) {
+          context.report({
+            loc: child.loc,
+            message: `Unexpected \`${actual}\` spaces between block quote marker and content, expected \`${expected}\``,
+          })
         }
       },
     }
