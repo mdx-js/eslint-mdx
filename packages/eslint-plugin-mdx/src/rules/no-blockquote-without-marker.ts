@@ -1,5 +1,5 @@
 import type { Rule } from 'eslint'
-import type { MDBlockquote } from 'eslint-mdx'
+import type { MDParagraph } from 'eslint-mdx'
 
 import { getRuleConfig } from './helpers.js'
 
@@ -7,6 +7,22 @@ declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
     'no-blockquote-without-marker': never
   }
+}
+
+const plural = (count: number) => (count === 1 ? 'marker' : 'markers')
+
+const countMarkers = (line: string) => {
+  let count = 0
+
+  for (const char of line) {
+    if (char === '>') {
+      count++
+    } else if (char !== ' ' && char !== '\t') {
+      break
+    }
+  }
+
+  return count
 }
 
 export const noBlockquoteWithoutMarker: Rule.RuleModule = {
@@ -26,27 +42,30 @@ export const noBlockquoteWithoutMarker: Rule.RuleModule = {
     }
 
     const sourceText = context.sourceCode.getText()
+    let depth = 0
 
     return {
-      MDBlockquote(node: MDBlockquote) {
+      MDBlockquote() {
+        depth++
+      },
+      'MDBlockquote:exit'() {
+        depth--
+      },
+      MDParagraph(node: MDParagraph) {
+        if (depth === 0) {
+          return
+        }
+
         const lines = sourceText.slice(node.range[0], node.range[1]).split('\n')
 
         for (const [index, line] of lines.entries()) {
+          /* istanbul ignore if -- POC covers marker lines */
           if (index === 0 || !line.trim()) {
             continue
           }
 
-          let actual = 0
-
-          for (const char of line) {
-            if (char === '>') {
-              actual++
-            } else if (char !== ' ' && char !== '\t') {
-              break
-            }
-          }
-
-          const expected = 1
+          const actual = countMarkers(line)
+          const expected = depth
 
           if (actual !== expected) {
             const difference = expected - actual
@@ -62,7 +81,7 @@ export const noBlockquoteWithoutMarker: Rule.RuleModule = {
                   column: line.length,
                 },
               },
-              message: `Unexpected \`${actual}\` block quote marker before paragraph line, expected \`${expected}\` marker, add \`${difference}\` marker`,
+              message: `Unexpected \`${actual}\` block quote ${plural(actual)} before paragraph line, expected \`${expected}\` ${plural(expected)}, ${['remove', 'remove', 'add'][Math.sign(difference) + 1]} \`${Math.abs(difference)}\` ${plural(Math.abs(difference))}`,
             })
           }
         }

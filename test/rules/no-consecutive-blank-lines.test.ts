@@ -16,6 +16,11 @@ ruleTester.run('no consecutive blank lines', noConsecutiveBlankLines, {
       languageOptions,
     },
     {
+      code: '> a\n> b',
+      filename: 'native.mdx',
+      languageOptions,
+    },
+    {
       code: '- a\n\n- b',
       filename: 'native.mdx',
       languageOptions,

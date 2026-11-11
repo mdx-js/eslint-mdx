@@ -63,9 +63,7 @@ export const noConsecutiveBlankLines: Rule.RuleModule = {
       Program(node) {
         check(node.body)
       },
-      /* istanbul ignore next -- POC covers blockquote nesting */
       MDBlockquote(node: MDBlockquote) {
-        /* istanbul ignore next -- POC covers blockquote nesting */
         check(node.children)
       },
       MDList(node: MDList) {
