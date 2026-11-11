@@ -26,23 +26,45 @@ export const maximumLineLength: Rule.RuleModule = {
       typeof config.options === 'object' && config.options !== null
         ? config.options.size
         : config.options
-
-    /* istanbul ignore next -- POC covers numeric size */
-    /* istanbul ignore next -- POC covers numeric size */
+    /* istanbul ignore next -- POC covers numeric options */
     /* eslint-disable-next-line @typescript-eslint/no-magic-numbers -- default size */
     const expected = typeof size === 'number' ? size : 80
     const sourceText = context.sourceCode.getText()
+    const ignoredLines = new Set<number>()
+
+    const ignore = (node: {
+      loc?: { end: { line: number }; start: { line: number } }
+    }) => {
+      /* istanbul ignore if -- AST nodes have locations */
+      if (!node.loc) {
+        return
+      }
+
+      for (let line = node.loc.start.line; line <= node.loc.end.line; line++) {
+        ignoredLines.add(line)
+      }
+    }
 
     return {
-      Program() {
+      MDCode: ignore,
+      MDDefinition: ignore,
+      MDFootnoteDefinition: ignore,
+      MDHeading: ignore,
+      MDTable: ignore,
+      'Program:exit'() {
         for (const [index, line] of sourceText.split('\n').entries()) {
+          const lineNumber = index + 1
           const actual = [...line].length
+
+          if (ignoredLines.has(lineNumber)) {
+            continue
+          }
 
           if (actual > expected) {
             context.report({
               loc: {
-                start: { line: index + 1, column: 0 },
-                end: { line: index + 1, column: actual },
+                start: { line: lineNumber, column: 0 },
+                end: { line: lineNumber, column: actual },
               },
               message: `Unexpected \`${actual}\` character line, expected at most \`${expected}\` characters, remove \`${actual - expected}\` characters`,
             })

@@ -26,23 +26,31 @@ export const noConsecutiveBlankLines: Rule.RuleModule = {
       return {}
     }
 
-    const sourceText = context.sourceCode.getText()
-
     return {
-      Program() {
-        for (const match of sourceText.matchAll(/\n{3,}/gu)) {
-          /* istanbul ignore next -- matchAll always provides an index */
-          const index = match.index ?? 0
-          const line = sourceText.slice(0, index).split('\n').length + 1
-          const count = match[0].length - 2
+      Program(node) {
+        const body = node.body
 
-          context.report({
-            loc: {
-              start: { line, column: 0 },
-              end: { line: line + count, column: 0 },
-            },
-            message: `Unexpected \`${count}\` blank lines before node, expected up to \`1\` blank line, remove \`${count - 1}\` blank line`,
-          })
+        for (let index = 1; index < body.length; index++) {
+          const previous = body[index - 1]
+          const current = body[index]
+
+          /* istanbul ignore if -- AST nodes have locations */
+          if (!previous.loc || !current.loc) {
+            continue
+          }
+
+          // `2` for the line ending after the previous node and the line
+          // ending of the blank line itself.
+          const difference = current.loc.start.line - previous.loc.end.line - 2
+
+          if (difference > 0) {
+            const actual = difference + 1
+
+            context.report({
+              loc: current.loc,
+              message: `Unexpected \`${actual}\` blank lines before node, expected up to \`1\` blank line, remove \`${difference}\` blank line`,
+            })
+          }
         }
       },
     }

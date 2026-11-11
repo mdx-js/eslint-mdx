@@ -6,7 +6,14 @@ import { maximumLineLength } from 'eslint-plugin-mdx'
 
 const languageOptions = createLanguageOptions({ remarkConfig: 'next.remarkrc' })
 ruleTester.run('maximum line length', maximumLineLength, {
-  valid: [{ code: 'short', filename: 'native.mdx', languageOptions }],
+  valid: [
+    { code: 'short', filename: 'native.mdx', languageOptions },
+    {
+      code: '```\nthis line is too long\n```',
+      filename: 'native.mdx',
+      languageOptions,
+    },
+  ],
   invalid: [
     {
       code: 'this line is too long',

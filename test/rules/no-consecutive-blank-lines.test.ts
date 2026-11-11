@@ -24,8 +24,8 @@ ruleTester.run('no consecutive blank lines', noConsecutiveBlankLines, {
       errors: [
         {
           message:
-            'Unexpected `1` blank lines before node, expected up to `1` blank line, remove `0` blank line',
-          line: 2,
+            'Unexpected `2` blank lines before node, expected up to `1` blank line, remove `1` blank line',
+          line: 4,
           column: 1,
         },
       ],
