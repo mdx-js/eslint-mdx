@@ -425,42 +425,16 @@ export interface MDYaml extends BaseNode {
   value: string
 }
 
+// MDNodeMap maps each Markdown node type to its interface;
+// MDContentNode combines JSX nodes with MDNodeMap[keyof MDNodeMap].
+
 export type MDContentNode =
   | JSXElement
   | JSXExpressionContainer
   | JSXFragment
   | JSXSpreadChild
   | JSXText
-  | MDBlockquote
-  | MDBreak
-  | MDCode
-  | MDDefinition
-  | MDDelete
-  | MDEmphasis
-  | MDFootnoteDefinition
-  | MDFootnoteReference
-  | MDHeading
-  | MDHtml
-  | MDImage
-  | MDImageReference
-  | MDInlineCode
-  | MDInlineMath
-  | MDLink
-  | MDLinkReference
-  | MDList
-  | MDListItem
-  | MDMath
-  | MDParagraph
-  | MDStrong
-  | MDTable
-  | MDTableCell
-  | MDTableRow
-  | MDText
-  | MDThematicBreak
-  | MDToml
-  | MDXFlowExpression
-  | MDXTextExpression
-  | MDYaml
+  | MDNodeMap[keyof MDNodeMap]
 ```
 
 ## Rules
