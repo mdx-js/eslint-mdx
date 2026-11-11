@@ -530,6 +530,28 @@ runAsWorker(
       raw: code.slice(start, end),
     })
 
+    const normalizeNodePosition = (position: Nodes['position']) => {
+      const start = position.start.offset
+      const end = position.end.offset
+
+      return {
+        start,
+        end,
+        loc: {
+          start: {
+            line: position.start.line,
+            column: position.start.column - 1,
+          },
+          end: {
+            line: position.end.line,
+            column: position.end.column - 1,
+          },
+        },
+        range: [start, end] as [number, number],
+        raw: code.slice(start, end),
+      }
+    }
+
     const handleJsxName = (
       nodeName: string,
       start: number,
@@ -949,11 +971,7 @@ runAsWorker(
       }
 
       function convertContent(node: Nodes): MDContentNode | undefined {
-        const {
-          start: { offset: start },
-          end: { offset: end },
-        } = node.position
-        const position = normalizeNode(start, end)
+        const position = normalizeNodePosition(node.position)
 
         const nodeType = node.type as string
         if (

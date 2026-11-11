@@ -177,6 +177,7 @@ Markdown content uses the `MD` prefix, while MDX-specific nodes use `MDX`. The p
 | `MDFootnoteDefinition` | `footnoteDefinition` | `remark-gfm`         |
 | `MDFootnoteReference`  | `footnoteReference`  | `remark-gfm`         |
 | `MDHeading`            | `heading`            |                      |
+| `MDHtml`               | `html`               |                      |
 | `MDImage`              | `image`              |                      |
 | `MDImageReference`     | `imageReference`     |                      |
 | `MDInlineCode`         | `inlineCode`         |                      |
@@ -261,6 +262,11 @@ export interface MDHeading extends BaseNode {
   type: 'MDHeading'
   depth: HeadingDepth
   children: MDContentNode[]
+}
+
+export interface MDHtml extends BaseNode {
+  type: 'MDHtml'
+  value: string
 }
 
 export interface MDXFlowExpression extends BaseNode {
@@ -434,6 +440,7 @@ export type MDContentNode =
   | MDFootnoteDefinition
   | MDFootnoteReference
   | MDHeading
+  | MDHtml
   | MDImage
   | MDImageReference
   | MDInlineCode

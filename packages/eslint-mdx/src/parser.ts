@@ -95,6 +95,7 @@ export class Parser {
       MDFootnoteDefinition: ['children'],
       MDFootnoteReference: [],
       MDHeading: ['children'],
+      MDHtml: [],
       MDImage: [],
       MDImageReference: [],
       MDInlineCode: [],
