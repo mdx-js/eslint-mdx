@@ -42,23 +42,42 @@ export const getPhysicalFilename = (
 }
 
 /* istanbul ignore next -- used in worker */
+// The worker handles one file at a time; a single-entry cache avoids re-splitting the same source.
+let cachedCode: string | undefined
+let cachedLineStarts: number[] | undefined
+
+/* istanbul ignore next -- used in worker */
 export const getPositionAtFactory = (code: string) => {
-  const lines = code.split('\n')
+  if (cachedCode !== code) {
+    cachedCode = code
+    cachedLineStarts = []
+    let offset = 0
+
+    for (const line of code.split('\n')) {
+      cachedLineStarts.push(offset)
+      offset += line.length + 1
+    }
+  }
+
+  const lineStarts = cachedLineStarts
+
   return (offset: number): Position => {
-    let currOffset = 0
+    let low = 0
+    let high = lineStarts.length - 1
 
-    for (const [index, line_] of lines.entries()) {
-      const line = index + 1
-      const nextOffset = currOffset + line_.length
+    while (low < high) {
+      const middle = Math.ceil((low + high) / 2)
 
-      if (nextOffset >= offset) {
-        return {
-          line,
-          column: offset - currOffset,
-        }
+      if (lineStarts[middle] <= offset) {
+        low = middle
+      } else {
+        high = middle - 1
       }
+    }
 
-      currOffset = nextOffset + 1 // add a line break `\n` offset
+    return {
+      line: low + 1,
+      column: offset - lineStarts[low],
     }
   }
 }
@@ -75,10 +94,13 @@ export const normalizePosition = ({
   const startOffset = start.offset
   const endOffset = end.offset
   const range: [number, number] = [startOffset, endOffset]
+  const needsStart = !('line' in start)
+  const needsEnd = !('line' in end)
+  /* istanbul ignore next -- used in worker */
   const getPositionAt =
-    code == null
-      ? null
-      : /* istanbul ignore next -- used in worker */ getPositionAtFactory(code)
+    code != null && (needsStart || needsEnd)
+      ? /* istanbul ignore next -- used in worker */ getPositionAtFactory(code)
+      : null
   return {
     start: startOffset,
     end: endOffset,

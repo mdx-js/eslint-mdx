@@ -152,7 +152,7 @@ eslint . --ext js,md,mdx
 
 1. `extensions` (`string | string[]`): `eslint-mdx` will only resolve `.mdx` files by default, if you want to resolve other extensions as like `.mdx`, you can use this option.
 
-2. `markdownExtensions` (`string | string[]`): `eslint-mdx` will only treat `.md` files as plain markdown by default, and will lint them via remark plugins. If you want to resolve other extensions as like `.md`, you can use this option.
+2. `markdownExtensions` (`string | string[]`): `eslint-mdx` will only treat `.md` files as plain markdown by default. Plain markdown is parsed into `MD*` AST nodes such as `MDHeading` and `MDHtml` as well as linted via remark plugins. If you want to resolve other extensions as like `.md`, you can use this option.
 
 3. `ignoreRemarkConfig` (`boolean`): Ignore the `remark` configuration defined in the project.
 
@@ -177,6 +177,7 @@ Markdown content uses the `MD` prefix, while MDX-specific nodes use `MDX`. The p
 | `MDFootnoteDefinition` | `footnoteDefinition` | `remark-gfm`         |
 | `MDFootnoteReference`  | `footnoteReference`  | `remark-gfm`         |
 | `MDHeading`            | `heading`            |                      |
+| `MDHtml`               | `html`               |                      |
 | `MDImage`              | `image`              |                      |
 | `MDImageReference`     | `imageReference`     |                      |
 | `MDInlineCode`         | `inlineCode`         |                      |
@@ -261,6 +262,11 @@ export interface MDHeading extends BaseNode {
   type: 'MDHeading'
   depth: HeadingDepth
   children: MDContentNode[]
+}
+
+export interface MDHtml extends BaseNode {
+  type: 'MDHtml'
+  value: string
 }
 
 export interface MDXFlowExpression extends BaseNode {
@@ -419,41 +425,16 @@ export interface MDYaml extends BaseNode {
   value: string
 }
 
+// MDNodeMap maps each Markdown node type to its interface;
+// MDContentNode combines JSX nodes with MDNodeMap[keyof MDNodeMap].
+
 export type MDContentNode =
   | JSXElement
   | JSXExpressionContainer
   | JSXFragment
   | JSXSpreadChild
   | JSXText
-  | MDBlockquote
-  | MDBreak
-  | MDCode
-  | MDDefinition
-  | MDDelete
-  | MDEmphasis
-  | MDFootnoteDefinition
-  | MDFootnoteReference
-  | MDHeading
-  | MDImage
-  | MDImageReference
-  | MDInlineCode
-  | MDInlineMath
-  | MDLink
-  | MDLinkReference
-  | MDList
-  | MDListItem
-  | MDMath
-  | MDParagraph
-  | MDStrong
-  | MDTable
-  | MDTableCell
-  | MDTableRow
-  | MDText
-  | MDThematicBreak
-  | MDToml
-  | MDXFlowExpression
-  | MDXTextExpression
-  | MDYaml
+  | MDNodeMap[keyof MDNodeMap]
 ```
 
 ## Rules

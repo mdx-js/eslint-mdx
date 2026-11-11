@@ -89,6 +89,11 @@ export interface MDXTextExpression extends BaseNode {
   expression: Expression | JSXEmptyExpression
 }
 
+export interface MDHtml extends BaseNode {
+  type: 'MDHtml'
+  value: string
+}
+
 export interface MDText extends BaseNode {
   type: 'MDText'
   value: string
@@ -241,35 +246,7 @@ export type MDContentNode =
   | JSXFragment
   | JSXSpreadChild
   | JSXText
-  | MDBlockquote
-  | MDBreak
-  | MDCode
-  | MDDefinition
-  | MDDelete
-  | MDEmphasis
-  | MDFootnoteDefinition
-  | MDFootnoteReference
-  | MDHeading
-  | MDImage
-  | MDImageReference
-  | MDInlineCode
-  | MDInlineMath
-  | MDLink
-  | MDLinkReference
-  | MDList
-  | MDListItem
-  | MDMath
-  | MDParagraph
-  | MDStrong
-  | MDTable
-  | MDTableCell
-  | MDTableRow
-  | MDText
-  | MDThematicBreak
-  | MDToml
-  | MDXFlowExpression
-  | MDXTextExpression
-  | MDYaml
+  | MDNodeMap[keyof MDNodeMap]
 
 declare module 'acorn' {
   interface Token {
@@ -277,41 +254,48 @@ declare module 'acorn' {
   }
 }
 
-declare module 'estree' {
-  interface ProgramBodyMap {
-    // Markdown
-    MDBlockquote: MDBlockquote
-    MDBreak: MDBreak
-    MDCode: MDCode
-    MDDefinition: MDDefinition
-    MDDelete: MDDelete
-    MDEmphasis: MDEmphasis
-    MDFootnoteDefinition: MDFootnoteDefinition
-    MDFootnoteReference: MDFootnoteReference
-    MDHeading: MDHeading
-    MDImage: MDImage
-    MDImageReference: MDImageReference
-    MDInlineCode: MDInlineCode
-    MDInlineMath: MDInlineMath
-    MDLink: MDLink
-    MDLinkReference: MDLinkReference
-    MDList: MDList
-    MDListItem: MDListItem
-    MDMath: MDMath
-    MDParagraph: MDParagraph
-    MDStrong: MDStrong
-    MDTable: MDTable
-    MDTableCell: MDTableCell
-    MDTableRow: MDTableRow
-    MDText: MDText
-    MDThematicBreak: MDThematicBreak
-    MDToml: MDToml
-    MDYaml: MDYaml
+export interface MDNodeMap {
+  // Markdown
+  MDBlockquote: MDBlockquote
+  MDBreak: MDBreak
+  MDCode: MDCode
+  MDDefinition: MDDefinition
+  MDDelete: MDDelete
+  MDEmphasis: MDEmphasis
+  MDFootnoteDefinition: MDFootnoteDefinition
+  MDFootnoteReference: MDFootnoteReference
+  MDHeading: MDHeading
+  MDHtml: MDHtml
+  MDImage: MDImage
+  MDImageReference: MDImageReference
+  MDInlineCode: MDInlineCode
+  MDInlineMath: MDInlineMath
+  MDLink: MDLink
+  MDLinkReference: MDLinkReference
+  MDList: MDList
+  MDListItem: MDListItem
+  MDMath: MDMath
+  MDParagraph: MDParagraph
+  MDStrong: MDStrong
+  MDTable: MDTable
+  MDTableCell: MDTableCell
+  MDTableRow: MDTableRow
+  MDText: MDText
+  MDThematicBreak: MDThematicBreak
+  MDToml: MDToml
+  MDYaml: MDYaml
 
-    // MDX
-    MDXFlowExpression: MDXFlowExpression
-    MDXTextExpression: MDXTextExpression
-  }
+  // MDX
+  MDXFlowExpression: MDXFlowExpression
+  MDXTextExpression: MDXTextExpression
+}
+
+declare module 'estree' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type -- declaration merging
+  interface NodeMap extends MDNodeMap {}
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type -- declaration merging
+  interface ProgramBodyMap extends MDNodeMap {}
 
   interface TemplateElement {
     start: number

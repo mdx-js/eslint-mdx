@@ -94,12 +94,13 @@ describe('parser', () => {
       parser.parse('<header>\n\nTitle\n\n</header>', DEFAULT_PARSER_OPTIONS),
     ).not.toThrow())
 
-  it('should work with plain markdown file', () =>
-    expect(() =>
-      parser.parse('<img><br>', {
-        filePath: 'test.md',
-      }),
-    ).not.toThrow())
+  it('should parse plain markdown into markdown nodes', () => {
+    const ast = parser.parse('<div>html</div>\n\n- item', {
+      filePath: 'test.md',
+    })
+
+    expect(ast.body.map(node => node.type)).toEqual(['MDHtml', 'MDList'])
+  })
 
   it('should parse jsx spread correctly', () =>
     expect(
