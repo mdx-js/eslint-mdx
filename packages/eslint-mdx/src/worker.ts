@@ -200,6 +200,24 @@ const getRemarkConfig = async (
 
 const REMARK_LINT_PREFIX = 'remark-lint:'
 
+const isSerializableOption = (value: unknown): boolean => {
+  if (typeof value === 'function' || value instanceof RegExp) {
+    return false
+  }
+
+  if (Array.isArray(value)) {
+    return (value as unknown[]).every((item: unknown) =>
+      isSerializableOption(item),
+    )
+  }
+
+  if (value && typeof value === 'object') {
+    return Object.values(value).every(isSerializableOption)
+  }
+
+  return true
+}
+
 const resolveRemarkConfig = (
   result: ConfigResult | null | undefined,
 ): RemarkConfig | undefined => {
@@ -210,7 +228,11 @@ const resolveRemarkConfig = (
   const ruleOptions = {} as RemarkRuleOptions
 
   for (const [{ name }, options] of result.plugins) {
-    if (!name?.startsWith(REMARK_LINT_PREFIX) || options === false) {
+    if (
+      !name?.startsWith(REMARK_LINT_PREFIX) ||
+      options === false ||
+      !isSerializableOption(options)
+    ) {
       continue
     }
 
@@ -344,10 +366,12 @@ const filterRemarkPlugins = (
   plugins: ConfigResult['plugins'],
   ignoreRemarkRules?: ReadonlySet<string>,
 ) =>
-  plugins.filter(([plugin]) => {
+  plugins.filter(([plugin, options]) => {
     const name = plugin.name?.slice('remark-lint:'.length)
 
-    return !name || !ignoreRemarkRules?.has(name)
+    return (
+      !name || !ignoreRemarkRules?.has(name) || !isSerializableOption(options)
+    )
   })
 
 interface RemarkProcessorResult {

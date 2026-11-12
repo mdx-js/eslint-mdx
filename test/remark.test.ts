@@ -94,6 +94,33 @@ ruleTester.run('remark', remark, {
         },
       ],
     },
+    {
+      code: '```html\nx()\n```',
+      languageOptions: {
+        ...languageOptions,
+        parserOptions: {
+          ...languageOptions.parserOptions,
+          remarkConfigPath: path.resolve(
+            _dirname,
+            'remark-fixtures/fenced-code-function.remarkrc.js',
+          ),
+        },
+      },
+      filename: path.resolve(_dirname, 'fixtures/async/test.mdx'),
+      errors: [
+        {
+          message: JSON.stringify({
+            reason: 'custom fenced flag',
+            source: 'remark-lint',
+            ruleId: 'fenced-code-flag',
+            severity: 1,
+          }),
+          line: 1,
+          column: 1,
+        },
+      ],
+      output: '```html\nx()\n```\n',
+    },
   ],
 })
 
