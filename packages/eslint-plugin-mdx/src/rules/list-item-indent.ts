@@ -13,6 +13,8 @@ type Style = 'mixed' | 'one' | 'tab'
 
 const CHARS_PER_TAB = 4
 
+const pluralize = (count: number) => (count === 1 ? 'space' : 'spaces')
+
 export const listItemIndent: Rule.RuleModule = {
   meta: {
     type: 'layout',
@@ -59,7 +61,9 @@ export const listItemIndent: Rule.RuleModule = {
         }
 
         const style: Style = configured ?? 'one'
-        const loose = node.spread
+        const loose =
+          node.spread === true ||
+          node.children.some(child => 'spread' in child && child.spread)
         let expectedIndent = end + 1
 
         /* istanbul ignore next -- POC covers one-space indentation */
@@ -73,10 +77,16 @@ export const listItemIndent: Rule.RuleModule = {
 
         if (actualSpaces !== expectedSpaces) {
           const difference = expectedSpaces - actualSpaces
+          let listKind = ''
+
+          if (style === 'mixed') {
+            listKind = loose ? ' in loose list' : ' in tight list'
+          }
+          const direction = difference > 0 ? 'add' : 'remove'
 
           context.report({
-            loc: node.loc,
-            message: `Unexpected \`${actualSpaces}\` spaces between list item marker and content, expected \`${expectedSpaces}\` spaces, ${['remove', 'remove', 'add'][Math.sign(difference) + 1]} \`${Math.abs(difference)}\` spaces`,
+            loc: head.loc,
+            message: `Unexpected \`${actualSpaces}\` ${pluralize(actualSpaces)} between list item marker and content${listKind}, expected \`${expectedSpaces}\` ${pluralize(expectedSpaces)}, ${direction} \`${Math.abs(difference)}\` ${pluralize(Math.abs(difference))}`,
           })
         }
       },
