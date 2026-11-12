@@ -200,11 +200,11 @@ const getRemarkConfig = async (
 
 const REMARK_LINT_PREFIX = 'remark-lint:'
 
-// Native rules only consume JSON-like options. RegExp values are
-// structuredClone-compatible, but no native rule currently interprets them,
-// so they must stay on the remark fallback path.
+// Functions cannot cross the worker boundary, so rules using them must stay
+// on the remark fallback path. Other structured-cloneable values are passed
+// through to native rules.
 const isNativeOptionSupported = (value: unknown): boolean => {
-  if (typeof value === 'function' || value instanceof RegExp) {
+  if (typeof value === 'function') {
     return false
   }
 
