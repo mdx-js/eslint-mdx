@@ -13,6 +13,16 @@ declare module 'eslint-mdx' {
 }
 
 const fence = /^ {0,3}([~`])\1{2,}/u
+const listFormat = new Intl.ListFormat('en', { type: 'disjunction' })
+const unitFormat = new Intl.ListFormat('en', { type: 'unit' })
+
+const formatFlags = (flags: readonly string[]) => {
+  const quoted = flags.map(flag => `\`${flag}\``)
+
+  return flags.length > 3
+    ? unitFormat.format([...quoted.slice(0, 3), '…'])
+    : listFormat.format(quoted)
+}
 
 export const fencedCodeFlag: Rule.RuleModule = {
   meta: {
@@ -52,12 +62,13 @@ export const fencedCodeFlag: Rule.RuleModule = {
           return
         }
 
+        const expected = flags ? formatFlags(flags) : 'keyword'
+
         if (!node.lang) {
           if (!allowEmpty) {
             context.report({
               loc: node.loc,
-              message:
-                'Unexpected missing fenced code language flag in info string, expected keyword',
+              message: `Unexpected missing fenced code language flag in info string, expected ${expected}`,
             })
           }
 
@@ -65,8 +76,6 @@ export const fencedCodeFlag: Rule.RuleModule = {
         }
 
         if (flags && !flags.includes(node.lang)) {
-          const expected = flags.map(flag => `\`${flag}\``).join(', ')
-
           context.report({
             loc: node.loc,
             message: `Unexpected fenced code language flag \`${node.lang}\` in info string, expected ${expected}`,
