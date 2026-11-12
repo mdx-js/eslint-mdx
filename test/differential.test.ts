@@ -29,7 +29,6 @@ const configRules = new Set(
 // Keep the corpus and skip list adjacent: the skip list is specific to this
 // corpus and should shrink as the remaining differences are fixed.
 const knownDivergences = new Set([
-  'list-item-bullet-indent',
   'list-item-indent',
   'list-item-spacing',
   'maximum-heading-length',
