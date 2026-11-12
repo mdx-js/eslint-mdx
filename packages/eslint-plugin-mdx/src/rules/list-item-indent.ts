@@ -61,10 +61,9 @@ export const listItemIndent: Rule.RuleModule = {
         }
 
         const style: Style = configured ?? 'one'
-        const loose = Boolean(
+        const loose =
           node.spread ||
-          node.children.some(child => 'spread' in child && child.spread),
-        )
+          node.children.some(child => 'spread' in child && child.spread)
         let expectedIndent = end + 1
 
         /* istanbul ignore next -- POC covers one-space indentation */
