@@ -195,7 +195,7 @@ export class Parser {
       ast,
       scopeManager,
       services: {
-        remarkConfig: remarkConfig ?? { ruleOptions: {}, settings: {} },
+        remarkConfig: remarkConfig ?? { ruleOptions: {} },
       },
       visitorKeys,
     }

@@ -245,7 +245,6 @@ const resolveRemarkConfig = (
 
   return {
     ruleOptions,
-    settings: result.settings,
   }
 }
 
