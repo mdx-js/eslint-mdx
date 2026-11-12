@@ -200,19 +200,22 @@ const getRemarkConfig = async (
 
 const REMARK_LINT_PREFIX = 'remark-lint:'
 
-const isSerializableOption = (value: unknown): boolean => {
+// Native rules only consume JSON-like options. RegExp values are
+// structuredClone-compatible, but no native rule currently interprets them,
+// so they must stay on the remark fallback path.
+const isNativeOptionSupported = (value: unknown): boolean => {
   if (typeof value === 'function' || value instanceof RegExp) {
     return false
   }
 
   if (Array.isArray(value)) {
     return (value as unknown[]).every((item: unknown) =>
-      isSerializableOption(item),
+      isNativeOptionSupported(item),
     )
   }
 
   if (value && typeof value === 'object') {
-    return Object.values(value).every(isSerializableOption)
+    return Object.values(value).every(isNativeOptionSupported)
   }
 
   return true
@@ -231,7 +234,7 @@ const resolveRemarkConfig = (
     if (
       !name?.startsWith(REMARK_LINT_PREFIX) ||
       options === false ||
-      !isSerializableOption(options)
+      !isNativeOptionSupported(options)
     ) {
       continue
     }
@@ -370,7 +373,9 @@ const filterRemarkPlugins = (
     const name = plugin.name?.slice('remark-lint:'.length)
 
     return (
-      !name || !ignoreRemarkRules?.has(name) || !isSerializableOption(options)
+      !name ||
+      !ignoreRemarkRules?.has(name) ||
+      !isNativeOptionSupported(options)
     )
   })
 
