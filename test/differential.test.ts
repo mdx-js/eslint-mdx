@@ -12,24 +12,22 @@ const linter = new Linter({ configType: 'flat' })
 const _dirname = import.meta.dirname
 const fixtureDir = path.resolve(_dirname, 'fixtures')
 const remarkConfigPath = path.resolve(_dirname, 'remark-fixtures/next.remarkrc')
+const remarkConfig = JSON.parse(fs.readFileSync(remarkConfigPath, 'utf8')) as {
+  plugins: Array<string | [string, unknown]>
+}
 
-const fixtureNames = [
-  '287.mdx',
-  '292.mdx',
-  '367.mdx',
-  '380.mdx',
-  '435.mdx',
-  '581.mdx',
-  'basic.mdx',
-  'blank-lines.mdx',
-  'jsx-in-list.mdx',
-  'markdown.md',
-  'nested-empty-expression.mdx',
-  'remark.md',
-]
+// `remark-lint-file-extension` is force-disabled by the worker when a config
+// is present, so it can never be compared through these two paths.
+const configRules = new Set(
+  remarkConfig.plugins
+    .map(plugin => (Array.isArray(plugin) ? plugin[0] : plugin))
+    .filter(name => name.startsWith('remark-lint-'))
+    .map(name => name.slice('remark-lint-'.length))
+    .filter(name => name !== 'file-extension'),
+)
 
-// These rules still have known message/location differences on the shared
-// corpus. They should move out of this list as the differential audit is fixed.
+// Keep the corpus and skip list adjacent: the skip list is specific to this
+// corpus and should shrink as the remaining differences are fixed.
 const knownDivergences = new Set([
   'list-item-bullet-indent',
   'list-item-indent',
@@ -41,28 +39,66 @@ const knownDivergences = new Set([
   'table-pipe-alignment',
 ])
 
-const ruleNames = Object.keys(rules).filter(
-  name => name !== 'remark' && !knownDivergences.has(name),
+const allFixtureNames = fs
+  .readdirSync(fixtureDir)
+  .filter(file => /\.(?:md|mdx)$/u.test(file))
+  .filter(file => fs.statSync(path.join(fixtureDir, file)).isFile())
+
+const fixtureNames = allFixtureNames.filter(file => {
+  try {
+    parser.parse(fs.readFileSync(path.join(fixtureDir, file), 'utf8'), {
+      ...DEFAULT_PARSER_OPTIONS,
+      filePath: file,
+      remarkConfigPath,
+    })
+    return true
+  } catch {
+    return false
+  }
+})
+
+const skippedFixtureNames = allFixtureNames.filter(
+  file => !fixtureNames.includes(file),
 )
 
-const normalizeNative = (messages: Linter.LintMessage[]) =>
-  messages
-    .filter(message => !message.fatal)
-    .map(({ column, line, message }) => ({ column, line, message }))
-    .sort((a, b) => a.line - b.line || a.column - b.column)
+const ruleNames = Object.keys(rules).filter(
+  name => configRules.has(name) && !knownDivergences.has(name),
+)
 
-const normalizeRemark = (
-  messages: Array<{ column: number; line: number; reason: string }>,
+const normalize = (
+  messages: Array<{ column: number; line: number; text: string }>,
 ) =>
   messages
-    .map(({ column, line, reason }) => ({ column, line, message: reason }))
+    .map(({ column, line, text }) => ({ column, line, message: text }))
     .sort((a, b) => a.line - b.line || a.column - b.column)
+
+const getRemarkMessages = (file: string, code: string) => {
+  const filePath = path.resolve(fixtureDir, file)
+
+  return performSyncWork({
+    filePath,
+    code,
+    cwd: process.cwd(),
+    isMdx: file.endsWith('.mdx'),
+    process: true,
+    ignoreRemarkConfig: false,
+    ignoreRemarkRules: new Set(),
+    remarkConfigPath,
+  }).messages.map(({ column, line, reason, ruleId }) => ({
+    column,
+    line,
+    text: reason,
+    ruleId,
+  }))
+}
+
+const remarkMessages = new Map<string, ReturnType<typeof getRemarkMessages>>()
 
 const getMismatches = (ruleName: string) => {
   const mismatches: Array<{
     file: string
-    native: ReturnType<typeof normalizeNative>
-    remark: ReturnType<typeof normalizeRemark>
+    native: ReturnType<typeof normalize>
+    remark: ReturnType<typeof normalize>
   }> = []
 
   for (const file of fixtureNames) {
@@ -87,37 +123,60 @@ const getMismatches = (ruleName: string) => {
       { filename: filePath },
     )
 
-    if (native.some(message => message.fatal)) {
-      continue
+    const fatal = native.find(message => message.fatal)
+
+    if (fatal) {
+      throw new Error(`${file} failed to parse: ${fatal.message}`)
     }
 
-    const remark = performSyncWork({
-      filePath,
-      code,
-      cwd: process.cwd(),
-      isMdx: file.endsWith('.mdx'),
-      process: true,
-      ignoreRemarkConfig: false,
-      ignoreRemarkRules: new Set(),
-      remarkConfigPath,
-    }).messages.filter(message => message.ruleId === ruleName)
+    if (!remarkMessages.has(file)) {
+      remarkMessages.set(file, getRemarkMessages(file, code))
+    }
 
-    const nativeMessages = normalizeNative(
-      native.filter(message => message.ruleId === `mdx/${ruleName}`),
+    const nativeMessages = normalize(
+      native
+        .filter(message => message.ruleId === `mdx/${ruleName}`)
+        .map(message => ({
+          column: message.column,
+          line: message.line,
+          text: message.message,
+        })),
     )
-    const remarkMessages = normalizeRemark(remark)
+    const remark = normalize(
+      (remarkMessages.get(file) ?? [])
+        .filter(message => message.ruleId === ruleName)
+        .map(message => ({
+          column: message.column,
+          line: message.line,
+          text: message.text,
+        })),
+    )
 
-    if (JSON.stringify(nativeMessages) !== JSON.stringify(remarkMessages)) {
-      mismatches.push({
-        file,
-        native: nativeMessages,
-        remark: remarkMessages,
-      })
+    if (JSON.stringify(nativeMessages) !== JSON.stringify(remark)) {
+      mismatches.push({ file, native: nativeMessages, remark })
     }
   }
 
   return mismatches
 }
+
+test('only known unparseable fixtures are skipped', () => {
+  expect(skippedFixtureNames).toEqual([
+    '336.mdx',
+    '576.mdx',
+    'acorn.mdx',
+    'comments.mdx',
+    'details.mdx',
+  ])
+})
+
+test('known divergences still diverge on this corpus', () => {
+  expect.hasAssertions()
+
+  for (const ruleName of knownDivergences) {
+    expect(getMismatches(ruleName)).not.toEqual([])
+  }
+})
 
 describe.each(ruleNames)('%s', ruleName => {
   test('matches remark-lint on the shared corpus', () => {
