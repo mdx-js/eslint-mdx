@@ -9,7 +9,7 @@ declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
     'no-undefined-references':
       | {
-          allow?: Array<string | { flags?: string; source: string }>
+          allow?: Array<RegExp | string | { flags?: string; source: string }>
           allowShortcutLink?: boolean
         }
       | undefined

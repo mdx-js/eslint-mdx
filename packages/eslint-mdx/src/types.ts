@@ -10,7 +10,6 @@ import type {
   JSXText,
 } from 'estree-jsx'
 import type { Root } from 'mdast'
-import type { Settings } from 'unified'
 import type { VFileMessage } from 'vfile-message'
 
 export interface CommonOptions {
@@ -53,7 +52,6 @@ export interface RemarkRuleOptions {}
 
 export interface RemarkConfig {
   ruleOptions: RemarkRuleOptions
-  settings: Settings
 }
 
 export interface WorkerParseResult {

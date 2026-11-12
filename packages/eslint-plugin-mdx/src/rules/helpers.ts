@@ -59,8 +59,8 @@ export const getRuleConfig = <RuleName extends keyof RemarkRuleOptions>(
   name: RuleName,
 ) => {
   const {
-    remarkConfig: { ruleOptions, settings },
+    remarkConfig: { ruleOptions },
     // type-coverage:ignore-next-line -- bad typings
   } = sourceCode.parserServices as { remarkConfig: RemarkConfig }
-  return name in ruleOptions ? { options: ruleOptions[name], settings } : null
+  return name in ruleOptions ? { options: ruleOptions[name] } : null
 }

@@ -11,6 +11,9 @@ const allowOptions = createLanguageOptions({
 const regexOptions = createLanguageOptions({
   remarkConfig: 'no-undefined-regex.remarkrc',
 })
+const regexpOptions = createLanguageOptions({
+  remarkConfig: 'no-undefined-regexp.remarkrc.js',
+})
 ruleTester.run('no-undefined-references', noUndefinedReferences, {
   valid: [
     { code: '# A', filename: 'native.mdx', languageOptions },
@@ -19,6 +22,7 @@ ruleTester.run('no-undefined-references', noUndefinedReferences, {
     { code: '[a]', filename: 'native.mdx', languageOptions: allowOptions },
     { code: '[c]', filename: 'native.mdx', languageOptions: allowOptions },
     { code: '[b]', filename: 'native.mdx', languageOptions: regexOptions },
+    { code: '[b]', filename: 'native.mdx', languageOptions: regexpOptions },
     { code: '[', filename: 'native.mdx', languageOptions },
     { code: ']', filename: 'native.mdx', languageOptions },
     { code: '[]', filename: 'native.mdx', languageOptions },
@@ -61,6 +65,19 @@ ruleTester.run('no-undefined-references', noUndefinedReferences, {
         {
           message:
             'Unexpected reference to undefined definition, expected corresponding definition (`x`) for a footnote or escaped opening bracket (`\\[`) for regular text',
+          line: 1,
+          column: 1,
+        },
+      ],
+    },
+    {
+      code: '[c]',
+      filename: 'native.mdx',
+      languageOptions: regexpOptions,
+      errors: [
+        {
+          message:
+            'Unexpected reference to undefined definition, expected corresponding definition (`c`) for a link or escaped opening bracket (`\\[`) for regular text',
           line: 1,
           column: 1,
         },
