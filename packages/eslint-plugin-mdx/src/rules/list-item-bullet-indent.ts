@@ -1,5 +1,5 @@
 import type { Rule } from 'eslint'
-import type { MDListItem } from 'eslint-mdx'
+import type { Program } from 'estree'
 
 import { getRuleConfig } from './helpers.js'
 
@@ -21,13 +21,22 @@ export const listItemBulletIndent: Rule.RuleModule = {
       return {}
     }
     return {
-      MDListItem(node: MDListItem) {
-        const indent = node.loc.start.column
-        if (indent > 0) {
-          context.report({
-            loc: node.loc,
-            message: `Unexpected \`${indent}\` spaces before list item, remove \`${indent}\` spaces`,
-          })
+      Program(node: Program) {
+        for (const child of node.body) {
+          if (child.type !== 'MDList') {
+            continue
+          }
+
+          for (const item of child.children) {
+            const actual = item.loc.start.column
+
+            if (actual > 0) {
+              context.report({
+                loc: item.loc,
+                message: `Unexpected \`${actual}\` ${actual === 1 ? 'space' : 'spaces'} before list item, expected \`0\` spaces, remove them`,
+              })
+            }
+          }
         }
       },
     }
