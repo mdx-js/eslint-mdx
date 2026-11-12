@@ -22,6 +22,11 @@ ruleTester.run('fenced code flag', fencedCodeFlag, {
     { code: '```js\nx()\n```', filename: 'native.mdx', languageOptions },
     { code: '    x()', filename: 'native.md', languageOptions },
     {
+      code: '    ```\n    x()\n    ```',
+      filename: 'native.md',
+      languageOptions,
+    },
+    {
       code: '```\nx()\n```',
       filename: 'native.mdx',
       languageOptions: allowOptions,

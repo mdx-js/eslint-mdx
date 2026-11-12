@@ -27,7 +27,7 @@ const formatFlags = (flags: readonly string[]) => {
 export const fencedCodeFlag: Rule.RuleModule = {
   meta: {
     type: 'problem',
-    docs: { description: 'Require fenced code language flags' },
+    docs: { description: 'Enforce fenced code language flags' },
     schema: [],
   },
   create(context) {
@@ -54,6 +54,8 @@ export const fencedCodeFlag: Rule.RuleModule = {
       flags = settings.flags
     }
 
+    const expected = flags ? formatFlags(flags) : 'keyword'
+
     return {
       MDCode(node: MDCode) {
         const raw = sourceText.slice(node.range[0], node.range[1])
@@ -61,8 +63,6 @@ export const fencedCodeFlag: Rule.RuleModule = {
         if (!fence.test(raw)) {
           return
         }
-
-        const expected = flags ? formatFlags(flags) : 'keyword'
 
         if (!node.lang) {
           if (!allowEmpty) {
