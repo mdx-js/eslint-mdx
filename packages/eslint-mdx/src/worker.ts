@@ -200,6 +200,27 @@ const getRemarkConfig = async (
 
 const REMARK_LINT_PREFIX = 'remark-lint:'
 
+// Functions cannot cross the worker boundary, so rules using them must stay
+// on the remark fallback path. Other structured-cloneable values are passed
+// through to native rules.
+const isNativeOptionSupported = (value: unknown): boolean => {
+  if (typeof value === 'function') {
+    return false
+  }
+
+  if (Array.isArray(value)) {
+    return (value as unknown[]).every((item: unknown) =>
+      isNativeOptionSupported(item),
+    )
+  }
+
+  if (value && typeof value === 'object') {
+    return Object.values(value).every(isNativeOptionSupported)
+  }
+
+  return true
+}
+
 const resolveRemarkConfig = (
   result: ConfigResult | null | undefined,
 ): RemarkConfig | undefined => {
@@ -210,7 +231,11 @@ const resolveRemarkConfig = (
   const ruleOptions = {} as RemarkRuleOptions
 
   for (const [{ name }, options] of result.plugins) {
-    if (!name?.startsWith(REMARK_LINT_PREFIX) || options === false) {
+    if (
+      !name?.startsWith(REMARK_LINT_PREFIX) ||
+      options === false ||
+      !isNativeOptionSupported(options)
+    ) {
       continue
     }
 
@@ -220,7 +245,6 @@ const resolveRemarkConfig = (
 
   return {
     ruleOptions,
-    settings: result.settings,
   }
 }
 
@@ -344,10 +368,14 @@ const filterRemarkPlugins = (
   plugins: ConfigResult['plugins'],
   ignoreRemarkRules?: ReadonlySet<string>,
 ) =>
-  plugins.filter(([plugin]) => {
+  plugins.filter(([plugin, options]) => {
     const name = plugin.name?.slice('remark-lint:'.length)
 
-    return !name || !ignoreRemarkRules?.has(name)
+    return (
+      !name ||
+      !ignoreRemarkRules?.has(name) ||
+      !isNativeOptionSupported(options)
+    )
   })
 
 interface RemarkProcessorResult {

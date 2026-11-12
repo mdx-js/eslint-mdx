@@ -1,0 +1,5 @@
+{
+  "plugins": [
+    ["remark-lint-fenced-code-flag", { "flags": ["js", "ts", "md", "mdx"] }]
+  ]
+}
