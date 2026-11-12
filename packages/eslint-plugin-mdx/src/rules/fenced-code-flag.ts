@@ -43,7 +43,6 @@ export const fencedCodeFlag: Rule.RuleModule = {
     let flags: readonly string[] | undefined
 
     if (Array.isArray(options)) {
-      /* istanbul ignore next -- POC covers array options via remark config */
       flags = options as readonly string[]
     } else if (options && typeof options === 'object') {
       const settings = options as {
