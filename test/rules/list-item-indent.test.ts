@@ -6,7 +6,7 @@ import { listItemIndent } from 'eslint-plugin-mdx'
 
 const languageOptions = createLanguageOptions({ remarkConfig: 'next.remarkrc' })
 const mixedOptions = createLanguageOptions({
-  remarkConfig: 'list-item-indent-mixed.remarkrc',
+  remarkConfig: 'shared-options.remarkrc',
 })
 ruleTester.run('list-item-indent', listItemIndent, {
   valid: [
