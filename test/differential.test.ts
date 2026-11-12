@@ -43,7 +43,10 @@ const allFixtureNames = fs
   .readdirSync(fixtureDir)
   .filter(file => /\.(?:md|mdx)$/u.test(file))
   .filter(file => fs.statSync(path.join(fixtureDir, file)).isFile())
+  .sort((a, b) => a.localeCompare(b))
 
+// Some rules still produce no messages on this corpus; an empty comparison is
+// kept as an anti-false-positive guard until the corpus gains positive cases.
 const fixtureNames = allFixtureNames.filter(file => {
   try {
     parser.parse(fs.readFileSync(path.join(fixtureDir, file), 'utf8'), {
@@ -66,11 +69,8 @@ const ruleNames = Object.keys(rules).filter(
 )
 
 const normalize = (
-  messages: Array<{ column: number; line: number; text: string }>,
-) =>
-  messages
-    .map(({ column, line, text }) => ({ column, line, message: text }))
-    .sort((a, b) => a.line - b.line || a.column - b.column)
+  messages: Array<{ column: number; line: number; message: string }>,
+) => [...messages].sort((a, b) => a.line - b.line || a.column - b.column)
 
 const getRemarkMessages = (file: string, code: string) => {
   const filePath = path.resolve(fixtureDir, file)
@@ -87,7 +87,7 @@ const getRemarkMessages = (file: string, code: string) => {
   }).messages.map(({ column, line, reason, ruleId }) => ({
     column,
     line,
-    text: reason,
+    message: reason,
     ruleId,
   }))
 }
@@ -136,19 +136,19 @@ const getMismatches = (ruleName: string) => {
     const nativeMessages = normalize(
       native
         .filter(message => message.ruleId === `mdx/${ruleName}`)
-        .map(message => ({
-          column: message.column,
-          line: message.line,
-          text: message.message,
+        .map(({ column, line, message }) => ({
+          column,
+          line,
+          message,
         })),
     )
     const remark = normalize(
       (remarkMessages.get(file) ?? [])
         .filter(message => message.ruleId === ruleName)
-        .map(message => ({
-          column: message.column,
-          line: message.line,
-          text: message.text,
+        .map(({ column, line, message }) => ({
+          column,
+          line,
+          message,
         })),
     )
 
