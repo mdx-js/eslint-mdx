@@ -16,7 +16,7 @@ export const listItemBulletIndent: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'list-item-bullet-indent')
+    const config = getRuleConfig(context, 'list-item-bullet-indent')
     if (!config) {
       return {}
     }

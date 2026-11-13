@@ -19,7 +19,7 @@ export const noFileNameMixedCase: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'no-file-name-mixed-case')
+    const config = getRuleConfig(context, 'no-file-name-mixed-case')
 
     if (!config) {
       return {}

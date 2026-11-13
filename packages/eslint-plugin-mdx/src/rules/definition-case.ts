@@ -18,7 +18,7 @@ export const definitionCase: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'definition-case')
+    const config = getRuleConfig(context, 'definition-case')
 
     if (!config) {
       return {}

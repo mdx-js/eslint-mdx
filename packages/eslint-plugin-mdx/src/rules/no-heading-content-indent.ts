@@ -19,10 +19,7 @@ export const noHeadingContentIndent: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(
-      context.sourceCode,
-      'no-heading-content-indent',
-    )
+    const config = getRuleConfig(context, 'no-heading-content-indent')
 
     if (!config) {
       return {}

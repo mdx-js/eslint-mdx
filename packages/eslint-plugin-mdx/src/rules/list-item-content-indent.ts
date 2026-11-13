@@ -16,7 +16,7 @@ export const listItemContentIndent: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'list-item-content-indent')
+    const config = getRuleConfig(context, 'list-item-content-indent')
 
     if (!config) {
       return {}

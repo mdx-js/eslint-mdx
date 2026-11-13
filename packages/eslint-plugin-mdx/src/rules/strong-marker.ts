@@ -15,10 +15,10 @@ export const strongMarker: Rule.RuleModule = {
       description: 'Enforce a consistent strong marker',
     },
     fixable: 'code',
-    schema: [],
+    schema: [{ enum: ['_', '*', 'consistent'], type: 'string' }],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'strong-marker')
+    const config = getRuleConfig(context, 'strong-marker')
 
     if (!config) {
       return {}

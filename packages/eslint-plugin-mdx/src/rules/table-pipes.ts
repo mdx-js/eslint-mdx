@@ -16,7 +16,7 @@ export const tablePipes: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'table-pipes')
+    const config = getRuleConfig(context, 'table-pipes')
 
     if (!config) {
       return {}

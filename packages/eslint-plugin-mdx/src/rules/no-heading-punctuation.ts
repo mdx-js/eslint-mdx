@@ -14,10 +14,10 @@ export const noHeadingPunctuation: Rule.RuleModule = {
     docs: {
       description: 'Disallow punctuation at the end of headings',
     },
-    schema: [],
+    schema: [{ type: ['string', 'object'] }],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'no-heading-punctuation')
+    const config = getRuleConfig(context, 'no-heading-punctuation')
 
     if (!config) {
       return {}

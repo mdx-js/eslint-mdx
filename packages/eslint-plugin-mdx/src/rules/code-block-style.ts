@@ -13,10 +13,10 @@ export const codeBlockStyle: Rule.RuleModule = {
   meta: {
     type: 'layout',
     docs: { description: 'Enforce code block style' },
-    schema: [],
+    schema: [{ enum: ['consistent', 'fenced', 'indented'], type: 'string' }],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'code-block-style')
+    const config = getRuleConfig(context, 'code-block-style')
 
     if (!config) {
       return {}

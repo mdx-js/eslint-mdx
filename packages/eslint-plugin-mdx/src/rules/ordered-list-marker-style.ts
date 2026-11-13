@@ -18,13 +18,10 @@ export const orderedListMarkerStyle: Rule.RuleModule = {
       description: 'Enforce a consistent ordered list marker style',
     },
     fixable: 'code',
-    schema: [],
+    schema: [{ enum: ['.', ')', 'consistent'], type: 'string' }],
   },
   create(context) {
-    const config = getRuleConfig(
-      context.sourceCode,
-      'ordered-list-marker-style',
-    )
+    const config = getRuleConfig(context, 'ordered-list-marker-style')
 
     if (!config) {
       return {}

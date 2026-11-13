@@ -18,7 +18,7 @@ export const finalNewline: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'final-newline')
+    const config = getRuleConfig(context, 'final-newline')
 
     if (!config) {
       return {}

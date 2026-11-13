@@ -2,7 +2,7 @@ import type { Rule } from 'eslint'
 import type { MDHeading } from 'eslint-mdx'
 import type { JSXElement } from 'estree-jsx'
 
-import { getNodeText, getRuleConfig } from './helpers.js'
+import { ANY_OPTION_SCHEMA, getNodeText, getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -17,10 +17,24 @@ export const maximumHeadingLength: Rule.RuleModule = {
     docs: {
       description: 'Enforce a maximum heading length',
     },
-    schema: [],
+    schema: [
+      {
+        anyOf: [
+          { type: 'number' },
+          {
+            additionalProperties: false,
+            properties: {
+              size: { type: ['number', 'null'] },
+              stringLength: ANY_OPTION_SCHEMA,
+            },
+            type: 'object',
+          },
+        ],
+      },
+    ],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'maximum-heading-length')
+    const config = getRuleConfig(context, 'maximum-heading-length')
 
     if (!config) {
       return {}

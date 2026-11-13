@@ -32,10 +32,7 @@ export const noBlockquoteWithoutMarker: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(
-      context.sourceCode,
-      'no-blockquote-without-marker',
-    )
+    const config = getRuleConfig(context, 'no-blockquote-without-marker')
 
     if (!config) {
       return {}

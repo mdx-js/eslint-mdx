@@ -19,10 +19,7 @@ export const noFileNameOuterDashes: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(
-      context.sourceCode,
-      'no-file-name-outer-dashes',
-    )
+    const config = getRuleConfig(context, 'no-file-name-outer-dashes')
 
     if (!config) {
       return {}

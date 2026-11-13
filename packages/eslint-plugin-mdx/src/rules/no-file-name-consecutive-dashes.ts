@@ -19,10 +19,7 @@ export const noFileNameConsecutiveDashes: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(
-      context.sourceCode,
-      'no-file-name-consecutive-dashes',
-    )
+    const config = getRuleConfig(context, 'no-file-name-consecutive-dashes')
 
     if (!config) {
       return {}

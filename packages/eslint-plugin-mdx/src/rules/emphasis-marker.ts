@@ -16,10 +16,10 @@ export const emphasisMarker: Rule.RuleModule = {
       description: 'Enforce a consistent emphasis marker',
     },
     fixable: 'code',
-    schema: [],
+    schema: [{ enum: ['_', '*', 'consistent'], type: 'string' }],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'emphasis-marker')
+    const config = getRuleConfig(context, 'emphasis-marker')
 
     if (!config) {
       return {}

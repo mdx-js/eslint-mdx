@@ -18,7 +18,7 @@ export const headingIncrement: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'heading-increment')
+    const config = getRuleConfig(context, 'heading-increment')
 
     if (!config) {
       return {}

@@ -17,10 +17,7 @@ export const noShortcutReferenceLink: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(
-      context.sourceCode,
-      'no-shortcut-reference-link',
-    )
+    const config = getRuleConfig(context, 'no-shortcut-reference-link')
 
     if (!config) {
       return {}
