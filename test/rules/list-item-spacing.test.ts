@@ -18,9 +18,9 @@ ruleTester.run('list-item-spacing', listItemSpacing, {
       errors: [
         {
           message:
-            'Unexpected `1` blank lines between list items, expected `0` blank lines, remove `1` blank lines',
-          line: 3,
-          column: 1,
+            'Unexpected `1` blank line between list items, expected `0` blank lines, remove `1` blank line',
+          line: 1,
+          column: 4,
         },
       ],
     },
@@ -31,9 +31,9 @@ ruleTester.run('list-item-spacing', listItemSpacing, {
       errors: [
         {
           message:
-            'Unexpected `0` blank lines between list items, expected `1` blank lines, add `1` blank lines',
-          line: 3,
-          column: 1,
+            'Unexpected `0` blank lines between list items, expected `1` blank line, add `1` blank line',
+          line: 2,
+          column: 15,
         },
       ],
     },
