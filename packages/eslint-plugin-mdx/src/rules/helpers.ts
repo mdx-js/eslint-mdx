@@ -41,7 +41,6 @@ export const NATIVE_REMARK_RULES = new Set([
   'checkbox-character-style',
   'code-block-style',
   'fenced-code-flag',
-  'file-extension',
   'final-definition',
   'hard-break-spaces',
   'list-item-bullet-indent',
@@ -62,9 +61,18 @@ export const getRuleConfig = <RuleName extends keyof RemarkRuleOptions>(
   name: RuleName,
 ) => {
   const {
-    remarkConfig: { ruleOptions },
+    remarkConfig,
     // type-coverage:ignore-next-line -- bad typings
-  } = context.sourceCode.parserServices as { remarkConfig: RemarkConfig }
+  } = context.sourceCode.parserServices as {
+    remarkConfig?: RemarkConfig
+  }
+
+  /* istanbul ignore if -- non-Markdown files have no remark services */
+  if (!remarkConfig) {
+    return null
+  }
+
+  const { ruleOptions } = remarkConfig
   // type-coverage:ignore-next-line -- ESLint types RuleContext.options as any[]
   const eslintOptions = context.options as readonly unknown[]
   const hasEslintOption = eslintOptions.length > 0

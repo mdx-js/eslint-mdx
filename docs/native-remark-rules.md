@@ -2,7 +2,7 @@
 
 This page documents the native ESLint implementations of the mapped [remark-lint](https://github.com/remarkjs/remark-lint) rules.
 
-> These rules are currently developed on the `next` prerelease branch and are enabled by default in the `base` / `flat` configs while the migration is validated. They are not yet a promise of stable parity with remark-lint.
+> These rules are opt-in. `base` / `flat` keep using `mdx/remark`; extend `plugin:mdx/native` or add `mdx.configs.native` to enable the native rules. They are not yet a promise of stable parity with remark-lint.
 
 ## Options
 
@@ -19,7 +19,16 @@ This page documents the native ESLint implementations of the mapped [remark-lint
 
 - Optionless rules currently need a remark config entry to be activated.
 - Function-valued options cannot cross the worker boundary, so the remark plugin is kept and `mdx/remark` reports those rules instead.
-- `remark-lint-file-extension` is force-disabled by the worker when a config is present; the native `mdx/file-extension` rule handles it.
+- `remark-lint-file-extension` is always force-disabled because the parser `extensions` / `markdownExtensions` options are authoritative.
+- Omit the `native` config to keep the remark fallback path. This is the migration rollback path.
+
+```js
+// legacy
+const legacy = { extends: ['plugin:mdx/base', 'plugin:mdx/native'] }
+
+// flat
+const flat = [mdx.configs.flat, mdx.configs.native]
+```
 
 ## Rules
 
@@ -61,7 +70,6 @@ This page documents the native ESLint implementations of the mapped [remark-lint
 | `mdx/checkbox-character-style`          | [`remark-lint-checkbox-character-style`](https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-checkbox-character-style)                   |
 | `mdx/code-block-style`                  | [`remark-lint-code-block-style`](https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-code-block-style)                                   |
 | `mdx/fenced-code-flag`                  | [`remark-lint-fenced-code-flag`](https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-fenced-code-flag)                                   |
-| `mdx/file-extension`                    | [`remark-lint-file-extension`](https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-file-extension)                                       |
 | `mdx/final-definition`                  | [`remark-lint-final-definition`](https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-final-definition)                                   |
 | `mdx/hard-break-spaces`                 | [`remark-lint-hard-break-spaces`](https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-hard-break-spaces)                                 |
 | `mdx/list-item-bullet-indent`           | [`remark-lint-list-item-bullet-indent`](https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-list-item-bullet-indent)                     |
@@ -80,4 +88,4 @@ The `mdx/remark` rule remains the fallback for remark plugins that are not mappe
 
 ## Validation
 
-The differential harness compares native rules against remark-lint on the shared fixture corpus. A small set of known semantic differences is tracked in the test until fixed; see [the tracking issue](https://github.com/mdx-js/eslint-mdx/issues/656).
+The differential harness compares native rules against remark-lint on the shared fixture corpus, with no known divergences remaining; see [the tracking issue](https://github.com/mdx-js/eslint-mdx/issues/656) for release readiness.

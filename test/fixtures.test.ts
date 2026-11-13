@@ -29,6 +29,11 @@ const getCli = (lintCodeBlocks = false, fix?: boolean) => {
       eslintJs.configs.recommended,
       ...configs.recommended,
       mdx.configs.flat,
+      {
+        files: ['**/*.{md,mdx}'],
+        plugins: { mdx },
+        rules: mdx.configs.native.rules,
+      },
       mdx.configs.flatCodeBlocks,
       prettierRecommended,
       {
@@ -156,7 +161,7 @@ describe('fixtures', () => {
         mdx.configs.flatCodeBlocks,
         {
           files: ['**/*.{md,mdx}'],
-          rules: { 'no-unused-vars': 'error' },
+          rules: { 'mdx/remark': 'off', 'no-unused-vars': 'error' },
         },
       ],
     })
