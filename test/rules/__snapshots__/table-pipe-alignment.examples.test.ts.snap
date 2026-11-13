@@ -4,66 +4,45 @@ exports[`table pipe alignment: center: center 1`] = `
 [
   {
     "column": 3,
-    "endColumn": 3,
-    "endLine": 1,
     "line": 1,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`1\` space",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
   {
     "column": 5,
-    "endColumn": 5,
-    "endLine": 1,
     "line": 1,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`1\` space",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
   {
     "column": 7,
-    "endColumn": 7,
-    "endLine": 1,
     "line": 1,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`2\` spaces",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
   {
     "column": 9,
-    "endColumn": 9,
-    "endLine": 1,
     "line": 1,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`1\` space",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
   {
     "column": 9,
-    "endColumn": 9,
-    "endLine": 2,
     "line": 2,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`1\` space (or add \`-\` to pad alignment row cells)",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
   {
     "column": 3,
-    "endColumn": 3,
-    "endLine": 3,
     "line": 3,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`1\` space",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
   {
     "column": 5,
-    "endColumn": 5,
-    "endLine": 3,
     "line": 3,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`1\` space",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
 ]
 `;
@@ -72,12 +51,9 @@ exports[`table pipe alignment: container: container 1`] = `
 [
   {
     "column": 7,
-    "endColumn": 7,
-    "endLine": 2,
     "line": 2,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`5\` spaces (or add \`-\` to pad alignment row cells)",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
 ]
 `;
@@ -86,21 +62,15 @@ exports[`table pipe alignment: crlf: crlf 1`] = `
 [
   {
     "column": 7,
-    "endColumn": 7,
-    "endLine": 2,
     "line": 2,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`3\` spaces (or add \`-\` to pad alignment row cells)",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
   {
     "column": 8,
-    "endColumn": 8,
-    "endLine": 3,
     "line": 3,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`2\` spaces",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
 ]
 `;
@@ -109,21 +79,15 @@ exports[`table pipe alignment: missingFences: missingFences 1`] = `
 [
   {
     "column": 1,
-    "endColumn": 1,
-    "endLine": 1,
     "line": 1,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`1\` space",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
   {
     "column": 1,
-    "endColumn": 1,
-    "endLine": 2,
     "line": 2,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`5\` spaces (or add \`-\` to pad alignment row cells)",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
 ]
 `;
@@ -134,12 +98,9 @@ exports[`table pipe alignment: trailingSpaces: trailingSpaces 1`] = `
 [
   {
     "column": 3,
-    "endColumn": 3,
-    "endLine": 2,
     "line": 2,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`4\` spaces (or add \`-\` to pad alignment row cells)",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
 ]
 `;
@@ -148,75 +109,51 @@ exports[`table pipe alignment: widths: widths 1`] = `
 [
   {
     "column": 5,
-    "endColumn": 5,
-    "endLine": 1,
     "line": 1,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`1\` space",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
   {
     "column": 7,
-    "endColumn": 7,
-    "endLine": 1,
     "line": 1,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`1\` space",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
   {
     "column": 9,
-    "endColumn": 9,
-    "endLine": 1,
     "line": 1,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`1\` space",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
   {
     "column": 11,
-    "endColumn": 11,
-    "endLine": 1,
     "line": 1,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`1\` space",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
   {
     "column": 5,
-    "endColumn": 5,
-    "endLine": 3,
     "line": 3,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`1\` space",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
   {
     "column": 7,
-    "endColumn": 7,
-    "endLine": 3,
     "line": 3,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`1\` space",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
   {
     "column": 9,
-    "endColumn": 9,
-    "endLine": 3,
     "line": 3,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`1\` space",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
   {
     "column": 11,
-    "endColumn": 11,
-    "endLine": 3,
     "line": 3,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`1\` space",
     "ruleId": "mdx/table-pipe-alignment",
-    "severity": 1,
   },
 ]
 `;

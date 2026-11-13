@@ -27,24 +27,31 @@ test.each(Object.entries(examples))(
   'table pipe alignment: %s',
   (name, code) => {
     expect(
-      linter.verify(
-        code,
-        [
-          {
-            files: ['**/*.mdx'],
-            languageOptions: {
-              parser,
-              parserOptions: {
-                ...DEFAULT_PARSER_OPTIONS,
-                remarkConfigPath,
+      linter
+        .verify(
+          code,
+          [
+            {
+              files: ['**/*.mdx'],
+              languageOptions: {
+                parser,
+                parserOptions: {
+                  ...DEFAULT_PARSER_OPTIONS,
+                  remarkConfigPath,
+                },
               },
+              plugins: { mdx: { rules } },
+              rules: { 'mdx/table-pipe-alignment': 'warn' },
             },
-            plugins: { mdx: { rules } },
-            rules: { 'mdx/table-pipe-alignment': 'warn' },
-          },
-        ],
-        { filename: 'native.mdx' },
-      ),
+          ],
+          { filename: 'native.mdx' },
+        )
+        .map(({ column, line, message, ruleId }) => ({
+          column,
+          line,
+          message,
+          ruleId,
+        })),
     ).toMatchSnapshot(name)
   },
 )
