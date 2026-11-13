@@ -22,6 +22,7 @@ interface Size {
 interface Entry {
   align: Align
   column: number
+  contentStart?: number
   row?: number
   size?: Size
 }
@@ -190,6 +191,7 @@ export const tablePipeAlignment: Rule.RuleModule = {
         entries.push({
           align: table.align?.[column] ?? null,
           column,
+          contentStart: index,
           size: inferSize(cellStart, cellEnd, cellEnd === lineEndOffset),
         })
 
@@ -255,7 +257,14 @@ export const tablePipeAlignment: Rule.RuleModule = {
             return
           }
 
-          const position = context.sourceCode.getLocFromIndex(offset)
+          const absolute = context.sourceCode.getLocFromIndex(offset)
+          const position =
+            entry.contentStart === undefined
+              ? absolute
+              : {
+                  line: absolute.line,
+                  column: offset - entry.contentStart,
+                }
 
           context.report({
             loc: { start: position, end: position },

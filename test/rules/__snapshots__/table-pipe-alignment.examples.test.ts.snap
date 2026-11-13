@@ -50,7 +50,7 @@ exports[`table pipe alignment: center: center 1`] = `
 exports[`table pipe alignment: container: container 1`] = `
 [
   {
-    "column": 7,
+    "column": 5,
     "line": 2,
     "message": "Unexpected unaligned cell, expected aligned pipes, add \`5\` spaces (or add \`-\` to pad alignment row cells)",
     "ruleId": "mdx/table-pipe-alignment",
