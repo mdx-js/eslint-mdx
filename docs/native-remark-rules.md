@@ -88,4 +88,4 @@ The `mdx/remark` rule remains the fallback for remark plugins that are not mappe
 
 ## Validation
 
-The differential harness compares native rules against remark-lint on the shared fixture corpus. A small set of known semantic differences is tracked in the test until fixed; see [the tracking issue](https://github.com/mdx-js/eslint-mdx/issues/656).
+The differential harness compares native rules against remark-lint on the shared fixture corpus, with no known divergences remaining; see [the tracking issue](https://github.com/mdx-js/eslint-mdx/issues/656) for release readiness.

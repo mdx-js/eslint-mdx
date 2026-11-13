@@ -1,5 +1,3 @@
-/* eslint-disable unicorn-x/no-await-expression-member */
-
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { promisify } from 'node:util'
@@ -358,7 +356,6 @@ const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
       }
     }
   })
-  /* eslint-enable sonarjs/cognitive-complexity */
 
   return ranges
 }
@@ -385,7 +382,6 @@ interface RemarkProcessorResult {
   processor: Processor<Root, undefined, undefined, Root, string>
 }
 
-/* eslint-disable sonarjs/cognitive-complexity -- cache and fallback branches */
 export const getRemarkProcessor = async (
   filePath: string,
   isMdx: boolean,
