@@ -28,10 +28,7 @@ const configRules = new Set(
 
 // Keep the corpus and skip list adjacent: the skip list is specific to this
 // corpus and should shrink as the remaining differences are fixed.
-const knownDivergences = new Set([
-  'maximum-line-length',
-  'table-pipe-alignment',
-])
+const knownDivergences = new Set(['maximum-line-length'])
 
 const allFixtureNames = fs
   .readdirSync(fixtureDir)
