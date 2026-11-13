@@ -32,7 +32,6 @@ const knownDivergences = new Set([
   'maximum-heading-length',
   'maximum-line-length',
   'no-literal-urls',
-  'ordered-list-marker-style',
   'table-pipe-alignment',
 ])
 

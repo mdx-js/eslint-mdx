@@ -1,5 +1,5 @@
 import type { Rule } from 'eslint'
-import type { MDListItem } from 'eslint-mdx'
+import type { MDList, MDListItem } from 'eslint-mdx'
 
 import { getRuleConfig } from './helpers.js'
 
@@ -31,51 +31,49 @@ export const orderedListMarkerStyle: Rule.RuleModule = {
     }
 
     const sourceText = context.sourceCode.getText()
-    /* istanbul ignore next -- POC covers the explicit marker option */
     let expected: Marker | undefined =
       config.options === '.' || config.options === ')'
         ? config.options
         : undefined
 
+    const checkItem = (item: MDListItem) => {
+      const start = item.range[0]
+      const raw = sourceText.slice(start, item.range[1])
+      const match = /^\d+([.)])/u.exec(raw)
+
+      /* istanbul ignore if -- list items have markers */
+      if (!match) {
+        return
+      }
+
+      const actual = match[1] as Marker
+
+      expected ??= actual
+
+      if (actual === expected) {
+        return
+      }
+
+      const markerIndex = start + match[0].length - 1
+      const markerStart = context.sourceCode.getLocFromIndex(markerIndex)
+
+      context.report({
+        loc: { start: markerStart, end: markerStart },
+        message: `Unexpected ordered list marker \`${actual}\`, expected \`${expected}\``,
+        fix: fixer =>
+          fixer.replaceTextRange([markerIndex, markerIndex + 1], expected),
+      })
+    }
+
     return {
-      MDListItem(node: MDListItem) {
-        const parent = (
-          node as MDListItem & {
-            parent?: { ordered?: boolean; type: string }
-          }
-        ).parent
-
-        /* istanbul ignore if -- POC covers ordered lists */
-        if (parent?.type !== 'MDList' || !parent.ordered) {
+      MDList(list: MDList) {
+        if (!list.ordered) {
           return
         }
 
-        const start = node.range[0]
-        const raw = sourceText.slice(start, node.range[1])
-        const match = /^\d+([.)])/u.exec(raw)
-
-        /* istanbul ignore if -- list items have markers */
-        if (!match) {
-          return
+        for (const item of list.children) {
+          checkItem(item)
         }
-
-        const actual = match[1] as Marker
-
-        expected ??= actual
-
-        if (actual === expected) {
-          return
-        }
-
-        context.report({
-          loc: node.loc,
-          message: `Unexpected ordered list marker \`${actual}\`, expected \`${expected}\``,
-          fix: fixer =>
-            fixer.replaceTextRange(
-              [start + match[0].length - 1, start + match[0].length],
-              expected,
-            ),
-        })
       },
     }
   },
