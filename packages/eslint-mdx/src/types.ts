@@ -24,7 +24,6 @@ declare module 'estree-jsx' {
 
 export interface CommonOptions {
   ignoreRemarkConfig?: boolean
-  nativeRemarkRules?: boolean
   remarkConfigPath?: string
 }
 

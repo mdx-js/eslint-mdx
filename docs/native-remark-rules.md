@@ -2,7 +2,7 @@
 
 This page documents the native ESLint implementations of the mapped [remark-lint](https://github.com/remarkjs/remark-lint) rules.
 
-> These rules are currently developed on the `next` prerelease branch and are enabled by default in the `base` / `flat` configs while the migration is validated. They are not yet a promise of stable parity with remark-lint.
+> These rules are opt-in. `base` / `flat` keep using `mdx/remark`; extend `plugin:mdx/native` or add `mdx.configs.native` to enable the native rules. They are not yet a promise of stable parity with remark-lint.
 
 ## Options
 
@@ -20,7 +20,15 @@ This page documents the native ESLint implementations of the mapped [remark-lint
 - Optionless rules currently need a remark config entry to be activated.
 - Function-valued options cannot cross the worker boundary, so the remark plugin is kept and `mdx/remark` reports those rules instead.
 - `remark-lint-file-extension` is force-disabled by the worker when native rules are active; the native `mdx/file-extension` rule handles it.
-- Set `parserOptions.nativeRemarkRules: false` to route every native-covered rule back through `mdx/remark`. This is the migration rollback path.
+- Omit the `native` config to keep the remark fallback path. This is the migration rollback path.
+
+```js
+// legacy
+const legacy = { extends: ['plugin:mdx/base', 'plugin:mdx/native'] }
+
+// flat
+const flat = [mdx.configs.flat, mdx.configs.native]
+```
 
 ## Rules
 

@@ -225,17 +225,12 @@ const isNativeOptionSupported = (value: unknown): boolean => {
 
 const resolveRemarkConfig = (
   result: ConfigResult | null | undefined,
-  nativeRemarkRules = true,
 ): RemarkConfig | undefined => {
   if (!result) {
     return
   }
 
   const ruleOptions = {} as RemarkRuleOptions
-
-  if (!nativeRemarkRules) {
-    return { ruleOptions }
-  }
 
   for (const [{ name }, options] of result.plugins) {
     if (
@@ -398,10 +393,8 @@ export const getRemarkProcessor = async (
   cwd = process.cwd(),
   remarkConfigPath?: string,
   ignoreRemarkRules?: ReadonlySet<string>,
-  nativeRemarkRules = true,
 ): Promise<RemarkProcessorResult> => {
-  const nativeKey = nativeRemarkRules ? '' : '\0fallback'
-  const ignoreKey = getRemarkIgnoreKey(ignoreRemarkRules) + nativeKey
+  const ignoreKey = getRemarkIgnoreKey(ignoreRemarkRules)
   const configKey = remarkConfigPath ?? ''
   const initCacheKey = `${String(isMdx)}-${cwd}\0${filePath}\0${configKey}${ignoreKey}`
 
@@ -440,7 +433,7 @@ export const getRemarkProcessor = async (
     // only disable this plugin if there are at least one plugin enabled
     // otherwise it is redundant
     /* istanbul ignore else */
-    if (nativeRemarkRules && plugins.length > 0) {
+    if (ignoreRemarkRules?.has('file-extension') && plugins.length > 0) {
       try {
         plugins.push([
           (await import('remark-lint-file-extension')).default,
@@ -459,10 +452,7 @@ export const getRemarkProcessor = async (
       initProcessor.use(remarkMdx, getRemarkMdxOptions(sharedTokens))
     }
 
-    cachedProcessor = filterRemarkPlugins(
-      plugins,
-      nativeRemarkRules ? ignoreRemarkRules : undefined,
-    )
+    cachedProcessor = filterRemarkPlugins(plugins, ignoreRemarkRules)
       .reduce((processor, plugin) => processor.use(...plugin), initProcessor)
       .freeze()
   } else {
@@ -502,7 +492,6 @@ runAsWorker(
     process,
     ignoreRemarkConfig,
     ignoreRemarkRules,
-    nativeRemarkRules = true,
     remarkConfigPath,
     // eslint-disable-next-line sonarjs/cognitive-complexity
   }: WorkerOptions): Promise<WorkerResult> => {
@@ -525,7 +514,6 @@ runAsWorker(
       cwd,
       remarkConfigPath,
       ignoreRemarkRules,
-      nativeRemarkRules,
     )
 
     const fileOptions: VFileOptions = {
@@ -1467,7 +1455,7 @@ runAsWorker(
 
     const remarkConfig = ignoreRemarkConfig
       ? undefined
-      : resolveRemarkConfig(remarkConfigResult, nativeRemarkRules)
+      : resolveRemarkConfig(remarkConfigResult)
 
     return {
       root,

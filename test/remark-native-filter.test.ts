@@ -4,22 +4,45 @@ import { languageOptions, ruleTester } from './helpers.js'
 
 import { remark } from 'eslint-plugin-mdx'
 
-ruleTester.run('remark filters native rules', remark, {
+const filename = 'native-filter.mdx'
+const configOptions = {
+  ...languageOptions,
+  parserOptions: {
+    ...languageOptions.parserOptions,
+    remarkConfigPath: path.resolve(
+      import.meta.dirname,
+      'remark-fixtures/native.remarkrc',
+    ),
+  },
+}
+
+ruleTester.run('remark native option', remark, {
   valid: [
     {
       code: '# A\n\n### B',
-      filename: 'native-filter.mdx',
-      languageOptions: {
-        ...languageOptions,
-        parserOptions: {
-          ...languageOptions.parserOptions,
-          remarkConfigPath: path.resolve(
-            import.meta.dirname,
-            'remark-fixtures/native.remarkrc',
-          ),
-        },
-      },
+      filename,
+      languageOptions: configOptions,
+      options: [{ native: true }],
     },
   ],
-  invalid: [],
+  invalid: [
+    {
+      code: '# A\n\n### B',
+      filename,
+      languageOptions: configOptions,
+      errors: [
+        {
+          message: JSON.stringify({
+            reason: 'Unexpected heading rank `3`, exected rank `2`',
+            source: 'remark-lint',
+            ruleId: 'heading-increment',
+            severity: 1,
+          }),
+          line: 3,
+          column: 1,
+        },
+      ],
+      output: '# A\n\n### B\n',
+    },
+  ],
 })

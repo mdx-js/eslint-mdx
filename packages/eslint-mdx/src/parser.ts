@@ -31,7 +31,6 @@ export class Parser {
       sourceType = 'module',
       ecmaVersion,
       ignoreRemarkConfig,
-      nativeRemarkRules,
       remarkConfigPath,
       extensions,
       markdownExtensions,
@@ -62,7 +61,6 @@ export class Parser {
         code,
         isMdx,
         ignoreRemarkConfig,
-        nativeRemarkRules,
         remarkConfigPath,
       })
     } catch (err: unknown) {

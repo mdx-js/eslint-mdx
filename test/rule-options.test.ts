@@ -106,7 +106,7 @@ test('validates no-undefined-references allow through eslint options', () => {
   expect(messages).toHaveLength(0)
 })
 
-test('routes native rules back through mdx/remark', () => {
+test('defaults to the remark fallback', () => {
   const messages = linter.verify(
     '# this heading is too long\n',
     [
@@ -116,13 +116,11 @@ test('routes native rules back through mdx/remark', () => {
           parser,
           parserOptions: {
             ...DEFAULT_PARSER_OPTIONS,
-            nativeRemarkRules: false,
             remarkConfigPath: nextConfigPath,
           },
         },
         plugins: { mdx: { rules } },
         rules: {
-          'mdx/maximum-heading-length': 'warn',
           'mdx/remark': 'warn',
         },
       },
