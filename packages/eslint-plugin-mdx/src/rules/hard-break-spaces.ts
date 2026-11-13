@@ -13,7 +13,13 @@ export const hardBreakSpaces: Rule.RuleModule = {
   meta: {
     type: 'layout',
     docs: { description: 'Enforce hard break spaces' },
-    schema: [],
+    schema: [
+      {
+        additionalProperties: false,
+        properties: { allowSpaces: { type: 'boolean' } },
+        type: 'object',
+      },
+    ],
   },
   create(context) {
     const config = getRuleConfig(context, 'hard-break-spaces')

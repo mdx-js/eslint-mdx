@@ -32,7 +32,16 @@ export const noUndefinedReferences: Rule.RuleModule = {
   meta: {
     type: 'problem',
     docs: { description: 'Disallow undefined references' },
-    schema: [],
+    schema: [
+      {
+        additionalProperties: false,
+        properties: {
+          allow: { items: {}, type: 'array' },
+          allowShortcutLink: { type: 'boolean' },
+        },
+        type: 'object',
+      },
+    ],
   },
   create(context) {
     const config = getRuleConfig(context, 'no-undefined-references')

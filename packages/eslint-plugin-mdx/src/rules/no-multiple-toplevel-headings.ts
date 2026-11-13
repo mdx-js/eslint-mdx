@@ -14,7 +14,7 @@ export const noMultipleToplevelHeadings: Rule.RuleModule = {
     docs: {
       description: 'Disallow multiple top-level headings',
     },
-    schema: [],
+    schema: [{ type: 'number' }],
   },
   create(context) {
     const config = getRuleConfig(context, 'no-multiple-toplevel-headings')

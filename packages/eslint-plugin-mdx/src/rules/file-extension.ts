@@ -18,7 +18,27 @@ export const fileExtension: Rule.RuleModule = {
   meta: {
     type: 'problem',
     docs: { description: 'Enforce file extensions' },
-    schema: [{ items: { type: 'string' }, type: 'array' }],
+    schema: [
+      {
+        anyOf: [
+          { type: 'string' },
+          { items: { type: 'string' }, type: 'array' },
+          {
+            additionalProperties: false,
+            properties: {
+              allowExtensionless: { type: 'boolean' },
+              extensions: {
+                anyOf: [
+                  { type: 'string' },
+                  { items: { type: 'string' }, type: 'array' },
+                ],
+              },
+            },
+            type: 'object',
+          },
+        ],
+      },
+    ],
   },
   create(context) {
     const config = getRuleConfig(context, 'file-extension')

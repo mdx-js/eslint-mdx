@@ -16,7 +16,7 @@ export const ruleStyle: Rule.RuleModule = {
       description: 'Enforce a consistent thematic rule style',
     },
     fixable: 'code',
-    schema: [],
+    schema: [{ type: 'string' }],
   },
   create(context) {
     const config = getRuleConfig(context, 'rule-style')

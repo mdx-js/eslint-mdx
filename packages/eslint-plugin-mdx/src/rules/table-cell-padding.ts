@@ -13,7 +13,7 @@ export const tableCellPadding: Rule.RuleModule = {
   meta: {
     type: 'layout',
     docs: { description: 'Enforce table cell padding' },
-    schema: [],
+    schema: [{ enum: ['compact', 'consistent', 'padded'], type: 'string' }],
   },
   create(context) {
     const config = getRuleConfig(context, 'table-cell-padding')

@@ -13,7 +13,7 @@ export const blockquoteIndentation: Rule.RuleModule = {
   meta: {
     type: 'layout',
     docs: { description: 'Enforce blockquote indentation' },
-    schema: [],
+    schema: [{ type: ['number', 'string'] }],
   },
   create(context) {
     const config = getRuleConfig(context, 'blockquote-indentation')

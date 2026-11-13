@@ -15,7 +15,13 @@ export const listItemSpacing: Rule.RuleModule = {
   meta: {
     type: 'layout',
     docs: { description: 'Enforce list item spacing' },
-    schema: [],
+    schema: [
+      {
+        additionalProperties: false,
+        properties: { checkBlanks: { type: 'boolean' } },
+        type: 'object',
+      },
+    ],
   },
   create(context) {
     const config = getRuleConfig(context, 'list-item-spacing')

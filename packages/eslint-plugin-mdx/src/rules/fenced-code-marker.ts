@@ -19,7 +19,7 @@ export const fencedCodeMarker: Rule.RuleModule = {
     docs: {
       description: 'Enforce a consistent fenced code marker',
     },
-    schema: [],
+    schema: [{ enum: ['`', '~', 'consistent'], type: 'string' }],
   },
   create(context) {
     const config = getRuleConfig(context, 'fenced-code-marker')

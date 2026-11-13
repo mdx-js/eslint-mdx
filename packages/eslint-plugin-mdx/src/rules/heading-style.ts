@@ -32,7 +32,9 @@ export const headingStyle: Rule.RuleModule = {
     docs: {
       description: 'Enforce a heading style',
     },
-    schema: [],
+    schema: [
+      { enum: ['atx-closed', 'atx', 'consistent', 'setext'], type: 'string' },
+    ],
   },
   create(context) {
     const config = getRuleConfig(context, 'heading-style')

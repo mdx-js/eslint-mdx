@@ -17,7 +17,21 @@ export const maximumHeadingLength: Rule.RuleModule = {
     docs: {
       description: 'Enforce a maximum heading length',
     },
-    schema: [],
+    schema: [
+      {
+        anyOf: [
+          { type: 'number' },
+          {
+            additionalProperties: false,
+            properties: {
+              size: { type: ['number', 'null'] },
+              stringLength: {},
+            },
+            type: 'object',
+          },
+        ],
+      },
+    ],
   },
   create(context) {
     const config = getRuleConfig(context, 'maximum-heading-length')

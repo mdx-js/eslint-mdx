@@ -17,7 +17,7 @@ export const unorderedListMarkerStyle: Rule.RuleModule = {
       description: 'Enforce a consistent unordered list marker',
     },
     fixable: 'code',
-    schema: [],
+    schema: [{ enum: ['-', '*', '+', 'consistent'], type: 'string' }],
   },
   create(context) {
     const config = getRuleConfig(context, 'unordered-list-marker-style')

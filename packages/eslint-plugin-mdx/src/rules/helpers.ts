@@ -54,12 +54,6 @@ export const NATIVE_REMARK_RULES = new Set([
   'table-pipes',
 ])
 
-/**
- * Native rules take the same arbitrary remark options, so one permissive
- * positional schema is shared instead of duplicating 50 schemas.
- */
-export const RULE_OPTION_SCHEMA = [{}]
-
 export const getRuleConfig = <RuleName extends keyof RemarkRuleOptions>(
   context: Rule.RuleContext,
   name: RuleName,

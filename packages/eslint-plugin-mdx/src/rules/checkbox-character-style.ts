@@ -19,7 +19,21 @@ export const checkboxCharacterStyle: Rule.RuleModule = {
   meta: {
     type: 'layout',
     docs: { description: 'Enforce checkbox character style' },
-    schema: [],
+    schema: [
+      {
+        anyOf: [
+          { enum: ['consistent'], type: 'string' },
+          {
+            additionalProperties: false,
+            properties: {
+              checked: { enum: ['consistent', 'X', 'x'], type: 'string' },
+              unchecked: { enum: [' ', '\t', 'consistent'], type: 'string' },
+            },
+            type: 'object',
+          },
+        ],
+      },
+    ],
   },
   create(context) {
     const config = getRuleConfig(context, 'checkbox-character-style')

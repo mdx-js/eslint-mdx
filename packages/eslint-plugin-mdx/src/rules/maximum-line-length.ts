@@ -12,7 +12,18 @@ export const maximumLineLength: Rule.RuleModule = {
   meta: {
     type: 'problem',
     docs: { description: 'Enforce maximum line length' },
-    schema: [],
+    schema: [
+      {
+        anyOf: [
+          { type: 'number' },
+          {
+            additionalProperties: false,
+            properties: { size: { type: ['number', 'null'] } },
+            type: 'object',
+          },
+        ],
+      },
+    ],
   },
   create(context) {
     const config = getRuleConfig(context, 'maximum-line-length')

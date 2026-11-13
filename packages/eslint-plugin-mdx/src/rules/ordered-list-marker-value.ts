@@ -58,7 +58,7 @@ export const orderedListMarkerValue: Rule.RuleModule = {
   meta: {
     type: 'layout',
     docs: { description: 'Enforce ordered list marker values' },
-    schema: [],
+    schema: [{ enum: ['one', 'ordered', 'single'], type: 'string' }],
   },
   create(context) {
     const config = getRuleConfig(context, 'ordered-list-marker-value')

@@ -16,7 +16,7 @@ export const noFileNameIrregularCharacters: Rule.RuleModule = {
     docs: {
       description: 'Disallow irregular characters in file names',
     },
-    schema: [],
+    schema: [{ type: ['string', 'object'] }],
   },
   create(context) {
     const config = getRuleConfig(context, 'no-file-name-irregular-characters')
