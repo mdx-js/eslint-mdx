@@ -1,9 +1,16 @@
 import { homedir } from 'node:os'
 import path from 'node:path'
 
-import { ruleTester, languageOptions } from './helpers.js'
+import { Linter } from 'eslint'
 
-import { remark } from 'eslint-plugin-mdx'
+import {
+  DEFAULT_PARSER_OPTIONS,
+  ruleTester,
+  languageOptions,
+} from './helpers.js'
+
+import { parser } from 'eslint-mdx'
+import { remark, rules } from 'eslint-plugin-mdx'
 
 const userDir = homedir()
 
@@ -130,6 +137,37 @@ ruleTester.run('remark', remark, {
       output: '```html\nx()\n```\n',
     },
   ].map(addNativeOption),
+})
+
+test('uses a whole-document fix for large documents', () => {
+  const linter = new Linter({ configType: 'flat' })
+  // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- 64 KiB threshold
+  const code = 'a'.repeat(64 * 1024 + 1)
+
+  const result = linter.verifyAndFix(
+    code,
+    [
+      {
+        files: ['**/*.mdx'],
+        languageOptions: {
+          parser,
+          parserOptions: {
+            ...DEFAULT_PARSER_OPTIONS,
+            remarkConfigPath: path.resolve(
+              _dirname,
+              'remark-fixtures/shared-options.remarkrc',
+            ),
+          },
+        },
+        plugins: { mdx: { rules } },
+        rules: { 'mdx/remark': 'warn' },
+      },
+    ],
+    { filename: 'large.mdx' },
+  )
+
+  expect(result.fixed).toBe(true)
+  expect(result.output).toBe(code + '\n')
 })
 
 test('hack', () => {

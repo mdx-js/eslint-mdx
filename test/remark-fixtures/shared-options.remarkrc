@@ -1,6 +1,7 @@
 {
   "plugins": [
     ["remark-lint-list-item-indent", "mixed"],
-    ["remark-lint-ordered-list-marker-style", "consistent"]
+    ["remark-lint-ordered-list-marker-style", "consistent"],
+    "remark-lint-final-newline"
   ]
 }
