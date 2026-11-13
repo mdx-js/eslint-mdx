@@ -74,8 +74,19 @@ export const remark: Rule.RuleModule = {
       recommended: true,
     },
     fixable: 'code',
+    schema: [
+      {
+        additionalProperties: false,
+        properties: { native: { type: 'boolean' } },
+        type: 'object',
+      },
+    ],
   },
   create(context) {
+    // type-coverage:ignore-next-line -- ESLint rule options are any[]
+    const nativeOption = context.options[0] as { native?: boolean } | undefined
+    const native = nativeOption?.native === true
+
     const filename =
       context.filename ??
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
@@ -132,7 +143,7 @@ export const remark: Rule.RuleModule = {
           isMdx,
           process: true,
           ignoreRemarkConfig,
-          ignoreRemarkRules: NATIVE_REMARK_RULES,
+          ignoreRemarkRules: native ? NATIVE_REMARK_RULES : new Set(),
           remarkConfigPath,
         })
 

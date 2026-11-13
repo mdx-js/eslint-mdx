@@ -43,14 +43,10 @@
   ],
   "peerDependencies": {
     "@types/estree": "^1.0.10",
-    "eslint": ">=8.0.0",
-    "remark-lint-file-extension": "*"
+    "eslint": ">=8.0.0"
   },
   "peerDependenciesMeta": {
     "@types/estree": {
-      "optional": true
-    },
-    "remark-lint-file-extension": {
       "optional": true
     }
   },

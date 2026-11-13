@@ -37,6 +37,7 @@ describe('#574', () => {
             react,
           },
           rules: {
+            'mdx/remark': 'off',
             'no-undef': 'error',
             'react/jsx-no-undef': 'error',
           },
@@ -58,6 +59,7 @@ describe('#574', () => {
             react,
           },
           rules: {
+            'mdx/remark': 'off',
             'no-undef': 'error',
             'react/jsx-no-undef': 'error',
           },
@@ -93,6 +95,7 @@ describe('#574', () => {
             react,
           },
           rules: {
+            'mdx/remark': 'off',
             'no-undef': 'error',
             'react/jsx-no-undef': 'error',
           },
@@ -111,6 +114,7 @@ describe('#574', () => {
         mdx.configs.flat,
         {
           rules: {
+            'mdx/remark': 'off',
             'no-undef': 'error',
           },
         },

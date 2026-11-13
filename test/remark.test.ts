@@ -10,6 +10,14 @@ const userDir = homedir()
 const _dirname = import.meta.dirname
 const _filename = import.meta.filename
 
+const addNativeOption = <T>(test: T): T => ({
+  ...test,
+  options: [
+    ...((test as { options?: unknown[] }).options ?? []),
+    { native: true },
+  ],
+})
+
 ruleTester.run('remark', remark, {
   valid: [
     {
@@ -53,7 +61,7 @@ ruleTester.run('remark', remark, {
       },
       filename: path.resolve(_dirname, 'fixtures/style/test.mdx'),
     },
-  ],
+  ].map(addNativeOption),
   invalid: [
     {
       // https://github.com/syntax-tree/mdast-util-to-markdown/issues/29
@@ -121,7 +129,7 @@ ruleTester.run('remark', remark, {
       ],
       output: '```html\nx()\n```\n',
     },
-  ],
+  ].map(addNativeOption),
 })
 
 test('hack', () => {

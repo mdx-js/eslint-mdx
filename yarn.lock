@@ -7852,11 +7852,8 @@ __metadata:
   peerDependencies:
     "@types/estree": ^1.0.10
     eslint: ">=8.0.0"
-    remark-lint-file-extension: "*"
   peerDependenciesMeta:
     "@types/estree":
-      optional: true
-    remark-lint-file-extension:
       optional: true
   languageName: unknown
   linkType: soft

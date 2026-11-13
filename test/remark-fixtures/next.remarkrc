@@ -45,7 +45,6 @@
       "fenced"
     ],
     "remark-lint-fenced-code-flag",
-    "remark-lint-file-extension",
     [
       "remark-lint-hard-break-spaces",
       {

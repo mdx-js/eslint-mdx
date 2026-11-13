@@ -36,7 +36,6 @@ export const codeBlocks = {
     'mdx/emphasis-marker': 'off',
     'mdx/fenced-code-flag': 'off',
     'mdx/fenced-code-marker': 'off',
-    'mdx/file-extension': 'off',
     'mdx/final-definition': 'off',
     'mdx/final-newline': 'off',
     'mdx/hard-break-spaces': 'off',

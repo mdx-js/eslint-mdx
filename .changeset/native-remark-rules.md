@@ -1,6 +1,6 @@
 ---
 "eslint-mdx": minor
-"eslint-plugin-mdx": major
+"eslint-plugin-mdx": minor
 ---
 
-Expose resolved remark configuration through parser services and add native ESLint implementations for the mapped `remark-lint` rules. The native rules are currently enabled in base/flat for POC validation; this may change before a stable release.
+Expose resolved remark configuration through parser services and add native ESLint implementations for the mapped `remark-lint` rules. The native rules are opt-in via the new `native` config; `base` / `flat` keep the stable `mdx/remark` behavior.

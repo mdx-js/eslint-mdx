@@ -1,5 +1,3 @@
-/* eslint-disable unicorn-x/no-await-expression-member */
-
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { promisify } from 'node:util'
@@ -286,7 +284,7 @@ const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
     })
   }
 
-  /* eslint-disable sonarjs/cognitive-complexity -- traverses JSX children */
+  /* eslint-disable-next-line sonarjs/cognitive-complexity -- traverses JSX children */
   visitParents(root, (node, ancestors) => {
     const position = node.position
 
@@ -358,11 +356,9 @@ const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
       }
     }
   })
-  /* eslint-enable sonarjs/cognitive-complexity */
 
   return ranges
 }
-
 const getRemarkIgnoreKey = (rules?: ReadonlySet<string>) =>
   rules?.size ? `\0ignore:${[...rules].join(',')}` : ''
 
@@ -428,20 +424,10 @@ export const getRemarkProcessor = async (
   if (result?.filePath) {
     const { plugins, settings } = result
 
-    // disable this rule automatically since we already have a parser option `extensions`
-    // only disable this plugin if there are at least one plugin enabled
-    // otherwise it is redundant
-    /* istanbul ignore else */
-    if (plugins.length > 0) {
-      try {
-        plugins.push([
-          (await import('remark-lint-file-extension')).default,
-          false,
-        ])
-      } catch {
-        // just ignore if the package does not exist
-      }
-    }
+    // Parser extensions are authoritative; this remark rule is redundant.
+    const pluginsWithoutFileExtension = plugins.filter(
+      ([plugin]) => plugin.name !== 'remark-lint:file-extension',
+    )
 
     const initProcessor = remarkProcessor()
       .use({ settings })
@@ -451,7 +437,10 @@ export const getRemarkProcessor = async (
       initProcessor.use(remarkMdx, getRemarkMdxOptions(sharedTokens))
     }
 
-    cachedProcessor = filterRemarkPlugins(plugins, ignoreRemarkRules)
+    cachedProcessor = filterRemarkPlugins(
+      pluginsWithoutFileExtension,
+      ignoreRemarkRules,
+    )
       .reduce((processor, plugin) => processor.use(...plugin), initProcessor)
       .freeze()
   } else {
@@ -471,7 +460,6 @@ export const getRemarkProcessor = async (
 
   return { config: result, processor: cachedProcessor }
 }
-
 function isExpressionStatement(
   statement: Program['body'][number],
 ): asserts statement is ExpressionStatement | undefined {
