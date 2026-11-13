@@ -30,7 +30,6 @@ const configRules = new Set(
 // corpus and should shrink as the remaining differences are fixed.
 const knownDivergences = new Set([
   'maximum-line-length',
-  'no-literal-urls',
   'table-pipe-alignment',
 ])
 
@@ -115,7 +114,8 @@ const getMismatches = (ruleName: string) => {
           rules: { [`mdx/${ruleName}`]: 'warn' },
         },
       ],
-      { filename: filePath },
+      // The remark side does not process eslint-disable comments.
+      { allowInlineConfig: false, filename: filePath },
     )
 
     const fatal = native.find(message => message.fatal)
