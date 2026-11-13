@@ -31,7 +31,6 @@ export const orderedListMarkerStyle: Rule.RuleModule = {
     }
 
     const sourceText = context.sourceCode.getText()
-    /* istanbul ignore next -- POC covers the explicit marker option */
     let expected: Marker | undefined =
       config.options === '.' || config.options === ')'
         ? config.options
@@ -68,7 +67,6 @@ export const orderedListMarkerStyle: Rule.RuleModule = {
 
     return {
       MDList(list: MDList) {
-        /* istanbul ignore if -- POC covers ordered lists */
         if (!list.ordered) {
           return
         }
