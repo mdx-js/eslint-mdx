@@ -719,13 +719,13 @@ runAsWorker(
                     end: { offset: end },
                   } = child.position
 
-                  const expressionContainer = {
+                  const expressionContainer: JSXExpressionContainer = {
                     ...normalizeNode(start, end),
                     type: 'JSXExpressionContainer',
                     expression:
                       expression || normalizeEmptyExpression(start, end, code),
                     value: child.value,
-                  } as JSXExpressionContainer & { value?: string }
+                  }
                   acc.push(expressionContainer)
                 } else if (expression) {
                   acc.push(expression as JSXElement['children'][number])

@@ -12,6 +12,12 @@ import type {
 import type { Root } from 'mdast'
 import type { VFileMessage } from 'vfile-message'
 
+declare module 'estree-jsx' {
+  interface JSXExpressionContainer {
+    value?: string
+  }
+}
+
 export interface CommonOptions {
   ignoreRemarkConfig?: boolean
   remarkConfigPath?: string
