@@ -12,6 +12,8 @@ ruleTester.run('list-item-indent', listItemIndent, {
   valid: [
     { code: '- item', filename: 'native.mdx', languageOptions },
     { code: '- item\n  continuation', filename: 'native.mdx', languageOptions },
+    { code: '-     a', filename: 'native.md', languageOptions },
+    { code: '-\t\ta', filename: 'native.md', languageOptions },
     {
       code: '-   item\n\n    continued',
       filename: 'native.mdx',
