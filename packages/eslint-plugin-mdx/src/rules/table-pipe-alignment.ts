@@ -1,3 +1,7 @@
+/**
+ * Adapted from remark-lint-table-pipe-alignment (MIT, Titus Wormer):
+ * https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-table-pipe-alignment
+ */
 import type { Rule } from 'eslint'
 import type { MDTable } from 'eslint-mdx'
 
