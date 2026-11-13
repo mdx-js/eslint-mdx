@@ -64,3 +64,42 @@ export const getRuleConfig = <RuleName extends keyof RemarkRuleOptions>(
   } = sourceCode.parserServices as { remarkConfig: RemarkConfig }
   return name in ruleOptions ? { options: ruleOptions[name] } : null
 }
+
+export interface TextNode {
+  alt?: string | null
+  children?: TextNode[]
+  expression?: { range?: [number, number] }
+  type: string
+  value?: string | null
+}
+
+/**
+ * Native AST adaptation of `mdast-util-to-string` for MD and JSX nodes.
+ */
+export const getNodeText = (node: TextNode, sourceText: string): string => {
+  if (node.type === 'MDHtml') {
+    return ''
+  }
+
+  if (node.value != null) {
+    return node.value
+  }
+
+  if (node.alt) {
+    return node.alt
+  }
+
+  if (
+    node.type === 'MDXTextExpression' ||
+    node.type === 'JSXExpressionContainer'
+  ) {
+    const range = node.expression?.range
+
+    /* istanbul ignore next -- parsed expression nodes have ranges */
+    return range ? sourceText.slice(range[0], range[1]) : ''
+  }
+
+  return (node.children ?? [])
+    .map(child => getNodeText(child, sourceText))
+    .join('')
+}
