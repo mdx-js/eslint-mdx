@@ -28,7 +28,7 @@ const configRules = new Set(
 
 // Keep the corpus and skip list adjacent: the skip list is specific to this
 // corpus and should shrink as the remaining differences are fixed.
-const knownDivergences = new Set(['maximum-line-length'])
+const knownDivergences = new Set<string>()
 
 const allFixtureNames = fs
   .readdirSync(fixtureDir)
@@ -162,13 +162,15 @@ test('only known unparseable fixtures are skipped', () => {
   ])
 })
 
-test('known divergences still diverge on this corpus', () => {
-  expect.hasAssertions()
+if (knownDivergences.size > 0) {
+  test('known divergences still diverge on this corpus', () => {
+    expect.hasAssertions()
 
-  for (const ruleName of knownDivergences) {
-    expect(getMismatches(ruleName)).not.toEqual([])
-  }
-})
+    for (const ruleName of knownDivergences) {
+      expect(getMismatches(ruleName)).not.toEqual([])
+    }
+  })
+}
 
 describe.each(ruleNames)('%s', ruleName => {
   test('matches remark-lint on the shared corpus', () => {

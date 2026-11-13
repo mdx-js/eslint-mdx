@@ -29,11 +29,6 @@ ruleTester.run('maximum line length', maximumLineLength, {
       languageOptions,
     },
     {
-      code: '<Component>this line is too long</Component>',
-      filename: 'native.mdx',
-      languageOptions,
-    },
-    {
       code: '```\nthis line is too long\n```',
       filename: 'native.mdx',
       languageOptions,
@@ -41,15 +36,43 @@ ruleTester.run('maximum line length', maximumLineLength, {
   ],
   invalid: [
     {
-      code: 'this line is too long',
+      code: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+      filename: 'native.mdx',
+      languageOptions,
+      options: [{ size: null }],
+      errors: [
+        {
+          message:
+            'Unexpected `85` character line, expected at most `80` characters, remove `5` characters',
+          line: 1,
+          column: 86,
+        },
+      ],
+    },
+    {
+      code: '<Component>this line is too long</Component>',
       filename: 'native.mdx',
       languageOptions,
       errors: [
         {
           message:
+            'Unexpected `44` character line, expected at most `10` characters, remove `34` characters',
+          line: 1,
+          column: 45,
+        },
+      ],
+    },
+    {
+      code: 'this line is too long',
+      filename: 'native.mdx',
+      languageOptions,
+      options: [{ size: 10 }],
+      errors: [
+        {
+          message:
             'Unexpected `21` character line, expected at most `10` characters, remove `11` characters',
           line: 1,
-          column: 1,
+          column: 22,
         },
       ],
     },
