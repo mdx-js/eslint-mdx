@@ -61,10 +61,7 @@ export const orderedListMarkerValue: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(
-      context.sourceCode,
-      'ordered-list-marker-value',
-    )
+    const config = getRuleConfig(context, 'ordered-list-marker-value')
 
     if (!config) {
       return {}

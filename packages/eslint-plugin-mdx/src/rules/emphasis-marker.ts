@@ -19,7 +19,7 @@ export const emphasisMarker: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'emphasis-marker')
+    const config = getRuleConfig(context, 'emphasis-marker')
 
     if (!config) {
       return {}

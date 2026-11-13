@@ -22,7 +22,7 @@ export const fencedCodeMarker: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'fenced-code-marker')
+    const config = getRuleConfig(context, 'fenced-code-marker')
 
     if (!config) {
       return {}

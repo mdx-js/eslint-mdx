@@ -17,10 +17,7 @@ export const noMultipleToplevelHeadings: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(
-      context.sourceCode,
-      'no-multiple-toplevel-headings',
-    )
+    const config = getRuleConfig(context, 'no-multiple-toplevel-headings')
 
     /* istanbul ignore if -- rule is enabled by config */
     if (!config) {

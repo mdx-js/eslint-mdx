@@ -19,10 +19,7 @@ export const noFileNameIrregularCharacters: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(
-      context.sourceCode,
-      'no-file-name-irregular-characters',
-    )
+    const config = getRuleConfig(context, 'no-file-name-irregular-characters')
 
     if (!config) {
       return {}

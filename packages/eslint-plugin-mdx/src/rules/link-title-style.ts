@@ -19,7 +19,7 @@ export const linkTitleStyle: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'link-title-style')
+    const config = getRuleConfig(context, 'link-title-style')
 
     if (!config) {
       return {}

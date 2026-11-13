@@ -19,7 +19,7 @@ export const ruleStyle: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'rule-style')
+    const config = getRuleConfig(context, 'rule-style')
 
     if (!config) {
       return {}

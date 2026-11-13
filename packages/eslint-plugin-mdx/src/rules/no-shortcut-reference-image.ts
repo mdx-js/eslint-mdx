@@ -17,10 +17,7 @@ export const noShortcutReferenceImage: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(
-      context.sourceCode,
-      'no-shortcut-reference-image',
-    )
+    const config = getRuleConfig(context, 'no-shortcut-reference-image')
 
     if (!config) {
       return {}

@@ -21,18 +21,13 @@ export const fileExtension: Rule.RuleModule = {
     schema: [{ items: { type: 'string' }, type: 'array' }],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'file-extension')
+    const config = getRuleConfig(context, 'file-extension')
 
     if (!config) {
       return {}
     }
 
-    // type-coverage:ignore-next-line -- ESLint option typing
-    const options = (context.options[0] ?? config.options) as
-      | string[]
-      | string
-      | { allowExtensionless?: boolean; extensions?: string[] | string }
-      | undefined
+    const options = config.options
     let allowed: string[] | string | undefined
 
     /* eslint-disable-next-line unicorn-x/prefer-ternary -- clarity */

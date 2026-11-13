@@ -1,4 +1,6 @@
 /* istanbul ignore file */
+import type { Rule } from 'eslint'
+
 import { blockquoteIndentation } from './blockquote-indentation.js'
 import { checkboxCharacterStyle } from './checkbox-character-style.js'
 import { codeBlockStyle } from './code-block-style.js'
@@ -13,6 +15,7 @@ import { finalNewline } from './final-newline.js'
 import { hardBreakSpaces } from './hard-break-spaces.js'
 import { headingIncrement } from './heading-increment.js'
 import { headingStyle } from './heading-style.js'
+import { RULE_OPTION_SCHEMA } from './helpers.js'
 import { linkTitleStyle } from './link-title-style.js'
 import { listItemBulletIndent } from './list-item-bullet-indent.js'
 import { listItemContentIndent } from './list-item-content-indent.js'
@@ -107,7 +110,7 @@ export {
   unorderedListMarkerStyle,
 }
 
-export const rules = {
+const rawRules = {
   'emphasis-marker': emphasisMarker,
   'final-newline': finalNewline,
   'fenced-code-marker': fencedCodeMarker,
@@ -160,3 +163,16 @@ export const rules = {
   'unordered-list-marker-style': unorderedListMarkerStyle,
   remark,
 }
+
+const withSchema = (rule: Rule.RuleModule): Rule.RuleModule => ({
+  ...rule,
+  // type-coverage:ignore-next-line -- RuleModule.meta is inferred as any
+  meta: { ...rule.meta, schema: RULE_OPTION_SCHEMA } as Rule.RuleMetaData,
+})
+
+export const rules = Object.fromEntries(
+  Object.entries(rawRules).map(([name, rule]) => [
+    name,
+    name === 'remark' ? rule : withSchema(rule),
+  ]),
+) as typeof rawRules

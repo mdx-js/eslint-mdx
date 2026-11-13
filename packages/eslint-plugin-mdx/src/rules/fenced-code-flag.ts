@@ -31,7 +31,7 @@ export const fencedCodeFlag: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'fenced-code-flag')
+    const config = getRuleConfig(context, 'fenced-code-flag')
 
     if (!config) {
       return {}

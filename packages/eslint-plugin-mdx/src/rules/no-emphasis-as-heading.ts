@@ -21,7 +21,7 @@ export const noEmphasisAsHeading: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'no-emphasis-as-heading')
+    const config = getRuleConfig(context, 'no-emphasis-as-heading')
 
     if (!config) {
       return {}

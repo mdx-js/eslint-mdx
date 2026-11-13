@@ -18,7 +18,7 @@ export const strongMarker: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'strong-marker')
+    const config = getRuleConfig(context, 'strong-marker')
 
     if (!config) {
       return {}

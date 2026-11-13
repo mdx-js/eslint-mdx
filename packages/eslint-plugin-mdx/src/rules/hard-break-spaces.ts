@@ -16,7 +16,7 @@ export const hardBreakSpaces: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'hard-break-spaces')
+    const config = getRuleConfig(context, 'hard-break-spaces')
 
     if (!config) {
       return {}

@@ -16,7 +16,7 @@ export const blockquoteIndentation: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'blockquote-indentation')
+    const config = getRuleConfig(context, 'blockquote-indentation')
 
     if (!config) {
       return {}

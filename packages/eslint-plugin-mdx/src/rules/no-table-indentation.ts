@@ -18,7 +18,7 @@ export const noTableIndentation: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'no-table-indentation')
+    const config = getRuleConfig(context, 'no-table-indentation')
 
     if (!config) {
       return {}

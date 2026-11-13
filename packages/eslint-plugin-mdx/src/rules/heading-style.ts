@@ -35,7 +35,7 @@ export const headingStyle: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'heading-style')
+    const config = getRuleConfig(context, 'heading-style')
 
     if (!config) {
       return {}

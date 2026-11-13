@@ -22,7 +22,7 @@ export const checkboxCharacterStyle: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'checkbox-character-style')
+    const config = getRuleConfig(context, 'checkbox-character-style')
     if (!config) {
       return {}
     }

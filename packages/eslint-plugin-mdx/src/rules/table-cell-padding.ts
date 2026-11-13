@@ -16,7 +16,7 @@ export const tableCellPadding: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'table-cell-padding')
+    const config = getRuleConfig(context, 'table-cell-padding')
 
     if (!config) {
       return {}

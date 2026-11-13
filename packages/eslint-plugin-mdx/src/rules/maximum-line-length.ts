@@ -15,7 +15,7 @@ export const maximumLineLength: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'maximum-line-length')
+    const config = getRuleConfig(context, 'maximum-line-length')
 
     if (!config) {
       return {}

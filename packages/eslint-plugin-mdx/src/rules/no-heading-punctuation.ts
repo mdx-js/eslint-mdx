@@ -17,7 +17,7 @@ export const noHeadingPunctuation: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'no-heading-punctuation')
+    const config = getRuleConfig(context, 'no-heading-punctuation')
 
     if (!config) {
       return {}

@@ -21,10 +21,7 @@ export const orderedListMarkerStyle: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(
-      context.sourceCode,
-      'ordered-list-marker-style',
-    )
+    const config = getRuleConfig(context, 'ordered-list-marker-style')
 
     if (!config) {
       return {}

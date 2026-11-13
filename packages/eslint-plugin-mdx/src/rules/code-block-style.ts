@@ -16,7 +16,7 @@ export const codeBlockStyle: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'code-block-style')
+    const config = getRuleConfig(context, 'code-block-style')
 
     if (!config) {
       return {}

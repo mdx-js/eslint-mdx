@@ -20,10 +20,7 @@ export const unorderedListMarkerStyle: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(
-      context.sourceCode,
-      'unordered-list-marker-style',
-    )
+    const config = getRuleConfig(context, 'unordered-list-marker-style')
 
     if (!config) {
       return {}

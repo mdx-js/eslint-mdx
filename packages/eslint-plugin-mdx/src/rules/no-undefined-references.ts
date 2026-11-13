@@ -35,7 +35,7 @@ export const noUndefinedReferences: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'no-undefined-references')
+    const config = getRuleConfig(context, 'no-undefined-references')
 
     if (!config) {
       return {}

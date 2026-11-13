@@ -20,7 +20,7 @@ export const maximumHeadingLength: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'maximum-heading-length')
+    const config = getRuleConfig(context, 'maximum-heading-length')
 
     if (!config) {
       return {}

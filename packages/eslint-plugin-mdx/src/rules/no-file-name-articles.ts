@@ -19,7 +19,7 @@ export const noFileNameArticles: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'no-file-name-articles')
+    const config = getRuleConfig(context, 'no-file-name-articles')
 
     if (!config) {
       return {}

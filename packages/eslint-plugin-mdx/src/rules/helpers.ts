@@ -1,4 +1,4 @@
-import type { SourceCode } from 'eslint'
+import type { Rule } from 'eslint'
 import type { RemarkRuleOptions, RemarkConfig } from 'eslint-mdx'
 
 export const NATIVE_REMARK_RULES = new Set([
@@ -54,15 +54,34 @@ export const NATIVE_REMARK_RULES = new Set([
   'table-pipes',
 ])
 
+/**
+ * Native rules take the same arbitrary remark options, so one permissive
+ * positional schema is shared instead of duplicating 50 schemas.
+ */
+export const RULE_OPTION_SCHEMA = [{}]
+
 export const getRuleConfig = <RuleName extends keyof RemarkRuleOptions>(
-  sourceCode: SourceCode,
+  context: Rule.RuleContext,
   name: RuleName,
 ) => {
   const {
     remarkConfig: { ruleOptions },
     // type-coverage:ignore-next-line -- bad typings
-  } = sourceCode.parserServices as { remarkConfig: RemarkConfig }
-  return name in ruleOptions ? { options: ruleOptions[name] } : null
+  } = context.sourceCode.parserServices as { remarkConfig: RemarkConfig }
+  // type-coverage:ignore-next-line -- ESLint types RuleContext.options as any[]
+  const eslintOptions = context.options as readonly unknown[]
+  const hasEslintOption = eslintOptions.length > 0
+  const hasRemarkOption = name in ruleOptions
+
+  if (!hasEslintOption && !hasRemarkOption) {
+    return null
+  }
+
+  return {
+    options: (hasEslintOption
+      ? eslintOptions[0]
+      : ruleOptions[name]) as RemarkRuleOptions[RuleName],
+  }
 }
 
 export interface TextNode {

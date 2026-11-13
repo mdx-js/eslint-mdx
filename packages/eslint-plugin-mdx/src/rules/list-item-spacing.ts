@@ -18,7 +18,7 @@ export const listItemSpacing: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'list-item-spacing')
+    const config = getRuleConfig(context, 'list-item-spacing')
 
     if (!config) {
       return {}
