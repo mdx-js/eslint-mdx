@@ -175,6 +175,38 @@ test('uses a whole-document fix for large documents', () => {
   expect(result.output).toBe(code + '\n')
 })
 
+test('returns one whole-document fix for multiple large-document messages', () => {
+  const linter = new Linter({ configType: 'flat' })
+  // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- 64 KiB threshold
+  const code = `_a_ _b_ ${'x'.repeat(64 * 1024)}\n`
+
+  const messages = linter.verify(
+    code,
+    [
+      {
+        files: ['**/*.mdx'],
+        languageOptions: {
+          parser,
+          parserOptions: {
+            ...DEFAULT_PARSER_OPTIONS,
+            remarkConfigPath: path.resolve(
+              _dirname,
+              'remark-fixtures/shared-options.remarkrc',
+            ),
+          },
+        },
+        plugins: { mdx: { rules } },
+        rules: { 'mdx/remark': 'warn' },
+      },
+    ],
+    { filename: 'large.mdx' },
+  )
+
+  expect(messages.length).toBeGreaterThanOrEqual(2)
+  expect(messages[0]?.fix?.range).toEqual([0, code.length])
+  expect(messages[1]?.fix).toBeUndefined()
+})
+
 test('hack', () => {
   // eslint-disable-next-line sonarjs/no-trivial-assertions -- placeholder to keep the suite non-empty
   expect(true).toBe(true)
