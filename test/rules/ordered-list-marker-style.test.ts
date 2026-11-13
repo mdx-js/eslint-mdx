@@ -25,7 +25,7 @@ ruleTester.run('ordered list marker style', orderedListMarkerStyle, {
         {
           message: 'Unexpected ordered list marker `.`, expected `)`',
           line: 1,
-          column: 1,
+          column: 2,
         },
       ],
       output: '1) item',
