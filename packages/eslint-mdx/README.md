@@ -441,7 +441,7 @@ export type MDContentNode =
 
 ## Rules
 
-See [Native remark-lint rules](https://github.com/mdx-js/eslint-mdx/blob/next/docs/native-remark-rules.md) for the mapped rules and option behavior.
+See [Native remark-lint rules](../../docs/native-remark-rules.md) for the mapped rules and option behavior.
 
 Native rules read their options from the remark config by default. An ESLint positional option overrides it. Optionless native rules still need a remark entry to be activated.
 
