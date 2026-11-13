@@ -9,6 +9,8 @@ declare module 'eslint-mdx' {
   }
 }
 
+const pluralize = (count: number) => (count === 1 ? 'line' : 'lines')
+
 export const listItemSpacing: Rule.RuleModule = {
   meta: {
     type: 'layout',
@@ -43,10 +45,12 @@ export const listItemSpacing: Rule.RuleModule = {
 
             if (actual !== expected) {
               const difference = expected - actual
+              const direction = difference > 0 ? 'add' : 'remove'
+              const differenceAbsolute = Math.abs(difference)
 
               context.report({
-                loc: item.loc,
-                message: `Unexpected \`${actual}\` blank lines between list items, expected \`${expected}\` blank lines, ${difference > 0 ? 'add' : 'remove'} \`${Math.abs(difference)}\` blank lines`,
+                loc: { start: previous.loc.end, end: item.loc.start },
+                message: `Unexpected \`${actual}\` blank ${pluralize(actual)} between list items, expected \`${expected}\` blank ${pluralize(expected)}, ${direction} \`${differenceAbsolute}\` blank ${pluralize(differenceAbsolute)}`,
               })
             }
           }
