@@ -223,7 +223,7 @@ MDX expressions use the `MDX` prefix and expose their ESTree `expression`:
 | `MDXFlowExpression` | `mdxFlowExpression` |
 | `MDXTextExpression` | `mdxTextExpression` |
 
-When these expressions are used as JSX children, they are wrapped in `JSXExpressionContainer`. Empty or comment-only expressions use `JSXEmptyExpression`.
+When these expressions are used as JSX children, they are wrapped in `JSXExpressionContainer`, which also carries the original expression text as `value`. Empty or comment-only expressions use `JSXEmptyExpression`.
 
 For example:
 
@@ -266,11 +266,13 @@ export interface MDHeading extends BaseNode {
 export interface MDXFlowExpression extends BaseNode {
   type: 'MDXFlowExpression'
   expression: Expression | JSXEmptyExpression
+  value?: string
 }
 
 export interface MDXTextExpression extends BaseNode {
   type: 'MDXTextExpression'
   expression: Expression | JSXEmptyExpression
+  value?: string
 }
 
 export interface MDText extends BaseNode {

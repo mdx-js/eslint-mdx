@@ -110,6 +110,7 @@ const appendEstreeBody = (
       ...position,
       type,
       expression: normalizeEmptyExpression(start, end, code),
+      value: node.value,
     })
     return
   }
@@ -120,6 +121,7 @@ const appendEstreeBody = (
         ...position,
         type,
         expression: statement.expression,
+        value: node.value,
       })
     } else {
       body.push(statement)
@@ -722,6 +724,7 @@ runAsWorker(
                     type: 'JSXExpressionContainer',
                     expression:
                       expression || normalizeEmptyExpression(start, end, code),
+                    value: child.value,
                   }
                   acc.push(expressionContainer)
                 } else if (expression) {
@@ -1287,6 +1290,7 @@ runAsWorker(
                     ? 'MDXFlowExpression'
                     : 'MDXTextExpression',
                 expression: normalizeEmptyExpression(start, end, code),
+                value: node.value,
               }
             }
             return {
@@ -1296,6 +1300,7 @@ runAsWorker(
                   ? 'MDXFlowExpression'
                   : 'MDXTextExpression',
               expression: statement.expression,
+              value: node.value,
             }
           }
           case 'mdxJsxFlowElement':

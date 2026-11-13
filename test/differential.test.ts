@@ -29,7 +29,6 @@ const configRules = new Set(
 // Keep the corpus and skip list adjacent: the skip list is specific to this
 // corpus and should shrink as the remaining differences are fixed.
 const knownDivergences = new Set([
-  'maximum-heading-length',
   'maximum-line-length',
   'no-literal-urls',
   'table-pipe-alignment',

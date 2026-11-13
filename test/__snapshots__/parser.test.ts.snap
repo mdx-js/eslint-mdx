@@ -7317,6 +7317,33 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
     }}",
                 "start": 864,
                 "type": "JSXExpressionContainer",
+                "value": "{
+    template: /* HTML */ \`
+      <aui-tab-group [(tab)]="tab">
+        <aui-tab
+          name="a"
+          label="Tab 0"
+        >
+          <aui-card> Content 1</aui-card>
+        </aui-tab>
+        <aui-tab
+          name="b"
+          label="Tab 1"
+        >
+          <aui-card> Content 2</aui-card>
+        </aui-tab>
+        <aui-tab
+          name="c"
+          label="Tab 2"
+        >
+          <aui-card> Content 3</aui-card>
+        </aui-tab>
+      </aui-tab-group>
+    \`,
+    props: {
+      tab: 'a',
+    },
+  }",
               },
             ],
             "closingElement": {
@@ -8133,6 +8160,18 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
     }}",
                 "start": 1538,
                 "type": "JSXExpressionContainer",
+                "value": "{
+    template: /* HTML */ \`
+      <aui-tab-group [type]="type">
+        <aui-tab label="Tab 0"><aui-card> Content 1 </aui-card></aui-tab>
+        <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
+        <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+      </aui-tab-group>
+    \`,
+    props: {
+      type: TabType.Card,
+    },
+  }",
               },
             ],
             "closingElement": {
@@ -8955,6 +8994,30 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
     }}",
                 "start": 2021,
                 "type": "JSXExpressionContainer",
+                "value": "{
+    template: /* HTML */ \`
+      <aui-form-item>
+        <label auiFormItemLabel>尺寸</label>
+        <aui-radio-group
+          auiFormItemControl
+          [(ngModel)]="size"
+          [plain]="false"
+        >
+          <aui-radio-button value="large">大</aui-radio-button>
+          <aui-radio-button value="medium">中</aui-radio-button>
+          <aui-radio-button value="small">小</aui-radio-button>
+        </aui-radio-group>
+      </aui-form-item>
+      <aui-tab-group [size]="size">
+        <aui-tab label="Tab 0"><aui-card> Content 1 </aui-card></aui-tab>
+        <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
+        <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+      </aui-tab-group>
+    \`,
+    props: {
+      size: TabSize.Medium,
+    },
+  }",
               },
             ],
             "closingElement": {
@@ -9983,6 +10046,29 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
     }}",
                 "start": 2966,
                 "type": "JSXExpressionContainer",
+                "value": "{
+    template: /* HTML */ \`<aui-tab-group>
+      <ng-container *auiTabTitle>aa2</ng-container>
+      <aui-tab>
+        <ng-container *auiTabLabel>
+          <aui-icon icon="sun"></aui-icon>
+          Custom Label
+        </ng-container>
+        <aui-card> Content 1 </aui-card>
+      </aui-tab>
+      <aui-tab label="Tab 1"><aui-card>Content 2</aui-card></aui-tab>
+      <aui-tab>
+        <ng-container *auiTabLabel>
+          <aui-icon icon="moon"></aui-icon>
+          Custom Label
+        </ng-container>
+        <aui-card> Content 3 </aui-card>
+      </aui-tab>
+    </aui-tab-group>\`,
+    props: {
+      tabs: Array.from({ length: 3 }).fill(),
+    },
+  }",
               },
             ],
             "closingElement": {
@@ -12385,6 +12471,42 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
     }}",
                 "start": 3793,
                 "type": "JSXExpressionContainer",
+                "value": "{
+    template: /* HTML */ \`
+      <aui-tab-group>
+        <aui-tab
+          *ngFor="let tab of tabs; index as i; count as len"
+          [closeable]="len > 1"
+          [label]="'tab' + tab"
+          (close)="remove(i)"
+        >
+          <aui-card> content {{ i }} </aui-card>
+        </aui-tab>
+        <button
+          *auiTabHeaderAddon
+          aui-button="primary"
+          (click)="add()"
+          size="small"
+          [square]="true"
+        >
+          <aui-icon icon="plus"></aui-icon>
+        </button>
+      </aui-tab-group>
+    \`,
+    props: {
+      tabs: [1, 2, 3],
+      add(num = 1) {
+        this.tabs = this.tabs.concat(
+          Array.from({ length: num })
+            .fill()
+            .map((_, i) => this.tabs[this.tabs.length - 1] + i + 1),
+        )
+      },
+      remove(index) {
+        this.tabs.splice(index, 1)
+      },
+    },
+  }",
               },
             ],
             "closingElement": {
@@ -13431,6 +13553,27 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
     }}",
                 "start": 4831,
                 "type": "JSXExpressionContainer",
+                "value": "{
+    template: /* HTML */ \`
+      <aui-tab-group>
+        <aui-tab label="Tab 0"> <aui-card> Content 1 </aui-card> </aui-tab>
+        <aui-tab
+          label="Tab 1"
+          [disabled]="true"
+          ><aui-card> Content 2 </aui-card></aui-tab
+        >
+        <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+        <aui-tab
+          label="Tab 3"
+          [disabled]="true"
+          ><aui-card> Content 4 </aui-card></aui-tab
+        >
+      </aui-tab-group>
+    \`,
+    props: {
+      tabs: Array.from({ length: 10 }).fill(),
+    },
+  }",
               },
             ],
             "closingElement": {
@@ -14667,6 +14810,42 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
     }}",
                 "start": 5620,
                 "type": "JSXExpressionContainer",
+                "value": "{
+    template: /* HTML */ \`
+      <aui-form-item>
+        <label auiFormItemLabel>启用</label>
+        <aui-radio-group
+          auiFormItemControl
+          [(ngModel)]="lazy"
+          [plain]="false"
+        >
+          <aui-radio-button [value]="true">是</aui-radio-button>
+          <aui-radio-button [value]="false">否</aui-radio-button>
+        </aui-radio-group>
+      </aui-form-item>
+      <aui-tab-group [lazy]="lazy">
+        <aui-tab label="Tab 1">
+          <tabs-lazy-test *auiTabContent
+            ><aui-card> Content 1 </aui-card></tabs-lazy-test
+          >
+        </aui-tab>
+        <aui-tab label="Tab 2">
+          <tabs-lazy-test *auiTabContent
+            ><aui-card> Content 2 </aui-card></tabs-lazy-test
+          >
+        </aui-tab>
+        <aui-tab label="Tab 3">
+          <tabs-lazy-test *auiTabContent
+            ><aui-card> Content 3 </aui-card></tabs-lazy-test
+          >
+        </aui-tab>
+      </aui-tab-group>
+    \`,
+    props: {
+      tabs: Array.from({ length: 10 }).fill(),
+      lazy: true,
+    },
+  }",
               },
             ],
             "closingElement": {
@@ -15538,6 +15717,45 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
     }}",
                 "start": 6831,
                 "type": "JSXExpressionContainer",
+                "value": "{
+    template: /* HTML */ \` <aui-form-item>
+        <label auiFormItemLabel>启用 Lazy</label>
+        <aui-radio-group
+          auiFormItemControl
+          [(ngModel)]="lazy"
+          [plain]="false"
+        >
+          <aui-radio-button [value]="true">是</aui-radio-button>
+          <aui-radio-button [value]="false">否</aui-radio-button>
+        </aui-radio-group>
+      </aui-form-item>
+      <aui-tab-group [lazy]="lazy">
+        <aui-tab label="Tab 1">
+          <tabs-active-test *auiTabContent
+            ><aui-card>Content 1</aui-card></tabs-active-test
+          >
+        </aui-tab>
+        <aui-tab label="Tab 2">
+          <tabs-active-test *auiTabContent>
+            <aui-tab-group [lazy]="true">
+              <aui-tab label="Tab 2-1">
+                <tabs-active-test *auiTabContent>
+                  <aui-card> Content 2-1 </aui-card>
+                </tabs-active-test>
+              </aui-tab>
+              <aui-tab label="Tab 2-2">
+                <tabs-active-test *auiTabContent>
+                  <aui-card> Content 2-2 </aui-card>
+                </tabs-active-test>
+              </aui-tab>
+            </aui-tab-group>
+          </tabs-active-test>
+        </aui-tab>
+      </aui-tab-group>\`,
+    props: {
+      lazy: true,
+    },
+  }",
               },
             ],
             "closingElement": {
@@ -16197,6 +16415,17 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
     }}",
                 "start": 8273,
                 "type": "JSXExpressionContainer",
+                "value": "{
+    template: /* HTML */ \`
+      <aui-tab-group size="large">
+        <ng-container *auiTabTitle>Title</ng-container>
+        <aui-tab label="Tab 0"> <aui-card> Content 1 </aui-card> </aui-tab>
+        <aui-tab label="Tab 1"><aui-card> Content 2 </aui-card></aui-tab>
+        <aui-tab label="Tab 2"><aui-card> Content 3 </aui-card></aui-tab>
+        <aui-tab label="Tab 3"><aui-card> Content 4 </aui-card></aui-tab>
+      </aui-tab-group>
+    \`,
+  }",
               },
             ],
             "closingElement": {
@@ -41711,6 +41940,7 @@ exports[`parser should match all AST snapshots: 437.mdx 1`] = `
             "raw": "{'bar'}",
             "start": 18,
             "type": "JSXExpressionContainer",
+            "value": "'bar'",
           },
         ],
         "closingElement": {
@@ -49436,6 +49666,7 @@ exports[`parser should match all AST snapshots: 491.mdx 1`] = `
       ],
       "start": 254,
       "type": "MDXFlowExpression",
+      "value": " /* I'm a comment */ ",
     },
     {
       "end": 414,
@@ -49609,6 +49840,7 @@ exports[`parser should match all AST snapshots: 491.mdx 1`] = `
             "raw": "{  hello       }",
             "start": 359,
             "type": "JSXExpressionContainer",
+            "value": "  hello       ",
           },
           {
             "end": 407,
@@ -49648,6 +49880,7 @@ exports[`parser should match all AST snapshots: 491.mdx 1`] = `
             "raw": "{     /* another comment */}",
             "start": 379,
             "type": "JSXExpressionContainer",
+            "value": "     /* another comment */",
           },
         ],
         "closingElement": {
@@ -55725,6 +55958,7 @@ sidebar_position: 7",
           "raw": "{_.keys(mainnets).length}",
           "start": 171,
           "type": "MDXTextExpression",
+          "value": "_.keys(mainnets).length",
         },
         {
           "end": 210,
@@ -55924,6 +56158,7 @@ sidebar_position: 7",
           "raw": "{_.keys(testnets).length}",
           "start": 210,
           "type": "MDXTextExpression",
+          "value": "_.keys(testnets).length",
         },
         {
           "end": 300,
@@ -58303,6 +58538,7 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
       ],
       "start": 178,
       "type": "MDXFlowExpression",
+      "value": "/* This is a comment */",
     },
     {
       "end": 267,
@@ -58375,6 +58611,7 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
             "raw": "{/* This is a comment */}",
             "start": 276,
             "type": "JSXExpressionContainer",
+            "value": "/* This is a comment */",
           },
         ],
         "closingElement": {
@@ -64582,6 +64819,7 @@ exports[`parser should match all AST snapshots: jsx-expression-container.mdx 1`]
             "raw": "{value}",
             "start": 31,
             "type": "JSXExpressionContainer",
+            "value": "value",
           },
           {
             "end": 45,
@@ -64645,6 +64883,7 @@ exports[`parser should match all AST snapshots: jsx-expression-container.mdx 1`]
             "raw": "{value}",
             "start": 45,
             "type": "JSXExpressionContainer",
+            "value": "value",
           },
           {
             "end": 69,
@@ -64684,6 +64923,7 @@ exports[`parser should match all AST snapshots: jsx-expression-container.mdx 1`]
             "raw": "{/* comment */}",
             "start": 54,
             "type": "JSXExpressionContainer",
+            "value": "/* comment */",
           },
         ],
         "closingElement": {
@@ -74473,6 +74713,7 @@ exports[`parser should match all AST snapshots: mdx-flow-expression.mdx 1`] = `
       ],
       "start": 24,
       "type": "MDXFlowExpression",
+      "value": "value",
     },
   ],
   "comments": [],
@@ -74716,6 +74957,7 @@ exports[`parser should match all AST snapshots: nested-empty-expression.mdx 1`] 
           "raw": "{/* blockquote */}",
           "start": 2,
           "type": "MDXFlowExpression",
+          "value": "/* blockquote */",
         },
       ],
       "end": 20,
@@ -74777,6 +75019,7 @@ exports[`parser should match all AST snapshots: nested-empty-expression.mdx 1`] 
           "raw": "{/* heading */}",
           "start": 24,
           "type": "MDXTextExpression",
+          "value": "/* heading */",
         },
       ],
       "depth": 1,
@@ -74842,6 +75085,7 @@ exports[`parser should match all AST snapshots: nested-empty-expression.mdx 1`] 
               "raw": "{/* list */}",
               "start": 43,
               "type": "MDXFlowExpression",
+              "value": "/* list */",
             },
           ],
           "end": 55,
@@ -74947,6 +75191,7 @@ exports[`parser should match all AST snapshots: nested-empty-expression.mdx 1`] 
           "raw": "{}",
           "start": 62,
           "type": "MDXTextExpression",
+          "value": "",
         },
         {
           "end": 69,
@@ -75389,6 +75634,7 @@ exports[`parser should match all AST snapshots: nested-flow-expression.mdx 1`] =
           "raw": "{value}",
           "start": 2,
           "type": "MDXFlowExpression",
+          "value": "value",
         },
       ],
       "end": 9,
@@ -75499,6 +75745,7 @@ exports[`parser should match all AST snapshots: nested-flow-expression.mdx 1`] =
               "raw": "{value2}",
               "start": 21,
               "type": "MDXFlowExpression",
+              "value": "value2",
             },
           ],
           "end": 29,
@@ -77397,6 +77644,9 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
   }}",
             "start": 27,
             "type": "JSXExpressionContainer",
+            "value": "{
+  template: /* HTML */ \`\`,
+}",
           },
         ],
         "closingElement": {
@@ -79871,6 +80121,7 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
       ],
       "start": 41,
       "type": "MDXFlowExpression",
+      "value": "/* eslint-disable mdx/no-literal-urls, mdx/remark */",
     },
     {
       "children": [
@@ -80332,6 +80583,7 @@ exports[`parser should match all AST snapshots: top-level-comment-expression.mdx
       ],
       "start": 0,
       "type": "MDXFlowExpression",
+      "value": "/* top-level comment */",
     },
     {
       "end": 29,
@@ -80372,6 +80624,7 @@ exports[`parser should match all AST snapshots: top-level-comment-expression.mdx
       ],
       "start": 27,
       "type": "MDXFlowExpression",
+      "value": "",
     },
   ],
   "comments": [
@@ -80662,6 +80915,12 @@ exports[`parser should match all AST snapshots: unicorn.mdx 1`] = `
   }}",
             "start": 10,
             "type": "JSXExpressionContainer",
+            "value": "{
+  template: /* HTML */ \`<div abc>
+    <div>Nested</div>
+    Hello World
+  </div>\`,
+}",
           },
         ],
         "closingElement": {

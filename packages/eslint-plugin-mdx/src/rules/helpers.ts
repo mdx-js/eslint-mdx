@@ -64,3 +64,29 @@ export const getRuleConfig = <RuleName extends keyof RemarkRuleOptions>(
   } = sourceCode.parserServices as { remarkConfig: RemarkConfig }
   return name in ruleOptions ? { options: ruleOptions[name] } : null
 }
+
+export interface TextNode {
+  alt?: string | null
+  children?: TextNode[]
+  type: string
+  value?: string | null
+}
+
+/**
+ * Native AST adaptation of `mdast-util-to-string` for MD and JSX nodes.
+ */
+export const getNodeText = (node: TextNode): string => {
+  if (node.type === 'MDHtml') {
+    return ''
+  }
+
+  if (node.value != null) {
+    return node.value
+  }
+
+  if (node.alt) {
+    return node.alt
+  }
+
+  return (node.children ?? []).map(child => getNodeText(child)).join('')
+}

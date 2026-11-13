@@ -1,6 +1,8 @@
 import type { Rule } from 'eslint'
+import type { MDHeading } from 'eslint-mdx'
+import type { JSXElement } from 'estree-jsx'
 
-import { getRuleConfig } from './helpers.js'
+import { getNodeText, getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -24,7 +26,6 @@ export const maximumHeadingLength: Rule.RuleModule = {
       return {}
     }
 
-    const sourceText = context.sourceCode.getText()
     /* istanbul ignore next -- POC covers the numeric size option */
     const size =
       typeof config.options === 'object' && config.options !== null
@@ -32,20 +33,29 @@ export const maximumHeadingLength: Rule.RuleModule = {
         : config.options
     const expected = typeof size === 'number' ? size : 60
 
-    return {
-      MDHeading(node) {
-        const text = sourceText
-          .slice(node.range[0], node.range[1])
-          .replace(/^\s*#{1,6}\s*/u, '')
-          .trim()
-        const actual = [...text].length
+    const report = (node: JSXElement | MDHeading) => {
+      const actual = [...getNodeText(node)].length
 
-        if (actual > expected) {
-          context.report({
-            loc: node.loc,
-            message: `Unexpected \`${actual}\` characters in heading, expected at most \`${expected}\` characters`,
-          })
+      if (actual > expected) {
+        context.report({
+          loc: node.loc,
+          message: `Unexpected \`${actual}\` characters in heading, expected at most \`${expected}\` characters`,
+        })
+      }
+    }
+
+    return {
+      MDHeading(node: MDHeading) {
+        report(node)
+      },
+      JSXElement(node: JSXElement) {
+        const name = node.openingElement.name
+
+        if (name.type !== 'JSXIdentifier' || !/^h[1-6]$/u.test(name.name)) {
+          return
         }
+
+        report(node)
       },
     }
   },
