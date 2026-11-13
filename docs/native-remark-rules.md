@@ -19,7 +19,7 @@ This page documents the native ESLint implementations of the mapped [remark-lint
 
 - Optionless rules currently need a remark config entry to be activated.
 - Function-valued options cannot cross the worker boundary, so the remark plugin is kept and `mdx/remark` reports those rules instead.
-- `remark-lint-file-extension` is force-disabled by the worker when native rules are active; the native `mdx/file-extension` rule handles it.
+- `remark-lint-file-extension` is always force-disabled because the parser `extensions` / `markdownExtensions` options are authoritative.
 - Omit the `native` config to keep the remark fallback path. This is the migration rollback path.
 
 ```js
@@ -70,7 +70,6 @@ const flat = [mdx.configs.flat, mdx.configs.native]
 | `mdx/checkbox-character-style`          | [`remark-lint-checkbox-character-style`](https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-checkbox-character-style)                   |
 | `mdx/code-block-style`                  | [`remark-lint-code-block-style`](https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-code-block-style)                                   |
 | `mdx/fenced-code-flag`                  | [`remark-lint-fenced-code-flag`](https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-fenced-code-flag)                                   |
-| `mdx/file-extension`                    | [`remark-lint-file-extension`](https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-file-extension)                                       |
 | `mdx/final-definition`                  | [`remark-lint-final-definition`](https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-final-definition)                                   |
 | `mdx/hard-break-spaces`                 | [`remark-lint-hard-break-spaces`](https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-hard-break-spaces)                                 |
 | `mdx/list-item-bullet-indent`           | [`remark-lint-list-item-bullet-indent`](https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-list-item-bullet-indent)                     |

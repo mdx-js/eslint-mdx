@@ -429,20 +429,10 @@ export const getRemarkProcessor = async (
   if (result?.filePath) {
     const { plugins, settings } = result
 
-    // disable this rule automatically since we already have a parser option `extensions`
-    // only disable this plugin if there are at least one plugin enabled
-    // otherwise it is redundant
-    /* istanbul ignore else */
-    if (ignoreRemarkRules?.has('file-extension') && plugins.length > 0) {
-      try {
-        plugins.push([
-          (await import('remark-lint-file-extension')).default,
-          false,
-        ])
-      } catch {
-        // just ignore if the package does not exist
-      }
-    }
+    // Parser extensions are authoritative; this remark rule is redundant.
+    const pluginsWithoutFileExtension = plugins.filter(
+      ([plugin]) => plugin.name !== 'remark-lint:file-extension',
+    )
 
     const initProcessor = remarkProcessor()
       .use({ settings })
@@ -452,7 +442,10 @@ export const getRemarkProcessor = async (
       initProcessor.use(remarkMdx, getRemarkMdxOptions(sharedTokens))
     }
 
-    cachedProcessor = filterRemarkPlugins(plugins, ignoreRemarkRules)
+    cachedProcessor = filterRemarkPlugins(
+      pluginsWithoutFileExtension,
+      ignoreRemarkRules,
+    )
       .reduce((processor, plugin) => processor.use(...plugin), initProcessor)
       .freeze()
   } else {

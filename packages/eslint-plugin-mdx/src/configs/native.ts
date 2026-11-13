@@ -4,7 +4,11 @@ import type { Linter } from 'eslint'
  * Opt-in native remark-lint rules. Rules with options still read them from the
  * resolved remark config.
  */
-export const native: Linter.LegacyConfig = {
+export interface NativeConfig {
+  rules: Linter.RulesRecord
+}
+
+export const native: NativeConfig = {
   rules: {
     'mdx/emphasis-marker': 'warn',
     'mdx/final-newline': 'warn',
@@ -42,7 +46,6 @@ export const native: Linter.LegacyConfig = {
     'mdx/checkbox-character-style': 'warn',
     'mdx/code-block-style': 'warn',
     'mdx/fenced-code-flag': 'warn',
-    'mdx/file-extension': ['warn', ['mdx', 'md']],
     'mdx/final-definition': 'warn',
     'mdx/hard-break-spaces': 'warn',
     'mdx/list-item-bullet-indent': 'warn',

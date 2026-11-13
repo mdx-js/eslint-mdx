@@ -5,7 +5,7 @@ import type { Linter } from 'eslint'
 import { base } from './base.js'
 import { codeBlocks } from './code-blocks.js'
 import { flat, flatCodeBlocks } from './flat.js'
-import { native } from './native.js'
+import { native, type NativeConfig } from './native.js'
 import { overrides } from './overrides.js'
 import { recommended } from './recommended.js'
 
@@ -27,7 +27,7 @@ export const configs: {
   flat: Linter.FlatConfig
   // eslint-disable-next-line sonarjs/deprecation
   flatCodeBlocks: Linter.FlatConfig
-  native: Linter.LegacyConfig
+  native: NativeConfig
   overrides: Linter.LegacyConfig
   recommended: Linter.LegacyConfig
 } = {

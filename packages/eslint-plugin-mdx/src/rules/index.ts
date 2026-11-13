@@ -7,7 +7,6 @@ import { definitionSpacing } from './definition-spacing.js'
 import { emphasisMarker } from './emphasis-marker.js'
 import { fencedCodeFlag } from './fenced-code-flag.js'
 import { fencedCodeMarker } from './fenced-code-marker.js'
-import { fileExtension } from './file-extension.js'
 import { finalDefinition } from './final-definition.js'
 import { finalNewline } from './final-newline.js'
 import { hardBreakSpaces } from './hard-break-spaces.js'
@@ -62,7 +61,6 @@ export {
   emphasisMarker,
   fencedCodeFlag,
   fencedCodeMarker,
-  fileExtension,
   finalDefinition,
   finalNewline,
   hardBreakSpaces,
@@ -130,7 +128,6 @@ export const rules = {
   'no-undefined-references': noUndefinedReferences,
   'definition-case': definitionCase,
   'fenced-code-flag': fencedCodeFlag,
-  'file-extension': fileExtension,
   'hard-break-spaces': hardBreakSpaces,
   'maximum-line-length': maximumLineLength,
   'definition-spacing': definitionSpacing,

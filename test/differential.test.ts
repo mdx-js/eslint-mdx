@@ -16,8 +16,6 @@ const remarkConfig = JSON.parse(fs.readFileSync(remarkConfigPath, 'utf8')) as {
   plugins: Array<string | [string, unknown]>
 }
 
-// `remark-lint-file-extension` is force-disabled by the worker when a config
-// is present, so it can never be compared through these two paths.
 const configRules = new Set(
   remarkConfig.plugins
     .map(plugin => (Array.isArray(plugin) ? plugin[0] : plugin))

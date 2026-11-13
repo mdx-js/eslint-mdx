@@ -41,7 +41,6 @@ export const NATIVE_REMARK_RULES = new Set([
   'checkbox-character-style',
   'code-block-style',
   'fenced-code-flag',
-  'file-extension',
   'final-definition',
   'hard-break-spaces',
   'list-item-bullet-indent',
