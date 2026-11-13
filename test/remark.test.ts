@@ -144,27 +144,32 @@ test('uses a whole-document fix for large documents', () => {
   // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- 64 KiB threshold
   const code = 'a'.repeat(64 * 1024 + 1)
 
-  const result = linter.verifyAndFix(
-    code,
-    [
-      {
-        files: ['**/*.mdx'],
-        languageOptions: {
-          parser,
-          parserOptions: {
-            ...DEFAULT_PARSER_OPTIONS,
-            remarkConfigPath: path.resolve(
-              _dirname,
-              'remark-fixtures/shared-options.remarkrc',
-            ),
-          },
+  const config: Linter.Config[] = [
+    {
+      files: ['**/*.mdx'],
+      languageOptions: {
+        parser,
+        parserOptions: {
+          ...DEFAULT_PARSER_OPTIONS,
+          remarkConfigPath: path.resolve(
+            _dirname,
+            'remark-fixtures/shared-options.remarkrc',
+          ),
         },
-        plugins: { mdx: { rules } },
-        rules: { 'mdx/remark': 'warn' },
       },
-    ],
-    { filename: 'large.mdx' },
-  )
+      plugins: { mdx: { rules } },
+      rules: { 'mdx/remark': 'warn' },
+    },
+  ]
+
+  const [message] = linter.verify(code, config, { filename: 'large.mdx' })
+
+  expect(message?.fix).toEqual({
+    range: [0, code.length],
+    text: code + '\n',
+  })
+
+  const result = linter.verifyAndFix(code, config, { filename: 'large.mdx' })
 
   expect(result.fixed).toBe(true)
   expect(result.output).toBe(code + '\n')
