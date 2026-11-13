@@ -8,6 +8,33 @@ declare module 'eslint-mdx' {
   }
 }
 
+interface WalkNode {
+  children?: WalkNode[]
+  expression?: WalkNode
+  loc?: {
+    end: { column: number; line: number }
+    start: { column: number; line: number }
+  }
+  type: string
+  value?: string | null
+}
+
+const IGNORED_TYPES = new Set([
+  'MDCode',
+  'MDDefinition',
+  'MDHeading',
+  'MDHtml',
+  'MDMath',
+  'MDTable',
+  'MDToml',
+  'MDXFlowExpression',
+  'MDXTextExpression',
+  'MDYaml',
+  'JSXExpressionContainer',
+])
+
+const INLINE_TYPES = new Set(['MDImage', 'MDInlineCode', 'MDLink'])
+
 export const maximumLineLength: Rule.RuleModule = {
   meta: {
     type: 'problem',
@@ -32,84 +59,94 @@ export const maximumLineLength: Rule.RuleModule = {
       return {}
     }
 
-    /* istanbul ignore next -- POC covers numeric options */
     const size =
       typeof config.options === 'object' && config.options !== null
         ? config.options.size
         : config.options
-    /* istanbul ignore next -- POC covers numeric options */
     /* eslint-disable-next-line @typescript-eslint/no-magic-numbers -- default size */
     const expected = typeof size === 'number' ? size : 80
     const sourceText = context.sourceCode.getText()
-    const ignoredLines = new Set<number>()
-    const unwrappable = new Set<string>()
+    const lines = sourceText.split(/\r?\n/u)
 
-    const ignore = (node: {
-      loc?: { end: { line: number }; start: { line: number } }
-    }) => {
+    const blankLines = (node: WalkNode) => {
       /* istanbul ignore if -- AST nodes have locations */
       if (!node.loc) {
         return
       }
 
-      for (let line = node.loc.start.line; line <= node.loc.end.line; line++) {
-        ignoredLines.add(line)
+      for (
+        let line = node.loc.start.line - 1;
+        line < node.loc.end.line;
+        line++
+      ) {
+        lines[line] = ''
       }
     }
 
-    const track = (node: {
-      loc?: {
-        end: { column: number; line: number }
-        start: { column: number; line: number }
+    const visit = (
+      node: WalkNode,
+      parent: WalkNode | undefined,
+      index: number,
+    ) => {
+      if (
+        node.type === 'ImportDeclaration' ||
+        node.type === 'ExportAllDeclaration' ||
+        node.type === 'ExportDefaultDeclaration' ||
+        node.type === 'ExportNamedDeclaration'
+      ) {
+        blankLines(node)
+        return
       }
-    }) => {
-      /* istanbul ignore next -- POC covers single-line spans */
-      if (node.loc && node.loc.start.line === node.loc.end.line) {
-        for (
-          let column = node.loc.start.column;
-          column < node.loc.end.column;
-          column++
-        ) {
-          unwrappable.add(`${node.loc.start.line}:${column}`)
+
+      if (IGNORED_TYPES.has(node.type)) {
+        blankLines(node)
+        return
+      }
+
+      if (INLINE_TYPES.has(node.type) && node.loc && parent?.children) {
+        const startLine = node.loc.start.line
+        const startColumn = node.loc.start.column + 1
+        const endColumn = node.loc.end.column + 1
+        const next = parent.children[index + 1]
+        const nextStart = next?.loc?.start
+
+        if (startColumn <= expected && endColumn >= expected) {
+          const hasBreakOpportunity =
+            nextStart?.line === startLine &&
+            (next.value == null || /^[^\r\n]*[ \t]/u.test(next.value))
+
+          if (!hasBreakOpportunity) {
+            blankLines(node)
+          }
         }
+      }
+
+      if (node.expression) {
+        visit(node.expression, node, 0)
+      }
+
+      for (const [childIndex, child] of (node.children ?? []).entries()) {
+        visit(child, node, childIndex)
       }
     }
 
     return {
-      MDCode: ignore,
-      MDImage: track,
-      MDInlineCode: track,
-      MDLink: track,
-      MDDefinition: ignore,
-      MDFootnoteDefinition: ignore,
-      MDHeading: ignore,
-      MDHtml: ignore,
-      MDMath: ignore,
-      MDXFlowExpression: ignore,
-      MDXTextExpression: ignore,
-      JSXElement: ignore,
-      MDYaml: ignore,
-      MDTable: ignore,
-      'Program:exit'() {
-        for (const [index, line] of sourceText.split('\n').entries()) {
-          const lineNumber = index + 1
+      Program(node) {
+        for (const [index, child] of node.body.entries()) {
+          visit(child as WalkNode, undefined, index)
+        }
+
+        for (const [index, line] of lines.entries()) {
           const actual = [...line].length
+          const difference = actual - expected
 
-          if (ignoredLines.has(lineNumber)) {
-            continue
-          }
-
-          if (unwrappable.has(`${lineNumber}:${expected}`)) {
-            continue
-          }
-
-          if (actual > expected) {
+          if (difference > 0) {
             context.report({
               loc: {
-                start: { line: lineNumber, column: 0 },
-                end: { line: lineNumber, column: actual },
+                start: { line: index + 1, column: line.length },
+                end: { line: index + 1, column: line.length },
               },
-              message: `Unexpected \`${actual}\` character line, expected at most \`${expected}\` characters, remove \`${actual - expected}\` characters`,
+              message: `Unexpected \`${actual}\` character line, expected at most \`${expected}\` characters, remove \`${difference}\` ${difference === 1 ? 'character' : 'characters'}`,
             })
           }
         }
