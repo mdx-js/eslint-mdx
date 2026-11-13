@@ -39,18 +39,18 @@ const verify = (code: string, remarkConfigPath: string, option?: number) =>
   )
 
 test('uses remark options when no eslint option is provided', () => {
-  expect(verify('# this heading is too long', nextConfigPath)).toHaveLength(1)
+  expect(verify('# this heading is too long\n', nextConfigPath)).toHaveLength(1)
 })
 
 test('lets eslint options override remark options', () => {
-  expect(verify('# this heading is too long', nextConfigPath, 60)).toHaveLength(
-    0,
-  )
+  expect(
+    verify('# this heading is too long\n', nextConfigPath, 60),
+  ).toHaveLength(0)
 })
 
 test('enables a native rule from eslint options alone', () => {
   expect(
-    verify('# this heading is too long', nativeConfigPath, 5),
+    verify('# this heading is too long\n', nativeConfigPath, 5),
   ).toHaveLength(1)
 })
 
@@ -104,4 +104,34 @@ test('validates no-undefined-references allow through eslint options', () => {
   )
 
   expect(messages).toHaveLength(0)
+})
+
+test('routes native rules back through mdx/remark', () => {
+  const messages = linter.verify(
+    '# this heading is too long\n',
+    [
+      {
+        files: ['**/*.mdx'],
+        languageOptions: {
+          parser,
+          parserOptions: {
+            ...DEFAULT_PARSER_OPTIONS,
+            nativeRemarkRules: false,
+            remarkConfigPath: nextConfigPath,
+          },
+        },
+        plugins: { mdx: { rules } },
+        rules: {
+          'mdx/maximum-heading-length': 'warn',
+          'mdx/remark': 'warn',
+        },
+      },
+    ],
+    { filename: 'native.mdx' },
+  )
+
+  expect(messages.filter(m => m.ruleId === 'mdx/remark')).toHaveLength(1)
+  expect(
+    messages.filter(m => m.ruleId === 'mdx/maximum-heading-length'),
+  ).toHaveLength(0)
 })

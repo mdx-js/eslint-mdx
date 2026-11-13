@@ -95,6 +95,7 @@ export const remark: Rule.RuleModule = {
       extensions,
       markdownExtensions,
       ignoreRemarkConfig,
+      nativeRemarkRules,
       remarkConfigPath,
     } = {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
@@ -132,7 +133,9 @@ export const remark: Rule.RuleModule = {
           isMdx,
           process: true,
           ignoreRemarkConfig,
-          ignoreRemarkRules: NATIVE_REMARK_RULES,
+          ignoreRemarkRules:
+            nativeRemarkRules === false ? new Set() : NATIVE_REMARK_RULES,
+          nativeRemarkRules,
           remarkConfigPath,
         })
 
