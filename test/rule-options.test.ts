@@ -53,3 +53,30 @@ test('enables a native rule from eslint options alone', () => {
     verify('# this heading is too long', nativeConfigPath, 5),
   ).toHaveLength(1)
 })
+
+const verifyFileExtension = (extensions: string[]) =>
+  linter.verify(
+    '# A',
+    [
+      {
+        files: ['**/*.mdx'],
+        languageOptions: {
+          parser,
+          parserOptions: {
+            ...DEFAULT_PARSER_OPTIONS,
+            remarkConfigPath: nextConfigPath,
+          },
+        },
+        plugins: { mdx: { rules } },
+        rules: {
+          'mdx/file-extension': ['warn', extensions],
+        },
+      },
+    ],
+    { filename: 'native.mdx' },
+  )
+
+test('uses eslint options for file-extension', () => {
+  expect(verifyFileExtension(['mdx'])).toHaveLength(0)
+  expect(verifyFileExtension(['txt'])).toHaveLength(1)
+})
