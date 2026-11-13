@@ -12,6 +12,10 @@ import type {
 import type { Root } from 'mdast'
 import type { VFileMessage } from 'vfile-message'
 
+/**
+ * MDX expression containers keep the original mdast value so native rules can
+ * reproduce remark's text normalization without reparsing raw source.
+ */
 declare module 'estree-jsx' {
   interface JSXExpressionContainer {
     value?: string
