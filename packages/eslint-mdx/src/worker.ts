@@ -359,6 +359,7 @@ const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
 
   return ranges
 }
+/* eslint-enable sonarjs/cognitive-complexity */
 
 const getRemarkIgnoreKey = (rules?: ReadonlySet<string>) =>
   rules?.size ? `\0ignore:${[...rules].join(',')}` : ''
@@ -461,8 +462,6 @@ export const getRemarkProcessor = async (
 
   return { config: result, processor: cachedProcessor }
 }
-/* eslint-enable sonarjs/cognitive-complexity */
-
 function isExpressionStatement(
   statement: Program['body'][number],
 ): asserts statement is ExpressionStatement | undefined {
