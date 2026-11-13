@@ -85,6 +85,19 @@ ruleTester.run('maximum heading length', maximumHeadingLength, {
       ],
     },
     {
+      code: '<h1>{abcdef /* c */}</h1>',
+      filename: 'native.mdx',
+      languageOptions,
+      errors: [
+        {
+          message:
+            'Unexpected `14` characters in heading, expected at most `10` characters',
+          line: 1,
+          column: 1,
+        },
+      ],
+    },
+    {
       code: '<h1>{\n  foo + bar\n}</h1>',
       filename: 'native.mdx',
       languageOptions,
