@@ -284,7 +284,7 @@ const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
     })
   }
 
-  /* eslint-disable sonarjs/cognitive-complexity -- traverses JSX children */
+  /* eslint-disable-next-line sonarjs/cognitive-complexity -- traverses JSX children */
   visitParents(root, (node, ancestors) => {
     const position = node.position
 
@@ -359,8 +359,6 @@ const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
 
   return ranges
 }
-/* eslint-enable sonarjs/cognitive-complexity */
-
 const getRemarkIgnoreKey = (rules?: ReadonlySet<string>) =>
   rules?.size ? `\0ignore:${[...rules].join(',')}` : ''
 
