@@ -20,6 +20,44 @@ ruleTester.run('list-item-indent', listItemIndent, {
   ],
   invalid: [
     {
+      code: '- a\n- b\n\n  c',
+      filename: 'native.mdx',
+      languageOptions: mixedOptions,
+      errors: [
+        {
+          message:
+            'Unexpected `1` space between list item marker and content in loose list, expected `3` spaces, add `2` spaces',
+          line: 1,
+          column: 3,
+        },
+        {
+          message:
+            'Unexpected `1` space between list item marker and content in loose list, expected `3` spaces, add `2` spaces',
+          line: 2,
+          column: 3,
+        },
+      ],
+    },
+    {
+      code: '- a\n  - b\n\n  - c',
+      filename: 'native.mdx',
+      languageOptions: mixedOptions,
+      errors: [
+        {
+          message:
+            'Unexpected `1` space between list item marker and content in loose list, expected `3` spaces, add `2` spaces',
+          line: 2,
+          column: 5,
+        },
+        {
+          message:
+            'Unexpected `1` space between list item marker and content in loose list, expected `3` spaces, add `2` spaces',
+          line: 4,
+          column: 5,
+        },
+      ],
+    },
+    {
       code: '-   item',
       filename: 'native.mdx',
       languageOptions: mixedOptions,
