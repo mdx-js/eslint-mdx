@@ -2,7 +2,7 @@ import type { Rule } from 'eslint'
 import type { MDHeading } from 'eslint-mdx'
 import type { JSXElement } from 'estree-jsx'
 
-import { getNodeText, getRuleConfig } from './helpers.js'
+import { ANY_OPTION_SCHEMA, getNodeText, getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -25,7 +25,7 @@ export const maximumHeadingLength: Rule.RuleModule = {
             additionalProperties: false,
             properties: {
               size: { type: ['number', 'null'] },
-              stringLength: {},
+              stringLength: ANY_OPTION_SCHEMA,
             },
             type: 'object',
           },

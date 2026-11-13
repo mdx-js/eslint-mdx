@@ -1,6 +1,9 @@
 import type { Rule } from 'eslint'
 import type { RemarkRuleOptions, RemarkConfig } from 'eslint-mdx'
 
+/** JSON Schema for option values that cannot be expressed, such as functions and RegExp. */
+export const ANY_OPTION_SCHEMA = {}
+
 export const NATIVE_REMARK_RULES = new Set([
   'emphasis-marker',
   'final-newline',
