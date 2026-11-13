@@ -1,4 +1,6 @@
 import type { Rule } from 'eslint'
+import type { MDHeading } from 'eslint-mdx'
+import type { JSXElement } from 'estree-jsx'
 
 import { getRuleConfig } from './helpers.js'
 
@@ -7,6 +9,14 @@ declare module 'eslint-mdx' {
     'maximum-heading-length':
       number | { size?: number | null; stringLength?: unknown } | undefined
   }
+}
+
+interface TextNode {
+  alt?: string | null
+  children?: TextNode[]
+  expression?: { range?: [number, number] }
+  type: string
+  value?: string | null
 }
 
 export const maximumHeadingLength: Rule.RuleModule = {
@@ -32,20 +42,55 @@ export const maximumHeadingLength: Rule.RuleModule = {
         : config.options
     const expected = typeof size === 'number' ? size : 60
 
-    return {
-      MDHeading(node) {
-        const text = sourceText
-          .slice(node.range[0], node.range[1])
-          .replace(/^\s*#{1,6}\s*/u, '')
-          .trim()
-        const actual = [...text].length
+    const getText = (node: TextNode): string => {
+      if (node.type === 'MDHtml') {
+        return ''
+      }
 
-        if (actual > expected) {
-          context.report({
-            loc: node.loc,
-            message: `Unexpected \`${actual}\` characters in heading, expected at most \`${expected}\` characters`,
-          })
+      if (node.value != null) {
+        return node.value
+      }
+
+      if (node.alt) {
+        return node.alt
+      }
+
+      if (
+        node.type === 'MDXTextExpression' ||
+        node.type === 'JSXExpressionContainer'
+      ) {
+        const range = node.expression?.range
+
+        /* istanbul ignore next -- parsed expression nodes have ranges */
+        return range ? sourceText.slice(range[0], range[1]) : ''
+      }
+
+      return (node.children ?? []).map(child => getText(child)).join('')
+    }
+
+    const report = (node: JSXElement | MDHeading) => {
+      const actual = [...getText(node)].length
+
+      if (actual > expected) {
+        context.report({
+          loc: node.loc,
+          message: `Unexpected \`${actual}\` characters in heading, expected at most \`${expected}\` characters`,
+        })
+      }
+    }
+
+    return {
+      MDHeading(node: MDHeading) {
+        report(node)
+      },
+      JSXElement(node: JSXElement) {
+        const name = node.openingElement.name
+
+        if (name.type !== 'JSXIdentifier' || !/^h[1-6]$/u.test(name.name)) {
+          return
         }
+
+        report(node)
       },
     }
   },
