@@ -26,7 +26,6 @@ export const maximumHeadingLength: Rule.RuleModule = {
       return {}
     }
 
-    const sourceText = context.sourceCode.getText()
     /* istanbul ignore next -- POC covers the numeric size option */
     const size =
       typeof config.options === 'object' && config.options !== null
@@ -35,7 +34,7 @@ export const maximumHeadingLength: Rule.RuleModule = {
     const expected = typeof size === 'number' ? size : 60
 
     const report = (node: JSXElement | MDHeading) => {
-      const actual = [...getNodeText(node, sourceText)].length
+      const actual = [...getNodeText(node)].length
 
       if (actual > expected) {
         context.report({

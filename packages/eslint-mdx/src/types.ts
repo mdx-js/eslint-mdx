@@ -91,11 +91,13 @@ export interface MDHeading extends BaseNode {
 export interface MDXFlowExpression extends BaseNode {
   type: 'MDXFlowExpression'
   expression: Expression | JSXEmptyExpression
+  value?: string
 }
 
 export interface MDXTextExpression extends BaseNode {
   type: 'MDXTextExpression'
   expression: Expression | JSXEmptyExpression
+  value?: string
 }
 
 export interface MDHtml extends BaseNode {

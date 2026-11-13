@@ -98,6 +98,45 @@ ruleTester.run('maximum heading length', maximumHeadingLength, {
       ],
     },
     {
+      code: '<h1>{foo\n    + bar}</h1>',
+      filename: 'native.mdx',
+      languageOptions,
+      errors: [
+        {
+          message:
+            'Unexpected `11` characters in heading, expected at most `10` characters',
+          line: 1,
+          column: 1,
+        },
+      ],
+    },
+    {
+      code: '<h1>{foo\n\t+ bar}</h1>',
+      filename: 'native.mdx',
+      languageOptions,
+      errors: [
+        {
+          message:
+            'Unexpected `11` characters in heading, expected at most `10` characters',
+          line: 1,
+          column: 1,
+        },
+      ],
+    },
+    {
+      code: '<h1>{foo(\n    bar,\n    baz\n)}</h1>',
+      filename: 'native.mdx',
+      languageOptions,
+      errors: [
+        {
+          message:
+            'Unexpected `19` characters in heading, expected at most `10` characters',
+          line: 1,
+          column: 1,
+        },
+      ],
+    },
+    {
       code: '<h1>{\n  foo + bar\n}</h1>',
       filename: 'native.mdx',
       languageOptions,

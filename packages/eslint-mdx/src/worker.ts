@@ -110,6 +110,7 @@ const appendEstreeBody = (
       ...position,
       type,
       expression: normalizeEmptyExpression(start, end, code),
+      value: node.value,
     })
     return
   }
@@ -120,6 +121,7 @@ const appendEstreeBody = (
         ...position,
         type,
         expression: statement.expression,
+        value: node.value,
       })
     } else {
       body.push(statement)
@@ -717,12 +719,13 @@ runAsWorker(
                     end: { offset: end },
                   } = child.position
 
-                  const expressionContainer: JSXExpressionContainer = {
+                  const expressionContainer = {
                     ...normalizeNode(start, end),
                     type: 'JSXExpressionContainer',
                     expression:
                       expression || normalizeEmptyExpression(start, end, code),
-                  }
+                    value: child.value,
+                  } as JSXExpressionContainer & { value?: string }
                   acc.push(expressionContainer)
                 } else if (expression) {
                   acc.push(expression as JSXElement['children'][number])
@@ -1287,6 +1290,7 @@ runAsWorker(
                     ? 'MDXFlowExpression'
                     : 'MDXTextExpression',
                 expression: normalizeEmptyExpression(start, end, code),
+                value: node.value,
               }
             }
             return {
@@ -1296,6 +1300,7 @@ runAsWorker(
                   ? 'MDXFlowExpression'
                   : 'MDXTextExpression',
               expression: statement.expression,
+              value: node.value,
             }
           }
           case 'mdxJsxFlowElement':

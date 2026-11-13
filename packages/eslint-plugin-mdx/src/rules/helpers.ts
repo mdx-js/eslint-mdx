@@ -68,8 +68,6 @@ export const getRuleConfig = <RuleName extends keyof RemarkRuleOptions>(
 export interface TextNode {
   alt?: string | null
   children?: TextNode[]
-  expression?: { range?: [number, number] }
-  range?: [number, number]
   type: string
   value?: string | null
 }
@@ -77,7 +75,7 @@ export interface TextNode {
 /**
  * Native AST adaptation of `mdast-util-to-string` for MD and JSX nodes.
  */
-export const getNodeText = (node: TextNode, sourceText: string): string => {
+export const getNodeText = (node: TextNode): string => {
   if (node.type === 'MDHtml') {
     return ''
   }
@@ -90,21 +88,5 @@ export const getNodeText = (node: TextNode, sourceText: string): string => {
     return node.alt
   }
 
-  if (
-    node.type === 'MDXTextExpression' ||
-    node.type === 'JSXExpressionContainer'
-  ) {
-    const range = node.range
-
-    /* istanbul ignore next -- parsed expression nodes have ranges */
-    return range
-      ? sourceText
-          .slice(range[0] + 1, range[1] - 1)
-          .replaceAll(/\n[ \t]+/gu, '\n')
-      : ''
-  }
-
-  return (node.children ?? [])
-    .map(child => getNodeText(child, sourceText))
-    .join('')
+  return (node.children ?? []).map(child => getNodeText(child)).join('')
 }
