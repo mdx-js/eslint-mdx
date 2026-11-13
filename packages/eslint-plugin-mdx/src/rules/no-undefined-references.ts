@@ -3,7 +3,7 @@ import type { Rule } from 'eslint'
 import type { MDText } from 'eslint-mdx'
 import { normalizeIdentifier } from 'micromark-util-normalize-identifier'
 
-import { ANY_OPTION_SCHEMA, getRuleConfig } from './helpers.js'
+import { getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -36,7 +36,10 @@ export const noUndefinedReferences: Rule.RuleModule = {
       {
         additionalProperties: false,
         properties: {
-          allow: { items: ANY_OPTION_SCHEMA, type: 'array' },
+          allow: {
+            items: { type: ['string', 'object'] },
+            type: 'array',
+          },
           allowShortcutLink: { type: 'boolean' },
         },
         type: 'object',

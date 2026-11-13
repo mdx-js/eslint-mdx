@@ -80,3 +80,28 @@ test('uses eslint options for file-extension', () => {
   expect(verifyFileExtension(['mdx'])).toHaveLength(0)
   expect(verifyFileExtension(['txt'])).toHaveLength(1)
 })
+
+test('validates no-undefined-references allow through eslint options', () => {
+  const messages = linter.verify(
+    '[b]',
+    [
+      {
+        files: ['**/*.mdx'],
+        languageOptions: {
+          parser,
+          parserOptions: {
+            ...DEFAULT_PARSER_OPTIONS,
+            remarkConfigPath: nextConfigPath,
+          },
+        },
+        plugins: { mdx: { rules } },
+        rules: {
+          'mdx/no-undefined-references': ['warn', { allow: [/^b$/iu] }],
+        },
+      },
+    ],
+    { filename: 'native.mdx' },
+  )
+
+  expect(messages).toHaveLength(0)
+})
