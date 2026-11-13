@@ -69,6 +69,7 @@ export interface TextNode {
   alt?: string | null
   children?: TextNode[]
   expression?: { range?: [number, number] }
+  range?: [number, number]
   type: string
   value?: string | null
 }
@@ -93,10 +94,14 @@ export const getNodeText = (node: TextNode, sourceText: string): string => {
     node.type === 'MDXTextExpression' ||
     node.type === 'JSXExpressionContainer'
   ) {
-    const range = node.expression?.range
+    const range = node.range
 
     /* istanbul ignore next -- parsed expression nodes have ranges */
-    return range ? sourceText.slice(range[0], range[1]) : ''
+    return range
+      ? sourceText
+          .slice(range[0] + 1, range[1] - 1)
+          .replaceAll(/\n[ \t]+/gu, '\n')
+      : ''
   }
 
   return (node.children ?? [])
