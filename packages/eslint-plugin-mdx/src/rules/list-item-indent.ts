@@ -15,6 +15,14 @@ const CHARS_PER_TAB = 4
 
 const pluralize = (count: number) => (count === 1 ? 'space' : 'spaces')
 
+const getListKind = (style: Style, loose: boolean) => {
+  if (style !== 'mixed') {
+    return ''
+  }
+
+  return loose ? ' in loose list' : ' in tight list'
+}
+
 export const listItemIndent: Rule.RuleModule = {
   meta: {
     type: 'layout',
@@ -74,12 +82,7 @@ export const listItemIndent: Rule.RuleModule = {
 
       if (actualSpaces !== expectedSpaces) {
         const difference = expectedSpaces - actualSpaces
-        let listKind = ''
-
-        if (style === 'mixed') {
-          listKind = loose ? ' in loose list' : ' in tight list'
-        }
-
+        const listKind = getListKind(style, loose)
         const direction = difference > 0 ? 'add' : 'remove'
 
         context.report({
@@ -91,10 +94,9 @@ export const listItemIndent: Rule.RuleModule = {
 
     return {
       MDList(list: MDList) {
-        const loose = Boolean(
+        const loose =
           list.spread ||
-          list.children.some(item => 'spread' in item && item.spread),
-        )
+          list.children.some(item => 'spread' in item && item.spread)
 
         for (const item of list.children) {
           checkItem(item, loose)
