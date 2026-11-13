@@ -20,9 +20,16 @@ ruleTester.run('table pipe alignment', tablePipeAlignment, {
       languageOptions,
       errors: [
         {
-          message: 'Unexpected unaligned cell, expected aligned pipes',
-          line: 3,
-          column: 1,
+          message:
+            'Unexpected unaligned cell, expected aligned pipes, add `1` space',
+          line: 1,
+          column: 9,
+        },
+        {
+          message:
+            'Unexpected unaligned cell, expected aligned pipes, add `1` space (or add `-` to pad alignment row cells)',
+          line: 2,
+          column: 9,
         },
       ],
     },
