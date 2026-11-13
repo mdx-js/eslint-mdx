@@ -25,10 +25,7 @@ export const noConsecutiveBlankLines: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(
-      context.sourceCode,
-      'no-consecutive-blank-lines',
-    )
+    const config = getRuleConfig(context, 'no-consecutive-blank-lines')
 
     if (!config) {
       return {}

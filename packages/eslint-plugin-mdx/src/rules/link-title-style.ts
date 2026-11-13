@@ -16,10 +16,10 @@ export const linkTitleStyle: Rule.RuleModule = {
       description: 'Enforce a consistent link title style',
     },
     fixable: 'code',
-    schema: [],
+    schema: [{ enum: ['"', "'", '()', 'consistent'], type: 'string' }],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'link-title-style')
+    const config = getRuleConfig(context, 'link-title-style')
 
     if (!config) {
       return {}

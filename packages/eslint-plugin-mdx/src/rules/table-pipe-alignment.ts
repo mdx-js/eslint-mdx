@@ -21,7 +21,7 @@ export const tablePipeAlignment: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'table-pipe-alignment')
+    const config = getRuleConfig(context, 'table-pipe-alignment')
 
     if (!config) {
       return {}

@@ -18,7 +18,7 @@ export const definitionSpacing: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'definition-spacing')
+    const config = getRuleConfig(context, 'definition-spacing')
 
     if (!config) {
       return {}

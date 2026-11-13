@@ -17,13 +17,10 @@ export const unorderedListMarkerStyle: Rule.RuleModule = {
       description: 'Enforce a consistent unordered list marker',
     },
     fixable: 'code',
-    schema: [],
+    schema: [{ enum: ['-', '*', '+', 'consistent'], type: 'string' }],
   },
   create(context) {
-    const config = getRuleConfig(
-      context.sourceCode,
-      'unordered-list-marker-style',
-    )
+    const config = getRuleConfig(context, 'unordered-list-marker-style')
 
     if (!config) {
       return {}

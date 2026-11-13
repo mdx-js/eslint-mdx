@@ -15,7 +15,7 @@ export const finalDefinition: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'final-definition')
+    const config = getRuleConfig(context, 'final-definition')
     if (!config) {
       return {}
     }

@@ -460,6 +460,8 @@ export type MDContentNode =
 
 ## Rules
 
+Native rules read their options from the remark config by default. An ESLint positional option overrides it. Optionless native rules still need a remark entry to be activated.
+
 ### mdx/remark
 
 _possible fixable depends on your remark plugins_:

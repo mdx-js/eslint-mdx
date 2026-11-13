@@ -44,7 +44,7 @@ export const noShellDollars: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'no-shell-dollars')
+    const config = getRuleConfig(context, 'no-shell-dollars')
 
     if (!config) {
       return {}

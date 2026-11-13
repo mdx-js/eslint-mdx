@@ -20,7 +20,7 @@ export const noDuplicateDefinitions: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'no-duplicate-definitions')
+    const config = getRuleConfig(context, 'no-duplicate-definitions')
 
     if (!config) {
       return {}

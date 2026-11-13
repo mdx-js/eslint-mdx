@@ -27,10 +27,10 @@ export const listItemIndent: Rule.RuleModule = {
   meta: {
     type: 'layout',
     docs: { description: 'Enforce list item indentation' },
-    schema: [],
+    schema: [{ enum: ['mixed', 'one', 'tab'], type: 'string' }],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'list-item-indent')
+    const config = getRuleConfig(context, 'list-item-indent')
 
     if (!config) {
       return {}

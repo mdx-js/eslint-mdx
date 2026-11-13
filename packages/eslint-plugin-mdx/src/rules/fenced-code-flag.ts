@@ -28,10 +28,24 @@ export const fencedCodeFlag: Rule.RuleModule = {
   meta: {
     type: 'problem',
     docs: { description: 'Enforce fenced code language flags' },
-    schema: [],
+    schema: [
+      {
+        anyOf: [
+          { items: { type: 'string' }, type: 'array' },
+          {
+            additionalProperties: false,
+            properties: {
+              allowEmpty: { type: 'boolean' },
+              flags: { items: { type: 'string' }, type: 'array' },
+            },
+            type: 'object',
+          },
+        ],
+      },
+    ],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'fenced-code-flag')
+    const config = getRuleConfig(context, 'fenced-code-flag')
 
     if (!config) {
       return {}

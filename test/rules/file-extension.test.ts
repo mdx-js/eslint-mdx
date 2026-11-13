@@ -6,7 +6,14 @@ import { fileExtension } from 'eslint-plugin-mdx'
 
 const languageOptions = createLanguageOptions({ remarkConfig: 'next.remarkrc' })
 ruleTester.run('file extension', fileExtension, {
-  valid: [{ code: '# A', filename: 'native.mdx', languageOptions }],
+  valid: [
+    { code: '# A', filename: 'native.mdx', languageOptions },
+    {
+      code: '# A',
+      filename: 'native.mdx',
+      languageOptions: createLanguageOptions({ ignoreRemarkConfig: true }),
+    },
+  ],
   invalid: [
     {
       code: '# A',

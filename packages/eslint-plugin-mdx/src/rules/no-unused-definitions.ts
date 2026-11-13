@@ -31,7 +31,7 @@ export const noUnusedDefinitions: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'no-unused-definitions')
+    const config = getRuleConfig(context, 'no-unused-definitions')
 
     if (!config) {
       return {}

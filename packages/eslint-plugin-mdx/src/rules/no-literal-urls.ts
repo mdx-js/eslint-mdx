@@ -21,7 +21,7 @@ export const noLiteralUrls: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(context.sourceCode, 'no-literal-urls')
+    const config = getRuleConfig(context, 'no-literal-urls')
 
     if (!config) {
       return {}

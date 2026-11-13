@@ -18,10 +18,7 @@ export const noDuplicateHeadingsInSection: Rule.RuleModule = {
     schema: [],
   },
   create(context) {
-    const config = getRuleConfig(
-      context.sourceCode,
-      'no-duplicate-headings-in-section',
-    )
+    const config = getRuleConfig(context, 'no-duplicate-headings-in-section')
 
     if (!config) {
       return {}
