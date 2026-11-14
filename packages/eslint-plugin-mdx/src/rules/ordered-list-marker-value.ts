@@ -1,5 +1,5 @@
 import type { Rule } from 'eslint'
-import type { MDList } from 'eslint-mdx'
+import type { MDList, MDListItem } from 'eslint-mdx'
 
 import { getRuleConfig } from './helpers.js'
 
@@ -38,7 +38,7 @@ const expectedValue = (style: Style, first: number, index: number) => {
   return style === 'single' ? first : first + index
 }
 
-const markerValue = (item: MDList['children'][number]) => {
+const markerValue = (item: MDListItem) => {
   const match = /^(\d+)[.)]/u.exec(item.raw)
 
   return Number(match[1])
