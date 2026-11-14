@@ -9,8 +9,34 @@ ruleTester.run('list-item-spacing', listItemSpacing, {
   valid: [
     { code: '# A', filename: 'native.mdx', languageOptions },
     { code: '- a\n- b', filename: 'native.mdx', languageOptions },
+    {
+      code: '- a\n- b',
+      filename: 'native.mdx',
+      languageOptions,
+      options: [{ checkBlanks: true }],
+    },
+    {
+      code: '- a\n  continuation\n- b',
+      filename: 'native.mdx',
+      languageOptions,
+      options: [{ checkBlanks: true }],
+    },
   ],
   invalid: [
+    {
+      code: '- a\n\n- b',
+      filename: 'native.mdx',
+      languageOptions,
+      options: [{ checkBlanks: true }],
+      errors: [
+        {
+          message:
+            'Unexpected `1` blank line between list items, expected `0` blank lines, remove `1` blank line',
+          line: 1,
+          column: 4,
+        },
+      ],
+    },
     {
       code: '- a\n\n- b',
       filename: 'native.mdx',
