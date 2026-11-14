@@ -26,9 +26,7 @@ export const definitionSpacing: Rule.RuleModule = {
 
     return {
       MDDefinition(node: MDDefinition) {
-        const label = node.label
-        /* istanbul ignore next -- parser definitions have labels */
-        const match = / {2,}/u.exec(label ?? '')
+        const match = / {2,}/u.exec(node.label)
 
         if (match) {
           context.report({

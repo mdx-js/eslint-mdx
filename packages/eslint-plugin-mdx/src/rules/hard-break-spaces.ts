@@ -29,11 +29,10 @@ export const hardBreakSpaces: Rule.RuleModule = {
     }
 
     const allowSpaces = config.options?.allowSpaces !== false
-    const sourceText = context.sourceCode.getText()
 
     return {
       MDBreak(node: MDBreak) {
-        const raw = sourceText.slice(node.range[0], node.range[1])
+        const raw = node.raw
         const size = raw.length - 1
 
         if (

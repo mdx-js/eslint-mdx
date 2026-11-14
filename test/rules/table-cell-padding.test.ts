@@ -12,9 +12,55 @@ ruleTester.run('table cell padding', tableCellPadding, {
       code: '| a | b |\n| - | - |',
       filename: 'native.mdx',
       languageOptions,
+      options: ['padded'],
+    },
+    {
+      code: '| a | b |\n| - | - |',
+      filename: 'native.mdx',
+      languageOptions,
+      options: ['consistent'],
+    },
+    {
+      code: '|a|b|\n|-|-|',
+      filename: 'native.mdx',
+      languageOptions,
+      options: ['consistent'],
+    },
+    {
+      code: '|a|b|\n|-|-|',
+      filename: 'native.mdx',
+      languageOptions,
+      options: ['compact'],
+    },
+    {
+      code: '| a | b |\n| - | - |',
+      filename: 'native.mdx',
+      languageOptions,
     },
   ],
   invalid: [
+    {
+      code: '| a | b |\n| - | - |',
+      filename: 'native.mdx',
+      languageOptions,
+      options: ['compact'],
+      errors: [
+        {
+          message: 'Unexpected table cell padding, expected compact cells',
+        },
+      ],
+    },
+    {
+      code: '|a|b|\n|-|-|',
+      filename: 'native.mdx',
+      languageOptions,
+      options: ['padded'],
+      errors: [
+        {
+          message: 'Unexpected table cell padding, expected padded cells',
+        },
+      ],
+    },
     {
       code: '|a|b|\n| - | - |',
       filename: 'native.mdx',

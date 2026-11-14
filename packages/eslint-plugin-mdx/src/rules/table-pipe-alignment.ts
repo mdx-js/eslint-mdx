@@ -33,8 +33,6 @@ const CARRIAGE_RETURN = 13
 const LINE_FEED = 10
 const TAB = 9
 const GREATER_THAN = 62
-const HYPHEN = 45
-const COLON = 58
 
 const pluralize = (count: number) => (count === 1 ? 'space' : 'spaces')
 
@@ -113,13 +111,8 @@ export const tablePipeAlignment: Rule.RuleModule = {
     }
 
     /* eslint-disable-next-line sonarjs/cognitive-complexity -- ported algorithm */
-    const inferAlignRow = (table: MDTable): Entry[] | undefined => {
+    const inferAlignRow = (table: MDTable): Entry[] => {
       const header = table.children[0]
-
-      /* istanbul ignore if -- tables always have a header row */
-      if (!header) {
-        return
-      }
 
       let index = header.range[1]
 
@@ -127,9 +120,8 @@ export const tablePipeAlignment: Rule.RuleModule = {
         index++
       }
 
-      /* istanbul ignore if -- a table always has an alignment row */
       if (sourceText.codePointAt(index) !== LINE_FEED) {
-        return
+        return []
       }
 
       index++
@@ -139,11 +131,6 @@ export const tablePipeAlignment: Rule.RuleModule = {
       while (code === TAB || code === SPACE || code === GREATER_THAN) {
         index++
         code = sourceText.codePointAt(index)
-      }
-
-      /* istanbul ignore if -- the parser only produces table alignment rows */
-      if (code !== HYPHEN && code !== COLON && code !== PIPE) {
-        return
       }
 
       let lineEndOffset = sourceText.indexOf('\n', index)
@@ -160,7 +147,6 @@ export const tablePipeAlignment: Rule.RuleModule = {
       let cellStart = index
       let cellEnd = sourceText.indexOf('|', index + (code === PIPE ? 1 : 0))
 
-      /* istanbul ignore if -- alignment rows always contain a pipe or dashes */
       if (cellEnd === -1 || cellEnd > lineEndOffset) {
         cellEnd = lineEndOffset
       }
@@ -221,8 +207,7 @@ export const tablePipeAlignment: Rule.RuleModule = {
         }
 
         if (row === 0) {
-          /* istanbul ignore next -- tables always have an alignment row */
-          entries.push(...(inferAlignRow(table) ?? []))
+          entries.push(...inferAlignRow(table))
         }
       }
 
@@ -230,19 +215,14 @@ export const tablePipeAlignment: Rule.RuleModule = {
     }
 
     return {
-      /* eslint-disable-next-line sonarjs/cognitive-complexity -- ported algorithm */
       MDTable(table: MDTable) {
         const entries = inferTable(table)
         const sizes: number[] = []
 
         for (const entry of entries) {
-          /* istanbul ignore if -- table cells always have a size */
-          if (entry.size == null) {
-            continue
-          }
+          const size = entry.size
 
-          const total =
-            entry.size.middle + (entry.size.left ?? 0) + (entry.size.right ?? 0)
+          const total = size.middle + (size.left ?? 0) + (size.right ?? 0)
 
           if (
             sizes[entry.column] === undefined ||
@@ -273,13 +253,9 @@ export const tablePipeAlignment: Rule.RuleModule = {
         }
 
         for (const entry of entries) {
-          /* istanbul ignore if -- table cells always have a size */
-          if (entry.size == null) {
-            continue
-          }
+          const size = entry.size
 
-          const total =
-            entry.size.middle + (entry.size.left ?? 0) + (entry.size.right ?? 0)
+          const total = size.middle + (size.left ?? 0) + (size.right ?? 0)
           const difference = sizes[entry.column] - total
           let left = 0
           let right = 0

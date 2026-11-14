@@ -17,8 +17,44 @@ ruleTester.run('table pipe alignment', tablePipeAlignment, {
       filename: 'native.mdx',
       languageOptions,
     },
+    {
+      code: 'a\r---:\r',
+      filename: 'native.mdx',
+      languageOptions,
+    },
+    {
+      code: '| a | b |\r| - | - |\r| c | d |\r',
+      filename: 'native.mdx',
+      languageOptions,
+    },
   ],
   invalid: [
+    {
+      code: 'a\n---:',
+      filename: 'native.mdx',
+      languageOptions,
+      errors: [
+        {
+          message:
+            'Unexpected unaligned cell, expected aligned pipes, add `3` spaces',
+          line: 1,
+          column: 1,
+        },
+      ],
+    },
+    {
+      code: 'a\n:-:',
+      filename: 'native.mdx',
+      languageOptions,
+      errors: [
+        {
+          message:
+            'Unexpected unaligned cell, expected aligned pipes, add `2` spaces',
+          line: 1,
+          column: 1,
+        },
+      ],
+    },
     {
       code: '> | Mercury|\n> | - |',
       filename: 'native.mdx',

@@ -39,11 +39,6 @@ export const noEmphasisAsHeading: Rule.RuleModule = {
         ).parent
         const children = parent?.children ?? parent?.body
 
-        /* istanbul ignore if -- parser nodes have parents with children */
-        if (!children) {
-          return
-        }
-
         const index = children.indexOf(node)
         const next = children[index + 1]
 
