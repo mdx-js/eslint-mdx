@@ -1,3 +1,4 @@
+import { ok as assert } from 'devlop'
 import type { Rule } from 'eslint'
 import type { MDBlockquote, MDList, MDListItem } from 'eslint-mdx'
 
@@ -32,24 +33,28 @@ export const noConsecutiveBlankLines: Rule.RuleModule = {
     }
 
     const check = (children: Positioned[]) => {
-      const positioned = children.filter(child => child.loc)
+      let previousLoc: Positioned['loc']
 
-      for (let index = 1; index < positioned.length; index++) {
-        const previous = positioned[index - 1]
-        const current = positioned[index]
+      for (const current of children) {
+        const currentLoc = current.loc
+        assert(currentLoc, 'Expected AST node to have a location')
 
         // `2` for the line ending after the previous node and the line
         // ending of the blank line itself.
-        const difference = current.loc.start.line - previous.loc.end.line - 2
+        const difference = previousLoc
+          ? currentLoc.start.line - previousLoc.end.line - 2
+          : 0
 
         if (difference > 0) {
           const actual = difference + 1
 
           context.report({
-            loc: current.loc,
+            loc: currentLoc,
             message: `Unexpected \`${actual}\` blank lines before node, expected up to \`1\` blank line, remove \`${difference}\` blank line`,
           })
         }
+
+        previousLoc = currentLoc
       }
     }
 
