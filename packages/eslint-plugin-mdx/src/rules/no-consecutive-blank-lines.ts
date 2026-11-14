@@ -32,14 +32,11 @@ export const noConsecutiveBlankLines: Rule.RuleModule = {
     }
 
     const check = (children: Positioned[]) => {
-      for (let index = 1; index < children.length; index++) {
-        const previous = children[index - 1]
-        const current = children[index]
+      const positioned = children.filter(child => child.loc)
 
-        /* istanbul ignore if -- AST nodes have locations */
-        if (!previous.loc || !current.loc) {
-          continue
-        }
+      for (let index = 1; index < positioned.length; index++) {
+        const previous = positioned[index - 1]
+        const current = positioned[index]
 
         // `2` for the line ending after the previous node and the line
         // ending of the blank line itself.
