@@ -11,7 +11,6 @@ declare module 'eslint-mdx' {
 
 type Style = 'atx-closed' | 'atx' | 'setext'
 
-/* istanbul ignore next -- POC covers ATX/setext names */
 const styleName = (style: Style) => {
   switch (style) {
     case 'setext': {
@@ -44,7 +43,6 @@ export const headingStyle: Rule.RuleModule = {
     }
 
     const sourceText = context.sourceCode.getText()
-    /* istanbul ignore next -- POC covers the explicit atx option */
     let expected: Style | undefined =
       config.options === 'atx' ||
       config.options === 'atx-closed' ||
@@ -58,8 +56,7 @@ export const headingStyle: Rule.RuleModule = {
         let actual: Style = 'setext'
 
         if (raw.startsWith('#')) {
-          /* istanbul ignore next -- POC covers open ATX headings */
-          actual = /#\s*#$/u.test(raw) ? 'atx-closed' : 'atx'
+          actual = /\s#\s*$/u.test(raw) ? 'atx-closed' : 'atx'
         }
 
         expected ??= actual
