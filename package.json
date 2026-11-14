@@ -28,13 +28,13 @@
     "version": "changeset version && yarn --no-immutable"
   },
   "devDependencies": {
-    "@1stg/common-config": "^16.0.0",
+    "@1stg/common-config": "^17.0.0",
     "@changesets/changelog-github": "^1.0.1",
     "@changesets/cli": "^3.0.3",
     "@commitlint/cli": "^21.2.4",
     "@oxc-node/core": "^1.0.0",
     "@pkgr/rollup": "^7.1.0",
-    "@stylistic/eslint-plugin": "^5.10.0",
+    "@stylistic/eslint-plugin": "^6.0.0",
     "@swc/core": "^1.16.18",
     "@swc/jest": "^0.2.39",
     "@types/estree": "^1.0.10",
@@ -63,7 +63,7 @@
     "ts-node": "^10.9.2",
     "type-coverage": "^2.30.4",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
-    "yarn-berry-deduplicate": "^7.1.0"
+    "yarn-berry-deduplicate": "^8.0.0"
   },
   "resolutions": {
     "eslint-mdx": "link:packages/eslint-mdx",
