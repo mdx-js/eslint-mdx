@@ -57,6 +57,21 @@ ruleTester.run('checkbox character style', checkboxCharacterStyle, {
       errors: [
         {
           message: 'Unexpected checked checkbox value `X`, expected `x`',
+          line: 1,
+          column: 5,
+        },
+      ],
+    },
+    {
+      code: '1. [x] item',
+      filename: 'native.mdx',
+      languageOptions,
+      options: [{ checked: 'X', unchecked: ' ' }],
+      errors: [
+        {
+          message: 'Unexpected checked checkbox value `x`, expected `X`',
+          line: 1,
+          column: 6,
         },
       ],
     },
@@ -68,6 +83,8 @@ ruleTester.run('checkbox character style', checkboxCharacterStyle, {
       errors: [
         {
           message: 'Unexpected checked checkbox value `x`, expected `X`',
+          line: 1,
+          column: 5,
         },
       ],
     },

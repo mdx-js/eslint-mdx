@@ -74,8 +74,15 @@ export const checkboxCharacterStyle: Rule.RuleModule = {
           const expectedText = expected === '\t' ? String.raw`\t` : expected
           const checked = node.checked ? '' : 'un'
 
+          const checkboxLoc = context.sourceCode.getLocFromIndex(
+            node.range[0] + match[0].length - 1,
+          )
+
           context.report({
-            loc: node.loc,
+            loc: {
+              start: checkboxLoc,
+              end: { ...checkboxLoc, column: checkboxLoc.column + 1 },
+            },
             message: `Unexpected ${checked}checked checkbox value \`${actualText}\`, expected \`${expectedText}\``,
           })
         }
