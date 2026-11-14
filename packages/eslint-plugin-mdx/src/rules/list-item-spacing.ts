@@ -1,5 +1,5 @@
 import type { Rule } from 'eslint'
-import type { MDList } from 'eslint-mdx'
+import type { MDList, MDListItem } from 'eslint-mdx'
 
 import { getRuleConfig } from './helpers.js'
 
@@ -42,7 +42,7 @@ export const listItemSpacing: Rule.RuleModule = {
           return !!tail?.loc && tail.loc.end.line - item.loc.start.line > 0
         })
         const expected = spaced ? 1 : 0
-        let previous: (typeof node.children)[number] | undefined
+        let previous: MDListItem | undefined
 
         for (const item of node.children) {
           if (previous?.loc) {
