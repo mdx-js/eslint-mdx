@@ -142,6 +142,10 @@ export const tablePipeAlignment: Rule.RuleModule = {
       let cellStart = index
       let cellEnd = sourceText.indexOf('|', index + (code === PIPE ? 1 : 0))
 
+      if (cellEnd === -1 || cellEnd > lineEndOffset) {
+        cellEnd = lineEndOffset
+      }
+
       const entries: Entry[] = []
 
       while (cellStart !== cellEnd) {
