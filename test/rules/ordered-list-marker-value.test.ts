@@ -46,7 +46,7 @@ ruleTester.run('ordered-list-marker-value', orderedListMarkerValue, {
         {
           message: 'Unexpected ordered list item value `2`, expected `1`',
           line: 2,
-          column: 1,
+          column: 2,
         },
       ],
     },
@@ -59,7 +59,7 @@ ruleTester.run('ordered-list-marker-value', orderedListMarkerValue, {
         {
           message: 'Unexpected ordered list item value `4`, expected `3`',
           line: 2,
-          column: 1,
+          column: 2,
         },
       ],
     },
@@ -71,7 +71,7 @@ ruleTester.run('ordered-list-marker-value', orderedListMarkerValue, {
         {
           message: 'Unexpected ordered list item value `4`, expected `3`',
           line: 3,
-          column: 1,
+          column: 2,
         },
       ],
     },
@@ -83,7 +83,7 @@ ruleTester.run('ordered-list-marker-value', orderedListMarkerValue, {
         {
           message: 'Unexpected ordered list item value `3`, expected `2`',
           line: 2,
-          column: 1,
+          column: 2,
         },
       ],
     },

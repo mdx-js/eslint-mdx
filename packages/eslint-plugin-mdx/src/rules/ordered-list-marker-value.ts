@@ -76,8 +76,16 @@ export const orderedListMarkerValue: Rule.RuleModule = {
           const expected = expectedValue(style, first, index)
 
           if (actual !== expected) {
+            const item = node.children[index]
+            const marker = /^\d+[.)]/u.exec(
+              sourceText.slice(item.range[0], item.range[1]),
+            )[0]
+            const markerStart = context.sourceCode.getLocFromIndex(
+              item.range[0] + marker.length - 1,
+            )
+
             context.report({
-              loc: node.children[index].loc,
+              loc: { start: markerStart, end: markerStart },
               message: `Unexpected ordered list item value \`${actual}\`, expected \`${expected}\``,
             })
           }
