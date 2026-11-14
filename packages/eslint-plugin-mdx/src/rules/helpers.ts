@@ -97,7 +97,6 @@ export const getRuleConfig = <RuleName extends keyof RemarkRuleOptions>(
     remarkConfig?: RemarkConfig
   }
 
-  /* istanbul ignore if -- non-Markdown files have no remark services */
   if (!remarkConfig) {
     return null
   }

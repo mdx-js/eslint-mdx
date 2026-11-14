@@ -1,4 +1,3 @@
-/* istanbul ignore file */
 import { blockquoteIndentation } from './blockquote-indentation.js'
 import { checkboxCharacterStyle } from './checkbox-character-style.js'
 import { codeBlockStyle } from './code-block-style.js'
