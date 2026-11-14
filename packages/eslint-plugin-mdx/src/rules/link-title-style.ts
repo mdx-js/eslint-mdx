@@ -40,7 +40,7 @@ export const linkTitleStyle: Rule.RuleModule = {
         }
 
         const raw = new Set(sourceText.slice(node.range[0], node.range[1]))
-        let actual: '"' | '()' | "'" | undefined
+        let actual: '"' | '()' | "'"
 
         if (raw.has('"')) {
           actual = '"'
@@ -48,11 +48,6 @@ export const linkTitleStyle: Rule.RuleModule = {
           actual = "'"
         } else {
           actual = '()'
-        }
-
-        /* istanbul ignore if -- link titles always use one of the supported delimiters */
-        if (!actual) {
-          return
         }
 
         expected ??= actual
