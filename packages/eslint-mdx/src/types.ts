@@ -139,6 +139,7 @@ export interface MDList extends BaseNode {
 }
 
 export interface MDListItem extends BaseNode {
+  raw: string
   type: 'MDListItem'
   checked?: boolean | null
   spread?: boolean | null

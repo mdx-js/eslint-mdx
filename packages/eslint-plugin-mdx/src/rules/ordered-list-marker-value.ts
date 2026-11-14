@@ -38,9 +38,8 @@ const expectedValue = (style: Style, first: number, index: number) => {
   return style === 'single' ? first : first + index
 }
 
-const markerValue = (sourceText: string, item: MDList['children'][number]) => {
-  const raw = sourceText.slice(item.range[0], item.range[1])
-  const match = /^(\d+)[.)]/u.exec(raw)
+const markerValue = (item: MDList['children'][number]) => {
+  const match = /^(\d+)[.)]/u.exec(item.raw)
 
   return Number(match[1])
 }
@@ -58,15 +57,13 @@ export const orderedListMarkerValue: Rule.RuleModule = {
       return {}
     }
 
-    const sourceText = context.sourceCode.getText()
-
     return {
       MDList(node: MDList) {
         if (!node.ordered) {
           return
         }
 
-        const values = node.children.map(item => markerValue(sourceText, item))
+        const values = node.children.map(item => markerValue(item))
         const first = values[0]
         const second = values[1]
         const style =
@@ -77,9 +74,7 @@ export const orderedListMarkerValue: Rule.RuleModule = {
 
           if (actual !== expected) {
             const item = node.children[index]
-            const marker = /^\d+[.)]/u.exec(
-              sourceText.slice(item.range[0], item.range[1]),
-            )[0]
+            const marker = /^\d+[.)]/u.exec(item.raw)[0]
             const markerStart = context.sourceCode.getLocFromIndex(
               item.range[0] + marker.length - 1,
             )
