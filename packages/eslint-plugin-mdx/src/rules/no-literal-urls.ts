@@ -64,7 +64,7 @@ export const noLiteralUrls: Rule.RuleModule = {
         const expectedKind = isMdx ? 'regular link' : 'regular autolink'
         const marker = protocol ?? ''
         const suggestion = isMdx
-          ? 'use `[text](url)` instead or escape it with `\\<`'
+          ? 'use `[text](url)` instead'
           : `add \`<${marker}\` before and \`>\` after`
         context.report({
           loc: node.loc,

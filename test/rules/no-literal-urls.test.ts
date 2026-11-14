@@ -29,7 +29,7 @@ ruleTester.run('no literal urls', noLiteralUrls, {
       errors: [
         {
           message:
-            'Unexpected GFM autolink literal, expected regular link, use `[text](url)` instead or escape it with `\\<`',
+            'Unexpected GFM autolink literal, expected regular link, use `[text](url)` instead',
         },
       ],
     },
@@ -40,7 +40,7 @@ ruleTester.run('no literal urls', noLiteralUrls, {
       errors: [
         {
           message:
-            'Unexpected GFM autolink literal, expected regular link, use `[text](url)` instead or escape it with `\\<`',
+            'Unexpected GFM autolink literal, expected regular link, use `[text](url)` instead',
         },
       ],
     },
@@ -51,7 +51,7 @@ ruleTester.run('no literal urls', noLiteralUrls, {
       errors: [
         {
           message:
-            'Unexpected GFM autolink literal, expected regular link, use `[text](url)` instead or escape it with `\\<`',
+            'Unexpected GFM autolink literal, expected regular link, use `[text](url)` instead',
           line: 1,
           column: 1,
         },
@@ -81,7 +81,7 @@ ruleTester.run('no literal urls', noLiteralUrls, {
       errors: [
         {
           message:
-            'Unexpected GFM autolink literal, expected regular link, use `[text](url)` instead or escape it with `\\<`',
+            'Unexpected GFM autolink literal, expected regular link, use `[text](url)` instead',
         },
       ],
     },
