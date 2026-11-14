@@ -1,7 +1,7 @@
 import type { Rule } from 'eslint'
 import type { MDLink } from 'eslint-mdx'
 
-import { getRuleConfig } from './helpers.js'
+import { getParserOptions, getRuleConfig, isMdxFile } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -28,6 +28,10 @@ export const noLiteralUrls: Rule.RuleModule = {
     }
 
     const sourceText = context.sourceCode.getText()
+    const isMdx = isMdxFile(
+      context.filename,
+      getParserOptions(context).extensions,
+    )
 
     return {
       MDLink(node: MDLink) {
@@ -40,7 +44,6 @@ export const noLiteralUrls: Rule.RuleModule = {
 
         let protocol: string | undefined
 
-        /* istanbul ignore next -- POC covers the common autolink cases */
         switch (true) {
           case raw === node.url: {
             break
@@ -58,12 +61,14 @@ export const noLiteralUrls: Rule.RuleModule = {
           }
         }
 
+        const expectedKind = isMdx ? 'regular link' : 'regular autolink'
+        const marker = protocol ?? ''
+        const suggestion = isMdx
+          ? 'use `[text](url)` instead'
+          : `add \`<${marker}\` before and \`>\` after`
         context.report({
           loc: node.loc,
-          message: `Unexpected GFM autolink literal, expected regular autolink, add ${
-            /* istanbul ignore next -- POC covers the protocol-less case */
-            protocol ? `\`<${protocol}\`` : '`<`'
-          } before and \`>\` after`,
+          message: `Unexpected GFM autolink literal, expected ${expectedKind}, ${suggestion}`,
         })
       },
     }

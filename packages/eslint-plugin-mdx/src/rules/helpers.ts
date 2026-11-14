@@ -1,8 +1,38 @@
+import path from 'node:path'
+
 import type { Rule } from 'eslint'
-import type { RemarkRuleOptions, RemarkConfig } from 'eslint-mdx'
+import type { ParserOptions, RemarkRuleOptions, RemarkConfig } from 'eslint-mdx'
+import { DEFAULT_EXTENSIONS, MARKDOWN_EXTENSIONS, arrayify } from 'eslint-mdx'
 
 /** JSON Schema for option values that cannot be expressed, such as functions and RegExp. */
 export const ANY_OPTION_SCHEMA = {}
+
+export const getParserOptions = (context: Rule.RuleContext): ParserOptions => {
+  const options = {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
+    // @ts-ignore -- ESLint v10 removed
+    ...context.parserOptions,
+    ...context.languageOptions?.parserOptions,
+  } as ParserOptions
+
+  return options
+}
+
+export const isMdxFile = (
+  filename: string,
+  extensions: ParserOptions['extensions'],
+) =>
+  [...DEFAULT_EXTENSIONS, ...arrayify(extensions)].includes(
+    path.extname(filename),
+  )
+
+export const isMarkdownFile = (
+  filename: string,
+  markdownExtensions: ParserOptions['markdownExtensions'],
+) =>
+  [...MARKDOWN_EXTENSIONS, ...arrayify(markdownExtensions)].includes(
+    path.extname(filename),
+  )
 
 export const NATIVE_REMARK_RULES = new Set([
   'emphasis-marker',
