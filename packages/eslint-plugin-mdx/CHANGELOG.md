@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.10.0
+
+### Minor Changes
+
+- [`8ccf1a9`](https://github.com/mdx-js/eslint-mdx/commit/8ccf1a9a3abe3db5a30dd1472f75c3be98373305) Thanks [@JounQin](https://github.com/JounQin)! - Expose resolved remark configuration through parser services and add native ESLint implementations for the mapped `remark-lint` rules. The native rules are opt-in via the new `native` config; `base` / `flat` keep the stable `mdx/remark` behavior.
+
+### Patch Changes
+
+- Updated dependencies [[`8ccf1a9`](https://github.com/mdx-js/eslint-mdx/commit/8ccf1a9a3abe3db5a30dd1472f75c3be98373305)]:
+  - eslint-mdx@3.10.0
+
 ## 3.9.5
 
 ### Patch Changes
