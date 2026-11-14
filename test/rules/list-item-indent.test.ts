@@ -11,6 +11,14 @@ const mixedOptions = createLanguageOptions({
 ruleTester.run('list-item-indent', listItemIndent, {
   valid: [
     { code: '- item', filename: 'native.mdx', languageOptions },
+    { code: '-', filename: 'native.mdx', languageOptions },
+    { code: '- [x] item', filename: 'native.mdx', languageOptions },
+    {
+      code: '-   a',
+      filename: 'native.mdx',
+      languageOptions,
+      options: ['tab'],
+    },
     { code: '- item\n  continuation', filename: 'native.mdx', languageOptions },
     { code: '-     a', filename: 'native.md', languageOptions },
     { code: '-\t\ta', filename: 'native.md', languageOptions },
@@ -80,6 +88,20 @@ ruleTester.run('list-item-indent', listItemIndent, {
         {
           message:
             'Unexpected `1` space between list item marker and content in loose list, expected `3` spaces, add `2` spaces',
+          line: 1,
+          column: 3,
+        },
+      ],
+    },
+    {
+      code: '- a',
+      filename: 'native.mdx',
+      languageOptions,
+      options: ['tab'],
+      errors: [
+        {
+          message:
+            'Unexpected `1` space between list item marker and content, expected `3` spaces, add `2` spaces',
           line: 1,
           column: 3,
         },
