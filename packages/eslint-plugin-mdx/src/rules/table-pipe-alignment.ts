@@ -30,6 +30,7 @@ interface Entry {
 const PIPE = 124
 const SPACE = 32
 const CARRIAGE_RETURN = 13
+const LINE_FEED = 10
 const TAB = 9
 const GREATER_THAN = 62
 
@@ -117,6 +118,10 @@ export const tablePipeAlignment: Rule.RuleModule = {
 
       if (sourceText.codePointAt(index) === CARRIAGE_RETURN) {
         index++
+      }
+
+      if (sourceText.codePointAt(index) !== LINE_FEED) {
+        return []
       }
 
       index++

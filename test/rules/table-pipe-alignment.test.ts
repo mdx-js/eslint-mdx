@@ -17,6 +17,16 @@ ruleTester.run('table pipe alignment', tablePipeAlignment, {
       filename: 'native.mdx',
       languageOptions,
     },
+    {
+      code: 'a\r---:\r',
+      filename: 'native.mdx',
+      languageOptions,
+    },
+    {
+      code: '| a | b |\r| - | - |\r| c | d |\r',
+      filename: 'native.mdx',
+      languageOptions,
+    },
   ],
   invalid: [
     {

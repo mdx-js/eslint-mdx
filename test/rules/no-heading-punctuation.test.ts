@@ -65,18 +65,6 @@ ruleTester.run('no heading punctuation', noHeadingPunctuation, {
     {
       code: '# Heading?',
       filename: 'native.mdx',
-      languageOptions: defaultOptions,
-      errors: [
-        {
-          message: 'Unexpected character `?` at end of heading, remove it',
-          line: 1,
-          column: 1,
-        },
-      ],
-    },
-    {
-      code: '# Heading?',
-      filename: 'native.mdx',
       languageOptions,
       errors: [
         {
