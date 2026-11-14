@@ -40,11 +40,8 @@ export const maximumHeadingLength: Rule.RuleModule = {
       return {}
     }
 
-    /* istanbul ignore next -- POC covers the numeric size option */
     const size =
-      typeof config.options === 'object' && config.options !== null
-        ? config.options.size
-        : config.options
+      typeof config.options === 'object' ? config.options.size : config.options
     const expected = typeof size === 'number' ? size : 60
 
     const report = (node: JSXElement | MDHeading) => {
