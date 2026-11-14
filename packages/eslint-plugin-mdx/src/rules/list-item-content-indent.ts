@@ -31,7 +31,7 @@ export const listItemContentIndent: Rule.RuleModule = {
         const children = node.children.filter(child => child.loc)
         const [first] = children
 
-        if (!first?.loc) {
+        if (!first) {
           return
         }
 
