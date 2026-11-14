@@ -24,6 +24,18 @@ ruleTester.run('list-item-spacing', listItemSpacing, {
   ],
   invalid: [
     {
+      code: '- a\n\n  b\n- c',
+      filename: 'native.mdx',
+      languageOptions,
+      options: [{ checkBlanks: true }],
+      errors: [
+        {
+          message:
+            'Unexpected `0` blank lines between list items, expected `1` blank line, add `1` blank line',
+        },
+      ],
+    },
+    {
       code: '- a\n\n- b',
       filename: 'native.mdx',
       languageOptions,
