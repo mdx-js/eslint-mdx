@@ -101,6 +101,8 @@ ruleTester.run('checkbox character style', checkboxCharacterStyle, {
       errors: [
         {
           message: 'Unexpected unchecked checkbox value ` `, expected `\\t`',
+          line: 1,
+          column: 5,
         },
       ],
     },
@@ -112,6 +114,8 @@ ruleTester.run('checkbox character style', checkboxCharacterStyle, {
       errors: [
         {
           message: 'Unexpected unchecked checkbox value `\\t`, expected ` `',
+          line: 1,
+          column: 5,
         },
       ],
     },
