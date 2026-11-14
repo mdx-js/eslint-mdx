@@ -34,6 +34,7 @@
   - [MDX expression nodes](#mdx-expression-nodes)
   - [Typings](#typings)
 - [Rules](#rules)
+  - [Native remark-lint rules](#native-remark-lint-rules)
   - [mdx/remark](#mdxremark)
 - [Prettier Integration](#prettier-integration)
 - [Sponsors and Backers](#sponsors-and-backers)
@@ -463,6 +464,17 @@ export type MDContentNode =
 ```
 
 ## Rules
+
+### Native remark-lint rules
+
+> **Recommendation:** enable the native remark-lint rules with `native` config. They run inside ESLint, avoid the remark fallback path, and provide native fixes where available. Keep `mdx/remark` for remark plugins that have no native equivalent.
+
+```js
+const classic = {
+  extends: ['plugin:mdx/base', 'plugin:mdx/native'],
+}
+const flat = [mdx.configs.flat, mdx.configs.native]
+```
 
 See [Native remark-lint rules](../../docs/native-remark-rules.md) for the mapped rules and option behavior.
 
