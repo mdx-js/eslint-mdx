@@ -463,7 +463,7 @@ Native rules read their options from the remark config by default. An ESLint pos
 
 ### mdx/remark
 
-> **Deprecated:** stringify-based autofixes from `mdx/remark` will be removed in a future major release. Enable [`native`](#native-remark-lint-rules) for targeted fixes; reporting remains supported.
+> **Deprecated:** stringify-based autofixes from `mdx/remark` will be removed in a future major release. Enable [`native`](#native-remark-lint-rules) for targeted fixes; reporting remains supported. Set `deprecationWarnings: false` in the `mdx/remark` options to silence the warning.
 
 _possible fixable depends on your remark plugins_:
 

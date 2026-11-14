@@ -23,8 +23,8 @@ const MAX_FIXED_TEXT_RATIO = 2
 
 let warnedAboutDeprecatedFix = false
 
-const warnDeprecatedFix = () => {
-  if (warnedAboutDeprecatedFix) {
+const warnDeprecatedFix = (enabled: boolean) => {
+  if (!enabled || warnedAboutDeprecatedFix) {
     return
   }
 
@@ -91,14 +91,18 @@ export const remark: Rule.RuleModule = {
     schema: [
       {
         additionalProperties: false,
-        properties: { native: { type: 'boolean' } },
+        properties: {
+          deprecationWarnings: { type: 'boolean' },
+          native: { type: 'boolean' },
+        },
         type: 'object',
       },
     ],
   },
   create(context) {
     // type-coverage:ignore-next-line -- ESLint rule options are any[]
-    const nativeOption = context.options[0] as { native?: boolean } | undefined
+    const nativeOption = context.options[0] as
+      { deprecationWarnings?: boolean; native?: boolean } | undefined
     const native = nativeOption?.native === true
 
     const filename =
@@ -200,7 +204,7 @@ export const remark: Rule.RuleModule = {
                 : point,
             node,
             fix: (): Rule.Fix[] | null => {
-              warnDeprecatedFix()
+              warnDeprecatedFix(nativeOption?.deprecationWarnings !== false)
 
               /*
                * `fast-diff` has pathological worst cases on very large

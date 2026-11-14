@@ -20,8 +20,10 @@ const _filename = import.meta.filename
 const addNativeOption = <T>(test: T): T => ({
   ...test,
   options: [
-    ...((test as { options?: unknown[] }).options ?? []),
-    { native: true },
+    {
+      native: true,
+      ...(test as { options?: [object?] }).options?.[0],
+    },
   ],
 })
 
@@ -74,6 +76,7 @@ ruleTester.run('remark', remark, {
       // https://github.com/syntax-tree/mdast-util-to-markdown/issues/29
       code: '[CHANGELOG](./CHANGELOG.md)',
       languageOptions,
+      options: [{ deprecationWarnings: false }],
       filename: path.resolve(_dirname, 'fixtures/async/test.mdx'),
       errors: [
         {
