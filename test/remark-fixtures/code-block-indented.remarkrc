@@ -1,5 +1,0 @@
-{
-  "plugins": [
-    ["remark-lint-code-block-style", "indented"]
-  ]
-}
