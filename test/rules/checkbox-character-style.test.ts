@@ -9,6 +9,11 @@ const languageOptions = createLanguageOptions({ remarkConfig: 'next.remarkrc' })
 ruleTester.run('checkbox character style', checkboxCharacterStyle, {
   valid: [
     {
+      code: '- [X]a',
+      filename: 'native.mdx',
+      languageOptions,
+    },
+    {
       code: '- item',
       filename: 'native.mdx',
       languageOptions,

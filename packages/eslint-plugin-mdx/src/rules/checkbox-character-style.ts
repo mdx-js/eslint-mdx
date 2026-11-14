@@ -54,11 +54,12 @@ export const checkboxCharacterStyle: Rule.RuleModule = {
 
     return {
       MDListItem(node: MDListItem) {
-        const raw = sourceText.slice(node.range[0], node.range[1])
-        const match = /^\s*(?:[-*+]|\d+[.)])\s+\[([ x\t])\]/iu.exec(raw)
-        if (!match) {
+        if (typeof node.checked !== 'boolean') {
           return
         }
+
+        const raw = sourceText.slice(node.range[0], node.range[1])
+        const match = /^\s*(?:[-*+]|\d+[.)])\s+\[([ x\t])\]/iu.exec(raw)
         const actual = match[1]
         const expected = node.checked ? checkedExpected : uncheckedExpected
         if (!expected) {
