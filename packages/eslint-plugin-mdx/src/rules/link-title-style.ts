@@ -26,7 +26,6 @@ export const linkTitleStyle: Rule.RuleModule = {
     }
 
     const sourceText = context.sourceCode.getText()
-    /* istanbul ignore next -- POC covers explicit title styles */
     let expected: '"' | '()' | "'" | undefined =
       config.options === '"' ||
       config.options === "'" ||
@@ -36,28 +35,19 @@ export const linkTitleStyle: Rule.RuleModule = {
 
     return {
       MDLink(node: MDLink) {
-        /* istanbul ignore if -- POC covers links with titles */
         if (!node.title) {
           return
         }
 
         const raw = new Set(sourceText.slice(node.range[0], node.range[1]))
-        let actual: '"' | '()' | "'" | undefined
+        let actual: '"' | '()' | "'"
 
-        /* istanbul ignore next -- POC covers title styles */
         if (raw.has('"')) {
           actual = '"'
         } else if (raw.has("'")) {
           actual = "'"
-          /* istanbul ignore next -- POC covers paren titles */
-        } else if (raw.has('(')) {
-          /* istanbul ignore next -- POC covers paren titles */
+        } else {
           actual = '()'
-        }
-
-        /* istanbul ignore if -- POC covers quoted titles */
-        if (!actual) {
-          return
         }
 
         expected ??= actual
