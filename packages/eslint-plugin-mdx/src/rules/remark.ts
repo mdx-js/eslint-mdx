@@ -21,6 +21,23 @@ interface NormalizedDifference {
 const LARGE_DOCUMENT_THRESHOLD = 64 * 1024
 const MAX_FIXED_TEXT_RATIO = 2
 
+let warnedAboutDeprecatedFix = false
+
+const warnDeprecatedFix = () => {
+  if (warnedAboutDeprecatedFix) {
+    return
+  }
+
+  warnedAboutDeprecatedFix = true
+  process.emitWarning(
+    'Stringify-based autofixes from mdx/remark are deprecated and will be removed in a future major release. Enable the native config for targeted fixes; reporting remains supported.',
+    {
+      code: 'ESLINT_MDX_DEPRECATED_REMARK_FIX',
+      type: 'DeprecationWarning',
+    },
+  )
+}
+
 const normalizeDifference = (difference: Difference): NormalizedDifference => ({
   deleteText: '',
   insertText: '',
@@ -183,6 +200,8 @@ export const remark: Rule.RuleModule = {
                 : point,
             node,
             fix: (): Rule.Fix[] | null => {
+              warnDeprecatedFix()
+
               /*
                * `fast-diff` has pathological worst cases on very large
                * documents. Keep the 3.8-compatible whole-document fix for

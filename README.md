@@ -463,6 +463,8 @@ Native rules read their options from the remark config by default. An ESLint pos
 
 ### mdx/remark
 
+> **Deprecated:** stringify-based autofixes from `mdx/remark` will be removed in a future major release. Enable [`native`](#native-remark-lint-rules) for targeted fixes; reporting remains supported.
+
 _possible fixable depends on your remark plugins_:
 
 Integration with [remark-lint][] plugins, it will read [remark's configuration](https://github.com/remarkjs/remark/tree/master/packages/remark-cli#remark-cli) automatically via [unified-engine][]. But `.remarkignore` will not be respected, you should use `.eslintignore` instead.
