@@ -26,6 +26,38 @@ ruleTester.run('list item content indent', listItemContentIndent, {
       ],
     },
     {
+      code: '- item\n\n   paragraph',
+      filename: 'native.mdx',
+      languageOptions,
+      errors: [
+        {
+          message:
+            'Unexpected unaligned list item child, expected to align with first child, remove `1` space',
+          line: 3,
+          column: 4,
+        },
+      ],
+    },
+    {
+      code: '1. [x] Mercury\n     ***\n    * Venus',
+      filename: 'native.mdx',
+      languageOptions,
+      errors: [
+        {
+          message:
+            'Unexpected unaligned list item child, expected to align with first child, remove `2` spaces',
+          line: 2,
+          column: 6,
+        },
+        {
+          message:
+            'Unexpected unaligned list item child, expected to align with first child, remove `1` space',
+          line: 3,
+          column: 5,
+        },
+      ],
+    },
+    {
       code: '- item\n\n    paragraph',
       filename: 'native.mdx',
       languageOptions,
