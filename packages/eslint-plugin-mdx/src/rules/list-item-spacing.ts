@@ -33,7 +33,6 @@ export const listItemSpacing: Rule.RuleModule = {
     return {
       MDList(node: MDList) {
         const spaced = node.children.some(item => {
-          /* istanbul ignore if -- POC covers item spread */
           if (config.options?.checkBlanks) {
             return item.spread
           }
