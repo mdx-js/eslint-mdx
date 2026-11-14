@@ -106,3 +106,19 @@ test('defaults to the remark fallback', () => {
     messages.filter(m => m.ruleId === 'mdx/maximum-heading-length'),
   ).toHaveLength(0)
 })
+
+test('native rules ignore files without remark services', () => {
+  const messages = linter.verify(
+    'const value = 1',
+    [
+      {
+        files: ['**/*.js'],
+        plugins: { mdx: { rules } },
+        rules: { 'mdx/no-literal-urls': 'warn' },
+      },
+    ],
+    { filename: 'plain.js' },
+  )
+
+  expect(messages).toEqual([])
+})
