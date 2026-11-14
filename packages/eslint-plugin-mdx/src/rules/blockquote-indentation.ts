@@ -9,6 +9,8 @@ declare module 'eslint-mdx' {
   }
 }
 
+const pluralize = (count: number) => (count === 1 ? 'space' : 'spaces')
+
 export const blockquoteIndentation: Rule.RuleModule = {
   meta: {
     type: 'layout',
@@ -22,7 +24,6 @@ export const blockquoteIndentation: Rule.RuleModule = {
       return {}
     }
 
-    /* istanbul ignore next -- POC config sets indentation */
     let expected =
       typeof config.options === 'number' ? config.options : undefined
 
@@ -30,7 +31,6 @@ export const blockquoteIndentation: Rule.RuleModule = {
       MDBlockquote(node: MDBlockquote) {
         const [child] = node.children
 
-        /* istanbul ignore if -- blockquotes have children */
         if (!child) {
           return
         }
@@ -39,9 +39,11 @@ export const blockquoteIndentation: Rule.RuleModule = {
         expected ??= actual
 
         if (actual !== expected) {
+          const difference = expected - actual
+
           context.report({
             loc: child.loc,
-            message: `Unexpected \`${actual}\` spaces between block quote marker and content, expected \`${expected}\``,
+            message: `Unexpected \`${actual}\` ${pluralize(actual)} between block quote marker and content, expected \`${expected}\` ${pluralize(expected)}, ${difference > 0 ? 'add' : 'remove'} \`${Math.abs(difference)}\` ${pluralize(Math.abs(difference))}`,
           })
         }
       },
