@@ -17,7 +17,7 @@ This page documents the native ESLint implementations of the mapped [remark-lint
   }
   ```
 
-- Optionless rules currently need a remark config entry to be activated.
+- Optionless rules need a remark config entry to be activated by default. Pass `{ enabled: true }` from ESLint to force-activate one without that entry.
 - Function-valued options cannot cross the worker boundary, so the remark plugin is kept and `mdx/remark` reports those rules instead.
 - `remark-lint-file-extension` is always force-disabled because the parser `extensions` / `markdownExtensions` options are authoritative.
 - Omit the `native` config to keep the remark fallback path. This is the migration rollback path.

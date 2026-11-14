@@ -1,7 +1,7 @@
 import type { Rule } from 'eslint'
 import type { MDCode } from 'eslint-mdx'
 
-import { getRuleConfig } from './helpers.js'
+import { ENABLED_OPTION_SCHEMA, getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -41,7 +41,7 @@ export const noShellDollars: Rule.RuleModule = {
     docs: {
       description: 'Disallow shell code prefixed by dollar signs',
     },
-    schema: [],
+    schema: [ENABLED_OPTION_SCHEMA],
   },
   create(context) {
     const config = getRuleConfig(context, 'no-shell-dollars')

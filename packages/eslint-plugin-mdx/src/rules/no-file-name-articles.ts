@@ -2,7 +2,7 @@ import path from 'node:path'
 
 import type { Rule } from 'eslint'
 
-import { getRuleConfig } from './helpers.js'
+import { ENABLED_OPTION_SCHEMA, getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -16,7 +16,7 @@ export const noFileNameArticles: Rule.RuleModule = {
     docs: {
       description: 'Disallow articles at the start of file names',
     },
-    schema: [],
+    schema: [ENABLED_OPTION_SCHEMA],
   },
   create(context) {
     const config = getRuleConfig(context, 'no-file-name-articles')

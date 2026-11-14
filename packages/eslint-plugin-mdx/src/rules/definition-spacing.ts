@@ -1,7 +1,7 @@
 import type { Rule } from 'eslint'
 import type { MDDefinition } from 'eslint-mdx'
 
-import { getRuleConfig } from './helpers.js'
+import { ENABLED_OPTION_SCHEMA, getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -15,7 +15,7 @@ export const definitionSpacing: Rule.RuleModule = {
     docs: {
       description: 'Enforce spacing in definition labels',
     },
-    schema: [],
+    schema: [ENABLED_OPTION_SCHEMA],
   },
   create(context) {
     const config = getRuleConfig(context, 'definition-spacing')

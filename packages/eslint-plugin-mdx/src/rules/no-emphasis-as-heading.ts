@@ -1,7 +1,7 @@
 import type { Rule } from 'eslint'
 import type { MDContentNode, MDParagraph } from 'eslint-mdx'
 
-import { getRuleConfig } from './helpers.js'
+import { ENABLED_OPTION_SCHEMA, getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -18,7 +18,7 @@ export const noEmphasisAsHeading: Rule.RuleModule = {
     docs: {
       description: 'Disallow emphasis used as a heading',
     },
-    schema: [],
+    schema: [ENABLED_OPTION_SCHEMA],
   },
   create(context) {
     const config = getRuleConfig(context, 'no-emphasis-as-heading')

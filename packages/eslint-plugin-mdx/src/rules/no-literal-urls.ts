@@ -1,7 +1,12 @@
 import type { Rule } from 'eslint'
 import type { MDLink } from 'eslint-mdx'
 
-import { getParserOptions, getRuleConfig, isMdxFile } from './helpers.js'
+import {
+  ENABLED_OPTION_SCHEMA,
+  getParserOptions,
+  getRuleConfig,
+  isMdxFile,
+} from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -18,7 +23,7 @@ export const noLiteralUrls: Rule.RuleModule = {
     docs: {
       description: 'Disallow literal URLs',
     },
-    schema: [],
+    schema: [ENABLED_OPTION_SCHEMA],
   },
   create(context) {
     const config = getRuleConfig(context, 'no-literal-urls')

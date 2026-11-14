@@ -122,3 +122,46 @@ test('native rules ignore files without remark services', () => {
 
   expect(messages).toEqual([])
 })
+
+test('enabled: true activates an optionless native rule from ESLint', () => {
+  const config: Linter.Config[] = [
+    {
+      files: ['**/*.mdx'],
+      languageOptions: {
+        parser,
+        parserOptions: DEFAULT_PARSER_OPTIONS,
+      },
+      plugins: { mdx: { rules } },
+      rules: {
+        'mdx/no-consecutive-blank-lines': ['warn', { enabled: true }],
+      },
+    },
+  ]
+
+  const enabledMessages = linter.verify('a\n\n\nb', config, {
+    filename: 'native.mdx',
+  })
+
+  expect(
+    enabledMessages.some(
+      message => message.ruleId === 'mdx/no-consecutive-blank-lines',
+    ),
+  ).toBe(true)
+
+  const defaultMessages = linter.verify(
+    'a\n\n\nb',
+    [
+      {
+        ...config[0],
+        rules: { 'mdx/no-consecutive-blank-lines': 'warn' },
+      },
+    ],
+    { filename: 'native.mdx' },
+  )
+
+  expect(
+    defaultMessages.some(
+      message => message.ruleId === 'mdx/no-consecutive-blank-lines',
+    ),
+  ).toBe(false)
+})

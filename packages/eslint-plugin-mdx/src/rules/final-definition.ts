@@ -1,6 +1,6 @@
 import type { Rule } from 'eslint'
 
-import { getRuleConfig } from './helpers.js'
+import { ENABLED_OPTION_SCHEMA, getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -12,7 +12,7 @@ export const finalDefinition: Rule.RuleModule = {
   meta: {
     type: 'layout',
     docs: { description: 'Require definitions at the end' },
-    schema: [],
+    schema: [ENABLED_OPTION_SCHEMA],
   },
   create(context) {
     const config = getRuleConfig(context, 'final-definition')
