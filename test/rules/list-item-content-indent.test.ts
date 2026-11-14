@@ -8,9 +8,23 @@ const languageOptions = createLanguageOptions({ remarkConfig: 'next.remarkrc' })
 ruleTester.run('list item content indent', listItemContentIndent, {
   valid: [
     { code: '- item', filename: 'native.mdx', languageOptions },
+    { code: '-', filename: 'native.mdx', languageOptions },
     { code: '- item\n\n  paragraph', filename: 'native.mdx', languageOptions },
   ],
   invalid: [
+    {
+      code: '*\n     asd\n\n  ***',
+      filename: 'native.mdx',
+      languageOptions,
+      errors: [
+        {
+          message:
+            'Unexpected unaligned list item child, expected to align with first child, add `3` spaces',
+          line: 4,
+          column: 3,
+        },
+      ],
+    },
     {
       code: '- item\n\n    paragraph',
       filename: 'native.mdx',
