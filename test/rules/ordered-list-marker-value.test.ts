@@ -27,6 +27,17 @@ ruleTester.run('ordered-list-marker-value', orderedListMarkerValue, {
   ],
   invalid: [
     {
+      code: '1.\n2. a',
+      filename: 'native.mdx',
+      languageOptions,
+      options: ['one'],
+      errors: [
+        {
+          message: 'Unexpected ordered list item value `2`, expected `1`',
+        },
+      ],
+    },
+    {
       code: '1. a\n2. b',
       filename: 'native.mdx',
       languageOptions,

@@ -39,14 +39,8 @@ const expectedValue = (style: Style, first: number, index: number) => {
 }
 
 const markerValue = (sourceText: string, item: MDList['children'][number]) => {
-  const child = item.children[0]
-
-  if (!child) {
-    return
-  }
-
-  const raw = sourceText.slice(item.range[0], child.range[0])
-  const match = /^(\d+)[.)]\s/u.exec(raw)
+  const raw = sourceText.slice(item.range[0], item.range[1])
+  const match = /^(\d+)[.)]/u.exec(raw)
 
   return Number(match[1])
 }
@@ -78,15 +72,7 @@ export const orderedListMarkerValue: Rule.RuleModule = {
         const style =
           configuredStyle(config.options) ?? inferStyle(first, second)
 
-        if (first == null) {
-          return
-        }
-
         for (const [index, actual] of values.entries()) {
-          if (actual == null) {
-            continue
-          }
-
           const expected = expectedValue(style, first, index)
 
           if (actual !== expected) {
