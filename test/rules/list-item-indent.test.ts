@@ -14,7 +14,7 @@ ruleTester.run('list-item-indent', listItemIndent, {
     { code: '-', filename: 'native.mdx', languageOptions },
     { code: '- [x] item', filename: 'native.mdx', languageOptions },
     {
-      code: '-\t\t\ta',
+      code: '-   a',
       filename: 'native.mdx',
       languageOptions,
       options: ['tab'],
