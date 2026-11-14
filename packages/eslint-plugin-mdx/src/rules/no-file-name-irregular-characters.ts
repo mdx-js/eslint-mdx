@@ -16,7 +16,7 @@ export const noFileNameIrregularCharacters: Rule.RuleModule = {
     docs: {
       description: 'Disallow irregular characters in file names',
     },
-    schema: [{ type: ['string', 'object'] }],
+    schema: [{ type: ['string', 'object', 'null'] }],
   },
   create(context) {
     const config = getRuleConfig(context, 'no-file-name-irregular-characters')
@@ -25,7 +25,6 @@ export const noFileNameIrregularCharacters: Rule.RuleModule = {
       return {}
     }
 
-    /* istanbul ignore next -- POC covers the default option */
     /* eslint-disable sonarjs/no-nested-conditional */
     const expected =
       config.options == null

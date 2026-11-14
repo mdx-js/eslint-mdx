@@ -69,11 +69,6 @@ export const maximumLineLength: Rule.RuleModule = {
     const lines = sourceText.split(/\r?\n/u)
 
     const blankLines = (node: WalkNode) => {
-      /* istanbul ignore if -- AST nodes have locations */
-      if (!node.loc) {
-        return
-      }
-
       for (
         let line = node.loc.start.line - 1;
         line < node.loc.end.line;

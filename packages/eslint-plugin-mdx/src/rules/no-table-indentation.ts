@@ -30,11 +30,6 @@ export const noTableIndentation: Rule.RuleModule = {
       MDTable(node: MDTable) {
         const [first, ...rest] = node.children
 
-        /* istanbul ignore if -- tables have rows */
-        if (!first) {
-          return
-        }
-
         const lineStart = sourceText.lastIndexOf('\n', first.range[0] - 1) + 1
         const prefix = sourceText.slice(lineStart, first.range[0])
         const leading = /^\s+$/u.test(prefix) ? prefix.length : 0

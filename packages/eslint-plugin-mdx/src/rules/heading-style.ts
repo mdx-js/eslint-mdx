@@ -42,15 +42,10 @@ const getHeadingStyle = (
   node: MDHeading,
   relative?: Style,
 ): Style | undefined => {
-  const position = node.loc?.end
+  const position = node.loc.end
   const last = node.children.at(-1)
   const final = last?.loc?.end
   const { depth } = node
-
-  /* istanbul ignore if -- headings always have positions */
-  if (!position) {
-    return
-  }
 
   if (!last) {
     if (position.column <= depth * 2) {

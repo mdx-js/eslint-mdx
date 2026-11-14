@@ -14,7 +14,7 @@ export const noHeadingPunctuation: Rule.RuleModule = {
     docs: {
       description: 'Disallow punctuation at the end of headings',
     },
-    schema: [{ type: ['string', 'object'] }],
+    schema: [{ type: ['string', 'object', 'null'] }],
   },
   create(context) {
     const config = getRuleConfig(context, 'no-heading-punctuation')
@@ -24,7 +24,6 @@ export const noHeadingPunctuation: Rule.RuleModule = {
     }
 
     const sourceText = context.sourceCode.getText()
-    /* istanbul ignore next -- POC covers the default option */
     /* eslint-disable sonarjs/no-nested-conditional */
     const expected =
       config.options == null

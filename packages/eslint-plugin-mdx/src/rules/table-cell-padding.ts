@@ -26,7 +26,6 @@ export const tableCellPadding: Rule.RuleModule = {
 
     return {
       MDTable(node: MDTable) {
-        /* istanbul ignore next -- POC covers explicit options */
         let expected: 'compact' | 'padded' | undefined =
           config.options === 'padded' || config.options === 'compact'
             ? config.options
@@ -35,7 +34,6 @@ export const tableCellPadding: Rule.RuleModule = {
         for (const row of node.children) {
           const raw = sourceText.slice(row.range[0], row.range[1])
           const padded = /^\|\s/u.test(raw) && /\s\|$/u.test(raw)
-          /* istanbul ignore next -- POC covers consistent options */
           expected ??= padded ? 'padded' : 'compact'
 
           if ((expected === 'padded') !== padded) {

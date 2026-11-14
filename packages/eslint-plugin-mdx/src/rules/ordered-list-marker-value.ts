@@ -14,7 +14,6 @@ type Style = 'one' | 'ordered' | 'single'
 const configuredStyle = (
   option: 'one' | 'ordered' | 'single' | undefined,
 ): Style | undefined => {
-  /* istanbul ignore if -- POC config is consistent */
   if (option === 'one' || option === 'ordered' || option === 'single') {
     return option
   }
@@ -32,7 +31,6 @@ const inferStyle = (
 }
 
 const expectedValue = (style: Style, first: number, index: number) => {
-  /* istanbul ignore if -- POC covers single/ordered */
   if (style === 'one') {
     return 1
   }
@@ -42,11 +40,6 @@ const expectedValue = (style: Style, first: number, index: number) => {
 
 const markerValue = (sourceText: string, item: MDList['children'][number]) => {
   const child = item.children[0]
-
-  /* istanbul ignore if -- ordered items have children */
-  if (!child) {
-    return
-  }
 
   const raw = sourceText.slice(item.range[0], child.range[0])
   const match = /^(\d+)[.)]\s/u.exec(raw)
@@ -71,7 +64,6 @@ export const orderedListMarkerValue: Rule.RuleModule = {
 
     return {
       MDList(node: MDList) {
-        /* istanbul ignore if -- POC covers ordered lists */
         if (!node.ordered) {
           return
         }
@@ -82,17 +74,7 @@ export const orderedListMarkerValue: Rule.RuleModule = {
         const style =
           configuredStyle(config.options) ?? inferStyle(first, second)
 
-        /* istanbul ignore if -- ordered lists have values */
-        if (first == null) {
-          return
-        }
-
         for (const [index, actual] of values.entries()) {
-          /* istanbul ignore if -- ordered items have markers */
-          if (actual == null) {
-            continue
-          }
-
           const expected = expectedValue(style, first, index)
 
           if (actual !== expected) {

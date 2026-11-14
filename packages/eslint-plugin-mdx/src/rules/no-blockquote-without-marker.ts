@@ -56,7 +56,6 @@ export const noBlockquoteWithoutMarker: Rule.RuleModule = {
         const lines = sourceText.slice(node.range[0], node.range[1]).split('\n')
 
         for (const [index, line] of lines.entries()) {
-          /* istanbul ignore if -- POC covers marker lines */
           if (index === 0 || !line.trim()) {
             continue
           }

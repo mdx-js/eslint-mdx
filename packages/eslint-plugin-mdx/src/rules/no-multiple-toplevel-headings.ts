@@ -19,7 +19,6 @@ export const noMultipleToplevelHeadings: Rule.RuleModule = {
   create(context) {
     const config = getRuleConfig(context, 'no-multiple-toplevel-headings')
 
-    /* istanbul ignore if -- rule is enabled by config */
     if (!config) {
       return {}
     }
