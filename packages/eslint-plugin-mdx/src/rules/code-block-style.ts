@@ -29,8 +29,7 @@ export const codeBlockStyle: Rule.RuleModule = {
 
     return {
       MDCode(node: MDCode) {
-        const raw = node.raw
-        const actual = /^ {0,3}(?:`{3,}|~{3,})/u.test(raw)
+        const actual = /^ {0,3}(?:`{3,}|~{3,})/u.test(node.raw)
           ? 'fenced'
           : 'indented'
         expected ??= actual

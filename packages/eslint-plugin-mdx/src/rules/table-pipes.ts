@@ -25,8 +25,7 @@ export const tablePipes: Rule.RuleModule = {
     return {
       MDTable(node: MDTable) {
         for (const row of node.children) {
-          const raw = row.raw
-          const trimmed = raw.trim()
+          const trimmed = row.raw.trim()
 
           if (!trimmed.startsWith('|') || !trimmed.endsWith('|')) {
             context.report({

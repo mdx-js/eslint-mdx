@@ -27,8 +27,7 @@ export const noHeadingContentIndent: Rule.RuleModule = {
 
     return {
       MDHeading(node: MDHeading) {
-        const raw = node.raw
-        const spaceMatch = /^(#+)([ \t]+)/u.exec(raw)
+        const spaceMatch = /^(#+)([ \t]+)/u.exec(node.raw)
 
         if (!spaceMatch) {
           return

@@ -70,9 +70,7 @@ export const fencedCodeFlag: Rule.RuleModule = {
 
     return {
       MDCode(node: MDCode) {
-        const raw = node.raw
-
-        if (!fence.test(raw)) {
+        if (!fence.test(node.raw)) {
           return
         }
 

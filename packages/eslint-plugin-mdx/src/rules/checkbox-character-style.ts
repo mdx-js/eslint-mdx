@@ -57,8 +57,7 @@ export const checkboxCharacterStyle: Rule.RuleModule = {
           return
         }
 
-        const raw = node.raw
-        const match = /^\s*(?:[-*+]|\d+[.)])\s+\[([ x\t])\]/iu.exec(raw)
+        const match = /^\s*(?:[-*+]|\d+[.)])\s+\[([ x\t])\]/iu.exec(node.raw)
         const actual = match[1]
         const expected = node.checked ? checkedExpected : uncheckedExpected
         if (!expected) {
