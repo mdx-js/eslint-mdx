@@ -71,18 +71,6 @@ export const noUndefinedReferences: Rule.RuleModule = {
     const footnoteDefinitions = new Set<string>()
 
     const report = (range: Range, node: MDText) => {
-      /* istanbul ignore if -- POC covers unmatched brackets */
-      if (range.length === 1) {
-        return
-      }
-
-      // `[x][` has no destination yet.
-      /* istanbul ignore if -- POC covers collapsed references */
-      if (range.length === 3) {
-        /* istanbul ignore next -- POC covers collapsed references */
-        range.length = 2
-      }
-
       // Empty `[]` is regular text.
       if (range.length === 2 && range[0] + 2 === range[1]) {
         return
