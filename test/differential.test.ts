@@ -69,7 +69,7 @@ const normalizeRuleMessage = (
   message: string,
 ) =>
   ruleName === 'no-literal-urls' && file.endsWith('.mdx')
-    ? message.slice(0, message.indexOf(','))
+    ? message.split(',', 1)[0]
     : message
 
 const getRemarkMessages = (file: string, code: string) => {
