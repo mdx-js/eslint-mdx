@@ -25,6 +25,52 @@ const styleName = (style: Style) => {
   }
 }
 
+const consolidate = (
+  depth: number,
+  relative: Style | undefined,
+): Style | undefined => {
+  if (depth < 3) {
+    return 'atx'
+  }
+
+  if (relative === 'atx' || relative === 'setext') {
+    return relative
+  }
+}
+
+const getHeadingStyle = (
+  node: MDHeading,
+  relative?: Style,
+): Style | undefined => {
+  const position = node.loc?.end
+  const last = node.children.at(-1)
+  const final = last?.loc?.end
+  const { depth } = node
+
+  /* istanbul ignore if -- headings always have positions */
+  if (!position) {
+    return
+  }
+
+  if (!last) {
+    if (position.column <= depth * 2) {
+      return consolidate(depth, relative)
+    }
+
+    return 'atx-closed'
+  }
+
+  if (final && final.line + 1 === position.line) {
+    return 'setext'
+  }
+
+  if (final && final.column + depth < position.column) {
+    return 'atx-closed'
+  }
+
+  return consolidate(depth, relative)
+}
+
 export const headingStyle: Rule.RuleModule = {
   meta: {
     type: 'layout',
@@ -42,7 +88,6 @@ export const headingStyle: Rule.RuleModule = {
       return {}
     }
 
-    const sourceText = context.sourceCode.getText()
     let expected: Style | undefined =
       config.options === 'atx' ||
       config.options === 'atx-closed' ||
@@ -52,11 +97,10 @@ export const headingStyle: Rule.RuleModule = {
 
     return {
       MDHeading(node: MDHeading) {
-        const raw = sourceText.slice(node.range[0], node.range[1]).trimEnd()
-        let actual: Style = 'setext'
+        const actual = getHeadingStyle(node, expected)
 
-        if (raw.startsWith('#')) {
-          actual = /\s#\s*$/u.test(raw) ? 'atx-closed' : 'atx'
+        if (!actual) {
+          return
         }
 
         expected ??= actual

@@ -11,19 +11,43 @@ const languageOptions = createLanguageOptions({
 ruleTester.run('heading style', headingStyle, {
   valid: [
     {
-      code: '# A',
+      code: '#',
       filename: 'native.mdx',
       languageOptions,
       options: ['atx'],
     },
     {
-      code: '# A #',
+      code: '###',
+      filename: 'native.mdx',
+      languageOptions,
+      options: ['consistent'],
+    },
+    {
+      code: '# A\n\n## B\n\n### C',
+      filename: 'native.mdx',
+      languageOptions,
+      options: ['atx'],
+    },
+    {
+      code: '### ###',
       filename: 'native.mdx',
       languageOptions,
       options: ['atx-closed'],
     },
     {
-      code: 'A\n===',
+      code: '## A #',
+      filename: 'native.mdx',
+      languageOptions,
+      options: ['atx'],
+    },
+    {
+      code: '# Mercury ##\n\n## Venus ##\n\n### Earth ###',
+      filename: 'native.mdx',
+      languageOptions,
+      options: ['atx-closed'],
+    },
+    {
+      code: 'A\n===\n\nB\n---\n\n### C',
       filename: 'native.mdx',
       languageOptions,
       options: ['setext'],
@@ -44,13 +68,26 @@ ruleTester.run('heading style', headingStyle, {
       ],
     },
     {
-      code: '# A #',
+      code: '# A ###',
       filename: 'native.mdx',
       languageOptions,
       options: ['atx'],
       errors: [
         {
           message: 'Unexpected ATX (closed) heading, expected ATX',
+          line: 1,
+          column: 1,
+        },
+      ],
+    },
+    {
+      code: '# A',
+      filename: 'native.mdx',
+      languageOptions,
+      options: ['atx-closed'],
+      errors: [
+        {
+          message: 'Unexpected ATX heading, expected ATX (closed)',
           line: 1,
           column: 1,
         },
