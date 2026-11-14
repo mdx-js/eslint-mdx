@@ -1,18 +1,12 @@
 import type { Rule } from 'eslint'
 import type { MDBlockquote, MDList, MDListItem } from 'eslint-mdx'
+import type { BaseNode } from 'estree'
 
 import { getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
     'no-consecutive-blank-lines': never
-  }
-}
-
-interface Positioned {
-  loc?: {
-    end: { column: number; line: number }
-    start: { column: number; line: number }
   }
 }
 
@@ -31,28 +25,28 @@ export const noConsecutiveBlankLines: Rule.RuleModule = {
       return {}
     }
 
-    const check = (children: Positioned[]) => {
-      for (let index = 1; index < children.length; index++) {
-        const previous = children[index - 1]
-        const current = children[index]
+    const check = (children: readonly BaseNode[]) => {
+      let previousLoc: BaseNode['loc']
 
-        /* istanbul ignore if -- AST nodes have locations */
-        if (!previous.loc || !current.loc) {
-          continue
-        }
+      for (const current of children) {
+        const currentLoc = current.loc
 
         // `2` for the line ending after the previous node and the line
         // ending of the blank line itself.
-        const difference = current.loc.start.line - previous.loc.end.line - 2
+        const difference = previousLoc
+          ? currentLoc.start.line - previousLoc.end.line - 2
+          : 0
 
         if (difference > 0) {
           const actual = difference + 1
 
           context.report({
-            loc: current.loc,
+            loc: currentLoc,
             message: `Unexpected \`${actual}\` blank lines before node, expected up to \`1\` blank line, remove \`${difference}\` blank line`,
           })
         }
+
+        previousLoc = currentLoc
       }
     }
 
