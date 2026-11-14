@@ -37,7 +37,6 @@ export const listItemIndent: Rule.RuleModule = {
     }
 
     const sourceText = context.sourceCode.getText()
-    /* istanbul ignore next -- POC config sets indentation */
     const configured =
       config.options === 'mixed' ||
       config.options === 'one' ||
@@ -50,7 +49,6 @@ export const listItemIndent: Rule.RuleModule = {
     const checkItem = (item: MDListItem, loose: boolean) => {
       const head = item.children[0]
 
-      /* istanbul ignore if -- list items have children */
       if (!head) {
         return
       }
@@ -58,7 +56,6 @@ export const listItemIndent: Rule.RuleModule = {
       let slice = sourceText.slice(item.range[0], head.range[0])
       const checkbox = slice.indexOf('[')
 
-      /* istanbul ignore if -- POC covers checkbox items */
       if (checkbox !== -1) {
         slice = slice.slice(0, checkbox)
       }
@@ -71,7 +68,6 @@ export const listItemIndent: Rule.RuleModule = {
 
       let expectedIndent = end + 1
 
-      /* istanbul ignore next -- POC covers one-space indentation */
       if (style === 'tab' || (style === 'mixed' && loose)) {
         expectedIndent =
           Math.ceil(expectedIndent / CHARS_PER_TAB) * CHARS_PER_TAB
