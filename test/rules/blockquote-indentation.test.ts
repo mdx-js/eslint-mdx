@@ -5,7 +5,6 @@ import { createLanguageOptions } from './helpers.js'
 import { blockquoteIndentation } from 'eslint-plugin-mdx'
 
 const languageOptions = createLanguageOptions({ remarkConfig: 'next.remarkrc' })
-// eslint-disable-next-line @typescript-eslint/no-magic-numbers -- four-space indentation
 const fourSpaces = 4
 ruleTester.run('blockquote-indentation', blockquoteIndentation, {
   valid: [
