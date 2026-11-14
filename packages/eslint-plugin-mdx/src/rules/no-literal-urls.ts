@@ -1,10 +1,7 @@
-import path from 'node:path'
-
 import type { Rule } from 'eslint'
 import type { MDLink } from 'eslint-mdx'
-import { DEFAULT_EXTENSIONS, arrayify } from 'eslint-mdx'
 
-import { getRuleConfig } from './helpers.js'
+import { getParserOptions, getRuleConfig, isMdxFile } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -31,14 +28,9 @@ export const noLiteralUrls: Rule.RuleModule = {
     }
 
     const sourceText = context.sourceCode.getText()
-    const { extensions } = {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
-      // @ts-ignore -- ESLint v10 removed
-      ...context.parserOptions,
-      ...context.languageOptions?.parserOptions,
-    } as { extensions?: string[] | string }
-    const isMdxFile = [...DEFAULT_EXTENSIONS, ...arrayify(extensions)].includes(
-      path.extname(context.filename),
+    const isMdx = isMdxFile(
+      context.filename,
+      getParserOptions(context).extensions,
     )
 
     return {
@@ -69,9 +61,9 @@ export const noLiteralUrls: Rule.RuleModule = {
           }
         }
 
-        const expectedKind = isMdxFile ? 'regular link' : 'regular autolink'
+        const expectedKind = isMdx ? 'regular link' : 'regular autolink'
         const marker = protocol ?? ''
-        const suggestion = isMdxFile
+        const suggestion = isMdx
           ? 'use `[text](url)` instead or escape it with `\\<`'
           : `add \`<${marker}\` before and \`>\` after`
         context.report({

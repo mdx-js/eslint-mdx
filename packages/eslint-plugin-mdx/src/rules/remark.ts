@@ -1,17 +1,14 @@
-import path from 'node:path'
-
 import type { Rule, SourceCode } from 'eslint'
-import type { ParserOptions } from 'eslint-mdx'
-import {
-  DEFAULT_EXTENSIONS,
-  MARKDOWN_EXTENSIONS,
-  getPhysicalFilename,
-  performSyncWork,
-} from 'eslint-mdx'
+import { getPhysicalFilename, performSyncWork } from 'eslint-mdx'
 import { generateDifferences, type Difference } from 'prettier-linter-helpers'
 import type { VFileMessage } from 'vfile-message'
 
-import { NATIVE_REMARK_RULES } from './helpers.js'
+import {
+  NATIVE_REMARK_RULES,
+  getParserOptions,
+  isMarkdownFile,
+  isMdxFile,
+} from './helpers.js'
 import type { RemarkLintMessage } from './types.js'
 
 interface NormalizedDifference {
@@ -93,7 +90,6 @@ export const remark: Rule.RuleModule = {
       // @ts-ignore -- ESLint v10 removed
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       /* istanbul ignore next */ (context.getFilename() as string)
-    const extname = path.extname(filename)
     const sourceCode =
       context.sourceCode ??
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
@@ -101,26 +97,15 @@ export const remark: Rule.RuleModule = {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       /* istanbul ignore next */ (context.getSourceCode() as SourceCode)
 
-    /* istanbul ignore next */
     const {
       extensions,
       markdownExtensions,
       ignoreRemarkConfig,
       remarkConfigPath,
-    } = {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
-      // @ts-ignore -- ESLint v10 removed
-      ...context.parserOptions,
-      ...context.languageOptions?.parserOptions,
-    } as ParserOptions
+    } = getParserOptions(context)
 
-    const isMdx = [...DEFAULT_EXTENSIONS, ...(extensions || [])].includes(
-      extname,
-    )
-    const isMarkdown = [
-      ...MARKDOWN_EXTENSIONS,
-      ...(markdownExtensions || []),
-    ].includes(extname)
+    const isMdx = isMdxFile(filename, extensions)
+    const isMarkdown = isMarkdownFile(filename, markdownExtensions)
 
     return {
       Program(node) {
