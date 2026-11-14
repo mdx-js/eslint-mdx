@@ -25,6 +25,12 @@ ruleTester.run('code block style', codeBlockStyle, {
       languageOptions,
       options: ['indented'],
     },
+    {
+      code: '    ```\n    x()\n    ```',
+      filename: 'native.md',
+      languageOptions,
+      options: ['indented'],
+    },
   ],
   invalid: [
     {
