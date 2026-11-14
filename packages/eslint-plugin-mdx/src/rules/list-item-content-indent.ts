@@ -9,10 +9,6 @@ declare module 'eslint-mdx' {
   }
 }
 
-type LocatedChild = MDListItem['children'][number] & {
-  loc: NonNullable<MDListItem['children'][number]['loc']>
-}
-
 export const listItemContentIndent: Rule.RuleModule = {
   meta: {
     type: 'layout',
@@ -28,12 +24,10 @@ export const listItemContentIndent: Rule.RuleModule = {
 
     return {
       MDListItem(node: MDListItem) {
-        const children = node.children.filter(
-          (child): child is LocatedChild => child.loc != null,
-        )
+        const children = node.children.filter(child => child.loc)
         const [first] = children
 
-        if (!first) {
+        if (!first?.loc) {
           return
         }
 
