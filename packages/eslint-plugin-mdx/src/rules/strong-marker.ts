@@ -25,7 +25,6 @@ export const strongMarker: Rule.RuleModule = {
     }
 
     const sourceText = context.sourceCode.getText()
-    /* istanbul ignore next -- POC covers the explicit marker option */
     let expected: '_' | '*' | undefined =
       config.options === '*' || config.options === '_'
         ? config.options

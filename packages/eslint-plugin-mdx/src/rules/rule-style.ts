@@ -26,7 +26,6 @@ export const ruleStyle: Rule.RuleModule = {
     }
 
     const sourceText = context.sourceCode.getText()
-    /* istanbul ignore next -- POC covers the explicit style option */
     let expected =
       typeof config.options === 'string' && config.options !== 'consistent'
         ? config.options
