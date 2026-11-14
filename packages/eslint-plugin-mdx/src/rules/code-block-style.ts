@@ -23,7 +23,6 @@ export const codeBlockStyle: Rule.RuleModule = {
     }
 
     const sourceText = context.sourceCode.getText()
-    /* istanbul ignore next -- POC covers explicit options */
     let expected =
       config.options === 'fenced' || config.options === 'indented'
         ? config.options
@@ -32,8 +31,9 @@ export const codeBlockStyle: Rule.RuleModule = {
     return {
       MDCode(node: MDCode) {
         const raw = sourceText.slice(node.range[0], node.range[1])
-        /* istanbul ignore next -- POC covers fenced code */
-        const actual = /^\s*(?:`{3,}|~{3,})/u.test(raw) ? 'fenced' : 'indented'
+        const actual = /^ {0,3}(?:`{3,}|~{3,})/u.test(raw)
+          ? 'fenced'
+          : 'indented'
         expected ??= actual
 
         if (actual === expected) {
