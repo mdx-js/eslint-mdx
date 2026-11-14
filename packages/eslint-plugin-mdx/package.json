@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-mdx",
-  "version": "3.9.5",
+  "version": "3.10.0",
   "type": "module",
   "description": "ESLint Plugin for MDX",
   "repository": "https://github.com/mdx-js/eslint-mdx.git",
@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "collapse-white-space": "^2.1.0",
-    "eslint-mdx": "^3.9.5",
+    "eslint-mdx": "^3.10.0",
     "mdast-util-mdx": "^3.0.0",
     "micromark-util-normalize-identifier": "^2.0.1",
     "prettier-linter-helpers": "^1.0.1",
