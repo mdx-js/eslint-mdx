@@ -14,6 +14,18 @@ ruleTester.run('maximum heading length', maximumHeadingLength, {
       code: '# short',
       filename: 'native.mdx',
       languageOptions,
+      options: [5],
+    },
+    {
+      code: '# short',
+      filename: 'native.mdx',
+      languageOptions,
+      options: [{}],
+    },
+    {
+      code: '# short',
+      filename: 'native.mdx',
+      languageOptions,
     },
     {
       code: '<h1>short</h1>',
@@ -32,6 +44,20 @@ ruleTester.run('maximum heading length', maximumHeadingLength, {
     },
   ],
   invalid: [
+    {
+      code: '# too long',
+      filename: 'native.mdx',
+      languageOptions,
+      options: [5],
+      errors: [
+        {
+          message:
+            'Unexpected `8` characters in heading, expected at most `5` characters',
+          line: 1,
+          column: 1,
+        },
+      ],
+    },
     {
       code: '<h1>this heading is too long</h1>',
       filename: 'native.mdx',
