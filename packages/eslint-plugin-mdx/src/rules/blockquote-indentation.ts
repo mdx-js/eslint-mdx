@@ -22,7 +22,6 @@ export const blockquoteIndentation: Rule.RuleModule = {
       return {}
     }
 
-    /* istanbul ignore next -- POC config sets indentation */
     let expected =
       typeof config.options === 'number' ? config.options : undefined
 
@@ -30,7 +29,6 @@ export const blockquoteIndentation: Rule.RuleModule = {
       MDBlockquote(node: MDBlockquote) {
         const [child] = node.children
 
-        /* istanbul ignore if -- blockquotes have children */
         if (!child) {
           return
         }
