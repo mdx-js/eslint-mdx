@@ -28,6 +28,16 @@ ruleTester.run('fenced code marker', fencedCodeMarker, {
       languageOptions,
       options: ['consistent'],
     },
+    {
+      code: '    x()',
+      filename: 'native.md',
+      languageOptions,
+    },
+    {
+      code: '    ```\n    x()\n    ```',
+      filename: 'native.md',
+      languageOptions,
+    },
   ],
   invalid: [
     {

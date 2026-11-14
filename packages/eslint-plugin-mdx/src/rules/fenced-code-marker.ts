@@ -37,7 +37,17 @@ export const fencedCodeMarker: Rule.RuleModule = {
     return {
       MDCode(node: MDCode) {
         const raw = sourceText.slice(node.range[0], node.range[1])
-        const actual: Marker = raw.startsWith('```') ? '`' : '~'
+        let actual: Marker | undefined
+
+        if (raw.startsWith('```')) {
+          actual = '`'
+        } else if (raw.startsWith('~~~')) {
+          actual = '~'
+        }
+
+        if (!actual) {
+          return
+        }
 
         expected ??= actual
 
