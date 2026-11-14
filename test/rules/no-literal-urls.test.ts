@@ -29,7 +29,7 @@ ruleTester.run('no literal urls', noLiteralUrls, {
       errors: [
         {
           message:
-            'Unexpected GFM autolink literal, expected regular autolink, add `<http://` before and `>` after',
+            'Unexpected GFM autolink literal, expected regular link, use `[text](url)` instead or escape it with `\\<`',
         },
       ],
     },
@@ -40,13 +40,37 @@ ruleTester.run('no literal urls', noLiteralUrls, {
       errors: [
         {
           message:
-            'Unexpected GFM autolink literal, expected regular autolink, add `<mailto:` before and `>` after',
+            'Unexpected GFM autolink literal, expected regular link, use `[text](url)` instead or escape it with `\\<`',
         },
       ],
     },
     {
       code: 'https://example.com',
       filename: 'native.mdx',
+      languageOptions,
+      errors: [
+        {
+          message:
+            'Unexpected GFM autolink literal, expected regular link, use `[text](url)` instead or escape it with `\\<`',
+          line: 1,
+          column: 1,
+        },
+      ],
+    },
+    {
+      code: 'www.example.com',
+      filename: 'native.md',
+      languageOptions,
+      errors: [
+        {
+          message:
+            'Unexpected GFM autolink literal, expected regular autolink, add `<http://` before and `>` after',
+        },
+      ],
+    },
+    {
+      code: 'https://example.com',
+      filename: 'native.md',
       languageOptions,
       errors: [
         {

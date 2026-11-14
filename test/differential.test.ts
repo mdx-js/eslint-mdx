@@ -61,6 +61,17 @@ const normalize = (
   messages: Array<{ column: number; line: number; message: string }>,
 ) => [...messages].sort((a, b) => a.line - b.line || a.column - b.column)
 
+// In MDX, `<https://…>` is parsed as JSX, so `no-literal-urls`
+// intentionally suggests a regular link instead of a regular autolink.
+const normalizeRuleMessage = (
+  ruleName: string,
+  file: string,
+  message: string,
+) =>
+  ruleName === 'no-literal-urls' && file.endsWith('.mdx')
+    ? message.slice(0, message.indexOf(','))
+    : message
+
 const getRemarkMessages = (file: string, code: string) => {
   const filePath = path.resolve(fixtureDir, file)
 
@@ -129,7 +140,7 @@ const getMismatches = (ruleName: string) => {
         .map(({ column, line, message }) => ({
           column,
           line,
-          message,
+          message: normalizeRuleMessage(ruleName, file, message),
         })),
     )
     const remark = normalize(
@@ -138,7 +149,7 @@ const getMismatches = (ruleName: string) => {
         .map(({ column, line, message }) => ({
           column,
           line,
-          message,
+          message: normalizeRuleMessage(ruleName, file, message),
         })),
     )
 

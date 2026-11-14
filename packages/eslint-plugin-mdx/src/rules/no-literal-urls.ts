@@ -57,11 +57,15 @@ export const noLiteralUrls: Rule.RuleModule = {
           }
         }
 
+        const isMdx = context.filename.endsWith('.mdx')
+        const expectedKind = isMdx ? 'regular link' : 'regular autolink'
+        const marker = protocol ?? ''
+        const suggestion = isMdx
+          ? 'use `[text](url)` instead or escape it with `\\<`'
+          : `add \`<${marker}\` before and \`>\` after`
         context.report({
           loc: node.loc,
-          message: `Unexpected GFM autolink literal, expected regular autolink, add ${
-            protocol ? `\`<${protocol}\`` : '`<`'
-          } before and \`>\` after`,
+          message: `Unexpected GFM autolink literal, expected ${expectedKind}, ${suggestion}`,
         })
       },
     }
