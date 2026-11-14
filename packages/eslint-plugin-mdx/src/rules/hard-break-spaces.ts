@@ -42,7 +42,6 @@ export const hardBreakSpaces: Rule.RuleModule = {
         ) {
           context.report({
             loc: node.loc,
-            /* istanbul ignore next -- POC covers both break styles */
             message: allowSpaces
               ? `Unexpected \`${size}\` spaces for hard break, expected \`2\` spaces`
               : `Unexpected \`${size}\` spaces for hard break, expected escape`,
