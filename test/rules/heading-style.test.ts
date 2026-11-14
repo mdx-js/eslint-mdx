@@ -41,6 +41,12 @@ ruleTester.run('heading style', headingStyle, {
       options: ['atx'],
     },
     {
+      code: '# A#',
+      filename: 'native.mdx',
+      languageOptions,
+      options: ['atx'],
+    },
+    {
       code: '# Mercury ##\n\n## Venus ##\n\n### Earth ###',
       filename: 'native.mdx',
       languageOptions,
@@ -69,6 +75,19 @@ ruleTester.run('heading style', headingStyle, {
     },
     {
       code: '# A ###',
+      filename: 'native.mdx',
+      languageOptions,
+      options: ['atx'],
+      errors: [
+        {
+          message: 'Unexpected ATX (closed) heading, expected ATX',
+          line: 1,
+          column: 1,
+        },
+      ],
+    },
+    {
+      code: '## A ##',
       filename: 'native.mdx',
       languageOptions,
       options: ['atx'],
