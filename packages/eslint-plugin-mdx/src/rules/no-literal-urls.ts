@@ -40,7 +40,6 @@ export const noLiteralUrls: Rule.RuleModule = {
 
         let protocol: string | undefined
 
-        /* istanbul ignore next -- POC covers the common autolink cases */
         switch (true) {
           case raw === node.url: {
             break
@@ -61,7 +60,6 @@ export const noLiteralUrls: Rule.RuleModule = {
         context.report({
           loc: node.loc,
           message: `Unexpected GFM autolink literal, expected regular autolink, add ${
-            /* istanbul ignore next -- POC covers the protocol-less case */
             protocol ? `\`<${protocol}\`` : '`<`'
           } before and \`>\` after`,
         })

@@ -11,12 +11,39 @@ const languageOptions = createLanguageOptions({
 ruleTester.run('no literal urls', noLiteralUrls, {
   valid: [
     {
+      code: '<https://example.com>',
+      filename: 'native.md',
+      languageOptions,
+    },
+    {
       code: '[https://example.com](https://example.com)',
       filename: 'native.mdx',
       languageOptions,
     },
   ],
   invalid: [
+    {
+      code: 'www.example.com',
+      filename: 'native.mdx',
+      languageOptions,
+      errors: [
+        {
+          message:
+            'Unexpected GFM autolink literal, expected regular autolink, add `<http://` before and `>` after',
+        },
+      ],
+    },
+    {
+      code: 'example@example.com',
+      filename: 'native.mdx',
+      languageOptions,
+      errors: [
+        {
+          message:
+            'Unexpected GFM autolink literal, expected regular autolink, add `<mailto:` before and `>` after',
+        },
+      ],
+    },
     {
       code: 'https://example.com',
       filename: 'native.mdx',
