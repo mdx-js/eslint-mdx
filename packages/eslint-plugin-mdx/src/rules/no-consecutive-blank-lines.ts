@@ -1,19 +1,13 @@
 import { ok as assert } from 'devlop'
 import type { Rule } from 'eslint'
 import type { MDBlockquote, MDList, MDListItem } from 'eslint-mdx'
+import type { BaseNode } from 'estree'
 
 import { getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
     'no-consecutive-blank-lines': never
-  }
-}
-
-interface Positioned {
-  loc?: {
-    end: { column: number; line: number }
-    start: { column: number; line: number }
   }
 }
 
@@ -32,8 +26,8 @@ export const noConsecutiveBlankLines: Rule.RuleModule = {
       return {}
     }
 
-    const check = (children: Positioned[]) => {
-      let previousLoc: Positioned['loc']
+    const check = (children: readonly BaseNode[]) => {
+      let previousLoc: BaseNode['loc']
 
       for (const current of children) {
         const currentLoc = current.loc
