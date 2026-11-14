@@ -29,7 +29,6 @@ export const fencedCodeMarker: Rule.RuleModule = {
     }
 
     const sourceText = context.sourceCode.getText()
-    /* istanbul ignore next -- POC covers the explicit marker option */
     let expected: Marker | undefined =
       config.options === '`' || config.options === '~'
         ? config.options
@@ -40,14 +39,12 @@ export const fencedCodeMarker: Rule.RuleModule = {
         const raw = sourceText.slice(node.range[0], node.range[1])
         let actual: Marker | undefined
 
-        /* istanbul ignore next -- POC covers both fence kinds */
         if (raw.startsWith('```')) {
           actual = '`'
         } else if (raw.startsWith('~~~')) {
           actual = '~'
         }
 
-        /* istanbul ignore if -- indented code has no fence */
         if (!actual) {
           return
         }

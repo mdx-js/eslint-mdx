@@ -11,13 +11,31 @@ const languageOptions = createLanguageOptions({
 ruleTester.run('fenced code marker', fencedCodeMarker, {
   valid: [
     {
-      code: '    x()',
+      code: '```js\nx()\n```',
       filename: 'native.mdx',
       languageOptions,
+      options: ['`'],
+    },
+    {
+      code: '~~~js\nx()\n~~~',
+      filename: 'native.mdx',
+      languageOptions,
+      options: ['~'],
     },
     {
       code: '```js\nx()\n```',
       filename: 'native.mdx',
+      languageOptions,
+      options: ['consistent'],
+    },
+    {
+      code: '    x()',
+      filename: 'native.md',
+      languageOptions,
+    },
+    {
+      code: '    ```\n    x()\n    ```',
+      filename: 'native.md',
       languageOptions,
     },
   ],
