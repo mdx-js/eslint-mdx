@@ -46,7 +46,6 @@
   },
   "dependencies": {
     "collapse-white-space": "^2.1.0",
-    "devlop": "^1.1.0",
     "eslint-mdx": "^3.9.5",
     "mdast-util-mdx": "^3.0.0",
     "micromark-util-normalize-identifier": "^2.0.1",

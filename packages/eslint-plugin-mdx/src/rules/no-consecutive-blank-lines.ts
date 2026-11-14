@@ -1,4 +1,3 @@
-import { ok as assert } from 'devlop'
 import type { Rule } from 'eslint'
 import type { MDBlockquote, MDList, MDListItem } from 'eslint-mdx'
 import type { BaseNode } from 'estree'
@@ -31,7 +30,6 @@ export const noConsecutiveBlankLines: Rule.RuleModule = {
 
       for (const current of children) {
         const currentLoc = current.loc
-        assert(currentLoc, 'Expected AST node to have a location')
 
         // `2` for the line ending after the previous node and the line
         // ending of the blank line itself.
