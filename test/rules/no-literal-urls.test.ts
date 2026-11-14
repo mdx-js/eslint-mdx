@@ -71,6 +71,23 @@ ruleTester.run('no literal urls', noLiteralUrls, {
     {
       code: 'https://example.com',
       filename: 'native.md',
+      languageOptions: {
+        ...languageOptions,
+        parserOptions: {
+          ...languageOptions.parserOptions,
+          extensions: ['.md'],
+        },
+      },
+      errors: [
+        {
+          message:
+            'Unexpected GFM autolink literal, expected regular link, use `[text](url)` instead or escape it with `\\<`',
+        },
+      ],
+    },
+    {
+      code: 'https://example.com',
+      filename: 'native.md',
       languageOptions,
       errors: [
         {
