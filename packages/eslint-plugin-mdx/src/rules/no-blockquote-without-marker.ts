@@ -38,7 +38,6 @@ export const noBlockquoteWithoutMarker: Rule.RuleModule = {
       return {}
     }
 
-    const sourceText = context.sourceCode.getText()
     let depth = 0
 
     return {
@@ -53,7 +52,7 @@ export const noBlockquoteWithoutMarker: Rule.RuleModule = {
           return
         }
 
-        const lines = sourceText.slice(node.range[0], node.range[1]).split('\n')
+        const lines = node.raw.split('\n')
 
         for (const [index, line] of lines.entries()) {
           if (index === 0 || !line.trim()) {

@@ -179,7 +179,7 @@ export const noUndefinedReferences: Rule.RuleModule = {
         footnoteDefinitions.add(normalizeIdentifier(node.identifier))
       },
       MDText(node: MDText) {
-        scan(sourceText.slice(node.range[0], node.range[1]), node)
+        scan(node.raw, node)
       },
     }
   },

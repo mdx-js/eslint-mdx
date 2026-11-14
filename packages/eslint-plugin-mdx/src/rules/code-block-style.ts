@@ -22,7 +22,6 @@ export const codeBlockStyle: Rule.RuleModule = {
       return {}
     }
 
-    const sourceText = context.sourceCode.getText()
     let expected =
       config.options === 'fenced' || config.options === 'indented'
         ? config.options
@@ -30,7 +29,7 @@ export const codeBlockStyle: Rule.RuleModule = {
 
     return {
       MDCode(node: MDCode) {
-        const raw = sourceText.slice(node.range[0], node.range[1])
+        const raw = node.raw
         const actual = /^ {0,3}(?:`{3,}|~{3,})/u.test(raw)
           ? 'fenced'
           : 'indented'

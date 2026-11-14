@@ -83,7 +83,11 @@ type _Arrayable<T, R = T extends Array<infer U> ? U : T> = R | R[]
 
 export type Arrayable<T> = _Arrayable<T>
 
-export interface MDCode extends BaseNode {
+export interface MDBaseNode extends BaseNode {
+  raw: string
+}
+
+export interface MDCode extends MDBaseNode {
   type: 'MDCode'
   value: string
   lang?: string | null
@@ -92,7 +96,7 @@ export interface MDCode extends BaseNode {
 
 export type HeadingDepth = 1 | 2 | 3 | 4 | 5 | 6
 
-export interface MDHeading extends BaseNode {
+export interface MDHeading extends MDBaseNode {
   type: 'MDHeading'
   depth: HeadingDepth
   children: MDContentNode[]
@@ -110,27 +114,27 @@ export interface MDXTextExpression extends BaseNode {
   value?: string
 }
 
-export interface MDHtml extends BaseNode {
+export interface MDHtml extends MDBaseNode {
   type: 'MDHtml'
   value: string
 }
 
-export interface MDText extends BaseNode {
+export interface MDText extends MDBaseNode {
   type: 'MDText'
   value: string
 }
 
-export interface MDParagraph extends BaseNode {
+export interface MDParagraph extends MDBaseNode {
   type: 'MDParagraph'
   children: MDContentNode[]
 }
 
-export interface MDBlockquote extends BaseNode {
+export interface MDBlockquote extends MDBaseNode {
   type: 'MDBlockquote'
   children: MDContentNode[]
 }
 
-export interface MDList extends BaseNode {
+export interface MDList extends MDBaseNode {
   type: 'MDList'
   ordered?: boolean | null
   start?: number | null
@@ -138,52 +142,51 @@ export interface MDList extends BaseNode {
   children: MDListItem[]
 }
 
-export interface MDListItem extends BaseNode {
-  raw: string
+export interface MDListItem extends MDBaseNode {
   type: 'MDListItem'
   checked?: boolean | null
   spread?: boolean | null
   children: MDContentNode[]
 }
 
-export interface MDEmphasis extends BaseNode {
+export interface MDEmphasis extends MDBaseNode {
   type: 'MDEmphasis'
   children: MDContentNode[]
 }
 
-export interface MDStrong extends BaseNode {
+export interface MDStrong extends MDBaseNode {
   type: 'MDStrong'
   children: MDContentNode[]
 }
 
-export interface MDInlineCode extends BaseNode {
+export interface MDInlineCode extends MDBaseNode {
   type: 'MDInlineCode'
   value: string
 }
 
-export interface MDLink extends BaseNode {
+export interface MDLink extends MDBaseNode {
   type: 'MDLink'
   url: string
   title?: string | null
   children: MDContentNode[]
 }
 
-export interface MDImage extends BaseNode {
+export interface MDImage extends MDBaseNode {
   type: 'MDImage'
   url: string
   title?: string | null
   alt?: string | null
 }
 
-export interface MDBreak extends BaseNode {
+export interface MDBreak extends MDBaseNode {
   type: 'MDBreak'
 }
 
-export interface MDThematicBreak extends BaseNode {
+export interface MDThematicBreak extends MDBaseNode {
   type: 'MDThematicBreak'
 }
 
-export interface MDDefinition extends BaseNode {
+export interface MDDefinition extends MDBaseNode {
   type: 'MDDefinition'
   identifier: string
   label?: string | null
@@ -191,25 +194,25 @@ export interface MDDefinition extends BaseNode {
   title?: string | null
 }
 
-export interface MDDelete extends BaseNode {
+export interface MDDelete extends MDBaseNode {
   type: 'MDDelete'
   children: MDContentNode[]
 }
 
-export interface MDFootnoteDefinition extends BaseNode {
+export interface MDFootnoteDefinition extends MDBaseNode {
   type: 'MDFootnoteDefinition'
   identifier: string
   label?: string | null
   children: MDContentNode[]
 }
 
-export interface MDFootnoteReference extends BaseNode {
+export interface MDFootnoteReference extends MDBaseNode {
   type: 'MDFootnoteReference'
   identifier: string
   label?: string | null
 }
 
-export interface MDImageReference extends BaseNode {
+export interface MDImageReference extends MDBaseNode {
   type: 'MDImageReference'
   identifier: string
   label?: string | null
@@ -217,12 +220,12 @@ export interface MDImageReference extends BaseNode {
   alt?: string | null
 }
 
-export interface MDInlineMath extends BaseNode {
+export interface MDInlineMath extends MDBaseNode {
   type: 'MDInlineMath'
   value: string
 }
 
-export interface MDLinkReference extends BaseNode {
+export interface MDLinkReference extends MDBaseNode {
   type: 'MDLinkReference'
   identifier: string
   label?: string | null
@@ -230,34 +233,34 @@ export interface MDLinkReference extends BaseNode {
   children: MDContentNode[]
 }
 
-export interface MDMath extends BaseNode {
+export interface MDMath extends MDBaseNode {
   type: 'MDMath'
   value: string
   meta?: string | null
 }
 
-export interface MDTable extends BaseNode {
+export interface MDTable extends MDBaseNode {
   type: 'MDTable'
   align?: Array<'center' | 'left' | 'right' | null> | null
   children: MDTableRow[]
 }
 
-export interface MDTableCell extends BaseNode {
+export interface MDTableCell extends MDBaseNode {
   type: 'MDTableCell'
   children: MDContentNode[]
 }
 
-export interface MDTableRow extends BaseNode {
+export interface MDTableRow extends MDBaseNode {
   type: 'MDTableRow'
   children: MDTableCell[]
 }
 
-export interface MDToml extends BaseNode {
+export interface MDToml extends MDBaseNode {
   type: 'MDToml'
   value: string
 }
 
-export interface MDYaml extends BaseNode {
+export interface MDYaml extends MDBaseNode {
   type: 'MDYaml'
   value: string
 }

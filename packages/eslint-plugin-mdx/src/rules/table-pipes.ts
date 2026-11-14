@@ -22,12 +22,10 @@ export const tablePipes: Rule.RuleModule = {
       return {}
     }
 
-    const sourceText = context.sourceCode.getText()
-
     return {
       MDTable(node: MDTable) {
         for (const row of node.children) {
-          const raw = sourceText.slice(row.range[0], row.range[1])
+          const raw = row.raw
           const trimmed = raw.trim()
 
           if (!trimmed.startsWith('|') || !trimmed.endsWith('|')) {

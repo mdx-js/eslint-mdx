@@ -28,7 +28,6 @@ export const fencedCodeMarker: Rule.RuleModule = {
       return {}
     }
 
-    const sourceText = context.sourceCode.getText()
     let expected: Marker | undefined =
       config.options === '`' || config.options === '~'
         ? config.options
@@ -36,7 +35,7 @@ export const fencedCodeMarker: Rule.RuleModule = {
 
     return {
       MDCode(node: MDCode) {
-        const raw = sourceText.slice(node.range[0], node.range[1])
+        const raw = node.raw
         let actual: Marker | undefined
 
         if (raw.startsWith('```')) {

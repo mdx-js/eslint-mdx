@@ -51,7 +51,6 @@ export const fencedCodeFlag: Rule.RuleModule = {
       return {}
     }
 
-    const sourceText = context.sourceCode.getText()
     const options = config.options
     let allowEmpty = false
     let flags: readonly string[] | undefined
@@ -71,7 +70,7 @@ export const fencedCodeFlag: Rule.RuleModule = {
 
     return {
       MDCode(node: MDCode) {
-        const raw = sourceText.slice(node.range[0], node.range[1])
+        const raw = node.raw
 
         if (!fence.test(raw)) {
           return

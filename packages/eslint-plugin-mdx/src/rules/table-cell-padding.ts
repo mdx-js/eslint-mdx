@@ -22,8 +22,6 @@ export const tableCellPadding: Rule.RuleModule = {
       return {}
     }
 
-    const sourceText = context.sourceCode.getText()
-
     return {
       MDTable(node: MDTable) {
         let expected: 'compact' | 'padded' | undefined =
@@ -32,7 +30,7 @@ export const tableCellPadding: Rule.RuleModule = {
             : undefined
 
         for (const row of node.children) {
-          const raw = sourceText.slice(row.range[0], row.range[1])
+          const raw = row.raw
           const padded = /^\|\s/u.test(raw) && /\s\|$/u.test(raw)
           expected ??= padded ? 'padded' : 'compact'
 

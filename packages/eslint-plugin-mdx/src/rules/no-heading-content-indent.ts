@@ -25,11 +25,9 @@ export const noHeadingContentIndent: Rule.RuleModule = {
       return {}
     }
 
-    const sourceText = context.sourceCode.getText()
-
     return {
       MDHeading(node: MDHeading) {
-        const raw = sourceText.slice(node.range[0], node.range[1])
+        const raw = node.raw
         const spaceMatch = /^(#+)([ \t]+)/u.exec(raw)
 
         if (!spaceMatch) {
