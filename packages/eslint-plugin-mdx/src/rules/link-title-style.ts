@@ -25,7 +25,6 @@ export const linkTitleStyle: Rule.RuleModule = {
       return {}
     }
 
-    const sourceText = context.sourceCode.getText()
     let expected: '"' | '()' | "'" | undefined =
       config.options === '"' ||
       config.options === "'" ||
@@ -39,7 +38,7 @@ export const linkTitleStyle: Rule.RuleModule = {
           return
         }
 
-        const raw = new Set(sourceText.slice(node.range[0], node.range[1]))
+        const raw = new Set(node.raw)
         let actual: '"' | '()' | "'"
 
         if (raw.has('"')) {

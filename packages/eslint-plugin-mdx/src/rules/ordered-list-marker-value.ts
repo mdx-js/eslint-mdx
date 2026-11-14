@@ -1,5 +1,5 @@
 import type { Rule } from 'eslint'
-import type { MDList } from 'eslint-mdx'
+import type { MDList, MDListItem } from 'eslint-mdx'
 
 import { getRuleConfig } from './helpers.js'
 
@@ -14,7 +14,6 @@ type Style = 'one' | 'ordered' | 'single'
 const configuredStyle = (
   option: 'one' | 'ordered' | 'single' | undefined,
 ): Style | undefined => {
-  /* istanbul ignore if -- POC config is consistent */
   if (option === 'one' || option === 'ordered' || option === 'single') {
     return option
   }
@@ -32,7 +31,6 @@ const inferStyle = (
 }
 
 const expectedValue = (style: Style, first: number, index: number) => {
-  /* istanbul ignore if -- POC covers single/ordered */
   if (style === 'one') {
     return 1
   }
@@ -40,16 +38,8 @@ const expectedValue = (style: Style, first: number, index: number) => {
   return style === 'single' ? first : first + index
 }
 
-const markerValue = (sourceText: string, item: MDList['children'][number]) => {
-  const child = item.children[0]
-
-  /* istanbul ignore if -- ordered items have children */
-  if (!child) {
-    return
-  }
-
-  const raw = sourceText.slice(item.range[0], child.range[0])
-  const match = /^(\d+)[.)]\s/u.exec(raw)
+const markerValue = (item: MDListItem) => {
+  const match = /^(\d+)[.)]/u.exec(item.raw)
 
   return Number(match[1])
 }
@@ -67,37 +57,30 @@ export const orderedListMarkerValue: Rule.RuleModule = {
       return {}
     }
 
-    const sourceText = context.sourceCode.getText()
-
     return {
       MDList(node: MDList) {
-        /* istanbul ignore if -- POC covers ordered lists */
         if (!node.ordered) {
           return
         }
 
-        const values = node.children.map(item => markerValue(sourceText, item))
+        const values = node.children.map(item => markerValue(item))
         const first = values[0]
         const second = values[1]
         const style =
           configuredStyle(config.options) ?? inferStyle(first, second)
 
-        /* istanbul ignore if -- ordered lists have values */
-        if (first == null) {
-          return
-        }
-
         for (const [index, actual] of values.entries()) {
-          /* istanbul ignore if -- ordered items have markers */
-          if (actual == null) {
-            continue
-          }
-
           const expected = expectedValue(style, first, index)
 
           if (actual !== expected) {
+            const item = node.children[index]
+            const marker = /^\d+[.)]/u.exec(item.raw)[0]
+            const markerStart = context.sourceCode.getLocFromIndex(
+              item.range[0] + marker.length - 1,
+            )
+
             context.report({
-              loc: node.children[index].loc,
+              loc: { start: markerStart, end: markerStart },
               message: `Unexpected ordered list item value \`${actual}\`, expected \`${expected}\``,
             })
           }

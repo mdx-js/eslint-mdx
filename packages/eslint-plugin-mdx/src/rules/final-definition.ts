@@ -39,8 +39,7 @@ export const finalDefinition: Rule.RuleModule = {
             )
         ) {
           context.report({
-            /* istanbul ignore next -- parser definitions have locations */
-            loc: definition.loc as never,
+            loc: definition.loc,
             message:
               'Unexpected definition before last content, expected definitions after last content',
           })

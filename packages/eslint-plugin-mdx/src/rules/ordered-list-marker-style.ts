@@ -38,11 +38,6 @@ export const orderedListMarkerStyle: Rule.RuleModule = {
       const raw = sourceText.slice(start, item.range[1])
       const match = /^\d+([.)])/u.exec(raw)
 
-      /* istanbul ignore if -- list items have markers */
-      if (!match) {
-        return
-      }
-
       const actual = match[1] as Marker
 
       expected ??= actual

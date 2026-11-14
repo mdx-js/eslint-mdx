@@ -27,7 +27,6 @@ export const noLiteralUrls: Rule.RuleModule = {
       return {}
     }
 
-    const sourceText = context.sourceCode.getText()
     const isMdx = isMdxFile(
       context.filename,
       getParserOptions(context).extensions,
@@ -35,8 +34,7 @@ export const noLiteralUrls: Rule.RuleModule = {
 
     return {
       MDLink(node: MDLink) {
-        const start = node.range[0]
-        const raw = sourceText.slice(start, node.range[1])
+        const raw = node.raw
 
         if (raw.startsWith('[')) {
           return

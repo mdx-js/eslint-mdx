@@ -25,8 +25,6 @@ export const ruleStyle: Rule.RuleModule = {
       return {}
     }
 
-    const sourceText = context.sourceCode.getText()
-    /* istanbul ignore next -- POC covers the explicit style option */
     let expected =
       typeof config.options === 'string' && config.options !== 'consistent'
         ? config.options
@@ -34,7 +32,7 @@ export const ruleStyle: Rule.RuleModule = {
 
     return {
       MDThematicBreak(node: MDThematicBreak) {
-        const actual = sourceText.slice(node.range[0], node.range[1])
+        const actual = node.raw
 
         expected ??= actual
 

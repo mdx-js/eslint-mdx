@@ -36,7 +36,6 @@ export const listItemIndent: Rule.RuleModule = {
       return {}
     }
 
-    const sourceText = context.sourceCode.getText()
     const configured =
       config.options === 'mixed' ||
       config.options === 'one' ||
@@ -53,7 +52,7 @@ export const listItemIndent: Rule.RuleModule = {
         return
       }
 
-      let slice = sourceText.slice(item.range[0], head.range[0])
+      let slice = item.raw.slice(0, head.range[0] - item.range[0])
       const checkbox = slice.indexOf('[')
 
       if (checkbox !== -1) {

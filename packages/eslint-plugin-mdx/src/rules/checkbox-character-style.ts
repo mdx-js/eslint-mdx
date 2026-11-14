@@ -40,7 +40,6 @@ export const checkboxCharacterStyle: Rule.RuleModule = {
     if (!config) {
       return {}
     }
-    const sourceText = context.sourceCode.getText()
     const options =
       typeof config.options === 'object' ? config.options : undefined
     let checkedExpected =
@@ -58,8 +57,7 @@ export const checkboxCharacterStyle: Rule.RuleModule = {
           return
         }
 
-        const raw = sourceText.slice(node.range[0], node.range[1])
-        const match = /^\s*(?:[-*+]|\d+[.)])\s+\[([ x\t])\]/iu.exec(raw)
+        const match = /^\s*(?:[-*+]|\d+[.)])\s+\[([ x\t])\]/iu.exec(node.raw)
         const actual = match[1]
         const expected = node.checked ? checkedExpected : uncheckedExpected
         if (!expected) {
