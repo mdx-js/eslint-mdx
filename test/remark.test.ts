@@ -162,7 +162,9 @@ test('uses a whole-document fix for large documents', () => {
         },
       },
       plugins: { mdx: { rules } },
-      rules: { 'mdx/remark': 'warn' },
+      rules: {
+        'mdx/remark': ['warn', { deprecationWarnings: false }],
+      },
     },
   ]
 
@@ -200,7 +202,9 @@ test('returns one whole-document fix for multiple large-document messages', () =
           },
         },
         plugins: { mdx: { rules } },
-        rules: { 'mdx/remark': 'warn' },
+        rules: {
+          'mdx/remark': ['warn', { deprecationWarnings: false }],
+        },
       },
     ],
     { filename: 'large.mdx' },
