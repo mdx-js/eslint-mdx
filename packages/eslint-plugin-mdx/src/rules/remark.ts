@@ -17,7 +17,6 @@ interface NormalizedDifference {
   offset: number
 }
 
-// eslint-disable-next-line @typescript-eslint/no-magic-numbers -- 64 KiB
 const LARGE_DOCUMENT_THRESHOLD = 64 * 1024
 const MAX_FIXED_TEXT_RATIO = 2
 
@@ -82,7 +81,7 @@ export const remark: Rule.RuleModule = {
     type: 'layout',
     docs: {
       description: 'Linter integration with remark plugins',
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
+
       // @ts-ignore -- ESLint v10 removed
       category: 'Stylistic Issues',
       recommended: true,
@@ -107,15 +106,13 @@ export const remark: Rule.RuleModule = {
 
     const filename =
       context.filename ??
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
       // @ts-ignore -- ESLint v10 removed
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+
       /* istanbul ignore next */ (context.getFilename() as string)
     const sourceCode =
       context.sourceCode ??
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
       // @ts-ignore -- ESLint v10 removed
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+
       /* istanbul ignore next */ (context.getSourceCode() as SourceCode)
 
     const {
@@ -142,9 +139,8 @@ export const remark: Rule.RuleModule = {
           code: sourceText,
           cwd:
             context.cwd ??
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
             // @ts-ignore -- ESLint v10 removed
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-call -- ESLint v10 removed
+
             /* istanbul ignore next */ (context.getCwd() as string),
           isMdx,
           process: true,

@@ -24,7 +24,6 @@ const ESLinter = cjsRequire<typeof ESLint>(linterPath || 'eslint').Linter
 
 // patch Linter#verify
 
-// eslint-disable-next-line @typescript-eslint/unbound-method
 const { verify } = ESLinter.prototype
 
 ESLinter.prototype.verify = function (
@@ -36,7 +35,6 @@ ESLinter.prototype.verify = function (
   /* istanbul ignore next */
   const settings = ((
     config.extractConfig?.(
-      // eslint-disable-next-line unicorn-x/no-typeof-undefined
       typeof options === 'undefined' || typeof options === 'string'
         ? options
         : options.filename,

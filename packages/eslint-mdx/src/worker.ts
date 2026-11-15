@@ -540,11 +540,9 @@ runAsWorker(
     }
 
     if (!jsxTokTypes) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       jsxTokTypes = acornJsx({
         allowNamespacedObjects: true,
         // @ts-expect-error -- no type
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       })(acorn.Parser).acornJsx.tokTypes
     }
 
@@ -734,7 +732,7 @@ runAsWorker(
           : []
       }
 
-      // eslint-disable-next-line sonarjs/cognitive-complexity, sonarjs/function-return-type
+      // eslint-disable-next-line sonarjs/cognitive-complexity
       function handleNode(node: Nodes) {
         if (node.type === 'paragraph') {
           return handleChildren(node)

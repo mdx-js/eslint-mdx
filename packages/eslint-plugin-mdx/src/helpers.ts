@@ -11,8 +11,7 @@ export const getGlobals = <
   initialGlobals: G = {} as G,
 ): R =>
   (Array.isArray(sources)
-    ? // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
-      (sources as string[])
+    ? (sources as string[])
     : Object.keys(sources)
   ).reduce(
     (globals, source) =>

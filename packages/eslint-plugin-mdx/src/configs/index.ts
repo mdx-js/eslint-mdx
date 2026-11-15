@@ -23,9 +23,9 @@ export const configs: {
   base: Linter.LegacyConfig
   'code-blocks': Linter.LegacyConfig
   codeBlocks: Linter.LegacyConfig
-  // eslint-disable-next-line sonarjs/deprecation
+
   flat: Linter.FlatConfig
-  // eslint-disable-next-line sonarjs/deprecation
+
   flatCodeBlocks: Linter.FlatConfig
   native: NativeConfig
   overrides: Linter.LegacyConfig

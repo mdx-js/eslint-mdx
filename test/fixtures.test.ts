@@ -8,7 +8,7 @@ import prettierRecommended from 'eslint-plugin-prettier/recommended'
 import react from 'eslint-plugin-react'
 import globals from 'globals'
 import * as prettier from 'prettier'
-// eslint-disable-next-line sonarjs/deprecation
+
 import { config, configs } from 'typescript-eslint'
 
 import * as mdx from 'eslint-plugin-mdx'
@@ -17,14 +17,11 @@ const fixturesDir = path.resolve('test/fixtures')
 const isEslint10 = Number.parseInt(Linter.version, 10) >= 10
 
 const getCli = (lintCodeBlocks = false, fix?: boolean) => {
-  const remarkConfigPath = path.resolve(
-    fixturesDir,
-    'custom-remarkrc/my-remarkrc.mjs',
-  )
+  const remarkConfigPath = path.resolve(fixturesDir, 'custom-remarkrc/my-remarkrc.mjs')
   return new TSESLint.ESLint({
     fix,
     overrideConfigFile: true,
-    // eslint-disable-next-line sonarjs/deprecation
+
     overrideConfig: config(
       eslintJs.configs.recommended,
       ...configs.recommended,
@@ -92,8 +89,7 @@ const getCli = (lintCodeBlocks = false, fix?: boolean) => {
 
 const ONE_MINUTE = 60_000
 
-const relative = (filePath: string) =>
-  path.relative(fixturesDir, filePath).replaceAll('\\', '/')
+const relative = (filePath: string) => path.relative(fixturesDir, filePath).replaceAll('\\', '/')
 
 const cleanupMessages = (messages: TSESLint.ESLint.LintMessage[]) => {
   const msgs: TSESLint.ESLint.LintMessage[] = []
@@ -127,7 +123,6 @@ describe('fixtures', () => {
       results = await getCli(false, true).lintFiles(patterns)
       for (const { filePath, source, output } of results) {
         if (output != null && source !== output) {
-          // eslint-disable-next-line jest/no-conditional-expect
           expect(output).toMatchSnapshot(relative(filePath))
         }
       }
@@ -169,13 +164,10 @@ describe('fixtures', () => {
       ],
     })
 
-    const results = await cli.lintFiles(
-      path.join(fixturesDir, 'jsx-imports.mdx'),
-    )
+    const results = await cli.lintFiles(path.join(fixturesDir, 'jsx-imports.mdx'))
 
     const messages = results.flatMap(r => r.messages)
 
-    // eslint-disable-next-line jest/no-standalone-expect
     expect(messages).toEqual([])
   })
 
@@ -191,7 +183,6 @@ describe('fixtures', () => {
         results = await getCli(true, true).lintFiles(patterns)
         for (const { filePath, source, output } of results) {
           if (output != null && source !== output) {
-            // eslint-disable-next-line jest/no-conditional-expect
             expect(output).toMatchSnapshot(relative(filePath))
           }
         }

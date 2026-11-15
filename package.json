@@ -25,15 +25,16 @@
     "release:only": "changeset publish",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "typecov": "type-coverage",
-    "version": "changeset version && yarn --no-immutable"
+    "version": "changeset version && yarn --no-immutable",
+    "lint:ox": "oxlint ."
   },
   "devDependencies": {
-    "@1stg/common-config": "^16.0.0",
+    "@1stg/common-config": "^17.0.0",
     "@changesets/changelog-github": "^1.0.1",
     "@changesets/cli": "^3.0.3",
     "@commitlint/cli": "^21.2.4",
     "@eslint/js": "^10.0.1",
-    "@oxc-node/core": "1.0.0",
+    "@oxc-node/core": "^1.0.2",
     "@pkgr/rollup": "^7.1.0",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@swc/core": "^1.16.22",
@@ -47,12 +48,17 @@
     "@unts/patch-package": "^8.1.2",
     "concurrently": "^10.0.7",
     "eslint": "^10.15.0",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jest": "^29.17.0",
-    "eslint-plugin-prettier": "^5.5.6",
+    "eslint-plugin-prettier": "^5.5.7",
     "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-regexp": "^3.3.1",
+    "eslint-plugin-sonarjs": "^4.2.2",
+    "eslint-plugin-unicorn": "^79.0.0",
     "globals": "^17.14.0",
     "jest": "^30.5.2",
     "nano-staged": "^1.0.2",
+    "oxlint": "^1.90.0",
     "path-serializer": "^0.7.0",
     "prettier": "^3.10.1",
     "react": "^19.3.1",
@@ -66,7 +72,7 @@
     "type-coverage": "^2.31.2",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
     "typescript-eslint": "^8.72.0",
-    "yarn-berry-deduplicate": "^7.1.0"
+    "yarn-berry-deduplicate": "^8.0.0"
   },
   "resolutions": {
     "eslint-mdx": "link:packages/eslint-mdx",
@@ -103,7 +109,6 @@
       }
     }
   },
-  "prettier": "@1stg/prettier-config",
   "remarkConfig": {
     "plugins": [
       "@1stg/preset",

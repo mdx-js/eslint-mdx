@@ -63,7 +63,7 @@ export const maximumLineLength: Rule.RuleModule = {
       typeof config.options === 'object' && config.options !== null
         ? config.options.size
         : config.options
-    /* eslint-disable-next-line @typescript-eslint/no-magic-numbers -- default size */
+
     const expected = typeof size === 'number' ? size : 80
     const sourceText = context.sourceCode.getText()
     const lines = sourceText.split(/\r?\n/u)

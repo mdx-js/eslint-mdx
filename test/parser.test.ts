@@ -129,7 +129,7 @@ describe('parser', () => {
             }),
           ).toMatchSnapshot(fileName)
         } catch (err) {
-          // eslint-disable-next-line jest/no-conditional-expect
+
           expect((err as Error).message).toMatchSnapshot(fileName)
         }
       }

@@ -57,7 +57,6 @@ export interface WorkerOptions extends SyncOptions {
   process?: boolean
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type -- augmented by rule packages
 export interface RemarkRuleOptions {}
 
 export interface RemarkConfig {
@@ -316,10 +315,8 @@ export interface MDNodeMap {
 }
 
 declare module 'estree' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-object-type -- declaration merging
   interface NodeMap extends MDNodeMap {}
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-object-type -- declaration merging
   interface ProgramBodyMap extends MDNodeMap {}
 
   interface TemplateElement {

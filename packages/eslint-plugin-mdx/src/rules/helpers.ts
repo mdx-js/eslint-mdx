@@ -17,7 +17,6 @@ export const ENABLED_OPTION_SCHEMA = {
 
 export const getParserOptions = (context: Rule.RuleContext): ParserOptions => {
   const options = {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
     // @ts-ignore -- ESLint v10 removed
     ...context.parserOptions,
     ...context.languageOptions?.parserOptions,

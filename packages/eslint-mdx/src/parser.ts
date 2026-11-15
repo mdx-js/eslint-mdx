@@ -204,5 +204,4 @@ export class Parser {
 
 export const parser = new Parser()
 
-// eslint-disable-next-line @typescript-eslint/unbound-method
 export const { parse, parseForESLint } = parser

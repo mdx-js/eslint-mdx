@@ -6,7 +6,6 @@ import { remark } from '../processors/remark.js'
 
 import { codeBlocks } from './code-blocks.js'
 
-// eslint-disable-next-line sonarjs/deprecation
 export const flat: Linter.FlatConfig = {
   name: 'mdx/flat',
   files: ['**/*.{md,mdx}'],
@@ -34,7 +33,6 @@ export const flat: Linter.FlatConfig = {
 
 const { parserOptions, ...restConfig } = codeBlocks
 
-// eslint-disable-next-line sonarjs/deprecation
 export const flatCodeBlocks: Linter.FlatConfig = {
   name: 'mdx/flat-code-blocks',
   files: ['**/*.{md,mdx}/**'],

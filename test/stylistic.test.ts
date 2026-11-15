@@ -55,7 +55,7 @@ if (isStylisticSupported) {
   )
 } else {
   // @stylistic v5 requires ESLint 9+.
-  // eslint-disable-next-line jest/no-disabled-tests
+
   it.skip.each(fixtures)('should pass @stylistic recommended for %s', () => {
     expect.assertions(0)
   })

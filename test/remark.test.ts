@@ -145,7 +145,7 @@ ruleTester.run('remark', remark, {
 
 test('uses a whole-document fix for large documents', () => {
   const linter = new Linter({ configType: 'flat' })
-  // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- 64 KiB threshold
+
   const code = 'a'.repeat(64 * 1024 + 1)
 
   const config: Linter.Config[] = [
@@ -183,7 +183,7 @@ test('uses a whole-document fix for large documents', () => {
 
 test('returns one whole-document fix for multiple large-document messages', () => {
   const linter = new Linter({ configType: 'flat' })
-  // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- 64 KiB threshold
+
   const code = `_a_ _b_ ${'x'.repeat(64 * 1024)}\n`
 
   const messages = linter.verify(
