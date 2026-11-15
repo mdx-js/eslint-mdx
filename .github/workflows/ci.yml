@@ -43,8 +43,7 @@ jobs:
 
       - name: Downgrade Node 18 tooling
         if: matrix.node == 18
-        run: |
-          yarn up @oxc-node/core@1.0.0 yarn-berry-deduplicate@7.1.0
+        run: yarn up @oxc-node/core@1.0.0
 
       - name: Install Dependencies
         if: matrix.node != 18

@@ -24,7 +24,7 @@
     "lint:es": "eslint . --cache",
     "lint:ox": "oxlint .",
     "lint:tsc": "tsc --noEmit",
-    "prepare": "patch-package && simple-git-hooks && yarn-berry-deduplicate --no-clusters || exit 0",
+    "prepare": "patch-package && simple-git-hooks && yarn-berry-deduplicate || exit 0",
     "release": "run-s build release:only",
     "release:only": "changeset publish",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
