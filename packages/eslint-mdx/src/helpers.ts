@@ -82,6 +82,12 @@ export const getPositionAtFactory = (code: string) => {
   }
 }
 
+// unist points have 1-based columns, ESTree (and ESLint) expects 0-based ones
+const toEstreePosition = ({ line, column }: Point): Position => ({
+  line,
+  column: column - 1,
+})
+
 export const normalizePosition = ({
   start,
   end,
@@ -107,11 +113,11 @@ export const normalizePosition = ({
     loc: {
       start:
         /* istanbul ignore next -- used in worker */ 'line' in start
-          ? start
+          ? toEstreePosition(start)
           : getPositionAt(startOffset),
       end:
         /* istanbul ignore next -- used in worker */ 'line' in end
-          ? end
+          ? toEstreePosition(end)
           : getPositionAt(endOffset),
     },
     range,
