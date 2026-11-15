@@ -1,9 +1,8 @@
 import type { Linter } from 'eslint'
 import eslint from 'eslint'
-import eslintUnsupportedApi from 'eslint/use-at-your-own-risk'
-
 import type { ParserOptions } from 'eslint-mdx'
 import * as eslintMdx from 'eslint-mdx'
+import eslintUnsupportedApi from 'eslint/use-at-your-own-risk'
 
 export const DEFAULT_PARSER_OPTIONS: ParserOptions = {
   filePath: '__placeholder__.mdx',

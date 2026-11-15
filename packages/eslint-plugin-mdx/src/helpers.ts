@@ -10,10 +10,7 @@ export const getGlobals = <
   sources: T,
   initialGlobals: G = {} as G,
 ): R =>
-  (Array.isArray(sources)
-    ? (sources as string[])
-    : Object.keys(sources)
-  ).reduce(
+  (Array.isArray(sources) ? (sources as string[]) : Object.keys(sources)).reduce(
     (globals, source) =>
       Object.assign(globals, {
         [source]: false,
@@ -24,6 +21,4 @@ export const getGlobals = <
 const importMetaUrl = import.meta.url
 
 /* istanbul ignore next */
-export const cjsRequire: CjsRequire = importMetaUrl
-  ? createRequire(importMetaUrl)
-  : require
+export const cjsRequire: CjsRequire = importMetaUrl ? createRequire(importMetaUrl) : require

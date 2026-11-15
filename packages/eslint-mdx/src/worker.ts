@@ -82,21 +82,13 @@ const normalizeEmptyExpression = (
   type: 'JSXEmptyExpression',
 })
 
-const appendEstreeBody = (
-  body: Program['body'],
-  node: Nodes,
-  estree: Program,
-  code: string,
-) => {
+const appendEstreeBody = (body: Program['body'], node: Nodes, estree: Program, code: string) => {
   if (node.type !== 'mdxFlowExpression' && node.type !== 'mdxTextExpression') {
     body.push(...estree.body)
     return
   }
 
-  const type =
-    node.type === 'mdxFlowExpression'
-      ? 'MDXFlowExpression'
-      : 'MDXTextExpression'
+  const type = node.type === 'mdxFlowExpression' ? 'MDXFlowExpression' : 'MDXTextExpression'
   const position = normalizePosition(node.position)
 
   if (estree.body.length === 0) {
@@ -135,29 +127,16 @@ let tt: Record<string, TokenType> & typeof _tokTypes
 
 let TokenTranslator: (typeof TokenTranslator_)['default']
 
-export const processorCache = new Map<
-  string,
-  Processor<Root, undefined, undefined, Root, string>
->()
+export const processorCache = new Map<string, Processor<Root, undefined, undefined, Root, string>>()
 const processorConfigCache = new Map<string, ConfigResult | null>()
 
-const configLoadCache = new Map<
-  string,
-  (filePath: string) => Promise<ConfigResult>
->()
+const configLoadCache = new Map<string, (filePath: string) => Promise<ConfigResult>>()
 
 let Ignore: IgnoreClass
 
-const ignoreCheckCache = new Map<
-  string,
-  (filePath: string) => Promise<boolean>
->()
+const ignoreCheckCache = new Map<string, (filePath: string) => Promise<boolean>>()
 
-const getRemarkConfig = async (
-  filePath: string,
-  cwd: string,
-  remarkConfigPath?: string,
-) => {
+const getRemarkConfig = async (filePath: string, cwd: string, remarkConfigPath?: string) => {
   const cacheKey = remarkConfigPath ? `${cwd}\0${remarkConfigPath}` : cwd
 
   let configLoad = configLoadCache.get(cacheKey)
@@ -177,9 +156,7 @@ const getRemarkConfig = async (
 
   if (!Ignore) {
     ;({ Ignore } = (await import(
-      pathToFileURL(
-        path.resolve(cjsRequire.resolve('unified-engine'), '../lib/ignore.js'),
-      ).href
+      pathToFileURL(path.resolve(cjsRequire.resolve('unified-engine'), '../lib/ignore.js')).href
     )) as { Ignore: IgnoreClass })
   }
 
@@ -209,9 +186,7 @@ const isNativeOptionSupported = (value: unknown): boolean => {
   }
 
   if (Array.isArray(value)) {
-    return (value as unknown[]).every((item: unknown) =>
-      isNativeOptionSupported(item),
-    )
+    return (value as unknown[]).every((item: unknown) => isNativeOptionSupported(item))
   }
 
   if (value && typeof value === 'object') {
@@ -221,9 +196,7 @@ const isNativeOptionSupported = (value: unknown): boolean => {
   return true
 }
 
-const resolveRemarkConfig = (
-  result: ConfigResult | null | undefined,
-): RemarkConfig | undefined => {
+const resolveRemarkConfig = (result: ConfigResult | null | undefined): RemarkConfig | undefined => {
   if (!result) {
     return
   }
@@ -292,9 +265,7 @@ const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
       node.type === 'text' &&
       position &&
       ancestors.some(
-        ancestor =>
-          ancestor.type === 'mdxJsxFlowElement' ||
-          ancestor.type === 'mdxJsxTextElement',
+        ancestor => ancestor.type === 'mdxJsxFlowElement' || ancestor.type === 'mdxJsxTextElement',
       )
     ) {
       const start = position.start.offset
@@ -310,11 +281,7 @@ const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
       }
     }
 
-    if (
-      (node.type !== 'mdxJsxFlowElement' &&
-        node.type !== 'mdxJsxTextElement') ||
-      !position
-    ) {
+    if ((node.type !== 'mdxJsxFlowElement' && node.type !== 'mdxJsxTextElement') || !position) {
       return
     }
 
@@ -369,11 +336,7 @@ const filterRemarkPlugins = (
   plugins.filter(([plugin, options]) => {
     const name = plugin.name?.slice('remark-lint:'.length)
 
-    return (
-      !name ||
-      !ignoreRemarkRules?.has(name) ||
-      !isNativeOptionSupported(options)
-    )
+    return !name || !ignoreRemarkRules?.has(name) || !isNativeOptionSupported(options)
   })
 
 interface RemarkProcessorResult {
@@ -402,9 +365,7 @@ export const getRemarkProcessor = async (
     }
   }
 
-  const result = ignoreRemarkConfig
-    ? null
-    : await getRemarkConfig(filePath, cwd, remarkConfigPath)
+  const result = ignoreRemarkConfig ? null : await getRemarkConfig(filePath, cwd, remarkConfigPath)
 
   const cacheKey = `${
     result?.filePath ? `${String(isMdx)}-${result.filePath}` : String(isMdx)
@@ -429,18 +390,13 @@ export const getRemarkProcessor = async (
       ([plugin]) => plugin.name !== 'remark-lint:file-extension',
     )
 
-    const initProcessor = remarkProcessor()
-      .use({ settings })
-      .use(remarkStringify)
+    const initProcessor = remarkProcessor().use({ settings }).use(remarkStringify)
 
     if (isMdx) {
       initProcessor.use(remarkMdx, getRemarkMdxOptions(sharedTokens))
     }
 
-    cachedProcessor = filterRemarkPlugins(
-      pluginsWithoutFileExtension,
-      ignoreRemarkRules,
-    )
+    cachedProcessor = filterRemarkPlugins(pluginsWithoutFileExtension, ignoreRemarkRules)
       .reduce((processor, plugin) => processor.use(...plugin), initProcessor)
       .freeze()
   } else {
@@ -453,9 +409,7 @@ export const getRemarkProcessor = async (
     cachedProcessor = initProcessor.freeze()
   }
 
-  processorCache
-    .set(initCacheKey, cachedProcessor)
-    .set(cacheKey, cachedProcessor)
+  processorCache.set(initCacheKey, cachedProcessor).set(cacheKey, cachedProcessor)
   processorConfigCache.set(initCacheKey, result).set(cacheKey, result)
 
   return { config: result, processor: cachedProcessor }
@@ -484,8 +438,8 @@ runAsWorker(
     sharedTokens.length = 0
 
     /**
-     * Unified plugins are using ESM version of acorn, so we have to use the
-     * same version as well, otherwise the TokenType will be different class
+     * Unified plugins are using ESM version of acorn, so we have to use the same version as well,
+     * otherwise the TokenType will be different class
      *
      * @see also https://github.com/acornjs/acorn-jsx/issues/133
      */
@@ -528,9 +482,7 @@ runAsWorker(
       }
 
       return {
-        messages: file.messages.map(
-          message => extractProperties(message) as VFileMessage,
-        ),
+        messages: file.messages.map(message => extractProperties(message) as VFileMessage),
         content: file.toString(),
       }
     }
@@ -550,10 +502,7 @@ runAsWorker(
       TokenTranslator = (
         (await import(
           pathToFileURL(
-            path.resolve(
-              cjsRequire.resolve('espree/package.json'),
-              '../lib/token-translator.js',
-            ),
+            path.resolve(cjsRequire.resolve('espree/package.json'), '../lib/token-translator.js'),
           ).href
         )) as typeof TokenTranslator_
       ).default
@@ -642,10 +591,7 @@ runAsWorker(
           ...normalizeNode(start + nameIndex, start + nameIndex + name.length),
           type: 'JSXNamespacedName',
           namespace: handleJsxName(fullNamespace, start) as JSXIdentifier,
-          name: handleJsxName(
-            fullName,
-            start + colonIndex + 1,
-          ) as JSXIdentifier,
+          name: handleJsxName(fullName, start + colonIndex + 1) as JSXIdentifier,
         }
       }
 
@@ -664,12 +610,8 @@ runAsWorker(
       return {
         ...normalizeNode(start + nameIndex, start + nameIndex + name.length),
         type: 'JSXMemberExpression',
-        object: handleJsxName(objectName, start) as
-          JSXIdentifier | JSXMemberExpression,
-        property: handleJsxName(
-          propertyName,
-          start + lastPointIndex + 1,
-        ) as JSXIdentifier,
+        object: handleJsxName(objectName, start) as JSXIdentifier | JSXMemberExpression,
+        property: handleJsxName(propertyName, start + lastPointIndex + 1) as JSXIdentifier,
       }
     }
 
@@ -695,10 +637,7 @@ runAsWorker(
 
                 const expression = statement?.expression
 
-                if (
-                  child.type === 'mdxFlowExpression' ||
-                  child.type === 'mdxTextExpression'
-                ) {
+                if (child.type === 'mdxFlowExpression' || child.type === 'mdxTextExpression') {
                   const {
                     start: { offset: start },
                     end: { offset: end },
@@ -707,8 +646,7 @@ runAsWorker(
                   const expressionContainer: JSXExpressionContainer = {
                     ...normalizeNode(start, end),
                     type: 'JSXExpressionContainer',
-                    expression:
-                      expression || normalizeEmptyExpression(start, end, code),
+                    expression: expression || normalizeEmptyExpression(start, end, code),
                     value: child.value,
                   }
                   acc.push(expressionContainer)
@@ -718,8 +656,9 @@ runAsWorker(
 
                 comments.push(...estree.comments)
               } else {
-                const expression = (handleNode(child) ??
-                  convertContent(child)) as Arrayable<JSXElement['children']>
+                const expression = (handleNode(child) ?? convertContent(child)) as Arrayable<
+                  JSXElement['children']
+                >
                 if (Array.isArray(expression)) {
                   acc.push(...expression)
                 } else if (expression) {
@@ -775,10 +714,7 @@ runAsWorker(
           return jsxText
         }
 
-        if (
-          node.type !== 'mdxJsxTextElement' &&
-          node.type !== 'mdxJsxFlowElement'
-        ) {
+        if (node.type !== 'mdxJsxTextElement' && node.type !== 'mdxJsxFlowElement') {
           return
         }
 
@@ -831,14 +767,8 @@ runAsWorker(
               attributes: node.attributes.map(attr => {
                 if (attr.type === 'mdxJsxExpressionAttribute') {
                   assert(attr.data, 'Expected expression attribute data')
-                  assert(
-                    attr.data.estree,
-                    'Expected expression attribute estree',
-                  )
-                  assert(
-                    attr.data.estree.range,
-                    'Expected expression attribute range',
-                  )
+                  assert(attr.data.estree, 'Expected expression attribute estree')
+                  assert(attr.data.estree.range, 'Expected expression attribute range')
 
                   let [attrValStart, attrValEnd] = attr.data.estree.range
 
@@ -899,9 +829,7 @@ runAsWorker(
                   }
                 }
 
-                const attrEqualOffset = nextCharOffset(
-                  attrStart + attrNameLength,
-                )
+                const attrEqualOffset = nextCharOffset(attrStart + attrNameLength)
 
                 assert(
                   code[attrEqualOffset] === '=',
@@ -920,19 +848,14 @@ runAsWorker(
                     `Expected a quote at offset ${attrQuoteOffset}, got \`${attrQuote}\``,
                   )
 
-                  lastAttrOffset = nextCharOffset(
-                    attrQuoteOffset + attrValue.length + 1,
-                  )
+                  lastAttrOffset = nextCharOffset(attrQuoteOffset + attrValue.length + 1)
 
                   assert(
                     code[lastAttrOffset] === attrQuote,
                     `Expected closing quote \`${attrQuote}\` at offset ${lastAttrOffset}, got \`${code[lastAttrOffset]}\``,
                   )
 
-                  attrValuePos = normalizeNode(
-                    attrQuoteOffset,
-                    lastAttrOffset + 1,
-                  )
+                  attrValuePos = normalizeNode(attrQuoteOffset, lastAttrOffset + 1)
                 } else {
                   const data = attrValue.data
 
@@ -973,10 +896,8 @@ runAsWorker(
                       : {
                           ...attrValuePos,
                           type: 'JSXExpressionContainer',
-                          expression: (
-                            attr.value.data.estree
-                              .body[0] as ExpressionStatement
-                          ).expression,
+                          expression: (attr.value.data.estree.body[0] as ExpressionStatement)
+                            .expression,
                         },
                 }
               }),
@@ -1051,11 +972,7 @@ runAsWorker(
         const position = normalizeNodePosition(node.position)
 
         const nodeType = node.type as string
-        if (
-          nodeType === 'inlineMath' ||
-          nodeType === 'math' ||
-          nodeType === 'toml'
-        ) {
+        if (nodeType === 'inlineMath' || nodeType === 'math' || nodeType === 'toml') {
           const extended = node as Nodes & {
             value: string
             meta?: string | null
@@ -1270,20 +1187,14 @@ runAsWorker(
               } = node.position
               return {
                 ...position,
-                type:
-                  node.type === 'mdxFlowExpression'
-                    ? 'MDXFlowExpression'
-                    : 'MDXTextExpression',
+                type: node.type === 'mdxFlowExpression' ? 'MDXFlowExpression' : 'MDXTextExpression',
                 expression: normalizeEmptyExpression(start, end, code),
                 value: node.value,
               }
             }
             return {
               ...position,
-              type:
-                node.type === 'mdxFlowExpression'
-                  ? 'MDXFlowExpression'
-                  : 'MDXTextExpression',
+              type: node.type === 'mdxFlowExpression' ? 'MDXFlowExpression' : 'MDXTextExpression',
               expression: statement.expression,
               value: node.value,
             }
@@ -1303,9 +1214,7 @@ runAsWorker(
         node.type === 'mdxFlowExpression' ||
         node.type === 'mdxTextExpression'
       ) {
-        const estree = ((node.data &&
-          'estree' in node.data &&
-          node.data.estree) || {
+        const estree = ((node.data && 'estree' in node.data && node.data.estree) || {
           body: [],
           comments: [],
         }) as Program
@@ -1314,10 +1223,7 @@ runAsWorker(
         return
       }
 
-      if (
-        node.type === 'mdxJsxFlowElement' ||
-        node.type === 'mdxJsxTextElement'
-      ) {
+      if (node.type === 'mdxJsxFlowElement' || node.type === 'mdxJsxTextElement') {
         const expression = handleNode(node)
 
         if (expression) {
@@ -1378,9 +1284,7 @@ runAsWorker(
       ...markdownTokens.filter(
         markdownToken =>
           !acornTokens.some(
-            token =>
-              token.start < markdownToken.end &&
-              token.end > markdownToken.start,
+            token => token.start < markdownToken.end && token.end > markdownToken.start,
           ),
       ),
     ]
@@ -1427,18 +1331,13 @@ runAsWorker(
       for (let index = tokenStart; index < tokens.length; index++) {
         const translatedToken = tokens[index]
 
-        if (
-          translatedToken.range[0] === token.start &&
-          translatedToken.range[1] === token.end
-        ) {
+        if (translatedToken.range[0] === token.start && translatedToken.range[1] === token.end) {
           translatedToken.type = sourceType.label as AST.TokenType
         }
       }
     }
 
-    const remarkConfig = ignoreRemarkConfig
-      ? undefined
-      : resolveRemarkConfig(remarkConfigResult)
+    const remarkConfig = ignoreRemarkConfig ? undefined : resolveRemarkConfig(remarkConfigResult)
 
     return {
       root,

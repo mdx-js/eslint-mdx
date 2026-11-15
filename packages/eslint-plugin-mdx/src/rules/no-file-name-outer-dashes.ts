@@ -30,8 +30,7 @@ export const noFileNameOuterDashes: Rule.RuleModule = {
     if (/^-|-$/u.test(stem)) {
       context.report({
         loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 0 } },
-        message:
-          'Unexpected initial or final dashes in file name, expected dashes to join words',
+        message: 'Unexpected initial or final dashes in file name, expected dashes to join words',
       })
     }
 

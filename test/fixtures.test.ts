@@ -4,14 +4,12 @@ import path from 'node:path'
 import eslintJs from '@eslint/js'
 import { TSESLint } from '@typescript-eslint/utils'
 import { Linter } from 'eslint'
+import * as mdx from 'eslint-plugin-mdx'
 import prettierRecommended from 'eslint-plugin-prettier/recommended'
 import react from 'eslint-plugin-react'
 import globals from 'globals'
 import * as prettier from 'prettier'
-
 import { config, configs } from 'typescript-eslint'
-
-import * as mdx from 'eslint-plugin-mdx'
 
 const fixturesDir = path.resolve('test/fixtures')
 const isEslint10 = Number.parseInt(Linter.version, 10) >= 10

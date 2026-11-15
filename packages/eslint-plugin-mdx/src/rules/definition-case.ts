@@ -24,10 +24,7 @@ export const definitionCase: Rule.RuleModule = {
       return {}
     }
 
-    const check = (
-      node: MDDefinition | MDFootnoteDefinition,
-      footnote: boolean,
-    ) => {
+    const check = (node: MDDefinition | MDFootnoteDefinition, footnote: boolean) => {
       if (node.label && node.label !== node.label.toLowerCase()) {
         context.report({
           loc: node.loc,

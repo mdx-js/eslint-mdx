@@ -1,8 +1,7 @@
-import { ruleTester } from '../helpers.js'
-
-import { createLanguageOptions } from './helpers.js'
-
 import { maximumHeadingLength } from 'eslint-plugin-mdx'
+
+import { ruleTester } from '../helpers.js'
+import { createLanguageOptions } from './helpers.js'
 
 const languageOptions = createLanguageOptions({
   remarkConfig: 'next.remarkrc',
@@ -51,8 +50,7 @@ ruleTester.run('maximum heading length', maximumHeadingLength, {
       options: [5],
       errors: [
         {
-          message:
-            'Unexpected `8` characters in heading, expected at most `5` characters',
+          message: 'Unexpected `8` characters in heading, expected at most `5` characters',
           line: 1,
           column: 1,
         },
@@ -64,8 +62,7 @@ ruleTester.run('maximum heading length', maximumHeadingLength, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `24` characters in heading, expected at most `10` characters',
+          message: 'Unexpected `24` characters in heading, expected at most `10` characters',
           line: 1,
           column: 1,
         },
@@ -77,8 +74,7 @@ ruleTester.run('maximum heading length', maximumHeadingLength, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `12` characters in heading, expected at most `10` characters',
+          message: 'Unexpected `12` characters in heading, expected at most `10` characters',
           line: 1,
           column: 1,
         },
@@ -90,8 +86,7 @@ ruleTester.run('maximum heading length', maximumHeadingLength, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `17` characters in heading, expected at most `10` characters',
+          message: 'Unexpected `17` characters in heading, expected at most `10` characters',
           line: 1,
           column: 1,
         },
@@ -103,8 +98,7 @@ ruleTester.run('maximum heading length', maximumHeadingLength, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `14` characters in heading, expected at most `10` characters',
+          message: 'Unexpected `14` characters in heading, expected at most `10` characters',
           line: 1,
           column: 1,
         },
@@ -116,8 +110,7 @@ ruleTester.run('maximum heading length', maximumHeadingLength, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `14` characters in heading, expected at most `10` characters',
+          message: 'Unexpected `14` characters in heading, expected at most `10` characters',
           line: 1,
           column: 1,
         },
@@ -129,8 +122,7 @@ ruleTester.run('maximum heading length', maximumHeadingLength, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `11` characters in heading, expected at most `10` characters',
+          message: 'Unexpected `11` characters in heading, expected at most `10` characters',
           line: 1,
           column: 1,
         },
@@ -142,8 +134,7 @@ ruleTester.run('maximum heading length', maximumHeadingLength, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `11` characters in heading, expected at most `10` characters',
+          message: 'Unexpected `11` characters in heading, expected at most `10` characters',
           line: 1,
           column: 1,
         },
@@ -155,8 +146,7 @@ ruleTester.run('maximum heading length', maximumHeadingLength, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `19` characters in heading, expected at most `10` characters',
+          message: 'Unexpected `19` characters in heading, expected at most `10` characters',
           line: 1,
           column: 1,
         },
@@ -168,8 +158,7 @@ ruleTester.run('maximum heading length', maximumHeadingLength, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `11` characters in heading, expected at most `10` characters',
+          message: 'Unexpected `11` characters in heading, expected at most `10` characters',
           line: 1,
           column: 1,
         },
@@ -181,8 +170,7 @@ ruleTester.run('maximum heading length', maximumHeadingLength, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `16` characters in heading, expected at most `10` characters',
+          message: 'Unexpected `16` characters in heading, expected at most `10` characters',
           line: 1,
           column: 1,
         },
@@ -194,8 +182,7 @@ ruleTester.run('maximum heading length', maximumHeadingLength, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `15` characters in heading, expected at most `10` characters',
+          message: 'Unexpected `15` characters in heading, expected at most `10` characters',
           line: 1,
           column: 1,
         },
@@ -207,8 +194,7 @@ ruleTester.run('maximum heading length', maximumHeadingLength, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `18` characters in heading, expected at most `10` characters',
+          message: 'Unexpected `18` characters in heading, expected at most `10` characters',
           line: 1,
           column: 1,
         },
@@ -220,8 +206,7 @@ ruleTester.run('maximum heading length', maximumHeadingLength, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `24` characters in heading, expected at most `10` characters',
+          message: 'Unexpected `24` characters in heading, expected at most `10` characters',
           line: 1,
           column: 1,
         },

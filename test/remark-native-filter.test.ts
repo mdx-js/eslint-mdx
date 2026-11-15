@@ -1,18 +1,15 @@
 import path from 'node:path'
 
-import { languageOptions, ruleTester } from './helpers.js'
-
 import { remark } from 'eslint-plugin-mdx'
+
+import { languageOptions, ruleTester } from './helpers.js'
 
 const filename = 'native-filter.mdx'
 const configOptions = {
   ...languageOptions,
   parserOptions: {
     ...languageOptions.parserOptions,
-    remarkConfigPath: path.resolve(
-      import.meta.dirname,
-      'remark-fixtures/native.remarkrc',
-    ),
+    remarkConfigPath: path.resolve(import.meta.dirname, 'remark-fixtures/native.remarkrc'),
   },
 }
 

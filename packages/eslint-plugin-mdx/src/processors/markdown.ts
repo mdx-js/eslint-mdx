@@ -9,7 +9,6 @@ import type { Node, Parent, Nodes, Root, RootContentMap } from 'mdast'
 import type { MdxFlowExpression, MdxTextExpression } from 'mdast-util-mdx'
 
 import { meta } from '../meta.js'
-
 import type { CodeBlock, RangeMap } from './types.js'
 
 const UNSATISFIABLE_RULES = new Set([
@@ -70,8 +69,8 @@ const eslintCommentRegex = /^(?:eslint\b|global\s)/u
  * Extracts `eslint-*` or `global` comments from HTML/MDX comments if present.
  *
  * @param value The text content of an HTML/MDX AST node.
- * @returns The comment's text without the opening and closing tags or an empty
- *   string if the text is not an ESLint HTML/MDX comment.
+ * @returns The comment's text without the opening and closing tags or an empty string if the text
+ *   is not an ESLint HTML/MDX comment.
  */
 function getComment(value: string, isMdx = false) {
   const [commentStart, commentEnd] = COMMENTS[+isMdx]
@@ -83,9 +82,7 @@ function getComment(value: string, isMdx = false) {
     return ''
   }
 
-  const comment = value
-    .slice(commentStartMatched[0].length, -commentEndMatched[0].length)
-    .trim()
+  const comment = value.slice(commentStartMatched[0].length, -commentEndMatched[0].length).trim()
 
   if (!eslintCommentRegex.test(comment)) {
     return ''
@@ -99,8 +96,7 @@ function getComment(value: string, isMdx = false) {
 const leadingWhitespaceRegex = /^[>\s]*/u
 
 /**
- * Gets the offset for the first column of the node's first line in the original
- * source text.
+ * Gets the offset for the first column of the node's first line in the original source text.
  *
  * @param node A Markdown code block AST node.
  * @returns The offset for the first column of the node's first line.
@@ -110,94 +106,78 @@ function getBeginningOfLineOffset(node: Node) {
 }
 
 /**
- * Gets the leading text, typically whitespace with possible blockquote chars,
- * used to indent a code block.
+ * Gets the leading text, typically whitespace with possible blockquote chars, used to indent a code
+ * block.
  *
  * @param text The text of the file.
  * @param node A Markdown code block AST node.
  * @returns The text from the start of the first line to the opening fence of
- *   the code block.
+ * the code block.
  */
 function getIndentText(text: string, node: Node) {
-  return leadingWhitespaceRegex.exec(
-    text.slice(getBeginningOfLineOffset(node)),
-  )[0]
+  return leadingWhitespaceRegex.exec(text.slice(getBeginningOfLineOffset(node)))[0]
 }
 
 /**
- * When applying fixes, the postprocess step needs to know how to map fix ranges
- * from their location in the linted JS to the original offset in the Markdown.
- * Configuration comments and indentation trimming both complicate this
- * process.
+ * When applying fixes, the postprocess step needs to know how to map fix ranges from their location
+ * in the linted JS to the original offset in the Markdown. Configuration comments and indentation
+ * trimming both complicate this process.
  *
- * Configuration comments appear in the linted JS but not in the Markdown code
- * block. Fixes to configuration comments would cause undefined behavior and
- * should be ignored during postprocessing. Fixes to actual code after
- * configuration comments need to be mapped back to the code block after
- * removing any offset due to configuration comments.
+ * Configuration comments appear in the linted JS but not in the Markdown code block. Fixes to
+ * configuration comments would cause undefined behavior and should be ignored during
+ * postprocessing. Fixes to actual code after configuration comments need to be mapped back to the
+ * code block after removing any offset due to configuration comments.
  *
- * Fenced code blocks can be indented by up to three spaces at the opening
- * fence. Inside of a list, for example, this indent can be in addition to the
- * indent already required for list item children. Leading whitespace inside
- * indented code blocks is trimmed up to the level of the opening fence and does
- * not appear in the linted code. Further, lines can have less leading
- * whitespace than the opening fence, so not all lines are guaranteed to have
- * the same column offset as the opening fence.
+ * Fenced code blocks can be indented by up to three spaces at the opening fence. Inside of a list,
+ * for example, this indent can be in addition to the indent already required for list item
+ * children. Leading whitespace inside indented code blocks is trimmed up to the level of the
+ * opening fence and does not appear in the linted code. Further, lines can have less leading
+ * whitespace than the opening fence, so not all lines are guaranteed to have the same column offset
+ * as the opening fence.
  *
- * The source code of a non-configuration-comment line in the linted JS is a
- * suffix of the corresponding line in the Markdown code block. There are no
- * differences within the line, so the mapping need only provide the offset
- * delta at the beginning of each line.
+ * The source code of a non-configuration-comment line in the linted JS is a suffix of the
+ * corresponding line in the Markdown code block. There are no differences within the line, so the
+ * mapping need only provide the offset delta at the beginning of each line.
  *
  * @param text The text of the file.
  * @param node A Markdown code block AST node.
- * @param comments List of configuration comment strings that will be inserted
- *   at the beginning of the code block.
- * @returns A list of offset-based adjustments, where lookups are done based on
- *   the `js` key, which represents the range in the linted JS, and the `md` key
- *   is the offset delta that, when added to the JS range, returns the
- *   corresponding location in the original Markdown source.
+ * @param comments List of configuration comment strings that will be inserted at the beginning of
+ *   the code block.
+ * @returns A list of offset-based adjustments, where lookups are done based on the `js` key, which
+ *   represents the range in the linted JS, and the `md` key is the offset delta that, when added to
+ *   the JS range, returns the corresponding location in the original Markdown source.
  */
 function getBlockRangeMap(text: string, node: Node, comments: string[]) {
   /**
-   * The parser sets the fenced code block's start offset to wherever content
-   * should normally begin (typically the first column of the line, but more
-   * inside a list item, for example). The code block's opening fence may be
-   * further indented by up to three characters. If the code block has
-   * additional indenting, the opening fence's first backtick may be up to three
-   * whitespace characters after the start offset.
+   * The parser sets the fenced code block's start offset to wherever content should normally begin
+   * (typically the first column of the line, but more inside a list item, for example). The code
+   * block's opening fence may be further indented by up to three characters. If the code block has
+   * additional indenting, the opening fence's first backtick may be up to three whitespace
+   * characters after the start offset.
    */
   const startOffset = getBeginningOfLineOffset(node)
 
-  /**
-   * Extract the Markdown source to determine the leading whitespace for each
-   * line.
-   */
+  /** Extract the Markdown source to determine the leading whitespace for each line. */
   const code = text.slice(startOffset, node.position.end.offset)
   const lines = code.split('\n')
 
   /**
-   * The parser trims leading whitespace from each line of code within the
-   * fenced code block up to the opening fence's first backtick. The first
-   * backtick's column is the AST node's starting column plus any additional
-   * indentation.
+   * The parser trims leading whitespace from each line of code within the fenced code block up to
+   * the opening fence's first backtick. The first backtick's column is the AST node's starting
+   * column plus any additional indentation.
    */
   const baseIndent = getIndentText(text, node).length
 
   /**
-   * Track the length of any inserted configuration comments at the beginning of
-   * the linted JS and start the JS offset lookup keys at this index.
+   * Track the length of any inserted configuration comments at the beginning of the linted JS and
+   * start the JS offset lookup keys at this index.
    */
-  const commentLength = comments.reduce(
-    (len, comment) => len + comment.length + 1,
-    0,
-  )
+  const commentLength = comments.reduce((len, comment) => len + comment.length + 1, 0)
 
   /**
-   * In case there are configuration comments, initialize the map so that the
-   * first lookup index is always 0. If there are no configuration comments, the
-   * lookup index will also be 0, and the lookup should always go to the last
-   * range that matches, skipping this initialization entry.
+   * In case there are configuration comments, initialize the map so that the first lookup index is
+   * always 0. If there are no configuration comments, the lookup index will also be 0, and the
+   * lookup should always go to the last range that matches, skipping this initialization entry.
    */
   const rangeMap: RangeMap[] = [
     {
@@ -211,16 +191,15 @@ function getBlockRangeMap(text: string, node: Node, comments: string[]) {
   let jsOffset = commentLength
 
   /**
-   * Start the Markdown offset at the beginning of the block's first line of
-   * actual code. The first line of the block is always the opening fence, so
-   * the code begins on the second line.
+   * Start the Markdown offset at the beginning of the block's first line of actual code. The first
+   * line of the block is always the opening fence, so the code begins on the second line.
    */
   let mdOffset = startOffset + lines[0].length + 1
 
   /**
-   * For each line, determine how much leading whitespace was trimmed due to
-   * indentation. Increase the JS lookup offset by the length of the line
-   * post-trimming and the Markdown offset by the total line length.
+   * For each line, determine how much leading whitespace was trimmed due to indentation. Increase
+   * the JS lookup offset by the length of the line post-trimming and the Markdown offset by the
+   * total line length.
    */
   for (let i = 0; i + 1 < lines.length; i++) {
     const line = lines[i + 1]
@@ -249,8 +228,7 @@ function getBlockRangeMap(text: string, node: Node, comments: string[]) {
   return rangeMap
 }
 
-const codeBlockFileNameRegex =
-  /filename=(?<quote>["'])(?<filename>.*?)\k<quote>/u
+const codeBlockFileNameRegex = /filename=(?<quote>["'])(?<filename>.*?)\k<quote>/u
 
 /**
  * Parses the file name from a block meta, if available.
@@ -260,15 +238,13 @@ const codeBlockFileNameRegex =
  */
 function fileNameFromMeta(block: CodeBlock) {
   // istanbul ignore next
-  return codeBlockFileNameRegex
-    .exec(block.meta)
-    ?.groups.filename.replaceAll(/\s+/gu, '_')
+  return codeBlockFileNameRegex.exec(block.meta)?.groups.filename.replaceAll(/\s+/gu, '_')
 }
 
 /**
- * Given a filepath, get the nearest path that is a regular file. The filepath
- * provided by eslint may be a virtual filepath rather than a file on disk. This
- * attempts to transform a virtual path into an on-disk path
+ * Given a filepath, get the nearest path that is a regular file. The filepath provided by eslint
+ * may be a virtual filepath rather than a file on disk. This attempts to transform a virtual path
+ * into an on-disk path
  */
 function getOnDiskFilepath(filepath: string): string {
   let fallback: boolean | undefined
@@ -293,11 +269,7 @@ function getOnDiskFilepath(filepath: string): string {
  * @param filename The filename of the file
  * @returns Source code blocks to lint.
  */
-function preprocess(
-  sourceText: string,
-  filename: string,
-  syncOptions: SyncOptions,
-) {
+function preprocess(sourceText: string, filename: string, syncOptions: SyncOptions) {
   // istanbul ignore next
   const text = sourceText.startsWith(BOM) ? sourceText.slice(1) : sourceText
   const { root } = performSyncWork({
@@ -312,11 +284,10 @@ function preprocess(
   blocksCache.set(filename, blocks)
 
   /**
-   * During the depth-first traversal, keep track of any sequences of HTML/MDX
-   * comment nodes containing `eslint-*` or `global` comments. If a code block
-   * immediately follows such a sequence, insert the comments at the top of the
-   * code block. Any non-ESLint comment or other node type breaks and empties
-   * the sequence.
+   * During the depth-first traversal, keep track of any sequences of HTML/MDX comment nodes
+   * containing `eslint-*` or `global` comments. If a code block immediately follows such a
+   * sequence, insert the comments at the top of the code block. Any non-ESLint comment or other
+   * node type breaks and empties the sequence.
    */
   let allComments: string[] = []
 
@@ -438,9 +409,7 @@ function adjustBlock(block: CodeBlock) {
    * @param message A message from ESLint.
    * @returns The same message, but adjusted to the correct location.
    */
-  return function adjustMessage(
-    message: Linter.LintMessage,
-  ): Linter.LintMessage {
+  return function adjustMessage(message: Linter.LintMessage): Linter.LintMessage {
     // istanbul ignore if
     if (!Number.isInteger(message.line)) {
       return {
@@ -498,15 +467,12 @@ function excludeUnsatisfiableRules(message: Linter.LintMessage) {
 /**
  * Transforms generated messages for output.
  *
- * @param messages An array containing one array of messages for each code block
- *   returned from `preprocess`.
+ * @param messages An array containing one array of messages for each code block returned from
+ *   `preprocess`.
  * @param filename The filename of the file
  * @returns A flattened array of messages with mapped locations.
  */
-function postprocess(
-  messages: Linter.LintMessage[][],
-  filename: string,
-): Linter.LintMessage[] {
+function postprocess(messages: Linter.LintMessage[][], filename: string): Linter.LintMessage[] {
   const blocks = blocksCache.get(filename)
 
   blocksCache.delete(filename)

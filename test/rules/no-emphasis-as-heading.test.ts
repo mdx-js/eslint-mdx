@@ -1,8 +1,7 @@
-import { ruleTester } from '../helpers.js'
-
-import { createLanguageOptions } from './helpers.js'
-
 import { noEmphasisAsHeading } from 'eslint-plugin-mdx'
+
+import { ruleTester } from '../helpers.js'
+import { createLanguageOptions } from './helpers.js'
 
 const languageOptions = createLanguageOptions({
   remarkConfig: 'next.remarkrc',
@@ -38,8 +37,7 @@ ruleTester.run('no emphasis as heading', noEmphasisAsHeading, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected emphasis introducing a section, expected a heading instead',
+          message: 'Unexpected emphasis introducing a section, expected a heading instead',
           line: 1,
           column: 1,
         },
@@ -51,8 +49,7 @@ ruleTester.run('no emphasis as heading', noEmphasisAsHeading, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected strong introducing a section, expected a heading instead',
+          message: 'Unexpected strong introducing a section, expected a heading instead',
           line: 1,
           column: 1,
         },

@@ -29,9 +29,7 @@ export const orderedListMarkerStyle: Rule.RuleModule = {
 
     const sourceText = context.sourceCode.getText()
     let expected: Marker | undefined =
-      config.options === '.' || config.options === ')'
-        ? config.options
-        : undefined
+      config.options === '.' || config.options === ')' ? config.options : undefined
 
     const checkItem = (item: MDListItem) => {
       const start = item.range[0]
@@ -52,8 +50,7 @@ export const orderedListMarkerStyle: Rule.RuleModule = {
       context.report({
         loc: { start: markerStart, end: markerStart },
         message: `Unexpected ordered list marker \`${actual}\`, expected \`${expected}\``,
-        fix: fixer =>
-          fixer.replaceTextRange([markerIndex, markerIndex + 1], expected),
+        fix: fixer => fixer.replaceTextRange([markerIndex, markerIndex + 1], expected),
       })
     }
 

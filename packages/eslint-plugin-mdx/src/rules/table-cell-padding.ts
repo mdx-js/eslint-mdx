@@ -25,9 +25,7 @@ export const tableCellPadding: Rule.RuleModule = {
     return {
       MDTable(node: MDTable) {
         let expected: 'compact' | 'padded' | undefined =
-          config.options === 'padded' || config.options === 'compact'
-            ? config.options
-            : undefined
+          config.options === 'padded' || config.options === 'compact' ? config.options : undefined
 
         for (const row of node.children) {
           const raw = row.raw

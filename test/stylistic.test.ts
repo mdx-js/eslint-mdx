@@ -2,7 +2,6 @@ import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 
 import { ESLint } from 'eslint'
-
 import * as mdx from 'eslint-mdx'
 
 const isStylisticSupported = !ESLint.version.startsWith('8.')
@@ -42,17 +41,14 @@ const fixtures = [
 ]
 
 if (isStylisticSupported) {
-  it.each(fixtures)(
-    'should pass @stylistic recommended for %s',
-    async fixture => {
-      const filePath = path.join(fixturesDir, fixture)
-      const cli = await getCli()
-      const [result] = await cli.lintText(await readFile(filePath, 'utf8'), {
-        filePath,
-      })
-      expect(result.messages).toEqual([])
-    },
-  )
+  it.each(fixtures)('should pass @stylistic recommended for %s', async fixture => {
+    const filePath = path.join(fixturesDir, fixture)
+    const cli = await getCli()
+    const [result] = await cli.lintText(await readFile(filePath, 'utf8'), {
+      filePath,
+    })
+    expect(result.messages).toEqual([])
+  })
 } else {
   // @stylistic v5 requires ESLint 9+.
 

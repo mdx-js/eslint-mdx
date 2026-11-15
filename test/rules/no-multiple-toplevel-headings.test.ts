@@ -1,8 +1,7 @@
-import { ruleTester } from '../helpers.js'
-
-import { createLanguageOptions } from './helpers.js'
-
 import { noMultipleToplevelHeadings } from 'eslint-plugin-mdx'
+
+import { ruleTester } from '../helpers.js'
+import { createLanguageOptions } from './helpers.js'
 
 const languageOptions = createLanguageOptions({
   remarkConfig: 'next.remarkrc',
@@ -23,8 +22,7 @@ ruleTester.run('no multiple toplevel headings', noMultipleToplevelHeadings, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected duplicate toplevel heading, exected a single heading with rank `1`',
+          message: 'Unexpected duplicate toplevel heading, exected a single heading with rank `1`',
           line: 3,
           column: 1,
         },

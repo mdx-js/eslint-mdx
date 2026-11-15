@@ -37,9 +37,7 @@ export const listItemIndent: Rule.RuleModule = {
     }
 
     const configured =
-      config.options === 'mixed' ||
-      config.options === 'one' ||
-      config.options === 'tab'
+      config.options === 'mixed' || config.options === 'one' || config.options === 'tab'
         ? config.options
         : undefined
 
@@ -68,8 +66,7 @@ export const listItemIndent: Rule.RuleModule = {
       let expectedIndent = end + 1
 
       if (style === 'tab' || (style === 'mixed' && loose)) {
-        expectedIndent =
-          Math.ceil(expectedIndent / CHARS_PER_TAB) * CHARS_PER_TAB
+        expectedIndent = Math.ceil(expectedIndent / CHARS_PER_TAB) * CHARS_PER_TAB
       }
 
       const expectedSpaces = expectedIndent - end
@@ -89,9 +86,7 @@ export const listItemIndent: Rule.RuleModule = {
 
     return {
       MDList(list: MDList) {
-        const loose =
-          list.spread ||
-          list.children.some(item => 'spread' in item && item.spread)
+        const loose = list.spread || list.children.some(item => 'spread' in item && item.spread)
 
         for (const item of list.children) {
           checkItem(item, loose)

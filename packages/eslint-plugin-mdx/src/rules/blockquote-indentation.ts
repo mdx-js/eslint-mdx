@@ -24,8 +24,7 @@ export const blockquoteIndentation: Rule.RuleModule = {
       return {}
     }
 
-    let expected =
-      typeof config.options === 'number' ? config.options : undefined
+    let expected = typeof config.options === 'number' ? config.options : undefined
 
     return {
       MDBlockquote(node: MDBlockquote) {

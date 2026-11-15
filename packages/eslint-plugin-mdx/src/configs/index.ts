@@ -9,15 +9,7 @@ import { native, type NativeConfig } from './native.js'
 import { overrides } from './overrides.js'
 import { recommended } from './recommended.js'
 
-export {
-  base,
-  codeBlocks,
-  flat,
-  flatCodeBlocks,
-  native,
-  overrides,
-  recommended,
-}
+export { base, codeBlocks, flat, flatCodeBlocks, native, overrides, recommended }
 
 export const configs: {
   base: Linter.LegacyConfig

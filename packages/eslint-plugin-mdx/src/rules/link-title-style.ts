@@ -26,9 +26,7 @@ export const linkTitleStyle: Rule.RuleModule = {
     }
 
     let expected: '"' | '()' | "'" | undefined =
-      config.options === '"' ||
-      config.options === "'" ||
-      config.options === '()'
+      config.options === '"' || config.options === "'" || config.options === '()'
         ? config.options
         : undefined
 

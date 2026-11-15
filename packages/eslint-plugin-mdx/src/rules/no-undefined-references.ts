@@ -80,16 +80,10 @@ export const noUndefinedReferences: Rule.RuleModule = {
       const before = sourceText[startOffset + range[0] - 1]
       const after = sourceText[startOffset + range[0] + 1]
       const label = labelFor(before, after)
-      const offset =
-        range.length === FULL_REFERENCE_LENGTH && range[2] + 2 !== range[3]
-          ? 2
-          : 0
+      const offset = range.length === FULL_REFERENCE_LENGTH && range[2] + 2 !== range[3] ? 2 : 0
       let identifier = normalizeIdentifier(
         collapseWhiteSpace(
-          sourceText.slice(
-            startOffset + range[offset] + 1,
-            startOffset + range[offset + 1] - 1,
-          ),
+          sourceText.slice(startOffset + range[offset] + 1, startOffset + range[offset + 1] - 1),
           { style: 'html', trim: true },
         ),
       )

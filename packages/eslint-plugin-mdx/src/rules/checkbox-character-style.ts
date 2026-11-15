@@ -40,16 +40,11 @@ export const checkboxCharacterStyle: Rule.RuleModule = {
     if (!config) {
       return {}
     }
-    const options =
-      typeof config.options === 'object' ? config.options : undefined
+    const options = typeof config.options === 'object' ? config.options : undefined
     let checkedExpected =
-      options?.checked === 'x' || options?.checked === 'X'
-        ? options.checked
-        : undefined
+      options?.checked === 'x' || options?.checked === 'X' ? options.checked : undefined
     let uncheckedExpected =
-      options?.unchecked === ' ' || options?.unchecked === '\t'
-        ? options.unchecked
-        : undefined
+      options?.unchecked === ' ' || options?.unchecked === '\t' ? options.unchecked : undefined
 
     return {
       MDListItem(node: MDListItem) {

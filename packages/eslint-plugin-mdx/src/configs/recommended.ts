@@ -1,7 +1,6 @@
 import type { ESLint, Linter } from 'eslint'
 
 import { cjsRequire } from '../helpers.js'
-
 import { base } from './base.js'
 
 const overrides: Linter.ConfigOverride[] = [
@@ -36,8 +35,7 @@ const addPrettierRules = () => {
     if (
       /* istanbul ignore next */
       +major > 5 ||
-      (+major === 5 &&
-        (+minor > 1 || (+minor === 1 && Number.parseInt(patch) >= 2)))
+      (+major === 5 && (+minor > 1 || (+minor === 1 && Number.parseInt(patch) >= 2)))
     ) {
       return
     }

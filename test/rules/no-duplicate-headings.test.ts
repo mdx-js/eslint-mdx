@@ -1,8 +1,7 @@
-import { ruleTester } from '../helpers.js'
-
-import { createLanguageOptions } from './helpers.js'
-
 import { noDuplicateHeadings } from 'eslint-plugin-mdx'
+
+import { ruleTester } from '../helpers.js'
+import { createLanguageOptions } from './helpers.js'
 
 const languageOptions = createLanguageOptions({
   remarkConfig: 'more.remarkrc',
@@ -23,8 +22,7 @@ ruleTester.run('no duplicate headings', noDuplicateHeadings, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected heading with equivalent text, expected unique headings',
+          message: 'Unexpected heading with equivalent text, expected unique headings',
           line: 3,
           column: 1,
         },

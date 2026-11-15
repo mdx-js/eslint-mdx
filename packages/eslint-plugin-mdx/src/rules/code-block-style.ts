@@ -23,15 +23,11 @@ export const codeBlockStyle: Rule.RuleModule = {
     }
 
     let expected =
-      config.options === 'fenced' || config.options === 'indented'
-        ? config.options
-        : undefined
+      config.options === 'fenced' || config.options === 'indented' ? config.options : undefined
 
     return {
       MDCode(node: MDCode) {
-        const actual = /^ {0,3}(?:`{3,}|~{3,})/u.test(node.raw)
-          ? 'fenced'
-          : 'indented'
+        const actual = /^ {0,3}(?:`{3,}|~{3,})/u.test(node.raw) ? 'fenced' : 'indented'
         expected ??= actual
 
         if (actual === expected) {

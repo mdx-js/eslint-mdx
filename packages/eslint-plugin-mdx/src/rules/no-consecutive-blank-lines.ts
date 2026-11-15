@@ -33,9 +33,7 @@ export const noConsecutiveBlankLines: Rule.RuleModule = {
 
         // `2` for the line ending after the previous node and the line
         // ending of the blank line itself.
-        const difference = previousLoc
-          ? currentLoc.start.line - previousLoc.end.line - 2
-          : 0
+        const difference = previousLoc ? currentLoc.start.line - previousLoc.end.line - 2 : 0
 
         if (difference > 0) {
           const actual = difference + 1

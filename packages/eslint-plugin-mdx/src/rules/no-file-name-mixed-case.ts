@@ -30,8 +30,7 @@ export const noFileNameMixedCase: Rule.RuleModule = {
     if (stem && stem !== stem.toLowerCase() && stem !== stem.toUpperCase()) {
       context.report({
         loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 0 } },
-        message:
-          'Unexpected mixed case in file name, expected either lowercase or uppercase',
+        message: 'Unexpected mixed case in file name, expected either lowercase or uppercase',
       })
     }
 

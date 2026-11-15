@@ -23,20 +23,14 @@ export const finalDefinition: Rule.RuleModule = {
       Program() {
         const body = context.sourceCode.ast.body
         const definition = body.find(
-          node =>
-            node.type === 'MDDefinition' ||
-            node.type === 'MDFootnoteDefinition',
+          node => node.type === 'MDDefinition' || node.type === 'MDFootnoteDefinition',
         )
         const index = definition ? body.indexOf(definition) : -1
         if (
           definition &&
           body
             .slice(index + 1)
-            .some(
-              node =>
-                node.type !== 'MDDefinition' &&
-                node.type !== 'MDFootnoteDefinition',
-            )
+            .some(node => node.type !== 'MDDefinition' && node.type !== 'MDFootnoteDefinition')
         ) {
           context.report({
             loc: definition.loc,

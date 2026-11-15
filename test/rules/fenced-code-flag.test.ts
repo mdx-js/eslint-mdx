@@ -1,8 +1,7 @@
-import { ruleTester } from '../helpers.js'
-
-import { createLanguageOptions } from './helpers.js'
-
 import { fencedCodeFlag } from 'eslint-plugin-mdx'
+
+import { ruleTester } from '../helpers.js'
+import { createLanguageOptions } from './helpers.js'
 
 const languageOptions = createLanguageOptions({ remarkConfig: 'next.remarkrc' })
 const allowOptions = createLanguageOptions({
@@ -54,8 +53,7 @@ ruleTester.run('fenced code flag', fencedCodeFlag, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected missing fenced code language flag in info string, expected keyword',
+          message: 'Unexpected missing fenced code language flag in info string, expected keyword',
           line: 1,
           column: 1,
         },
@@ -67,8 +65,7 @@ ruleTester.run('fenced code flag', fencedCodeFlag, {
       languageOptions: flagsOptions,
       errors: [
         {
-          message:
-            'Unexpected missing fenced code language flag in info string, expected `js`',
+          message: 'Unexpected missing fenced code language flag in info string, expected `js`',
           line: 1,
           column: 1,
         },
@@ -93,8 +90,7 @@ ruleTester.run('fenced code flag', fencedCodeFlag, {
       languageOptions: flagsOptions,
       errors: [
         {
-          message:
-            'Unexpected fenced code language flag `html` in info string, expected `js`',
+          message: 'Unexpected fenced code language flag `html` in info string, expected `js`',
           line: 1,
           column: 1,
         },

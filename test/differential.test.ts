@@ -2,11 +2,10 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { Linter } from 'eslint'
-
-import { DEFAULT_PARSER_OPTIONS } from './helpers.js'
-
 import { parser, performSyncWork } from 'eslint-mdx'
 import { rules } from 'eslint-plugin-mdx'
+
+import { DEFAULT_PARSER_OPTIONS } from './helpers.js'
 
 const linter = new Linter({ configType: 'flat' })
 const _dirname = import.meta.dirname
@@ -49,28 +48,19 @@ const fixtureNames = allFixtureNames.filter(file => {
   }
 })
 
-const skippedFixtureNames = allFixtureNames.filter(
-  file => !fixtureNames.includes(file),
-)
+const skippedFixtureNames = allFixtureNames.filter(file => !fixtureNames.includes(file))
 
 const ruleNames = Object.keys(rules).filter(
   name => configRules.has(name) && !knownDivergences.has(name),
 )
 
-const normalize = (
-  messages: Array<{ column: number; line: number; message: string }>,
-) => [...messages].sort((a, b) => a.line - b.line || a.column - b.column)
+const normalize = (messages: Array<{ column: number; line: number; message: string }>) =>
+  [...messages].sort((a, b) => a.line - b.line || a.column - b.column)
 
 // In MDX, `<https://…>` is parsed as JSX, so `no-literal-urls`
 // intentionally suggests a regular link instead of a regular autolink.
-const normalizeRuleMessage = (
-  ruleName: string,
-  file: string,
-  message: string,
-) =>
-  ruleName === 'no-literal-urls' && file.endsWith('.mdx')
-    ? message.split(',', 1)[0]
-    : message
+const normalizeRuleMessage = (ruleName: string, file: string, message: string) =>
+  ruleName === 'no-literal-urls' && file.endsWith('.mdx') ? message.split(',', 1)[0] : message
 
 const getRemarkMessages = (file: string, code: string) => {
   const filePath = path.resolve(fixtureDir, file)

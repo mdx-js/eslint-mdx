@@ -38,14 +38,9 @@ export class Parser {
   ): Linter.ESLintParseResult {
     const extname = path.extname(filePath)
 
-    const isMdx = [...DEFAULT_EXTENSIONS, ...arrayify(extensions)].includes(
-      extname,
-    )
+    const isMdx = [...DEFAULT_EXTENSIONS, ...arrayify(extensions)].includes(extname)
 
-    const isMarkdown = [
-      ...MARKDOWN_EXTENSIONS,
-      ...arrayify(markdownExtensions),
-    ].includes(extname)
+    const isMarkdown = [...MARKDOWN_EXTENSIONS, ...arrayify(markdownExtensions)].includes(extname)
 
     if (!isMdx && !isMarkdown) {
       throw new Error(
@@ -130,8 +125,7 @@ export class Parser {
 
     const scopeManager = analyze(ast, {
       childVisitorKeys: visitorKeys,
-      ecmaVersion:
-        typeof ecmaVersion === 'number' ? ecmaVersion : latestEcmaVersion,
+      ecmaVersion: typeof ecmaVersion === 'number' ? ecmaVersion : latestEcmaVersion,
       ignoreEval: true,
       jsx: true,
       sourceType,
@@ -141,17 +135,13 @@ export class Parser {
 
     const esmRanges = root.children
       .filter(node => node.type === 'mdxjsEsm' && node.position)
-      .map(
-        node => [node.position.start.offset, node.position.end.offset] as const,
-      )
+      .map(node => [node.position.start.offset, node.position.end.offset] as const)
 
     const isEsmRange = (range: [number, number]) =>
       esmRanges.some(([start, end]) => range[0] >= start && range[1] <= end)
 
     globalScope.through = globalScope.through.filter(
-      reference =>
-        reference.identifier.name !== 'props' ||
-        isEsmRange(reference.identifier.range),
+      reference => reference.identifier.name !== 'props' || isEsmRange(reference.identifier.range),
     )
 
     // react/jsx-no-undef reads scope variables instead of through.
@@ -172,21 +162,11 @@ export class Parser {
     }
 
     scopeManager.acquire = (node, inner) => {
-      if (
-        node.type !== 'JSXIdentifier' ||
-        !node.range ||
-        isEsmRange(node.range)
-      ) {
+      if (node.type !== 'JSXIdentifier' || !node.range || isEsmRange(node.range)) {
         return acquireScope(node, inner)
       }
 
-      const propsScope = new Scope(
-        scopeManager,
-        'block',
-        getOriginalScope(node),
-        ast,
-        false,
-      )
+      const propsScope = new Scope(scopeManager, 'block', getOriginalScope(node), ast, false)
       propsScope.variables.push(new Variable('props', propsScope))
       return propsScope
     }

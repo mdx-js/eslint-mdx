@@ -1,13 +1,11 @@
 import path from 'node:path'
 
 import { Linter } from 'eslint'
-
-import { DEFAULT_PARSER_OPTIONS, ruleTester } from '../helpers.js'
-
-import { createLanguageOptions } from './helpers.js'
-
 import { parser } from 'eslint-mdx'
 import { rules, tablePipeAlignment } from 'eslint-plugin-mdx'
+
+import { DEFAULT_PARSER_OPTIONS, ruleTester } from '../helpers.js'
+import { createLanguageOptions } from './helpers.js'
 
 const languageOptions = createLanguageOptions({ remarkConfig: 'next.remarkrc' })
 ruleTester.run('table pipe alignment', tablePipeAlignment, {
@@ -35,8 +33,7 @@ ruleTester.run('table pipe alignment', tablePipeAlignment, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected unaligned cell, expected aligned pipes, add `3` spaces',
+          message: 'Unexpected unaligned cell, expected aligned pipes, add `3` spaces',
           line: 1,
           column: 1,
         },
@@ -48,8 +45,7 @@ ruleTester.run('table pipe alignment', tablePipeAlignment, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected unaligned cell, expected aligned pipes, add `2` spaces',
+          message: 'Unexpected unaligned cell, expected aligned pipes, add `2` spaces',
           line: 1,
           column: 1,
         },
@@ -74,8 +70,7 @@ ruleTester.run('table pipe alignment', tablePipeAlignment, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected unaligned cell, expected aligned pipes, add `1` space',
+          message: 'Unexpected unaligned cell, expected aligned pipes, add `1` space',
           line: 1,
           column: 11,
         },
@@ -93,8 +88,7 @@ ruleTester.run('table pipe alignment', tablePipeAlignment, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected unaligned cell, expected aligned pipes, add `1` space',
+          message: 'Unexpected unaligned cell, expected aligned pipes, add `1` space',
           line: 1,
           column: 9,
         },
@@ -110,10 +104,7 @@ ruleTester.run('table pipe alignment', tablePipeAlignment, {
 })
 
 const linter = new Linter({ configType: 'flat' })
-const remarkConfigPath = path.resolve(
-  import.meta.dirname,
-  '../remark-fixtures/next.remarkrc',
-)
+const remarkConfigPath = path.resolve(import.meta.dirname, '../remark-fixtures/next.remarkrc')
 
 const examples = {
   center: '| a | b |\n| :-: | :-: |\n| c | dddd |',
@@ -125,35 +116,32 @@ const examples = {
   widths: '| a | b | c |\n| :- | :-: | -: |\n| d | e | f |',
 }
 
-test.each(Object.entries(examples))(
-  'table pipe alignment: %s',
-  (name, code) => {
-    expect(
-      linter
-        .verify(
-          code,
-          [
-            {
-              files: ['**/*.mdx'],
-              languageOptions: {
-                parser,
-                parserOptions: {
-                  ...DEFAULT_PARSER_OPTIONS,
-                  remarkConfigPath,
-                },
+test.each(Object.entries(examples))('table pipe alignment: %s', (name, code) => {
+  expect(
+    linter
+      .verify(
+        code,
+        [
+          {
+            files: ['**/*.mdx'],
+            languageOptions: {
+              parser,
+              parserOptions: {
+                ...DEFAULT_PARSER_OPTIONS,
+                remarkConfigPath,
               },
-              plugins: { mdx: { rules } },
-              rules: { 'mdx/table-pipe-alignment': 'warn' },
             },
-          ],
-          { filename: 'native.mdx' },
-        )
-        .map(({ column, line, message, ruleId }) => ({
-          column,
-          line,
-          message,
-          ruleId,
-        })),
-    ).toMatchSnapshot(name)
-  },
-)
+            plugins: { mdx: { rules } },
+            rules: { 'mdx/table-pipe-alignment': 'warn' },
+          },
+        ],
+        { filename: 'native.mdx' },
+      )
+      .map(({ column, line, message, ruleId }) => ({
+        column,
+        line,
+        message,
+        ruleId,
+      })),
+  ).toMatchSnapshot(name)
+})

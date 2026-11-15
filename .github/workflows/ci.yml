@@ -56,7 +56,7 @@ jobs:
           yarn add -D eslint@${{ matrix.eslint }} @types/eslint@${{ matrix.eslint }}
 
       - name: Build and Lint
-        if: ${{ matrix.node > 18 && matrix.eslint == 10 }}
+        if: ${{ matrix.node > 20 && matrix.eslint == 10 }}
         run: |
           yarn build
           yarn lint

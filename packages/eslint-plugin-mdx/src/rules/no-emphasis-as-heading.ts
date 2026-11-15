@@ -9,8 +9,7 @@ declare module 'eslint-mdx' {
   }
 }
 
-const isParagraph = (node: MDContentNode | undefined) =>
-  node?.type === 'MDParagraph'
+const isParagraph = (node: MDContentNode | undefined) => node?.type === 'MDParagraph'
 
 export const noEmphasisAsHeading: Rule.RuleModule = {
   meta: {

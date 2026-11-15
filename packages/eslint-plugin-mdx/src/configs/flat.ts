@@ -3,7 +3,6 @@ import * as eslintMdx from 'eslint-mdx'
 
 import * as mdx from '../index.js'
 import { remark } from '../processors/remark.js'
-
 import { codeBlocks } from './code-blocks.js'
 
 export const flat: Linter.FlatConfig = {

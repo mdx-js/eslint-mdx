@@ -32,22 +32,17 @@ export const finalNewline: Rule.RuleModule = {
           context.report({
             loc: {
               start: {
-                line: context.sourceCode.getLocFromIndex(sourceText.length)
-                  .line,
-                column: context.sourceCode.getLocFromIndex(sourceText.length)
-                  .column,
+                line: context.sourceCode.getLocFromIndex(sourceText.length).line,
+                column: context.sourceCode.getLocFromIndex(sourceText.length).column,
               },
               end: {
-                line: context.sourceCode.getLocFromIndex(sourceText.length)
-                  .line,
-                column: context.sourceCode.getLocFromIndex(sourceText.length)
-                  .column,
+                line: context.sourceCode.getLocFromIndex(sourceText.length).line,
+                column: context.sourceCode.getLocFromIndex(sourceText.length).column,
               },
             },
             message:
               'Unexpected missing final newline character, expected line feed (`\\n`) at end of file',
-            fix: fixer =>
-              fixer.insertTextAfterRange([0, sourceText.length], '\n'),
+            fix: fixer => fixer.insertTextAfterRange([0, sourceText.length], '\n'),
           })
         }
       },

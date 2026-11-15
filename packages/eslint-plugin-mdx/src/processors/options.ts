@@ -6,7 +6,6 @@
 import type * as ESLint from 'eslint'
 
 import { cjsRequire } from '../helpers.js'
-
 import type { ESLintMdxSettings, ProcessorOptions } from './types.js'
 
 export const processorOptions = {} as ProcessorOptions
@@ -35,9 +34,7 @@ ESLinter.prototype.verify = function (
   /* istanbul ignore next */
   const settings = ((
     config.extractConfig?.(
-      typeof options === 'undefined' || typeof options === 'string'
-        ? options
-        : options.filename,
+      typeof options === 'undefined' || typeof options === 'string' ? options : options.filename,
     ) ?? config
   ).settings ?? {}) as ESLintMdxSettings
 
