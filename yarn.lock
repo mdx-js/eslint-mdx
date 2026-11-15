@@ -1928,6 +1928,7 @@ __metadata:
     eslint-plugin-regexp: "npm:^3.3.1"
     eslint-plugin-sonarjs: "npm:^4.2.2"
     eslint-plugin-unicorn: "npm:^79.0.0"
+    eslint-plugin-yml: "npm:^3.9.0"
     globals: "npm:^17.14.0"
     jest: "npm:^30.5.2"
     nano-staged: "npm:^1.0.2"
@@ -5205,7 +5206,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"diff-sequences@npm:^29.6.3":
+"diff-sequences@npm:^29.0.0, diff-sequences@npm:^29.6.3":
   version: 29.6.3
   resolution: "diff-sequences@npm:29.6.3"
   checksum: 10c0/32e27ac7dbffdf2fb0eb5a84efd98a9ad084fbabd5ac9abb8757c6770d5320d2acd172830b28c4add29bb873d59420601dfc805ac4064330ce59b1adfd0593b2
@@ -5603,6 +5604,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"escape-string-regexp@npm:5.0.0, escape-string-regexp@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "escape-string-regexp@npm:5.0.0"
+  checksum: 10c0/6366f474c6f37a802800a435232395e04e9885919873e382b157ab7e8f0feb8fed71497f84a6f6a81a49aab41815522f5839112bd38026d203aea0c91622df95
+  languageName: node
+  linkType: hard
+
 "escape-string-regexp@npm:^2.0.0":
   version: 2.0.0
   resolution: "escape-string-regexp@npm:2.0.0"
@@ -5614,13 +5622,6 @@ __metadata:
   version: 4.0.0
   resolution: "escape-string-regexp@npm:4.0.0"
   checksum: 10c0/9497d4dd307d845bd7f75180d8188bb17ea8c151c1edbf6b6717c100e104d629dc2dfb687686181b0f4b7d732c7dfdc4d5e7a8ff72de1b0ca283a75bbb3a9cd9
-  languageName: node
-  linkType: hard
-
-"escape-string-regexp@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "escape-string-regexp@npm:5.0.0"
-  checksum: 10c0/6366f474c6f37a802800a435232395e04e9885919873e382b157ab7e8f0feb8fed71497f84a6f6a81a49aab41815522f5839112bd38026d203aea0c91622df95
   languageName: node
   linkType: hard
 
@@ -5883,6 +5884,23 @@ __metadata:
     typescript:
       optional: true
   checksum: 10c0/0500ca6e90d38e8fa0285ac08b12e2e6dbb5a416645dd31b6f62e64a80651e6ee4c939f30dd69275f316e4c722ced39d49d14d36177f9d4778853bd7cd797885
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-yml@npm:^3.9.0":
+  version: 3.10.0
+  resolution: "eslint-plugin-yml@npm:3.10.0"
+  dependencies:
+    "@eslint/core": "npm:^1.0.1"
+    "@eslint/plugin-kit": "npm:^0.7.0"
+    "@ota-meshi/ast-token-store": "npm:^0.3.0"
+    diff-sequences: "npm:^29.0.0"
+    escape-string-regexp: "npm:5.0.0"
+    natural-compare: "npm:^1.4.0"
+    yaml-eslint-parser: "npm:^2.0.0"
+  peerDependencies:
+    eslint: ">=9.38.0"
+  checksum: 10c0/f9f74fee06d61d874ca07240bc84d19b4e77c583df24e12d72c9f55ed713a02e21045e174e3e17e9c81456ce16a9a8c2f6aa6502291898573772363a99071534
   languageName: node
   linkType: hard
 
@@ -12842,6 +12860,16 @@ __metadata:
   version: 5.0.0
   resolution: "yallist@npm:5.0.0"
   checksum: 10c0/a499c81ce6d4a1d260d4ea0f6d49ab4da09681e32c3f0472dee16667ed69d01dae63a3b81745a24bd78476ec4fcf856114cb4896ace738e01da34b2c42235416
+  languageName: node
+  linkType: hard
+
+"yaml-eslint-parser@npm:^2.0.0":
+  version: 2.1.0
+  resolution: "yaml-eslint-parser@npm:2.1.0"
+  dependencies:
+    eslint-visitor-keys: "npm:^5.0.0"
+    yaml: "npm:^2.0.0"
+  checksum: 10c0/556eda4c0782b58b448b458e00d49b48529ed5636f7b38064580a5bb726f2b82c7abcb22c716a0d7f2399db94486afb3916d6ca1b05cd0bfeecad18771165f22
   languageName: node
   linkType: hard
 
