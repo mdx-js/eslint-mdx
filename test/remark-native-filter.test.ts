@@ -30,6 +30,7 @@ ruleTester.run('remark native option', remark, {
       code: '# A\n\n### B',
       filename,
       languageOptions: configOptions,
+      options: [{ deprecationWarnings: false }],
       errors: [
         {
           message: JSON.stringify({

@@ -51,6 +51,7 @@ export default config([
       lintCodeBlocks: true,
     }),
   },
+  { ...mdx.configs.native, plugins: { mdx } },
   {
     ...mdx.flatCodeBlocks,
     languageOptions: {
