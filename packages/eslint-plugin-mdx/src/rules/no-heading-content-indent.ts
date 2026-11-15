@@ -1,7 +1,7 @@
 import type { Rule } from 'eslint'
 import type { MDHeading } from 'eslint-mdx'
 
-import { getRuleConfig } from './helpers.js'
+import { ENABLED_OPTION_SCHEMA, getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -16,7 +16,7 @@ export const noHeadingContentIndent: Rule.RuleModule = {
       description: 'Enforce one space between heading markers and content',
     },
     fixable: 'code',
-    schema: [],
+    schema: [ENABLED_OPTION_SCHEMA],
   },
   create(context) {
     const config = getRuleConfig(context, 'no-heading-content-indent')

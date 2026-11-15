@@ -478,7 +478,7 @@ const flat = [mdx.configs.flat, mdx.configs.native]
 
 See [Native remark-lint rules](../../docs/native-remark-rules.md) for the mapped rules and option behavior.
 
-Native rules read their options from the remark config by default. An ESLint positional option overrides it. Optionless native rules still need a remark entry to be activated.
+Native rules read their options from the remark config by default. An ESLint positional option overrides it. Optionless native rules need a remark config entry by default; pass `{ enabled: true }` to force-activate one from ESLint without it.
 
 ### mdx/remark
 

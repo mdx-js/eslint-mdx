@@ -1,7 +1,7 @@
 import type { Rule } from 'eslint'
 import type { MDHeading } from 'eslint-mdx'
 
-import { getRuleConfig } from './helpers.js'
+import { ENABLED_OPTION_SCHEMA, getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -15,7 +15,7 @@ export const noDuplicateHeadingsInSection: Rule.RuleModule = {
     docs: {
       description: 'Disallow duplicate headings within a section',
     },
-    schema: [],
+    schema: [ENABLED_OPTION_SCHEMA],
   },
   create(context) {
     const config = getRuleConfig(context, 'no-duplicate-headings-in-section')

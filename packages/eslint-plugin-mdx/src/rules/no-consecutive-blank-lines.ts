@@ -2,7 +2,7 @@ import type { Rule } from 'eslint'
 import type { MDBlockquote, MDList, MDListItem } from 'eslint-mdx'
 import type { BaseNode } from 'estree'
 
-import { getRuleConfig } from './helpers.js'
+import { ENABLED_OPTION_SCHEMA, getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -16,7 +16,7 @@ export const noConsecutiveBlankLines: Rule.RuleModule = {
     docs: {
       description: 'Disallow consecutive blank lines',
     },
-    schema: [],
+    schema: [ENABLED_OPTION_SCHEMA],
   },
   create(context) {
     const config = getRuleConfig(context, 'no-consecutive-blank-lines')

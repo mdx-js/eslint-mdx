@@ -1,7 +1,7 @@
 import type { Rule } from 'eslint'
 import type { MDParagraph } from 'eslint-mdx'
 
-import { getRuleConfig } from './helpers.js'
+import { ENABLED_OPTION_SCHEMA, getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -29,7 +29,7 @@ export const noBlockquoteWithoutMarker: Rule.RuleModule = {
   meta: {
     type: 'problem',
     docs: { description: 'Disallow blockquotes without markers' },
-    schema: [],
+    schema: [ENABLED_OPTION_SCHEMA],
   },
   create(context) {
     const config = getRuleConfig(context, 'no-blockquote-without-marker')

@@ -1,7 +1,7 @@
 import type { Rule } from 'eslint'
 import type { MDHeading } from 'eslint-mdx'
 
-import { getRuleConfig } from './helpers.js'
+import { ENABLED_OPTION_SCHEMA, getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -15,7 +15,7 @@ export const headingIncrement: Rule.RuleModule = {
     docs: {
       description: 'Warn when heading ranks increment by more than one',
     },
-    schema: [],
+    schema: [ENABLED_OPTION_SCHEMA],
   },
   create(context) {
     const config = getRuleConfig(context, 'heading-increment')

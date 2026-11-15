@@ -1,7 +1,7 @@
 import type { Rule } from 'eslint'
 import type { MDTable } from 'eslint-mdx'
 
-import { getRuleConfig } from './helpers.js'
+import { ENABLED_OPTION_SCHEMA, getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -15,7 +15,7 @@ export const noTableIndentation: Rule.RuleModule = {
     docs: {
       description: 'Disallow indentation before table rows',
     },
-    schema: [],
+    schema: [ENABLED_OPTION_SCHEMA],
   },
   create(context) {
     const config = getRuleConfig(context, 'no-table-indentation')

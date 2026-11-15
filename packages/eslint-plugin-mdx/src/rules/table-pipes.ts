@@ -1,7 +1,7 @@
 import type { Rule } from 'eslint'
 import type { MDTable } from 'eslint-mdx'
 
-import { getRuleConfig } from './helpers.js'
+import { ENABLED_OPTION_SCHEMA, getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -13,7 +13,7 @@ export const tablePipes: Rule.RuleModule = {
   meta: {
     type: 'layout',
     docs: { description: 'Enforce table pipes' },
-    schema: [],
+    schema: [ENABLED_OPTION_SCHEMA],
   },
   create(context) {
     const config = getRuleConfig(context, 'table-pipes')

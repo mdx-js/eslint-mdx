@@ -1,6 +1,6 @@
 import type { Rule } from 'eslint'
 
-import { getRuleConfig } from './helpers.js'
+import { ENABLED_OPTION_SCHEMA, getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -15,7 +15,7 @@ export const finalNewline: Rule.RuleModule = {
       description: 'Require a final newline',
     },
     fixable: 'code',
-    schema: [],
+    schema: [ENABLED_OPTION_SCHEMA],
   },
   create(context) {
     const config = getRuleConfig(context, 'final-newline')

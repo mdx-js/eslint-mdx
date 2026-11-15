@@ -7,6 +7,14 @@ import { DEFAULT_EXTENSIONS, MARKDOWN_EXTENSIONS, arrayify } from 'eslint-mdx'
 /** JSON Schema for option values that cannot be expressed, such as functions and RegExp. */
 export const ANY_OPTION_SCHEMA = {}
 
+/** Optionless rules accept this marker to activate from ESLint without a remark entry. */
+export const ENABLED_OPTION_SCHEMA = {
+  additionalProperties: false,
+  properties: { enabled: { const: true } },
+  required: ['enabled'],
+  type: 'object',
+}
+
 export const getParserOptions = (context: Rule.RuleContext): ParserOptions => {
   const options = {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
