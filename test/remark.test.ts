@@ -21,6 +21,7 @@ const addNativeOption = <T>(test: T): T => ({
   ...test,
   options: [
     {
+      deprecationWarnings: false,
       native: true,
       ...(test as { options?: [object?] }).options?.[0],
     },

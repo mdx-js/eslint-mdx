@@ -19,7 +19,7 @@ const linter = new Linter({ configType: 'flat' })
 
 const verify = (deprecationWarnings?: boolean) =>
   linter.verify(
-    '_a_ *b*\n',
+    '# A\n### B\n',
     [
       {
         files: ['**/*.mdx'],
@@ -48,7 +48,9 @@ test('deprecationWarnings: false suppresses the fallback fix warning', () => {
     .mockImplementation(noop)
 
   try {
-    expect(verify(false).length).toBeGreaterThan(0)
+    const messages = verify(false)
+
+    expect(messages.some(message => message.fix)).toBe(true)
     expect(emitWarning).not.toHaveBeenCalled()
   } finally {
     emitWarning.mockRestore()
@@ -61,7 +63,11 @@ test('warns once when a fallback fix is computed', () => {
     .mockImplementation(noop)
 
   try {
-    expect(verify().length).toBeGreaterThan(0)
+    const first = verify()
+    const second = verify()
+
+    expect(first.some(message => message.fix)).toBe(true)
+    expect(second.some(message => message.fix)).toBe(true)
     expect(emitWarning).toHaveBeenCalledTimes(1)
     expect(emitWarning).toHaveBeenCalledWith(
       expect.stringContaining('deprecated'),
@@ -69,19 +75,6 @@ test('warns once when a fallback fix is computed', () => {
         code: 'ESLINT_MDX_DEPRECATED_REMARK_FIX',
       }),
     )
-  } finally {
-    emitWarning.mockRestore()
-  }
-})
-
-test('does not warn again in the same process', () => {
-  const emitWarning = jest
-    .spyOn(process, 'emitWarning')
-    .mockImplementation(noop)
-
-  try {
-    expect(verify().length).toBeGreaterThan(0)
-    expect(emitWarning).not.toHaveBeenCalled()
   } finally {
     emitWarning.mockRestore()
   }
