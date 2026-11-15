@@ -473,14 +473,12 @@ exports[`parser should match all AST snapshots: 287.mdx 1`] = `
   "end": 204,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 2,
-      "offset": 204,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -1685,14 +1683,12 @@ exports[`parser should match all AST snapshots: 292.mdx 1`] = `
   "end": 191,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 9,
-      "offset": 191,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -2549,14 +2545,12 @@ exports[`parser should match all AST snapshots: 334.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 7,
+          "column": 6,
           "line": 3,
-          "offset": 22,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 1,
-          "offset": 0,
         },
       },
       "range": [
@@ -2600,14 +2594,12 @@ module.exports = {
   "end": 70,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 10,
-      "offset": 70,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -3041,14 +3033,12 @@ related:
   "end": 178,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 7,
-      "offset": 178,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -3583,14 +3573,12 @@ function foo() {
       },
       "loc": {
         "end": {
-          "column": 7,
+          "column": 6,
           "line": 11,
-          "offset": 86,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 7,
-          "offset": 45,
         },
       },
       "range": [
@@ -3605,14 +3593,12 @@ function foo() {
   "end": 87,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 12,
-      "offset": 87,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -4465,14 +4451,12 @@ function foo() {
       },
       "loc": {
         "end": {
-          "column": 7,
+          "column": 6,
           "line": 11,
-          "offset": 74,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 3,
-          "offset": 17,
         },
       },
       "range": [
@@ -4487,14 +4471,12 @@ function foo() {
   "end": 75,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 12,
-      "offset": 75,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -6794,14 +6776,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 3,
+          "column": 2,
           "line": 35,
-          "offset": 723,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 19,
-          "offset": 418,
         },
       },
       "range": [
@@ -7747,14 +7727,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 10,
+          "column": 9,
           "line": 76,
-          "offset": 1466,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 43,
-          "offset": 802,
         },
       },
       "range": [
@@ -8545,14 +8523,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 10,
+          "column": 9,
           "line": 98,
-          "offset": 1949,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 80,
-          "offset": 1477,
         },
       },
       "range": [
@@ -9415,14 +9391,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 10,
+          "column": 9,
           "line": 132,
-          "offset": 2882,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 102,
-          "offset": 1960,
         },
       },
       "range": [
@@ -10464,14 +10438,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 10,
+          "column": 9,
           "line": 165,
-          "offset": 3692,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 136,
-          "offset": 2898,
         },
       },
       "range": [
@@ -12928,14 +12900,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 10,
+          "column": 9,
           "line": 213,
-          "offset": 4757,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 171,
-          "offset": 3728,
         },
       },
       "range": [
@@ -13965,14 +13935,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 10,
+          "column": 9,
           "line": 244,
-          "offset": 5459,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 217,
-          "offset": 4766,
         },
       },
       "range": [
@@ -15267,14 +15235,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 10,
+          "column": 9,
           "line": 292,
-          "offset": 6757,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 250,
-          "offset": 5559,
         },
       },
       "range": [
@@ -16183,14 +16149,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 10,
+          "column": 9,
           "line": 341,
-          "offset": 8195,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 296,
-          "offset": 6770,
         },
       },
       "range": [
@@ -16797,14 +16761,12 @@ exports[`parser should match all AST snapshots: 380.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 10,
+          "column": 9,
           "line": 362,
-          "offset": 8767,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 345,
-          "offset": 8211,
         },
       },
       "range": [
@@ -21265,14 +21227,12 @@ interface TabChangeEvent {
   "end": 10515,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 412,
-      "offset": 10515,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -39485,14 +39445,12 @@ exports[`parser should match all AST snapshots: 391.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 8,
+          "column": 7,
           "line": 7,
-          "offset": 41,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 7,
-          "offset": 34,
         },
       },
       "range": [
@@ -39532,14 +39490,12 @@ exports[`parser should match all AST snapshots: 391.mdx 1`] = `
   "end": 62,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 12,
-      "offset": 62,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -40141,14 +40097,12 @@ exports[`parser should match all AST snapshots: 429.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 19,
+          "column": 18,
           "line": 3,
-          "offset": 51,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 3,
-          "offset": 33,
         },
       },
       "range": [
@@ -40163,14 +40117,12 @@ exports[`parser should match all AST snapshots: 429.mdx 1`] = `
   "end": 52,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 4,
-      "offset": 52,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -40842,14 +40794,12 @@ exports[`parser should match all AST snapshots: 435.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 10,
+          "column": 9,
           "line": 8,
-          "offset": 88,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 1,
-          "offset": 0,
         },
       },
       "range": [
@@ -41144,14 +41094,12 @@ exports[`parser should match all AST snapshots: 435.mdx 1`] = `
   "end": 134,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 14,
-      "offset": 134,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -42133,14 +42081,12 @@ exports[`parser should match all AST snapshots: 437.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 32,
+          "column": 31,
           "line": 1,
-          "offset": 31,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 1,
-          "offset": 0,
         },
       },
       "range": [
@@ -42155,14 +42101,12 @@ exports[`parser should match all AST snapshots: 437.mdx 1`] = `
   "end": 32,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 2,
-      "offset": 32,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -42960,14 +42904,12 @@ exports[`parser should match all AST snapshots: 445.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 18,
+          "column": 17,
           "line": 5,
-          "offset": 155,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 3,
-          "offset": 51,
         },
       },
       "range": [
@@ -43168,14 +43110,12 @@ exports[`parser should match all AST snapshots: 445.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 14,
+          "column": 13,
           "line": 7,
-          "offset": 170,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 7,
-          "offset": 157,
         },
       },
       "range": [
@@ -43458,14 +43398,12 @@ exports[`parser should match all AST snapshots: 445.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 16,
+          "column": 15,
           "line": 9,
-          "offset": 187,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 9,
-          "offset": 172,
         },
       },
       "range": [
@@ -43480,14 +43418,12 @@ exports[`parser should match all AST snapshots: 445.mdx 1`] = `
   "end": 188,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 10,
-      "offset": 188,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -44523,14 +44459,12 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 22,
+          "column": 21,
           "line": 3,
-          "offset": 68,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 3,
-          "offset": 47,
         },
       },
       "range": [
@@ -46000,14 +45934,12 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 3,
+          "column": 2,
           "line": 22,
-          "offset": 416,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 9,
-          "offset": 107,
         },
       },
       "range": [
@@ -46022,14 +45954,12 @@ exports[`parser should match all AST snapshots: 450.mdx 1`] = `
   "end": 417,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 23,
-      "offset": 417,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -48421,14 +48351,12 @@ exports[`parser should match all AST snapshots: 488.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 3,
+          "column": 2,
           "line": 7,
-          "offset": 77,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 1,
-          "offset": 0,
         },
       },
       "range": [
@@ -48443,14 +48371,12 @@ exports[`parser should match all AST snapshots: 488.mdx 1`] = `
   "end": 78,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 8,
-      "offset": 78,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -49650,14 +49576,12 @@ exports[`parser should match all AST snapshots: 491.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 24,
+          "column": 23,
           "line": 17,
-          "offset": 277,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 17,
-          "offset": 254,
         },
       },
       "range": [
@@ -50057,14 +49981,12 @@ exports[`parser should match all AST snapshots: 491.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 7,
+          "column": 6,
           "line": 25,
-          "offset": 414,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 19,
-          "offset": 279,
         },
       },
       "range": [
@@ -50737,14 +50659,12 @@ npm i -g foo
   "end": 618,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 44,
-      "offset": 618,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -53841,14 +53761,12 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 6,
+          "column": 5,
           "line": 10,
-          "offset": 300,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 1,
-          "offset": 0,
         },
       },
       "range": [
@@ -53863,14 +53781,12 @@ exports[`parser should match all AST snapshots: 547.mdx 1`] = `
   "end": 301,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 11,
-      "offset": 301,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -55250,14 +55166,12 @@ $$",
   "end": 159,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 6,
-      "offset": 159,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -56275,14 +56189,12 @@ sidebar_position: 7",
   "end": 347,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 14,
-      "offset": 347,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -57545,14 +57457,12 @@ exports[`parser should match all AST snapshots: adjacent.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 10,
+          "column": 9,
           "line": 3,
-          "offset": 39,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 3,
-          "offset": 30,
         },
       },
       "range": [
@@ -57631,14 +57541,12 @@ exports[`parser should match all AST snapshots: adjacent.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 20,
+          "column": 19,
           "line": 3,
-          "offset": 49,
         },
         "start": {
-          "column": 11,
+          "column": 10,
           "line": 3,
-          "offset": 40,
         },
       },
       "range": [
@@ -57653,14 +57561,12 @@ exports[`parser should match all AST snapshots: adjacent.mdx 1`] = `
   "end": 50,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 4,
-      "offset": 50,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -58522,14 +58428,12 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 26,
+          "column": 25,
           "line": 11,
-          "offset": 203,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 11,
-          "offset": 178,
         },
       },
       "range": [
@@ -58719,14 +58623,12 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 41,
+          "column": 40,
           "line": 19,
-          "offset": 309,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 19,
-          "offset": 269,
         },
       },
       "range": [
@@ -58937,14 +58839,12 @@ exports[`parser should match all AST snapshots: basic.mdx 1`] = `
   "end": 405,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 24,
-      "offset": 405,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -61238,14 +61138,12 @@ the installation guides.",
       },
       "loc": {
         "end": {
-          "column": 7,
+          "column": 6,
           "line": 25,
-          "offset": 546,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 8,
-          "offset": 156,
         },
       },
       "range": [
@@ -61474,14 +61372,12 @@ the installation guides.",
       },
       "loc": {
         "end": {
-          "column": 40,
+          "column": 39,
           "line": 31,
-          "offset": 633,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 31,
-          "offset": 594,
         },
       },
       "range": [
@@ -61649,14 +61545,12 @@ the installation guides.",
       },
       "loc": {
         "end": {
-          "column": 16,
+          "column": 15,
           "line": 37,
-          "offset": 703,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 33,
-          "offset": 635,
         },
       },
       "range": [
@@ -61841,14 +61735,12 @@ the installation guides.",
       },
       "loc": {
         "end": {
-          "column": 34,
+          "column": 33,
           "line": 41,
-          "offset": 767,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 41,
-          "offset": 734,
         },
       },
       "range": [
@@ -61863,14 +61755,12 @@ the installation guides.",
   "end": 768,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 42,
-      "offset": 768,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -65039,14 +64929,12 @@ text {value}
       },
       "loc": {
         "end": {
-          "column": 7,
+          "column": 6,
           "line": 11,
-          "offset": 77,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 3,
-          "offset": 24,
         },
       },
       "range": [
@@ -65084,14 +64972,12 @@ text {value}
   "end": 78,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 12,
-      "offset": 78,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -66138,14 +66024,12 @@ exports[`parser should match all AST snapshots: jsx-imports.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 8,
+          "column": 7,
           "line": 8,
-          "offset": 116,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 6,
-          "offset": 74,
         },
       },
       "range": [
@@ -66160,14 +66044,12 @@ exports[`parser should match all AST snapshots: jsx-imports.mdx 1`] = `
   "end": 117,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 9,
-      "offset": 117,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -68967,14 +68849,12 @@ exports[`parser should match all AST snapshots: jsx-in-list.mdx 1`] = `
   "end": 810,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 25,
-      "offset": 810,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -71572,14 +71452,12 @@ exports[`parser should match all AST snapshots: leading-spaces.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 7,
+          "column": 6,
           "line": 5,
-          "offset": 41,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 1,
-          "offset": 0,
         },
       },
       "range": [
@@ -71594,14 +71472,12 @@ exports[`parser should match all AST snapshots: leading-spaces.mdx 1`] = `
   "end": 42,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 6,
-      "offset": 42,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -72169,14 +72045,12 @@ exports[`parser should match all AST snapshots: markdown.md 1`] = `
   "end": 5,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 2,
-      "offset": 5,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -73248,14 +73122,12 @@ const value = 1
       },
       "loc": {
         "end": {
-          "column": 7,
+          "column": 6,
           "line": 21,
-          "offset": 286,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 19,
-          "offset": 255,
         },
       },
       "range": [
@@ -73270,14 +73142,12 @@ const value = 1
   "end": 287,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 22,
-      "offset": 287,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -74697,14 +74567,12 @@ exports[`parser should match all AST snapshots: mdx-flow-expression.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 8,
+          "column": 7,
           "line": 3,
-          "offset": 31,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 3,
-          "offset": 24,
         },
       },
       "range": [
@@ -74720,14 +74588,12 @@ exports[`parser should match all AST snapshots: mdx-flow-expression.mdx 1`] = `
   "end": 32,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 4,
-      "offset": 32,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -75306,14 +75172,12 @@ exports[`parser should match all AST snapshots: nested-empty-expression.mdx 1`] 
   "end": 70,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 8,
-      "offset": 70,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -75799,14 +75663,12 @@ exports[`parser should match all AST snapshots: nested-flow-expression.mdx 1`] =
   "end": 30,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 6,
-      "offset": 30,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -76634,14 +76496,12 @@ Main <main> > </main>",
   "end": 99,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 6,
-      "offset": 99,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -77849,14 +77709,12 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
       },
       "loc": {
         "end": {
-          "column": 9,
+          "column": 8,
           "line": 8,
-          "offset": 72,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 1,
-          "offset": 0,
         },
       },
       "range": [
@@ -77999,14 +77857,12 @@ exports[`parser should match all AST snapshots: no-unused-expressions.mdx 1`] = 
   "end": 90,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 11,
-      "offset": 90,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -78834,14 +78690,12 @@ exports[`parser should match all AST snapshots: no-unused-expressions-esm.mdx 1`
   "end": 76,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 7,
-      "offset": 76,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -79190,14 +79044,12 @@ exports[`parser should match all AST snapshots: processor.mdx 1`] = `
   "end": 13,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 4,
-      "offset": 13,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -79603,14 +79455,12 @@ exports[`parser should match all AST snapshots: remark.md 1`] = `
   "end": 171,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 8,
-      "offset": 171,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -80105,14 +79955,12 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 55,
+          "column": 54,
           "line": 5,
-          "offset": 95,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 5,
-          "offset": 41,
         },
       },
       "range": [
@@ -80239,14 +80087,12 @@ exports[`parser should match all AST snapshots: remark.mdx 1`] = `
   "end": 190,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 8,
-      "offset": 190,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -80567,14 +80413,12 @@ exports[`parser should match all AST snapshots: top-level-comment-expression.mdx
       },
       "loc": {
         "end": {
-          "column": 26,
+          "column": 25,
           "line": 1,
-          "offset": 25,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 1,
-          "offset": 0,
         },
       },
       "range": [
@@ -80608,14 +80452,12 @@ exports[`parser should match all AST snapshots: top-level-comment-expression.mdx
       },
       "loc": {
         "end": {
-          "column": 3,
+          "column": 2,
           "line": 3,
-          "offset": 29,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 3,
-          "offset": 27,
         },
       },
       "range": [
@@ -80654,14 +80496,12 @@ exports[`parser should match all AST snapshots: top-level-comment-expression.mdx
   "end": 30,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 4,
-      "offset": 30,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -81035,14 +80875,12 @@ exports[`parser should match all AST snapshots: unicorn.mdx 1`] = `
       },
       "loc": {
         "end": {
-          "column": 9,
+          "column": 8,
           "line": 8,
-          "offset": 117,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 1,
-          "offset": 0,
         },
       },
       "range": [
@@ -81080,14 +80918,12 @@ exports[`parser should match all AST snapshots: unicorn.mdx 1`] = `
   "end": 118,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 9,
-      "offset": 118,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -82264,14 +82100,12 @@ $$",
   "end": 263,
   "loc": {
     "end": {
-      "column": 1,
+      "column": 0,
       "line": 23,
-      "offset": 263,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
@@ -83821,14 +83655,12 @@ exports[`parser should parse jsx spread correctly 1`] = `
       },
       "loc": {
         "end": {
-          "column": 20,
+          "column": 19,
           "line": 1,
-          "offset": 19,
         },
         "start": {
-          "column": 1,
+          "column": 0,
           "line": 1,
-          "offset": 0,
         },
       },
       "range": [
@@ -83843,14 +83675,12 @@ exports[`parser should parse jsx spread correctly 1`] = `
   "end": 19,
   "loc": {
     "end": {
-      "column": 20,
+      "column": 19,
       "line": 1,
-      "offset": 19,
     },
     "start": {
-      "column": 1,
+      "column": 0,
       "line": 1,
-      "offset": 0,
     },
   },
   "range": [
