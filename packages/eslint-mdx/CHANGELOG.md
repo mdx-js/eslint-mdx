@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.10.1
+
+### Patch Changes
+
+- [#697](https://github.com/mdx-js/eslint-mdx/pull/697) [`c4cecb8`](https://github.com/mdx-js/eslint-mdx/commit/c4cecb847e074688ba501648ce88abfa27415d12) Thanks [@trackoor](https://github.com/trackoor)! - Report 0-based `loc.column` for `Program`, top-level JSX `ExpressionStatement`, and `MDXFlowExpression`/`MDXTextExpression` nodes instead of unist's 1-based columns.
+
 ## 3.10.0
 
 ### Minor Changes
