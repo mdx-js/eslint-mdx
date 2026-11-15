@@ -29,9 +29,7 @@ export const fencedCodeMarker: Rule.RuleModule = {
     }
 
     let expected: Marker | undefined =
-      config.options === '`' || config.options === '~'
-        ? config.options
-        : undefined
+      config.options === '`' || config.options === '~' ? config.options : undefined
 
     return {
       MDCode(node: MDCode) {

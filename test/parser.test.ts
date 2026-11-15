@@ -1,9 +1,9 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-import { DEFAULT_PARSER_OPTIONS } from './helpers.js'
-
 import { parser } from 'eslint-mdx'
+
+import { DEFAULT_PARSER_OPTIONS } from './helpers.js'
 
 const _dirname = import.meta.dirname
 const extendedRemarkConfigPath = path.resolve(
@@ -25,12 +25,8 @@ describe('parser', () => {
   })
 
   it('should throw on invalid es syntaxes', () => {
-    expect(() =>
-      parser.parse(
-        "import A from 'a'\nimport A from 'a'",
-        DEFAULT_PARSER_OPTIONS,
-      ),
-    ).toThrowErrorMatchingInlineSnapshot(`
+    expect(() => parser.parse("import A from 'a'\nimport A from 'a'", DEFAULT_PARSER_OPTIONS))
+      .toThrowErrorMatchingInlineSnapshot(`
       "Could not parse import/exports with acorn
       Cause: Could not parse import/exports with acorn
       Cause: Identifier 'A' has already been declared"
@@ -70,12 +66,8 @@ describe('parser', () => {
       Cause: Could not parse expression with acorn
       Cause: Unexpected token"
     `)
-    expect(() =>
-      parser.parse(
-        '<main>\n<section><</section></main>',
-        DEFAULT_PARSER_OPTIONS,
-      ),
-    ).toThrowErrorMatchingInlineSnapshot(`
+    expect(() => parser.parse('<main>\n<section><</section></main>', DEFAULT_PARSER_OPTIONS))
+      .toThrowErrorMatchingInlineSnapshot(`
       "Unexpected character \`<\` (U+003C) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\`
       Cause: Unexpected character \`<\` (U+003C) before name, expected a character that can start a name, such as a letter, \`$\`, or \`_\`"
     `)
@@ -129,7 +121,6 @@ describe('parser', () => {
             }),
           ).toMatchSnapshot(fileName)
         } catch (err) {
-          // eslint-disable-next-line jest/no-conditional-expect
           expect((err as Error).message).toMatchSnapshot(fileName)
         }
       }
@@ -138,10 +129,7 @@ describe('parser', () => {
   )
 
   it('should parse extended mdast nodes', async () => {
-    const filePath = path.resolve(
-      _dirname,
-      'fixtures/extended/extended-nodes.mdx',
-    )
+    const filePath = path.resolve(_dirname, 'fixtures/extended/extended-nodes.mdx')
     const result = parser.parse(await fs.readFile(filePath, 'utf8'), {
       ...DEFAULT_PARSER_OPTIONS,
       filePath,
@@ -166,11 +154,7 @@ describe('parser', () => {
 
     const gapTextTokens = gapTokens.filter(token => token.type === 'JSXText')
 
-    expect(gapTextTokens.map(token => token.value)).toEqual([
-      '\n  ',
-      '\n  ',
-      '\n',
-    ])
+    expect(gapTextTokens.map(token => token.value)).toEqual(['\n  ', '\n  ', '\n'])
     expect(gapTextTokens.map(token => token.loc)).toEqual([
       {
         start: { column: 5, line: 1 },
@@ -186,14 +170,9 @@ describe('parser', () => {
       },
     ])
 
-    const { tokens: entityTokens } = parser.parse(
-      '<Box>a &amp; b</Box>\n',
-      DEFAULT_PARSER_OPTIONS,
-    )
+    const { tokens: entityTokens } = parser.parse('<Box>a &amp; b</Box>\n', DEFAULT_PARSER_OPTIONS)
 
-    const entityTextTokens = entityTokens.filter(
-      token => token.type === 'JSXText',
-    )
+    const entityTextTokens = entityTokens.filter(token => token.type === 'JSXText')
 
     expect(entityTextTokens.map(token => token.value)).toEqual(['a ', ' b'])
     expect(entityTextTokens.map(token => token.loc)).toEqual([
@@ -214,14 +193,8 @@ describe('parser', () => {
       DEFAULT_PARSER_OPTIONS,
     )
 
-    expect(tokens.find(token => token.value === '#')?.type).toBe(
-      'atxHeadingSequence',
-    )
-    expect(tokens.find(token => token.value === '-')?.type).toBe(
-      'listItemMarker',
-    )
-    expect(tokens.find(token => token.value === '**')?.type).toBe(
-      'strongSequence',
-    )
+    expect(tokens.find(token => token.value === '#')?.type).toBe('atxHeadingSequence')
+    expect(tokens.find(token => token.value === '-')?.type).toBe('listItemMarker')
+    expect(tokens.find(token => token.value === '**')?.type).toBe('strongSequence')
   })
 })

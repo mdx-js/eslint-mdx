@@ -1,5 +1,4 @@
 import { Linter, type Rule } from 'eslint'
-
 import { parser } from 'eslint-mdx'
 
 const removeImportRule: Rule.RuleModule = {

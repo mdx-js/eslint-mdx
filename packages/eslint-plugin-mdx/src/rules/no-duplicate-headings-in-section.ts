@@ -41,8 +41,7 @@ export const noDuplicateHeadingsInSection: Rule.RuleModule = {
         if (map.has(value)) {
           context.report({
             loc: node.loc,
-            message:
-              'Unexpected heading with equivalent text in section, expected unique headings',
+            message: 'Unexpected heading with equivalent text in section, expected unique headings',
           })
         }
 

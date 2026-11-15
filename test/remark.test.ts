@@ -2,15 +2,10 @@ import { homedir } from 'node:os'
 import path from 'node:path'
 
 import { Linter } from 'eslint'
-
-import {
-  DEFAULT_PARSER_OPTIONS,
-  ruleTester,
-  languageOptions,
-} from './helpers.js'
-
 import { parser } from 'eslint-mdx'
 import { remark, rules } from 'eslint-plugin-mdx'
+
+import { DEFAULT_PARSER_OPTIONS, ruleTester, languageOptions } from './helpers.js'
 
 const userDir = homedir()
 
@@ -145,7 +140,7 @@ ruleTester.run('remark', remark, {
 
 test('uses a whole-document fix for large documents', () => {
   const linter = new Linter({ configType: 'flat' })
-  // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- 64 KiB threshold
+
   const code = 'a'.repeat(64 * 1024 + 1)
 
   const config: Linter.Config[] = [
@@ -155,10 +150,7 @@ test('uses a whole-document fix for large documents', () => {
         parser,
         parserOptions: {
           ...DEFAULT_PARSER_OPTIONS,
-          remarkConfigPath: path.resolve(
-            _dirname,
-            'remark-fixtures/shared-options.remarkrc',
-          ),
+          remarkConfigPath: path.resolve(_dirname, 'remark-fixtures/shared-options.remarkrc'),
         },
       },
       plugins: { mdx: { rules } },
@@ -183,7 +175,7 @@ test('uses a whole-document fix for large documents', () => {
 
 test('returns one whole-document fix for multiple large-document messages', () => {
   const linter = new Linter({ configType: 'flat' })
-  // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- 64 KiB threshold
+
   const code = `_a_ _b_ ${'x'.repeat(64 * 1024)}\n`
 
   const messages = linter.verify(
@@ -195,10 +187,7 @@ test('returns one whole-document fix for multiple large-document messages', () =
           parser,
           parserOptions: {
             ...DEFAULT_PARSER_OPTIONS,
-            remarkConfigPath: path.resolve(
-              _dirname,
-              'remark-fixtures/shared-options.remarkrc',
-            ),
+            remarkConfigPath: path.resolve(_dirname, 'remark-fixtures/shared-options.remarkrc'),
           },
         },
         plugins: { mdx: { rules } },

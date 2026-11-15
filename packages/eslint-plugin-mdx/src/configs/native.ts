@@ -1,8 +1,8 @@
 import type { Linter } from 'eslint'
 
 /**
- * Opt-in native remark-lint rules. Rules with options still read them from the
- * resolved remark config.
+ * Opt-in native remark-lint rules. Rules with options still read them from the resolved remark
+ * config.
  */
 export interface NativeConfig {
   rules: Linter.RulesRecord

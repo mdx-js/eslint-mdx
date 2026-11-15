@@ -3,12 +3,7 @@ import { getPhysicalFilename, performSyncWork } from 'eslint-mdx'
 import { generateDifferences, type Difference } from 'prettier-linter-helpers'
 import type { VFileMessage } from 'vfile-message'
 
-import {
-  NATIVE_REMARK_RULES,
-  getParserOptions,
-  isMarkdownFile,
-  isMdxFile,
-} from './helpers.js'
+import { NATIVE_REMARK_RULES, getParserOptions, isMarkdownFile, isMdxFile } from './helpers.js'
 import type { RemarkLintMessage } from './types.js'
 
 interface NormalizedDifference {
@@ -17,7 +12,6 @@ interface NormalizedDifference {
   offset: number
 }
 
-// eslint-disable-next-line @typescript-eslint/no-magic-numbers -- 64 KiB
 const LARGE_DOCUMENT_THRESHOLD = 64 * 1024
 const MAX_FIXED_TEXT_RATIO = 2
 
@@ -47,10 +41,7 @@ const normalizeDifference = (difference: Difference): NormalizedDifference => ({
 const getDifferences = (sourceText: string, fixedText: string) =>
   generateDifferences(sourceText, fixedText).map(normalizeDifference)
 
-const getFixesForPlace = (
-  differences: NormalizedDifference[],
-  place: VFileMessage['place'],
-) => {
+const getFixesForPlace = (differences: NormalizedDifference[], place: VFileMessage['place']) => {
   /* istanbul ignore if -- no file-level remark messages remain */
   if (place == null) {
     return null
@@ -82,8 +73,8 @@ export const remark: Rule.RuleModule = {
     type: 'layout',
     docs: {
       description: 'Linter integration with remark plugins',
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
-      // @ts-ignore -- ESLint v10 removed
+
+      // @ts-expect-error -- ESLint v10 removed
       category: 'Stylistic Issues',
       recommended: true,
     },
@@ -102,28 +93,21 @@ export const remark: Rule.RuleModule = {
   create(context) {
     // type-coverage:ignore-next-line -- ESLint rule options are any[]
     const nativeOption = context.options[0] as
-      { deprecationWarnings?: boolean; native?: boolean } | undefined
+      | { deprecationWarnings?: boolean; native?: boolean }
+      | undefined
     const native = nativeOption?.native === true
 
     const filename =
       context.filename ??
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
-      // @ts-ignore -- ESLint v10 removed
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      // @ts-expect-error -- ESLint v10 removed
       /* istanbul ignore next */ (context.getFilename() as string)
     const sourceCode =
       context.sourceCode ??
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
-      // @ts-ignore -- ESLint v10 removed
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      // @ts-expect-error -- ESLint v10 removed
       /* istanbul ignore next */ (context.getSourceCode() as SourceCode)
 
-    const {
-      extensions,
-      markdownExtensions,
-      ignoreRemarkConfig,
-      remarkConfigPath,
-    } = getParserOptions(context)
+    const { extensions, markdownExtensions, ignoreRemarkConfig, remarkConfigPath } =
+      getParserOptions(context)
 
     const isMdx = isMdxFile(filename, extensions)
     const isMarkdown = isMarkdownFile(filename, markdownExtensions)
@@ -142,9 +126,7 @@ export const remark: Rule.RuleModule = {
           code: sourceText,
           cwd:
             context.cwd ??
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
-            // @ts-ignore -- ESLint v10 removed
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-call -- ESLint v10 removed
+            // @ts-expect-error -- ESLint v10 removed
             /* istanbul ignore next */ (context.getCwd() as string),
           isMdx,
           process: true,
@@ -156,18 +138,9 @@ export const remark: Rule.RuleModule = {
         let differences: NormalizedDifference[] | undefined
         let wholeDocumentFixed = false
 
-        const getDifferencesOnce = () =>
-          (differences ??= getDifferences(sourceText, fixedText))
+        const getDifferencesOnce = () => (differences ??= getDifferences(sourceText, fixedText))
 
-        for (const {
-          source,
-          reason,
-          ruleId,
-          fatal,
-          line,
-          column,
-          place,
-        } of messages) {
+        for (const { source, reason, ruleId, fatal, line, column, place } of messages) {
           // https://github.com/remarkjs/remark-lint/issues/65#issuecomment-220800231
           /* istanbul ignore next */
           // eslint-disable-next-line sonarjs/no-nested-conditional
@@ -212,12 +185,11 @@ export const remark: Rule.RuleModule = {
                * those, instead of risking a multi-minute diff.
                */
               /* istanbul ignore if -- large-document fallback is covered by native tests */
-              if (fixedText == null || fixedText === sourceText) {
-                return null
-              }
-
-              /* istanbul ignore if -- large-document fallback is covered by native tests */
-              if (fixedText.length > sourceText.length * MAX_FIXED_TEXT_RATIO) {
+              if (
+                fixedText == null ||
+                fixedText === sourceText ||
+                fixedText.length > sourceText.length * MAX_FIXED_TEXT_RATIO
+              ) {
                 return null
               }
 

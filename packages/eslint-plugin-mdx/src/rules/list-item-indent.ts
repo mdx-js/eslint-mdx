@@ -37,9 +37,7 @@ export const listItemIndent: Rule.RuleModule = {
     }
 
     const configured =
-      config.options === 'mixed' ||
-      config.options === 'one' ||
-      config.options === 'tab'
+      config.options === 'mixed' || config.options === 'one' || config.options === 'tab'
         ? config.options
         : undefined
 
@@ -68,30 +66,29 @@ export const listItemIndent: Rule.RuleModule = {
       let expectedIndent = end + 1
 
       if (style === 'tab' || (style === 'mixed' && loose)) {
-        expectedIndent =
-          Math.ceil(expectedIndent / CHARS_PER_TAB) * CHARS_PER_TAB
+        expectedIndent = Math.ceil(expectedIndent / CHARS_PER_TAB) * CHARS_PER_TAB
       }
 
       const expectedSpaces = expectedIndent - end
       const actualSpaces = slice.length - end
 
-      if (actualSpaces !== expectedSpaces) {
-        const difference = expectedSpaces - actualSpaces
-        const listKind = getListKind(style, loose)
-        const direction = difference > 0 ? 'add' : 'remove'
-
-        context.report({
-          loc: head.loc,
-          message: `Unexpected \`${actualSpaces}\` ${pluralize(actualSpaces)} between list item marker and content${listKind}, expected \`${expectedSpaces}\` ${pluralize(expectedSpaces)}, ${direction} \`${Math.abs(difference)}\` ${pluralize(Math.abs(difference))}`,
-        })
+      if (actualSpaces === expectedSpaces) {
+        return
       }
+
+      const difference = expectedSpaces - actualSpaces
+      const listKind = getListKind(style, loose)
+      const direction = difference > 0 ? 'add' : 'remove'
+
+      context.report({
+        loc: head.loc,
+        message: `Unexpected \`${actualSpaces}\` ${pluralize(actualSpaces)} between list item marker and content${listKind}, expected \`${expectedSpaces}\` ${pluralize(expectedSpaces)}, ${direction} \`${Math.abs(difference)}\` ${pluralize(Math.abs(difference))}`,
+      })
     }
 
     return {
       MDList(list: MDList) {
-        const loose =
-          list.spread ||
-          list.children.some(item => 'spread' in item && item.spread)
+        const loose = list.spread || list.children.some(item => 'spread' in item && item.spread)
 
         for (const item of list.children) {
           checkItem(item, loose)

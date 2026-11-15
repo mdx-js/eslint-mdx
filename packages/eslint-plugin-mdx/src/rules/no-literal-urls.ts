@@ -1,12 +1,7 @@
 import type { Rule } from 'eslint'
 import type { MDLink } from 'eslint-mdx'
 
-import {
-  ENABLED_OPTION_SCHEMA,
-  getParserOptions,
-  getRuleConfig,
-  isMdxFile,
-} from './helpers.js'
+import { ENABLED_OPTION_SCHEMA, getParserOptions, getRuleConfig, isMdxFile } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
@@ -32,10 +27,7 @@ export const noLiteralUrls: Rule.RuleModule = {
       return {}
     }
 
-    const isMdx = isMdxFile(
-      context.filename,
-      getParserOptions(context).extensions,
-    )
+    const isMdx = isMdxFile(context.filename, getParserOptions(context).extensions)
 
     return {
       MDLink(node: MDLink) {

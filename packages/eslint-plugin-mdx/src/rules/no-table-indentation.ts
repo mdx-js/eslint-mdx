@@ -48,14 +48,16 @@ export const noTableIndentation: Rule.RuleModule = {
         for (const row of rest) {
           const actual = row.loc.start.column - expected
 
-          if (actual > 0) {
-            const spaces = actual === 1 ? 'space' : 'spaces'
-
-            context.report({
-              loc: row.loc,
-              message: `Unexpected \`${actual}\` extra ${spaces} before table row, remove \`${actual}\` ${spaces}`,
-            })
+          if (actual <= 0) {
+            continue
           }
+
+          const spaces = actual === 1 ? 'space' : 'spaces'
+
+          context.report({
+            loc: row.loc,
+            message: `Unexpected \`${actual}\` extra ${spaces} before table row, remove \`${actual}\` ${spaces}`,
+          })
         }
       },
     }

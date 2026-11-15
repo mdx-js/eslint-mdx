@@ -27,14 +27,9 @@ declare module 'espree/lib/token-translator' {
     range: Range | undefined
   }
 
-  declare function TokenTranslator(
-    acornTokTypes: Record<string, acorn.TokenType>,
-    code: string,
-  ): void
+  function TokenTranslator(acornTokTypes: Record<string, acorn.TokenType>, code: string): void
 
-  declare class TokenTranslator {
-    _acornTokTypes: Record<string, acorn.TokenType>
-
+  class TokenTranslator {
     constructor(acornTokTypes: Record<string, acorn.TokenType>, code: string)
 
     onToken(
@@ -44,5 +39,36 @@ declare module 'espree/lib/token-translator' {
         tokens: EsprimaToken[]
       },
     ): void
+  }
+}
+
+// https://github.com/syntax-tree/mdast-util-frontmatter/issues/2
+declare module 'mdast-util-frontmatter' {
+  import type { Literal } from 'mdast'
+
+  interface Toml extends Literal {
+    type: 'toml'
+  }
+
+  interface Json extends Literal {
+    type: 'json'
+  }
+
+  interface Custom extends Literal {
+    type: 'custom'
+  }
+
+  module 'mdast' {
+    interface RootContentMap {
+      custom: Custom
+      json: Json
+      toml: Toml
+    }
+
+    interface FrontmatterContentMap {
+      custom: Custom
+      json: Json
+      toml: Toml
+    }
   }
 }

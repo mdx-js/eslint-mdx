@@ -13,8 +13,8 @@ import type { Root } from 'mdast'
 import type { VFileMessage } from 'vfile-message'
 
 /**
- * MDX expression containers keep the original mdast value so native rules can
- * reproduce remark's text normalization without reparsing raw source.
+ * MDX expression containers keep the original mdast value so native rules can reproduce remark's
+ * text normalization without reparsing raw source.
  */
 declare module 'estree-jsx' {
   interface JSXExpressionContainer {
@@ -57,7 +57,6 @@ export interface WorkerOptions extends SyncOptions {
   process?: boolean
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type -- augmented by rule packages
 export interface RemarkRuleOptions {}
 
 export interface RemarkConfig {
@@ -316,10 +315,8 @@ export interface MDNodeMap {
 }
 
 declare module 'estree' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-object-type -- declaration merging
   interface NodeMap extends MDNodeMap {}
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-object-type -- declaration merging
   interface ProgramBodyMap extends MDNodeMap {}
 
   interface TemplateElement {

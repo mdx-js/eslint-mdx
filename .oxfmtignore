@@ -1,0 +1,13 @@
+.dsh
+.yarn
+coverage
+dist
+lib
+@eaDir
+
+test/fixtures
+
+**/*.md
+**/*.mdx
+
+.babelrc

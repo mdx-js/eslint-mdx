@@ -1,8 +1,7 @@
-import { ruleTester } from '../helpers.js'
-
-import { createLanguageOptions } from './helpers.js'
-
 import { noTableIndentation } from 'eslint-plugin-mdx'
+
+import { ruleTester } from '../helpers.js'
+import { createLanguageOptions } from './helpers.js'
 
 const languageOptions = createLanguageOptions({
   remarkConfig: 'next.remarkrc',
@@ -23,8 +22,7 @@ ruleTester.run('no table indentation', noTableIndentation, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `2` extra spaces before table row, remove `2` spaces',
+          message: 'Unexpected `2` extra spaces before table row, remove `2` spaces',
           line: 1,
           column: 3,
         },
@@ -36,8 +34,7 @@ ruleTester.run('no table indentation', noTableIndentation, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `1` extra space before table row, remove `1` space',
+          message: 'Unexpected `1` extra space before table row, remove `1` space',
           line: 1,
           column: 2,
         },
@@ -49,8 +46,7 @@ ruleTester.run('no table indentation', noTableIndentation, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `2` extra spaces before table row, remove `2` spaces',
+          message: 'Unexpected `2` extra spaces before table row, remove `2` spaces',
           line: 3,
           column: 3,
         },
@@ -62,8 +58,7 @@ ruleTester.run('no table indentation', noTableIndentation, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `1` extra space before table row, remove `1` space',
+          message: 'Unexpected `1` extra space before table row, remove `1` space',
           line: 3,
           column: 2,
         },

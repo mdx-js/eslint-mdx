@@ -1,8 +1,7 @@
-import { ruleTester } from '../helpers.js'
-
-import { createLanguageOptions } from './helpers.js'
-
 import { noFileNameMixedCase } from 'eslint-plugin-mdx'
+
+import { ruleTester } from '../helpers.js'
+import { createLanguageOptions } from './helpers.js'
 
 const languageOptions = createLanguageOptions({
   remarkConfig: 'file-names.remarkrc',
@@ -23,8 +22,7 @@ ruleTester.run('no file name mixed case', noFileNameMixedCase, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected mixed case in file name, expected either lowercase or uppercase',
+          message: 'Unexpected mixed case in file name, expected either lowercase or uppercase',
           line: 1,
           column: 1,
         },

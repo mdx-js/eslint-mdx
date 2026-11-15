@@ -1,5 +1,4 @@
 import { Linter } from 'eslint'
-
 import { parser } from 'eslint-mdx'
 
 const linter = new Linter({ configType: 'flat' })

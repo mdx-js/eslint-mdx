@@ -17,8 +17,7 @@ export const ENABLED_OPTION_SCHEMA = {
 
 export const getParserOptions = (context: Rule.RuleContext): ParserOptions => {
   const options = {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
-    // @ts-ignore -- ESLint v10 removed
+    // @ts-expect-error -- ESLint v10 removed
     ...context.parserOptions,
     ...context.languageOptions?.parserOptions,
   } as ParserOptions
@@ -26,21 +25,13 @@ export const getParserOptions = (context: Rule.RuleContext): ParserOptions => {
   return options
 }
 
-export const isMdxFile = (
-  filename: string,
-  extensions: ParserOptions['extensions'],
-) =>
-  [...DEFAULT_EXTENSIONS, ...arrayify(extensions)].includes(
-    path.extname(filename),
-  )
+export const isMdxFile = (filename: string, extensions: ParserOptions['extensions']) =>
+  [...DEFAULT_EXTENSIONS, ...arrayify(extensions)].includes(path.extname(filename))
 
 export const isMarkdownFile = (
   filename: string,
   markdownExtensions: ParserOptions['markdownExtensions'],
-) =>
-  [...MARKDOWN_EXTENSIONS, ...arrayify(markdownExtensions)].includes(
-    path.extname(filename),
-  )
+) => [...MARKDOWN_EXTENSIONS, ...arrayify(markdownExtensions)].includes(path.extname(filename))
 
 export const NATIVE_REMARK_RULES = new Set([
   'emphasis-marker',
@@ -113,7 +104,7 @@ export const getRuleConfig = <RuleName extends keyof RemarkRuleOptions>(
   // type-coverage:ignore-next-line -- ESLint types RuleContext.options as any[]
   const eslintOptions = context.options as readonly unknown[]
   const hasEslintOption = eslintOptions.length > 0
-  const hasRemarkOption = name in ruleOptions
+  const hasRemarkOption = Object.hasOwn(ruleOptions, name)
 
   if (!hasEslintOption && !hasRemarkOption) {
     return null
@@ -133,9 +124,7 @@ export interface TextNode {
   value?: string | null
 }
 
-/**
- * Native AST adaptation of `mdast-util-to-string` for MD and JSX nodes.
- */
+/** Native AST adaptation of `mdast-util-to-string` for MD and JSX nodes. */
 export const getNodeText = (node: TextNode): string => {
   if (node.type === 'MDHtml') {
     return ''

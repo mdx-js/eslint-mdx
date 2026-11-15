@@ -77,10 +77,7 @@ export const tablePipeAlignment: Rule.RuleModule = {
           rightIndex--
         }
 
-        if (
-          rightIndex > leftIndex &&
-          sourceText.codePointAt(rightIndex - 1) === PIPE
-        ) {
+        if (rightIndex > leftIndex && sourceText.codePointAt(rightIndex - 1) === PIPE) {
           rightIndex--
         } else {
           rightIndex = endOffset
@@ -92,10 +89,7 @@ export const tablePipeAlignment: Rule.RuleModule = {
       if (sourceText.codePointAt(rightIndex) === PIPE) {
         right = 0
 
-        while (
-          rightIndex - 1 > leftIndex &&
-          sourceText.codePointAt(rightIndex - 1) === SPACE
-        ) {
+        while (rightIndex - 1 > leftIndex && sourceText.codePointAt(rightIndex - 1) === SPACE) {
           right++
           rightIndex--
         }
@@ -198,11 +192,7 @@ export const tablePipeAlignment: Rule.RuleModule = {
             align: table.align?.[column] ?? null,
             column,
             row,
-            size: inferSize(
-              cell.range[0],
-              cell.range[1],
-              column === rowNode.children.length - 1,
-            ),
+            size: inferSize(cell.range[0], cell.range[1], column === rowNode.children.length - 1),
           })
         }
 
@@ -224,10 +214,7 @@ export const tablePipeAlignment: Rule.RuleModule = {
 
           const total = size.middle + (size.left ?? 0) + (size.right ?? 0)
 
-          if (
-            sizes[entry.column] === undefined ||
-            total > sizes[entry.column]
-          ) {
+          if (sizes[entry.column] === undefined || total > sizes[entry.column]) {
             sizes[entry.column] = total
           }
         }
@@ -261,9 +248,7 @@ export const tablePipeAlignment: Rule.RuleModule = {
           let right = 0
 
           if (entry.align === 'center' && entry.size.middle && difference > 0) {
-            const max = Math.floor(
-              (sizes[entry.column] - entry.size.middle) / 2,
-            )
+            const max = Math.floor((sizes[entry.column] - entry.size.middle) / 2)
 
             if (entry.size.right !== undefined && max > entry.size.right) {
               right = max - entry.size.right

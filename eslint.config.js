@@ -1,71 +1,32 @@
-// @ts-check
-
-import recommended from '@1stg/eslint-config'
-import { config } from 'typescript-eslint'
-
+import { defineConfig } from '@1stg/eslint-config'
 import * as mdx from 'eslint-plugin-mdx'
 
-export default config([
-  ...recommended,
-  {
-    ignores: ['test/fixtures/**'],
-  },
-  {
-    rules: {
-      // `strictNullChecks` is required
-      '@typescript-eslint/no-unnecessary-condition': 'off',
-      'sonarjs/fixme-tag': 'off',
-      'sonarjs/todo-tag': 'off',
-      // conflicts with `prettier`
-      'unicorn-x/no-nested-ternary': 'off',
-      'unicorn-x/prefer-export-from': [
-        'error',
-        {
-          ignoreUsedVariables: true,
-        },
-      ],
-    },
-  },
-  {
-    files: ['**/*.ts'],
-    rules: {
-      '@typescript-eslint/consistent-type-imports': 'error',
-      '@typescript-eslint/no-require-imports': [
-        'error',
-        {
-          allowAsImport: true,
-        },
-      ],
-    },
-  },
-  {
-    files: ['**/*.d.ts'],
-    rules: {
-      '@typescript-eslint/no-magic-numbers': 'off',
-      'sonar/max-union-size': 'off',
-    },
-  },
-  {
-    ...mdx.flat,
-    processor: mdx.createRemarkProcessor({
-      lintCodeBlocks: true,
-    }),
-    rules: {
-      ...mdx.flat.rules,
-      ...mdx.configs.native.rules,
-    },
-  },
-  {
-    ...mdx.flatCodeBlocks,
-    languageOptions: {
-      parserOptions: {
-        projectService: false,
+export default defineConfig({
+  ignores: ['test/fixtures/**'],
+  configs: [
+    {
+      rules: {
+        'unicorn/better-dom-traversing': 'off',
+        'unicorn/no-break-in-nested-loop': 'off',
+        'unicorn/no-top-level-assignment-in-function': 'off',
+        'unicorn/prefer-includes-over-repeated-comparisons': 'off',
       },
     },
-    rules: {
-      ...mdx.flatCodeBlocks.rules,
-      'no-magic-numbers': 'off',
-      'sonarjs/unused-import': 'off',
+    {
+      ...mdx.flat,
+      processor: mdx.createRemarkProcessor({
+        lintCodeBlocks: true,
+      }),
+      rules: {
+        ...mdx.flat.rules,
+        ...mdx.configs.native.rules,
+      },
     },
-  },
-])
+    {
+      ...mdx.flatCodeBlocks,
+      languageOptions: {
+        parserOptions: { projectService: false },
+      },
+    },
+  ],
+})

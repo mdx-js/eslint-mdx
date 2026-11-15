@@ -1,8 +1,7 @@
-import { ruleTester } from '../helpers.js'
-
-import { createLanguageOptions } from './helpers.js'
-
 import { listItemBulletIndent } from 'eslint-plugin-mdx'
+
+import { ruleTester } from '../helpers.js'
+import { createLanguageOptions } from './helpers.js'
 
 const languageOptions = createLanguageOptions({ remarkConfig: 'next.remarkrc' })
 ruleTester.run('list-item-bullet-indent', listItemBulletIndent, {
@@ -17,8 +16,7 @@ ruleTester.run('list-item-bullet-indent', listItemBulletIndent, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `2` spaces before list item, expected `0` spaces, remove them',
+          message: 'Unexpected `2` spaces before list item, expected `0` spaces, remove them',
           line: 1,
           column: 3,
         },
@@ -30,8 +28,7 @@ ruleTester.run('list-item-bullet-indent', listItemBulletIndent, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected `1` space before list item, expected `0` spaces, remove them',
+          message: 'Unexpected `1` space before list item, expected `0` spaces, remove them',
           line: 1,
           column: 2,
         },

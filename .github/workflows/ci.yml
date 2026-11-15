@@ -41,7 +41,12 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: yarn
 
+      - name: Downgrade Node 18 tooling
+        if: matrix.node == 18
+        run: yarn up @oxc-node/core@1.0.0
+
       - name: Install Dependencies
+        if: matrix.node != 18
         run: yarn --immutable
 
       - name: Install ESLint ${{ matrix.eslint }}
@@ -50,7 +55,7 @@ jobs:
           yarn add -D eslint@${{ matrix.eslint }} @types/eslint@${{ matrix.eslint }}
 
       - name: Build and Lint
-        if: ${{ matrix.node > 18 && matrix.eslint == 10 }}
+        if: ${{ matrix.node > 20 && matrix.eslint == 10 }}
         run: |
           yarn build
           yarn lint

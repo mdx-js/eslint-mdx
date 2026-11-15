@@ -37,8 +37,7 @@ export const noDuplicateHeadings: Rule.RuleModule = {
         if (headings.has(text)) {
           context.report({
             loc: node.loc,
-            message:
-              'Unexpected heading with equivalent text, expected unique headings',
+            message: 'Unexpected heading with equivalent text, expected unique headings',
           })
         }
 

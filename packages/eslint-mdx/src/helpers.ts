@@ -7,9 +7,7 @@ import type { Point } from 'unist'
 
 import type { CjsRequire, NormalPosition } from './types.js'
 
-export const arrayify = <T, R = T extends Array<infer S> ? S : T>(
-  ...args: T[]
-) =>
+export const arrayify = <T, R = T extends Array<infer S> ? S : T>(...args: T[]) =>
   args.reduce<R[]>((arr, curr) => {
     // eslint-disable-next-line sonarjs/no-nested-conditional
     arr.push(...(Array.isArray(curr) ? curr : curr == null ? [] : [curr]))
@@ -17,14 +15,11 @@ export const arrayify = <T, R = T extends Array<infer S> ? S : T>(
   }, [])
 
 /**
- * Given a filepath, get the nearest path that is a regular file. The filepath
- * provided by eslint may be a virtual filepath rather than a file on disk. This
- * attempts to transform a virtual path into an on-disk path
+ * Given a filepath, get the nearest path that is a regular file. The filepath provided by eslint
+ * may be a virtual filepath rather than a file on disk. This attempts to transform a virtual path
+ * into an on-disk path
  */
-export const getPhysicalFilename = (
-  filename: string,
-  child?: string,
-): string => {
+export const getPhysicalFilename = (filename: string, child?: string): string => {
   try {
     if (fs.statSync(filename).isDirectory()) {
       return child || filename
@@ -152,6 +147,4 @@ export const nextCharOffsetFactory = (text: string) => {
 const importMetaUrl = import.meta.url
 
 /* istanbul ignore next */
-export const cjsRequire: CjsRequire = importMetaUrl
-  ? createRequire(importMetaUrl)
-  : require
+export const cjsRequire: CjsRequire = importMetaUrl ? createRequire(importMetaUrl) : require

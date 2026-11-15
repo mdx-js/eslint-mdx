@@ -39,7 +39,7 @@ export const listItemSpacing: Rule.RuleModule = {
 
           const tail = item.children.at(-1)
 
-          return !!tail?.loc && tail.loc.end.line - item.loc.start.line > 0
+          return !!tail?.loc && tail.loc.end.line > item.loc.start.line
         })
         const expected = spaced ? 1 : 0
         let previous: MDListItem | undefined

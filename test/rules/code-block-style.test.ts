@@ -1,8 +1,7 @@
-import { ruleTester } from '../helpers.js'
-
-import { createLanguageOptions } from './helpers.js'
-
 import { codeBlockStyle } from 'eslint-plugin-mdx'
+
+import { ruleTester } from '../helpers.js'
+import { createLanguageOptions } from './helpers.js'
 
 const languageOptions = createLanguageOptions({ remarkConfig: 'next.remarkrc' })
 
@@ -40,8 +39,7 @@ ruleTester.run('code block style', codeBlockStyle, {
       options: ['indented'],
       errors: [
         {
-          message:
-            'Unexpected fenced code block, expected indented code blocks',
+          message: 'Unexpected fenced code block, expected indented code blocks',
           line: 1,
           column: 1,
         },
@@ -54,8 +52,7 @@ ruleTester.run('code block style', codeBlockStyle, {
       options: ['fenced'],
       errors: [
         {
-          message:
-            'Unexpected indented code block, expected fenced code blocks',
+          message: 'Unexpected indented code block, expected fenced code blocks',
           line: 1,
           column: 1,
         },

@@ -9,8 +9,6 @@ declare module 'eslint-mdx' {
   }
 }
 
-type DefinitionNode = MDDefinition | MDFootnoteDefinition
-
 export const noDuplicateDefinitions: Rule.RuleModule = {
   meta: {
     type: 'problem',
@@ -29,7 +27,7 @@ export const noDuplicateDefinitions: Rule.RuleModule = {
     const definitions = new Set<string>()
     const footnoteDefinitions = new Set<string>()
 
-    const check = (node: DefinitionNode, footnote: boolean) => {
+    const check = (node: MDDefinition | MDFootnoteDefinition, footnote: boolean) => {
       const identifiers = footnote ? footnoteDefinitions : definitions
 
       if (identifiers.has(node.identifier)) {

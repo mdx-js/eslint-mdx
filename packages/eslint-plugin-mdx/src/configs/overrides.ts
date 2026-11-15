@@ -2,7 +2,6 @@ import type { Linter } from 'eslint'
 import { arrayify } from 'eslint-mdx'
 
 import { cjsRequire } from '../helpers.js'
-
 import { base } from './base.js'
 
 let isReactPluginAvailable = false

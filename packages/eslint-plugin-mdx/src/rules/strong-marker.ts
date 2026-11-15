@@ -26,9 +26,7 @@ export const strongMarker: Rule.RuleModule = {
 
     const sourceText = context.sourceCode.getText()
     let expected: '_' | '*' | undefined =
-      config.options === '*' || config.options === '_'
-        ? config.options
-        : undefined
+      config.options === '*' || config.options === '_' ? config.options : undefined
 
     return {
       MDStrong(node) {

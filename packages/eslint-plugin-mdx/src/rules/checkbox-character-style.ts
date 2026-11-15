@@ -40,16 +40,11 @@ export const checkboxCharacterStyle: Rule.RuleModule = {
     if (!config) {
       return {}
     }
-    const options =
-      typeof config.options === 'object' ? config.options : undefined
+    const options = typeof config.options === 'object' ? config.options : undefined
     let checkedExpected =
-      options?.checked === 'x' || options?.checked === 'X'
-        ? options.checked
-        : undefined
+      options?.checked === 'x' || options?.checked === 'X' ? options.checked : undefined
     let uncheckedExpected =
-      options?.unchecked === ' ' || options?.unchecked === '\t'
-        ? options.unchecked
-        : undefined
+      options?.unchecked === ' ' || options?.unchecked === '\t' ? options.unchecked : undefined
 
     return {
       MDListItem(node: MDListItem) {
@@ -60,6 +55,7 @@ export const checkboxCharacterStyle: Rule.RuleModule = {
         const match = /^\s*(?:[-*+]|\d+[.)])\s+\[([ x\t])\]/iu.exec(node.raw)
         const actual = match[1]
         const expected = node.checked ? checkedExpected : uncheckedExpected
+
         if (!expected) {
           if (node.checked) {
             checkedExpected = actual as 'X' | 'x'
@@ -68,23 +64,24 @@ export const checkboxCharacterStyle: Rule.RuleModule = {
           }
           return
         }
-        if (actual !== expected) {
-          const actualText = actual === '\t' ? String.raw`\t` : actual
-          const expectedText = expected === '\t' ? String.raw`\t` : expected
-          const checked = node.checked ? '' : 'un'
 
-          const checkboxLoc = context.sourceCode.getLocFromIndex(
-            node.range[0] + match[0].length - 1,
-          )
-
-          context.report({
-            loc: {
-              start: checkboxLoc,
-              end: { ...checkboxLoc, column: checkboxLoc.column + 1 },
-            },
-            message: `Unexpected ${checked}checked checkbox value \`${actualText}\`, expected \`${expectedText}\``,
-          })
+        if (actual === expected) {
+          return
         }
+
+        const actualText = actual === '\t' ? String.raw`\t` : actual
+        const expectedText = expected === '\t' ? String.raw`\t` : expected
+        const checked = node.checked ? '' : 'un'
+
+        const checkboxLoc = context.sourceCode.getLocFromIndex(node.range[0] + match[0].length - 1)
+
+        context.report({
+          loc: {
+            start: checkboxLoc,
+            end: { ...checkboxLoc, column: checkboxLoc.column + 1 },
+          },
+          message: `Unexpected ${checked}checked checkbox value \`${actualText}\`, expected \`${expectedText}\``,
+        })
       },
     }
   },

@@ -6,7 +6,6 @@
 import type * as ESLint from 'eslint'
 
 import { cjsRequire } from '../helpers.js'
-
 import type { ESLintMdxSettings, ProcessorOptions } from './types.js'
 
 export const processorOptions = {} as ProcessorOptions
@@ -24,7 +23,6 @@ const ESLinter = cjsRequire<typeof ESLint>(linterPath || 'eslint').Linter
 
 // patch Linter#verify
 
-// eslint-disable-next-line @typescript-eslint/unbound-method
 const { verify } = ESLinter.prototype
 
 ESLinter.prototype.verify = function (
@@ -36,10 +34,7 @@ ESLinter.prototype.verify = function (
   /* istanbul ignore next */
   const settings = ((
     config.extractConfig?.(
-      // eslint-disable-next-line unicorn-x/no-typeof-undefined
-      typeof options === 'undefined' || typeof options === 'string'
-        ? options
-        : options.filename,
+      typeof options === 'undefined' || typeof options === 'string' ? options : options.filename,
     ) ?? config
   ).settings ?? {}) as ESLintMdxSettings
 
@@ -49,5 +44,6 @@ ESLinter.prototype.verify = function (
   processorOptions.remarkConfigPath = settings['mdx/remark-config-path']
 
   // call original Linter#verify
+  // eslint-disable-next-line unicorn/no-this-outside-of-class
   return verify.call(this, code, config, options as ESLint.Linter.LintOptions)
 }

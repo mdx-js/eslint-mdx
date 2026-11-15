@@ -1,8 +1,7 @@
-import { ruleTester } from '../helpers.js'
-
-import { createLanguageOptions } from './helpers.js'
-
 import { noFileNameOuterDashes } from 'eslint-plugin-mdx'
+
+import { ruleTester } from '../helpers.js'
+import { createLanguageOptions } from './helpers.js'
 
 const languageOptions = createLanguageOptions({
   remarkConfig: 'file-names.remarkrc',
@@ -23,8 +22,7 @@ ruleTester.run('no file name outer dashes', noFileNameOuterDashes, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected initial or final dashes in file name, expected dashes to join words',
+          message: 'Unexpected initial or final dashes in file name, expected dashes to join words',
           line: 1,
           column: 1,
         },

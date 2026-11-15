@@ -25,10 +25,7 @@ const styleName = (style: Style) => {
   }
 }
 
-const consolidate = (
-  depth: number,
-  relative: Style | undefined,
-): Style | undefined => {
+const consolidate = (depth: number, relative: Style | undefined): Style | undefined => {
   if (depth < 3) {
     return 'atx'
   }
@@ -38,10 +35,7 @@ const consolidate = (
   }
 }
 
-const getHeadingStyle = (
-  node: MDHeading,
-  relative?: Style,
-): Style | undefined => {
+const getHeadingStyle = (node: MDHeading, relative?: Style): Style | undefined => {
   const position = node.loc.end
   const last = node.children.at(-1)
   const final = last?.loc?.end
@@ -72,9 +66,7 @@ export const headingStyle: Rule.RuleModule = {
     docs: {
       description: 'Enforce a heading style',
     },
-    schema: [
-      { enum: ['atx-closed', 'atx', 'consistent', 'setext'], type: 'string' },
-    ],
+    schema: [{ enum: ['atx-closed', 'atx', 'consistent', 'setext'], type: 'string' }],
   },
   create(context) {
     const config = getRuleConfig(context, 'heading-style')
@@ -84,9 +76,7 @@ export const headingStyle: Rule.RuleModule = {
     }
 
     let expected: Style | undefined =
-      config.options === 'atx' ||
-      config.options === 'atx-closed' ||
-      config.options === 'setext'
+      config.options === 'atx' || config.options === 'atx-closed' || config.options === 'setext'
         ? config.options
         : undefined
 

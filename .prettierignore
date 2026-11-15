@@ -1,3 +1,25 @@
 .yarn
 test/fixtures
 auto-imports.d.ts
+
+# Oxfmt owns these formats; Prettier only handles the fallback languages.
+**/*.cjs
+**/*.cts
+**/*.js
+**/*.jsx
+**/*.mjs
+**/*.mts
+**/*.ts
+**/*.tsx
+**/*.vue
+**/*.html
+**/*.css
+**/*.less
+**/*.scss
+**/*.json
+**/*.jsonc
+**/*.json5
+**/*.toml
+**/*.yaml
+**/*.yml
+!**/package.json

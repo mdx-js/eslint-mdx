@@ -3,13 +3,13 @@ import type { MDList, MDListItem } from 'eslint-mdx'
 
 import { getRuleConfig } from './helpers.js'
 
+type Marker = '.' | ')'
+
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
-    'ordered-list-marker-style': '.' | ')' | 'consistent' | undefined
+    'ordered-list-marker-style': Marker | 'consistent' | undefined
   }
 }
-
-type Marker = '.' | ')'
 
 export const orderedListMarkerStyle: Rule.RuleModule = {
   meta: {
@@ -29,9 +29,7 @@ export const orderedListMarkerStyle: Rule.RuleModule = {
 
     const sourceText = context.sourceCode.getText()
     let expected: Marker | undefined =
-      config.options === '.' || config.options === ')'
-        ? config.options
-        : undefined
+      config.options === '.' || config.options === ')' ? config.options : undefined
 
     const checkItem = (item: MDListItem) => {
       const start = item.range[0]
@@ -52,8 +50,7 @@ export const orderedListMarkerStyle: Rule.RuleModule = {
       context.report({
         loc: { start: markerStart, end: markerStart },
         message: `Unexpected ordered list marker \`${actual}\`, expected \`${expected}\``,
-        fix: fixer =>
-          fixer.replaceTextRange([markerIndex, markerIndex + 1], expected),
+        fix: fixer => fixer.replaceTextRange([markerIndex, markerIndex + 1], expected),
       })
     }
 

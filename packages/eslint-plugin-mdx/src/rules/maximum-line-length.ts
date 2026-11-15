@@ -63,26 +63,18 @@ export const maximumLineLength: Rule.RuleModule = {
       typeof config.options === 'object' && config.options !== null
         ? config.options.size
         : config.options
-    /* eslint-disable-next-line @typescript-eslint/no-magic-numbers -- default size */
+
     const expected = typeof size === 'number' ? size : 80
     const sourceText = context.sourceCode.getText()
     const lines = sourceText.split(/\r?\n/u)
 
     const blankLines = (node: WalkNode) => {
-      for (
-        let line = node.loc.start.line - 1;
-        line < node.loc.end.line;
-        line++
-      ) {
+      for (let line = node.loc.start.line - 1; line < node.loc.end.line; line++) {
         lines[line] = ''
       }
     }
 
-    const visit = (
-      node: WalkNode,
-      parent: WalkNode | undefined,
-      index: number,
-    ) => {
+    const visit = (node: WalkNode, parent: WalkNode | undefined, index: number) => {
       if (
         node.type === 'ImportDeclaration' ||
         node.type === 'ExportAllDeclaration' ||
@@ -120,7 +112,9 @@ export const maximumLineLength: Rule.RuleModule = {
         visit(node.expression, node, 0)
       }
 
-      for (const [childIndex, child] of (node.children ?? []).entries()) {
+      const entries = (node.children ?? []).entries()
+
+      for (const [childIndex, child] of entries) {
         visit(child, node, childIndex)
       }
     }

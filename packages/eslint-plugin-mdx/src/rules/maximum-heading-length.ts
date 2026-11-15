@@ -6,8 +6,7 @@ import { ANY_OPTION_SCHEMA, getNodeText, getRuleConfig } from './helpers.js'
 
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
-    'maximum-heading-length':
-      number | { size?: number | null; stringLength?: unknown } | undefined
+    'maximum-heading-length': number | { size?: number | null; stringLength?: unknown } | undefined
   }
 }
 
@@ -40,8 +39,7 @@ export const maximumHeadingLength: Rule.RuleModule = {
       return {}
     }
 
-    const size =
-      typeof config.options === 'object' ? config.options.size : config.options
+    const size = typeof config.options === 'object' ? config.options.size : config.options
     const expected = typeof size === 'number' ? size : 60
 
     const report = (node: JSXElement | MDHeading) => {

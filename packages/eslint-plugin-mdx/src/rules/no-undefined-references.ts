@@ -16,8 +16,6 @@ declare module 'eslint-mdx' {
   }
 }
 
-type Range = number[]
-
 const FULL_REFERENCE_LENGTH = 4
 
 const labelFor = (before: string | undefined, after: string | undefined) => {
@@ -59,7 +57,9 @@ export const noUndefinedReferences: Rule.RuleModule = {
     const allowStrings = new Set<string>()
     const allowRegexes: RegExp[] = []
 
-    for (const value of options?.allow ?? []) {
+    const allow = options?.allow ?? []
+
+    for (const value of allow) {
       if (typeof value === 'string') {
         allowStrings.add(normalizeIdentifier(value))
       } else {
@@ -70,7 +70,7 @@ export const noUndefinedReferences: Rule.RuleModule = {
     const definitions = new Set<string>()
     const footnoteDefinitions = new Set<string>()
 
-    const report = (range: Range, node: MDText) => {
+    const report = (range: number[], node: MDText) => {
       // Empty `[]` is regular text.
       if (range.length === 2 && range[0] + 2 === range[1]) {
         return
@@ -80,16 +80,10 @@ export const noUndefinedReferences: Rule.RuleModule = {
       const before = sourceText[startOffset + range[0] - 1]
       const after = sourceText[startOffset + range[0] + 1]
       const label = labelFor(before, after)
-      const offset =
-        range.length === FULL_REFERENCE_LENGTH && range[2] + 2 !== range[3]
-          ? 2
-          : 0
+      const offset = range.length === FULL_REFERENCE_LENGTH && range[2] + 2 !== range[3] ? 2 : 0
       let identifier = normalizeIdentifier(
         collapseWhiteSpace(
-          sourceText.slice(
-            startOffset + range[offset] + 1,
-            startOffset + range[offset + 1] - 1,
-          ),
+          sourceText.slice(startOffset + range[offset] + 1, startOffset + range[offset + 1] - 1),
           { style: 'html', trim: true },
         ),
       )
@@ -123,7 +117,7 @@ export const noUndefinedReferences: Rule.RuleModule = {
     }
 
     const scan = (value: string, node: MDText) => {
-      const ranges: Range[] = []
+      const ranges: Array<number[]> = []
       let index = 0
 
       while (index < value.length) {

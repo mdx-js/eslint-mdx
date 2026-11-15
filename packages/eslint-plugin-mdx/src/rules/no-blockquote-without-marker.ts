@@ -62,23 +62,25 @@ export const noBlockquoteWithoutMarker: Rule.RuleModule = {
           const actual = countMarkers(line)
           const expected = depth
 
-          if (actual !== expected) {
-            const difference = expected - actual
-
-            context.report({
-              loc: {
-                start: {
-                  line: node.loc.start.line + index,
-                  column: 0,
-                },
-                end: {
-                  line: node.loc.start.line + index,
-                  column: line.length,
-                },
-              },
-              message: `Unexpected \`${actual}\` block quote ${plural(actual)} before paragraph line, expected \`${expected}\` ${plural(expected)}, ${['remove', 'remove', 'add'][Math.sign(difference) + 1]} \`${Math.abs(difference)}\` ${plural(Math.abs(difference))}`,
-            })
+          if (actual === expected) {
+            return
           }
+
+          const difference = expected - actual
+
+          context.report({
+            loc: {
+              start: {
+                line: node.loc.start.line + index,
+                column: 0,
+              },
+              end: {
+                line: node.loc.start.line + index,
+                column: line.length,
+              },
+            },
+            message: `Unexpected \`${actual}\` block quote ${plural(actual)} before paragraph line, expected \`${expected}\` ${plural(expected)}, ${['remove', 'remove', 'add'][Math.sign(difference) + 1]} \`${Math.abs(difference)}\` ${plural(Math.abs(difference))}`,
+          })
         }
       },
     }

@@ -1,8 +1,7 @@
-import { ruleTester } from '../helpers.js'
-
-import { createLanguageOptions } from './helpers.js'
-
 import { definitionCase } from 'eslint-plugin-mdx'
+
+import { ruleTester } from '../helpers.js'
+import { createLanguageOptions } from './helpers.js'
 
 const languageOptions = createLanguageOptions({
   remarkConfig: 'next.remarkrc',
@@ -36,8 +35,7 @@ ruleTester.run('definition case', definitionCase, {
       languageOptions,
       errors: [
         {
-          message:
-            'Unexpected uppercase characters in definition label, expected lowercase',
+          message: 'Unexpected uppercase characters in definition label, expected lowercase',
           line: 1,
           column: 1,
         },

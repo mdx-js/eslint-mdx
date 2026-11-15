@@ -15,11 +15,7 @@ export const createLanguageOptions = ({
     ...(ignoreRemarkConfig
       ? { ignoreRemarkConfig: true }
       : {
-          remarkConfigPath: path.resolve(
-            import.meta.dirname,
-            '../remark-fixtures',
-            remarkConfig,
-          ),
+          remarkConfigPath: path.resolve(import.meta.dirname, '../remark-fixtures', remarkConfig),
         }),
   },
 })

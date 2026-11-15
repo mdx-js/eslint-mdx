@@ -1,8 +1,7 @@
 import { Linter } from 'eslint'
-import react from 'eslint-plugin-react'
-
 import { parser } from 'eslint-mdx'
 import * as mdx from 'eslint-plugin-mdx'
+import react from 'eslint-plugin-react'
 
 const linter = new Linter({ configType: 'flat' })
 
@@ -20,10 +19,7 @@ describe('#574', () => {
     }
 
     expect(() =>
-      scopeManager.acquire(
-        detached as Parameters<typeof scopeManager.acquire>[0],
-        true,
-      ),
+      scopeManager.acquire(detached as Parameters<typeof scopeManager.acquire>[0], true),
     ).not.toThrow()
   })
 

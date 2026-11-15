@@ -1,23 +1,19 @@
 import path from 'node:path'
 
 import { Linter } from 'eslint'
-
-import { DEFAULT_PARSER_OPTIONS } from './helpers.js'
-
 import { parser } from 'eslint-mdx'
 import { rules } from 'eslint-plugin-mdx'
+
+import { DEFAULT_PARSER_OPTIONS } from './helpers.js'
 
 const _dirname = import.meta.dirname
 const linter = new Linter({ configType: 'flat' })
 const nextConfigPath = path.resolve(_dirname, 'remark-fixtures/next.remarkrc')
-const nativeConfigPath = path.resolve(
-  _dirname,
-  'remark-fixtures/native.remarkrc',
-)
+const nativeConfigPath = path.resolve(_dirname, 'remark-fixtures/native.remarkrc')
 
-const verify = (code: string, remarkConfigPath: string, option?: number) =>
+const verify = (remarkConfigPath: string, option?: number) =>
   linter.verify(
-    code,
+    '# this heading is too long\n',
     [
       {
         files: ['**/*.mdx'],
@@ -30,8 +26,7 @@ const verify = (code: string, remarkConfigPath: string, option?: number) =>
         },
         plugins: { mdx: { rules } },
         rules: {
-          'mdx/maximum-heading-length':
-            option == null ? 'warn' : ['warn', option],
+          'mdx/maximum-heading-length': option == null ? 'warn' : ['warn', option],
         },
       },
     ],
@@ -39,19 +34,15 @@ const verify = (code: string, remarkConfigPath: string, option?: number) =>
   )
 
 test('uses remark options when no eslint option is provided', () => {
-  expect(verify('# this heading is too long\n', nextConfigPath)).toHaveLength(1)
+  expect(verify(nextConfigPath)).toHaveLength(1)
 })
 
 test('lets eslint options override remark options', () => {
-  expect(
-    verify('# this heading is too long\n', nextConfigPath, 60),
-  ).toHaveLength(0)
+  expect(verify(nextConfigPath, 60)).toHaveLength(0)
 })
 
 test('enables a native rule from eslint options alone', () => {
-  expect(
-    verify('# this heading is too long\n', nativeConfigPath, 5),
-  ).toHaveLength(1)
+  expect(verify(nativeConfigPath, 5)).toHaveLength(1)
 })
 
 test('validates no-undefined-references allow through eslint options', () => {
@@ -102,9 +93,7 @@ test('defaults to the remark fallback', () => {
   )
 
   expect(messages.filter(m => m.ruleId === 'mdx/remark')).toHaveLength(1)
-  expect(
-    messages.filter(m => m.ruleId === 'mdx/maximum-heading-length'),
-  ).toHaveLength(0)
+  expect(messages.filter(m => m.ruleId === 'mdx/maximum-heading-length')).toHaveLength(0)
 })
 
 test('native rules ignore files without remark services', () => {
@@ -142,11 +131,9 @@ test('enabled: true activates an optionless native rule from ESLint', () => {
     filename: 'native.mdx',
   })
 
-  expect(
-    enabledMessages.some(
-      message => message.ruleId === 'mdx/no-consecutive-blank-lines',
-    ),
-  ).toBe(true)
+  expect(enabledMessages.some(message => message.ruleId === 'mdx/no-consecutive-blank-lines')).toBe(
+    true,
+  )
 
   const defaultMessages = linter.verify(
     'a\n\n\nb',
@@ -159,9 +146,7 @@ test('enabled: true activates an optionless native rule from ESLint', () => {
     { filename: 'native.mdx' },
   )
 
-  expect(
-    defaultMessages.some(
-      message => message.ruleId === 'mdx/no-consecutive-blank-lines',
-    ),
-  ).toBe(false)
+  expect(defaultMessages.some(message => message.ruleId === 'mdx/no-consecutive-blank-lines')).toBe(
+    false,
+  )
 })

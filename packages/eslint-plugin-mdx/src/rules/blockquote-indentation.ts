@@ -24,8 +24,7 @@ export const blockquoteIndentation: Rule.RuleModule = {
       return {}
     }
 
-    let expected =
-      typeof config.options === 'number' ? config.options : undefined
+    let expected = typeof config.options === 'number' ? config.options : undefined
 
     return {
       MDBlockquote(node: MDBlockquote) {
@@ -38,14 +37,16 @@ export const blockquoteIndentation: Rule.RuleModule = {
         const actual = child.loc.start.column - node.loc.start.column
         expected ??= actual
 
-        if (actual !== expected) {
-          const difference = expected - actual
-
-          context.report({
-            loc: child.loc,
-            message: `Unexpected \`${actual}\` ${pluralize(actual)} between block quote marker and content, expected \`${expected}\` ${pluralize(expected)}, ${difference > 0 ? 'add' : 'remove'} \`${Math.abs(difference)}\` ${pluralize(Math.abs(difference))}`,
-          })
+        if (actual === expected) {
+          return
         }
+
+        const difference = expected - actual
+
+        context.report({
+          loc: child.loc,
+          message: `Unexpected \`${actual}\` ${pluralize(actual)} between block quote marker and content, expected \`${expected}\` ${pluralize(expected)}, ${difference > 0 ? 'add' : 'remove'} \`${Math.abs(difference)}\` ${pluralize(Math.abs(difference))}`,
+        })
       },
     }
   },

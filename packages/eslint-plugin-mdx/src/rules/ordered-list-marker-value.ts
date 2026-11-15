@@ -11,18 +11,13 @@ declare module 'eslint-mdx' {
 
 type Style = 'one' | 'ordered' | 'single'
 
-const configuredStyle = (
-  option: 'one' | 'ordered' | 'single' | undefined,
-): Style | undefined => {
+const configuredStyle = (option: 'one' | 'ordered' | 'single' | undefined): Style | undefined => {
   if (option === 'one' || option === 'ordered' || option === 'single') {
     return option
   }
 }
 
-const inferStyle = (
-  first: number | undefined,
-  second: number | undefined,
-): Style => {
+const inferStyle = (first: number | undefined, second: number | undefined): Style => {
   if (second != null && second === first) {
     return 'single'
   }
@@ -66,24 +61,23 @@ export const orderedListMarkerValue: Rule.RuleModule = {
         const values = node.children.map(item => markerValue(item))
         const first = values[0]
         const second = values[1]
-        const style =
-          configuredStyle(config.options) ?? inferStyle(first, second)
+        const style = configuredStyle(config.options) ?? inferStyle(first, second)
 
         for (const [index, actual] of values.entries()) {
           const expected = expectedValue(style, first, index)
 
-          if (actual !== expected) {
-            const item = node.children[index]
-            const marker = /^\d+[.)]/u.exec(item.raw)[0]
-            const markerStart = context.sourceCode.getLocFromIndex(
-              item.range[0] + marker.length - 1,
-            )
-
-            context.report({
-              loc: { start: markerStart, end: markerStart },
-              message: `Unexpected ordered list item value \`${actual}\`, expected \`${expected}\``,
-            })
+          if (actual === expected) {
+            continue
           }
+
+          const item = node.children[index]
+          const marker = /^\d+[.)]/u.exec(item.raw)[0]
+          const markerStart = context.sourceCode.getLocFromIndex(item.range[0] + marker.length - 1)
+
+          context.report({
+            loc: { start: markerStart, end: markerStart },
+            message: `Unexpected ordered list item value \`${actual}\`, expected \`${expected}\``,
+          })
         }
       },
     }

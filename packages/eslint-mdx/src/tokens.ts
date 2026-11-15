@@ -20,10 +20,7 @@ const isMdxJsxToken = (type: string, name: string) =>
 const isMdxExpressionMarker = (type: string) =>
   type === 'mdxFlowExpressionMarker' || type === 'mdxTextExpressionMarker'
 
-const getTagMarkerType = (
-  char: string,
-  tt: Record<string, TokenType> & typeof tokTypes,
-) => {
+const getTagMarkerType = (char: string, tt: Record<string, TokenType> & typeof tokTypes) => {
   if (char === '<') {
     return tt.jsxTagStart
   }
@@ -36,8 +33,8 @@ const getTagMarkerType = (
 /**
  * Generate the complete token stream for Markdown and MDX syntax.
  *
- * JavaScript tokens are provided by acorn; this function covers the Markdown
- * and MDX JSX/expression structure.
+ * JavaScript tokens are provided by acorn; this function covers the Markdown and MDX JSX/expression
+ * structure.
  */
 export interface JsxTextRange {
   end: number
@@ -116,11 +113,7 @@ export const getTokens = (
         parent.hasChild = true
       }
 
-      if (
-        !skip &&
-        (isMdxJsxToken(type, 'TagName') ||
-          isMdxJsxToken(type, 'TagAttributeName'))
-      ) {
+      if (!skip && (isMdxJsxToken(type, 'TagName') || isMdxJsxToken(type, 'TagAttributeName'))) {
         const value = code.slice(start, end).trimEnd()
         const trimmedEnd = start + value.length
         const endPoint =
@@ -137,25 +130,15 @@ export const getTokens = (
         pushToken(tt.string, start, end, token.start, token.end)
         emitted = true
       } else if (!skip && isMdxJsxToken(type, 'TagMarker')) {
-        pushToken(
-          getTagMarkerType(code[start], tt),
-          start,
-          end,
-          token.start,
-          token.end,
-        )
+        pushToken(getTagMarkerType(code[start], tt), start, end, token.start, token.end)
         emitted = true
       } else if (
         !skip &&
-        (isMdxJsxToken(type, 'TagClosingMarker') ||
-          isMdxJsxToken(type, 'TagSelfClosingMarker'))
+        (isMdxJsxToken(type, 'TagClosingMarker') || isMdxJsxToken(type, 'TagSelfClosingMarker'))
       ) {
         pushToken(tt.slash, start, end, token.start, token.end)
         emitted = true
-      } else if (
-        !skip &&
-        isMdxJsxToken(type, 'TagAttributeInitializerMarker')
-      ) {
+      } else if (!skip && isMdxJsxToken(type, 'TagAttributeInitializerMarker')) {
         pushToken(tt.eq, start, end, token.start, token.end)
         emitted = true
       } else if (
@@ -164,18 +147,10 @@ export const getTokens = (
           isMdxJsxToken(type, 'TagExpressionAttributeMarker') ||
           isMdxJsxToken(type, 'TagAttributeValueExpressionMarker'))
       ) {
-        pushToken(
-          code[start] === '{' ? tt.braceL : tt.braceR,
-          start,
-          end,
-          token.start,
-          token.end,
-        )
+        pushToken(code[start] === '{' ? tt.braceL : tt.braceR, start, end, token.start, token.end)
         emitted = true
       } else if (!skip && type === 'data') {
-        const isJsxText = jsxTextRanges.some(
-          range => range.start <= start && range.end >= end,
-        )
+        const isJsxText = jsxTextRanges.some(range => range.start <= start && range.end >= end)
 
         if (!isJsxText) {
           pushToken(getTokenType(type), start, end, token.start, token.end)
@@ -209,13 +184,7 @@ export const getTokens = (
         continue
       }
 
-      pushToken(
-        getTokenType(frame.type),
-        frame.start,
-        frame.end,
-        frame.startPoint,
-        frame.endPoint,
-      )
+      pushToken(getTokenType(frame.type), frame.start, frame.end, frame.startPoint, frame.endPoint)
     }
   }
 
@@ -246,21 +215,16 @@ export const getTokens = (
         )
       }
 
-      if (token.end > cursor) {
-        cursor = token.end
-        cursorPoint = toSourcePoint(token.loc.end)
+      if (token.end <= cursor) {
+        continue
       }
+
+      cursor = token.end
+      cursorPoint = toSourcePoint(token.loc.end)
     }
 
     if (cursor < range.end) {
-      pushToken(
-        tt.jsxText,
-        cursor,
-        range.end,
-        cursorPoint,
-        range.endPoint,
-        true,
-      )
+      pushToken(tt.jsxText, cursor, range.end, cursorPoint, range.endPoint, true)
     }
   }
 
