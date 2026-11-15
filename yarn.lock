@@ -3674,7 +3674,7 @@ __metadata:
     type-coverage: "npm:^2.31.2"
     typescript: "npm:@typescript/typescript6@^6.0.2"
     typescript-eslint: "npm:^8.72.0"
-    yarn-berry-deduplicate: "npm:^8.0.0"
+    yarn-berry-deduplicate: "npm:^7.1.0"
   languageName: unknown
   linkType: soft
 
@@ -12454,14 +12454,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pm-dedup-core@npm:3.0.0":
-  version: 3.0.0
-  resolution: "pm-dedup-core@npm:3.0.0"
+"pm-dedup-core@npm:2.3.1":
+  version: 2.3.1
+  resolution: "pm-dedup-core@npm:2.3.1"
   dependencies:
     picomatch: "npm:4.0.7"
     semver: "npm:7.8.5"
     tslib: "npm:^2.8.1"
-  checksum: 10c0/0cf507fcc6b481113fb059387bdccf470580d36f8c08f035374c17b51c7ee409011db480c3a0e3c575e224909aa53ed381cc90e744f4676c9916c6d18fe1121e
+  checksum: 10c0/e5150d21f966e407f3f90b9ac77897d719ec64f5ce3e0fa1d7f7cd664446930417a1f2f8c02d9e06424f78bc4528cde032fca6d65503e8937c6e95404b603f9f
   languageName: node
   linkType: hard
 
@@ -16036,18 +16036,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yarn-berry-deduplicate@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "yarn-berry-deduplicate@npm:8.0.0"
+"yarn-berry-deduplicate@npm:^7.1.0":
+  version: 7.1.1
+  resolution: "yarn-berry-deduplicate@npm:7.1.1"
   dependencies:
     "@yarnpkg/parsers": "npm:3.1.0"
-    pm-dedup-core: "npm:3.0.0"
+    pm-dedup-core: "npm:2.3.1"
     semver: "npm:7.8.5"
     tslib: "npm:^2.8.1"
   bin:
     yarn-berry-deduplicate: dist/bin/yarn-berry-deduplicate.js
     yarn-berry-why-duplicate: dist/bin/yarn-berry-why-duplicate.js
-  checksum: 10c0/cf43be7cff60bc979ac9e909e71bb72564e22369c98dd1f3e24ab78c8c94bb66459fd88286987fd4ac916f7e9cadfefb7f1f673c5448e957f7d49e2f89fefc34
+  checksum: 10c0/70d63a7330889848064de9129e5ce7fa45437c70951e9ff49c2fee0e261d22dc76585a0d3620cf8e5cb5a377e177ccae2eba27a6ec01fdc7bfe6f6d10055b7d8
   languageName: node
   linkType: hard
 
