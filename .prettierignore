@@ -23,3 +23,6 @@ auto-imports.d.ts
 **/*.yaml
 **/*.yml
 !**/package.json
+
+# Babel config is JSON handled by Oxfmt
+.babelrc
