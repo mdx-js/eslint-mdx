@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.10.1
+
+### Patch Changes
+
+- [#693](https://github.com/mdx-js/eslint-mdx/pull/693) [`304b957`](https://github.com/mdx-js/eslint-mdx/commit/304b95739f7ff845e61d91ecb19d1165bc243113) Thanks [@JounQin](https://github.com/JounQin)! - Deprecate the stringify-based autofixes from `mdx/remark`; enable the `native` config for targeted fixes. A one-time warning is emitted when a fallback fix is computed, and `deprecationWarnings: false` silences it.
+
+- [#694](https://github.com/mdx-js/eslint-mdx/pull/694) [`fc570db`](https://github.com/mdx-js/eslint-mdx/commit/fc570dbaa2a8e81cab15a41804051bb7d2b243cc) Thanks [@JounQin](https://github.com/JounQin)! - Support `{ enabled: true }` on optionless native rules so they can be activated from ESLint without a remark config entry.
+- Updated dependencies [[`c4cecb8`](https://github.com/mdx-js/eslint-mdx/commit/c4cecb847e074688ba501648ce88abfa27415d12)]:
+  - eslint-mdx@3.10.1
+
 ## 3.10.0
 
 ### Minor Changes
