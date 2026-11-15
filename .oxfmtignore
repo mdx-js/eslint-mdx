@@ -9,3 +9,5 @@ test/fixtures
 
 **/*.md
 **/*.mdx
+
+.babelrc

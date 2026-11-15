@@ -100,12 +100,10 @@ export const remark: Rule.RuleModule = {
     const filename =
       context.filename ??
       // @ts-expect-error -- ESLint v10 removed
-
       /* istanbul ignore next */ (context.getFilename() as string)
     const sourceCode =
       context.sourceCode ??
       // @ts-expect-error -- ESLint v10 removed
-
       /* istanbul ignore next */ (context.getSourceCode() as SourceCode)
 
     const { extensions, markdownExtensions, ignoreRemarkConfig, remarkConfigPath } =
@@ -129,7 +127,6 @@ export const remark: Rule.RuleModule = {
           cwd:
             context.cwd ??
             // @ts-expect-error -- ESLint v10 removed
-
             /* istanbul ignore next */ (context.getCwd() as string),
           isMdx,
           process: true,

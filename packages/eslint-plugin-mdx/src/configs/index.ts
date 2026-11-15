@@ -15,9 +15,7 @@ export const configs: {
   base: Linter.LegacyConfig
   'code-blocks': Linter.LegacyConfig
   codeBlocks: Linter.LegacyConfig
-
   flat: Linter.FlatConfig
-
   flatCodeBlocks: Linter.FlatConfig
   native: NativeConfig
   overrides: Linter.LegacyConfig
