@@ -30,8 +30,6 @@ declare module 'espree/lib/token-translator' {
   function TokenTranslator(acornTokTypes: Record<string, acorn.TokenType>, code: string): void
 
   class TokenTranslator {
-    // _acornTokTypes: Record<string, acorn.TokenType>
-
     constructor(acornTokTypes: Record<string, acorn.TokenType>, code: string)
 
     onToken(
