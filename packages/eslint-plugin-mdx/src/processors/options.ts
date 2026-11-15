@@ -44,5 +44,6 @@ ESLinter.prototype.verify = function (
   processorOptions.remarkConfigPath = settings['mdx/remark-config-path']
 
   // call original Linter#verify
+  // eslint-disable-next-line unicorn/no-this-outside-of-class
   return verify.call(this, code, config, options as ESLint.Linter.LintOptions)
 }

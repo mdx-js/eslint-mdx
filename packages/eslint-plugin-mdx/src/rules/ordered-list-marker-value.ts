@@ -66,18 +66,18 @@ export const orderedListMarkerValue: Rule.RuleModule = {
         for (const [index, actual] of values.entries()) {
           const expected = expectedValue(style, first, index)
 
-          if (actual !== expected) {
-            const item = node.children[index]
-            const marker = /^\d+[.)]/u.exec(item.raw)[0]
-            const markerStart = context.sourceCode.getLocFromIndex(
-              item.range[0] + marker.length - 1,
-            )
-
-            context.report({
-              loc: { start: markerStart, end: markerStart },
-              message: `Unexpected ordered list item value \`${actual}\`, expected \`${expected}\``,
-            })
+          if (actual === expected) {
+            continue
           }
+
+          const item = node.children[index]
+          const marker = /^\d+[.)]/u.exec(item.raw)[0]
+          const markerStart = context.sourceCode.getLocFromIndex(item.range[0] + marker.length - 1)
+
+          context.report({
+            loc: { start: markerStart, end: markerStart },
+            message: `Unexpected ordered list item value \`${actual}\`, expected \`${expected}\``,
+          })
         }
       },
     }

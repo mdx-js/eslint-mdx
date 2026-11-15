@@ -215,10 +215,12 @@ export const getTokens = (
         )
       }
 
-      if (token.end > cursor) {
-        cursor = token.end
-        cursorPoint = toSourcePoint(token.loc.end)
+      if (token.end <= cursor) {
+        continue
       }
+
+      cursor = token.end
+      cursorPoint = toSourcePoint(token.loc.end)
     }
 
     if (cursor < range.end) {

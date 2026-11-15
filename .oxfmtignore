@@ -6,3 +6,6 @@ lib
 @eaDir
 
 test/fixtures
+
+**/*.md
+**/*.mdx

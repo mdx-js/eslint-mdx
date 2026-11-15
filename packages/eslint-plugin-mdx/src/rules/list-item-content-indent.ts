@@ -46,14 +46,16 @@ export const listItemContentIndent: Rule.RuleModule = {
         for (const child of children.slice(1)) {
           const actual = child.loc.start.column
 
-          if (actual !== expected) {
-            const difference = expected - actual
-
-            context.report({
-              loc: child.loc,
-              message: `Unexpected unaligned list item child, expected to align with first child, ${difference > 0 ? 'add' : 'remove'} \`${Math.abs(difference)}\` ${pluralize(Math.abs(difference))}`,
-            })
+          if (actual === expected) {
+            continue
           }
+
+          const difference = expected - actual
+
+          context.report({
+            loc: child.loc,
+            message: `Unexpected unaligned list item child, expected to align with first child, ${difference > 0 ? 'add' : 'remove'} \`${Math.abs(difference)}\` ${pluralize(Math.abs(difference))}`,
+          })
         }
       },
     }

@@ -35,7 +35,7 @@ export const hardBreakSpaces: Rule.RuleModule = {
         const raw = node.raw
         const size = raw.length - 1
 
-        if ((raw.startsWith('  ') && !allowSpaces) || (raw.startsWith('  ') && size !== 2)) {
+        if (raw.startsWith('  ') && (!allowSpaces || size !== 2)) {
           context.report({
             loc: node.loc,
             message: allowSpaces

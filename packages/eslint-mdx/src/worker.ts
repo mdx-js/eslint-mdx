@@ -1,3 +1,5 @@
+/// <reference types="mdast-util-math" />
+
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { promisify } from 'node:util'
@@ -15,6 +17,7 @@ import type {
   ExpressionStatement,
   ObjectExpression,
   Program,
+  ProgramBody,
   SpreadElement,
 } from 'estree'
 import type {
@@ -82,7 +85,7 @@ const normalizeEmptyExpression = (
   type: 'JSXEmptyExpression',
 })
 
-const appendEstreeBody = (body: Program['body'], node: Nodes, estree: Program, code: string) => {
+const appendEstreeBody = (body: ProgramBody[], node: Nodes, estree: Program, code: string) => {
   if (node.type !== 'mdxFlowExpression' && node.type !== 'mdxTextExpression') {
     body.push(...estree.body)
     return
@@ -205,8 +208,8 @@ const resolveRemarkConfig = (result: ConfigResult | null | undefined): RemarkCon
 
   for (const [{ name }, options] of result.plugins) {
     if (
-      !name?.startsWith(REMARK_LINT_PREFIX) ||
       options === false ||
+      !name?.startsWith(REMARK_LINT_PREFIX) ||
       !isNativeOptionSupported(options)
     ) {
       continue
@@ -221,14 +224,14 @@ const resolveRemarkConfig = (result: ConfigResult | null | undefined): RemarkCon
   }
 }
 
-const getRemarkMdxOptions = (tokens: Token[]): Options => ({
+const getRemarkMdxOptions = (): Options => ({
   acorn: acornParser,
   acornOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
     locations: true,
     ranges: true,
-    onToken: tokens,
+    onToken: sharedTokens,
   },
 })
 
@@ -262,8 +265,8 @@ const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
     const position = node.position
 
     if (
-      node.type === 'text' &&
       position &&
+      node.type === 'text' &&
       ancestors.some(
         ancestor => ancestor.type === 'mdxJsxFlowElement' || ancestor.type === 'mdxJsxTextElement',
       )
@@ -281,7 +284,7 @@ const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
       }
     }
 
-    if ((node.type !== 'mdxJsxFlowElement' && node.type !== 'mdxJsxTextElement') || !position) {
+    if (!position || (node.type !== 'mdxJsxFlowElement' && node.type !== 'mdxJsxTextElement')) {
       return
     }
 
@@ -315,12 +318,14 @@ const collectJsxTextRanges = (root: Root, code: string): JsxTextRange[] => {
       }
     }
 
-    if (lastEnd != null) {
-      const closingStart = code.indexOf('</', lastEnd)
+    if (lastEnd == null) {
+      return
+    }
 
-      if (closingStart !== -1 && closingStart < nodeEnd) {
-        addJsxTextRange(lastEnd, closingStart)
-      }
+    const closingStart = code.indexOf('</', lastEnd)
+
+    if (closingStart !== -1 && closingStart < nodeEnd) {
+      addJsxTextRange(lastEnd, closingStart)
     }
   })
 
@@ -393,7 +398,7 @@ export const getRemarkProcessor = async (
     const initProcessor = remarkProcessor().use({ settings }).use(remarkStringify)
 
     if (isMdx) {
-      initProcessor.use(remarkMdx, getRemarkMdxOptions(sharedTokens))
+      initProcessor.use(remarkMdx, getRemarkMdxOptions())
     }
 
     cachedProcessor = filterRemarkPlugins(pluginsWithoutFileExtension, ignoreRemarkRules)
@@ -403,7 +408,7 @@ export const getRemarkProcessor = async (
     const initProcessor = remarkProcessor().use(remarkStringify)
 
     if (isMdx) {
-      initProcessor.use(remarkMdx, getRemarkMdxOptions(sharedTokens))
+      initProcessor.use(remarkMdx, getRemarkMdxOptions())
     }
 
     cachedProcessor = initProcessor.freeze()
@@ -586,7 +591,7 @@ runAsWorker(
 
       const colonIndex = nodeName.indexOf(':')
       if (colonIndex !== -1) {
-        const [fullNamespace, fullName] = nodeName.split(':')
+        const [fullNamespace, fullName] = nodeName.split(':', 2)
         return {
           ...normalizeNode(start + nameIndex, start + nameIndex + name.length),
           type: 'JSXNamespacedName',
@@ -971,28 +976,23 @@ runAsWorker(
       function convertContent(node: Nodes): MDContentNode | undefined {
         const position = normalizeNodePosition(node.position)
 
-        const nodeType = node.type as string
-        if (nodeType === 'inlineMath' || nodeType === 'math' || nodeType === 'toml') {
-          const extended = node as Nodes & {
-            value: string
-            meta?: string | null
-          }
-          if (nodeType === 'math') {
+        if (node.type === 'inlineMath' || node.type === 'math' || node.type === 'toml') {
+          if (node.type === 'math') {
             return {
               ...position,
               type: 'MDMath',
-              value: extended.value,
-              meta: extended.meta,
+              value: node.value,
+              meta: node.meta,
             }
           }
-          if (nodeType === 'inlineMath') {
+          if (node.type === 'inlineMath') {
             return {
               ...position,
               type: 'MDInlineMath',
-              value: extended.value,
+              value: node.value,
             }
           }
-          return { ...position, type: 'MDToml', value: extended.value }
+          return { ...position, type: 'MDToml', value: node.value }
         }
 
         switch (node.type) {
@@ -1271,21 +1271,22 @@ runAsWorker(
           templateElement.range[1] += endOffset
         }
 
-        if (templateElement.loc) {
-          templateElement.loc.start.column += startOffset
-          templateElement.loc.end.column += endOffset
+        if (!templateElement.loc) {
+          return
         }
+
+        templateElement.loc.start.column += startOffset
+        templateElement.loc.end.column += endOffset
       },
     )
 
     const seenTokens = new Set<string>()
     const tokensWithMarkdown = [
       ...acornTokens,
-      ...markdownTokens.filter(
-        markdownToken =>
-          !acornTokens.some(
-            token => token.start < markdownToken.end && token.end > markdownToken.start,
-          ),
+      ...markdownTokens.filter(markdownToken =>
+        acornTokens.every(
+          token => !(token.start < markdownToken.end && token.end > markdownToken.start),
+        ),
       ),
     ]
       .filter(token => {

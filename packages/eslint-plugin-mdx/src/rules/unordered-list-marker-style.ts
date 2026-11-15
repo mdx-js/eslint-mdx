@@ -2,13 +2,13 @@ import type { Rule } from 'eslint'
 
 import { getRuleConfig } from './helpers.js'
 
+type Marker = '-' | '*' | '+'
+
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
-    'unordered-list-marker-style': '-' | '*' | '+' | 'consistent'
+    'unordered-list-marker-style': Marker | 'consistent'
   }
 }
-
-type Marker = '-' | '*' | '+'
 
 export const unorderedListMarkerStyle: Rule.RuleModule = {
   meta: {

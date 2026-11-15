@@ -1,3 +1,5 @@
 {
-  "presets": ["@1stg"]
+  "presets": [
+    "@1stg"
+  ]
 }

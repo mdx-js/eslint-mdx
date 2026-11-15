@@ -112,7 +112,9 @@ export const maximumLineLength: Rule.RuleModule = {
         visit(node.expression, node, 0)
       }
 
-      for (const [childIndex, child] of (node.children ?? []).entries()) {
+      const entries = (node.children ?? []).entries()
+
+      for (const [childIndex, child] of entries) {
         visit(child, node, childIndex)
       }
     }

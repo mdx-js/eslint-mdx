@@ -72,16 +72,18 @@ export const listItemIndent: Rule.RuleModule = {
       const expectedSpaces = expectedIndent - end
       const actualSpaces = slice.length - end
 
-      if (actualSpaces !== expectedSpaces) {
-        const difference = expectedSpaces - actualSpaces
-        const listKind = getListKind(style, loose)
-        const direction = difference > 0 ? 'add' : 'remove'
-
-        context.report({
-          loc: head.loc,
-          message: `Unexpected \`${actualSpaces}\` ${pluralize(actualSpaces)} between list item marker and content${listKind}, expected \`${expectedSpaces}\` ${pluralize(expectedSpaces)}, ${direction} \`${Math.abs(difference)}\` ${pluralize(Math.abs(difference))}`,
-        })
+      if (actualSpaces === expectedSpaces) {
+        return
       }
+
+      const difference = expectedSpaces - actualSpaces
+      const listKind = getListKind(style, loose)
+      const direction = difference > 0 ? 'add' : 'remove'
+
+      context.report({
+        loc: head.loc,
+        message: `Unexpected \`${actualSpaces}\` ${pluralize(actualSpaces)} between list item marker and content${listKind}, expected \`${expectedSpaces}\` ${pluralize(expectedSpaces)}, ${direction} \`${Math.abs(difference)}\` ${pluralize(Math.abs(difference))}`,
+      })
     }
 
     return {

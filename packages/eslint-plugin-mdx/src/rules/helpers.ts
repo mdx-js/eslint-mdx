@@ -104,7 +104,7 @@ export const getRuleConfig = <RuleName extends keyof RemarkRuleOptions>(
   // type-coverage:ignore-next-line -- ESLint types RuleContext.options as any[]
   const eslintOptions = context.options as readonly unknown[]
   const hasEslintOption = eslintOptions.length > 0
-  const hasRemarkOption = name in ruleOptions
+  const hasRemarkOption = Object.hasOwn(ruleOptions, name)
 
   if (!hasEslintOption && !hasRemarkOption) {
     return null

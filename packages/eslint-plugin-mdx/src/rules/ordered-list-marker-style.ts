@@ -3,13 +3,13 @@ import type { MDList, MDListItem } from 'eslint-mdx'
 
 import { getRuleConfig } from './helpers.js'
 
+type Marker = '.' | ')'
+
 declare module 'eslint-mdx' {
   interface RemarkRuleOptions {
-    'ordered-list-marker-style': '.' | ')' | 'consistent' | undefined
+    'ordered-list-marker-style': Marker | 'consistent' | undefined
   }
 }
-
-type Marker = '.' | ')'
 
 export const orderedListMarkerStyle: Rule.RuleModule = {
   meta: {

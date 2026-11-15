@@ -11,9 +11,9 @@ const linter = new Linter({ configType: 'flat' })
 const nextConfigPath = path.resolve(_dirname, 'remark-fixtures/next.remarkrc')
 const nativeConfigPath = path.resolve(_dirname, 'remark-fixtures/native.remarkrc')
 
-const verify = (code: string, remarkConfigPath: string, option?: number) =>
+const verify = (remarkConfigPath: string, option?: number) =>
   linter.verify(
-    code,
+    '# this heading is too long\n',
     [
       {
         files: ['**/*.mdx'],
@@ -34,15 +34,15 @@ const verify = (code: string, remarkConfigPath: string, option?: number) =>
   )
 
 test('uses remark options when no eslint option is provided', () => {
-  expect(verify('# this heading is too long\n', nextConfigPath)).toHaveLength(1)
+  expect(verify(nextConfigPath)).toHaveLength(1)
 })
 
 test('lets eslint options override remark options', () => {
-  expect(verify('# this heading is too long\n', nextConfigPath, 60)).toHaveLength(0)
+  expect(verify(nextConfigPath, 60)).toHaveLength(0)
 })
 
 test('enables a native rule from eslint options alone', () => {
-  expect(verify('# this heading is too long\n', nativeConfigPath, 5)).toHaveLength(1)
+  expect(verify(nativeConfigPath, 5)).toHaveLength(1)
 })
 
 test('validates no-undefined-references allow through eslint options', () => {

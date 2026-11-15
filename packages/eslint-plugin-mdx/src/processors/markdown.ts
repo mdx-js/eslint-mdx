@@ -17,7 +17,7 @@ const UNSATISFIABLE_RULES = new Set([
 ])
 const SUPPORTS_AUTOFIX = true
 
-const BOM = '\uFEFF'
+const BOM = '\u{FEFF}'
 
 const blocksCache: Map<string, CodeBlock[]> = new Map()
 
@@ -35,7 +35,7 @@ function traverse(
     ) => void
   } & { '*': () => void },
 ) {
-  if (callbacks[node.type]) {
+  if (Object.hasOwn(callbacks, node.type)) {
     callbacks[node.type](node as never)
   } else {
     callbacks['*']()
@@ -275,6 +275,7 @@ function preprocess(sourceText: string, filename: string, syncOptions: SyncOptio
   const { root } = performSyncWork({
     filePath: getOnDiskFilepath(filename),
     code: text,
+    // eslint-disable-next-line sonarjs/fixme-tag
     // FIXME: how to read `extensions` and `markdownExtensions` parser options?
     isMdx: filename.endsWith('.mdx'),
     ...syncOptions,
@@ -355,7 +356,7 @@ function preprocess(sourceText: string, filename: string, syncOptions: SyncOptio
   })
 
   return blocks.map((block, index) => {
-    const [language] = block.lang.trim().split(' ')
+    const [language] = block.lang.trim().split(' ', 1)
     return {
       filename: fileNameFromMeta(block) ?? `${index}.${language}`,
       text: [...block.comments, block.value, ''].join('\n'),
@@ -385,7 +386,7 @@ function adjustFix(block: CodeBlock, fix: Rule.Fix): Rule.Fix {
       // Apply the mapping delta for this range.
       return range + block.rangeMap[i - 1].md
     }) as AST.Range,
-    text: fix.text.replaceAll('\n', `\n${block.baseIndentText}`),
+    text: fix.text.replaceAll('\n', /* istanbul ignore next */ () => `\n${block.baseIndentText}`),
   }
 }
 
@@ -411,7 +412,7 @@ function adjustBlock(block: CodeBlock) {
    */
   return function adjustMessage(message: Linter.LintMessage): Linter.LintMessage {
     // istanbul ignore if
-    if (!Number.isInteger(message.line)) {
+    if (!Number.isSafeInteger(message.line)) {
       return {
         ...message,
         line: blockStart,
@@ -432,7 +433,7 @@ function adjustBlock(block: CodeBlock) {
     }
 
     // istanbul ignore if
-    if (Number.isInteger(message.endLine)) {
+    if (Number.isSafeInteger(message.endLine)) {
       out.endLine = message.endLine - leadingCommentLines + blockStart
     }
 
