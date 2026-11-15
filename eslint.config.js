@@ -50,6 +50,10 @@ export default config([
     processor: mdx.createRemarkProcessor({
       lintCodeBlocks: true,
     }),
+    rules: {
+      ...mdx.flat.rules,
+      ...mdx.configs.native.rules,
+    },
   },
   {
     ...mdx.flatCodeBlocks,

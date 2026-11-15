@@ -94,7 +94,7 @@ test('defaults to the remark fallback', () => {
         },
         plugins: { mdx: { rules } },
         rules: {
-          'mdx/remark': 'warn',
+          'mdx/remark': ['warn', { deprecationWarnings: false }],
         },
       },
     ],

@@ -20,8 +20,11 @@ const _filename = import.meta.filename
 const addNativeOption = <T>(test: T): T => ({
   ...test,
   options: [
-    ...((test as { options?: unknown[] }).options ?? []),
-    { native: true },
+    {
+      deprecationWarnings: false,
+      native: true,
+      ...(test as { options?: [object?] }).options?.[0],
+    },
   ],
 })
 
@@ -74,6 +77,7 @@ ruleTester.run('remark', remark, {
       // https://github.com/syntax-tree/mdast-util-to-markdown/issues/29
       code: '[CHANGELOG](./CHANGELOG.md)',
       languageOptions,
+      options: [{ deprecationWarnings: false }],
       filename: path.resolve(_dirname, 'fixtures/async/test.mdx'),
       errors: [
         {
@@ -158,7 +162,9 @@ test('uses a whole-document fix for large documents', () => {
         },
       },
       plugins: { mdx: { rules } },
-      rules: { 'mdx/remark': 'warn' },
+      rules: {
+        'mdx/remark': ['warn', { deprecationWarnings: false }],
+      },
     },
   ]
 
@@ -196,7 +202,9 @@ test('returns one whole-document fix for multiple large-document messages', () =
           },
         },
         plugins: { mdx: { rules } },
-        rules: { 'mdx/remark': 'warn' },
+        rules: {
+          'mdx/remark': ['warn', { deprecationWarnings: false }],
+        },
       },
     ],
     { filename: 'large.mdx' },
