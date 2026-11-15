@@ -32,7 +32,10 @@ const getCli = (lintCodeBlocks = false, fix?: boolean) => {
       {
         files: ['**/*.{md,mdx}'],
         plugins: { mdx },
-        rules: mdx.configs.native.rules,
+        rules: {
+          ...mdx.configs.native.rules,
+          'mdx/remark': ['warn', { deprecationWarnings: false, native: true }],
+        },
       },
       mdx.configs.flatCodeBlocks,
       prettierRecommended,
