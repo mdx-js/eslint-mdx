@@ -15,9 +15,6 @@ jobs:
     name: Lint and Test with Node.js ${{ matrix.node }} and ESLint ${{ matrix.eslint }} on ${{ matrix.os }}
     strategy:
       matrix:
-        exclude:
-          - node: 18
-            eslint: 10
         os:
           - macos-latest
           - ubuntu-latest
